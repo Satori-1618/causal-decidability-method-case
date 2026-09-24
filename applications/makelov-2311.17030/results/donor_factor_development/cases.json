@@ -1,0 +1,6018 @@
+[
+  {
+    "prompts": [
+      "Then, Ray and Bailey were working at the market. Bailey decided to give a coins to",
+      "Then, Bailey and Ray were working at the market. Bailey decided to give a coins to",
+      "Then, Bailey and Ray were working at the market. Ray decided to give a coins to",
+      "Then, Ray and Bailey were working at the market. Ray decided to give a coins to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        7760,
+        290,
+        20330,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        20330,
+        3066,
+        284,
+        1577,
+        257,
+        10796,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        20330,
+        290,
+        7760,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        20330,
+        3066,
+        284,
+        1577,
+        257,
+        10796,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        20330,
+        290,
+        7760,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        7760,
+        3066,
+        284,
+        1577,
+        257,
+        10796,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7760,
+        290,
+        20330,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        7760,
+        3066,
+        284,
+        1577,
+        257,
+        10796,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Ray",
+    "subject": "Bailey",
+    "answer_token_ids": [
+      7760,
+      20330
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Ray",
+        "correct_answer_token_id": 7760,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Ray",
+        "second_mentioned_name": "Bailey",
+        "repeated_subject": "Bailey"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Ray",
+        "correct_answer_token_id": 7760,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Bailey",
+        "second_mentioned_name": "Ray",
+        "repeated_subject": "Bailey"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Bailey",
+        "correct_answer_token_id": 20330,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Bailey",
+        "second_mentioned_name": "Ray",
+        "repeated_subject": "Ray"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Bailey",
+        "correct_answer_token_id": 20330,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Ray",
+        "second_mentioned_name": "Bailey",
+        "repeated_subject": "Ray"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "coins",
+      "place": "market"
+    },
+    "content_family_id": "5ffa05bec74ebb6a",
+    "case_id": "ca06e8de427bcc5fdb899598",
+    "unique_draw_id": "ca06e8de427bcc5fdb899598",
+    "draw": 0,
+    "draw_index": 0,
+    "proposal_index": 0
+  },
+  {
+    "prompts": [
+      "Then, Mia and Aaron were working at the glacier. Aaron decided to give a socks to",
+      "Then, Aaron and Mia were working at the glacier. Aaron decided to give a socks to",
+      "Then, Aaron and Mia were working at the glacier. Mia decided to give a socks to",
+      "Then, Mia and Aaron were working at the glacier. Mia decided to give a socks to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        32189,
+        290,
+        12139,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        12139,
+        3066,
+        284,
+        1577,
+        257,
+        24359,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        12139,
+        290,
+        32189,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        12139,
+        3066,
+        284,
+        1577,
+        257,
+        24359,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        12139,
+        290,
+        32189,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        32189,
+        3066,
+        284,
+        1577,
+        257,
+        24359,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        32189,
+        290,
+        12139,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        32189,
+        3066,
+        284,
+        1577,
+        257,
+        24359,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Mia",
+    "subject": "Aaron",
+    "answer_token_ids": [
+      32189,
+      12139
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Mia",
+        "correct_answer_token_id": 32189,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Mia",
+        "second_mentioned_name": "Aaron",
+        "repeated_subject": "Aaron"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Mia",
+        "correct_answer_token_id": 32189,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Aaron",
+        "second_mentioned_name": "Mia",
+        "repeated_subject": "Aaron"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Aaron",
+        "correct_answer_token_id": 12139,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Aaron",
+        "second_mentioned_name": "Mia",
+        "repeated_subject": "Mia"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Aaron",
+        "correct_answer_token_id": 12139,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Mia",
+        "second_mentioned_name": "Aaron",
+        "repeated_subject": "Mia"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "socks",
+      "place": "glacier"
+    },
+    "content_family_id": "5b9deea6fff76468",
+    "case_id": "c57defa79c8449791f80aa0b",
+    "unique_draw_id": "c57defa79c8449791f80aa0b",
+    "draw": 1,
+    "draw_index": 1,
+    "proposal_index": 1
+  },
+  {
+    "prompts": [
+      "Then, Christopher and Charlotte were working at the harbor. Charlotte decided to give a watch to",
+      "Then, Charlotte and Christopher were working at the harbor. Charlotte decided to give a watch to",
+      "Then, Charlotte and Christopher were working at the harbor. Christopher decided to give a watch to",
+      "Then, Christopher and Charlotte were working at the harbor. Christopher decided to give a watch to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        12803,
+        290,
+        14685,
+        547,
+        1762,
+        379,
+        262,
+        25451,
+        13,
+        14685,
+        3066,
+        284,
+        1577,
+        257,
+        2342,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14685,
+        290,
+        12803,
+        547,
+        1762,
+        379,
+        262,
+        25451,
+        13,
+        14685,
+        3066,
+        284,
+        1577,
+        257,
+        2342,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14685,
+        290,
+        12803,
+        547,
+        1762,
+        379,
+        262,
+        25451,
+        13,
+        12803,
+        3066,
+        284,
+        1577,
+        257,
+        2342,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        12803,
+        290,
+        14685,
+        547,
+        1762,
+        379,
+        262,
+        25451,
+        13,
+        12803,
+        3066,
+        284,
+        1577,
+        257,
+        2342,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Christopher",
+    "subject": "Charlotte",
+    "answer_token_ids": [
+      12803,
+      14685
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Christopher",
+        "correct_answer_token_id": 12803,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Christopher",
+        "second_mentioned_name": "Charlotte",
+        "repeated_subject": "Charlotte"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Christopher",
+        "correct_answer_token_id": 12803,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Charlotte",
+        "second_mentioned_name": "Christopher",
+        "repeated_subject": "Charlotte"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Charlotte",
+        "correct_answer_token_id": 14685,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Charlotte",
+        "second_mentioned_name": "Christopher",
+        "repeated_subject": "Christopher"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Charlotte",
+        "correct_answer_token_id": 14685,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Christopher",
+        "second_mentioned_name": "Charlotte",
+        "repeated_subject": "Christopher"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "watch",
+      "place": "harbor"
+    },
+    "content_family_id": "d23a34c2fe12bbbe",
+    "case_id": "095e8e59ec1a100ba49d0d9f",
+    "unique_draw_id": "095e8e59ec1a100ba49d0d9f",
+    "draw": 2,
+    "draw_index": 2,
+    "proposal_index": 2
+  },
+  {
+    "prompts": [
+      "Then, Max and Michelle were working at the resort. Michelle decided to give a crate to",
+      "Then, Michelle and Max were working at the resort. Michelle decided to give a crate to",
+      "Then, Michelle and Max were working at the resort. Max decided to give a crate to",
+      "Then, Max and Michelle were working at the resort. Max decided to give a crate to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        5436,
+        290,
+        16738,
+        547,
+        1762,
+        379,
+        262,
+        12600,
+        13,
+        16738,
+        3066,
+        284,
+        1577,
+        257,
+        27021,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16738,
+        290,
+        5436,
+        547,
+        1762,
+        379,
+        262,
+        12600,
+        13,
+        16738,
+        3066,
+        284,
+        1577,
+        257,
+        27021,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16738,
+        290,
+        5436,
+        547,
+        1762,
+        379,
+        262,
+        12600,
+        13,
+        5436,
+        3066,
+        284,
+        1577,
+        257,
+        27021,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5436,
+        290,
+        16738,
+        547,
+        1762,
+        379,
+        262,
+        12600,
+        13,
+        5436,
+        3066,
+        284,
+        1577,
+        257,
+        27021,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Max",
+    "subject": "Michelle",
+    "answer_token_ids": [
+      5436,
+      16738
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Max",
+        "correct_answer_token_id": 5436,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Max",
+        "second_mentioned_name": "Michelle",
+        "repeated_subject": "Michelle"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Max",
+        "correct_answer_token_id": 5436,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Michelle",
+        "second_mentioned_name": "Max",
+        "repeated_subject": "Michelle"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Michelle",
+        "correct_answer_token_id": 16738,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Michelle",
+        "second_mentioned_name": "Max",
+        "repeated_subject": "Max"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Michelle",
+        "correct_answer_token_id": 16738,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Max",
+        "second_mentioned_name": "Michelle",
+        "repeated_subject": "Max"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "crate",
+      "place": "resort"
+    },
+    "content_family_id": "df747c7c8dfa38c5",
+    "case_id": "e65749f2ced2fa0d5fe91886",
+    "unique_draw_id": "e65749f2ced2fa0d5fe91886",
+    "draw": 3,
+    "draw_index": 3,
+    "proposal_index": 3
+  },
+  {
+    "prompts": [
+      "Then, Jon and Nathaniel were working at the canyon. Nathaniel decided to give a bookmark to",
+      "Then, Nathaniel and Jon were working at the canyon. Nathaniel decided to give a bookmark to",
+      "Then, Nathaniel and Jon were working at the canyon. Jon decided to give a bookmark to",
+      "Then, Jon and Nathaniel were working at the canyon. Jon decided to give a bookmark to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        5966,
+        290,
+        49536,
+        547,
+        1762,
+        379,
+        262,
+        42775,
+        13,
+        49536,
+        3066,
+        284,
+        1577,
+        257,
+        44007,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        49536,
+        290,
+        5966,
+        547,
+        1762,
+        379,
+        262,
+        42775,
+        13,
+        49536,
+        3066,
+        284,
+        1577,
+        257,
+        44007,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        49536,
+        290,
+        5966,
+        547,
+        1762,
+        379,
+        262,
+        42775,
+        13,
+        5966,
+        3066,
+        284,
+        1577,
+        257,
+        44007,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5966,
+        290,
+        49536,
+        547,
+        1762,
+        379,
+        262,
+        42775,
+        13,
+        5966,
+        3066,
+        284,
+        1577,
+        257,
+        44007,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Jon",
+    "subject": "Nathaniel",
+    "answer_token_ids": [
+      5966,
+      49536
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Jon",
+        "correct_answer_token_id": 5966,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Jon",
+        "second_mentioned_name": "Nathaniel",
+        "repeated_subject": "Nathaniel"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Jon",
+        "correct_answer_token_id": 5966,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Nathaniel",
+        "second_mentioned_name": "Jon",
+        "repeated_subject": "Nathaniel"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Nathaniel",
+        "correct_answer_token_id": 49536,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Nathaniel",
+        "second_mentioned_name": "Jon",
+        "repeated_subject": "Jon"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Nathaniel",
+        "correct_answer_token_id": 49536,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Jon",
+        "second_mentioned_name": "Nathaniel",
+        "repeated_subject": "Jon"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "bookmark",
+      "place": "canyon"
+    },
+    "content_family_id": "687279cf1f712395",
+    "case_id": "bdf519d145da0bef65bbe94e",
+    "unique_draw_id": "bdf519d145da0bef65bbe94e",
+    "draw": 4,
+    "draw_index": 4,
+    "proposal_index": 4
+  },
+  {
+    "prompts": [
+      "Then, Rachel and Ross were working at the garden. Ross decided to give a microphone to",
+      "Then, Ross and Rachel were working at the garden. Ross decided to give a microphone to",
+      "Then, Ross and Rachel were working at the garden. Rachel decided to give a microphone to",
+      "Then, Rachel and Ross were working at the garden. Rachel decided to give a microphone to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        15984,
+        290,
+        9847,
+        547,
+        1762,
+        379,
+        262,
+        11376,
+        13,
+        9847,
+        3066,
+        284,
+        1577,
+        257,
+        21822,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        9847,
+        290,
+        15984,
+        547,
+        1762,
+        379,
+        262,
+        11376,
+        13,
+        9847,
+        3066,
+        284,
+        1577,
+        257,
+        21822,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        9847,
+        290,
+        15984,
+        547,
+        1762,
+        379,
+        262,
+        11376,
+        13,
+        15984,
+        3066,
+        284,
+        1577,
+        257,
+        21822,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        15984,
+        290,
+        9847,
+        547,
+        1762,
+        379,
+        262,
+        11376,
+        13,
+        15984,
+        3066,
+        284,
+        1577,
+        257,
+        21822,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Rachel",
+    "subject": "Ross",
+    "answer_token_ids": [
+      15984,
+      9847
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Rachel",
+        "correct_answer_token_id": 15984,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Rachel",
+        "second_mentioned_name": "Ross",
+        "repeated_subject": "Ross"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Rachel",
+        "correct_answer_token_id": 15984,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Ross",
+        "second_mentioned_name": "Rachel",
+        "repeated_subject": "Ross"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Ross",
+        "correct_answer_token_id": 9847,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Ross",
+        "second_mentioned_name": "Rachel",
+        "repeated_subject": "Rachel"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Ross",
+        "correct_answer_token_id": 9847,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Rachel",
+        "second_mentioned_name": "Ross",
+        "repeated_subject": "Rachel"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "microphone",
+      "place": "garden"
+    },
+    "content_family_id": "8150f73cd076d468",
+    "case_id": "a6a11392efd15c166e1acbe5",
+    "unique_draw_id": "a6a11392efd15c166e1acbe5",
+    "draw": 5,
+    "draw_index": 5,
+    "proposal_index": 5
+  },
+  {
+    "prompts": [
+      "Then, Adam and Andrea were working at the landfill. Andrea decided to give a shorts to",
+      "Then, Andrea and Adam were working at the landfill. Andrea decided to give a shorts to",
+      "Then, Andrea and Adam were working at the landfill. Adam decided to give a shorts to",
+      "Then, Adam and Andrea were working at the landfill. Adam decided to give a shorts to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        23174,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        23174,
+        3066,
+        284,
+        1577,
+        257,
+        22078,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        23174,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        23174,
+        3066,
+        284,
+        1577,
+        257,
+        22078,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        23174,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        22078,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        23174,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        22078,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Adam",
+    "subject": "Andrea",
+    "answer_token_ids": [
+      7244,
+      23174
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Adam",
+        "correct_answer_token_id": 7244,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Adam",
+        "second_mentioned_name": "Andrea",
+        "repeated_subject": "Andrea"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Adam",
+        "correct_answer_token_id": 7244,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Andrea",
+        "second_mentioned_name": "Adam",
+        "repeated_subject": "Andrea"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Andrea",
+        "correct_answer_token_id": 23174,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Andrea",
+        "second_mentioned_name": "Adam",
+        "repeated_subject": "Adam"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Andrea",
+        "correct_answer_token_id": 23174,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Adam",
+        "second_mentioned_name": "Andrea",
+        "repeated_subject": "Adam"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "shorts",
+      "place": "landfill"
+    },
+    "content_family_id": "cac7a8fb8ceff4fc",
+    "case_id": "e2f9138c5d79f1de62bc26e3",
+    "unique_draw_id": "e2f9138c5d79f1de62bc26e3",
+    "draw": 6,
+    "draw_index": 6,
+    "proposal_index": 6
+  },
+  {
+    "prompts": [
+      "Then, Amelia and Catherine were working at the market. Catherine decided to give a bakery to",
+      "Then, Catherine and Amelia were working at the market. Catherine decided to give a bakery to",
+      "Then, Catherine and Amelia were working at the market. Amelia decided to give a bakery to",
+      "Then, Amelia and Catherine were working at the market. Amelia decided to give a bakery to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        49769,
+        290,
+        22578,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        22578,
+        3066,
+        284,
+        1577,
+        257,
+        38164,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        22578,
+        290,
+        49769,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        22578,
+        3066,
+        284,
+        1577,
+        257,
+        38164,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        22578,
+        290,
+        49769,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        49769,
+        3066,
+        284,
+        1577,
+        257,
+        38164,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        49769,
+        290,
+        22578,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        49769,
+        3066,
+        284,
+        1577,
+        257,
+        38164,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Amelia",
+    "subject": "Catherine",
+    "answer_token_ids": [
+      49769,
+      22578
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Amelia",
+        "correct_answer_token_id": 49769,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Amelia",
+        "second_mentioned_name": "Catherine",
+        "repeated_subject": "Catherine"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Amelia",
+        "correct_answer_token_id": 49769,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Catherine",
+        "second_mentioned_name": "Amelia",
+        "repeated_subject": "Catherine"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Catherine",
+        "correct_answer_token_id": 22578,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Catherine",
+        "second_mentioned_name": "Amelia",
+        "repeated_subject": "Amelia"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Catherine",
+        "correct_answer_token_id": 22578,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Amelia",
+        "second_mentioned_name": "Catherine",
+        "repeated_subject": "Amelia"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "bakery",
+      "place": "market"
+    },
+    "content_family_id": "e9391ff55f4aa0d2",
+    "case_id": "e35d03b7b22f764c5d220e0d",
+    "unique_draw_id": "e35d03b7b22f764c5d220e0d",
+    "draw": 7,
+    "draw_index": 7,
+    "proposal_index": 7
+  },
+  {
+    "prompts": [
+      "Then, Alex and Todd were working at the stadium. Todd decided to give a remote to",
+      "Then, Todd and Alex were working at the stadium. Todd decided to give a remote to",
+      "Then, Todd and Alex were working at the stadium. Alex decided to give a remote to",
+      "Then, Alex and Todd were working at the stadium. Alex decided to give a remote to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        4422,
+        290,
+        14377,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        14377,
+        3066,
+        284,
+        1577,
+        257,
+        6569,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14377,
+        290,
+        4422,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        14377,
+        3066,
+        284,
+        1577,
+        257,
+        6569,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14377,
+        290,
+        4422,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        4422,
+        3066,
+        284,
+        1577,
+        257,
+        6569,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        4422,
+        290,
+        14377,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        4422,
+        3066,
+        284,
+        1577,
+        257,
+        6569,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Alex",
+    "subject": "Todd",
+    "answer_token_ids": [
+      4422,
+      14377
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Alex",
+        "correct_answer_token_id": 4422,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Alex",
+        "second_mentioned_name": "Todd",
+        "repeated_subject": "Todd"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Alex",
+        "correct_answer_token_id": 4422,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Todd",
+        "second_mentioned_name": "Alex",
+        "repeated_subject": "Todd"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Todd",
+        "correct_answer_token_id": 14377,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Todd",
+        "second_mentioned_name": "Alex",
+        "repeated_subject": "Alex"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Todd",
+        "correct_answer_token_id": 14377,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Alex",
+        "second_mentioned_name": "Todd",
+        "repeated_subject": "Alex"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "remote",
+      "place": "stadium"
+    },
+    "content_family_id": "9945812f8931728a",
+    "case_id": "71937f0b9eb8bba778e01401",
+    "unique_draw_id": "71937f0b9eb8bba778e01401",
+    "draw": 8,
+    "draw_index": 8,
+    "proposal_index": 8
+  },
+  {
+    "prompts": [
+      "Then, Adam and Faith were working at the cinema. Faith decided to give a guitar to",
+      "Then, Faith and Adam were working at the cinema. Faith decided to give a guitar to",
+      "Then, Faith and Adam were working at the cinema. Adam decided to give a guitar to",
+      "Then, Adam and Faith were working at the cinema. Adam decided to give a guitar to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        16463,
+        547,
+        1762,
+        379,
+        262,
+        22041,
+        13,
+        16463,
+        3066,
+        284,
+        1577,
+        257,
+        10047,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16463,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        22041,
+        13,
+        16463,
+        3066,
+        284,
+        1577,
+        257,
+        10047,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16463,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        22041,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        10047,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        16463,
+        547,
+        1762,
+        379,
+        262,
+        22041,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        10047,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Adam",
+    "subject": "Faith",
+    "answer_token_ids": [
+      7244,
+      16463
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Adam",
+        "correct_answer_token_id": 7244,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Adam",
+        "second_mentioned_name": "Faith",
+        "repeated_subject": "Faith"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Adam",
+        "correct_answer_token_id": 7244,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Faith",
+        "second_mentioned_name": "Adam",
+        "repeated_subject": "Faith"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Faith",
+        "correct_answer_token_id": 16463,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Faith",
+        "second_mentioned_name": "Adam",
+        "repeated_subject": "Adam"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Faith",
+        "correct_answer_token_id": 16463,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Adam",
+        "second_mentioned_name": "Faith",
+        "repeated_subject": "Adam"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "guitar",
+      "place": "cinema"
+    },
+    "content_family_id": "90f9f36929be22c1",
+    "case_id": "214da6e60066d29704c84b1d",
+    "unique_draw_id": "214da6e60066d29704c84b1d",
+    "draw": 9,
+    "draw_index": 9,
+    "proposal_index": 9
+  },
+  {
+    "prompts": [
+      "Then, Paige and Ross were working at the office. Ross decided to give a charcoal to",
+      "Then, Ross and Paige were working at the office. Ross decided to give a charcoal to",
+      "Then, Ross and Paige were working at the office. Paige decided to give a charcoal to",
+      "Then, Paige and Ross were working at the office. Paige decided to give a charcoal to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        42847,
+        290,
+        9847,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        9847,
+        3066,
+        284,
+        1577,
+        257,
+        33512,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        9847,
+        290,
+        42847,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        9847,
+        3066,
+        284,
+        1577,
+        257,
+        33512,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        9847,
+        290,
+        42847,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        42847,
+        3066,
+        284,
+        1577,
+        257,
+        33512,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        42847,
+        290,
+        9847,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        42847,
+        3066,
+        284,
+        1577,
+        257,
+        33512,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Paige",
+    "subject": "Ross",
+    "answer_token_ids": [
+      42847,
+      9847
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Paige",
+        "correct_answer_token_id": 42847,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Paige",
+        "second_mentioned_name": "Ross",
+        "repeated_subject": "Ross"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Paige",
+        "correct_answer_token_id": 42847,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Ross",
+        "second_mentioned_name": "Paige",
+        "repeated_subject": "Ross"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Ross",
+        "correct_answer_token_id": 9847,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Ross",
+        "second_mentioned_name": "Paige",
+        "repeated_subject": "Paige"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Ross",
+        "correct_answer_token_id": 9847,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Paige",
+        "second_mentioned_name": "Ross",
+        "repeated_subject": "Paige"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "charcoal",
+      "place": "office"
+    },
+    "content_family_id": "80dde51263c3fe55",
+    "case_id": "166f03c31c7b7ed468146a98",
+    "unique_draw_id": "166f03c31c7b7ed468146a98",
+    "draw": 10,
+    "draw_index": 10,
+    "proposal_index": 10
+  },
+  {
+    "prompts": [
+      "Then, Mia and Dean were working at the jungle. Dean decided to give a remote to",
+      "Then, Dean and Mia were working at the jungle. Dean decided to give a remote to",
+      "Then, Dean and Mia were working at the jungle. Mia decided to give a remote to",
+      "Then, Mia and Dean were working at the jungle. Mia decided to give a remote to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        32189,
+        290,
+        11325,
+        547,
+        1762,
+        379,
+        262,
+        20712,
+        13,
+        11325,
+        3066,
+        284,
+        1577,
+        257,
+        6569,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        11325,
+        290,
+        32189,
+        547,
+        1762,
+        379,
+        262,
+        20712,
+        13,
+        11325,
+        3066,
+        284,
+        1577,
+        257,
+        6569,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        11325,
+        290,
+        32189,
+        547,
+        1762,
+        379,
+        262,
+        20712,
+        13,
+        32189,
+        3066,
+        284,
+        1577,
+        257,
+        6569,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        32189,
+        290,
+        11325,
+        547,
+        1762,
+        379,
+        262,
+        20712,
+        13,
+        32189,
+        3066,
+        284,
+        1577,
+        257,
+        6569,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Mia",
+    "subject": "Dean",
+    "answer_token_ids": [
+      32189,
+      11325
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Mia",
+        "correct_answer_token_id": 32189,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Mia",
+        "second_mentioned_name": "Dean",
+        "repeated_subject": "Dean"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Mia",
+        "correct_answer_token_id": 32189,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Dean",
+        "second_mentioned_name": "Mia",
+        "repeated_subject": "Dean"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Dean",
+        "correct_answer_token_id": 11325,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Dean",
+        "second_mentioned_name": "Mia",
+        "repeated_subject": "Mia"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Dean",
+        "correct_answer_token_id": 11325,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Mia",
+        "second_mentioned_name": "Dean",
+        "repeated_subject": "Mia"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "remote",
+      "place": "jungle"
+    },
+    "content_family_id": "43963dc6d0e58bca",
+    "case_id": "e0368c5c83d6700eab3d319d",
+    "unique_draw_id": "e0368c5c83d6700eab3d319d",
+    "draw": 11,
+    "draw_index": 11,
+    "proposal_index": 11
+  },
+  {
+    "prompts": [
+      "Then, Tim and Sydney were working at the chapel. Sydney decided to give a harness to",
+      "Then, Sydney and Tim were working at the chapel. Sydney decided to give a harness to",
+      "Then, Sydney and Tim were working at the chapel. Tim decided to give a harness to",
+      "Then, Tim and Sydney were working at the chapel. Tim decided to give a harness to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        5045,
+        290,
+        11852,
+        547,
+        1762,
+        379,
+        262,
+        43398,
+        13,
+        11852,
+        3066,
+        284,
+        1577,
+        257,
+        19356,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        11852,
+        290,
+        5045,
+        547,
+        1762,
+        379,
+        262,
+        43398,
+        13,
+        11852,
+        3066,
+        284,
+        1577,
+        257,
+        19356,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        11852,
+        290,
+        5045,
+        547,
+        1762,
+        379,
+        262,
+        43398,
+        13,
+        5045,
+        3066,
+        284,
+        1577,
+        257,
+        19356,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5045,
+        290,
+        11852,
+        547,
+        1762,
+        379,
+        262,
+        43398,
+        13,
+        5045,
+        3066,
+        284,
+        1577,
+        257,
+        19356,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Tim",
+    "subject": "Sydney",
+    "answer_token_ids": [
+      5045,
+      11852
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Tim",
+        "correct_answer_token_id": 5045,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Tim",
+        "second_mentioned_name": "Sydney",
+        "repeated_subject": "Sydney"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Tim",
+        "correct_answer_token_id": 5045,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Sydney",
+        "second_mentioned_name": "Tim",
+        "repeated_subject": "Sydney"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Sydney",
+        "correct_answer_token_id": 11852,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Sydney",
+        "second_mentioned_name": "Tim",
+        "repeated_subject": "Tim"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Sydney",
+        "correct_answer_token_id": 11852,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Tim",
+        "second_mentioned_name": "Sydney",
+        "repeated_subject": "Tim"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "harness",
+      "place": "chapel"
+    },
+    "content_family_id": "3ace73c1b9c9b1a6",
+    "case_id": "e79cd570e53acfcb322f1b7a",
+    "unique_draw_id": "e79cd570e53acfcb322f1b7a",
+    "draw": 12,
+    "draw_index": 12,
+    "proposal_index": 12
+  },
+  {
+    "prompts": [
+      "Then, Bailey and Alex were working at the glacier. Alex decided to give a coins to",
+      "Then, Alex and Bailey were working at the glacier. Alex decided to give a coins to",
+      "Then, Alex and Bailey were working at the glacier. Bailey decided to give a coins to",
+      "Then, Bailey and Alex were working at the glacier. Bailey decided to give a coins to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        20330,
+        290,
+        4422,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        4422,
+        3066,
+        284,
+        1577,
+        257,
+        10796,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        4422,
+        290,
+        20330,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        4422,
+        3066,
+        284,
+        1577,
+        257,
+        10796,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        4422,
+        290,
+        20330,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        20330,
+        3066,
+        284,
+        1577,
+        257,
+        10796,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        20330,
+        290,
+        4422,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        20330,
+        3066,
+        284,
+        1577,
+        257,
+        10796,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Bailey",
+    "subject": "Alex",
+    "answer_token_ids": [
+      20330,
+      4422
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Bailey",
+        "correct_answer_token_id": 20330,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Bailey",
+        "second_mentioned_name": "Alex",
+        "repeated_subject": "Alex"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Bailey",
+        "correct_answer_token_id": 20330,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Alex",
+        "second_mentioned_name": "Bailey",
+        "repeated_subject": "Alex"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Alex",
+        "correct_answer_token_id": 4422,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Alex",
+        "second_mentioned_name": "Bailey",
+        "repeated_subject": "Bailey"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Alex",
+        "correct_answer_token_id": 4422,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Bailey",
+        "second_mentioned_name": "Alex",
+        "repeated_subject": "Bailey"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "coins",
+      "place": "glacier"
+    },
+    "content_family_id": "c9e4e698c407f7ea",
+    "case_id": "b4fd01e656faa42fd2d29031",
+    "unique_draw_id": "b4fd01e656faa42fd2d29031",
+    "draw": 13,
+    "draw_index": 13,
+    "proposal_index": 13
+  },
+  {
+    "prompts": [
+      "Then, Jake and Max were working at the home. Max decided to give a backpack to",
+      "Then, Max and Jake were working at the home. Max decided to give a backpack to",
+      "Then, Max and Jake were working at the home. Jake decided to give a backpack to",
+      "Then, Jake and Max were working at the home. Jake decided to give a backpack to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        14757,
+        290,
+        5436,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        5436,
+        3066,
+        284,
+        1577,
+        257,
+        22526,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5436,
+        290,
+        14757,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        5436,
+        3066,
+        284,
+        1577,
+        257,
+        22526,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5436,
+        290,
+        14757,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        14757,
+        3066,
+        284,
+        1577,
+        257,
+        22526,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14757,
+        290,
+        5436,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        14757,
+        3066,
+        284,
+        1577,
+        257,
+        22526,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Jake",
+    "subject": "Max",
+    "answer_token_ids": [
+      14757,
+      5436
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Jake",
+        "correct_answer_token_id": 14757,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Jake",
+        "second_mentioned_name": "Max",
+        "repeated_subject": "Max"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Jake",
+        "correct_answer_token_id": 14757,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Max",
+        "second_mentioned_name": "Jake",
+        "repeated_subject": "Max"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Max",
+        "correct_answer_token_id": 5436,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Max",
+        "second_mentioned_name": "Jake",
+        "repeated_subject": "Jake"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Max",
+        "correct_answer_token_id": 5436,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Jake",
+        "second_mentioned_name": "Max",
+        "repeated_subject": "Jake"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "backpack",
+      "place": "home"
+    },
+    "content_family_id": "e6645b82733112e2",
+    "case_id": "6a7067b98a51de1de896fee0",
+    "unique_draw_id": "6a7067b98a51de1de896fee0",
+    "draw": 14,
+    "draw_index": 14,
+    "proposal_index": 14
+  },
+  {
+    "prompts": [
+      "Then, Catherine and Mason were working at the motel. Mason decided to give a blanket to",
+      "Then, Mason and Catherine were working at the motel. Mason decided to give a blanket to",
+      "Then, Mason and Catherine were working at the motel. Catherine decided to give a blanket to",
+      "Then, Catherine and Mason were working at the motel. Catherine decided to give a blanket to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        22578,
+        290,
+        14737,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        14737,
+        3066,
+        284,
+        1577,
+        257,
+        18447,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14737,
+        290,
+        22578,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        14737,
+        3066,
+        284,
+        1577,
+        257,
+        18447,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14737,
+        290,
+        22578,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        22578,
+        3066,
+        284,
+        1577,
+        257,
+        18447,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        22578,
+        290,
+        14737,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        22578,
+        3066,
+        284,
+        1577,
+        257,
+        18447,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Catherine",
+    "subject": "Mason",
+    "answer_token_ids": [
+      22578,
+      14737
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Catherine",
+        "correct_answer_token_id": 22578,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Catherine",
+        "second_mentioned_name": "Mason",
+        "repeated_subject": "Mason"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Catherine",
+        "correct_answer_token_id": 22578,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Mason",
+        "second_mentioned_name": "Catherine",
+        "repeated_subject": "Mason"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Mason",
+        "correct_answer_token_id": 14737,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Mason",
+        "second_mentioned_name": "Catherine",
+        "repeated_subject": "Catherine"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Mason",
+        "correct_answer_token_id": 14737,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Catherine",
+        "second_mentioned_name": "Mason",
+        "repeated_subject": "Catherine"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "blanket",
+      "place": "motel"
+    },
+    "content_family_id": "24bd60ba7850670d",
+    "case_id": "f2a33f8e569fcf253492b245",
+    "unique_draw_id": "f2a33f8e569fcf253492b245",
+    "draw": 15,
+    "draw_index": 15,
+    "proposal_index": 15
+  },
+  {
+    "prompts": [
+      "Then, Nathan and Bella were working at the bridge. Bella decided to give a chalk to",
+      "Then, Bella and Nathan were working at the bridge. Bella decided to give a chalk to",
+      "Then, Bella and Nathan were working at the bridge. Nathan decided to give a chalk to",
+      "Then, Nathan and Bella were working at the bridge. Nathan decided to give a chalk to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        18106,
+        290,
+        39304,
+        547,
+        1762,
+        379,
+        262,
+        7696,
+        13,
+        39304,
+        3066,
+        284,
+        1577,
+        257,
+        30860,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        39304,
+        290,
+        18106,
+        547,
+        1762,
+        379,
+        262,
+        7696,
+        13,
+        39304,
+        3066,
+        284,
+        1577,
+        257,
+        30860,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        39304,
+        290,
+        18106,
+        547,
+        1762,
+        379,
+        262,
+        7696,
+        13,
+        18106,
+        3066,
+        284,
+        1577,
+        257,
+        30860,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        18106,
+        290,
+        39304,
+        547,
+        1762,
+        379,
+        262,
+        7696,
+        13,
+        18106,
+        3066,
+        284,
+        1577,
+        257,
+        30860,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Nathan",
+    "subject": "Bella",
+    "answer_token_ids": [
+      18106,
+      39304
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Nathan",
+        "correct_answer_token_id": 18106,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Nathan",
+        "second_mentioned_name": "Bella",
+        "repeated_subject": "Bella"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Nathan",
+        "correct_answer_token_id": 18106,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Bella",
+        "second_mentioned_name": "Nathan",
+        "repeated_subject": "Bella"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Bella",
+        "correct_answer_token_id": 39304,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Bella",
+        "second_mentioned_name": "Nathan",
+        "repeated_subject": "Nathan"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Bella",
+        "correct_answer_token_id": 39304,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Nathan",
+        "second_mentioned_name": "Bella",
+        "repeated_subject": "Nathan"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "chalk",
+      "place": "bridge"
+    },
+    "content_family_id": "d6baf3ddf19cae70",
+    "case_id": "8a67298de01d4038b34772bd",
+    "unique_draw_id": "8a67298de01d4038b34772bd",
+    "draw": 16,
+    "draw_index": 16,
+    "proposal_index": 16
+  },
+  {
+    "prompts": [
+      "Then, Andy and Alice were working at the cottage. Alice decided to give a shovel to",
+      "Then, Alice and Andy were working at the cottage. Alice decided to give a shovel to",
+      "Then, Alice and Andy were working at the cottage. Andy decided to give a shovel to",
+      "Then, Andy and Alice were working at the cottage. Andy decided to give a shovel to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        12382,
+        290,
+        14862,
+        547,
+        1762,
+        379,
+        262,
+        36856,
+        13,
+        14862,
+        3066,
+        284,
+        1577,
+        257,
+        33677,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14862,
+        290,
+        12382,
+        547,
+        1762,
+        379,
+        262,
+        36856,
+        13,
+        14862,
+        3066,
+        284,
+        1577,
+        257,
+        33677,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14862,
+        290,
+        12382,
+        547,
+        1762,
+        379,
+        262,
+        36856,
+        13,
+        12382,
+        3066,
+        284,
+        1577,
+        257,
+        33677,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        12382,
+        290,
+        14862,
+        547,
+        1762,
+        379,
+        262,
+        36856,
+        13,
+        12382,
+        3066,
+        284,
+        1577,
+        257,
+        33677,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Andy",
+    "subject": "Alice",
+    "answer_token_ids": [
+      12382,
+      14862
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Andy",
+        "correct_answer_token_id": 12382,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Andy",
+        "second_mentioned_name": "Alice",
+        "repeated_subject": "Alice"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Andy",
+        "correct_answer_token_id": 12382,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Alice",
+        "second_mentioned_name": "Andy",
+        "repeated_subject": "Alice"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Alice",
+        "correct_answer_token_id": 14862,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Alice",
+        "second_mentioned_name": "Andy",
+        "repeated_subject": "Andy"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Alice",
+        "correct_answer_token_id": 14862,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Andy",
+        "second_mentioned_name": "Alice",
+        "repeated_subject": "Andy"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "shovel",
+      "place": "cottage"
+    },
+    "content_family_id": "fc2472cd610ee2bc",
+    "case_id": "0f5da1887ca70259ceedba85",
+    "unique_draw_id": "0f5da1887ca70259ceedba85",
+    "draw": 17,
+    "draw_index": 17,
+    "proposal_index": 17
+  },
+  {
+    "prompts": [
+      "Then, Michelle and Clara were working at the tunnel. Clara decided to give a lipstick to",
+      "Then, Clara and Michelle were working at the tunnel. Clara decided to give a lipstick to",
+      "Then, Clara and Michelle were working at the tunnel. Michelle decided to give a lipstick to",
+      "Then, Michelle and Clara were working at the tunnel. Michelle decided to give a lipstick to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        16738,
+        290,
+        27443,
+        547,
+        1762,
+        379,
+        262,
+        13275,
+        13,
+        27443,
+        3066,
+        284,
+        1577,
+        257,
+        41429,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        27443,
+        290,
+        16738,
+        547,
+        1762,
+        379,
+        262,
+        13275,
+        13,
+        27443,
+        3066,
+        284,
+        1577,
+        257,
+        41429,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        27443,
+        290,
+        16738,
+        547,
+        1762,
+        379,
+        262,
+        13275,
+        13,
+        16738,
+        3066,
+        284,
+        1577,
+        257,
+        41429,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16738,
+        290,
+        27443,
+        547,
+        1762,
+        379,
+        262,
+        13275,
+        13,
+        16738,
+        3066,
+        284,
+        1577,
+        257,
+        41429,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Michelle",
+    "subject": "Clara",
+    "answer_token_ids": [
+      16738,
+      27443
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Michelle",
+        "correct_answer_token_id": 16738,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Michelle",
+        "second_mentioned_name": "Clara",
+        "repeated_subject": "Clara"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Michelle",
+        "correct_answer_token_id": 16738,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Clara",
+        "second_mentioned_name": "Michelle",
+        "repeated_subject": "Clara"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Clara",
+        "correct_answer_token_id": 27443,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Clara",
+        "second_mentioned_name": "Michelle",
+        "repeated_subject": "Michelle"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Clara",
+        "correct_answer_token_id": 27443,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Michelle",
+        "second_mentioned_name": "Clara",
+        "repeated_subject": "Michelle"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "lipstick",
+      "place": "tunnel"
+    },
+    "content_family_id": "6f72f5a61156c3bf",
+    "case_id": "d99782b3f5492e38478a8ccf",
+    "unique_draw_id": "d99782b3f5492e38478a8ccf",
+    "draw": 18,
+    "draw_index": 18,
+    "proposal_index": 18
+  },
+  {
+    "prompts": [
+      "Then, Savannah and Emily were working at the cafe. Emily decided to give a glasses to",
+      "Then, Emily and Savannah were working at the cafe. Emily decided to give a glasses to",
+      "Then, Emily and Savannah were working at the cafe. Savannah decided to give a glasses to",
+      "Then, Savannah and Emily were working at the cafe. Savannah decided to give a glasses to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        40695,
+        290,
+        17608,
+        547,
+        1762,
+        379,
+        262,
+        26725,
+        13,
+        17608,
+        3066,
+        284,
+        1577,
+        257,
+        15232,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        17608,
+        290,
+        40695,
+        547,
+        1762,
+        379,
+        262,
+        26725,
+        13,
+        17608,
+        3066,
+        284,
+        1577,
+        257,
+        15232,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        17608,
+        290,
+        40695,
+        547,
+        1762,
+        379,
+        262,
+        26725,
+        13,
+        40695,
+        3066,
+        284,
+        1577,
+        257,
+        15232,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        40695,
+        290,
+        17608,
+        547,
+        1762,
+        379,
+        262,
+        26725,
+        13,
+        40695,
+        3066,
+        284,
+        1577,
+        257,
+        15232,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Savannah",
+    "subject": "Emily",
+    "answer_token_ids": [
+      40695,
+      17608
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Savannah",
+        "correct_answer_token_id": 40695,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Savannah",
+        "second_mentioned_name": "Emily",
+        "repeated_subject": "Emily"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Savannah",
+        "correct_answer_token_id": 40695,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Emily",
+        "second_mentioned_name": "Savannah",
+        "repeated_subject": "Emily"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Emily",
+        "correct_answer_token_id": 17608,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Emily",
+        "second_mentioned_name": "Savannah",
+        "repeated_subject": "Savannah"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Emily",
+        "correct_answer_token_id": 17608,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Savannah",
+        "second_mentioned_name": "Emily",
+        "repeated_subject": "Savannah"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "glasses",
+      "place": "cafe"
+    },
+    "content_family_id": "a7de597df921fe32",
+    "case_id": "076f314aa084c00ac35f997e",
+    "unique_draw_id": "076f314aa084c00ac35f997e",
+    "draw": 19,
+    "draw_index": 19,
+    "proposal_index": 19
+  },
+  {
+    "prompts": [
+      "Then, Elizabeth and Nathaniel were working at the cottage. Nathaniel decided to give a kettle to",
+      "Then, Nathaniel and Elizabeth were working at the cottage. Nathaniel decided to give a kettle to",
+      "Then, Nathaniel and Elizabeth were working at the cottage. Elizabeth decided to give a kettle to",
+      "Then, Elizabeth and Nathaniel were working at the cottage. Elizabeth decided to give a kettle to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        10674,
+        290,
+        49536,
+        547,
+        1762,
+        379,
+        262,
+        36856,
+        13,
+        49536,
+        3066,
+        284,
+        1577,
+        257,
+        40231,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        49536,
+        290,
+        10674,
+        547,
+        1762,
+        379,
+        262,
+        36856,
+        13,
+        49536,
+        3066,
+        284,
+        1577,
+        257,
+        40231,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        49536,
+        290,
+        10674,
+        547,
+        1762,
+        379,
+        262,
+        36856,
+        13,
+        10674,
+        3066,
+        284,
+        1577,
+        257,
+        40231,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        10674,
+        290,
+        49536,
+        547,
+        1762,
+        379,
+        262,
+        36856,
+        13,
+        10674,
+        3066,
+        284,
+        1577,
+        257,
+        40231,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Elizabeth",
+    "subject": "Nathaniel",
+    "answer_token_ids": [
+      10674,
+      49536
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Elizabeth",
+        "correct_answer_token_id": 10674,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Elizabeth",
+        "second_mentioned_name": "Nathaniel",
+        "repeated_subject": "Nathaniel"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Elizabeth",
+        "correct_answer_token_id": 10674,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Nathaniel",
+        "second_mentioned_name": "Elizabeth",
+        "repeated_subject": "Nathaniel"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Nathaniel",
+        "correct_answer_token_id": 49536,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Nathaniel",
+        "second_mentioned_name": "Elizabeth",
+        "repeated_subject": "Elizabeth"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Nathaniel",
+        "correct_answer_token_id": 49536,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Elizabeth",
+        "second_mentioned_name": "Nathaniel",
+        "repeated_subject": "Elizabeth"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "kettle",
+      "place": "cottage"
+    },
+    "content_family_id": "e17ec6633bbb2de1",
+    "case_id": "cd68f3fa4e265ff680058d2e",
+    "unique_draw_id": "cd68f3fa4e265ff680058d2e",
+    "draw": 20,
+    "draw_index": 20,
+    "proposal_index": 20
+  },
+  {
+    "prompts": [
+      "Then, Lisa and Adam were working at the synagogue. Adam decided to give a knife to",
+      "Then, Adam and Lisa were working at the synagogue. Adam decided to give a knife to",
+      "Then, Adam and Lisa were working at the synagogue. Lisa decided to give a knife to",
+      "Then, Lisa and Adam were working at the synagogue. Lisa decided to give a knife to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        15378,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        9845,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        15378,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        9845,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        15378,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        15378,
+        3066,
+        284,
+        1577,
+        257,
+        9845,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        15378,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        15378,
+        3066,
+        284,
+        1577,
+        257,
+        9845,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Lisa",
+    "subject": "Adam",
+    "answer_token_ids": [
+      15378,
+      7244
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Lisa",
+        "correct_answer_token_id": 15378,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Lisa",
+        "second_mentioned_name": "Adam",
+        "repeated_subject": "Adam"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Lisa",
+        "correct_answer_token_id": 15378,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Adam",
+        "second_mentioned_name": "Lisa",
+        "repeated_subject": "Adam"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Adam",
+        "correct_answer_token_id": 7244,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Adam",
+        "second_mentioned_name": "Lisa",
+        "repeated_subject": "Lisa"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Adam",
+        "correct_answer_token_id": 7244,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Lisa",
+        "second_mentioned_name": "Adam",
+        "repeated_subject": "Lisa"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "knife",
+      "place": "synagogue"
+    },
+    "content_family_id": "f977927287a21a20",
+    "case_id": "3117603e8a15f0893e0d23f5",
+    "unique_draw_id": "3117603e8a15f0893e0d23f5",
+    "draw": 21,
+    "draw_index": 21,
+    "proposal_index": 21
+  },
+  {
+    "prompts": [
+      "Then, Adam and Violet were working at the garage. Violet decided to give a leash to",
+      "Then, Violet and Adam were working at the garage. Violet decided to give a leash to",
+      "Then, Violet and Adam were working at the garage. Adam decided to give a leash to",
+      "Then, Adam and Violet were working at the garage. Adam decided to give a leash to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        37111,
+        547,
+        1762,
+        379,
+        262,
+        15591,
+        13,
+        37111,
+        3066,
+        284,
+        1577,
+        257,
+        40529,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        37111,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        15591,
+        13,
+        37111,
+        3066,
+        284,
+        1577,
+        257,
+        40529,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        37111,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        15591,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        40529,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        37111,
+        547,
+        1762,
+        379,
+        262,
+        15591,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        40529,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Adam",
+    "subject": "Violet",
+    "answer_token_ids": [
+      7244,
+      37111
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Adam",
+        "correct_answer_token_id": 7244,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Adam",
+        "second_mentioned_name": "Violet",
+        "repeated_subject": "Violet"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Adam",
+        "correct_answer_token_id": 7244,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Violet",
+        "second_mentioned_name": "Adam",
+        "repeated_subject": "Violet"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Violet",
+        "correct_answer_token_id": 37111,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Violet",
+        "second_mentioned_name": "Adam",
+        "repeated_subject": "Adam"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Violet",
+        "correct_answer_token_id": 37111,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Adam",
+        "second_mentioned_name": "Violet",
+        "repeated_subject": "Adam"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "leash",
+      "place": "garage"
+    },
+    "content_family_id": "bceaea836c4fcb54",
+    "case_id": "4f907cdb0c60d54e525826d5",
+    "unique_draw_id": "4f907cdb0c60d54e525826d5",
+    "draw": 22,
+    "draw_index": 22,
+    "proposal_index": 22
+  },
+  {
+    "prompts": [
+      "Then, Noah and Elizabeth were working at the stadium. Elizabeth decided to give a candle to",
+      "Then, Elizabeth and Noah were working at the stadium. Elizabeth decided to give a candle to",
+      "Then, Elizabeth and Noah were working at the stadium. Noah decided to give a candle to",
+      "Then, Noah and Elizabeth were working at the stadium. Noah decided to give a candle to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        18394,
+        290,
+        10674,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        10674,
+        3066,
+        284,
+        1577,
+        257,
+        26839,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        10674,
+        290,
+        18394,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        10674,
+        3066,
+        284,
+        1577,
+        257,
+        26839,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        10674,
+        290,
+        18394,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        18394,
+        3066,
+        284,
+        1577,
+        257,
+        26839,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        18394,
+        290,
+        10674,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        18394,
+        3066,
+        284,
+        1577,
+        257,
+        26839,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Noah",
+    "subject": "Elizabeth",
+    "answer_token_ids": [
+      18394,
+      10674
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Noah",
+        "correct_answer_token_id": 18394,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Noah",
+        "second_mentioned_name": "Elizabeth",
+        "repeated_subject": "Elizabeth"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Noah",
+        "correct_answer_token_id": 18394,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Elizabeth",
+        "second_mentioned_name": "Noah",
+        "repeated_subject": "Elizabeth"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Elizabeth",
+        "correct_answer_token_id": 10674,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Elizabeth",
+        "second_mentioned_name": "Noah",
+        "repeated_subject": "Noah"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Elizabeth",
+        "correct_answer_token_id": 10674,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Noah",
+        "second_mentioned_name": "Elizabeth",
+        "repeated_subject": "Noah"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "candle",
+      "place": "stadium"
+    },
+    "content_family_id": "6029eae0def3c50d",
+    "case_id": "f01d2f258ed974fb88a04006",
+    "unique_draw_id": "f01d2f258ed974fb88a04006",
+    "draw": 23,
+    "draw_index": 23,
+    "proposal_index": 23
+  },
+  {
+    "prompts": [
+      "Then, Joy and Charles were working at the desert. Charles decided to give a pot to",
+      "Then, Charles and Joy were working at the desert. Charles decided to give a pot to",
+      "Then, Charles and Joy were working at the desert. Joy decided to give a pot to",
+      "Then, Joy and Charles were working at the desert. Joy decided to give a pot to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        14087,
+        290,
+        7516,
+        547,
+        1762,
+        379,
+        262,
+        10326,
+        13,
+        7516,
+        3066,
+        284,
+        1577,
+        257,
+        1787,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7516,
+        290,
+        14087,
+        547,
+        1762,
+        379,
+        262,
+        10326,
+        13,
+        7516,
+        3066,
+        284,
+        1577,
+        257,
+        1787,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7516,
+        290,
+        14087,
+        547,
+        1762,
+        379,
+        262,
+        10326,
+        13,
+        14087,
+        3066,
+        284,
+        1577,
+        257,
+        1787,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14087,
+        290,
+        7516,
+        547,
+        1762,
+        379,
+        262,
+        10326,
+        13,
+        14087,
+        3066,
+        284,
+        1577,
+        257,
+        1787,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Joy",
+    "subject": "Charles",
+    "answer_token_ids": [
+      14087,
+      7516
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Joy",
+        "correct_answer_token_id": 14087,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Joy",
+        "second_mentioned_name": "Charles",
+        "repeated_subject": "Charles"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Joy",
+        "correct_answer_token_id": 14087,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Charles",
+        "second_mentioned_name": "Joy",
+        "repeated_subject": "Charles"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Charles",
+        "correct_answer_token_id": 7516,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Charles",
+        "second_mentioned_name": "Joy",
+        "repeated_subject": "Joy"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Charles",
+        "correct_answer_token_id": 7516,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Joy",
+        "second_mentioned_name": "Charles",
+        "repeated_subject": "Joy"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "pot",
+      "place": "desert"
+    },
+    "content_family_id": "5c26de6d00496625",
+    "case_id": "41f8e9e9bdfb8766ff5780d8",
+    "unique_draw_id": "41f8e9e9bdfb8766ff5780d8",
+    "draw": 24,
+    "draw_index": 24,
+    "proposal_index": 24
+  },
+  {
+    "prompts": [
+      "Then, Steven and Blake were working at the chapel. Blake decided to give a backpack to",
+      "Then, Blake and Steven were working at the chapel. Blake decided to give a backpack to",
+      "Then, Blake and Steven were working at the chapel. Steven decided to give a backpack to",
+      "Then, Steven and Blake were working at the chapel. Steven decided to give a backpack to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        8239,
+        290,
+        13307,
+        547,
+        1762,
+        379,
+        262,
+        43398,
+        13,
+        13307,
+        3066,
+        284,
+        1577,
+        257,
+        22526,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        13307,
+        290,
+        8239,
+        547,
+        1762,
+        379,
+        262,
+        43398,
+        13,
+        13307,
+        3066,
+        284,
+        1577,
+        257,
+        22526,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        13307,
+        290,
+        8239,
+        547,
+        1762,
+        379,
+        262,
+        43398,
+        13,
+        8239,
+        3066,
+        284,
+        1577,
+        257,
+        22526,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        8239,
+        290,
+        13307,
+        547,
+        1762,
+        379,
+        262,
+        43398,
+        13,
+        8239,
+        3066,
+        284,
+        1577,
+        257,
+        22526,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Steven",
+    "subject": "Blake",
+    "answer_token_ids": [
+      8239,
+      13307
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Steven",
+        "correct_answer_token_id": 8239,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Steven",
+        "second_mentioned_name": "Blake",
+        "repeated_subject": "Blake"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Steven",
+        "correct_answer_token_id": 8239,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Blake",
+        "second_mentioned_name": "Steven",
+        "repeated_subject": "Blake"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Blake",
+        "correct_answer_token_id": 13307,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Blake",
+        "second_mentioned_name": "Steven",
+        "repeated_subject": "Steven"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Blake",
+        "correct_answer_token_id": 13307,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Steven",
+        "second_mentioned_name": "Blake",
+        "repeated_subject": "Steven"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "backpack",
+      "place": "chapel"
+    },
+    "content_family_id": "a3bde75841414cf9",
+    "case_id": "d502b75482c10fa792d73fe0",
+    "unique_draw_id": "d502b75482c10fa792d73fe0",
+    "draw": 25,
+    "draw_index": 25,
+    "proposal_index": 25
+  },
+  {
+    "prompts": [
+      "Then, Bella and Mike were working at the cafe. Mike decided to give a shovel to",
+      "Then, Mike and Bella were working at the cafe. Mike decided to give a shovel to",
+      "Then, Mike and Bella were working at the cafe. Bella decided to give a shovel to",
+      "Then, Bella and Mike were working at the cafe. Bella decided to give a shovel to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        39304,
+        290,
+        4995,
+        547,
+        1762,
+        379,
+        262,
+        26725,
+        13,
+        4995,
+        3066,
+        284,
+        1577,
+        257,
+        33677,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        4995,
+        290,
+        39304,
+        547,
+        1762,
+        379,
+        262,
+        26725,
+        13,
+        4995,
+        3066,
+        284,
+        1577,
+        257,
+        33677,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        4995,
+        290,
+        39304,
+        547,
+        1762,
+        379,
+        262,
+        26725,
+        13,
+        39304,
+        3066,
+        284,
+        1577,
+        257,
+        33677,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        39304,
+        290,
+        4995,
+        547,
+        1762,
+        379,
+        262,
+        26725,
+        13,
+        39304,
+        3066,
+        284,
+        1577,
+        257,
+        33677,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Bella",
+    "subject": "Mike",
+    "answer_token_ids": [
+      39304,
+      4995
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Bella",
+        "correct_answer_token_id": 39304,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Bella",
+        "second_mentioned_name": "Mike",
+        "repeated_subject": "Mike"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Bella",
+        "correct_answer_token_id": 39304,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Mike",
+        "second_mentioned_name": "Bella",
+        "repeated_subject": "Mike"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Mike",
+        "correct_answer_token_id": 4995,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Mike",
+        "second_mentioned_name": "Bella",
+        "repeated_subject": "Bella"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Mike",
+        "correct_answer_token_id": 4995,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Bella",
+        "second_mentioned_name": "Mike",
+        "repeated_subject": "Bella"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "shovel",
+      "place": "cafe"
+    },
+    "content_family_id": "0dff7293683c7606",
+    "case_id": "ec14b7ed2f967fbdd47abf5c",
+    "unique_draw_id": "ec14b7ed2f967fbdd47abf5c",
+    "draw": 26,
+    "draw_index": 26,
+    "proposal_index": 26
+  },
+  {
+    "prompts": [
+      "Then, Joy and Jennifer were working at the gallery. Jennifer decided to give a basket to",
+      "Then, Jennifer and Joy were working at the gallery. Jennifer decided to give a basket to",
+      "Then, Jennifer and Joy were working at the gallery. Joy decided to give a basket to",
+      "Then, Joy and Jennifer were working at the gallery. Joy decided to give a basket to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        14087,
+        290,
+        16348,
+        547,
+        1762,
+        379,
+        262,
+        15604,
+        13,
+        16348,
+        3066,
+        284,
+        1577,
+        257,
+        7988,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16348,
+        290,
+        14087,
+        547,
+        1762,
+        379,
+        262,
+        15604,
+        13,
+        16348,
+        3066,
+        284,
+        1577,
+        257,
+        7988,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16348,
+        290,
+        14087,
+        547,
+        1762,
+        379,
+        262,
+        15604,
+        13,
+        14087,
+        3066,
+        284,
+        1577,
+        257,
+        7988,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14087,
+        290,
+        16348,
+        547,
+        1762,
+        379,
+        262,
+        15604,
+        13,
+        14087,
+        3066,
+        284,
+        1577,
+        257,
+        7988,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Joy",
+    "subject": "Jennifer",
+    "answer_token_ids": [
+      14087,
+      16348
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Joy",
+        "correct_answer_token_id": 14087,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Joy",
+        "second_mentioned_name": "Jennifer",
+        "repeated_subject": "Jennifer"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Joy",
+        "correct_answer_token_id": 14087,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Jennifer",
+        "second_mentioned_name": "Joy",
+        "repeated_subject": "Jennifer"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Jennifer",
+        "correct_answer_token_id": 16348,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Jennifer",
+        "second_mentioned_name": "Joy",
+        "repeated_subject": "Joy"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Jennifer",
+        "correct_answer_token_id": 16348,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Joy",
+        "second_mentioned_name": "Jennifer",
+        "repeated_subject": "Joy"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "basket",
+      "place": "gallery"
+    },
+    "content_family_id": "98b76148874a626e",
+    "case_id": "99861a3ef08b0f193a7ab58e",
+    "unique_draw_id": "99861a3ef08b0f193a7ab58e",
+    "draw": 27,
+    "draw_index": 27,
+    "proposal_index": 27
+  },
+  {
+    "prompts": [
+      "Then, Jason and Kate were working at the cinema. Kate decided to give a bag to",
+      "Then, Kate and Jason were working at the cinema. Kate decided to give a bag to",
+      "Then, Kate and Jason were working at the cinema. Jason decided to give a bag to",
+      "Then, Jason and Kate were working at the cinema. Jason decided to give a bag to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        8982,
+        290,
+        16693,
+        547,
+        1762,
+        379,
+        262,
+        22041,
+        13,
+        16693,
+        3066,
+        284,
+        1577,
+        257,
+        6131,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16693,
+        290,
+        8982,
+        547,
+        1762,
+        379,
+        262,
+        22041,
+        13,
+        16693,
+        3066,
+        284,
+        1577,
+        257,
+        6131,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16693,
+        290,
+        8982,
+        547,
+        1762,
+        379,
+        262,
+        22041,
+        13,
+        8982,
+        3066,
+        284,
+        1577,
+        257,
+        6131,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        8982,
+        290,
+        16693,
+        547,
+        1762,
+        379,
+        262,
+        22041,
+        13,
+        8982,
+        3066,
+        284,
+        1577,
+        257,
+        6131,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Jason",
+    "subject": "Kate",
+    "answer_token_ids": [
+      8982,
+      16693
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Jason",
+        "correct_answer_token_id": 8982,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Jason",
+        "second_mentioned_name": "Kate",
+        "repeated_subject": "Kate"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Jason",
+        "correct_answer_token_id": 8982,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Kate",
+        "second_mentioned_name": "Jason",
+        "repeated_subject": "Kate"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Kate",
+        "correct_answer_token_id": 16693,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Kate",
+        "second_mentioned_name": "Jason",
+        "repeated_subject": "Jason"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Kate",
+        "correct_answer_token_id": 16693,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Jason",
+        "second_mentioned_name": "Kate",
+        "repeated_subject": "Jason"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "bag",
+      "place": "cinema"
+    },
+    "content_family_id": "c896579730645996",
+    "case_id": "0a8cc2315912f16a26fd5074",
+    "unique_draw_id": "0a8cc2315912f16a26fd5074",
+    "draw": 28,
+    "draw_index": 28,
+    "proposal_index": 28
+  },
+  {
+    "prompts": [
+      "Then, Samuel and Riley were working at the synagogue. Riley decided to give a pamphlet to",
+      "Then, Riley and Samuel were working at the synagogue. Riley decided to give a pamphlet to",
+      "Then, Riley and Samuel were working at the synagogue. Samuel decided to give a pamphlet to",
+      "Then, Samuel and Riley were working at the synagogue. Samuel decided to give a pamphlet to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        17100,
+        290,
+        22637,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        22637,
+        3066,
+        284,
+        1577,
+        257,
+        42919,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        22637,
+        290,
+        17100,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        22637,
+        3066,
+        284,
+        1577,
+        257,
+        42919,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        22637,
+        290,
+        17100,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        17100,
+        3066,
+        284,
+        1577,
+        257,
+        42919,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        17100,
+        290,
+        22637,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        17100,
+        3066,
+        284,
+        1577,
+        257,
+        42919,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Samuel",
+    "subject": "Riley",
+    "answer_token_ids": [
+      17100,
+      22637
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Samuel",
+        "correct_answer_token_id": 17100,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Samuel",
+        "second_mentioned_name": "Riley",
+        "repeated_subject": "Riley"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Samuel",
+        "correct_answer_token_id": 17100,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Riley",
+        "second_mentioned_name": "Samuel",
+        "repeated_subject": "Riley"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Riley",
+        "correct_answer_token_id": 22637,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Riley",
+        "second_mentioned_name": "Samuel",
+        "repeated_subject": "Samuel"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Riley",
+        "correct_answer_token_id": 22637,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Samuel",
+        "second_mentioned_name": "Riley",
+        "repeated_subject": "Samuel"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "pamphlet",
+      "place": "synagogue"
+    },
+    "content_family_id": "0be958b847ad9608",
+    "case_id": "eb6b8bf3257757759936432c",
+    "unique_draw_id": "eb6b8bf3257757759936432c",
+    "draw": 29,
+    "draw_index": 29,
+    "proposal_index": 29
+  },
+  {
+    "prompts": [
+      "Then, Ruby and Tim were working at the office. Tim decided to give a vinyl to",
+      "Then, Tim and Ruby were working at the office. Tim decided to give a vinyl to",
+      "Then, Tim and Ruby were working at the office. Ruby decided to give a vinyl to",
+      "Then, Ruby and Tim were working at the office. Ruby decided to give a vinyl to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        10888,
+        290,
+        5045,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        5045,
+        3066,
+        284,
+        1577,
+        257,
+        23275,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5045,
+        290,
+        10888,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        5045,
+        3066,
+        284,
+        1577,
+        257,
+        23275,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5045,
+        290,
+        10888,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        10888,
+        3066,
+        284,
+        1577,
+        257,
+        23275,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        10888,
+        290,
+        5045,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        10888,
+        3066,
+        284,
+        1577,
+        257,
+        23275,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Ruby",
+    "subject": "Tim",
+    "answer_token_ids": [
+      10888,
+      5045
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Ruby",
+        "correct_answer_token_id": 10888,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Ruby",
+        "second_mentioned_name": "Tim",
+        "repeated_subject": "Tim"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Ruby",
+        "correct_answer_token_id": 10888,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Tim",
+        "second_mentioned_name": "Ruby",
+        "repeated_subject": "Tim"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Tim",
+        "correct_answer_token_id": 5045,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Tim",
+        "second_mentioned_name": "Ruby",
+        "repeated_subject": "Ruby"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Tim",
+        "correct_answer_token_id": 5045,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Ruby",
+        "second_mentioned_name": "Tim",
+        "repeated_subject": "Ruby"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "vinyl",
+      "place": "office"
+    },
+    "content_family_id": "792daed9e0628fd8",
+    "case_id": "8a8d0c5392c7bf3441780633",
+    "unique_draw_id": "8a8d0c5392c7bf3441780633",
+    "draw": 30,
+    "draw_index": 30,
+    "proposal_index": 30
+  },
+  {
+    "prompts": [
+      "Then, Matt and Hannah were working at the motel. Hannah decided to give a tape to",
+      "Then, Hannah and Matt were working at the motel. Hannah decided to give a tape to",
+      "Then, Hannah and Matt were working at the motel. Matt decided to give a tape to",
+      "Then, Matt and Hannah were working at the motel. Matt decided to give a tape to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB",
+      "BAA",
+      "ABA"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        4705,
+        290,
+        26013,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        26013,
+        3066,
+        284,
+        1577,
+        257,
+        9154,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        26013,
+        290,
+        4705,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        26013,
+        3066,
+        284,
+        1577,
+        257,
+        9154,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        26013,
+        290,
+        4705,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        4705,
+        3066,
+        284,
+        1577,
+        257,
+        9154,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        4705,
+        290,
+        26013,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        4705,
+        3066,
+        284,
+        1577,
+        257,
+        9154,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Matt",
+    "subject": "Hannah",
+    "answer_token_ids": [
+      4705,
+      26013
+    ],
+    "name_token_positions": [
+      3,
+      5,
+      12
+    ],
+    "recipient_indices": [
+      0,
+      1
+    ],
+    "donor_indices": [
+      {
+        "00": 0,
+        "01": 1,
+        "10": 2,
+        "11": 3
+      },
+      {
+        "00": 1,
+        "01": 0,
+        "10": 3,
+        "11": 2
+      }
+    ],
+    "prompt_roles": [
+      {
+        "prompt_index": 0,
+        "pattern": "ABB",
+        "correct_answer": "Matt",
+        "correct_answer_token_id": 4705,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Matt",
+        "second_mentioned_name": "Hannah",
+        "repeated_subject": "Hannah"
+      },
+      {
+        "prompt_index": 1,
+        "pattern": "BAB",
+        "correct_answer": "Matt",
+        "correct_answer_token_id": 4705,
+        "correct_answer_identity": "A",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Hannah",
+        "second_mentioned_name": "Matt",
+        "repeated_subject": "Hannah"
+      },
+      {
+        "prompt_index": 2,
+        "pattern": "BAA",
+        "correct_answer": "Hannah",
+        "correct_answer_token_id": 26013,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 0,
+        "first_mentioned_name": "Hannah",
+        "second_mentioned_name": "Matt",
+        "repeated_subject": "Matt"
+      },
+      {
+        "prompt_index": 3,
+        "pattern": "ABA",
+        "correct_answer": "Hannah",
+        "correct_answer_token_id": 26013,
+        "correct_answer_identity": "B",
+        "correct_answer_mention_position": 1,
+        "first_mentioned_name": "Matt",
+        "second_mentioned_name": "Hannah",
+        "repeated_subject": "Matt"
+      }
+    ],
+    "scaffold": {
+      "prefix": "Then, ",
+      "template": "{name_A} and {name_B} were working at the {place}. {name_C} decided to give a {object} to",
+      "object": "tape",
+      "place": "motel"
+    },
+    "content_family_id": "e86d84411bfd46aa",
+    "case_id": "df9c5bd35f681d22e3cb166c",
+    "unique_draw_id": "df9c5bd35f681d22e3cb166c",
+    "draw": 31,
+    "draw_index": 31,
+    "proposal_index": 31
+  }
+]
