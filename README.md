@@ -22,6 +22,7 @@ current method. It checks stored evidence; it does not rerun the model.
 |---|---|
 | What did the experiment distinguish? | [The confirmed case, in three minutes](docs/CONFIRMED_CASE.md) |
 | What happened when the method was applied again? | [Round 2: the executed 192-pair result](docs/ROUND2_RESULT.md) — three simple profiles excluded, with a worked example |
+| What would a next step toward semantic questions test? | [Plan 3: person, position and relational-query transfer](docs/PLAN3_PERSON_POSITION_ROLE.md) — review draft, with a checked structural design; no new model results |
 | Why can a successful patch fit different explanations? | The illustration below, or the [executable points game](docs/WORKED_EXAMPLE.md) |
 | What exactly does the check verify? | [Records-only verification](applications/makelov-2311.17030/RECORDS_ONLY.md) |
 | How do I use this on my own data? | [Method and data contract](docs/USING_THE_METHOD.md) |
