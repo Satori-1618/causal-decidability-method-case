@@ -1,0 +1,694 @@
+{
+  "schema_version": "donor-factor-planning-512-v1",
+  "status": "SELECTED",
+  "selected_n": 512,
+  "n_development_units": 32,
+  "candidates": [
+    {
+      "n": 128,
+      "coverage": {
+        "n": 128,
+        "required_successes": 114,
+        "power_at_90_percent_success": 0.7019830175563746,
+        "passes": false
+      },
+      "normal_reference": {
+        "directions": {
+          "positive": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 2558,
+              "simulations": 10000,
+              "probability": 0.2558,
+              "monte_carlo_95_percent_interval": [
+                0.24727057346359943,
+                0.26447185744265866
+              ],
+              "passes": false
+            },
+            "J": {
+              "detections": 6849,
+              "simulations": 10000,
+              "probability": 0.6849,
+              "monte_carlo_95_percent_interval": [
+                0.6756920017562569,
+                0.6940002045357412
+              ],
+              "passes": false
+            }
+          },
+          "negative": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 2653,
+              "simulations": 10000,
+              "probability": 0.2653,
+              "monte_carlo_95_percent_interval": [
+                0.2566662416322667,
+                0.2740706360569617
+              ],
+              "passes": false
+            },
+            "J": {
+              "detections": 6919,
+              "simulations": 10000,
+              "probability": 0.6919,
+              "monte_carlo_95_percent_interval": [
+                0.6827457555593481,
+                0.7009423648845936
+              ],
+              "passes": false
+            }
+          }
+        },
+        "passes": false,
+        "criterion": "estimated detection probability >= .80",
+        "precision_requirement": "both precisions must detect each contrast"
+      },
+      "bootstrap_checks": null,
+      "passes": false
+    },
+    {
+      "n": 192,
+      "coverage": {
+        "n": 192,
+        "required_successes": 168,
+        "power_at_90_percent_success": 0.8959504001577363,
+        "passes": true
+      },
+      "normal_reference": {
+        "directions": {
+          "positive": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 4205,
+              "simulations": 10000,
+              "probability": 0.4205,
+              "monte_carlo_95_percent_interval": [
+                0.4107991806039506,
+                0.4302471469709016
+              ],
+              "passes": false
+            },
+            "J": {
+              "detections": 8808,
+              "simulations": 10000,
+              "probability": 0.8808,
+              "monte_carlo_95_percent_interval": [
+                0.8742881202877033,
+                0.8870891881150644
+              ],
+              "passes": true
+            }
+          },
+          "negative": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 4099,
+              "simulations": 10000,
+              "probability": 0.4099,
+              "monte_carlo_95_percent_interval": [
+                0.4002380162700878,
+                0.4196144896336996
+              ],
+              "passes": false
+            },
+            "J": {
+              "detections": 8820,
+              "simulations": 10000,
+              "probability": 0.882,
+              "monte_carlo_95_percent_interval": [
+                0.8755154998088273,
+                0.888261096789478
+              ],
+              "passes": true
+            }
+          }
+        },
+        "passes": false,
+        "criterion": "estimated detection probability >= .80",
+        "precision_requirement": "both precisions must detect each contrast"
+      },
+      "bootstrap_checks": null,
+      "passes": false
+    },
+    {
+      "n": 256,
+      "coverage": {
+        "n": 256,
+        "required_successes": 221,
+        "power_at_90_percent_success": 0.9765172933750128,
+        "passes": true
+      },
+      "normal_reference": {
+        "directions": {
+          "positive": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 5599,
+              "simulations": 10000,
+              "probability": 0.5599,
+              "monte_carlo_95_percent_interval": [
+                0.550104488398746,
+                0.5696606069817813
+              ],
+              "passes": false
+            },
+            "J": {
+              "detections": 9609,
+              "simulations": 10000,
+              "probability": 0.9609,
+              "monte_carlo_95_percent_interval": [
+                0.9569143344043558,
+                0.9646142824063755
+              ],
+              "passes": true
+            }
+          },
+          "negative": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 5599,
+              "simulations": 10000,
+              "probability": 0.5599,
+              "monte_carlo_95_percent_interval": [
+                0.550104488398746,
+                0.5696606069817813
+              ],
+              "passes": false
+            },
+            "J": {
+              "detections": 9617,
+              "simulations": 10000,
+              "probability": 0.9617,
+              "monte_carlo_95_percent_interval": [
+                0.957751553669002,
+                0.9653765462891757
+              ],
+              "passes": true
+            }
+          }
+        },
+        "passes": false,
+        "criterion": "estimated detection probability >= .80",
+        "precision_requirement": "both precisions must detect each contrast"
+      },
+      "bootstrap_checks": null,
+      "passes": false
+    },
+    {
+      "n": 384,
+      "coverage": {
+        "n": 384,
+        "required_successes": 327,
+        "power_at_90_percent_success": 0.9989333485413302,
+        "passes": true
+      },
+      "normal_reference": {
+        "directions": {
+          "positive": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 7867,
+              "simulations": 10000,
+              "probability": 0.7867,
+              "monte_carlo_95_percent_interval": [
+                0.7785383267823258,
+                0.7946943707008478
+              ],
+              "passes": false
+            },
+            "J": {
+              "detections": 9970,
+              "simulations": 10000,
+              "probability": 0.997,
+              "monte_carlo_95_percent_interval": [
+                0.9957200609129557,
+                0.99797502518413
+              ],
+              "passes": true
+            }
+          },
+          "negative": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 7814,
+              "simulations": 10000,
+              "probability": 0.7814,
+              "monte_carlo_95_percent_interval": [
+                0.7731681886621127,
+                0.7894676134456369
+              ],
+              "passes": false
+            },
+            "J": {
+              "detections": 9977,
+              "simulations": 10000,
+              "probability": 0.9977,
+              "monte_carlo_95_percent_interval": [
+                0.9965508573729986,
+                0.9985414559206947
+              ],
+              "passes": true
+            }
+          }
+        },
+        "passes": false,
+        "criterion": "estimated detection probability >= .80",
+        "precision_requirement": "both precisions must detect each contrast"
+      },
+      "bootstrap_checks": null,
+      "passes": false
+    },
+    {
+      "n": 512,
+      "coverage": {
+        "n": 512,
+        "required_successes": 433,
+        "power_at_90_percent_success": 0.9999535610443885,
+        "passes": true
+      },
+      "normal_reference": {
+        "directions": {
+          "positive": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 9060,
+              "simulations": 10000,
+              "probability": 0.906,
+              "monte_carlo_95_percent_interval": [
+                0.9001114022656211,
+                0.9116509009047766
+              ],
+              "passes": true
+            },
+            "J": {
+              "detections": 9995,
+              "simulations": 10000,
+              "probability": 0.9995,
+              "monte_carlo_95_percent_interval": [
+                0.998833555790932,
+                0.9998376320658016
+              ],
+              "passes": true
+            }
+          },
+          "negative": {
+            "I": {
+              "detections": 10000,
+              "simulations": 10000,
+              "probability": 1.0,
+              "monte_carlo_95_percent_interval": [
+                0.9996311800853812,
+                1.0
+              ],
+              "passes": true
+            },
+            "P": {
+              "detections": 9014,
+              "simulations": 10000,
+              "probability": 0.9014,
+              "monte_carlo_95_percent_interval": [
+                0.8953894336913149,
+                0.9071756189455868
+              ],
+              "passes": true
+            },
+            "J": {
+              "detections": 9999,
+              "simulations": 10000,
+              "probability": 0.9999,
+              "monte_carlo_95_percent_interval": [
+                0.9994429630020538,
+                0.9999974682224064
+              ],
+              "passes": true
+            }
+          }
+        },
+        "passes": true,
+        "criterion": "estimated detection probability >= .80",
+        "precision_requirement": "both precisions must detect each contrast"
+      },
+      "bootstrap_checks": {
+        "gaussian": {
+          "directions": {
+            "positive": {
+              "I": {
+                "detections": 1000,
+                "simulations": 1000,
+                "probability": 1.0,
+                "monte_carlo_95_percent_interval": [
+                  0.9963179161031344,
+                  1.0
+                ],
+                "passes": true
+              },
+              "P": {
+                "detections": 915,
+                "simulations": 1000,
+                "probability": 0.915,
+                "monte_carlo_95_percent_interval": [
+                  0.8959680142216235,
+                  0.9315427212290086
+                ],
+                "passes": true
+              },
+              "J": {
+                "detections": 999,
+                "simulations": 1000,
+                "probability": 0.999,
+                "monte_carlo_95_percent_interval": [
+                  0.9944410757201732,
+                  0.9999746825125087
+                ],
+                "passes": true
+              }
+            },
+            "negative": {
+              "I": {
+                "detections": 1000,
+                "simulations": 1000,
+                "probability": 1.0,
+                "monte_carlo_95_percent_interval": [
+                  0.9963179161031344,
+                  1.0
+                ],
+                "passes": true
+              },
+              "P": {
+                "detections": 909,
+                "simulations": 1000,
+                "probability": 0.909,
+                "monte_carlo_95_percent_interval": [
+                  0.889448505898133,
+                  0.9261008700575186
+                ],
+                "passes": true
+              },
+              "J": {
+                "detections": 1000,
+                "simulations": 1000,
+                "probability": 1.0,
+                "monte_carlo_95_percent_interval": [
+                  0.9963179161031344,
+                  1.0
+                ],
+                "passes": true
+              }
+            }
+          },
+          "passes": true,
+          "criterion": "lower endpoint of two-sided 95% MC CP interval > .80",
+          "precision_requirement": "both precisions must detect each contrast",
+          "distribution": "gaussian",
+          "bootstrap_draws": 2000,
+          "fixed_bootstrap_seed": 320260924,
+          "simulation_seed": 320261327
+        },
+        "empirical": {
+          "directions": {
+            "positive": {
+              "I": {
+                "detections": 1000,
+                "simulations": 1000,
+                "probability": 1.0,
+                "monte_carlo_95_percent_interval": [
+                  0.9963179161031344,
+                  1.0
+                ],
+                "passes": true
+              },
+              "P": {
+                "detections": 889,
+                "simulations": 1000,
+                "probability": 0.889,
+                "monte_carlo_95_percent_interval": [
+                  0.8678739382413101,
+                  0.9078020927958068
+                ],
+                "passes": true
+              },
+              "J": {
+                "detections": 1000,
+                "simulations": 1000,
+                "probability": 1.0,
+                "monte_carlo_95_percent_interval": [
+                  0.9963179161031344,
+                  1.0
+                ],
+                "passes": true
+              }
+            },
+            "negative": {
+              "I": {
+                "detections": 1000,
+                "simulations": 1000,
+                "probability": 1.0,
+                "monte_carlo_95_percent_interval": [
+                  0.9963179161031344,
+                  1.0
+                ],
+                "passes": true
+              },
+              "P": {
+                "detections": 926,
+                "simulations": 1000,
+                "probability": 0.926,
+                "monte_carlo_95_percent_interval": [
+                  0.9079882639857524,
+                  0.9414505557393469
+                ],
+                "passes": true
+              },
+              "J": {
+                "detections": 1000,
+                "simulations": 1000,
+                "probability": 1.0,
+                "monte_carlo_95_percent_interval": [
+                  0.9963179161031344,
+                  1.0
+                ],
+                "passes": true
+              }
+            }
+          },
+          "passes": true,
+          "criterion": "lower endpoint of two-sided 95% MC CP interval > .80",
+          "precision_requirement": "both precisions must detect each contrast",
+          "distribution": "empirical",
+          "bootstrap_draws": 2000,
+          "fixed_bootstrap_seed": 320260924,
+          "simulation_seed": 320261328
+        }
+      },
+      "passes": true
+    }
+  ],
+  "protocol_matches_frozen_simulation_counts": true,
+  "protocol_matches_development_size": true,
+  "confirmation_authorized": false,
+  "settings": {
+    "candidate_sizes": [
+      128,
+      192,
+      256,
+      384,
+      512
+    ],
+    "sd_inflation": 1.5,
+    "alternative_means_nat": [
+      -0.2,
+      0.2
+    ],
+    "practical_boundary_nat": 0.1,
+    "target_power_each_contrast": 0.8,
+    "profile_alternative_probability": 0.9,
+    "gaussian_simulations": 10000,
+    "bootstrap_simulations_per_distribution": 1000,
+    "bootstrap_draws": 2000,
+    "seed": 320260926,
+    "mean_family_alpha": 0.025,
+    "profile_family_alpha": 0.025
+  },
+  "assumptions_and_scope": [
+    "Planning alternatives and inflated development covariance are assumptions, not power guarantees.",
+    "Detection target is separate for each I/P/J contrast and each sign, not joint power.",
+    "Both precision decisions must detect; paired covariance is preserved in each simulation.",
+    "The bootstrap check tests nominal percentile intervals with 2000 draws; actual inference uses 20000 and an independent-seed stability gate.",
+    "MC binomial intervals are conditional on the fixed seeded bootstrap index bank.",
+    "No Monte Carlo, numerical, technical, or population-validity gate is guaranteed on new data.",
+    "Sample-size selection does not authorize confirmation before the required public freeze."
+  ],
+  "covariance_order": [
+    "float32.I",
+    "float32.P",
+    "float32.J",
+    "float64.I",
+    "float64.P",
+    "float64.J"
+  ],
+  "inflated_development_covariance": [
+    [
+      0.008198593823847534,
+      0.014047756485712994,
+      -0.016767781191202032,
+      0.008198614844051327,
+      0.014047765251156074,
+      -0.01676742798276279
+    ],
+    [
+      0.014047756485712994,
+      0.32904577097788695,
+      -0.0008711738881726297,
+      0.014047633726823515,
+      0.3290483378513004,
+      -0.0008683570799492097
+    ],
+    [
+      -0.016767781191202032,
+      -0.0008711738881726297,
+      0.13111233740439818,
+      -0.016767973501446546,
+      -0.0008702550232213978,
+      0.13111170869045405
+    ],
+    [
+      0.008198614844051327,
+      0.014047633726823515,
+      -0.016767973501446546,
+      0.00819863595812378,
+      0.014047642466361913,
+      -0.016767620262834303
+    ],
+    [
+      0.014047765251156074,
+      0.3290483378513004,
+      -0.0008702550232213978,
+      0.014047642466361913,
+      0.3290509048907212,
+      -0.00086743819971522
+    ],
+    [
+      -0.01676742798276279,
+      -0.0008683570799492097,
+      0.13111170869045405,
+      -0.016767620262834303,
+      -0.00086743819971522,
+      0.13111108043410027
+    ]
+  ],
+  "inflated_sd_by_precision": {
+    "float32": {
+      "I": 0.09054608673955786,
+      "P": 0.5736251136220301,
+      "J": 0.362094376377759
+    },
+    "float64": {
+      "I": 0.09054631940683056,
+      "P": 0.5736295885767411,
+      "J": 0.3620926406792884
+    }
+  },
+  "amendment": {
+    "id": "round3a-512-v1",
+    "protocol": {
+      "path": "applications/makelov-2311.17030/DONOR_FACTOR_512_AMENDMENT.md",
+      "sha256": "d56e73fdea9da7bc07c5588887ef7cb583a8f33fd1a2e1a583f918c9657eb9e1"
+    },
+    "original_stop": {
+      "path": "applications/makelov-2311.17030/results/donor_factor_planning/planning.json",
+      "sha256": "fa30e74a514e91a9eeac28930384addfa1ca9ae73b871d9423defd2312a40a28"
+    }
+  },
+  "development_binding": {
+    "cases.json": "5a327a531927411d811256b87b2c67869f18545357a307dceeb4b32fe9918d4c",
+    "records.jsonl": "7ab8a063df335be0e76a00d0795993ceee9ef1ed0a1c1eca0294029f61548a92",
+    "summary.json": "07652bedca2166e812c3101241546d6c9bb2bb56c77f730cf3ca9a227343a51d",
+    "manifest.json": "5aadc0de289eaaa86cd54b7057f85afd5b236a786bd7f42bd80b8a836bb686c4"
+  },
+  "planner_code_sha256": "77501391bac962d6bfed1007249da86c4a20d13fc0ac0278269e37c4ef71424f",
+  "planning_elapsed_seconds": 9.592887163162231,
+  "created_unix": 1790258681.832107
+}
