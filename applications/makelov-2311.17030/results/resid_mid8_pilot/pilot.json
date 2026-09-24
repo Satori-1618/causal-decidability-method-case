@@ -1,0 +1,72 @@
+{
+ "summary": {
+  "n": 200,
+  "mean_E_full": {
+   "L": 4.795769352912902,
+   "A": 0.73
+  },
+  "sd": {
+   "L": {
+    "row": {
+     "d_inert": 1.5173088035737652,
+     "d_all": 0.3576460156728388
+    },
+    "null": {
+     "d_inert": 0.27091868186565177,
+     "d_all": 1.5181797962689845
+    }
+   },
+   "A": {
+    "row": {
+     "d_inert": 0.4970010565896784,
+     "d_all": 0.3721119948126069
+    },
+    "null": {
+     "d_inert": 0.0,
+     "d_all": 0.4450735357907797
+    }
+   }
+  },
+  "sd_convention": "sample standard deviation, ddof=1, float64"
+ },
+ "decomposition": {
+  "basis": "qr",
+  "rank": 192,
+  "vector_norm": 0.9999700784683228,
+  "row_norm": 0.8724565505981445,
+  "null_norm": 0.4886307418346405,
+  "row_dot_null": -2.421438694000244e-08,
+  "null_through_queries": 4.1077178201511395e-07,
+  "split_error": 0.0
+ },
+ "provenance": {
+  "prereg": "PREREG_RESID_MID8.md",
+  "git_head": "47b6e19bdf519e630734fe1868bbe131ada02565",
+  "seed": 7001,
+  "per_combination": 100,
+  "pythonhashseed": "0",
+  "symbol_order": "BA",
+  "site": "blocks.8.hook_resid_mid",
+  "position": "last",
+  "name_movers": [
+   "9.6",
+   "9.9",
+   "10.0"
+  ],
+  "dtype": "float32",
+  "device": "cpu",
+  "dataset_sha256": "5d54ee5120432303fa9b11ac282640199dbefab0468338e2dfee19c09160cb52",
+  "name_mover_queries_sha256": "74d822a1884712ad87c08acde97db0710a8ac3a1ac3a79749e5f31638ae386df",
+  "file_sha256": {
+   "scripts/run_resid_mid8_pilot.py": "a008e11fd3280ea50b7574926acd2404d597e2522b39a70f434b2da431a08bca",
+   "src/resid_mid8_pilot.py": "4c400fb8280836730086b06277809dfbb6c99adea057b6ff618675bd3030a8df",
+   "src/makelov_table1.py": "435081ba3b0043b6c9a811c4ed5a49f74701083398ddd5dee12552b4751fa02e",
+   "src/decidability.py": "ab0fd838a9a6b354d72d83c8b9730b095c0a443a4eeae756f2d1491eb17365f8",
+   "PREREG_RESID_MID8.md": "b8fc20ad96671f1369cd0e2c95dab7d6a4ba10c11d6af1df3533205ae6fa8d81",
+   "artifacts/makelov_source/das_resid_mid.joblib": "4e69edf9361c3216d9e6bb753d75de440128858757f93028a2293db0488124e3"
+  },
+  "python": "3.12.7",
+  "torch": "2.5.1",
+  "runtime_seconds": 17.0
+ }
+}

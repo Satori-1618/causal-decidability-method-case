@@ -1,0 +1,2018 @@
+[
+  {
+    "case_id": "88feccabf5870a27",
+    "draw": 0,
+    "prompts": [
+      "Then, Brandon and Jean were working at the reef. Jean decided to give a scarf to",
+      "Then, Jean and Brandon were working at the reef. Jean decided to give a scarf to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        14328,
+        290,
+        11320,
+        547,
+        1762,
+        379,
+        262,
+        25088,
+        13,
+        11320,
+        3066,
+        284,
+        1577,
+        257,
+        36953,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        11320,
+        290,
+        14328,
+        547,
+        1762,
+        379,
+        262,
+        25088,
+        13,
+        11320,
+        3066,
+        284,
+        1577,
+        257,
+        36953,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Brandon",
+    "subject": "Jean",
+    "answer_token_ids": [
+      14328,
+      11320
+    ]
+  },
+  {
+    "case_id": "3d97f2b437849536",
+    "draw": 1,
+    "prompts": [
+      "Then, Michael and Violet were working at the office. Violet decided to give a hat to",
+      "Then, Violet and Michael were working at the office. Violet decided to give a hat to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        3899,
+        290,
+        37111,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        37111,
+        3066,
+        284,
+        1577,
+        257,
+        6877,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        37111,
+        290,
+        3899,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        37111,
+        3066,
+        284,
+        1577,
+        257,
+        6877,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Michael",
+    "subject": "Violet",
+    "answer_token_ids": [
+      3899,
+      37111
+    ]
+  },
+  {
+    "case_id": "3b60f521fb4b34dc",
+    "draw": 2,
+    "prompts": [
+      "Then, Andrew and Laura were working at the gallery. Laura decided to give a chalk to",
+      "Then, Laura and Andrew were working at the gallery. Laura decided to give a chalk to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        6858,
+        290,
+        16753,
+        547,
+        1762,
+        379,
+        262,
+        15604,
+        13,
+        16753,
+        3066,
+        284,
+        1577,
+        257,
+        30860,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16753,
+        290,
+        6858,
+        547,
+        1762,
+        379,
+        262,
+        15604,
+        13,
+        16753,
+        3066,
+        284,
+        1577,
+        257,
+        30860,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Andrew",
+    "subject": "Laura",
+    "answer_token_ids": [
+      6858,
+      16753
+    ]
+  },
+  {
+    "case_id": "f6757aa45ace6fda",
+    "draw": 3,
+    "prompts": [
+      "Then, Michael and Jeff were working at the plateau. Jeff decided to give a shoes to",
+      "Then, Jeff and Michael were working at the plateau. Jeff decided to give a shoes to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        3899,
+        290,
+        5502,
+        547,
+        1762,
+        379,
+        262,
+        38008,
+        13,
+        5502,
+        3066,
+        284,
+        1577,
+        257,
+        10012,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5502,
+        290,
+        3899,
+        547,
+        1762,
+        379,
+        262,
+        38008,
+        13,
+        5502,
+        3066,
+        284,
+        1577,
+        257,
+        10012,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Michael",
+    "subject": "Jeff",
+    "answer_token_ids": [
+      3899,
+      5502
+    ]
+  },
+  {
+    "case_id": "e720e99c701362e3",
+    "draw": 4,
+    "prompts": [
+      "Then, Chase and Bill were working at the jersey. Bill decided to give a magazine to",
+      "Then, Bill and Chase were working at the jersey. Bill decided to give a magazine to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        16346,
+        290,
+        3941,
+        547,
+        1762,
+        379,
+        262,
+        22383,
+        13,
+        3941,
+        3066,
+        284,
+        1577,
+        257,
+        7093,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        3941,
+        290,
+        16346,
+        547,
+        1762,
+        379,
+        262,
+        22383,
+        13,
+        3941,
+        3066,
+        284,
+        1577,
+        257,
+        7093,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Chase",
+    "subject": "Bill",
+    "answer_token_ids": [
+      16346,
+      3941
+    ]
+  },
+  {
+    "case_id": "825dac4e26040d48",
+    "draw": 5,
+    "prompts": [
+      "Then, Alexander and Alex were working at the glacier. Alex decided to give a mascara to",
+      "Then, Alex and Alexander were working at the glacier. Alex decided to give a mascara to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        10009,
+        290,
+        4422,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        4422,
+        3066,
+        284,
+        1577,
+        257,
+        48430,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        4422,
+        290,
+        10009,
+        547,
+        1762,
+        379,
+        262,
+        44539,
+        13,
+        4422,
+        3066,
+        284,
+        1577,
+        257,
+        48430,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Alexander",
+    "subject": "Alex",
+    "answer_token_ids": [
+      10009,
+      4422
+    ]
+  },
+  {
+    "case_id": "a74a96b0ff5c1226",
+    "draw": 6,
+    "prompts": [
+      "Then, Samuel and Jonathan were working at the tunnel. Jonathan decided to give a charcoal to",
+      "Then, Jonathan and Samuel were working at the tunnel. Jonathan decided to give a charcoal to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        17100,
+        290,
+        11232,
+        547,
+        1762,
+        379,
+        262,
+        13275,
+        13,
+        11232,
+        3066,
+        284,
+        1577,
+        257,
+        33512,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        11232,
+        290,
+        17100,
+        547,
+        1762,
+        379,
+        262,
+        13275,
+        13,
+        11232,
+        3066,
+        284,
+        1577,
+        257,
+        33512,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Samuel",
+    "subject": "Jonathan",
+    "answer_token_ids": [
+      17100,
+      11232
+    ]
+  },
+  {
+    "case_id": "7f53d8c4a95a8f3b",
+    "draw": 7,
+    "prompts": [
+      "Then, Ruby and Nathan were working at the lounge. Nathan decided to give a camera to",
+      "Then, Nathan and Ruby were working at the lounge. Nathan decided to give a camera to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        10888,
+        290,
+        18106,
+        547,
+        1762,
+        379,
+        262,
+        31893,
+        13,
+        18106,
+        3066,
+        284,
+        1577,
+        257,
+        4676,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        18106,
+        290,
+        10888,
+        547,
+        1762,
+        379,
+        262,
+        31893,
+        13,
+        18106,
+        3066,
+        284,
+        1577,
+        257,
+        4676,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Ruby",
+    "subject": "Nathan",
+    "answer_token_ids": [
+      10888,
+      18106
+    ]
+  },
+  {
+    "case_id": "affd3029d1903ae3",
+    "draw": 8,
+    "prompts": [
+      "Then, Paige and Christopher were working at the plateau. Christopher decided to give a tape to",
+      "Then, Christopher and Paige were working at the plateau. Christopher decided to give a tape to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        42847,
+        290,
+        12803,
+        547,
+        1762,
+        379,
+        262,
+        38008,
+        13,
+        12803,
+        3066,
+        284,
+        1577,
+        257,
+        9154,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        12803,
+        290,
+        42847,
+        547,
+        1762,
+        379,
+        262,
+        38008,
+        13,
+        12803,
+        3066,
+        284,
+        1577,
+        257,
+        9154,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Paige",
+    "subject": "Christopher",
+    "answer_token_ids": [
+      42847,
+      12803
+    ]
+  },
+  {
+    "case_id": "6b2b4bf39bc32804",
+    "draw": 9,
+    "prompts": [
+      "Then, Natalie and Julia were working at the jungle. Julia decided to give a notebook to",
+      "Then, Julia and Natalie were working at the jungle. Julia decided to give a notebook to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        35571,
+        290,
+        22300,
+        547,
+        1762,
+        379,
+        262,
+        20712,
+        13,
+        22300,
+        3066,
+        284,
+        1577,
+        257,
+        20922,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        22300,
+        290,
+        35571,
+        547,
+        1762,
+        379,
+        262,
+        20712,
+        13,
+        22300,
+        3066,
+        284,
+        1577,
+        257,
+        20922,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Natalie",
+    "subject": "Julia",
+    "answer_token_ids": [
+      35571,
+      22300
+    ]
+  },
+  {
+    "case_id": "6a6c691b60828579",
+    "draw": 10,
+    "prompts": [
+      "Then, Piper and Peter were working at the home. Peter decided to give a laptop to",
+      "Then, Peter and Piper were working at the home. Peter decided to give a laptop to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        33503,
+        290,
+        5613,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        5613,
+        3066,
+        284,
+        1577,
+        257,
+        13224,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5613,
+        290,
+        33503,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        5613,
+        3066,
+        284,
+        1577,
+        257,
+        13224,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Piper",
+    "subject": "Peter",
+    "answer_token_ids": [
+      33503,
+      5613
+    ]
+  },
+  {
+    "case_id": "8301b0adec42eea6",
+    "draw": 11,
+    "prompts": [
+      "Then, Andy and Austin were working at the stadium. Austin decided to give a kettle to",
+      "Then, Austin and Andy were working at the stadium. Austin decided to give a kettle to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        12382,
+        290,
+        9533,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        9533,
+        3066,
+        284,
+        1577,
+        257,
+        40231,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        9533,
+        290,
+        12382,
+        547,
+        1762,
+        379,
+        262,
+        10308,
+        13,
+        9533,
+        3066,
+        284,
+        1577,
+        257,
+        40231,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Andy",
+    "subject": "Austin",
+    "answer_token_ids": [
+      12382,
+      9533
+    ]
+  },
+  {
+    "case_id": "a01fed8b8d7a51c0",
+    "draw": 12,
+    "prompts": [
+      "Then, Todd and Andrea were working at the street. Andrea decided to give a pencil to",
+      "Then, Andrea and Todd were working at the street. Andrea decided to give a pencil to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        14377,
+        290,
+        23174,
+        547,
+        1762,
+        379,
+        262,
+        4675,
+        13,
+        23174,
+        3066,
+        284,
+        1577,
+        257,
+        21613,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        23174,
+        290,
+        14377,
+        547,
+        1762,
+        379,
+        262,
+        4675,
+        13,
+        23174,
+        3066,
+        284,
+        1577,
+        257,
+        21613,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Todd",
+    "subject": "Andrea",
+    "answer_token_ids": [
+      14377,
+      23174
+    ]
+  },
+  {
+    "case_id": "d98fa1d35df83421",
+    "draw": 13,
+    "prompts": [
+      "Then, Michelle and Bella were working at the motel. Bella decided to give a flag to",
+      "Then, Bella and Michelle were working at the motel. Bella decided to give a flag to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        16738,
+        290,
+        39304,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        39304,
+        3066,
+        284,
+        1577,
+        257,
+        6056,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        39304,
+        290,
+        16738,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        39304,
+        3066,
+        284,
+        1577,
+        257,
+        6056,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Michelle",
+    "subject": "Bella",
+    "answer_token_ids": [
+      16738,
+      39304
+    ]
+  },
+  {
+    "case_id": "d9dab0b827f8d369",
+    "draw": 14,
+    "prompts": [
+      "Then, Grace and Ben were working at the motel. Ben decided to give a goggles to",
+      "Then, Ben and Grace were working at the motel. Ben decided to give a goggles to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        16156,
+        290,
+        3932,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        3932,
+        3066,
+        284,
+        1577,
+        257,
+        42762,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        3932,
+        290,
+        16156,
+        547,
+        1762,
+        379,
+        262,
+        44404,
+        13,
+        3932,
+        3066,
+        284,
+        1577,
+        257,
+        42762,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Grace",
+    "subject": "Ben",
+    "answer_token_ids": [
+      16156,
+      3932
+    ]
+  },
+  {
+    "case_id": "da57386785b62586",
+    "draw": 15,
+    "prompts": [
+      "Then, Mia and Cameron were working at the landfill. Cameron decided to give a cup to",
+      "Then, Cameron and Mia were working at the landfill. Cameron decided to give a cup to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        32189,
+        290,
+        10821,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        10821,
+        3066,
+        284,
+        1577,
+        257,
+        6508,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        10821,
+        290,
+        32189,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        10821,
+        3066,
+        284,
+        1577,
+        257,
+        6508,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Mia",
+    "subject": "Cameron",
+    "answer_token_ids": [
+      32189,
+      10821
+    ]
+  },
+  {
+    "case_id": "4f94065b4989a5a6",
+    "draw": 16,
+    "prompts": [
+      "Then, Noah and Savannah were working at the canyon. Savannah decided to give a pencil to",
+      "Then, Savannah and Noah were working at the canyon. Savannah decided to give a pencil to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        18394,
+        290,
+        40695,
+        547,
+        1762,
+        379,
+        262,
+        42775,
+        13,
+        40695,
+        3066,
+        284,
+        1577,
+        257,
+        21613,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        40695,
+        290,
+        18394,
+        547,
+        1762,
+        379,
+        262,
+        42775,
+        13,
+        40695,
+        3066,
+        284,
+        1577,
+        257,
+        21613,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Noah",
+    "subject": "Savannah",
+    "answer_token_ids": [
+      18394,
+      40695
+    ]
+  },
+  {
+    "case_id": "56262cce1a197576",
+    "draw": 17,
+    "prompts": [
+      "Then, Mike and Paige were working at the landfill. Paige decided to give a cloth to",
+      "Then, Paige and Mike were working at the landfill. Paige decided to give a cloth to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        4995,
+        290,
+        42847,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        42847,
+        3066,
+        284,
+        1577,
+        257,
+        16270,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        42847,
+        290,
+        4995,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        42847,
+        3066,
+        284,
+        1577,
+        257,
+        16270,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Mike",
+    "subject": "Paige",
+    "answer_token_ids": [
+      4995,
+      42847
+    ]
+  },
+  {
+    "case_id": "f3ccd25b3ff64991",
+    "draw": 18,
+    "prompts": [
+      "Then, Colin and Taylor were working at the landfill. Taylor decided to give a glove to",
+      "Then, Taylor and Colin were working at the landfill. Taylor decided to give a glove to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        18373,
+        290,
+        8121,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        8121,
+        3066,
+        284,
+        1577,
+        257,
+        29144,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        8121,
+        290,
+        18373,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        8121,
+        3066,
+        284,
+        1577,
+        257,
+        29144,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Colin",
+    "subject": "Taylor",
+    "answer_token_ids": [
+      18373,
+      8121
+    ]
+  },
+  {
+    "case_id": "68957fcde17c683b",
+    "draw": 19,
+    "prompts": [
+      "Then, Amelia and Gabriel were working at the landfill. Gabriel decided to give a umbrella to",
+      "Then, Gabriel and Amelia were working at the landfill. Gabriel decided to give a umbrella to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        49769,
+        290,
+        17371,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        17371,
+        3066,
+        284,
+        1577,
+        257,
+        25510,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        17371,
+        290,
+        49769,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        17371,
+        3066,
+        284,
+        1577,
+        257,
+        25510,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Amelia",
+    "subject": "Gabriel",
+    "answer_token_ids": [
+      49769,
+      17371
+    ]
+  },
+  {
+    "case_id": "f0987d6b805ec491",
+    "draw": 20,
+    "prompts": [
+      "Then, Eva and Austin were working at the market. Austin decided to give a flag to",
+      "Then, Austin and Eva were working at the market. Austin decided to give a flag to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        32355,
+        290,
+        9533,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        9533,
+        3066,
+        284,
+        1577,
+        257,
+        6056,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        9533,
+        290,
+        32355,
+        547,
+        1762,
+        379,
+        262,
+        1910,
+        13,
+        9533,
+        3066,
+        284,
+        1577,
+        257,
+        6056,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Eva",
+    "subject": "Austin",
+    "answer_token_ids": [
+      32355,
+      9533
+    ]
+  },
+  {
+    "case_id": "af7a6c33312ad9d5",
+    "draw": 21,
+    "prompts": [
+      "Then, Brooklyn and Adam were working at the synagogue. Adam decided to give a knife to",
+      "Then, Adam and Brooklyn were working at the synagogue. Adam decided to give a knife to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        12232,
+        290,
+        7244,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        9845,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        7244,
+        290,
+        12232,
+        547,
+        1762,
+        379,
+        262,
+        41953,
+        13,
+        7244,
+        3066,
+        284,
+        1577,
+        257,
+        9845,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Brooklyn",
+    "subject": "Adam",
+    "answer_token_ids": [
+      12232,
+      7244
+    ]
+  },
+  {
+    "case_id": "be928a70f1b66efa",
+    "draw": 22,
+    "prompts": [
+      "Then, Andrea and Joy were working at the office. Joy decided to give a mug to",
+      "Then, Joy and Andrea were working at the office. Joy decided to give a mug to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        23174,
+        290,
+        14087,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        14087,
+        3066,
+        284,
+        1577,
+        257,
+        25152,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        14087,
+        290,
+        23174,
+        547,
+        1762,
+        379,
+        262,
+        2607,
+        13,
+        14087,
+        3066,
+        284,
+        1577,
+        257,
+        25152,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Andrea",
+    "subject": "Joy",
+    "answer_token_ids": [
+      23174,
+      14087
+    ]
+  },
+  {
+    "case_id": "a01ca6cde9a7b3e4",
+    "draw": 23,
+    "prompts": [
+      "Then, Alexander and Owen were working at the circus. Owen decided to give a mirror to",
+      "Then, Owen and Alexander were working at the circus. Owen decided to give a mirror to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        10009,
+        290,
+        22605,
+        547,
+        1762,
+        379,
+        262,
+        33125,
+        13,
+        22605,
+        3066,
+        284,
+        1577,
+        257,
+        10162,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        22605,
+        290,
+        10009,
+        547,
+        1762,
+        379,
+        262,
+        33125,
+        13,
+        22605,
+        3066,
+        284,
+        1577,
+        257,
+        10162,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Alexander",
+    "subject": "Owen",
+    "answer_token_ids": [
+      10009,
+      22605
+    ]
+  },
+  {
+    "case_id": "9f346af2d42eddc6",
+    "draw": 24,
+    "prompts": [
+      "Then, Andrea and Max were working at the museum. Max decided to give a joystick to",
+      "Then, Max and Andrea were working at the museum. Max decided to give a joystick to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        23174,
+        290,
+        5436,
+        547,
+        1762,
+        379,
+        262,
+        13257,
+        13,
+        5436,
+        3066,
+        284,
+        1577,
+        257,
+        49485,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        5436,
+        290,
+        23174,
+        547,
+        1762,
+        379,
+        262,
+        13257,
+        13,
+        5436,
+        3066,
+        284,
+        1577,
+        257,
+        49485,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Andrea",
+    "subject": "Max",
+    "answer_token_ids": [
+      23174,
+      5436
+    ]
+  },
+  {
+    "case_id": "dacdac792d834c1e",
+    "draw": 25,
+    "prompts": [
+      "Then, Charles and Julian were working at the home. Julian decided to give a flag to",
+      "Then, Julian and Charles were working at the home. Julian decided to give a flag to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        7516,
+        290,
+        18322,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        18322,
+        3066,
+        284,
+        1577,
+        257,
+        6056,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        18322,
+        290,
+        7516,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        18322,
+        3066,
+        284,
+        1577,
+        257,
+        6056,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Charles",
+    "subject": "Julian",
+    "answer_token_ids": [
+      7516,
+      18322
+    ]
+  },
+  {
+    "case_id": "b4b1ec9bdd8aa836",
+    "draw": 26,
+    "prompts": [
+      "Then, Jon and Eva were working at the jungle. Eva decided to give a tie to",
+      "Then, Eva and Jon were working at the jungle. Eva decided to give a tie to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        5966,
+        290,
+        32355,
+        547,
+        1762,
+        379,
+        262,
+        20712,
+        13,
+        32355,
+        3066,
+        284,
+        1577,
+        257,
+        9839,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        32355,
+        290,
+        5966,
+        547,
+        1762,
+        379,
+        262,
+        20712,
+        13,
+        32355,
+        3066,
+        284,
+        1577,
+        257,
+        9839,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Jon",
+    "subject": "Eva",
+    "answer_token_ids": [
+      5966,
+      32355
+    ]
+  },
+  {
+    "case_id": "71c40fd6046dc6df",
+    "draw": 27,
+    "prompts": [
+      "Then, Elizabeth and Matt were working at the home. Matt decided to give a blanket to",
+      "Then, Matt and Elizabeth were working at the home. Matt decided to give a blanket to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        10674,
+        290,
+        4705,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        4705,
+        3066,
+        284,
+        1577,
+        257,
+        18447,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        4705,
+        290,
+        10674,
+        547,
+        1762,
+        379,
+        262,
+        1363,
+        13,
+        4705,
+        3066,
+        284,
+        1577,
+        257,
+        18447,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Elizabeth",
+    "subject": "Matt",
+    "answer_token_ids": [
+      10674,
+      4705
+    ]
+  },
+  {
+    "case_id": "ee23cc3fd76e4166",
+    "draw": 28,
+    "prompts": [
+      "Then, Matt and Michael were working at the resort. Michael decided to give a pamphlet to",
+      "Then, Michael and Matt were working at the resort. Michael decided to give a pamphlet to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        4705,
+        290,
+        3899,
+        547,
+        1762,
+        379,
+        262,
+        12600,
+        13,
+        3899,
+        3066,
+        284,
+        1577,
+        257,
+        42919,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        3899,
+        290,
+        4705,
+        547,
+        1762,
+        379,
+        262,
+        12600,
+        13,
+        3899,
+        3066,
+        284,
+        1577,
+        257,
+        42919,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Matt",
+    "subject": "Michael",
+    "answer_token_ids": [
+      4705,
+      3899
+    ]
+  },
+  {
+    "case_id": "c350dbe44f8990e2",
+    "draw": 29,
+    "prompts": [
+      "Then, Paige and Rob were working at the resort. Rob decided to give a paper to",
+      "Then, Rob and Paige were working at the resort. Rob decided to give a paper to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        42847,
+        290,
+        3851,
+        547,
+        1762,
+        379,
+        262,
+        12600,
+        13,
+        3851,
+        3066,
+        284,
+        1577,
+        257,
+        3348,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        3851,
+        290,
+        42847,
+        547,
+        1762,
+        379,
+        262,
+        12600,
+        13,
+        3851,
+        3066,
+        284,
+        1577,
+        257,
+        3348,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Paige",
+    "subject": "Rob",
+    "answer_token_ids": [
+      42847,
+      3851
+    ]
+  },
+  {
+    "case_id": "d796ab23cc871074",
+    "draw": 30,
+    "prompts": [
+      "Then, Aaron and Parker were working at the landfill. Parker decided to give a goggles to",
+      "Then, Parker and Aaron were working at the landfill. Parker decided to give a goggles to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        12139,
+        290,
+        13612,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        13612,
+        3066,
+        284,
+        1577,
+        257,
+        42762,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        13612,
+        290,
+        12139,
+        547,
+        1762,
+        379,
+        262,
+        47712,
+        13,
+        13612,
+        3066,
+        284,
+        1577,
+        257,
+        42762,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Aaron",
+    "subject": "Parker",
+    "answer_token_ids": [
+      12139,
+      13612
+    ]
+  },
+  {
+    "case_id": "8fa760ffcf730568",
+    "draw": 31,
+    "prompts": [
+      "Then, Clara and Kate were working at the brewery. Kate decided to give a notebook to",
+      "Then, Kate and Clara were working at the brewery. Kate decided to give a notebook to"
+    ],
+    "patterns": [
+      "ABB",
+      "BAB"
+    ],
+    "token_ids": [
+      [
+        50256,
+        6423,
+        11,
+        27443,
+        290,
+        16693,
+        547,
+        1762,
+        379,
+        262,
+        22120,
+        13,
+        16693,
+        3066,
+        284,
+        1577,
+        257,
+        20922,
+        284
+      ],
+      [
+        50256,
+        6423,
+        11,
+        16693,
+        290,
+        27443,
+        547,
+        1762,
+        379,
+        262,
+        22120,
+        13,
+        16693,
+        3066,
+        284,
+        1577,
+        257,
+        20922,
+        284
+      ]
+    ],
+    "position": 18,
+    "io": "Clara",
+    "subject": "Kate",
+    "answer_token_ids": [
+      27443,
+      16693
+    ]
+  }
+]

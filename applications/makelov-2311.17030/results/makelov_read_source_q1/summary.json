@@ -1,0 +1,172 @@
+{
+  "status": "development_pilot_not_confirmation",
+  "independent_unit": "base_prompt_pair",
+  "n_base_pairs": 64,
+  "n_directed_pairs": 128,
+  "estimand": "IO minus subject logit margin; positive effect increases IO preference",
+  "effects_by_receiver_pattern": {
+    "ABB": {
+      "full": {
+        "mean": -1.1799556463956833,
+        "nominal_bootstrap_95": [
+          -1.3005446895956994,
+          -1.061127771437168
+        ],
+        "n_base_pairs": 64
+      },
+      "read_row": {
+        "mean": -0.1989082396030426,
+        "nominal_bootstrap_95": [
+          -0.22324141450226306,
+          -0.1763178184628487
+        ],
+        "n_base_pairs": 64
+      },
+      "read_null": {
+        "mean": -0.9951984882354736,
+        "nominal_bootstrap_95": [
+          -1.0986123446375131,
+          -0.8951046347618103
+        ],
+        "n_base_pairs": 64
+      }
+    },
+    "BAB": {
+      "full": {
+        "mean": -1.7417669743299484,
+        "nominal_bootstrap_95": [
+          -1.9094095196574927,
+          -1.581987086310983
+        ],
+        "n_base_pairs": 64
+      },
+      "read_row": {
+        "mean": -0.292437344789505,
+        "nominal_bootstrap_95": [
+          -0.3261254642158747,
+          -0.2618956323713065
+        ],
+        "n_base_pairs": 64
+      },
+      "read_null": {
+        "mean": -1.4644941985607147,
+        "nominal_bootstrap_95": [
+          -1.6022587273269893,
+          -1.3328083675354718
+        ],
+        "n_base_pairs": 64
+      }
+    }
+  },
+  "A_visible_read_MAE": {
+    "mean": 1.2225174307823181,
+    "nominal_bootstrap_95": [
+      1.1254469309002162,
+      1.3239451182074844
+    ],
+    "n_base_pairs": 64
+  },
+  "B_null_read_MAE": {
+    "mean": 0.23834387958049774,
+    "nominal_bootstrap_95": [
+      0.21547441259026529,
+      0.26250509973615405
+    ],
+    "n_base_pairs": 64
+  },
+  "paired_MAE_A_minus_B_positive_favors_B": {
+    "mean": 0.9841735512018204,
+    "nominal_bootstrap_95": [
+      0.9061785530298948,
+      1.0637988161295653
+    ],
+    "n_base_pairs": 64
+  },
+  "conditional_rival_separation_mean_absolute_full_effect": {
+    "mean": 1.4608613103628159,
+    "nominal_bootstrap_95": [
+      1.3425212388858199,
+      1.5848070938140153
+    ],
+    "n_base_pairs": 64
+  },
+  "identity_controls_passed": true,
+  "fidelity_controls_passed": true,
+  "baseline_IO_wins": 125,
+  "baseline_ties": 0,
+  "interpretation": "Relative predictive fit of two patch-read-source explanations; neither semantic identification nor a preregistered adequacy decision.",
+  "precision_MPS32_vs_CPU64": {
+    "n_directed_pairs": 8,
+    "max_discrepancy": {
+      "baseline": {
+        "margin": 3.271206168342644e-05,
+        "effect": 0.0
+      },
+      "full": {
+        "margin": 1.987607861231311e-05,
+        "effect": 3.1148380257306485e-05
+      },
+      "read_row": {
+        "margin": 1.3977666950992784e-05,
+        "effect": 2.170102744258884e-05
+      },
+      "read_null": {
+        "margin": 2.0249936428129445e-05,
+        "effect": 2.172799167610151e-05
+      }
+    }
+  },
+  "backend_MPS32_vs_CPU32": {
+    "n_directed_pairs": 8,
+    "max_discrepancy": {
+      "baseline": {
+        "margin": 0.0,
+        "effect": 0.0
+      },
+      "full": {
+        "margin": 0.0,
+        "effect": 0.0
+      },
+      "read_row": {
+        "margin": 0.0,
+        "effect": 0.0
+      },
+      "read_null": {
+        "margin": 0.0,
+        "effect": 0.0
+      }
+    }
+  },
+  "precision_CPU32_vs_CPU64": {
+    "n_directed_pairs": 8,
+    "max_discrepancy": {
+      "baseline": {
+        "margin": 3.271206168342644e-05,
+        "effect": 0.0
+      },
+      "full": {
+        "margin": 1.987607861231311e-05,
+        "effect": 3.1148380257306485e-05
+      },
+      "read_row": {
+        "margin": 1.3977666950992784e-05,
+        "effect": 2.170102744258884e-05
+      },
+      "read_null": {
+        "margin": 2.0249936428129445e-05,
+        "effect": 2.172799167610151e-05
+      }
+    }
+  },
+  "precision_scope": "First predeclared base pairs only; float64 uses the same processed float32 weights and directions. A reference, not exact truth or a universal error bound.",
+  "elapsed_seconds": 31.18957018852234,
+  "model_forward_calls": 360,
+  "input_hashes": {
+    "directions.npz": "a3d41db3ce884de11a35e643d28474ebb1158eb2f597414a7b676fe94706e475",
+    "reference_cpu64.json": "0f69d4ba84fb236acdcecff1d4e442d25601f03cb444e21990b2eafe0923e968",
+    "reference_cpu32.json": "d3c401afd8d98f5fb033c5fc1641cef8678b43fb81d8d43e17177e7e34dc1a6f",
+    "records.jsonl": "eb4428e174b67dd65d3a9948a550273dc6fefe6adbfb4c014baadf82542f0ef1",
+    "cases.json": "386cd48b89b316b73cac383a209d9cddc539c4cc3339931a4c43cb6d23aa66f2",
+    "manifest.json": "043a2f02e99b5d22c5ff2b507e6e2721146511eb73f2e9ed6738303552b450c3"
+  }
+}

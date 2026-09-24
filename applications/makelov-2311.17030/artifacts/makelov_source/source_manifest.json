@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/amakelov/activation-patching-illusion",
+  "revision": "e0c465b74561d9c3dd1f2afa770974bf5fcaee01",
+  "files": {
+    "common_imports.py": "1a86c9c1695eec28baba7315e41805f58cc6c2f31b72aa6960dba7065cec5ba3",
+    "model_utils.py": "4780c94c3fa214ca6721925fbcb160af42ae31085ee4f8e551bf5bf06485fba2",
+    "data_utils.py": "857509c2e3fdba05ce35cb55204845efa38528d51d8a4aed24d48663f71082c8",
+    "ioi_analysis.ipynb": "1eb935aa61dfe3157d11894d856fc35b9016e830add47d3c200bd9c5dc5abb9e",
+    "das_mlp8.joblib": "83a3ff420ee50eac7b364fe6d992d0d2a436b147d472cf10bbba92b76bd8739f",
+    "data/names.json": "c5ef21c1d1bf2d0d1517f692d384eb1b0739b9be3ca7467af23eb510a1bf6589",
+    "data/objects.json": "ca33512e03a4f8a28b5d57443618921dcc83ddec8207981463160e459967b366",
+    "data/places.json": "cdfc24ece20f53aa6e6d427699aa8a190371b7fa1edbe7b51d53d8cde4b30c37",
+    "data/prefixes.json": "fb516e6297bb30a6aef8dc0273d0ccdee594f0ce702762a65f8c88907d99f540",
+    "data/templates.json": "336c14bf9d95e6945f8fc29e4adbae9601516fd0ab7642d7098c93c4ea5d6b5e"
+  }
+}

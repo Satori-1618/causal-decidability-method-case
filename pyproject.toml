@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "causal-decidability"
+version = "0.2.0"
+description = "Plan and check discriminating causal experiments: can this design tell the declared explanations apart?"
+readme = "README.md"
+authors = [{name = "Felix Borck"}]
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/Satori-1618/causal-decidability-method-case"
+
+[project.optional-dependencies]
+test = ["pytest"]
+figures = ["matplotlib"]
+
+[project.scripts]
+causal-decide = "causal_decidability.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "applications/makelov-2311.17030/tests/test_check_read_source_q1_records.py"]

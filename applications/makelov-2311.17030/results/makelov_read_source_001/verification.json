@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "n_base_pairs": 32,
+  "n_directed_pairs": 64,
+  "independently_recomputed_means": {
+    "A_visible_read_MAE": 1.338178314268589,
+    "B_null_read_MAE": 0.260309673845768,
+    "paired_MAE_A_minus_B_positive_favors_B": 1.077868640422821
+  },
+  "final_estimand_precision": {
+    "MPS32_vs_CPU64": {
+      "max_directed_difference_in_paired_MAE_advantage": 1.8384275666250005e-05,
+      "mean_difference_in_MAE_advantage": -5.5610095839320195e-06,
+      "n_base_pairs": 4
+    },
+    "MPS32_vs_CPU32": {
+      "max_directed_difference_in_paired_MAE_advantage": 2.288818359375e-05,
+      "mean_difference_in_MAE_advantage": 1.0728836059570312e-06,
+      "n_base_pairs": 4
+    },
+    "CPU32_vs_CPU64": {
+      "max_directed_difference_in_paired_MAE_advantage": 3.9365110627187505e-05,
+      "mean_difference_in_MAE_advantage": -6.633893189889051e-06,
+      "n_base_pairs": 4
+    }
+  },
+  "scope": "Arithmetic, provenance and controls; not a fresh confirmation or a universal error bound.",
+  "verifier_sha256": "2158b59e2b51e20cc720b744ddcc1e39cb9486d9b6a7b551187c7d866c7afaf8"
+}

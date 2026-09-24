@@ -1,0 +1,35 @@
+{
+ "prereg_sha256": "f5bb62caaea253e7789f919b20a9bb78c68fc4e14e6219e260110f0f415f8a72",
+ "scorer_sha256": "a9a67d9d4aba55e0e9580a036189f407be4b9c7c8328455988495173204b036b",
+ "run": {
+  "git_head": "829228ce8f39e55ac5ffa14a76a4e196652cb53b",
+  "seed": 20260922,
+  "device": "cpu",
+  "records_sha256": "eb4428e174b67dd65d3a9948a550273dc6fefe6adbfb4c014baadf82542f0ef1"
+ },
+ "outcome": "B predicts better",
+ "primary": {
+  "test": "exact two-sided sign test on per-pair loss differences",
+  "wins": {
+   "A_visible_read": 0,
+   "B_null_read": 64
+  },
+  "ties": 0,
+  "p": 1.0842021724855044e-19,
+  "alpha": 0.05
+ },
+ "reported_not_judged": {
+  "mean_loss": {
+   "A_visible_read": 1.2225174307823181,
+   "B_null_read": 0.23834387958049774
+  },
+  "mean_difference_A_minus_B": 0.9841735512018204,
+  "nominal_95_interval": [
+   0.904728002846241,
+   1.064324215054512
+  ],
+  "sign_flip_p": 4.999750012499375e-05,
+  "sign_flip_assumption": "per-pair differences symmetric about zero under H0"
+ },
+ "base_pairs": 64
+}

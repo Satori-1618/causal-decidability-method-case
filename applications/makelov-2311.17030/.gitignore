@@ -1,0 +1,6 @@
+# upstream files are fetched at a pinned revision, never redistributed
+artifacts/makelov_source/*
+!artifacts/makelov_source/source_manifest.json
+!artifacts/makelov_source/README.md
+# the read-source pilot's directions are the authors' published vector; rebuilt locally
+results/makelov_read_source_001/directions.npz

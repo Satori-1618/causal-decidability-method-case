@@ -1,0 +1,4 @@
+{
+  "A_visible_read": {"read_row": "same_as:full", "read_null": "same_as:baseline"},
+  "B_null_read": {"read_row": "same_as:baseline", "read_null": "same_as:full"}
+}

@@ -1,0 +1,38 @@
+{
+ "original": {
+  "records_sha256": "5e63b3b95cfd50324530ee62b703d37fcfda629460641926c07c803a39a93829",
+  "device": "mps"
+ },
+ "rerun": {
+  "records_sha256": "0c684648648f63de2dbaa7674789637b3057f4a30874c6576c92a8808b7fd904",
+  "device": "cpu",
+  "platform": "macOS-15.7.3-arm64-arm-64bit"
+ },
+ "identical_cases": true,
+ "identical_directions": true,
+ "directed_pairs": 64,
+ "max_abs_margin_difference_nats": 4.1961669921875e-05,
+ "summary": {
+  "A_visible_read_MAE": {
+   "original": 1.338178314268589,
+   "rerun": 1.3381777629256248,
+   "abs_difference": 5.513429641723633e-07
+  },
+  "B_null_read_MAE": {
+   "original": 0.260309673845768,
+   "rerun": 0.26030924171209335,
+   "abs_difference": 4.3213367462158203e-07
+  },
+  "paired_MAE_A_minus_B_positive_favors_B": {
+   "original": 1.077868640422821,
+   "rerun": 1.0778685212135315,
+   "abs_difference": 1.1920928955078125e-07
+  },
+  "conditional_rival_separation_mean_absolute_full_effect": {
+   "original": 1.598487988114357,
+   "rerun": 1.5984870046377182,
+   "abs_difference": 9.834766387939453e-07
+  }
+ },
+ "controls_passed_in_rerun": true
+}

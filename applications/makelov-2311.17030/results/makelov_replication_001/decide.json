@@ -1,0 +1,568 @@
+{
+ "n": 2000,
+ "readout_declarations": {
+  "logit_diff": {
+   "readout_scale": 20.0,
+   "depth": 768
+  },
+  "accuracy": {
+   "readout_scale": 1.0,
+   "depth": 1
+  }
+ },
+ "runs": {
+  "rowspace_vs_nullspace|accuracy|endpoint|paired": {
+   "contrast": "rowspace_vs_nullspace",
+   "scale": "accuracy",
+   "framing": "endpoint",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.05905717568594015,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": 0.04
+   },
+   "separation": 0.04,
+   "statistical_floor": 0.003876102883508047,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.003876102883508047,
+   "binding_floor": "statistical",
+   "ratio": 10.319643518801081,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 10.32x",
+   "post_hoc": false
+  },
+  "rowspace_vs_nullspace|accuracy|endpoint|unpaired": {
+   "contrast": "rowspace_vs_nullspace",
+   "scale": "accuracy",
+   "framing": "endpoint",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 0.06873408906794357,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": 0.04
+   },
+   "separation": 0.04,
+   "statistical_floor": 0.006379840210316066,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.006379840210316066,
+   "binding_floor": "statistical",
+   "ratio": 6.26974950490466,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 6.27x",
+   "post_hoc": false
+  },
+  "rowspace_vs_nullspace|accuracy|observed|paired": {
+   "contrast": "rowspace_vs_nullspace",
+   "scale": "accuracy",
+   "framing": "observed",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.05905717568594015,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": 0.0035
+   },
+   "separation": 0.0035,
+   "statistical_floor": 0.003876102883508047,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.003876102883508047,
+   "binding_floor": "statistical",
+   "ratio": 0.9029688078950947,
+   "decidable": false,
+   "lever": "the statistical floor binds; n must rise from 2000 to about 2453, or sigma fall by 1.11x",
+   "post_hoc": true
+  },
+  "rowspace_vs_nullspace|accuracy|observed|unpaired": {
+   "contrast": "rowspace_vs_nullspace",
+   "scale": "accuracy",
+   "framing": "observed",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 0.06873408906794357,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": 0.0035
+   },
+   "separation": 0.0035,
+   "statistical_floor": 0.006379840210316066,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.006379840210316066,
+   "binding_floor": "statistical",
+   "ratio": 0.5486030816791578,
+   "decidable": false,
+   "lever": "the statistical floor binds; n must rise from 2000 to about 6646, or sigma fall by 1.82x",
+   "post_hoc": true
+  },
+  "rowspace_vs_nullspace|logit_diff|endpoint|paired": {
+   "contrast": "rowspace_vs_nullspace",
+   "scale": "logit_diff",
+   "framing": "endpoint",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.2317600516351748,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": -1.5429143166542054
+   },
+   "separation": 1.5429143166542054,
+   "statistical_floor": 0.01521112030826325,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.01521112030826325,
+   "binding_floor": "statistical",
+   "ratio": 101.43331229955736,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 101.43x",
+   "post_hoc": false
+  },
+  "rowspace_vs_nullspace|logit_diff|endpoint|unpaired": {
+   "contrast": "rowspace_vs_nullspace",
+   "scale": "logit_diff",
+   "framing": "endpoint",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 1.3699271469414198,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": -1.5429143166542054
+   },
+   "separation": 1.5429143166542054,
+   "statistical_floor": 0.12715548304744448,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.12715548304744448,
+   "binding_floor": "statistical",
+   "ratio": 12.134076169397355,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 12.13x",
+   "post_hoc": false
+  },
+  "rowspace_vs_nullspace|logit_diff|observed|paired": {
+   "contrast": "rowspace_vs_nullspace",
+   "scale": "logit_diff",
+   "framing": "observed",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.2317600516351748,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": -0.44514191246032714
+   },
+   "separation": 0.44514191246032714,
+   "statistical_floor": 0.01521112030826325,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.01521112030826325,
+   "binding_floor": "statistical",
+   "ratio": 29.264242438376442,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 29.26x",
+   "post_hoc": true
+  },
+  "rowspace_vs_nullspace|logit_diff|observed|unpaired": {
+   "contrast": "rowspace_vs_nullspace",
+   "scale": "logit_diff",
+   "framing": "observed",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 1.3699271469414198,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": -0.44514191246032714
+   },
+   "separation": 0.44514191246032714,
+   "statistical_floor": 0.12715548304744448,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.12715548304744448,
+   "binding_floor": "statistical",
+   "ratio": 3.5007685220639284,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 3.50x",
+   "post_hoc": true
+  },
+  "full_vs_nullspace|accuracy|endpoint|paired": {
+   "contrast": "full_vs_nullspace",
+   "scale": "accuracy",
+   "framing": "endpoint",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.19595917942265426,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": 0.04
+   },
+   "separation": 0.04,
+   "statistical_floor": 0.012861399679003786,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.012861399679003786,
+   "binding_floor": "statistical",
+   "ratio": 3.1100814062484923,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 3.11x",
+   "post_hoc": false
+  },
+  "full_vs_nullspace|accuracy|endpoint|unpaired": {
+   "contrast": "full_vs_nullspace",
+   "scale": "accuracy",
+   "framing": "endpoint",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 0.1485631178994302,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": 0.04
+   },
+   "separation": 0.04,
+   "statistical_floor": 0.013789503377396962,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.013789503377396962,
+   "binding_floor": "statistical",
+   "ratio": 2.900757112512545,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 2.90x",
+   "post_hoc": false
+  },
+  "full_vs_nullspace|accuracy|observed|paired": {
+   "contrast": "full_vs_nullspace",
+   "scale": "accuracy",
+   "framing": "observed",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.19595917942265426,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": 0.04
+   },
+   "separation": 0.04,
+   "statistical_floor": 0.012861399679003786,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.012861399679003786,
+   "binding_floor": "statistical",
+   "ratio": 3.1100814062484923,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 3.11x",
+   "post_hoc": true
+  },
+  "full_vs_nullspace|accuracy|observed|unpaired": {
+   "contrast": "full_vs_nullspace",
+   "scale": "accuracy",
+   "framing": "observed",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 0.1485631178994302,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": 0.04
+   },
+   "separation": 0.04,
+   "statistical_floor": 0.013789503377396962,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.013789503377396962,
+   "binding_floor": "statistical",
+   "ratio": 2.900757112512545,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 2.90x",
+   "post_hoc": true
+  },
+  "full_vs_nullspace|logit_diff|endpoint|paired": {
+   "contrast": "full_vs_nullspace",
+   "scale": "logit_diff",
+   "framing": "endpoint",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.7054882130866268,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": -1.5429143166542054
+   },
+   "separation": 1.5429143166542054,
+   "statistical_floor": 0.046303346972907,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.046303346972907,
+   "binding_floor": "statistical",
+   "ratio": 33.32187449769009,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 33.32x",
+   "post_hoc": false
+  },
+  "full_vs_nullspace|logit_diff|endpoint|unpaired": {
+   "contrast": "full_vs_nullspace",
+   "scale": "logit_diff",
+   "framing": "endpoint",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 1.330042502842946,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": -1.5429143166542054
+   },
+   "separation": 1.5429143166542054,
+   "statistical_floor": 0.12345342400157484,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.12345342400157484,
+   "binding_floor": "statistical",
+   "ratio": 12.497946728755965,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 12.50x",
+   "post_hoc": false
+  },
+  "full_vs_nullspace|logit_diff|observed|paired": {
+   "contrast": "full_vs_nullspace",
+   "scale": "logit_diff",
+   "framing": "observed",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.7054882130866268,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": -1.5429143166542054
+   },
+   "separation": 1.5429143166542054,
+   "statistical_floor": 0.046303346972907,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.046303346972907,
+   "binding_floor": "statistical",
+   "ratio": 33.32187449769009,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 33.32x",
+   "post_hoc": true
+  },
+  "full_vs_nullspace|logit_diff|observed|unpaired": {
+   "contrast": "full_vs_nullspace",
+   "scale": "logit_diff",
+   "framing": "observed",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 1.330042502842946,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": -1.5429143166542054
+   },
+   "separation": 1.5429143166542054,
+   "statistical_floor": 0.12345342400157484,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.12345342400157484,
+   "binding_floor": "statistical",
+   "ratio": 12.497946728755965,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 12.50x",
+   "post_hoc": true
+  },
+  "full_vs_rowspace|accuracy|endpoint|paired": {
+   "contrast": "full_vs_rowspace",
+   "scale": "accuracy",
+   "framing": "endpoint",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.18753066415922495,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": 0.04
+   },
+   "separation": 0.04,
+   "statistical_floor": 0.012308210469787207,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.012308210469787207,
+   "binding_floor": "statistical",
+   "ratio": 3.249863178582089,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 3.25x",
+   "post_hoc": false
+  },
+  "full_vs_rowspace|accuracy|endpoint|unpaired": {
+   "contrast": "full_vs_rowspace",
+   "scale": "accuracy",
+   "framing": "endpoint",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 0.15428666501029828,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": 0.04
+   },
+   "separation": 0.04,
+   "statistical_floor": 0.01432075819576604,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.01432075819576604,
+   "binding_floor": "statistical",
+   "ratio": 2.7931482015963427,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 2.79x",
+   "post_hoc": false
+  },
+  "full_vs_rowspace|accuracy|observed|paired": {
+   "contrast": "full_vs_rowspace",
+   "scale": "accuracy",
+   "framing": "observed",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.18753066415922495,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": 0.0365
+   },
+   "separation": 0.0365,
+   "statistical_floor": 0.012308210469787207,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.012308210469787207,
+   "binding_floor": "statistical",
+   "ratio": 2.965500150456156,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 2.97x",
+   "post_hoc": true
+  },
+  "full_vs_rowspace|accuracy|observed|unpaired": {
+   "contrast": "full_vs_rowspace",
+   "scale": "accuracy",
+   "framing": "observed",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 0.15428666501029828,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": 0.0365
+   },
+   "separation": 0.0365,
+   "statistical_floor": 0.01432075819576604,
+   "numerical_floor": 1.9466795466607238e-07,
+   "resolution": 0.01432075819576604,
+   "binding_floor": "statistical",
+   "ratio": 2.5487477339566627,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 2.55x",
+   "post_hoc": true
+  },
+  "full_vs_rowspace|logit_diff|endpoint|paired": {
+   "contrast": "full_vs_rowspace",
+   "scale": "logit_diff",
+   "framing": "endpoint",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.4905258438234291,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": -1.5429143166542054
+   },
+   "separation": 1.5429143166542054,
+   "statistical_floor": 0.032194709882339745,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.032194709882339745,
+   "binding_floor": "statistical",
+   "ratio": 47.9244671653514,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 47.92x",
+   "post_hoc": false
+  },
+  "full_vs_rowspace|logit_diff|endpoint|unpaired": {
+   "contrast": "full_vs_rowspace",
+   "scale": "logit_diff",
+   "framing": "endpoint",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 1.2870060778765082,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "inert_component": 0.0,
+    "component_carries_the_patch": -1.5429143166542054
+   },
+   "separation": 1.5429143166542054,
+   "statistical_floor": 0.11945881931222309,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.11945881931222309,
+   "binding_floor": "statistical",
+   "ratio": 12.915867790569513,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 12.92x",
+   "post_hoc": false
+  },
+  "full_vs_rowspace|logit_diff|observed|paired": {
+   "contrast": "full_vs_rowspace",
+   "scale": "logit_diff",
+   "framing": "observed",
+   "resolution_mode": "paired",
+   "declared": {
+    "sigma": 0.4905258438234291,
+    "noise_factor": 1.0
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": -1.0977724041938781
+   },
+   "separation": 1.0977724041938781,
+   "statistical_floor": 0.032194709882339745,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.032194709882339745,
+   "binding_floor": "statistical",
+   "ratio": 34.09791261377559,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 34.10x",
+   "post_hoc": true
+  },
+  "full_vs_rowspace|logit_diff|observed|unpaired": {
+   "contrast": "full_vs_rowspace",
+   "scale": "logit_diff",
+   "framing": "observed",
+   "resolution_mode": "unpaired",
+   "declared": {
+    "sigma": 1.2870060778765082,
+    "noise_factor": 1.4142135623730951
+   },
+   "predictions": {
+    "components_alike": 0.0,
+    "components_differ": -1.0977724041938781
+   },
+   "separation": 1.0977724041938781,
+   "statistical_floor": 0.11945881931222309,
+   "numerical_floor": 5.405323051812475e-05,
+   "resolution": 0.11945881931222309,
+   "binding_floor": "statistical",
+   "ratio": 9.189546745181612,
+   "decidable": true,
+   "lever": "separation exceeds the resolution by 9.19x",
+   "post_hoc": true
+  }
+ },
+ "decidability_source_sha256": "aa05316b2175e10aceb71a74b579a10c24253dd6dfa45a3d7f2da30f0a98da84"
+}

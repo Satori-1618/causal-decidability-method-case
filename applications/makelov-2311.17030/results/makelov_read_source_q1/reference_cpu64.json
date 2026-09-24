@@ -1,0 +1,562 @@
+[
+  {
+    "case_id": "250c9733a8d22b5d",
+    "receiver_pattern": "ABB",
+    "donor_pattern": "BAB",
+    "position": 18,
+    "answer_logits": {
+      "baseline": [
+        17.007255783269105,
+        13.22151675838137
+      ],
+      "identity": [
+        17.007255783269105,
+        13.22151675838137
+      ],
+      "full": [
+        17.18866862213088,
+        14.318238518847359
+      ],
+      "read_row": [
+        17.039930434438762,
+        13.362411909371822
+      ],
+      "read_null": [
+        17.17633893815486,
+        14.16665725758947
+      ]
+    },
+    "margins": {
+      "baseline": 3.785739024887736,
+      "identity": 3.785739024887736,
+      "full": 2.870430103283521,
+      "read_row": 3.67751852506694,
+      "read_null": 3.0096816805653894
+    },
+    "split_delta_max_error": 2.7755575615628914e-17,
+    "fidelity": {
+      "identity": {
+        "calls": 1,
+        "insertion_error_max_per_item": 0.0,
+        "rounding_budget_per_item": 4.6550440740848086e-15,
+        "actual_delta_l2_per_item": 0.0,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "full": {
+        "calls": 1,
+        "insertion_error_max_per_item": 2.220446049250313e-16,
+        "rounding_budget_per_item": 4.910602879268471e-15,
+        "actual_delta_l2_per_item": 1.2131788773101655,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_row": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.0495077029659683e-16,
+        "rounding_budget_per_item": 4.689001510401139e-15,
+        "actual_delta_l2_per_item": 0.16120142852041636,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_null": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.942890293094024e-16,
+        "rounding_budget_per_item": 4.876645442952141e-15,
+        "actual_delta_l2_per_item": 1.051977448789749,
+        "other_positions_unchanged": true,
+        "passed": true
+      }
+    }
+  },
+  {
+    "case_id": "250c9733a8d22b5d",
+    "receiver_pattern": "BAB",
+    "donor_pattern": "ABB",
+    "position": 18,
+    "answer_logits": {
+      "baseline": [
+        16.478902061667103,
+        14.010454089290478
+      ],
+      "identity": [
+        16.478902061667103,
+        14.010454089290478
+      ],
+      "full": [
+        16.109222326282485,
+        14.802921553006332
+      ],
+      "read_row": [
+        16.421998032014695,
+        14.128000700484849
+      ],
+      "read_null": [
+        16.152133725652064,
+        14.712446588384267
+      ]
+    },
+    "margins": {
+      "baseline": 2.468447972376625,
+      "identity": 2.468447972376625,
+      "full": 1.3063007732761527,
+      "read_row": 2.2939973315298463,
+      "read_null": 1.4396871372677964
+    },
+    "split_delta_max_error": 2.7755575615628914e-17,
+    "fidelity": {
+      "identity": {
+        "calls": 1,
+        "insertion_error_max_per_item": 0.0,
+        "rounding_budget_per_item": 3.8190288070139724e-15,
+        "actual_delta_l2_per_item": 0.0,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "full": {
+        "calls": 1,
+        "insertion_error_max_per_item": 2.220446049250313e-16,
+        "rounding_budget_per_item": 3.83680495142292e-15,
+        "actual_delta_l2_per_item": 1.2131788773101655,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_row": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.0495077029659683e-16,
+        "rounding_budget_per_item": 3.821390816381182e-15,
+        "actual_delta_l2_per_item": 0.16120142852041638,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_null": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.942890293094024e-16,
+        "rounding_budget_per_item": 3.83444294205571e-15,
+        "actual_delta_l2_per_item": 1.051977448789749,
+        "other_positions_unchanged": true,
+        "passed": true
+      }
+    }
+  },
+  {
+    "case_id": "04f3411e9234e117",
+    "receiver_pattern": "ABB",
+    "donor_pattern": "BAB",
+    "position": 18,
+    "answer_logits": {
+      "baseline": [
+        16.908653702714506,
+        15.68051706200004
+      ],
+      "identity": [
+        16.908653702714506,
+        15.68051706200004
+      ],
+      "full": [
+        16.889720015864015,
+        16.378856679990612
+      ],
+      "read_row": [
+        16.91299166711738,
+        15.79518665172966
+      ],
+      "read_null": [
+        16.900135474047108,
+        16.30542728742851
+      ]
+    },
+    "margins": {
+      "baseline": 1.2281366407144656,
+      "identity": 1.2281366407144656,
+      "full": 0.5108633358734025,
+      "read_row": 1.117805015387722,
+      "read_null": 0.5947081866185968
+    },
+    "split_delta_max_error": 2.7755575615628914e-17,
+    "fidelity": {
+      "identity": {
+        "calls": 1,
+        "insertion_error_max_per_item": 0.0,
+        "rounding_budget_per_item": 4.12119497878445e-15,
+        "actual_delta_l2_per_item": 0.0,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "full": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.1102230246251565e-16,
+        "rounding_budget_per_item": 4.351566484795873e-15,
+        "actual_delta_l2_per_item": 1.4236764676679334,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_row": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.0430024899310553e-16,
+        "rounding_budget_per_item": 4.123799468551707e-15,
+        "actual_delta_l2_per_item": 0.19296430894970612,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_null": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.1102230246251565e-16,
+        "rounding_budget_per_item": 4.3109181276899405e-15,
+        "actual_delta_l2_per_item": 1.2307121587182277,
+        "other_positions_unchanged": true,
+        "passed": true
+      }
+    }
+  },
+  {
+    "case_id": "04f3411e9234e117",
+    "receiver_pattern": "BAB",
+    "donor_pattern": "ABB",
+    "position": 18,
+    "answer_logits": {
+      "baseline": [
+        16.707995724703466,
+        13.421920203328849
+      ],
+      "identity": [
+        16.707995724703466,
+        13.421920203328849
+      ],
+      "full": [
+        16.698805105541613,
+        14.909338096549424
+      ],
+      "read_row": [
+        16.68910570464338,
+        13.636160736290243
+      ],
+      "read_null": [
+        16.69202811891071,
+        14.734155950939423
+      ]
+    },
+    "margins": {
+      "baseline": 3.2860755213746167,
+      "identity": 3.2860755213746167,
+      "full": 1.7894670089921885,
+      "read_row": 3.052944968353138,
+      "read_null": 1.9578721679712867
+    },
+    "split_delta_max_error": 2.7755575615628914e-17,
+    "fidelity": {
+      "identity": {
+        "calls": 1,
+        "insertion_error_max_per_item": 0.0,
+        "rounding_budget_per_item": 4.250625657603702e-15,
+        "actual_delta_l2_per_item": 0.0,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "full": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.1102230246251565e-16,
+        "rounding_budget_per_item": 4.447200610827846e-15,
+        "actual_delta_l2_per_item": 1.4236764676679334,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_row": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.0430024899310553e-16,
+        "rounding_budget_per_item": 4.253230147370959e-15,
+        "actual_delta_l2_per_item": 0.19296430894970612,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_null": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.3877787807814457e-16,
+        "rounding_budget_per_item": 4.384729456416948e-15,
+        "actual_delta_l2_per_item": 1.2307121587182275,
+        "other_positions_unchanged": true,
+        "passed": true
+      }
+    }
+  },
+  {
+    "case_id": "88ad9a7b46b0b82c",
+    "receiver_pattern": "ABB",
+    "donor_pattern": "BAB",
+    "position": 18,
+    "answer_logits": {
+      "baseline": [
+        17.11148856533091,
+        15.592090965868174
+      ],
+      "identity": [
+        17.11148856533091,
+        15.592090965868174
+      ],
+      "full": [
+        17.194397372420763,
+        16.457579177134594
+      ],
+      "read_row": [
+        17.124792883106828,
+        15.774561480567376
+      ],
+      "read_null": [
+        17.185843046367868,
+        16.35921940090274
+      ]
+    },
+    "margins": {
+      "baseline": 1.5193975994627351,
+      "identity": 1.5193975994627351,
+      "full": 0.736818195286169,
+      "read_row": 1.3502314025394515,
+      "read_null": 0.8266236454651263
+    },
+    "split_delta_max_error": 5.551115123125783e-17,
+    "fidelity": {
+      "identity": {
+        "calls": 1,
+        "insertion_error_max_per_item": 0.0,
+        "rounding_budget_per_item": 5.523604315290717e-15,
+        "actual_delta_l2_per_item": 0.0,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "full": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.7694179454963432e-16,
+        "rounding_budget_per_item": 5.8380752268926734e-15,
+        "actual_delta_l2_per_item": 1.4928441507221293,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_row": {
+        "calls": 1,
+        "insertion_error_max_per_item": 2.0816681711721685e-16,
+        "rounding_budget_per_item": 5.575475716785502e-15,
+        "actual_delta_l2_per_item": 0.24624191126861236,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_null": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.6653345369377348e-16,
+        "rounding_budget_per_item": 5.786203825397889e-15,
+        "actual_delta_l2_per_item": 1.246602239453517,
+        "other_positions_unchanged": true,
+        "passed": true
+      }
+    }
+  },
+  {
+    "case_id": "88ad9a7b46b0b82c",
+    "receiver_pattern": "BAB",
+    "donor_pattern": "ABB",
+    "position": 18,
+    "answer_logits": {
+      "baseline": [
+        16.497026703011233,
+        14.879246439589497
+      ],
+      "identity": [
+        16.497026703011233,
+        14.879246439589497
+      ],
+      "full": [
+        16.069151141115828,
+        15.791899136292715
+      ],
+      "read_row": [
+        16.42145483129115,
+        15.060297533586144
+      ],
+      "read_null": [
+        16.137977581622557,
+        15.675216713079358
+      ]
+    },
+    "margins": {
+      "baseline": 1.6177802634217358,
+      "identity": 1.6177802634217358,
+      "full": 0.2772520048231133,
+      "read_row": 1.361157297705006,
+      "read_null": 0.4627608685431994
+    },
+    "split_delta_max_error": 5.551115123125783e-17,
+    "fidelity": {
+      "identity": {
+        "calls": 1,
+        "insertion_error_max_per_item": 0.0,
+        "rounding_budget_per_item": 4.468510521926206e-15,
+        "actual_delta_l2_per_item": 0.0,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "full": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.1102230246251565e-16,
+        "rounding_budget_per_item": 4.782981433528163e-15,
+        "actual_delta_l2_per_item": 1.4928441507221293,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_row": {
+        "calls": 1,
+        "insertion_error_max_per_item": 2.0816681711721685e-16,
+        "rounding_budget_per_item": 4.5203819234209915e-15,
+        "actual_delta_l2_per_item": 0.2462419112686124,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_null": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.6653345369377348e-16,
+        "rounding_budget_per_item": 4.7311100320333786e-15,
+        "actual_delta_l2_per_item": 1.246602239453517,
+        "other_positions_unchanged": true,
+        "passed": true
+      }
+    }
+  },
+  {
+    "case_id": "d38946f5f67a34e9",
+    "receiver_pattern": "ABB",
+    "donor_pattern": "BAB",
+    "position": 18,
+    "answer_logits": {
+      "baseline": [
+        15.872247596833514,
+        14.646462935862418
+      ],
+      "identity": [
+        15.872247596833514,
+        14.646462935862418
+      ],
+      "full": [
+        15.74374132402188,
+        15.653226565538805
+      ],
+      "read_row": [
+        15.862215693346753,
+        14.764987940135432
+      ],
+      "read_null": [
+        15.766946485048813,
+        15.531505940536956
+      ]
+    },
+    "margins": {
+      "baseline": 1.2257846609710956,
+      "identity": 1.2257846609710956,
+      "full": 0.09051475848307433,
+      "read_row": 1.097227753211321,
+      "read_null": 0.2354405445118566
+    },
+    "split_delta_max_error": 1.1102230246251565e-16,
+    "fidelity": {
+      "identity": {
+        "calls": 1,
+        "insertion_error_max_per_item": 0.0,
+        "rounding_budget_per_item": 3.955643406763453e-15,
+        "actual_delta_l2_per_item": 0.0,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "full": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.0408340855860843e-16,
+        "rounding_budget_per_item": 3.972728905499791e-15,
+        "actual_delta_l2_per_item": 1.2658492646682402,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_row": {
+        "calls": 1,
+        "insertion_error_max_per_item": 2.1510571102112408e-16,
+        "rounding_budget_per_item": 3.9577016801785556e-15,
+        "actual_delta_l2_per_item": 0.15249562972676212,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_null": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.8908485888147197e-16,
+        "rounding_budget_per_item": 3.970670632084688e-15,
+        "actual_delta_l2_per_item": 1.1133536349414777,
+        "other_positions_unchanged": true,
+        "passed": true
+      }
+    }
+  },
+  {
+    "case_id": "d38946f5f67a34e9",
+    "receiver_pattern": "BAB",
+    "donor_pattern": "ABB",
+    "position": 18,
+    "answer_logits": {
+      "baseline": [
+        16.01329042063089,
+        14.985529174238662
+      ],
+      "identity": [
+        16.01329042063089,
+        14.985529174238662
+      ],
+      "full": [
+        14.878256676594646,
+        15.577492688123352
+      ],
+      "read_row": [
+        15.915293125311713,
+        15.07891183930679
+      ],
+      "read_null": [
+        15.05096737672037,
+        15.523169143547403
+      ]
+    },
+    "margins": {
+      "baseline": 1.0277612463922292,
+      "identity": 1.0277612463922292,
+      "full": -0.699236011528706,
+      "read_row": 0.836381286004924,
+      "read_null": -0.4722017668270322
+    },
+    "split_delta_max_error": 1.1102230246251565e-16,
+    "fidelity": {
+      "identity": {
+        "calls": 1,
+        "insertion_error_max_per_item": 0.0,
+        "rounding_budget_per_item": 3.90453636719944e-15,
+        "actual_delta_l2_per_item": 0.0,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "full": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.0234868508263162e-16,
+        "rounding_budget_per_item": 3.921621865935778e-15,
+        "actual_delta_l2_per_item": 1.2658492646682402,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_row": {
+        "calls": 1,
+        "insertion_error_max_per_item": 2.1380466841414147e-16,
+        "rounding_budget_per_item": 3.9065946406145426e-15,
+        "actual_delta_l2_per_item": 0.1524956297267621,
+        "other_positions_unchanged": true,
+        "passed": true
+      },
+      "read_null": {
+        "calls": 1,
+        "insertion_error_max_per_item": 1.8908485888147197e-16,
+        "rounding_budget_per_item": 3.919563592520675e-15,
+        "actual_delta_l2_per_item": 1.1133536349414774,
+        "other_positions_unchanged": true,
+        "passed": true
+      }
+    }
+  }
+]

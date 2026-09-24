@@ -1,0 +1,91 @@
+{
+  "status": "frozen_before_model_evaluation",
+  "purpose": "development pilot",
+  "created_unix": 1790008849.252618,
+  "seed": 20260922,
+  "n_base_pairs": 64,
+  "source": {
+    "repository": "https://github.com/amakelov/activation-patching-illusion",
+    "revision": "e0c465b74561d9c3dd1f2afa770974bf5fcaee01",
+    "files": {
+      "common_imports.py": "1a86c9c1695eec28baba7315e41805f58cc6c2f31b72aa6960dba7065cec5ba3",
+      "model_utils.py": "4780c94c3fa214ca6721925fbcb160af42ae31085ee4f8e551bf5bf06485fba2",
+      "data_utils.py": "857509c2e3fdba05ce35cb55204845efa38528d51d8a4aed24d48663f71082c8",
+      "ioi_analysis.ipynb": "1eb935aa61dfe3157d11894d856fc35b9016e830add47d3c200bd9c5dc5abb9e",
+      "das_mlp8.joblib": "83a3ff420ee50eac7b364fe6d992d0d2a436b147d472cf10bbba92b76bd8739f",
+      "data/names.json": "c5ef21c1d1bf2d0d1517f692d384eb1b0739b9be3ca7467af23eb510a1bf6589",
+      "data/objects.json": "ca33512e03a4f8a28b5d57443618921dcc83ddec8207981463160e459967b366",
+      "data/places.json": "cdfc24ece20f53aa6e6d427699aa8a190371b7fa1edbe7b51d53d8cde4b30c37",
+      "data/prefixes.json": "fb516e6297bb30a6aef8dc0273d0ccdee594f0ce702762a65f8c88907d99f540",
+      "data/templates.json": "336c14bf9d95e6945f8fc29e4adbae9601516fd0ab7642d7098c93c4ea5d6b5e"
+    }
+  },
+  "layer_zero_based": 8,
+  "site": "post-GELU / pre-W_out",
+  "position": "absolute final prompt token from cases.json",
+  "arms": [
+    "baseline",
+    "identity",
+    "full",
+    "read_row",
+    "read_null"
+  ],
+  "same_write_vector_all_arms": true,
+  "separate_component_normalization": false,
+  "working_dtype": "float32",
+  "working_device": "cpu",
+  "model_snapshot": "/Users/felixb/.cache/huggingface/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "model_transforms": {
+    "center_unembed": true,
+    "center_writing_weights": true,
+    "fold_ln": true,
+    "refactor_factored_attn_matrices": true
+  },
+  "runtime": {
+    "torch": "2.5.1",
+    "transformers": "4.57.3",
+    "transformer-lens": "2.17.0",
+    "numpy": "1.26.4"
+  },
+  "platform": "macOS-15.7.3-arm64-arm-64bit",
+  "git_head": "829228ce8f39e55ac5ffa14a76a4e196652cb53b",
+  "files": {
+    "src/makelov_read_source.py": "71d73bcef3071080ab3c2b9df632a487dbc0d655f50649c389a8fcf6b076204a",
+    "scripts/run_makelov_read_source.py": "af7d9dd561fa8c21631e04fccad6b7952a4d066f8c1659769ed353ecf7996188"
+  },
+  "cases_sha256": "386cd48b89b316b73cac383a209d9cddc539c4cc3339931a4c43cb6d23aa66f2",
+  "directions_sha256": "a3d41db3ce884de11a35e643d28474ebb1158eb2f597414a7b676fe94706e475",
+  "decomposition": {
+    "original_norm": 0.9995645019037194,
+    "rank": 767,
+    "singular_cutoff": 0.011377252343423412,
+    "smallest_singular_value": 1.5647448535349293e-06,
+    "row_norm": 0.7535016905660369,
+    "null_norm": 0.657445969121511,
+    "orthogonality_error": 1.231653667943533e-16,
+    "null_output_norm": 8.557070396928825e-09,
+    "decomposition_error": 0.0
+  },
+  "reference_case_ids": [
+    "250c9733a8d22b5d",
+    "04f3411e9234e117",
+    "88ad9a7b46b0b82c",
+    "d38946f5f67a34e9"
+  ],
+  "selection": "unique paired prompts; single-token names; equal token lengths; no behavioral filtering",
+  "freshness": "new seed/draws; original training/test membership cannot be exhaustively audited",
+  "intervals": "nominal 95% paired bootstrap over base pairs, exploratory, not simultaneous",
+  "hypotheses": {
+    "A": "row-read reproduces full; null-read reproduces baseline",
+    "B": "null-read reproduces full; row-read reproduces baseline"
+  },
+  "adequacy": "No confirmatory adequacy threshold, no forced winner; report both errors.",
+  "model_files_sha256": {
+    "model.safetensors": "248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707",
+    "tokenizer_config.json": "5e04eb606e3a1583530a42e36c2a6b6615c86f34fe77e44d9ddeb43ff940931f",
+    "config.json": "0daed7749b4f02b8f76240d5444551d7b08712dab4d0adb8239c56ba823bb7b4",
+    "tokenizer.json": "8414cab924d8b9b33013f0d221c5862f365ee9be39c5c2bfae8a5a9e970478a6",
+    "generation_config.json": "ed0b32ac72c0f5f44a719abb2d7786ea5146c871f83717b7f2018065954de02b",
+    "vocab.json": "196139668be63f3b5d6574427317ae82f612a97c5d1cdaf36ed2256dbf636783"
+  }
+}

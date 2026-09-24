@@ -1,0 +1,11 @@
+__pycache__/
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.venv/
+# fetched upstream inputs and locally rebuilt files of applications: never committed
+applications/*/artifacts/*/*
+!applications/*/artifacts/*/source_manifest.json
+!applications/*/artifacts/*/README.md
+applications/*/results/*/directions.npz

@@ -1,0 +1,196 @@
+{
+ "n_pairs": 2000,
+ "unpaired_reference_from_published": {
+  "separation": 0.0034999999999999996,
+  "resolution": 0.0021735627435158157,
+  "ratio": 1.6102594739632978,
+  "source": "published proportions, arms treated as independent"
+ },
+ "contrasts": {
+  "rowspace_vs_nullspace": {
+   "accuracy": {
+    "scale": "interchange accuracy indicator",
+    "p_a": 0.0065,
+    "p_b": 0.003,
+    "separation": 0.0035,
+    "table": {
+     "both_correct": 6.0,
+     "a_only": 7.0,
+     "b_only": 0.0,
+     "neither": 1987.0
+    },
+    "paired": {
+     "resolution": 0.0013205585939290994,
+     "ratio": 2.650393565336878,
+     "method": "McNemar standard error of the paired difference",
+     "mcnemar_chi2": 7.0,
+     "exact_binomial_p": 0.015625
+    },
+    "unpaired": {
+     "resolution": 0.0021735627435158157,
+     "ratio": 1.6102594739632978,
+     "method": "independent-proportions standard error"
+    },
+    "bootstrap_paired": {
+     "resolution": 0.0013272652793078264,
+     "ci_lower": 0.001,
+     "ci_upper": 0.0065,
+     "n_resamples": 20000,
+     "seed": 20260920
+    }
+   },
+   "logit_diff": {
+    "scale": "logit(base IO) - logit(base subject), the published column",
+    "mean_a": 2.9184134993553164,
+    "mean_b": 3.363555411815643,
+    "separation": -0.44514191246032714,
+    "per_example_difference_sd": 0.2317600516351748,
+    "arm_sd_a": 1.3281837120855695,
+    "arm_sd_b": 1.4104356783649203,
+    "pearson_r_between_arms": 0.9874694677513293,
+    "paired": {
+     "resolution": 0.005182312299251121,
+     "ratio": 85.89638886190883,
+     "method": "standard error of the per-example difference"
+    },
+    "unpaired": {
+     "resolution": 0.043320900128310566,
+     "ratio": 10.275453906587302,
+     "method": "independent-arms standard error"
+    },
+    "bootstrap_paired": {
+     "resolution": 0.0051588094340707545,
+     "ci_lower": -0.4554324212431908,
+     "ci_upper": -0.43520723996162414,
+     "n_resamples": 20000,
+     "seed": 20260920
+    }
+   }
+  },
+  "full_vs_nullspace": {
+   "accuracy": {
+    "scale": "interchange accuracy indicator",
+    "p_a": 0.043,
+    "p_b": 0.003,
+    "separation": 0.04,
+    "table": {
+     "both_correct": 6.0,
+     "a_only": 80.0,
+     "b_only": 0.0,
+     "neither": 1914.0
+    },
+    "paired": {
+     "resolution": 0.004381780460041329,
+     "ratio": 9.128709291752768,
+     "method": "McNemar standard error of the paired difference",
+     "mcnemar_chi2": 80.0,
+     "exact_binomial_p": 1.6543612251060553e-24
+    },
+    "unpaired": {
+     "resolution": 0.004697978288583292,
+     "ratio": 8.514300735958122,
+     "method": "independent-proportions standard error"
+    },
+    "bootstrap_paired": {
+     "resolution": 0.004332797785996102,
+     "ci_lower": 0.0315,
+     "ci_upper": 0.0485,
+     "n_resamples": 20000,
+     "seed": 20260920
+    }
+   },
+   "logit_diff": {
+    "scale": "logit(base IO) - logit(base subject), the published column",
+    "mean_a": 1.820641095161438,
+    "mean_b": 3.363555411815643,
+    "separation": -1.5429143166542054,
+    "per_example_difference_sd": 0.7054882130866267,
+    "arm_sd_a": 1.244466679317989,
+    "arm_sd_b": 1.4104356783649203,
+    "pearson_r_between_arms": 0.8660673596674223,
+    "paired": {
+     "resolution": 0.01577519601786554,
+     "ratio": 97.80634832726275,
+     "method": "standard error of the per-example difference"
+    },
+    "unpaired": {
+     "resolution": 0.04205963693814686,
+     "ratio": 36.6839666001688,
+     "method": "independent-arms standard error"
+    },
+    "bootstrap_paired": {
+     "resolution": 0.015700958515620003,
+     "ci_lower": -1.5743531344532966,
+     "ci_upper": -1.5129316474199295,
+     "n_resamples": 20000,
+     "seed": 20260920
+    }
+   }
+  },
+  "full_vs_rowspace": {
+   "accuracy": {
+    "scale": "interchange accuracy indicator",
+    "p_a": 0.043,
+    "p_b": 0.0065,
+    "separation": 0.0365,
+    "table": {
+     "both_correct": 13.0,
+     "a_only": 73.0,
+     "b_only": 0.0,
+     "neither": 1914.0
+    },
+    "paired": {
+     "resolution": 0.004193313129257104,
+     "ratio": 8.704334466543026,
+     "method": "McNemar standard error of the paired difference",
+     "mcnemar_chi2": 73.0,
+     "exact_binomial_p": 2.117582368135751e-22
+    },
+    "unpaired": {
+     "resolution": 0.004878972740239486,
+     "ratio": 7.4810829949847975,
+     "method": "independent-proportions standard error"
+    },
+    "bootstrap_paired": {
+     "resolution": 0.004151800545533046,
+     "ci_lower": 0.0285,
+     "ci_upper": 0.045,
+     "n_resamples": 20000,
+     "seed": 20260920
+    }
+   },
+   "logit_diff": {
+    "scale": "logit(base IO) - logit(base subject), the published column",
+    "mean_a": 1.820641095161438,
+    "mean_b": 2.9184134993553164,
+    "separation": -1.0977724041938781,
+    "per_example_difference_sd": 0.4905258438234291,
+    "arm_sd_a": 1.244466679317989,
+    "arm_sd_b": 1.3281837120855695,
+    "pearson_r_between_arms": 0.929333342690775,
+    "paired": {
+     "resolution": 0.010968491315096328,
+     "ratio": 100.08417499341725,
+     "method": "standard error of the per-example difference"
+    },
+    "unpaired": {
+     "resolution": 0.040698705685698076,
+     "ratio": 26.97315272558277,
+     "method": "independent-arms standard error"
+    },
+    "bootstrap_paired": {
+     "resolution": 0.010919641993711125,
+     "ci_lower": -1.1195771030664443,
+     "ci_upper": -1.0767404015898703,
+     "n_resamples": 20000,
+     "seed": 20260920
+    }
+   }
+  }
+ },
+ "nullspace_vs_clean": {
+  "max_abs_logit_diff_gap": 2.09808349609375e-05,
+  "indicators_identical": true,
+  "mean_logit_diff_gap": 1.2540817260742188e-07
+ }
+}
