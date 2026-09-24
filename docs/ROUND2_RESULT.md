@@ -119,6 +119,8 @@ python3 -S applications/makelov-2311.17030/scripts/summarize_query_route.py \
 The checker validates the stored evidence; it does not rerun GPT-2. Unavailable optional
 original model/source/vector files in a clean checkout are explicitly listed. The teaching
 demo is synthetic and uses the same profile-analysis code as the actual experiment.
+This path also [passed from a clean git export](../applications/makelov-2311.17030/results/query_route_verification/clean_checkout.json)
+with the original model, source and vector files deliberately unavailable.
 
 Evidence: [protocol](../applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md),
 [frozen manifest](../applications/makelov-2311.17030/results/query_route_confirmation/manifest.json),

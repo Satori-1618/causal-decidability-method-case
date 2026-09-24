@@ -1,0 +1,30 @@
+{
+  "exported_commit": "662759748d1a0bd4a56deecd6b25a4d8c4a2c0d6",
+  "verified": true,
+  "independent_profile_counts": {
+    "transfer": 0,
+    "joint_dependence": 0,
+    "preservation": 8
+  },
+  "n_resolved_pairs": 192,
+  "optional_inputs_unavailable": [
+    "directions.npz",
+    "source:common_imports.py",
+    "source:model_utils.py",
+    "source:data_utils.py",
+    "source:ioi_analysis.ipynb",
+    "source:das_mlp8.joblib",
+    "source:data/names.json",
+    "source:data/objects.json",
+    "source:data/places.json",
+    "source:data/prefixes.json",
+    "source:data/templates.json",
+    "model:model.safetensors",
+    "model:tokenizer_config.json",
+    "model:config.json",
+    "model:tokenizer.json",
+    "model:generation_config.json",
+    "model:vocab.json"
+  ],
+  "mode": "clean git archive, Python standard library; model/source/vector originals deliberately unavailable"
+}
