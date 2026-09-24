@@ -69,3 +69,12 @@ To apply the method: specify candidates, find a condition where predictions diff
 check measurement resolution, and freeze the comparison before fresh outcomes.
 Use the [data contract](USING_THE_METHOD.md). The same workflow can preserve ambiguity
 or reject every declared candidate; it cannot test an explanation nobody specified.
+
+## Apply it again
+
+The first result leaves a new question: **which downstream computation responds to the
+signal written by the patch?** The [proposed second round](ITERATIVE_IDENTIFICATION.md)
+compares two new predictions by holding selected Name Mover queries at their unpatched
+recipient values. It includes a runnable teaching example and a draft experimental plan;
+the route test has not been run on the model. It preserves this confirmed comparison
+while making the next uncertainty explicit.

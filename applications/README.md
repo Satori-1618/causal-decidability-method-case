@@ -11,6 +11,10 @@ The Makelov application is included in this checkout. Start with the
 [records-only verification guide](makelov-2311.17030/RECORDS_ONLY.md).
 No branch switch, model installation or download is needed for that path.
 
+The next [query-restoration comparison](makelov-2311.17030/PATH_TEST_PLAN.md) is a draft,
+with a [reader-facing walkthrough](../docs/ITERATIVE_IDENTIFICATION.md). It illustrates
+how another round follows from the first result; it has no model-run evidence yet.
+
 | paper | directory | what | status |
 |---|---|---|---|
 | Makelov, Lange & Nanda (2023), *Is this the subspace you are looking for?* arXiv:2311.17030 | `applications/makelov-2311.17030` | The four steps on the MLP8 patch: the full patch and Table 1's null patch cannot separate visible-read from null-read; a fixed write with a switched read can (read-source pilot, 32 pairs, development). Table 1 resolution per readout. Preregistered test at `resid_mid.8` | null read predicts the read patches better: pilot (32 pairs) and preregistered confirmation Q1 (64 of 64 fresh pairs, sign test p = 1.1e-19); adequacy (Q2) deferred; `resid_mid.8`: 28/28 under the frozen rule, narrow |

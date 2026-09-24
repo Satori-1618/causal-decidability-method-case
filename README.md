@@ -21,6 +21,7 @@ current method. It checks stored evidence; it does not rerun the model.
 | Your question | Where to go |
 |---|---|
 | What did the experiment distinguish? | [The confirmed case, in three minutes](docs/CONFIRMED_CASE.md) |
+| How can the same method take the next step? | [Round 2: from signal source to downstream route](docs/ITERATIVE_IDENTIFICATION.md) — proposed test and executable teaching demo |
 | Why can a successful patch fit different explanations? | The illustration below, or the [executable points game](docs/WORKED_EXAMPLE.md) |
 | What exactly does the check verify? | [Records-only verification](applications/makelov-2311.17030/RECORDS_ONLY.md) |
 | How do I use this on my own data? | [Method and data contract](docs/USING_THE_METHOD.md) |
@@ -94,6 +95,28 @@ The patch can read information that the immediate native output projection would
 transmit and write it into a visible direction. This is why explaining the patch's
 effect is different from showing that the unmodified model naturally uses that source.
 
+## Apply the method again: the next unresolved distinction
+
+| Round | Question | Status |
+|---|---|---|
+| **1. Read source** | Which source better predicts the patch's effect? | **Confirmed comparison:** null-read candidate wins 64/64 fresh pairs. |
+| **2. Downstream route** | Does holding selected Name Mover queries at baseline remove or preserve that effect? | **Proposed:** new rivals, four measurement cells, controls and a constructed demo. No model result yet. |
+| **Later: native computation** | Does the unmodified model use that information in the same way? | **Open:** neither preceding comparison settles this. |
+
+The first result survives even if the next test is inconclusive or rejects both new
+candidates. Each round applies the same steps—specify rivals, find disagreement, check
+resolution, compare on fresh cases—to a narrower unresolved question.
+
+Read the [illustrated second round](docs/ITERATIVE_IDENTIFICATION.md), or run:
+
+```bash
+python3 examples/iterative_path_test.py  # constructed teaching worlds, NOT new LLM results
+```
+
+The [draft experiment plan](applications/makelov-2311.17030/PATH_TEST_PLAN.md) states
+what must be implemented and frozen before a real run. This is a route question,
+separate from the original Q1 result's still-open adequacy question.
+
 ## What data are needed?
 
 **For the structural check:** candidate rules and a table of planned experimental
@@ -128,6 +151,7 @@ report where the planning calculator succeeds and where it falls short.
 git clone https://github.com/Satori-1618/causal-decidability-method-case.git
 cd causal-decidability-method-case
 python3 examples/confirmed_read_source.py       # confirmed 64-pair result; standard library only
+python3 examples/iterative_path_test.py         # teaching demo of a proposed second round
 python3 examples/twelve_cell.py                 # steps 1, 2 and 4 on a toy you can check by hand
 python3 examples/from_data.py --compare-only    # optional DEVELOPMENT pilot: 32 pairs, not Q1
 python3 -m pip install -e '.[test]'              # only needed for installation and tests
@@ -156,6 +180,7 @@ foundation of the Q1 result. See [applications/](applications/README.md) for tem
 docs/USING_THE_METHOD.md   technical guide: definition, function map, planning calculator, your own data
 docs/WORKED_EXAMPLE.md     the twelve-cell toy, step by step
 docs/EVIDENCE_MAP.md       what the existing applications establish, and what not
+docs/ITERATIVE_IDENTIFICATION.md  the next application, from signal source to route
 docs/validation.md         the calculator's validation, with its failures
 docs/SEMANTIC_MOTIVATION.md how context suggests rivals, without assuming a neural decomposition
 docs/RESEARCH_SCOPE.md     the research priority

@@ -5,6 +5,11 @@ It is a new publication of existing evidence, not a new experiment or a retroact
 public preregistration. It makes no claim to invent model discrimination or to solve
 mechanistic identification generally.
 
+The added [iterative follow-up](docs/ITERATIVE_IDENTIFICATION.md) is a teaching demo and
+draft design for a second application. It changes none of the archived evidence and
+reports no new model experiment. Its illustrative error bounds and tolerance are not
+approved thresholds for a real run.
+
 ## Evidence and verification levels
 
 1. **Stored evidence:** `python3 examples/confirmed_read_source.py` verifies the archived

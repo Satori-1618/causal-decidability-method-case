@@ -11,6 +11,12 @@ in this checkout. Run `python3 examples/confirmed_read_source.py`; see the
 Historical development branch names below are provenance, not branches readers need
 to fetch. Shi and the full synthetic benchmark are not bundled with this release.
 
+**Next step, not a new finding:** [round 2](ITERATIVE_IDENTIFICATION.md) applies the same
+logic to removal versus preservation of the patch effect under a selected-query clamp.
+Its four-cell demo is constructed, and the real-model contract is a draft. There is no
+empirical route result, no approved adequacy tolerance and no implication that Q1's
+candidate has become a uniquely identified mechanism.
+
 ## 1. The structural claim: demonstrated by construction
 
 The [worked example](WORKED_EXAMPLE.md) has executable candidate rules. A single patch
