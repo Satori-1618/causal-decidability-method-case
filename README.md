@@ -21,13 +21,13 @@ current method. It checks stored evidence; it does not rerun the model.
 | Your question | Where to go |
 |---|---|
 | What did the experiment distinguish? | [The confirmed case, in three minutes](docs/CONFIRMED_CASE.md) |
-| How can the same method take the next step? | [Round 2: from signal source to downstream route](docs/ITERATIVE_IDENTIFICATION.md) — proposed test and executable teaching demo |
+| What happened when the method was applied again? | [Round 2: the executed 192-pair result](docs/ROUND2_RESULT.md) — three simple profiles excluded, with a worked example |
 | Why can a successful patch fit different explanations? | The illustration below, or the [executable points game](docs/WORKED_EXAMPLE.md) |
 | What exactly does the check verify? | [Records-only verification](applications/makelov-2311.17030/RECORDS_ONLY.md) |
 | How do I use this on my own data? | [Method and data contract](docs/USING_THE_METHOD.md) |
 | What changed in this release? | [Scope, safeguards and frozen files](RELEASE_NOTES.md) |
 
-The demonstrated result is a **relative prediction comparison for two declared
+The round-1 result is a **relative prediction comparison for two declared
 explanations of a patch operation**. It is not a uniquely identified native mechanism,
 an adequacy result, or a general reliability guarantee for every analysis in this repo.
 
@@ -100,22 +100,23 @@ effect is different from showing that the unmodified model naturally uses that s
 | Round | Question | Status |
 |---|---|---|
 | **1. Read source** | Which source better predicts the patch's effect? | **Confirmed comparison:** null-read candidate wins 64/64 fresh pairs. |
-| **2. Downstream route** | Does holding selected Name Mover queries at baseline remove or preserve that effect? | **Proposed:** new rivals, four measurement cells, controls and a constructed demo. No model result yet. |
+| **2. Query reset and reverse transfer** | Does resetting selected queries remove the effect, and can those queries reproduce it alone? | **Executed:** all three predefined profiles excluded on 192 fresh pairs; all numerical and technical controls passed. |
 | **Later: native computation** | Does the unmodified model use that information in the same way? | **Open:** neither preceding comparison settles this. |
 
-The first result survives even if the next test is inconclusive or rejects both new
+The first result survives even if the next test is inconclusive or rejects the new
 candidates. Each round applies the same steps—specify rivals, find disagreement, check
 resolution, compare on fresh cases—to a narrower unresolved question.
 
-Read the [illustrated second round](docs/ITERATIVE_IDENTIFICATION.md), or run:
+Read the [actual second-round result](docs/ROUND2_RESULT.md), or run:
 
 ```bash
-python3 examples/iterative_path_test.py  # constructed teaching worlds, NOT new LLM results
+python3 examples/iterative_query_transfer.py  # constructed worlds; actual shipped analyzer
 ```
 
-The [draft experiment plan](applications/makelov-2311.17030/PATH_TEST_PLAN.md) states
-what must be implemented and frozen before a real run. This is a route question,
-separate from the original Q1 result's still-open adequacy question.
+The [execution protocol](applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md)
+records the frozen contract. The [earlier walkthrough](docs/ITERATIVE_IDENTIFICATION.md)
+preserves the design history, including the missing condition found during review.
+This route question is separate from Q1's still-open adequacy question.
 
 ## What data are needed?
 
@@ -148,10 +149,10 @@ report where the planning calculator succeeds and where it falls short.
 ## Install and run
 
 ```bash
-git clone https://github.com/Satori-1618/causal-decidability-method-case.git
+git clone --branch codex/round2-critical-plan https://github.com/Satori-1618/causal-decidability-method-case.git
 cd causal-decidability-method-case
 python3 examples/confirmed_read_source.py       # confirmed 64-pair result; standard library only
-python3 examples/iterative_path_test.py         # teaching demo of a proposed second round
+python3 examples/iterative_query_transfer.py    # synthetic illustration of the second-round design
 python3 examples/twelve_cell.py                 # steps 1, 2 and 4 on a toy you can check by hand
 python3 examples/from_data.py --compare-only    # optional DEVELOPMENT pilot: 32 pairs, not Q1
 python3 -m pip install -e '.[test]'              # only needed for installation and tests
@@ -167,7 +168,7 @@ start with the records-only guide for the small confirmed case.
 
 | paper | location | status |
 |---|---|---|
-| Makelov, Lange & Nanda, arXiv:2311.17030 | [included application](applications/makelov-2311.17030/RECORDS_ONLY.md) | fixed-write/split-read pilot and confirmation Q1; older Table 1 and `resid_mid.8` material kept as historical context |
+| Makelov, Lange & Nanda, arXiv:2311.17030 | [Q1](applications/makelov-2311.17030/RECORDS_ONLY.md), [round 2](docs/ROUND2_RESULT.md) | confirmed read-source comparison; 192-pair query-route profile exclusion; older material preserved |
 
 The synthetic calculator benchmark and other application branches belong to the
 development repository and are not included in this public snapshot. Their reported

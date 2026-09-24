@@ -1,14 +1,20 @@
 # Public method-case snapshot
 
-This release contains the general method and the Makelov Q1 comparison in one checkout.
-It is a new publication of existing evidence, not a new experiment or a retroactive
-public preregistration. It makes no claim to invent model discrimination or to solve
-mechanistic identification generally.
+## Round 2 execution update — 24 September 2026
 
-The added [iterative follow-up](docs/ITERATIVE_IDENTIFICATION.md) is a teaching demo and
-draft design for a second application. It changes none of the archived evidence and
-reports no new model experiment. Its illustrative error bounds and tolerance are not
-approved thresholds for a real run.
+This branch adds a new [192-pair query-route experiment](docs/ROUND2_RESULT.md), with
+an earlier 32-pair development run, public pre-run freeze, full paired float32/float64
+measurements, simultaneous exact-binomial profile intervals and records-only checking.
+All three declared profiles fail the 80% coverage requirement; no unique mechanism is
+identified. The reverse-transfer condition adds information but does not change the
+population-level exclusion verdict already suggested by reset alone in these data.
+
+The original snapshot published the general method and existing Makelov Q1 evidence;
+that publication was not a new Q1 experiment or a retroactive public preregistration.
+All 62 archived files remain byte-identical. The original four-cell
+[teaching design](docs/ITERATIVE_IDENTIFICATION.md) is retained as history, with its
+review correction and the separate executed protocol clearly linked. No claim is made
+to invent model discrimination or solve mechanistic identification generally.
 
 ## Evidence and verification levels
 

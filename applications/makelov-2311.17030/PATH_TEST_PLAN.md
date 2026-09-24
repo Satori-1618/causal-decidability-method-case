@@ -1,5 +1,9 @@
 # Draft round 2: does restoring Name Mover queries remove the null-read patch effect?
 
+**Execution update:** the revised experiment is complete; see the
+[192-pair result](../../docs/ROUND2_RESULT.md). This original four-cell proposal remains
+below as design history.
+
 **Status: DESIGN DRAFT — NOT FROZEN — NO MODEL RUN.**
 
 **Review update:** see the [narrow revised plan](../../docs/ROUND2_RESEARCH_PLAN.md).

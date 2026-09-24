@@ -1,5 +1,9 @@
 # Use the same method again: from a signal source to a downstream route
 
+**Execution update:** the revised five-condition experiment has now run. Read the
+[192-pair result](ROUND2_RESULT.md): all three declared profiles were excluded under
+the frozen adequacy rule. The proposal below is retained as design history.
+
 **Round 1 has a confirmed result. Round 2 below is a proposed experiment, with an
 executable teaching example—not a second model result.**
 

@@ -1,0 +1,134 @@
+{
+  "status": "post-hoc descriptive companion; frozen primary profile decisions unchanged",
+  "n_independent_base_pairs": 192,
+  "n_paired_directions_not_independent": 384,
+  "primary_profiles": {
+    "transfer": {
+      "successes": 0,
+      "n": 192,
+      "fraction": 0.0,
+      "interval": [
+        0.0,
+        0.02462654721836213
+      ],
+      "status": "excluded"
+    },
+    "joint_dependence": {
+      "successes": 0,
+      "n": 192,
+      "fraction": 0.0,
+      "interval": [
+        0.0,
+        0.02462654721836213
+      ],
+      "status": "excluded"
+    },
+    "preservation": {
+      "successes": 8,
+      "n": 192,
+      "fraction": 0.041666666666666664,
+      "interval": [
+        0.014810202525794597,
+        0.08995542610168022
+      ],
+      "status": "excluded"
+    }
+  },
+  "metrics_float64": {
+    "T": {
+      "mean": -1.3220084511477144,
+      "median": -1.2286004308328842,
+      "minimum": -3.412302233577835,
+      "maximum": -0.1334344581926601,
+      "mean_absolute": 1.3220084511477144
+    },
+    "R": {
+      "mean": -0.9623360696185018,
+      "median": -0.8969827556023766,
+      "minimum": -2.686128703374152,
+      "maximum": -0.029343449292609236,
+      "mean_absolute": 0.9623360696185018
+    },
+    "S": {
+      "mean": -0.36551317848046183,
+      "median": -0.3639304419067537,
+      "minimum": -1.7489235594346066,
+      "maximum": 0.931704430608054,
+      "mean_absolute": 0.4386082995716097
+    },
+    "interaction_T_minus_R_minus_S": {
+      "mean": 0.005840796951249232,
+      "median": 0.006497347571293055,
+      "minimum": -0.3930142426216445,
+      "maximum": 0.38380638739837103,
+      "mean_absolute": 0.054773557214648126
+    }
+  },
+  "post_hoc_reset_only_ablation_success_counts": {
+    "removal": 0,
+    "preservation": 17
+  },
+  "direction_counts_descriptive": {
+    "T_negative": 384,
+    "R_same_sign_as_T": 384,
+    "S_same_sign_as_T": 319,
+    "R_smaller_absolute_than_T": 326
+  },
+  "maximum_cross_precision_contrast_discrepancy": 5.03533306268622e-05,
+  "identity_checks_bit_exact": true,
+  "worked_example_selection": "first case in the frozen manifest, not selected for fit",
+  "worked_example": {
+    "pair_id": "296adf2f712639e938a54ac7",
+    "prompts": [
+      "Then, Keith and Jason were working at the cafe. Jason decided to give a notebook to",
+      "Then, Jason and Keith were working at the cafe. Jason decided to give a notebook to"
+    ],
+    "correct_IO": "Keith",
+    "subject": "Jason",
+    "cells_float64": {
+      "A": [
+        2.881512528701503,
+        2.390311891760806
+      ],
+      "B": [
+        1.7313290797021317,
+        0.7405234917690517
+      ],
+      "C": [
+        2.881512528701503,
+        2.390311891760806
+      ],
+      "D": [
+        1.9528127182873956,
+        1.377721988598724
+      ],
+      "E": [
+        2.5861879101487713,
+        1.735578409227971
+      ],
+      "F": [
+        1.7313290797021317,
+        0.7405234917690517
+      ],
+      "G": [
+        2.881512528701503,
+        2.390311891760806
+      ]
+    },
+    "contrasts_float64": [
+      {
+        "T": -1.1501834489993712,
+        "R": -0.9286998104141073,
+        "S": -0.2953246185527316,
+        "interaction_T_minus_R_minus_S": 0.07384097996746775
+      },
+      {
+        "T": -1.6497883999917544,
+        "R": -1.0125899031620822,
+        "S": -0.6547334825328353,
+        "interaction_T_minus_R_minus_S": 0.01753498570316303
+      }
+    ]
+  },
+  "scope": "No confidence claim for these descriptive means/counts; no mechanism share, new candidate confirmation, or identified natural semantic computation."
+}

@@ -1,5 +1,9 @@
 # Round 2: distinguish query transfer from joint dependence
 
+**Execution update:** see the [completed experiment](ROUND2_RESULT.md) and its
+[frozen protocol](../applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md).
+The original review draft below is retained for provenance.
+
 **Review draft, 24 September 2026. No model experiment has run.**
 This revises the proposed four-cell experiment in
 [Iterative identification](ITERATIVE_IDENTIFICATION.md), not the confirmed round-1
