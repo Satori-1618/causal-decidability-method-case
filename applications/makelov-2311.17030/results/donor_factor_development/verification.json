@@ -1,0 +1,83 @@
+{
+  "verified": true,
+  "mode": "records_only",
+  "n_families": 32,
+  "independent_profile_counts": {
+    "position_only": 14,
+    "identity_only": 0
+  },
+  "n_resolved_units": 32,
+  "profiles": {
+    "position_only": {
+      "successes": 14,
+      "n": 32,
+      "fraction": 0.4375,
+      "interval": [
+        0.22555777450679937,
+        0.6672983995095398
+      ],
+      "status": "excluded"
+    },
+    "identity_only": {
+      "successes": 0,
+      "n": 32,
+      "fraction": 0.0,
+      "interval": [
+        0.0,
+        0.14666167597424323
+      ],
+      "status": "excluded"
+    }
+  },
+  "mean_statuses": {
+    "I": "equivalent",
+    "P": "negative_relevant",
+    "J": "unresolved"
+  },
+  "full_seeded_bootstrap_reproduced": true,
+  "cp_interval_max_abs_error": 4.440892098500626e-16,
+  "numeric_reproduction_tolerance": 1e-12,
+  "optional_original_inputs_verified": [
+    "directions.npz",
+    "code:applications/makelov-2311.17030/scripts/run_donor_factor.py",
+    "code:applications/makelov-2311.17030/scripts/run_query_route.py",
+    "code:applications/makelov-2311.17030/src/makelov_read_source.py",
+    "code:applications/makelov-2311.17030/src/query_route_sampling.py",
+    "code:applications/makelov-2311.17030/src/query_route_analysis.py",
+    "code:applications/makelov-2311.17030/src/donor_factor.py",
+    "code:applications/makelov-2311.17030/src/donor_factor_sampling.py",
+    "code:applications/makelov-2311.17030/src/donor_factor_analysis.py",
+    "code:applications/makelov-2311.17030/src/donor_factor_planning.py",
+    "code:applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md",
+    "runtime qualification",
+    "history:results/makelov_read_source_001/cases.json",
+    "history:results/makelov_read_source_q1/cases.json",
+    "history:results/query_route_development/cases.json",
+    "history:results/query_route_confirmation/cases.json",
+    "history:results/makelov_replication_001/dataset.jsonl",
+    "source:common_imports.py",
+    "source:model_utils.py",
+    "source:data_utils.py",
+    "source:ioi_analysis.ipynb",
+    "source:das_mlp8.joblib",
+    "source:data/names.json",
+    "source:data/objects.json",
+    "source:data/places.json",
+    "source:data/prefixes.json",
+    "source:data/templates.json",
+    "model:model.safetensors",
+    "model:tokenizer_config.json",
+    "model:config.json",
+    "model:tokenizer.json",
+    "model:generation_config.json",
+    "model:vocab.json"
+  ],
+  "optional_original_inputs_unavailable": [],
+  "scope": [
+    "No tokenizer or model was loaded or run. Raw A-minus-B margins, factorial maps, controls, complete IID draw records, and saved exclusions were checked.",
+    "Profile counts, numeric resolution, CP bounds, family I/P/J sample means and decision rules were independently recomputed from raw cells.",
+    "Full seeded bootstrap and enriched records reproduced with NumPy analyzer.",
+    "Available originals were byte-checked. Missing originals are listed, not treated as verified.",
+    "Saved token alignments and audits are consistency checks; hashes do not recover activations, prove forwards happened, or establish an independent preregistration timestamp."
+  ]
+}

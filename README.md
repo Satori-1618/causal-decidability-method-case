@@ -22,7 +22,8 @@ current method. It checks stored evidence; it does not rerun the model.
 |---|---|
 | What did the experiment distinguish? | [The confirmed case, in three minutes](docs/CONFIRMED_CASE.md) |
 | What happened when the method was applied again? | [Round 2: the executed 192-pair result](docs/ROUND2_RESULT.md) — three simple profiles excluded, with a worked example |
-| What would a next step toward semantic questions test? | [Plan 3: person, position and relational-query transfer](docs/PLAN3_PERSON_POSITION_ROLE.md) — review draft, with a checked structural design; no new model results |
+| What does crossing donor name and position add? | [Round 3A: actual development result](docs/ROUND3A_RESULT.md) — strong position effects, additional name dependence; confirmation stopped by the frozen planning rule |
+| What would the subsequent role question test? | [Plan 3](docs/PLAN3_PERSON_POSITION_ROLE.md) — 3A executed through development; 3B remains a proposal |
 | Why can a successful patch fit different explanations? | The illustration below, or the [executable points game](docs/WORKED_EXAMPLE.md) |
 | What exactly does the check verify? | [Records-only verification](applications/makelov-2311.17030/RECORDS_ONLY.md) |
 | How do I use this on my own data? | [Method and data contract](docs/USING_THE_METHOD.md) |
@@ -102,7 +103,8 @@ effect is different from showing that the unmodified model naturally uses that s
 |---|---|---|
 | **1. Read source** | Which source better predicts the patch's effect? | **Confirmed comparison:** null-read candidate wins 64/64 fresh pairs. |
 | **2. Query reset and reverse transfer** | Does resetting selected queries remove the effect, and can those queries reproduce it alone? | **Executed:** all three predefined profiles excluded on 192 fresh pairs; all numerical and technical controls passed. |
-| **Later: native computation** | Does the unmodified model use that information in the same way? | **Open:** neither preceding comparison settles this. |
+| **3A. Donor name and position** | Does a position-only invariance requirement describe the fixed patch across name assignments? | **Development only, 32 families:** position-only and identity-only profiles both excluded; the small mean name effect hides opposing panel effects. No confirmation authorized by the frozen planning rule. |
+| **Later: native computation** | Does the unmodified model use that information in the same way? | **Open:** none of these comparisons settles this. |
 
 The first result survives even if the next test is inconclusive or rejects the new
 candidates. Each round applies the same steps—specify rivals, find disagreement, check
@@ -118,6 +120,8 @@ The [execution protocol](applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md
 records the frozen contract. The [earlier walkthrough](docs/ITERATIVE_IDENTIFICATION.md)
 preserves the design history, including the missing condition found during review.
 This route question is separate from Q1's still-open adequacy question.
+The [round-3A result](docs/ROUND3A_RESULT.md) applies the method again to the donor
+conditions, with a four-donor worked example and the reason its confirmation was stopped.
 
 ## What data are needed?
 
@@ -150,7 +154,7 @@ report where the planning calculator succeeds and where it falls short.
 ## Install and run
 
 ```bash
-git clone --branch codex/round2-critical-plan https://github.com/Satori-1618/causal-decidability-method-case.git
+git clone --branch codex/plan3-person-position-role https://github.com/Satori-1618/causal-decidability-method-case.git
 cd causal-decidability-method-case
 python3 examples/confirmed_read_source.py       # confirmed 64-pair result; standard library only
 python3 examples/iterative_query_transfer.py    # synthetic illustration of the second-round design
@@ -169,7 +173,7 @@ start with the records-only guide for the small confirmed case.
 
 | paper | location | status |
 |---|---|---|
-| Makelov, Lange & Nanda, arXiv:2311.17030 | [Q1](applications/makelov-2311.17030/RECORDS_ONLY.md), [round 2](docs/ROUND2_RESULT.md) | confirmed read-source comparison; 192-pair query-route profile exclusion; older material preserved |
+| Makelov, Lange & Nanda, arXiv:2311.17030 | [Q1](applications/makelov-2311.17030/RECORDS_ONLY.md), [round 2](docs/ROUND2_RESULT.md), [round 3A](docs/ROUND3A_RESULT.md) | confirmed read-source comparison; 192-pair query-route profile exclusion; 32-family donor-factor development and planning STOP; older material preserved |
 
 The synthetic calculator benchmark and other application branches belong to the
 development repository and are not included in this public snapshot. Their reported

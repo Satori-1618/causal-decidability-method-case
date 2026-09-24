@@ -1,9 +1,12 @@
 # Plan 3: from donor dependence to a test of relational-query transfer
 
-**Review draft, 24 September 2026. No new model experiments have run.**
-The structural prediction check below has run. It checks stipulated candidate rules,
-not GPT-2's behavior. Scientific resolutions in this draft are proposals to freeze
-before development; they are not estimates obtained from rounds 1 or 2.
+**Execution update, 24 September 2026:** 3A's 32-family development run is complete;
+the frozen planning rule did not authorize confirmation. Read the
+[actual result and its limits](ROUND3A_RESULT.md). 3B remains an unexecuted proposal.
+The design below preserves the original review draft; its proposed 3A resolutions were
+subsequently fixed in the [execution protocol](../applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md)
+before development outcomes. The structural check is a check of stipulated candidate
+rules, separate from the new GPT-2 measurements.
 
 ## Goal and the two decisions
 
