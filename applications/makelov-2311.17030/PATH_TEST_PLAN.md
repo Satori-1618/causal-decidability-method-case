@@ -2,6 +2,11 @@
 
 **Status: DESIGN DRAFT — NOT FROZEN — NO MODEL RUN.**
 
+**Review update:** see the [narrow revised plan](../../docs/ROUND2_RESEARCH_PLAN.md).
+It identifies a gating countermodel to the four-cell interpretation and proposes a
+reverse query transfer plus explicit adequacy rules. The original proposal below is
+retained as design history; neither version is a completed experiment.
+
 This is a second application of the method, not a new result from the stored Q1 records.
 The [reader-facing walkthrough](../../docs/ITERATIVE_IDENTIFICATION.md) explains the
 question. The executable teaching demo is synthetic. Tensor hooks, empirical control
