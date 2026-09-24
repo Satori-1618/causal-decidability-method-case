@@ -5,6 +5,12 @@ This replaces the two-person 3B proposal in [Plan 3](PLAN3_PERSON_POSITION_ROLE.
 The established [3A result](ROUND3A_CONFIRMATION.md) is unchanged. Nothing here claims
 that the published MLP direction already represents a role.
 
+**Pre-run literature audit:** [the Mixing Mechanisms crosswalk](GOODFIRE_CROSSWALK.md)
+records which published retrieval mechanisms are represented, undefined, or still
+indistinguishable here. The [Stage A protocol](../applications/makelov-2311.17030/ROLE_BASELINE_PROTOCOL.md)
+now freezes native feasibility only. The absent-target pointer test is a separate
+follow-up; it is not silently added to the present three-name readout.
+
 **Goal:** on fresh cases, positively support an accurate, nontrivial model of how a
 cross-query patch responds to the recipient's role bindings, while excluding specified
 name, position, unchanged-response and query-change-only alternatives. A relative winner
@@ -135,8 +141,10 @@ only correctly answered individual items. Stop the task family if it fails.
 Verify single-token names, actual name spans, absolute final positions and finite scores.
 The three question variants must have equal token length within a story/wording, and
 the matched donor collision must preserve the answer token and its position. No silent
-padding or outcome-dependent replacement. Native endpoint geometry must separate the
-fixed diagnostic predictions; a third label does not guarantee a third usable direction.
+padding or outcome-dependent replacement. At optimistic role gain 1, all fixed diagnostic
+gaps must exceed 0.52 nat in both wordings and precisions for at least 29/32 families.
+This is potential separation, not an estimated transfer gain or power guarantee.
+A third label does not guarantee a third usable direction.
 
 **B. Development of the fixed predictor.** If A passes, collect fit-wording patches on
 these 32 families only. Use four whole-family folds to assess held-out prediction and
