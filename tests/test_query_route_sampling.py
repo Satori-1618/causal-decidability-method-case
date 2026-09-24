@@ -150,6 +150,25 @@ class QueryRouteSampling(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'tokenizer_fingerprint'):
                 sampling.sample_iid_cases(root, ToyTokenizer(), n=1, seed=7, stage='pilot')
 
+    def test_source_prefixes_allow_empty_and_repeated_entries_without_reweighting(self):
+        for prefixes in (['', 'Then ', 'Then, '], ['', '', '']):
+            with self.subTest(prefixes=prefixes), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                self.source(root)
+                (root / 'data/prefixes.json').write_text(json.dumps(prefixes))
+                # Repeated proposal slots are allowed and keep their weight.
+                (root / 'data/objects.json').write_text(
+                    json.dumps(['old0', 'old1', 'book', 'book']))
+                draws, manifest = sampling.sample_iid_cases(
+                    root, ToyTokenizer(), n=32, seed=sampling.PILOT_SEED,
+                    stage='pilot', tokenizer_fingerprint='toy-v1')
+                axes = manifest['sampling_definition']['axes']
+                self.assertEqual(axes['prefix'], prefixes[2])
+                self.assertEqual(axes['objects'], ['book', 'book'])
+                self.assertEqual(manifest['sampling_definition']['proposal_tuple_count'], 12)
+                self.assertEqual(len(draws), 32)
+                self.assertTrue(all(p.startswith(prefixes[2]) for c in draws for p in c['prompts']))
+
     def test_malformed_case_is_not_silently_repaired(self):
         case = eligible_case('bad')
         for key, value in (('position', 0), ('answer_token_ids', [10, 10]),

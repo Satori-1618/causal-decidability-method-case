@@ -198,10 +198,13 @@ def sample_iid_cases(source_dir, tokenizer, *, n, seed, stage, excluded_prompts=
         content = (root / 'data' / f'{name}.json').read_bytes()
         data[name] = json.loads(content)
         hashes[f'data/{name}.json'] = hashlib.sha256(content).hexdigest()
+        # Source entries are proposal slots, not a mathematical set. Repeated
+        # entries retain their declared sampling weight; a prefix may be empty
+        # (the published source includes the empty prefix). Never deduplicate.
         if (not isinstance(data[name], list) or not data[name]
-                or not all(isinstance(s, str) and s for s in data[name])
-                or len(set(data[name])) != len(data[name])):
-            raise ValueError(f'{name} must be a nonempty list of unique strings')
+                or not all(isinstance(s, str) and (name == 'prefixes' or bool(s))
+                           for s in data[name])):
+            raise ValueError(f'{name} must be a nonempty string list; only prefixes may be empty')
     if len(data['prefixes']) < 3 or len(data['templates']) < 3:
         raise ValueError('the declared held-out prefix/template split is unavailable')
     bos = tokenizer.bos_token_id

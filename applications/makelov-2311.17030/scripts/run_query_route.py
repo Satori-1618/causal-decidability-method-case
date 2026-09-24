@@ -51,6 +51,9 @@ def load_model():
     model.eval().requires_grad_(False)
     if model.cfg.n_layers != 12 or model.cfg.d_model != 768 or model.cfg.d_head != 64:
         raise RuntimeError('unexpected model architecture')
+    if (model.cfg.positional_embedding_type != 'standard'
+            or getattr(model.cfg, 'use_qk_norm', False)):
+        raise RuntimeError('query semantics require standard GPT-2 positions without QK normalization')
     return model, tok, snapshot
 
 
@@ -124,12 +127,20 @@ def run(args):
     import numpy as np
     import torch
     from makelov_read_source import sha256
-    from query_route import run_route_case
+    from query_route import run_route_case, QUERY_HEADS
     from query_route_analysis import analyze_records
     manifest_path = args.output / 'manifest.json'
     if not args.manifest_sha256 or sha256(manifest_path) != args.manifest_sha256:
         raise RuntimeError('explicit frozen manifest hash is required and must match')
     manifest = json.loads(manifest_path.read_text())
+    if (manifest['stage'] not in ('development', 'confirmation')
+            or manifest['precisions'] != ['float32', 'float64']
+            or manifest['query_heads'] != {k: list(v) for k, v in QUERY_HEADS.items()}):
+        raise RuntimeError('manifest instrument semantics do not match this runner')
+    cases = json.loads((args.output / 'cases.json').read_text())
+    if (len(cases) != manifest['n_base_pairs']
+            or len({c['case_id'] for c in cases}) != len(cases)):
+        raise RuntimeError('manifest sample count or unique draw IDs do not match')
     for name, digest in manifest['code_files_sha256'].items():
         if sha256(REPO / name) != digest:
             raise RuntimeError(f'frozen code changed: {name}')
@@ -150,7 +161,6 @@ def run(args):
     for name, digest in manifest['model_files_sha256'].items():
         if sha256(snapshot / name) != digest:
             raise RuntimeError(f'model input changed: {name}')
-    cases = json.loads((args.output / 'cases.json').read_text())
     directions = dict(np.load(args.output / 'directions.npz', allow_pickle=False))
     records = [{'pair_id': c['case_id'], 'content_pair_id': c.get('content_pair_id'),
                 'precisions': {}} for c in cases]
