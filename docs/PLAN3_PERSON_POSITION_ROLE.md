@@ -3,7 +3,10 @@
 **Execution update, 24 September 2026:** 3A's [512-family confirmation](ROUND3A_CONFIRMATION.md)
 is complete. The original [32-family development run and planning STOP](ROUND3A_RESULT.md)
 remain preserved; a prospective amendment added 512 and passed the unchanged power gates.
-Both declared invariance profiles were excluded on fresh data. 3B remains an unexecuted proposal.
+Both declared invariance profiles were excluded on fresh data. **For the current 3B
+design, read [the positive-identification plan](ROUND3B_POSITIVE_IDENTIFICATION.md).**
+It replaces the two-role draft below with three queried roles, a matched donor collision,
+absolute three-name responses and gain-flexible rival envelopes. 3B has not run on a model.
 The design below preserves the original review draft; its proposed 3A resolutions were
 subsequently fixed in the [execution protocol](../applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md)
 before development outcomes. The structural check is a check of stipulated candidate
@@ -131,6 +134,10 @@ instruction “choose the recipient” predicts the recipient's original answer,
 These ambiguities are mathematical properties of this candidate menu, not missing power.
 
 ## 3B: transfer a queried relation, not an unchanging role label
+
+**Superseded design history.** This two-role draft is retained to explain the conditional
+flip ambiguity. Its 16-cell menu, scalar margins and gain fitting are not the current
+execution plan. Use [the three-role replacement](ROUND3B_POSITIVE_IDENTIFICATION.md).
 
 3B is a new task family and first gets a baseline-only feasibility test. The transferred
 candidate variable is **which relation is queried** (giver or recipient); the entities
@@ -270,17 +277,11 @@ and may not be removed or replaced. Exact equivalences remain grouped regardless
 5. **Confirm 3A once:** freeze code, thresholds, cases, source hashes, statistics and
    the selection calculation, with a public commit before inference. Publish all cells
    and outcomes, including exclusions and unchanged rival groups.
-6. **Qualify 3B separately:** baseline-only 32 development families for giver/recipient,
-   both surface forms and the held-out wording. Proposed task gate: at least 90% correct
-   conditional two-name choices within each query/form group, positive counterfactual
-   separation, and no token-position confound. Report intervals, candidate-name mass and
-   full-vocabulary argmax; the gate is feasibility, not a population competence guarantee.
-   No inference about role transfer is allowed from an incompetent instrument. Stop rather
-   than select only convenient items. New templates or another model require a new plan.
-7. **Only if 3B qualifies:** run its development patches, freeze gains and predictions,
-   repeat the resolution and precision planning for its actual losses, then publish a
-   separate confirmation contract. Do not reuse 3A's sample-size justification. Keep the
-   original direction; absence of a suitable effect can be a valid instrument limitation.
+6. **Qualify 3B separately:** follow stage A of the [three-role plan](ROUND3B_POSITIVE_IDENTIFICATION.md)
+   on 32 baseline-only families. The historical two-role draft above is superseded.
+7. **Only if 3B qualifies:** follow its stages B–C, with new power calculations and a
+   separate frozen manifest. The positive claim requires absolute adequacy and paired
+   superiority to the strengthened rivals; 3A's power calculation does not transfer.
 
 Numeric check for step 4 (two profiles, family alpha 0.025, coverage 0.80):
 

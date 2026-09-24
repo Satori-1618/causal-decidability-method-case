@@ -73,8 +73,9 @@ or reject every declared candidate; it cannot test an explanation nobody specifi
 ## Apply it again
 
 The first result leaves a new question: **which downstream computation responds to the
-signal written by the patch?** The [proposed second round](ITERATIVE_IDENTIFICATION.md)
-compares two new predictions by holding selected Name Mover queries at their unpatched
-recipient values. It includes a runnable teaching example and a draft experimental plan;
-the route test has not been run on the model. It preserves this confirmed comparison
-while making the next uncertainty explicit.
+signal written by the patch?** [Round 2](ROUND2_RESULT.md) has now tested query reset and
+reverse transfer on 192 fresh pairs; all three simple response profiles were excluded.
+[Round 3A](ROUND3A_CONFIRMATION.md) then tested name/position invariance on 512 fresh
+families. These results preserve this confirmed relative comparison; neither supplies
+its still-unmeasured absolute adequacy. [Round 3B](ROUND3B_POSITIVE_IDENTIFICATION.md)
+now specifies a possible positive identification step, with no model result yet.
