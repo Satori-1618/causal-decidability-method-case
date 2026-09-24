@@ -23,7 +23,8 @@ current method. It checks stored evidence; it does not rerun the model.
 | What did the experiment distinguish? | [The confirmed case, in three minutes](docs/CONFIRMED_CASE.md) |
 | What happened when the method was applied again? | [Round 2: the executed 192-pair result](docs/ROUND2_RESULT.md) — three simple profiles excluded, with a worked example |
 | What does crossing donor name and position add? | [Round 3A: confirmed on 512 fresh families](docs/ROUND3A_CONFIRMATION.md) — strong position effects, but position-only invariance is inadequate; signed means hide name dependence |
-| What would make the next step a positive identification result? | [Round 3B: the three-role design](docs/ROUND3B_POSITIVE_IDENTIFICATION.md) — executable design and analysis, with strong rivals and an explicit success rule; no model result yet |
+| What happened to the proposed three-role identification test? | [Round 3B Stage A: stopped before patching](docs/ROUND3B_STAGE_A_RESULT.md) — native competence and geometry failed on 32 frozen families; numerics passed; no patches |
+| What would a positive result have required? | [The frozen three-role design](docs/ROUND3B_POSITIVE_IDENTIFICATION.md) — accurate absolute predictions, strong rivals and fresh confirmation; its present task failed feasibility |
 | How does that design compare with published entity-binding mechanisms? | [Mixing Mechanisms: the pre-run crosswalk](docs/GOODFIRE_CROSSWALK.md) — which mechanisms are actually represented, which remain equivalent, and why the pointer test is a separate extension |
 | Why can a successful patch fit different explanations? | The illustration below, or the [executable points game](docs/WORKED_EXAMPLE.md) |
 | What exactly does the check verify? | [Records-only verification](applications/makelov-2311.17030/RECORDS_ONLY.md) |

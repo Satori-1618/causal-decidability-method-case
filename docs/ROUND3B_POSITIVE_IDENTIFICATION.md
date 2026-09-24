@@ -1,6 +1,10 @@
 # Round 3B: a positive identification test, not just another exclusion
 
-**Status: prospective design and executable analysis; no 3B model result.**
+**Execution update:** [Stage A failed competence and geometry](ROUND3B_STAGE_A_RESULT.md)
+on 32 fixed families; numerics passed. No 3B patches were run. The prospective design
+below is retained; its original freeze is commit `24cc60e`.
+
+**Status at freeze: prospective design and executable analysis; no 3B model result.**
 This replaces the two-person 3B proposal in [Plan 3](PLAN3_PERSON_POSITION_ROLE.md).
 The established [3A result](ROUND3A_CONFIRMATION.md) is unchanged. Nothing here claims
 that the published MLP direction already represents a role.

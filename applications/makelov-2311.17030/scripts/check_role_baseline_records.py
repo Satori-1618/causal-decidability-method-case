@@ -349,11 +349,14 @@ def verify_directory(directory, repo=REPO):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('results', type=Path)
+    parser.add_argument('--check-only', action='store_true',
+                        help='verify published artifacts without writing or replacing verification.json')
     args = parser.parse_args()
     result = verify_directory(args.results)
-    with (args.results/'verification.json').open('x') as handle:
-        json.dump(result, handle, indent=2, allow_nan=False)
-        handle.write('\n')
+    if not args.check_only:
+        with (args.results/'verification.json').open('x') as handle:
+            json.dump(result, handle, indent=2, allow_nan=False)
+            handle.write('\n')
     print(json.dumps({k: result[k] for k in ('verified', 'status', 'failure_reasons', 'potential_geometry')}, indent=2))
 
 
