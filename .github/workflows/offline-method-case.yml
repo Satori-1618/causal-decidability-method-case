@@ -2,11 +2,18 @@ name: Offline method case
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
+env:
+  HF_HUB_OFFLINE: '1'
+  TRANSFORMERS_OFFLINE: '1'
+  CUDA_VISIBLE_DEVICES: ''
+  PYTHONDONTWRITEBYTECODE: '1'
 jobs:
   stored-evidence:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Stage A verifies source files at its historical freeze commit.
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -19,7 +26,48 @@ jobs:
         run: python -S scripts/check_frozen_files.py
       - name: Run the constructed second-round demonstration
         run: python -I -S examples/iterative_path_test.py
-      - name: Install only the method and its test dependency
+      - name: Check round 2 stored evidence
+        run: >-
+          python -I -S applications/makelov-2311.17030/scripts/check_query_route_records.py
+          --results applications/makelov-2311.17030/results/query_route_confirmation
+      - name: Check round 3A stored evidence
+        run: >-
+          python -I -S applications/makelov-2311.17030/scripts/check_donor_factor_512_records.py
+          --results applications/makelov-2311.17030/results/donor_factor_confirmation_512
+      - name: Check round 3B qualification stop
+        run: >-
+          python -I -S applications/makelov-2311.17030/scripts/check_role_baseline_records.py
+          applications/makelov-2311.17030/results/role_baseline_development --check-only
+  analysis-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install analysis test dependencies (no PyTorch)
         run: python -m pip install -e '.[test]'
-      - name: Run the offline release tests
-        run: python -m pytest tests applications/makelov-2311.17030/tests/test_check_read_source_q1_records.py -q
+      - name: Confirm this job has no tensor runtime
+        run: python -c "import importlib.util; assert importlib.util.find_spec('torch') is None"
+      - name: Run analysis tests and display optional skips
+        run: python -m pytest -q -ra
+      - name: Recompute round 3A seeded bootstrap from saved records
+        run: >-
+          python applications/makelov-2311.17030/scripts/check_donor_factor_512_records.py
+          --results applications/makelov-2311.17030/results/donor_factor_confirmation_512
+          --full-bootstrap
+  tensor-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install CPU tensor runtime and test dependencies
+        run: |
+          python -m pip install 'torch>=2.2' --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e '.[test-hooks]'
+      - name: Require the optional runtime before running its tests
+        run: python -c "import torch; print(torch.__version__)"
+      - name: Run release suite including tensor tests (no pretrained models)
+        run: python -m pytest -q -ra

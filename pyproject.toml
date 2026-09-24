@@ -16,7 +16,8 @@ dependencies = []
 Repository = "https://github.com/Satori-1618/causal-decidability-method-case"
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "numpy>=1.24"]
+test-hooks = ["pytest", "numpy>=1.24", "torch>=2.2"]
 figures = ["matplotlib"]
 analysis = ["numpy>=1.24"]
 

@@ -19,6 +19,12 @@ declared 80% coverage. It used a documented prospective sample-size amendment af
 the original planning STOP. These results do not make Q1's candidate a uniquely
 identified mechanism or establish a transferred semantic role.
 
+[Round 3B Stage A](ROUND3B_STAGE_A_RESULT.md) measured 32 native-task families after
+the public freeze. Competence and geometry failed; numerical checks passed. No patch
+was run. This demonstrates enforcement of the qualification rule, not absence of role
+representations. The [current application overview](../applications/makelov-2311.17030/CASE_STUDY.md)
+connects all four rounds to their protocols, raw results and records-only checks.
+
 ## 1. The structural claim: demonstrated by construction
 
 The [worked example](WORKED_EXAMPLE.md) has executable candidate rules. A single patch

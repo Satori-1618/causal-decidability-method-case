@@ -77,5 +77,8 @@ signal written by the patch?** [Round 2](ROUND2_RESULT.md) has now tested query 
 reverse transfer on 192 fresh pairs; all three simple response profiles were excluded.
 [Round 3A](ROUND3A_CONFIRMATION.md) then tested name/position invariance on 512 fresh
 families. These results preserve this confirmed relative comparison; neither supplies
-its still-unmeasured absolute adequacy. [Round 3B](ROUND3B_POSITIVE_IDENTIFICATION.md)
-now specifies a possible positive identification step, with no model result yet.
+its still-unmeasured absolute adequacy. [Round 3B's native qualification](ROUND3B_STAGE_A_RESULT.md)
+has now run and stopped before patching: both competence and prediction geometry failed.
+This does not test whether a patch transfers a role. Read the
+[complete application story](../applications/makelov-2311.17030/CASE_STUDY.md) for what
+each round adds and leaves open.

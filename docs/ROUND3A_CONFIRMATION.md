@@ -144,7 +144,9 @@ into this confirmation.
 This is GPT-2 Small, MLP8 post-GELU, the final prompt position, the fixed null-read/full-write
 operator, one template and one prefix. It tests the effect of the patch, not whether the
 unmodified network naturally uses a person or role representation. Position selection
-and giver-position inhibition remain indistinguishable in the two-name task. 3B has not run.
+and giver-position inhibition remain indistinguishable in the two-name task.
+**Subsequent status:** [3B's native qualification](ROUND3B_STAGE_A_RESULT.md) has since
+run and stopped before patching. No empirical 3B role-transfer comparison is available.
 
 Verify the published records without a model or additional packages:
 

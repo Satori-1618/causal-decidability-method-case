@@ -6,7 +6,9 @@ from types import SimpleNamespace
 import unittest
 
 import numpy as np
-import torch
+import pytest
+
+torch = pytest.importorskip('torch', reason='tensor hook tests require .[test-hooks]')
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] /
                        'applications/makelov-2311.17030/src'))

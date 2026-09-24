@@ -1,5 +1,27 @@
 # Public method-case snapshot
 
+## Makelov application and reproducibility update — 24 September 2026
+
+The [current case study](applications/makelov-2311.17030/CASE_STUDY.md) explains what
+each application of the existing method adds: Q1's supported relative read-source
+comparison, round 2's three profile exclusions, 3A's two invariance-profile exclusions,
+and 3B's native qualification STOP before any patching. It does not turn the latter
+into a role-transfer result or add an absolute adequacy claim to Q1.
+
+The [verification guide](applications/makelov-2311.17030/VERIFICATION.md) separates
+standard-library records checks, NumPy analysis tests, optional PyTorch tensor tests,
+and full model replay. The `test` extra now declares NumPy; `test-hooks` additionally
+declares PyTorch. Tensor-dependent tests explicitly skip when that optional runtime
+is absent. CI has separate stored-evidence, analysis and CPU tensor jobs. The analysis
+job also regenerates the two seeded 3A bootstrap calculations from saved measurements.
+
+This maintenance change runs no pretrained model and changes no research outcomes,
+frozen contracts, raw records or historical application files. The root README and
+`main` are preserved. Current entry points are the application index and case study;
+older proposal text remains historical material. Local validation is recorded in
+[the release check report](docs/MAKELOV_RELEASE_CHECKS.md); it is not a claim that the
+updated hosted CI has already run.
+
 ## Round 2 execution update — 24 September 2026
 
 This branch adds a new [192-pair query-route experiment](docs/ROUND2_RESULT.md), with
@@ -77,10 +99,16 @@ pinned revision rather than redistributed; the archived application documents it
 
 ```bash
 python3 -m pip install -e '.[test]'
-python3 -m pytest
+python3 -m pytest -q -ra
 ```
 
 The default suite covers the current method, release integrity, Q1 integration and the
 records-only checker. The archived application suite is separate: several of its tests
 require fetched inputs or TransformerLens. It is not silently represented as having
 passed in a minimal environment.
+
+Install `.[test-hooks]` and rerun the same command to include the optional tensor
+tests. Without PyTorch, their skips are expected and visible, not counted as passes.
+These tensor tests use fake models, not pretrained weights. Use the
+[verification guide](applications/makelov-2311.17030/VERIFICATION.md) for fresh-environment
+commands and all four result checks.

@@ -6,18 +6,22 @@ reports which explanations the data leave compatible.
 
 ## Index
 
-The Makelov application is included in this checkout. Start with the
-[plain-language case](../docs/CONFIRMED_CASE.md), then its
-[records-only verification guide](makelov-2311.17030/RECORDS_ONLY.md).
-No branch switch, model installation or download is needed for that path.
+The Makelov application is included in this checkout. Start with its current
+[four-round case study](makelov-2311.17030/CASE_STUDY.md), then
+[verification and installation](makelov-2311.17030/VERIFICATION.md).
+The stored results can be checked with Python alone, without models or downloads.
+The application's original README is a hash-frozen historical document; it is not
+the current experiment index.
 
-The next [query-restoration comparison](makelov-2311.17030/PATH_TEST_PLAN.md) is a draft,
-with a [reader-facing walkthrough](../docs/ITERATIVE_IDENTIFICATION.md). It illustrates
-how another round follows from the first result; it has no model-run evidence yet.
+The query-route comparison has run on 192 fresh pairs; the name/position comparison
+on 512 fresh families. The proposed three-role experiment stopped after native
+qualification on 32 families, before any patching. The original
+[four-cell teaching proposal](../docs/ITERATIVE_IDENTIFICATION.md) remains design
+history, separate from the revised executed five-condition experiment.
 
 | paper | directory | what | status |
 |---|---|---|---|
-| Makelov, Lange & Nanda (2023), *Is this the subspace you are looking for?* arXiv:2311.17030 | `applications/makelov-2311.17030` | The four steps on the MLP8 patch: the full patch and Table 1's null patch cannot separate visible-read from null-read; a fixed write with a switched read can (read-source pilot, 32 pairs, development). Table 1 resolution per readout. Preregistered test at `resid_mid.8` | null read predicts the read patches better: pilot (32 pairs) and preregistered confirmation Q1 (64 of 64 fresh pairs, sign test p = 1.1e-19); adequacy (Q2) deferred; `resid_mid.8`: 28/28 under the frozen rule, narrow |
+| Makelov, Lange & Nanda (2023), *Is this the subspace you are looking for?* arXiv:2311.17030 | [Current case](makelov-2311.17030/CASE_STUDY.md) | Read source → downstream route → name/position → role-task qualification | Q1: B better in 64/64; round 2: three profiles excluded; 3A: two invariance profiles excluded; 3B: qualification STOP, no patches. Q1 absolute adequacy and native semantic identification remain open. |
 
 ## How to apply the method
 

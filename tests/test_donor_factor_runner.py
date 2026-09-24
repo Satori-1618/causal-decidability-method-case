@@ -6,6 +6,10 @@ import sys
 import tempfile
 import unittest
 
+import pytest
+
+pytest.importorskip('torch', reason='frozen runner imports require .[test-hooks]')
+
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT/'applications/makelov-2311.17030/scripts'
 sys.path.insert(0, str(SCRIPTS))
