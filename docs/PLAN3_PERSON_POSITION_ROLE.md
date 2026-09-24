@@ -1,8 +1,9 @@
 # Plan 3: from donor dependence to a test of relational-query transfer
 
-**Execution update, 24 September 2026:** 3A's 32-family development run is complete;
-the frozen planning rule did not authorize confirmation. Read the
-[actual result and its limits](ROUND3A_RESULT.md). 3B remains an unexecuted proposal.
+**Execution update, 24 September 2026:** 3A's [512-family confirmation](ROUND3A_CONFIRMATION.md)
+is complete. The original [32-family development run and planning STOP](ROUND3A_RESULT.md)
+remain preserved; a prospective amendment added 512 and passed the unchanged power gates.
+Both declared invariance profiles were excluded on fresh data. 3B remains an unexecuted proposal.
 The design below preserves the original review draft; its proposed 3A resolutions were
 subsequently fixed in the [execution protocol](../applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md)
 before development outcomes. The structural check is a check of stipulated candidate

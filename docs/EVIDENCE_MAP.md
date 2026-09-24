@@ -11,11 +11,13 @@ in this checkout. Run `python3 examples/confirmed_read_source.py`; see the
 Historical development branch names below are provenance, not branches readers need
 to fetch. Shi and the full synthetic benchmark are not bundled with this release.
 
-**Next step, not a new finding:** [round 2](ITERATIVE_IDENTIFICATION.md) applies the same
-logic to removal versus preservation of the patch effect under a selected-query clamp.
-Its four-cell demo is constructed, and the real-model contract is a draft. There is no
-empirical route result, no approved adequacy tolerance and no implication that Q1's
-candidate has become a uniquely identified mechanism.
+**Repeated applications:** [round 2](ROUND2_RESULT.md) executed the revised five-condition
+query experiment on 192 fresh pairs and excluded all three predefined response profiles.
+[Round 3A](ROUND3A_CONFIRMATION.md) crossed donor name assignment and position on 512 fresh
+families: position-only fits 301/512 and identity-only 0/512, excluding both at the
+declared 80% coverage. It used a documented prospective sample-size amendment after
+the original planning STOP. These results do not make Q1's candidate a uniquely
+identified mechanism or establish a transferred semantic role.
 
 ## 1. The structural claim: demonstrated by construction
 

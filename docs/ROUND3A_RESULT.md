@@ -1,6 +1,10 @@
 # Round 3A: position matters, but position alone does not describe the patch
 
-**Development result on 32 GPT-2 Small families. No confirmation run was authorized.**
+**Follow-up:** the original planning STOP below is preserved. A prospective amendment
+added n = 512, passed all planning gates, and produced a [fresh confirmation](ROUND3A_CONFIRMATION.md).
+The following page reports only the earlier development run.
+
+**Development result on 32 GPT-2 Small families. The original plan authorized no confirmation.**
 The fixed patch responds strongly when the donor answer changes mention position.
 However, changing the name assignment at the same answer position also matters in
 many cases. Neither of the two simple invariance profiles meets the declared coverage
