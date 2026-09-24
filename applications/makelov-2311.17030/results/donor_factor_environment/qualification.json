@@ -1,0 +1,32 @@
+{
+  "historical_cases": [
+    "250c9733a8d22b5d",
+    "04f3411e9234e117"
+  ],
+  "max_answer_margin_discrepancy_vs_stored_q1": 0.0,
+  "passed": true,
+  "decomposition": {
+    "original_norm": 0.9995645019037194,
+    "rank": 767,
+    "singular_cutoff": 0.011377252343423412,
+    "smallest_singular_value": 1.5647448535349293e-06,
+    "row_norm": 0.7535016905660369,
+    "null_norm": 0.657445969121511,
+    "orthogonality_error": 1.231653667943533e-16,
+    "null_output_norm": 8.557070396928825e-09,
+    "decomposition_error": 0.0
+  },
+  "runtime": {
+    "torch": "2.5.1",
+    "transformers": "4.57.3",
+    "transformer-lens": "2.17.0",
+    "numpy": "1.26.4"
+  },
+  "config": {
+    "positional_embedding_type": "standard",
+    "n_layers": 12,
+    "n_heads": 12,
+    "d_head": 64
+  },
+  "scope": "two historical Q1 cases; validates replay, not new hook or scientific outcome"
+}
