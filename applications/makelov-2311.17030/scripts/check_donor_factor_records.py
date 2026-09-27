@@ -328,13 +328,13 @@ def compare_tree(actual, expected, label='analyzer reproduction'):
 
 
 def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snapshot=None,
-           full_bootstrap=False, require_original_inputs=False):
+           full_bootstrap=False, require_original_inputs=False, use_hf_cache=False):
     results, repository_root = Path(results), Path(repository_root)
     application = repository_root / 'applications/makelov-2311.17030'
     require(not (results/'FAILED.json').exists(), 'run has FAILED.json')
     artifacts = load(results/'artifact_hashes.json')
     require(REQUIRED_FILES <= set(artifacts), 'artifact manifest omits required result file')
-    verified, unavailable = [], []
+    verified, unavailable, not_requested = [], [], []
 
     def optional(path, digest, label):
         require(hexhash(digest), f'{label}: invalid sha256')
@@ -448,11 +448,19 @@ def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snaps
         optional(relative_path(source_root, name), digest, 'source:'+name)
     for name, digest in definition['source_files'].items():
         require(manifest['source']['files'].get(name) == digest, 'sampling/source input hashes differ')
-    if model_snapshot is None:
+    # The personal Hugging Face cache lies outside the repository; records-only mode
+    # never reads it unless a model snapshot or --use-hf-cache is requested.
+    model_source = 'explicit snapshot' if model_snapshot is not None else 'not requested'
+    if model_snapshot is None and use_hf_cache:
         hub = Path(os.environ.get('HF_HUB_CACHE', Path(os.environ.get('HF_HOME', Path.home()/'.cache/huggingface'))/'hub'))
         model_snapshot = hub/'models--gpt2/snapshots'/manifest['model_snapshot_revision']
+        model_source = 'Hugging Face cache'
     for name, digest in manifest['model_files_sha256'].items():
-        optional(relative_path(model_snapshot, name), digest, 'model:'+name)
+        if model_snapshot is None:
+            require(hexhash(digest), f'model:{name}: invalid sha256')
+            not_requested.append('model:'+name)
+        else:
+            optional(relative_path(model_snapshot, name), digest, 'model:'+name)
     ids = [case['case_id'] for case in cases]
     require(len(set(ids)) == n and all(isinstance(x, str) and x for x in ids), 'draw IDs must be unique')
     for index, case in enumerate(cases):
@@ -498,7 +506,9 @@ def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snaps
                                      secondary_seed=contract['secondary_bootstrap_seed'])
         compare_tree({key: summary[key] for key in reproduced}, reproduced)
     if require_original_inputs:
-        require(not unavailable, 'original inputs unavailable: ' + ', '.join(unavailable))
+        missing = unavailable + [label + ' (not requested; pass --model-snapshot or --use-hf-cache)'
+                                 for label in not_requested]
+        require(not missing, 'original inputs unavailable: ' + ', '.join(missing))
     return {'verified': True, 'mode': 'records_only', 'n_families': n,
             'independent_profile_counts': counts, 'n_resolved_units': resolved,
             'profiles': summary['profiles'],
@@ -506,6 +516,7 @@ def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snaps
             'full_seeded_bootstrap_reproduced': full_bootstrap,
             'cp_interval_max_abs_error': cp_error, 'numeric_reproduction_tolerance': FLOAT_TOLERANCE,
             'optional_original_inputs_verified': verified, 'optional_original_inputs_unavailable': unavailable,
+            'optional_model_inputs_not_requested': not_requested, 'model_inputs_source': model_source,
             'scope': ['No tokenizer or model was loaded or run. Raw A-minus-B margins, factorial maps, '
                       'controls, complete IID draw records, and saved exclusions were checked.',
                       'Profile counts, numeric resolution, CP bounds, family I/P/J sample means and '
@@ -513,6 +524,8 @@ def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snaps
                       'Full seeded bootstrap and enriched records reproduced with NumPy analyzer.' if full_bootstrap else
                       'Bootstrap endpoints and enriched summary records were not regenerated; use --full-bootstrap with NumPy.',
                       'Available originals were byte-checked. Missing originals are listed, not treated as verified.',
+                      'Model files are checked only on request (--model-snapshot or --use-hf-cache); '
+                      'records-only mode does not read the personal Hugging Face cache.',
                       'Saved token alignments and audits are consistency checks; hashes do not recover '
                       'activations, prove forwards happened, or establish an independent preregistration timestamp.']}
 
@@ -525,11 +538,14 @@ def main():
     parser.add_argument('--require-original-inputs', action='store_true')
     parser.add_argument('--source-root', type=Path)
     parser.add_argument('--model-snapshot', type=Path)
+    parser.add_argument('--use-hf-cache', action='store_true',
+                        help='also hash-check model files in the personal Hugging Face cache')
     args = parser.parse_args()
     try:
         report = verify(args.results, full_bootstrap=args.full_bootstrap,
                         require_original_inputs=args.require_original_inputs,
-                        source_root=args.source_root, model_snapshot=args.model_snapshot)
+                        source_root=args.source_root, model_snapshot=args.model_snapshot,
+                        use_hf_cache=args.use_hf_cache)
     except (ValueError, KeyError, TypeError, OSError, OverflowError, ImportError) as exc:
         parser.exit(1, f'Verification failed: {exc}\n')
     text = json.dumps(report, indent=2, allow_nan=False) + '\n'

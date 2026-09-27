@@ -106,7 +106,7 @@ effect is different from showing that the unmodified model naturally uses that s
 | **1. Read source** | Which source better predicts the patch's effect? | **Confirmed comparison:** null-read candidate wins 64/64 fresh pairs. |
 | **2. Query reset and reverse transfer** | Does resetting selected queries remove the effect, and can those queries reproduce it alone? | **Executed:** all three predefined profiles excluded on 192 fresh pairs; all numerical and technical controls passed. |
 | **3A. Donor name and position** | Does a position-only invariance requirement describe the fixed patch across name assignments? | **Confirmed, 512 fresh families:** position-only fits 301/512, identity-only 0/512; both excluded at the declared 80% coverage. The original planning STOP and prospective 512-size amendment are preserved. |
-| **3B. Relational-query responses** | Can a frozen three-role response model predict fresh cross-query patches accurately and beat name, position and question-change alternatives? | **Designed and test-covered, not empirically run:** includes a same-name/same-position donor collision and arbitrary-gain rivals. |
+| **3B. Relational-query responses** | Can a frozen three-role response model predict fresh cross-query patches accurately and beat name, position and question-change alternatives? | **Native competence check run and stopped:** competence and geometry failed on 32 frozen families; numerics passed; no 3B patches were run. |
 | **Later: native computation** | Does the unmodified model use that information in the same way? | **Open:** none of these comparisons settles this. |
 
 The first result survives even if the next test is inconclusive or rejects the new
@@ -128,18 +128,22 @@ donor conditions, with a four-donor worked example. Its mean position effect is 
 but the pure position-invariance account fails sufficiently often to be excluded.
 This remains a claim about the fixed patch, not an identified person or role representation.
 
-The [next design](docs/ROUND3B_POSITIVE_IDENTIFICATION.md) has a genuine positive path:
+The [three-role design](docs/ROUND3B_POSITIVE_IDENTIFICATION.md) had a genuine positive path:
 two donors both answer **Alice in first position**, while applying their different queried
 roles to one recipient predicts **Bob versus Carol**. Three queried roles and three-name
 margins separate this from a simple answer switch and allow a test against arbitrary
-position-response amplitudes. See the constructed example without running a model:
+position-response amplitudes. Its [native competence check](docs/ROUND3B_STAGE_A_RESULT.md)
+has run and stopped: GPT-2 Small did not answer the role questions reliably, and its native
+responses did not separate the rivals. No 3B patch was run. The constructed example still
+shows the design without running a model:
 
 ```bash
 python3 -I -S examples/role_transfer_design.py
 ```
 
 The example establishes structural possibility, not GPT-2 competence or a new empirical
-finding. Native qualification, development and a fresh confirmation remain necessary.
+finding. A differently qualified task or model would need its own development and a fresh
+confirmation.
 
 ## What data are needed?
 

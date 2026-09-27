@@ -1,5 +1,8 @@
 # Round 3A: position matters, but position alone does not describe the patch
 
+**Update, 27 September 2026:** round 3B's native competence check has since run and
+stopped; no 3B patches were run ([result](ROUND3B_STAGE_A_RESULT.md)).
+
 **Follow-up:** the original planning STOP below is preserved. A prospective amendment
 added n = 512, passed all planning gates, and produced a [fresh confirmation](ROUND3A_CONFIRMATION.md).
 The following page reports only the earlier development run.

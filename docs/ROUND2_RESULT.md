@@ -1,5 +1,9 @@
 # Round 2: the selected queries affect the patch, but none of three simple stories fits
 
+**Update, 27 September 2026:** a [post hoc addendum](#addendum-27-september-2026-post-hoc-tolerance-table)
+shows how strict the frozen tolerance was. The report below is unchanged, and its
+frozen decisions stand.
+
 **Executed on 192 fresh GPT-2 Small base pairs, after a separate 32-pair pilot.**
 All pairs passed the technical and cross-precision checks. All three predefined
 response profiles failed the required population coverage. This is a confirmed
@@ -127,3 +131,23 @@ Evidence: [protocol](../applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md)
 [primary summary](../applications/makelov-2311.17030/results/query_route_confirmation/summary.json),
 [independent verification](../applications/makelov-2311.17030/results/query_route_verification/confirmation.json),
 [descriptive calculations](../applications/makelov-2311.17030/results/query_route_verification/descriptive_summary.json).
+
+## Addendum, 27 September 2026: post hoc tolerance table
+
+Computed after this report from the stored records with
+[`describe_post_hoc.py`](../applications/makelov-2311.17030/scripts/describe_post_hoc.py).
+Base pairs meeting each profile when only the tolerance κ, a fraction of the local
+absolute T, changes; the numerical gate and all other rules are as frozen:
+
+| κ | 0.10 | 0.15 | 0.20 | **0.25 (frozen)** | 0.30 | 0.35 | 0.40 | 0.45 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Transfer | 0 | 0 | 0 | **0** | 0 | 0 | 0 | 0 |
+| Joint dependence | 0 | 0 | 0 | **0** | 0 | 0 | 0 | 0 |
+| Preservation | 0 | 1 | 3 | **8** | 25 | 42 | 69 | 105 |
+
+The table stops below 0.5: every pair of endpoint profiles differs by \|T\| in at least
+one contrast, so from κ = 0.5 upward two profiles can fit the same pair and mutual
+exclusivity is no longer guaranteed; the frozen analyzer, whose contract requires
+exclusive profiles, refuses such tolerances. Up to κ = 0.45, transfer and
+joint dependence fit no pair, and preservation fits 105 of 192 at κ = 0.45.
+No row other than 0.25 is a test, and the frozen exclusions stand.

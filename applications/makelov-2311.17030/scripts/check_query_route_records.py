@@ -213,13 +213,14 @@ def independent_counts(records):
     return counts, resolved_count
 
 
-def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snapshot=None):
+def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snapshot=None,
+           use_hf_cache=False):
     results, repository_root = Path(results), Path(repository_root)
     application = repository_root / "applications/makelov-2311.17030"
     require(not (results / "FAILED.json").exists(), "run has FAILED.json")
     hashes = load(results / "artifact_hashes.json")
     require(REQUIRED_FILES <= set(hashes), "artifact manifest omits a required result file")
-    optional_verified, optional_unavailable = [], []
+    optional_verified, optional_unavailable, not_requested = [], [], []
     for name, digest in hashes.items():
         require(Path(name).name == name, f"result artifact is not a basename: {name}")
         path = results / name
@@ -256,10 +257,17 @@ def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snaps
             optional_verified.append("source:"+name)
         else:
             optional_unavailable.append("source:"+name)
-    if model_snapshot is None:
+    # The personal Hugging Face cache lies outside the repository; records-only mode
+    # never reads it unless a model snapshot or --use-hf-cache is requested.
+    model_source = "explicit snapshot" if model_snapshot is not None else "not requested"
+    if model_snapshot is None and use_hf_cache:
         hub = Path(os.environ.get("HF_HUB_CACHE", Path(os.environ.get("HF_HOME", Path.home()/".cache/huggingface"))/"hub"))
         model_snapshot = hub / "models--gpt2/snapshots" / manifest["model_snapshot_revision"]
+        model_source = "Hugging Face cache"
     for name, digest in manifest["model_files_sha256"].items():
+        if model_snapshot is None:
+            not_requested.append("model:"+name)
+            continue
         path = relative_path(Path(model_snapshot), name)
         if path.exists():
             check_hash(path, digest, "model:"+name)
@@ -338,6 +346,8 @@ def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snaps
             "cp_interval_reproduction_max_abs_error": cp_max_error,
             "optional_original_inputs_verified": optional_verified,
             "optional_original_inputs_unavailable": optional_unavailable,
+            "optional_model_inputs_not_requested": not_requested,
+            "model_inputs_source": model_source,
             "scope": ["No model was loaded or rerun. Counts independently recomputed; "
                       "CP intervals and detailed summary reproduced with the frozen analyzer.",
                       "Audits and query hashes are checked for internal consistency; "
@@ -345,15 +355,22 @@ def verify(results, *, repository_root=REPOSITORY, source_root=None, model_snaps
                       "Query positions are serialized; the MLP absolute position is bound "
                       "by frozen code and case position, not a separate MLP audit field.",
                       "Artifact hashes establish byte consistency, not an independent "
-                      "preregistration timestamp or truth of the recorded forwards."]}
+                      "preregistration timestamp or truth of the recorded forwards.",
+                      "Model files are checked only on request (--model-snapshot or "
+                      "--use-hf-cache); records-only mode does not read the personal "
+                      "Hugging Face cache."]}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--results", type=Path, required=True)
+    parser.add_argument("--model-snapshot", type=Path)
+    parser.add_argument("--use-hf-cache", action="store_true",
+                        help="also hash-check model files in the personal Hugging Face cache")
     args = parser.parse_args()
     try:
-        result = verify(args.results)
+        result = verify(args.results, model_snapshot=args.model_snapshot,
+                        use_hf_cache=args.use_hf_cache)
     except (ValueError, KeyError, TypeError, OSError, OverflowError) as exc:
         parser.exit(1, f"Verification failed: {exc}\n")
     print(json.dumps(result, indent=2, allow_nan=False))

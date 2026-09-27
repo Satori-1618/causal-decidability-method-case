@@ -2,10 +2,12 @@
 import copy
 import importlib.util
 import json
+import os
 import re
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT/'applications/makelov-2311.17030/scripts/check_donor_factor_records.py'
@@ -151,6 +153,21 @@ class DonorFactorRecordChecker(unittest.TestCase):
         self.assertIn('directions.npz', report['optional_original_inputs_unavailable'])
         with self.assertRaisesRegex(checker.VerificationError, 'original inputs unavailable'):
             self.verify(require_original_inputs=True)
+
+    def test_records_only_default_never_reads_the_personal_model_cache(self):
+        revision = self.manifest['model_snapshot_revision']
+        snapshot = self.repo/'hf'/'hub'/'models--gpt2'/'snapshots'/revision
+        snapshot.mkdir(parents=True)
+        (snapshot/'missing_model.bin').write_text('not the frozen model file')
+        with mock.patch.dict(os.environ, {'HF_HOME': str(self.repo/'hf')}):
+            os.environ.pop('HF_HUB_CACHE', None)
+            report = checker.verify(self.results, repository_root=self.repo)
+            self.assertEqual(report['model_inputs_source'], 'not requested')
+            self.assertEqual(report['optional_model_inputs_not_requested'], ['model:missing_model.bin'])
+            with self.assertRaisesRegex(checker.VerificationError, r'model:missing_model\.bin \(not requested'):
+                checker.verify(self.results, repository_root=self.repo, require_original_inputs=True)
+            with self.assertRaisesRegex(checker.VerificationError, 'hash mismatch: model:'):
+                checker.verify(self.results, repository_root=self.repo, use_hf_cache=True)
 
     def test_rehashed_margin_corruption_is_detected_from_raw_logits(self):
         self.records[0]['precisions']['float32']['panels'][0]['patched_margins']['10'] += .1

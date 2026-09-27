@@ -1,5 +1,9 @@
 # Use the same method again: from a signal source to a downstream route
 
+**Update, 27 September 2026:** the executed five-condition design has its own synthetic
+demonstration, `examples/iterative_query_transfer.py`, which uses the actual round-2
+analyzer. The four-cell demo described below is unchanged design history.
+
 **Execution update:** the revised five-condition experiment has now run. Read the
 [192-pair result](ROUND2_RESULT.md): all three declared profiles were excluded under
 the frozen adequacy rule. The proposal below is retained as design history.

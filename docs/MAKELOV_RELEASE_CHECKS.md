@@ -1,5 +1,11 @@
 # Makelov application release checks — 24 September 2026
 
+**Update, 27 September 2026:** the hosted workflow ran on commit `3815329` and passed all
+three jobs: stored-evidence, analysis-tests and tensor-tests (GitHub Actions run
+36035052867). Section C's remark that hosted CI had not been observed describes the time
+of writing. In that workflow the Q1 and frozen-inventory steps use `python -S` without
+`-I`; the other records-only steps use `-I -S`.
+
 ## A. Executive summary
 
 The stored-evidence and CPU software-test paths work with the documented dependency

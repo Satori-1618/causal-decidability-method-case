@@ -42,6 +42,14 @@ interventions. This is a positive relative comparison. No absolute adequacy tole
 was fixed, so B has not been shown accurate enough, exclusive, or a naturally used
 semantic variable. The visible component also has an effect.
 
+The result agrees with the authors' mechanistic explanation above and quantifies it
+through an explicit rival comparison. Descriptively, the null-read effect was a median
+84% of the same case's full-patch effect (66–97% across the 128 directed cases), and the
+visible-read effect 16% (5–29%). These are ratios of measured effects, not identified
+shares of a mechanism. In every directed case, the component whose read coefficient had
+the larger magnitude also produced the larger absolute effect (all changes were negative).
+This holds for the measured conditions; it does not establish a response curve beyond them.
+
 ## Round 2 — ask what the selected downstream queries contribute
 
 **Before:** knowing the preferred read-source explanation does not specify how the
@@ -60,7 +68,10 @@ of 80% population coverage at the declared tolerance.
 **After:** none of these three simple profiles adequately describes the measured
 response. The selected queries are not thereby shown irrelevant, and no fourth
 mechanism is confirmed. In these data, reverse transfer adds measurements but does
-not change the population-level exclusion already suggested by reset alone.
+not change the population-level exclusion already suggested by reset alone. Post hoc,
+transfer and joint dependence fit no pair at any tolerance up to 0.45 of the local
+effect, and preservation fits 105/192 at 0.45; from 0.5 upward two profiles can fit the
+same pair. These rows describe strictness; they are not further tests.
 
 ## Round 3A — separate name assignment from mention position
 
@@ -74,8 +85,16 @@ an intervention on the full name assignment, not on an isolated latent person va
 
 **Result:** among 512 fresh families, the position-only invariance profile fits
 **301/512 (58.79%)** and identity-only fits **0/512**. Both fail the required 80%
-coverage. The mean position effect is relevant, but a small signed mean name effect
-does not imply name invariance: opposite effects can cancel.
+coverage. The mean position effect is relevant. The averaged name and interaction
+contrasts are poorly suited to show name independence. By construction, exchanging the
+two names reverses the name and interaction contrasts of the read scalar, so those
+scalar contrasts are symmetric about zero; the model's response need not preserve that
+symmetry. Measured in these data, the two recipient orders responded with opposite-sign
+slopes in all 512 families, and the output name contrast had opposite signs in 491/512,
+so averaging over recipient orders typically cancels it. The case-wise invariance
+profiles carry the result.
+Post hoc, position-only fits 76/512 at ±0.10 nat and 473/512 at ±0.50 nat. This shows
+how strict the frozen ±0.25-nat claim was; it does not change that decision.
 
 **After:** a pure position-only or identity-only response is insufficient at the
 declared resolution. A positional process whose strength depends on lexical context
@@ -111,6 +130,17 @@ It does not automatically generate hypotheses or identify a complete native mech
 The later rounds do not supply Q1's missing adequacy criterion, and their exclusions
 or STOP do not erase Q1's supported comparison. No safety transfer is established here.
 
+## Apply these steps to your own data
+
+Q1-style comparisons of two predictors use `compare` or `examples/from_data.py`; see the
+[method guide](../../docs/USING_THE_METHOD.md#from-your-own-data). Rounds 2 and 3A use
+case-wise profiles with a population-coverage requirement. The
+[decision contract](../../docs/USING_THE_METHOD.md#case-wise-profiles-with-a-population-coverage-requirement)
+lists what to declare before confirmation: the independent unit, the profiles, the
+case-wise tolerance and where it must hold, the numerical gate, the required coverage
+and the simultaneous interval. The analyzers in this directory implement that contract
+for these experiments; they are not general library functions.
+
 ## Evidence and checks
 
 | Round | Question and rule fixed in | Recorded outcome | Readable detail |
@@ -121,7 +151,10 @@ or STOP do not erase Q1's supported comparison. No safety transfer is establishe
 | 3B | [Native qualification protocol](ROLE_BASELINE_PROTOCOL.md) | [Raw records](results/role_baseline_development/records.jsonl), [summary](results/role_baseline_development/summary.json) | [Qualification STOP](../../docs/ROUND3B_STAGE_A_RESULT.md) |
 
 [Four commands reproduce the stored decisions](VERIFICATION.md#1-check-stored-evidence-no-installation).
-They check records, not fresh model executions. Q1's freeze/run order is documented
+They check records, not fresh model executions. The post hoc effect ratios, tolerance
+rows and mean-contrast diagnostics quoted above come from
+[`describe_post_hoc.py`](scripts/describe_post_hoc.py), which derives no decision.
+Q1's freeze/run order is documented
 in private development history without an independent contemporaneous public timestamp;
 publishing that archive does not add one. Later freezes and the 3A amendment are linked
 in their result reports. The original 3A planning STOP remains recorded.

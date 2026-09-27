@@ -1,5 +1,9 @@
 # Plan 3: from donor dependence to a test of relational-query transfer
 
+**Update, 27 September 2026:** 3B's native competence check has run and stopped; no 3B
+patches were run ([result](ROUND3B_STAGE_A_RESULT.md)). Status statements below describe
+24 September.
+
 **Execution update, 24 September 2026:** 3A's [512-family confirmation](ROUND3A_CONFIRMATION.md)
 is complete. The original [32-family development run and planning STOP](ROUND3A_RESULT.md)
 remain preserved; a prospective amendment added 512 and passed the unchanged power gates.

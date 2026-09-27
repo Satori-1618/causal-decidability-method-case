@@ -1,5 +1,9 @@
 # Round 3A: position matters, but position-only invariance fails
 
+**Update, 27 September 2026:** a [post hoc addendum](#addendum-27-september-2026-post-hoc-description)
+adds a tolerance table and explains why the averaged name contrast is weak evidence of
+name independence. The report below is unchanged, and its frozen decisions stand.
+
 **Confirmed on 512 fresh GPT-2 Small families under the amended, published protocol.**
 Changing the donor answer's mention position strongly changes the fixed patch's effect.
 But its effect is not adequately invariant to name assignment at fixed position:
@@ -169,3 +173,50 @@ audits and hashes do not independently prove execution or recover activation ten
 [raw paired records](../applications/makelov-2311.17030/results/donor_factor_confirmation_512/records.jsonl),
 [complete summary](../applications/makelov-2311.17030/results/donor_factor_confirmation_512/summary.json),
 [verification](../applications/makelov-2311.17030/results/donor_factor_confirmation_512/verification.json).
+
+## Addendum, 27 September 2026: post hoc description
+
+Computed after this report from the stored records with
+[`describe_post_hoc.py`](../applications/makelov-2311.17030/scripts/describe_post_hoc.py).
+It changes no frozen decision, and no row other than ±0.25 nat is a test.
+
+**How strict was ±0.25 nat?** Complete families meeting each profile when only the
+tolerance changes; all other rules are as frozen:
+
+| Tolerance (nat) | ±0.10 | ±0.15 | ±0.20 | **±0.25 (frozen)** | ±0.30 | ±0.35 | ±0.40 | ±0.50 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Position-only | 76 | 160 | 235 | **301** | 352 | 396 | 431 | 473 |
+| Identity-only | 0 | 0 | 0 | **0** | 0 | 0 | 0 | 0 |
+
+At least one name-assignment effect exceeds 0.25 nat in 41% of families, while all stay
+within 0.50 nat in 92%. The exclusion at the frozen tolerance stands. A more lenient
+tolerance chosen now would not make position-only a confirmed adequate profile.
+
+**Why the averaged name contrast is weak evidence of name independence.** "Practically
+equivalent" is a correct statement about the signed mean of I, but this mean is poorly
+suited to showing that names do not matter:
+
+- Both names are drawn from the same list in random order. Exchanging them reverses the
+  sign of the name contrast in the scalar read by the patch, so that scalar-level contrast
+  is symmetric about zero by design; it was positive in 271/512 families. The model's
+  response need not preserve this symmetry.
+- Measured, not guaranteed: within each recipient order the effect was close to linear
+  in the read scalar (median absolute residual 0.004 nat), and the two orders had
+  opposite-sign slopes in all 512 families. The same scalar change therefore moved the
+  fixed A-minus-B margin in opposite directions, and averaging over the two orders largely
+  cancels it; I had opposite signs in 491/512 families.
+- The mean absolute name contrast was 0.089 nat and 0.128 nat in the two recipient orders.
+
+The case-wise invariance profiles are the informative test of name independence, and
+they are the basis of the exclusion above. The protocol's cancellation note addresses P
+and J under equal slopes; with the opposite slopes measured here, the averaged I largely
+cancels. For the averaged interaction J, the scalar-level contrast is also symmetric
+about zero by design (positive in 262/512 families). In the outputs, however, the two
+recipient orders add rather than cancel (same sign in 498/512 families). Measured output
+J varied in sign across families (positive in 251 and 247 of 512 in the two recipient
+orders), so its mean is near zero although the mean absolute J was 0.161 nat and
+0.229 nat.
+
+**Test counts.** The counts under "Measurement checks" come from the local run at that
+commit. The hosted workflow for that commit failed while collecting tests because it did
+not install NumPy; the workflow passes from commit `3815329`.

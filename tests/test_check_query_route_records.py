@@ -2,9 +2,11 @@
 import copy
 import importlib.util
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 CHECKER = ROOT / "applications/makelov-2311.17030/scripts/check_query_route_records.py"
@@ -137,6 +139,20 @@ class QueryRouteRecordCheckerTests(unittest.TestCase):
         self.assertIn("directions.npz", result["optional_original_inputs_unavailable"])
         self.assertIn("model:missing_model.safetensors", result["optional_original_inputs_unavailable"])
         self.assertEqual(result["mode"], "records_only")
+
+    def test_records_only_default_never_reads_the_personal_model_cache(self):
+        snapshot = (self.repo/"hf"/"hub"/"models--gpt2"/"snapshots"
+                    /self.manifest["model_snapshot_revision"])
+        snapshot.mkdir(parents=True)
+        (snapshot/"missing_model.safetensors").write_text("not the frozen model file")
+        with mock.patch.dict(os.environ, {"HF_HOME": str(self.repo/"hf")}):
+            os.environ.pop("HF_HUB_CACHE", None)
+            result = checker.verify(self.results, repository_root=self.repo)
+            self.assertEqual(result["model_inputs_source"], "not requested")
+            self.assertEqual(result["optional_model_inputs_not_requested"],
+                             ["model:missing_model.safetensors"])
+            with self.assertRaisesRegex(checker.VerificationError, "hash mismatch: model:"):
+                checker.verify(self.results, repository_root=self.repo, use_hf_cache=True)
 
     def test_raw_cell_mutation_rejected_even_with_updated_hashes(self):
         self.records[0]["precisions"]["float32"]["cells"]["D"][0] += .2

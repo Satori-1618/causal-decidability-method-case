@@ -2,10 +2,12 @@
 import copy
 import importlib.util
 import json
+import os
 import shutil
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 APPLICATION = ROOT/'applications/makelov-2311.17030'
@@ -143,6 +145,18 @@ class DonorFactor512RecordChecker(unittest.TestCase):
         self.assertEqual(report['independent_profile_counts'], {'position_only': 512, 'identity_only': 0})
         self.assertTrue(report['full_seeded_bootstrap_reproduced'])
         self.assertEqual(report['amendment_audit']['selected_n'], 512)
+        # A mismatching personal model cache affects only an explicit cache request.
+        frozen_manifest = checker.load(results/'manifest.json')
+        snapshot = (self.repo/'hf'/'hub'/'models--gpt2'/'snapshots'
+                    /frozen_manifest['model_snapshot_revision'])
+        snapshot.mkdir(parents=True)
+        (snapshot/sorted(frozen_manifest['model_files_sha256'])[0]).write_text('not the model file')
+        with mock.patch.dict(os.environ, {'HF_HOME': str(self.repo/'hf')}):
+            os.environ.pop('HF_HUB_CACHE', None)
+            default = checker.verify(results, repository_root=self.repo)
+            self.assertEqual(default['model_inputs_source'], 'not requested')
+            with self.assertRaisesRegex(checker.VerificationError, 'hash mismatch: model:'):
+                checker.verify(results, repository_root=self.repo, use_hf_cache=True)
         # Rehashed summary corruption still fails scientific record checks.
         summary['profiles']['position_only']['successes'] -= 1
         save(results/'summary.json', summary)

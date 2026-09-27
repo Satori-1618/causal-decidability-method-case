@@ -1,5 +1,35 @@
 # Public method-case snapshot
 
+## Transferability, status and verification update — 27 September 2026
+
+This change runs no model and changes no frozen decision, raw record, protocol or
+archived file. It makes the existing results easier to apply and to check:
+
+- **Decision contract.** The [method guide](docs/USING_THE_METHOD.md#case-wise-profiles-with-a-population-coverage-requirement)
+  now states the case-wise profile contract of rounds 2 and 3A: independent unit,
+  profiles, tolerance and conjunction, numerical gate, required coverage, simultaneous
+  exact intervals, and the adequate, excluded, undecided and invalid statuses. It states
+  that the rule judges units that are both resolved and profile-conform, so an exclusion
+  with unresolved units is not a demonstrated behavioural violation; rounds 2 and 3A had
+  none. The case study links it for application to other data.
+- **Status.** 3B is described everywhere on this branch as a native competence check that
+  ran and stopped, with no patches. The README's round table and 3B paragraph are updated;
+  dated reports and plans receive update notes instead of being rewritten. `main` is
+  unchanged.
+- **Post hoc descriptions.** `scripts/describe_post_hoc.py` reproduces, from stored records,
+  Q1's measured effect ratios, tolerance tables for rounds 2 and 3A, and diagnostics of
+  the averaged 3A contrasts. The round-2 and round-3A reports carry dated addenda. The
+  frozen decisions stand; no lenient tolerance is presented as a confirmed success. The
+  script refuses to report unless the frozen tolerances reproduce the frozen counts.
+- **Interpretation.** The case study now says that Q1 agrees with the authors'
+  explanation and quantifies it through an explicit rival comparison, with the effect
+  ratios reported as ratios rather than mechanism shares. Averaged 3A name and interaction
+  contrasts are identified as poor evidence of name independence; the case-wise profiles
+  carry that result.
+- **Verification.** The round-2 and round-3A checkers read the personal Hugging Face cache
+  only with `--use-hf-cache` or an explicit `--model-snapshot`; the records-only result no
+  longer depends on it. The guide states that editable installation needs pip 21.3 or later.
+
 ## Makelov application and reproducibility update — 24 September 2026
 
 The [current case study](applications/makelov-2311.17030/CASE_STUDY.md) explains what
