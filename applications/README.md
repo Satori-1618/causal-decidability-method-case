@@ -6,7 +6,8 @@ reports which explanations the data leave compatible.
 
 ## Index
 
-The Makelov application is included in this checkout. Start with its current
+The Makelov application is included in this checkout. Start with its
+[short overview](makelov-2311.17030/OVERVIEW.md) or the current
 [four-round case study](makelov-2311.17030/CASE_STUDY.md), then
 [verification and installation](makelov-2311.17030/VERIFICATION.md).
 The stored results can be checked with Python alone, without models or downloads.

@@ -9,6 +9,7 @@ Start here for the current Makelov branch. The [general method](../../README.md#
 is already defined; this page explains what applying it contributes. The original
 [application README](README.md) is a hash-frozen historical archive, not the current
 round index. [Verify the results](VERIFICATION.md) without downloading a model.
+For a short summary of the four rounds, read the [overview](OVERVIEW.md).
 
 ## Before the additional tests
 

@@ -16,6 +16,8 @@ archived file. It makes the existing results easier to apply and to check:
   ran and stopped, with no patches. The README's round table and 3B paragraph are updated;
   dated reports and plans receive update notes instead of being rewritten. `main` is
   unchanged.
+- **Short overview.** [`OVERVIEW.md`](applications/makelov-2311.17030/OVERVIEW.md)
+  summarizes the four rounds as stepwise narrowing, with one table per round.
 - **Post hoc descriptions.** `scripts/describe_post_hoc.py` reproduces, from stored records,
   Q1's measured effect ratios, tolerance tables for rounds 2 and 3A, and diagnostics of
   the averaged 3A contrasts. The round-2 and round-3A reports carry dated addenda. The
