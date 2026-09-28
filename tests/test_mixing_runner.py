@@ -262,12 +262,15 @@ class TinyGemmaRunnerTests(unittest.TestCase):
         qualifying = []
         for i in range(N):
             r = copy.deepcopy(records[i % 4])
-            r.update(case_id=f"schema-{i:04d}", draw_index=i, qualifies=True)
+            r.update(case_id=f"confirmation-{i:04d}", draw_index=i,
+                     seed=4_000_000 + i, cell_key="c4", qualifies=True)
             qualifying.append(r)
         sizing = ra.n_rule(0.0)
         manifest = {
             "schema_version": 2, "application": "gur-arieh-2510.06182", "round": 1,
-            "stage": "schema test", "n_groups": N_GROUPS, "cell": dict(CELL), "N": N,
+            "stage": "schema test", "n_groups": N_GROUPS, "cell_key": "c4",
+            "cell": dict(CELL), "N": N,
+            "confirmation": {"seed_base": 4_000_000, "case_id_prefix": "confirmation", "cap": 2 * N},
             "N_rule": {"N": sizing["N"], "adequacy_powered": sizing["adequacy_powered"]},
             "rule": {**ra.CONTRACT, "s_min": 0.05, "d_min": 0.20, "agreement_transfer_floor": 0.9},
             "anchors": {"T_W": 0.5, "T_A": 0.95, "d": 0.45, "q_bar_B": [0.5, 0.3, 0.2], "m_B": 100},

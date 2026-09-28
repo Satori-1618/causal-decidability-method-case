@@ -42,6 +42,7 @@ N_RULE = {"default_N": 200, "unresolved_threshold": 0.02, "larger_N": (300, 400,
           "declared_power": 0.80, "adequacy_coverage": 0.90, "exclusion_coverage": 0.70}
 LABELS = ("positional", "lexical", "reflexive")
 TOLERANCE = 1e-12
+CONFIRMATION_SEED_BASE = 4_000_000
 
 
 class VerificationError(ValueError):
@@ -209,11 +210,34 @@ def recompute(manifest, records):
             >= number(rule["agreement_transfer_floor"], "transfer floor"),
             "frozen agreement transfer rate below its floor")
 
+    confirmation = manifest.get("confirmation")
+    require(isinstance(confirmation, dict), "manifest.confirmation missing")
+    seed_base = confirmation.get("seed_base")
+    prefix = confirmation.get("case_id_prefix")
+    cap = confirmation.get("cap")
+    require(type(seed_base) is int and seed_base == CONFIRMATION_SEED_BASE,
+            "confirmation seed base differs from the declared 4,000,000 block")
+    require(isinstance(prefix, str) and prefix == "confirmation",
+            "confirmation case-id prefix differs from the declared prefix")
+    require(type(cap) is int and cap == 2 * N,
+            "confirmation generation cap must equal 2N")
+    cell_key = manifest.get("cell_key")
+    require(isinstance(cell_key, str) and cell_key,
+            "manifest.cell_key missing")
+
     ids = [r.get("case_id") for r in records]
     require(all(isinstance(i, str) and i for i in ids) and len(set(ids)) == len(ids),
             "duplicate or missing case_id")
     require([r.get("draw_index") for r in records] == list(range(len(records))),
             "records omit, duplicate or reorder a generated case")
+    require(len(records) <= cap, "confirmation generated more than the frozen cap")
+    for position, record in enumerate(records):
+        require(record.get("case_id") == f"{prefix}-{position:04d}",
+                "case_id differs from the frozen confirmation formula")
+        require(record.get("seed") == seed_base + position,
+                "seed differs from the frozen confirmation formula")
+        require(record.get("cell_key") == cell_key,
+                "record cell key differs from the frozen cell")
     qualifying = [r for r in records if r.get("qualifies") is True]
     require(all(isinstance(r.get("qualifies"), bool) for r in records), "qualifies must be boolean")
     require(len(qualifying) == N and records[-1]["qualifies"] is True,

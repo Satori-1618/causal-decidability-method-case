@@ -60,6 +60,16 @@ class Bundle:
         self.manifest = copy.deepcopy(WORLD[world]["manifest"])
         self.manifest["code_files_sha256"] = code
         self.records = copy.deepcopy(WORLD[world]["records"])
+        self.manifest["cell_key"] = "c4"
+        self.manifest["confirmation"] = {
+            "seed_base": checker.CONFIRMATION_SEED_BASE,
+            "case_id_prefix": "confirmation",
+            "cap": 2 * self.manifest["N"],
+        }
+        for i, record in enumerate(self.records):
+            record.update(case_id=f"confirmation-{i:04d}",
+                          seed=checker.CONFIRMATION_SEED_BASE + i,
+                          cell_key="c4")
         self.write_all()
 
     def write_all(self, summary=None):
@@ -152,9 +162,28 @@ class RoundOneCheckerTests(unittest.TestCase):
         summary = copy.deepcopy(self.bundle.summary)
         del self.bundle.records[10]
         for i, r in enumerate(self.bundle.records):
-            r["draw_index"] = i
+            r.update(draw_index=i, case_id=f"confirmation-{i:04d}",
+                     seed=checker.CONFIRMATION_SEED_BASE + i)
         self.bundle.write_all(summary=summary)
         with self.assertRaisesRegex(checker.VerificationError, "frozen N"):
+            self.bundle.verify()
+
+    def test_changed_seed_is_rejected_even_when_rehashed(self):
+        self.bundle.records[10]["seed"] += 1
+        self.bundle.write_all()
+        with self.assertRaisesRegex(checker.VerificationError, "seed differs"):
+            self.bundle.verify()
+
+    def test_changed_case_id_formula_is_rejected_even_when_unique(self):
+        self.bundle.records[10]["case_id"] = "confirmation-x010"
+        self.bundle.write_all()
+        with self.assertRaisesRegex(checker.VerificationError, "case_id differs"):
+            self.bundle.verify()
+
+    def test_changed_confirmation_seed_base_is_rejected(self):
+        self.bundle.manifest["confirmation"]["seed_base"] = 4_100_000
+        self.bundle.write_all()
+        with self.assertRaisesRegex(checker.VerificationError, "seed base"):
             self.bundle.verify()
 
     def test_duplicated_record_is_rejected(self):
