@@ -51,6 +51,8 @@ licence by the user, and explicit authorization.
 | [SOURCES.md](SOURCES.md) | the same facts in plain text, with the discrepancies found |
 | [requirements-analysis.txt](requirements-analysis.txt) | the pinned environment used for this pass (no model) |
 | [scripts/lock_sources.py](scripts/lock_sources.py) | small adapter: checks a separate upstream clone against the lock; nothing is vendored |
+| [ROUND0_RETROSPECTIVE.md](ROUND0_RETROSPECTIVE.md) | Round 0 (RETROSPECTIVE): which designs separate which candidates; hands one open question to Round 1 |
+| [src/mixing_round0.py](src/mixing_round0.py), [results/round0_retrospective/round0.json](results/round0_retrospective/round0.json) | the typed prediction table and its stored reconstruction (`scripts/round0_reconstruction.py --check`) |
 
 Check a clone (standard library only):
 

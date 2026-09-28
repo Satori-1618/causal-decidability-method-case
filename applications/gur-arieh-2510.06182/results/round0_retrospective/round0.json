@@ -1,0 +1,634 @@
+{
+  "label": "RETROSPECTIVE",
+  "scope": "Reconstruction from the paper's text and the released code; no model run and no new data. Readings of the paper's outcomes are not frozen decisions.",
+  "candidates": {
+    "P": "positional: retrieves the entity in the group at the donor's query position i_P",
+    "L": "lexical: retrieves the entity bound to the donor's query entity, at i_L",
+    "R": "reflexive pointer: follows a pointer to the donor's target entity, at i_R if present",
+    "A": "completed-answer copy: the patched vector carries the donor's retrieved answer itself",
+    "N": "no effect: the recipient's own answer, at i_N"
+  },
+  "conditions": {
+    "sec3.2_layer_l_point_P_figure1": {
+      "predictions": {
+        "P": {
+          "type": "point",
+          "entities": [
+            2
+          ]
+        },
+        "L": {
+          "type": "point",
+          "entities": [
+            1
+          ]
+        },
+        "R": {
+          "type": "point",
+          "entities": [
+            3
+          ]
+        },
+        "A": {
+          "type": "point",
+          "entities": [
+            3
+          ]
+        },
+        "N": {
+          "type": "point",
+          "entities": [
+            4
+          ]
+        }
+      },
+      "evaluable": [
+        "A",
+        "L",
+        "N",
+        "P",
+        "R"
+      ],
+      "undefined_not_evaluable": [],
+      "outside_scope": [],
+      "equivalence_groups": [
+        [
+          "A",
+          "R"
+        ],
+        [
+          "L"
+        ],
+        [
+          "N"
+        ],
+        [
+          "P"
+        ]
+      ],
+      "separated_pairs": [
+        [
+          "A",
+          "L"
+        ],
+        [
+          "A",
+          "N"
+        ],
+        [
+          "A",
+          "P"
+        ],
+        [
+          "L",
+          "N"
+        ],
+        [
+          "L",
+          "P"
+        ],
+        [
+          "L",
+          "R"
+        ],
+        [
+          "N",
+          "P"
+        ],
+        [
+          "N",
+          "R"
+        ],
+        [
+          "P",
+          "R"
+        ]
+      ],
+      "not_separated_pairs": [
+        [
+          "A",
+          "R"
+        ]
+      ]
+    },
+    "sec3.2_layer_l_collision_iL_eq_iR": {
+      "predictions": {
+        "P": {
+          "type": "point",
+          "entities": [
+            2
+          ]
+        },
+        "L": {
+          "type": "point",
+          "entities": [
+            1
+          ]
+        },
+        "R": {
+          "type": "point",
+          "entities": [
+            1
+          ]
+        },
+        "A": {
+          "type": "point",
+          "entities": [
+            1
+          ]
+        },
+        "N": {
+          "type": "point",
+          "entities": [
+            4
+          ]
+        }
+      },
+      "evaluable": [
+        "A",
+        "L",
+        "N",
+        "P",
+        "R"
+      ],
+      "undefined_not_evaluable": [],
+      "outside_scope": [],
+      "equivalence_groups": [
+        [
+          "A",
+          "L",
+          "R"
+        ],
+        [
+          "N"
+        ],
+        [
+          "P"
+        ]
+      ],
+      "separated_pairs": [
+        [
+          "A",
+          "N"
+        ],
+        [
+          "A",
+          "P"
+        ],
+        [
+          "L",
+          "N"
+        ],
+        [
+          "L",
+          "P"
+        ],
+        [
+          "N",
+          "P"
+        ],
+        [
+          "N",
+          "R"
+        ],
+        [
+          "P",
+          "R"
+        ]
+      ],
+      "not_separated_pairs": [
+        [
+          "A",
+          "L"
+        ],
+        [
+          "A",
+          "R"
+        ],
+        [
+          "L",
+          "R"
+        ]
+      ]
+    },
+    "sec3.2_layer_l_window_w1_figure1": {
+      "predictions": {
+        "P": {
+          "type": "set",
+          "entities": [
+            1,
+            2,
+            3
+          ]
+        },
+        "L": {
+          "type": "point",
+          "entities": [
+            1
+          ]
+        },
+        "R": {
+          "type": "point",
+          "entities": [
+            3
+          ]
+        },
+        "A": {
+          "type": "point",
+          "entities": [
+            3
+          ]
+        },
+        "N": {
+          "type": "point",
+          "entities": [
+            4
+          ]
+        }
+      },
+      "evaluable": [
+        "A",
+        "L",
+        "N",
+        "P",
+        "R"
+      ],
+      "undefined_not_evaluable": [],
+      "outside_scope": [],
+      "equivalence_groups": [
+        [
+          "A",
+          "R"
+        ],
+        [
+          "L"
+        ],
+        [
+          "N"
+        ],
+        [
+          "P"
+        ]
+      ],
+      "separated_pairs": [
+        [
+          "A",
+          "L"
+        ],
+        [
+          "A",
+          "N"
+        ],
+        [
+          "L",
+          "N"
+        ],
+        [
+          "L",
+          "R"
+        ],
+        [
+          "N",
+          "P"
+        ],
+        [
+          "N",
+          "R"
+        ]
+      ],
+      "not_separated_pairs": [
+        [
+          "A",
+          "P"
+        ],
+        [
+          "A",
+          "R"
+        ],
+        [
+          "L",
+          "P"
+        ],
+        [
+          "P",
+          "R"
+        ]
+      ]
+    },
+    "sec3.2_layer_l_window_w1_admissible_n7": {
+      "predictions": {
+        "P": {
+          "type": "set",
+          "entities": [
+            3,
+            4,
+            5
+          ]
+        },
+        "L": {
+          "type": "point",
+          "entities": [
+            2
+          ]
+        },
+        "R": {
+          "type": "point",
+          "entities": [
+            6
+          ]
+        },
+        "A": {
+          "type": "point",
+          "entities": [
+            6
+          ]
+        },
+        "N": {
+          "type": "point",
+          "entities": [
+            1
+          ]
+        }
+      },
+      "evaluable": [
+        "A",
+        "L",
+        "N",
+        "P",
+        "R"
+      ],
+      "undefined_not_evaluable": [],
+      "outside_scope": [],
+      "equivalence_groups": [
+        [
+          "A",
+          "R"
+        ],
+        [
+          "L"
+        ],
+        [
+          "N"
+        ],
+        [
+          "P"
+        ]
+      ],
+      "separated_pairs": [
+        [
+          "A",
+          "L"
+        ],
+        [
+          "A",
+          "N"
+        ],
+        [
+          "A",
+          "P"
+        ],
+        [
+          "L",
+          "N"
+        ],
+        [
+          "L",
+          "P"
+        ],
+        [
+          "L",
+          "R"
+        ],
+        [
+          "N",
+          "P"
+        ],
+        [
+          "N",
+          "R"
+        ],
+        [
+          "P",
+          "R"
+        ]
+      ],
+      "not_separated_pairs": [
+        [
+          "A",
+          "R"
+        ]
+      ]
+    },
+    "sec3.4_layer_l_readout_sees_absent": {
+      "predictions": {
+        "P": {
+          "type": "point",
+          "entities": [
+            2
+          ]
+        },
+        "L": {
+          "type": "point",
+          "entities": [
+            1
+          ]
+        },
+        "N": {
+          "type": "point",
+          "entities": [
+            4
+          ]
+        },
+        "R": {
+          "type": "undefined",
+          "reason": "the pointer targets a token absent from the recipient; the mechanism yields no output (Sec. 3.4)"
+        },
+        "A": {
+          "type": "point",
+          "entities": [
+            "ABSENT"
+          ]
+        }
+      },
+      "evaluable": [
+        "A",
+        "L",
+        "N",
+        "P"
+      ],
+      "undefined_not_evaluable": [
+        "R"
+      ],
+      "outside_scope": [],
+      "equivalence_groups": [
+        [
+          "A"
+        ],
+        [
+          "L"
+        ],
+        [
+          "N"
+        ],
+        [
+          "P"
+        ]
+      ],
+      "separated_pairs": [
+        [
+          "A",
+          "L"
+        ],
+        [
+          "A",
+          "N"
+        ],
+        [
+          "A",
+          "P"
+        ],
+        [
+          "L",
+          "N"
+        ],
+        [
+          "L",
+          "P"
+        ],
+        [
+          "N",
+          "P"
+        ]
+      ],
+      "not_separated_pairs": []
+    },
+    "sec3.4_layer_l_in_context_readout": {
+      "predictions": {
+        "P": {
+          "type": "point",
+          "entities": [
+            2
+          ]
+        },
+        "L": {
+          "type": "point",
+          "entities": [
+            1
+          ]
+        },
+        "N": {
+          "type": "point",
+          "entities": [
+            4
+          ]
+        },
+        "R": {
+          "type": "undefined",
+          "reason": "the pointer targets a token absent from the recipient; the mechanism yields no output (Sec. 3.4)"
+        },
+        "A": {
+          "type": "outside_scope",
+          "reason": "the in-context entity readout (tasks/dist.py:358) cannot score an absent token"
+        }
+      },
+      "evaluable": [
+        "L",
+        "N",
+        "P"
+      ],
+      "undefined_not_evaluable": [
+        "R"
+      ],
+      "outside_scope": [
+        "A"
+      ],
+      "equivalence_groups": [
+        [
+          "L"
+        ],
+        [
+          "N"
+        ],
+        [
+          "P"
+        ]
+      ],
+      "separated_pairs": [
+        [
+          "L",
+          "N"
+        ],
+        [
+          "L",
+          "P"
+        ],
+        [
+          "N",
+          "P"
+        ]
+      ],
+      "not_separated_pairs": []
+    },
+    "sec3.4_layer_l_plus_1": {
+      "predictions": {
+        "P": {
+          "type": "outside_scope",
+          "reason": "the candidates are statements about the signal at layer l; l+1 is another intervention"
+        },
+        "L": {
+          "type": "outside_scope",
+          "reason": "the candidates are statements about the signal at layer l; l+1 is another intervention"
+        },
+        "R": {
+          "type": "outside_scope",
+          "reason": "the candidates are statements about the signal at layer l; l+1 is another intervention"
+        },
+        "A": {
+          "type": "outside_scope",
+          "reason": "the candidates are statements about the signal at layer l; l+1 is another intervention"
+        },
+        "N": {
+          "type": "outside_scope",
+          "reason": "the candidates are statements about the signal at layer l; l+1 is another intervention"
+        }
+      },
+      "evaluable": [],
+      "undefined_not_evaluable": [],
+      "outside_scope": [
+        "A",
+        "L",
+        "N",
+        "P",
+        "R"
+      ],
+      "equivalence_groups": [],
+      "separated_pairs": [],
+      "not_separated_pairs": []
+    }
+  },
+  "reported_outcomes": {
+    "sec3.2_layer_l": "Averaged over cases, outcomes carry positional, lexical and reflexive labels, and 'mixed' outcomes lie near i_P (Sec. 3.3, Figures 2, 3).",
+    "sec3.4_layer_l": "The model did not answer with the absent donor answer (Sec. 3.4, Figure 4).",
+    "sec3.4_layer_l_plus_1": "The model answered with the absent donor answer (Sec. 3.4, Figure 4); hence the paper's readout for this design could represent the absent token."
+  },
+  "reading": {
+    "sec3.2": "P, L and N are separated; R and A form one equivalence group, so Sec. 3.2 cannot tell a reflexive pointer from a copy of the finished answer. With i_L = i_R, L joins that group; with the window w = 1 at the Figure 1 indices, P overlaps L, R and A. Admissibility is therefore checked on design indices.",
+    "sec3.4": "With the donor answer absent, A predicts the absent token and R is not evaluable. The layer-l outcome excludes a strong answer copy, provided the readout sees the absent token, which the layer l+1 outcome indicates for the paper's readout; the released default readout does not. An answer-copy contribution below that resolution remains possible. R stays compatible and is not positively identified.",
+    "layers": "Layers l and l+1 are different interventions; the l+1 result speaks to another alternative (suppression of absent entities), not to these candidates.",
+    "credit": "The Sec. 3.4 design is the authors' own; this reconstruction only states which candidates it separates."
+  },
+  "compatible_after_round0": {
+    "separated_by_design_no_decision": [
+      "P",
+      "L",
+      "N"
+    ],
+    "compatible_untested": [
+      "R"
+    ],
+    "strong_form_excluded_retrospectively": [
+      "A"
+    ]
+  },
+  "still_open_handed_to_round1": "The paper's mixture model describes average distributions per cell. Whether single cases look like that average was not checked."
+}
