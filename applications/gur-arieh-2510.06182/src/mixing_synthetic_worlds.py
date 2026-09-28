@@ -6,8 +6,12 @@ the confirmation analysis. Targets cycle in a fixed order and jitter comes in
 antithetic pairs, so split B and the confirmation share their mean unless a world
 changes it on purpose (the stale anchor).
 
-VERIFICATION_PARAMETERS serve analyzer verification only. The values proposed for the
-real run are in PROPOSED_VALUES.json and await the user's approval.
+VERIFICATION_PARAMETERS serve analyzer verification only. The values for the real run
+are in PROPOSED_VALUES.json.
+
+Protocol v2: every run is a primary measurement (answer-form logits and the answer-token
+mass, 0.9 unless a world lowers it); records also carry a descriptive paper readout
+that the analyzer never reads. N is set at the freeze by the N rule from split B.
 """
 import math
 import random
@@ -19,8 +23,21 @@ CELL = {"i_P": 3, "i_L": 1, "i_R": 5, "i_N": 0}
 VERIFICATION_PARAMETERS = {
     "s_min_quantile": 0.99, "s_min_floor": 0.10, "d_min": 0.20,
     "agreement_transfer_floor": 0.90, "false_invalid_rate": 0.05,
-    "resamples": 2000, "seed": 20260928, "N": 200,
+    "resamples": 2000, "seed": 20260928,
 }
+MASS = 0.9
+LOW_MASS = 0.2
+
+
+def measurement(entity_logits, mass=MASS):
+    """A primary measurement as the runner records it."""
+    return {"answer_logits": entity_logits, "answer_mass_full_vocab": mass}
+
+
+def paper_readout(entity_logits):
+    """A descriptive in-context readout, deliberately different from the primary one."""
+    reversed_ = list(reversed(entity_logits))
+    return {"entity_logits": reversed_, "entity_mass_full_vocab": 3e-5}
 SIZES = {"A": 60, "B": 200}
 LOW_SUPPORT = 0.03
 
@@ -101,21 +118,23 @@ def conflict_cases(kind, count, rng):
         raise ValueError(f"unknown world kind {kind}")
     cases = []
     for i, q in enumerate(qs):
-        support = supports[i % len(supports)]
+        support, mass = supports[i % len(supports)], MASS
         if kind == "below_resolution" and i % 10 in (0, 3, 6):
             support = LOW_SUPPORT
-        if kind == "unresolved_heavy" and i % 20 < 7:
+        if kind == "unresolved_heavy" and i % 20 < 3:
             support = LOW_SUPPORT
-        cases.append((q, support))
+        if kind == "unresolved_heavy" and 3 <= i % 20 < 7:
+            mass = LOW_MASS
+        cases.append((q, support, mass))
     return cases
 
 
 def development_split(kind, count, rng, cell=CELL):
-    conflict = [logits(q, s, cell) for q, s in conflict_cases(kind, count, rng)]
-    agreement = [(k, j, agreement_logits(j, cell)) for k in range(count)
+    conflict = [measurement(logits(q, s, cell), mass) for q, s, mass in conflict_cases(kind, count, rng)]
+    agreement = [(k, j, measurement(agreement_logits(j, cell))) for k in range(count)
                  for j in (cell["i_P"], cell["i_L"], cell["i_R"])]
     return {"conflict": conflict, "agreement": agreement,
-            "nopatch": [nopatch_logits(cell) for _ in range(count)]}
+            "nopatch": [measurement(nopatch_logits(cell)) for _ in range(count)]}
 
 
 def confirmation_records(kind, N, rng, world, cell=CELL):
@@ -130,9 +149,11 @@ def confirmation_records(kind, N, rng, world, cell=CELL):
                   "native": {"recipient_correct": qualifies, "donor_correct": True,
                              "readout_matches_generation": True}}
         if qualifies:
-            q, support = cases[used]
+            q, support, mass = cases[used]
+            primary = logits(q, support, cell)
             record.update(design_indices=dict(cell), technical={"passed": True},
-                          entity_logits=logits(q, support, cell), entity_mass_full_vocab=0.9)
+                          answer_logits=primary, answer_mass_full_vocab=mass,
+                          descriptive={"paper_readout": paper_readout(primary)})
             used += 1
         records.append(record)
     return records
@@ -143,7 +164,7 @@ def manifest_from(freeze, N):
         "schema_version": 1, "application": "gur-arieh-2510.06182", "round": 1,
         "stage": "confirmation", "synthetic": True, "n_groups": N_GROUPS,
         "task": "synthetic", "t_entity": 2, "patch_positions": [-1],
-        "cell": freeze["cell"], "N": N,
+        "cell": freeze["cell"], "N": N, "N_rule": freeze["N_rule"],
         "rule": {**CONTRACT, "s_min": freeze["s_min"], "d_min": freeze["d_min"],
                  "agreement_transfer_floor": freeze["agreement_transfer_floor"]},
         "anchors": freeze["anchors"], "mean_gate": freeze["mean_gate"],
@@ -172,13 +193,14 @@ def run_world(name, parameters=VERIFICATION_PARAMETERS):
         split_a, split_b, [("c1", CELL)], n=N_GROUPS,
         s_min_quantile=parameters["s_min_quantile"], s_min_floor=parameters["s_min_floor"],
         d_min=parameters["d_min"], agreement_transfer_floor=parameters["agreement_transfer_floor"],
-        N=parameters["N"], false_invalid_rate=parameters["false_invalid_rate"],
+        false_invalid_rate=parameters["false_invalid_rate"],
         resamples=parameters["resamples"], seed=parameters["seed"])
     result = {"world": name, "development": decision}
     if decision["status"] != "PROCEED":
         return result
-    manifest = manifest_from(decision["freeze"], parameters["N"])
-    records = confirmation_records(confirmation_kind, parameters["N"], rng, name)
+    N = decision["freeze"]["N"]
+    manifest = manifest_from(decision["freeze"], N)
+    records = confirmation_records(confirmation_kind, N, rng, name)
     result.update(manifest=manifest, records=records,
                   summary=analyze_confirmation(manifest, records))
     return result

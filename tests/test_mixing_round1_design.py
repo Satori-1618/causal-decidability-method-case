@@ -70,16 +70,25 @@ class DesignIndexCheckerTests(unittest.TestCase):
 
 
 class ProposedValuesTests(unittest.TestCase):
-    def test_approved_for_the_pilot_only_and_final_approval_pending(self):
-        self.assertIn("PILOT ONLY", PROPOSED["status"])
+    def test_protocol_v2_approved_for_pilot_two_only_and_final_approval_pending(self):
+        self.assertIn("PROTOCOL v2", PROPOSED["status"])
+        self.assertIn("no go for split A", PROPOSED["status"])
         self.assertFalse(PROPOSED["approved"])
-        self.assertTrue(PROPOSED["approved_for_pilot"])
-        self.assertEqual(PROPOSED["approved_for_pilot_on"], "2026-09-28")
+        self.assertEqual(PROPOSED["approved_for_pilot2_on"], "2026-09-28")
         self.assertIn("pending", PROPOSED["final_approval"])
-        allowed = ("fixed by the brief", "fixed by the user (2026-09-28)",
-                   "approved for the pilot only (2026-09-28); final approval pending",
-                   "approved for the pilot on 2026-09-28")
-        self.assertTrue(all(p["status"].startswith(allowed) for p in PROPOSED["proposals"]))
+        allowed = ("fixed by the brief", "fixed by the user (2026-09-28",
+                   "approved for pilot 2 only (2026-09-28); final approval pending",
+                   "approved for pilot 2 on 2026-09-28", "pilot 1, run on 2026-09-28")
+        self.assertTrue(all(p["status"].startswith(allowed) for p in PROPOSED["proposals"]), 
+                        [p["status"] for p in PROPOSED["proposals"] if not p["status"].startswith(allowed)])
+
+    def test_protocol_v2_entries_match_the_analyzer(self):
+        self.assertEqual(proposal("answer_mass_gate")["value"]["floor"], ra.CONTRACT["answer_mass_floor"])
+        self.assertEqual(proposal("precision_and_attention")["value"]["dtype"], "float32")
+        self.assertIn("never be changed after confirmation data exist", proposal("N_rule")["status"])
+        self.assertIn("split B", proposal("N_rule")["value"]["final_N"])
+        self.assertIn("descriptive only", proposal("readout")["value"]["paper_readout"])
+        self.assertEqual(proposal("pilot2")["value"]["families"], 80)
 
     def test_layer_is_fixed_by_declaration_and_19_is_only_a_diagnostic(self):
         layer = proposal("layer")

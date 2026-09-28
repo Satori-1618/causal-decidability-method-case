@@ -21,8 +21,8 @@ def render():
     return json.dumps({
         "label": "SYNTHETIC: analyzer verification, not evidence",
         "verification_parameters": VERIFICATION_PARAMETERS,
-        "note": "These parameters exist only to exercise the analyzer. The values proposed "
-                "for the real run are in PROPOSED_VALUES.json and await approval.",
+        "note": "These parameters exist only to exercise the analyzer. The values "
+                "for the real run are in PROPOSED_VALUES.json.",
         "worlds": run_all(),
     }, indent=2, allow_nan=False) + "\n"
 

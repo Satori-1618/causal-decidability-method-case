@@ -1,12 +1,13 @@
-"""Round 1 runner tests on a tiny, randomly initialised Gemma 2 built locally.
+"""Round 1 runner tests (protocol v2) on a tiny, randomly initialised Gemma 2 built locally.
 
 No Gemma file is read and nothing is downloaded. The tests check the patch mechanics
 (hidden_states[l] is the input of block l; the hook fires once per forward and writes
 only the last prompt position; the identity self-patch reproduces the logits and the
-greedy generation), the readout arithmetic, the design and alignment checks inside a
-family, the snapshot hashing, and that runner records validate against the records-only
-checker's schema. They need torch and transformers (requirements-model.txt); without
-them they are skipped and say why.
+greedy generation), the primary answer-form readout and the descriptive paper readout,
+the protocol-v2 pool rule, the design and alignment checks inside a family, the snapshot
+hashing, the pilot summary and the artifact index, and that runner records validate
+against the records-only checker. They need torch and transformers
+(requirements-model.txt); without them they are skipped and say why.
 """
 import copy
 import hashlib
@@ -39,12 +40,55 @@ N_GROUPS = 7
 LAYER, DIAGNOSTIC_LAYER = 2, 3
 
 
-def load_checker():
-    spec = importlib.util.spec_from_file_location("check_mixing_round1_records",
-                                                  APP / "scripts/check_mixing_round1_records.py")
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+class FakeTokenizer:
+    """encode() from a fixed table, to exercise every branch of the pool rule."""
+
+    TABLE = {" a": [1], "A": [11], " b": [2], "B": [12, 13], " c": [3], "C": [14], " d": [4], "D": [14],
+             " e": [5, 6], "E": [15], " f": [7], "F": [16], " g": [7], "G": [17],
+             " x": [30], "X": [40, 41], " y": [31], " z": [32]}
+
+    def encode(self, text, add_special_tokens=False):
+        return self.TABLE[text]
+
+
+@unittest.skipUnless(HAVE_TORCH, REASON)
+class PoolRuleTests(unittest.TestCase):
+    def test_protocol_v2_pool_rule(self):
+        import mixing_runner as mr
+        spec = {"categories": ["Key", "Target", "Other"],
+                "items": {"Key": ["x", "y"], "Target": ["a", "b", "c", "d", "e", "f", "g"], "Other": ["z"]}}
+        pools, dropped, context_ids, answer_ids = mr.round1_pools(FakeTokenizer(), spec, target=1)
+        self.assertEqual(pools["Target"], ["a"])
+        reasons = {d["entity"]: d["reason"] for d in dropped["Target"]}
+        self.assertEqual(reasons, {"b": "answer form not one token", "e": "context form not one token",
+                                   "c": "token id not unique", "d": "token id not unique",
+                                   "f": "token id not unique", "g": "token id not unique"})
+        # The answer form applies to the answered category only.
+        self.assertEqual(pools["Key"], ["x", "y"])
+        self.assertEqual(answer_ids, {"a": 11})
+        record = mr.pools_record(pools, dropped, context_ids, answer_ids, spec, target=1)
+        self.assertEqual(record["answer_form_ids"], {"a": 11})
+        self.assertEqual(record["context_form_ids"]["Key"], {"x": 30, "y": 31})
+
+    def test_the_locked_pools_follow_the_rule(self):
+        lock = json.loads((APP / "SOURCE_LOCK.json").read_text())["round1_entity_pools"]
+        self.assertEqual(lock["answered_category"], "Genre")
+        self.assertNotIn("trance", lock["pools"]["Genre"])
+        self.assertEqual(len(lock["pools"]["Genre"]), 23)
+        self.assertEqual(sorted(lock["answer_form_ids"]), sorted(lock["pools"]["Genre"]))
+        for form in (lock["answer_form_ids"], lock["context_form_ids"]["Genre"]):
+            self.assertEqual(len(set(form.values())), len(form))
 
 
 @unittest.skipUnless(HAVE_TORCH, REASON)
@@ -58,16 +102,19 @@ class TinyGemmaRunnerTests(unittest.TestCase):
         cls.spec = TINY_SPEC
         cls.tokenizer = tiny_tokenizer()
         cls.model = tiny_model(len(cls.tokenizer), seed=1)
-        pools, dropped, ids = mr.single_token_pools(cls.tokenizer, cls.spec)
-        cls.pools, cls.ids = pools, ids
-        cls.runner = mr.Runner(cls.model, cls.tokenizer, cls.spec, pools, ids, LAYER,
+        pools, dropped, context_ids, answer_ids = mr.round1_pools(cls.tokenizer, cls.spec)
+        cls.pools, cls.context_ids, cls.answer_ids = pools, context_ids, answer_ids
+        cls.runner = mr.Runner(cls.model, cls.tokenizer, cls.spec, pools, context_ids, answer_ids, LAYER,
                                diagnostic_layer=DIAGNOSTIC_LAYER)
-        rng = random.Random(1000000)
         from mixing_round1_design import random_matrix
-        cls.G = random_matrix(N_GROUPS, [pools[c] for c in cls.spec["categories"]], rng)
+        cls.G = random_matrix(N_GROUPS, [pools[c] for c in cls.spec["categories"]], random.Random(1000000))
 
     def prompt_ids(self, query_group=0):
         return self.runner.prompt(self.G, query_group)["input_ids"]
+
+    def test_tiny_pools_keep_every_entity(self):
+        self.assertEqual(self.pools, self.spec["items"])
+        self.assertEqual(len(set(self.answer_ids.values())), len(self.answer_ids))
 
     def test_hidden_states_index_is_the_input_of_that_block(self):
         torch = self.torch
@@ -87,7 +134,6 @@ class TinyGemmaRunnerTests(unittest.TestCase):
         self.assertTrue(torch.equal(captured["input"], out.hidden_states[LAYER]))
 
     def test_identity_self_patch_reproduces_logits_and_generation(self):
-        torch = self.torch
         ids = self.prompt_ids()
         base, _ = self.runner.forward(ids)
         vector = base.hidden_states[LAYER][0, -1]
@@ -103,24 +149,20 @@ class TinyGemmaRunnerTests(unittest.TestCase):
     def test_hook_fires_once_per_forward_and_writes_only_the_last_position(self):
         torch = self.torch
         ids = self.prompt_ids(query_group=0)
-        donor_ids = self.prompt_ids(query_group=4)
-        donor, _ = self.runner.forward(donor_ids)
+        donor, _ = self.runner.forward(self.prompt_ids(query_group=4))
         base, _ = self.runner.forward(ids)
         vector = donor.hidden_states[LAYER][0, -1]
         patched, report = self.runner.forward(ids, patch=(LAYER, vector))
         T, D = ids.shape[1], self.model.config.hidden_size
-        self.assertEqual(report["calls"], 1)
-        self.assertEqual(report["writes"], 1)
+        self.assertEqual((report["calls"], report["writes"]), (1, 1))
         self.assertEqual(report["positions"], [T - 1])
         self.assertEqual(report["shapes"], [[1, T, D]])
         self.assertEqual(report["vector_shape"], [D])
         self.assertTrue(self.mr.Runner.check_hook(report, T, D))
         self.assertTrue(torch.equal(patched.logits[0, :-1], base.logits[0, :-1]))
         self.assertGreater(float((patched.logits[0, -1] - base.logits[0, -1]).abs().max()), 1e-4)
-        self.assertTrue(torch.equal(patched.hidden_states[LAYER][0, :-1], base.hidden_states[LAYER][0, :-1]))
         # hidden_states[LAYER] is recorded before the hook, so it stays the recipient's own.
         self.assertTrue(torch.equal(patched.hidden_states[LAYER], base.hidden_states[LAYER]))
-        # The block input at the last position is the donor vector after the write.
         captured = {}
 
         def grab(module, args, kwargs):
@@ -143,23 +185,27 @@ class TinyGemmaRunnerTests(unittest.TestCase):
         self.runner.forward(ids, patch=(LAYER, base.hidden_states[LAYER][0, -1] * 3))
         self.assertEqual(len(self.model.model.layers[LAYER]._forward_pre_hooks), 0)
 
-    def test_readout_arithmetic(self):
+    def test_primary_and_paper_readouts(self):
         torch = self.torch
         ids = self.prompt_ids()
-        entity_ids, positions = self.runner.aligned_entity_ids(self.G, ids)
+        context, positions = self.runner.aligned_entity_ids(self.G, ids)
         out, _ = self.runner.forward(ids)
-        readout = self.runner.readout(out, entity_ids, full=True)
+        entities = [g[1] for g in self.G]
+        readout = self.runner.readout(out, entities, full=True)
         logits = readout.pop("_full_logits")
         probabilities = torch.softmax(logits, 0)
-        self.assertAlmostEqual(readout["entity_mass_full_vocab"],
-                               float(probabilities[entity_ids].sum()), places=5)
-        self.assertAlmostEqual(math.log(math.exp(readout["logsumexp_entities"]) + math.exp(readout["logsumexp_complement"])),
+        answer = [self.answer_ids[e] for e in entities]
+        self.assertAlmostEqual(readout["answer_mass_full_vocab"], float(probabilities[answer].sum()), places=5)
+        self.assertEqual(readout["answer_logits"], [float(logits[i]) for i in answer])
+        paper = readout["descriptive"]["paper_readout"]
+        self.assertEqual(paper["entity_logits"], [float(logits[i]) for i in context])
+        self.assertAlmostEqual(paper["entity_mass_full_vocab"], float(probabilities[context].sum()), places=5)
+        self.assertAlmostEqual(math.log(math.exp(readout["logsumexp_answer_tokens"])
+                                        + math.exp(readout["logsumexp_answer_complement"])),
                                readout["logsumexp_full"], places=4)
-        self.assertEqual(len(readout["entity_logits"]), N_GROUPS)
-        for a, b in zip(readout["entity_logits_fp32_unembed"], readout["entity_logits"]):
-            self.assertAlmostEqual(a, b, places=4)
+        self.assertNotEqual(answer, context)
         tokens = ids[0].tolist()
-        self.assertEqual([tokens[i] for i in positions], entity_ids)
+        self.assertEqual([tokens[i] for i in positions], context)
 
     def test_alignment_mismatch_is_a_technical_failure(self):
         ids = self.prompt_ids()
@@ -168,19 +214,12 @@ class TinyGemmaRunnerTests(unittest.TestCase):
         with self.assertRaises(self.mr.TechnicalError):
             self.runner.aligned_entity_ids([tuple(g) for g in swapped], ids)
 
-    def test_single_token_pools_drop_multi_token_entities(self):
-        from mixing_tiny_model import MULTI_TOKEN_GENRE
-        spec = copy.deepcopy(self.spec)
-        spec["items"]["Genre"].append(MULTI_TOKEN_GENRE)
-        pools, dropped, _ = self.mr.single_token_pools(self.tokenizer, spec)
-        self.assertEqual(dropped, {"Genre": [MULTI_TOKEN_GENRE]})
-        self.assertEqual(pools["Genre"], self.spec["items"]["Genre"])
-
-    def run_families(self, count):
+    def run_families(self, count, cells=None, prefix="tiny"):
         records = []
         for i in range(count):
-            record, _ = self.runner.family(case_id=f"tiny-{i:04d}", draw_index=i, seed=1000000 + i,
-                                           cell_key="c1", cell=CELL, rng=random.Random(1000000 + i),
+            key, cell = cells[i % len(cells)] if cells else ("c1", CELL)
+            record, _ = self.runner.family(case_id=f"{prefix}-{i:04d}", draw_index=i, seed=1000000 + i,
+                                           cell_key=key, cell=cell, rng=random.Random(1000000 + i),
                                            n=N_GROUPS, audit=(i == 0))
             records.append(record)
         return records
@@ -190,47 +229,52 @@ class TinyGemmaRunnerTests(unittest.TestCase):
         for record in records:
             self.assertTrue(record["technical"]["passed"], record["technical"]["failures"])
             self.assertEqual(record["design_indices"], CELL)
-            self.assertEqual(len(record["entity_logits"]), N_GROUPS)
+            self.assertEqual(len(record["answer_logits"]), N_GROUPS)
+            self.assertNotIn("entity_logits", record)
+            self.assertEqual(len(record["descriptive"]["paper_readout"]["entity_logits"]), N_GROUPS)
             self.assertEqual([a["j"] for a in record["agreement"]], [3, 1, 5])
             for a in record["agreement"]:
                 i = a["design_indices"]
                 self.assertEqual((i["i_P"], i["i_L"], i["i_R"], i["i_N"]), (a["j"],) * 3 + (0,))
                 self.assertEqual((a["hook"]["calls"], a["hook"]["writes"]), (1, 1))
-            self.assertTrue(record["donor_answer"]["in_recipient"])
+                self.assertIn("answer_mass_full_vocab", a)
             self.assertEqual(record["donor_answer"]["recipient_index"], CELL["i_R"])
             self.assertEqual(record["identity"]["max_abs_logit_difference"], 0.0)
             self.assertTrue(record["identity"]["same_generation"])
             self.assertEqual(record["diagnostic"]["layer"], DIAGNOSTIC_LAYER)
-            self.assertIsInstance(record["qualifies"], bool)
+            recipient = record["native"]["recipient"]
+            self.assertEqual(recipient["correct"],
+                             recipient["first_word"] == recipient["answer"] and recipient["first_token_is_answer_form"])
             json.dumps(record, allow_nan=False)
-        # The same seed gives the same family.
         again = self.run_families(1)[0]
         self.assertEqual(again["matrix"], records[0]["matrix"])
-        self.assertEqual(again["entity_logits"], records[0]["entity_logits"])
+        self.assertEqual(again["answer_logits"], records[0]["answer_logits"])
 
     def test_records_validate_against_the_records_only_checker(self):
-        checker = load_checker()
+        checker = load("check_mixing_round1_records", APP / "scripts/check_mixing_round1_records.py")
         import mixing_round1_analysis as ra
         records = self.run_families(4)
         for record in records:
             self.assertIsNone(checker.technical_failure(record, CELL, N_GROUPS))
-        # Schema check only: a random tiny model is not natively correct, so the copies
-        # are marked qualifying to exercise the checker's full path.
-        qualifying = [dict(copy.deepcopy(r), qualifies=True) for r in records]
+        # Schema check only: a random tiny model is not natively correct, so copies of the
+        # four records are marked qualifying and repeated to the rule's N of 200.
+        N = 200
+        qualifying = []
+        for i in range(N):
+            r = copy.deepcopy(records[i % 4])
+            r.update(case_id=f"schema-{i:04d}", draw_index=i, qualifies=True)
+            qualifying.append(r)
+        sizing = ra.n_rule(0.0)
         manifest = {
-            "schema_version": 1, "application": "gur-arieh-2510.06182", "round": 1,
-            "stage": "schema test", "n_groups": N_GROUPS, "cell": dict(CELL), "N": len(qualifying),
+            "schema_version": 2, "application": "gur-arieh-2510.06182", "round": 1,
+            "stage": "schema test", "n_groups": N_GROUPS, "cell": dict(CELL), "N": N,
+            "N_rule": {"N": sizing["N"], "adequacy_powered": sizing["adequacy_powered"]},
             "rule": {**ra.CONTRACT, "s_min": 0.05, "d_min": 0.20, "agreement_transfer_floor": 0.9},
             "anchors": {"T_W": 0.5, "T_A": 0.95, "d": 0.45, "q_bar_B": [0.5, 0.3, 0.2], "m_B": 100},
             "mean_gate": {"delta": 1.0}, "development_gates": {
-                "resolution_rate_B": 0.95, "agreement_resolution_rate_B": 0.95,
-                "agreement_transfer_rate_B": 0.95},
+                "resolution_rate_B": 1.0, "agreement_resolution_rate_B": 0.95, "agreement_transfer_rate_B": 0.95},
+            "code_files_sha256": {name: sha(ROOT / name) for name in checker.REQUIRED_CODE},
         }
-
-        def sha(path):
-            return hashlib.sha256(Path(path).read_bytes()).hexdigest()
-
-        manifest["code_files_sha256"] = {name: sha(ROOT / name) for name in checker.REQUIRED_CODE}
         with tempfile.TemporaryDirectory() as directory:
             results = Path(directory)
             (results / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
@@ -240,50 +284,53 @@ class TinyGemmaRunnerTests(unittest.TestCase):
             summary.update(manifest_sha256=sha(results / "manifest.json"),
                            records_sha256=sha(results / "records.jsonl"))
             (results / "summary.json").write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n")
-            (results / "artifact_hashes.json").write_text(json.dumps(
-                {p.name: sha(p) for p in results.iterdir()}))
+            (results / "artifact_hashes.json").write_text(json.dumps({p.name: sha(p) for p in results.iterdir()}))
             report = checker.verify(results, repository_root=ROOT)
         self.assertTrue(report["verified"])
-        self.assertEqual(report["N"], len(qualifying))
+        self.assertEqual(report["N"], N)
 
-
-    def test_pilot_summary_runs_on_runner_records(self):
-        """Smoke test of the pilot gate table on tiny-model records. Records are marked
-        qualifying so every branch runs; the numbers mean nothing."""
+    def test_pilot_summary_and_index_run_on_runner_records(self):
+        """Smoke test of the pilot-2 gate table and the artifact index on tiny-model
+        records. Records are marked qualifying so every branch runs; the numbers mean
+        nothing."""
         import mixing_pilot_summary as summary_module
-        spec = importlib.util.spec_from_file_location("run_mixing_pilot", APP / "scripts/run_mixing_pilot.py")
-        pilot_script = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(pilot_script)
-        pilot = copy.deepcopy(pilot_script.PILOT)
-        records = []
-        for i in range(8):
-            key, cell = pilot["cells"][i % 4]
-            record, _ = self.runner.family(case_id=f"pilot-{i:04d}", draw_index=i, seed=1000000 + i,
-                                           cell_key=key, cell=cell, rng=random.Random(1000000 + i),
-                                           n=N_GROUPS)
-            records.append(dict(record, qualifies=True))
-        fp32 = [self.runner.conflict_only(r, N_GROUPS) for r in records[:4]]
+        script = load("run_mixing_pilot", APP / "scripts/run_mixing_pilot.py")
+        pilot = copy.deepcopy(script.PILOT)
+        pilot["gate7_reference"]["families"] = [0, 1, 2, 3]
+        records = [dict(r, qualifies=True) for r in self.run_families(8, pilot["cells"], prefix="pilot2")]
+        reference = [self.runner.conflict_only(r) for r in records[:4]]
+        pools = self.mr.pools_record(self.pools, {}, self.context_ids, self.answer_ids, self.spec)
         manifest = {"model": {"hashes": {"passed": True, "problems": [], "files": {}}},
-                    "gate3_tokens": {"passed": True, "pools_kept": {}, "pools_dropped": {},
-                                     "dropped_prefix": "<bos>"},
-                    "environment": {"device": "cpu"}}
+                    "gate3_tokens": {"passed": True, "pools_equal_the_lock": True, "pools_kept": {},
+                                     "pools_dropped": {}, "dropped_prefix": "<bos>"},
+                    "entity_pools": json.loads(json.dumps(pools)), "environment": {"device": "cpu"}}
+        full = self.run_families(1, pilot["cells"], prefix="pilot2")
         with tempfile.TemporaryDirectory() as directory:
             out = Path(directory)
             (out / "manifest.json").write_text(json.dumps(manifest))
             (out / "records.jsonl").write_text("".join(json.dumps(r) + "\n" for r in records))
-            (out / "fp32_reference.jsonl").write_text("".join(json.dumps(r) + "\n" for r in fp32))
+            (out / "gate7_cpu_reference.jsonl").write_text("".join(json.dumps(r) + "\n" for r in reference))
+            _, logits = self.runner.family(case_id="pilot2-0000", draw_index=0, seed=1000000, cell_key="c1",
+                                           cell=pilot["cells"][0][1], rng=random.Random(1000000), n=N_GROUPS,
+                                           audit=True)
+            import numpy as np
+            np.savez_compressed(out / "audit_full_logits.npz", **{"pilot2-0000": logits.numpy()})
             result = summary_module.summarize(out, pilot)
+            index = script.write_index(out)
+            self.assertEqual(set(index["data"]), {p.name for p in out.iterdir()} - {"artifact_hashes.json"})
+            self.assertEqual(set(index["producers"]), set(script.PRODUCERS))
+        self.assertEqual(full[0]["matrix"], records[0]["matrix"])
         self.assertEqual(result["families"], 8)
         for gate in ("1_model_hashes", "2_native_and_yield", "3_tokens", "4_hooks", "5_identity",
-                     "6_agreement", "7_dtype", "8_support", "9_separation_descriptive"):
+                     "6_agreement", "7_dtype_device", "8_support", "9_separation_descriptive"):
             self.assertIn(gate, result["gates"])
         self.assertTrue(result["gates"]["4_hooks"]["passed"])
         self.assertTrue(result["gates"]["5_identity"]["passed"])
-        self.assertEqual(result["gates"]["7_dtype"]["primary_bf16_logits"]["max_abs_T_difference"], 0.0)
+        self.assertEqual(result["gates"]["7_dtype_device"]["max_abs_T_difference"], 0.0)
         self.assertEqual(result["gates"]["6_agreement"]["runs"], 24)
-        self.assertIsNotNone(result["n_rule"])
-        self.assertEqual(set(result["readout_validity_diagnostic"]),
-                         {"conflict_layer18", "conflict_layer19", "agreement_layer18", "native_recipient"})
+        self.assertTrue(result["audit_full_logits"]["passed"])
+        self.assertIsNotNone(result["planning_N"])
+        self.assertEqual(set(result["answer_mass_by_run_type"]), set(summary_module.RUN_TYPES))
         json.dumps(result, allow_nan=False)
 
 
@@ -320,8 +367,7 @@ class SnapshotHashTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             revision, locked = self.make_snapshot(root)
-            path = mr.snapshot_path("org/tiny", revision, cache=root)
-            report = mr.snapshot_hashes(path, locked)
+            report = mr.snapshot_hashes(mr.snapshot_path("org/tiny", revision, cache=root), locked)
             self.assertTrue(report["passed"], report["problems"])
             self.assertEqual(len(report["files"]), len(mr.REQUIRED_SNAPSHOT_FILES))
         with tempfile.TemporaryDirectory() as directory:

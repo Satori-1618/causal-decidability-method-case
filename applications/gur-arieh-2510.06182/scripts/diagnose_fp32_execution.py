@@ -1,5 +1,9 @@
 """DIAGNOSTIC for the dtype decision (pilot/development, descriptive; decides nothing).
 
+Pilot-1 (protocol v1) producer of results/pilot/diagnostic_fp32_*. It needs the v1
+runner (``single_token_pools``, in-context primary fields) of commit 3cdaffd and refuses
+to run against the protocol-v2 runner; check out that commit to rerun it.
+
 What would the pilot look like with float32 as the execution dtype? Offline, cached
 snapshot only. It reruns the first 32 pilot families (the gate-7 sample: same seeds,
 same cells, same code path ``Runner.family``) with the model in float32 on MPS, and
@@ -47,6 +51,8 @@ def main():
     import mixing_runner as mr
     import mixing_round1_analysis as ra
     from mixing_prompts import load_adapter
+    if not hasattr(mr, "single_token_pools"):
+        raise SystemExit("pilot-1 producer: it needs the protocol-v1 runner; check out commit 3cdaffd to rerun it")
 
     results = Path(args.results)
     manifest = json.loads((results / "manifest.json").read_text())

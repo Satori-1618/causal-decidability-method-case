@@ -1,4 +1,9 @@
-"""Readout-validity DIAGNOSTIC on the stored pilot records (development data, descriptive).
+"""Readout-validity DIAGNOSTIC on the stored pilot-1 records (development data, descriptive).
+
+Pilot-1 (protocol v1) producer of results/pilot/diagnostic_answer_form.json. It reads the
+v1 record fields and uses only the analyzer's descriptive helpers (``describe_logits``,
+``describe_anchors``), which keep the v1 semantics (resolution by S alone), so it
+reproduces its stored output byte for byte under the protocol-v2 analyzer.
 
 It changes nothing in the declared statistic or in the code paths used for decisions; it
 reads results/pilot/records.jsonl and the pinned tokenizer (offline) and writes
@@ -166,10 +171,10 @@ def main():
         for which in READOUTS:
             nopatch = [scored(r["native"]["recipient"]["readout"], which) for r in group]
             s_min = ra.anchored_s_min([ra.q_map(ra.softmax(x), cell, w)[0] for x in nopatch], 0.99, 0.10)
-            conflict = [ra.case_measures(scored(r["readout"], which), cell, w, s_min) for r in group]
+            conflict = [ra.describe_logits(scored(r["readout"], which), cell, w, s_min) for r in group]
             agreement = [(k, a["j"], scored(a["readout"], which)) for k, r in enumerate(group) for a in r["agreement"]]
             try:
-                anchor = ra.anchors([scored(r["readout"], which) for r in group], agreement, cell, w, s_min)
+                anchor = ra.describe_anchors([scored(r["readout"], which) for r in group], agreement, cell, w, s_min)
                 anchor = {k: anchor[k] for k in ("T_W", "T_A", "d", "q_bar", "T_A_by_target",
                                                  "agreement_resolution_rate", "agreement_transfer_rate")}
             except ValueError as error:

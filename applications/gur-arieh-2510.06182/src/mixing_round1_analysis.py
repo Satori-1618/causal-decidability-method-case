@@ -1,12 +1,23 @@
 """Round 1 analyzer: does a single case look like the cell average? No model inference.
 
-Per case k the entity readout gives logits over the n in-context entity tokens at the
-last position; p_k is their softmax (the paper's per-case distribution). With the cell's
-design indices (i_P, i_L, i_R) and the window w:
+Protocol v2 (approved by the user on 28 September 2026, after the first pilot).
+
+**Primary readout: the answer form.** For each run the runner records the logits, at the
+last position, of the n in-context entities in their answer form (capitalised, no
+leading space, exactly one token: 'Country') and the full-vocabulary probability on
+those n tokens (the answer-token mass). p_k is the softmax over the n answer-form
+logits. The paper's in-context readout (' country') is recorded under a separate
+``descriptive`` field; no function in this module reads that field, so it cannot enter
+qualification, cell selection, a gate or a decision.
+
+With the cell's design indices (i_P, i_L, i_R) and the window w:
 
     S_k = P-window mass + p_k[i_L] + p_k[i_R],     P-window = i_P - w .. i_P + w
     q_k = (P-window mass, p_k[i_L], p_k[i_R]) / S_k
     T_k = max(q_k), between 1/3 and 1
+
+A case is **resolved** iff S_k >= s_min AND its answer-token mass >= 0.5. Too little mass
+is "unresolved"; a missing or non-finite measurement is a technical failure (INVALID).
 
 Two concentration profiles, fixed on development split B for one cell:
 
@@ -17,21 +28,19 @@ Two concentration profiles, fixed on development split B for one cell:
     W_T-conform: resolved and |T_k - T_W| <= kappa * d
     A_T-conform: resolved and |T_k - T_A| <= kappa * d
 
-They compare how concentrated a case is, never which target it favours. A case is
-unresolved if S_k < s_min. Declared unresolved rule (new; the Makelov round 2/3A
-analyzers counted unresolved units as non-successes for both bounds): unresolved cases
-count as non-matches for adequacy and as matches for exclusion. Technical failures make
-the run INVALID; they are never unresolved. Intervals are simultaneous Clopper-Pearson
-over the two profiles, alpha/4 per tail, from the repository's existing helper.
+They compare how concentrated a case is, never which target it favours. Declared
+unresolved rule (new; the Makelov round 2/3A analyzers counted unresolved units as
+non-successes for both bounds): unresolved cases count as non-matches for adequacy and
+as matches for exclusion. Technical failures make the run INVALID; they are never
+unresolved. Intervals are simultaneous Clopper-Pearson over the two profiles, alpha/4
+per tail, from the repository's existing helper. At least 90% of agreement-control runs
+must be resolved, else STOP.
 
-User corrections of 2026-09-28: T_A weighs the three common targets equally (above), and
-at least 90% of the agreement-control runs must be resolved, else STOP
-(``agreement_resolution_floor``).
-
-Values the brief leaves open (s_min rule, d_min, delta procedure, gate floors) are
-arguments without defaults here; the values live in PROPOSED_VALUES.json (approved for
-the pilot only on 2026-09-28; final approval pending).
+**N.** The final N, and whether adequacy counts as powered, are set at the freeze by the
+recorded N rule applied to split B's unresolved rate in the selected cell (``n_rule``);
+a pilot's rate gives only a provisional planning N.
 """
+import functools
 import math
 import random
 import statistics
@@ -47,8 +56,8 @@ from query_route_analysis import clopper_pearson  # noqa: E402  existing helper,
 CP_HELPER_PATH = "applications/makelov-2311.17030/src/query_route_analysis.py"
 ANALYZER_PATH = "applications/gur-arieh-2510.06182/src/mixing_round1_analysis.py"
 
-# Fixed by the brief (Sec. 5.4, 5.5, 5.8, 5.11) and, for the agreement-resolution floor,
-# by the user's correction of 2026-09-28; not proposals.
+# Fixed by the brief (Sec. 5.4, 5.5, 5.8, 5.11) and by the user's corrections of
+# 2026-09-28 (agreement-resolution floor; protocol v2: readout and mass floor).
 CONTRACT = {
     "w": 1,
     "kappa": 0.25,
@@ -58,8 +67,12 @@ CONTRACT = {
     "label_tail": 0.0125,
     "resolution_rate_floor": 0.9,
     "agreement_resolution_floor": 0.9,
+    "readout": "answer form: capitalised, no leading space, exactly one token",
+    "answer_mass_floor": 0.5,
+    "resolution_rule": "S >= s_min and answer-token mass >= answer_mass_floor",
     "unresolved_rule": "non-match for adequacy; match for exclusion",
 }
+PRIMARY_FIELDS = ("answer_logits", "answer_mass_full_vocab")
 PROFILES = ("W_T", "A_T")
 LABELS = ("positional", "lexical", "reflexive")
 NOT_DECIDABLE = "NOT_DECIDABLE_WITH_CURRENT_INTERVENTIONS"
@@ -68,6 +81,17 @@ W_T_READING = ("More than 20% of cases are resolved and deviate from the cell-av
 W_T_CAVEAT = ("W_T is biased toward exclusion when case argmaxes vary; the bias is largest "
               "in the selected cell.")
 BETWEEN_CASE_SENTENCE = "Cases differ in which candidate position they favour."
+
+# The N rule, recorded on 2026-09-28 before the first pilot. The final N is set at the
+# freeze from split B's unresolved rate in the selected cell.
+N_RULE = {
+    "default_N": 200,
+    "unresolved_threshold": 0.02,
+    "larger_N": (300, 400, 500),
+    "declared_power": 0.80,
+    "adequacy_coverage": 0.90,
+    "exclusion_coverage": 0.70,
+}
 
 
 class TechnicalFailure(ValueError):
@@ -92,7 +116,7 @@ def _index(value, name):
 # ---- per-case readout -------------------------------------------------------------
 
 def softmax(logits):
-    """Softmax over the n entity logits (the paper's per-case distribution p_k)."""
+    """Softmax over the n entity logits (the per-case distribution p_k)."""
     if isinstance(logits, (str, bytes, Mapping)) or not hasattr(logits, "__len__") or len(logits) < 2:
         raise ValueError("entity logits must be a sequence of at least two numbers")
     values = [_finite(v, "entity logit") for v in logits]
@@ -159,23 +183,67 @@ def background_corrected_labels(p, cell, w):
     return [label for label in LABELS if values[label] == top], len(background)
 
 
-def case_measures(logits, cell, w, s_min):
+def _shape(logits, cell, w, s_min):
     p = softmax(logits)
     support, q = q_map(p, cell, w)
-    resolved = q is not None and support >= s_min
     labels, background_size = background_corrected_labels(p, cell, w)
     return {
         "S": support,
         "q": list(q) if q is not None else None,
         "T": concentration(q) if q is not None else None,
-        "resolved": resolved,
+        "S_ok": q is not None and support >= s_min,
         "p_native": p[cell["i_N"]],
-        "labels": labels if resolved else [],
+        "argmax": max(range(len(p)), key=p.__getitem__),
+        "all_labels": labels,
         "background_entities": background_size,
     }
 
 
-# ---- development: s_min, anchors, selection, delta ---------------------------------
+def describe_logits(logits, cell, w, s_min):
+    """DESCRIPTIVE ONLY (e.g. the paper's in-context readout): S, q, T and labels of a
+    bare logit vector, 'resolved' by S alone. Never used by any decision below."""
+    shape = _shape(logits, cell, w, s_min)
+    return {"S": shape["S"], "q": shape["q"], "T": shape["T"], "resolved": shape["S_ok"],
+            "p_native": shape["p_native"], "labels": shape["all_labels"] if shape["S_ok"] else [],
+            "background_entities": shape["background_entities"]}
+
+
+def primary_readout(item, n=None):
+    """The primary measurement of one run: (answer-form logits, answer-token mass).
+
+    Reads only ``answer_logits`` and ``answer_mass_full_vocab``. A missing, malformed or
+    non-finite value raises TechnicalFailure: the run is INVALID, never unresolved."""
+    if not isinstance(item, Mapping):
+        raise TechnicalFailure("measurement must be a mapping with the primary readout fields")
+    logits, mass = item.get("answer_logits"), item.get("answer_mass_full_vocab")
+    if not isinstance(logits, list) or len(logits) < 2 or (n is not None and len(logits) != n):
+        raise TechnicalFailure(f"expected {n or 'at least two'} answer-form logits")
+    try:
+        values = [_finite(v, "answer logit") for v in logits]
+        mass = _finite(mass, "answer_mass_full_vocab")
+    except ValueError as error:
+        raise TechnicalFailure(str(error)) from error
+    if not 0 <= mass <= 1:
+        raise TechnicalFailure("answer-token mass outside [0, 1]")
+    return values, mass
+
+
+def case_measures(item, cell, w, s_min):
+    """Primary per-case measures: resolved iff S >= s_min and answer mass >= 0.5."""
+    logits, mass = primary_readout(item)
+    shape = _shape(logits, cell, w, s_min)
+    mass_ok = mass >= CONTRACT["answer_mass_floor"]
+    resolved = shape["S_ok"] and mass_ok
+    return {
+        "S": shape["S"], "q": shape["q"], "T": shape["T"],
+        "answer_mass": mass, "S_ok": shape["S_ok"], "mass_ok": mass_ok,
+        "resolved": resolved, "p_native": shape["p_native"], "argmax": shape["argmax"],
+        "labels": shape["all_labels"] if resolved else [],
+        "background_entities": shape["background_entities"],
+    }
+
+
+# ---- development: s_min, anchors, selection, delta, N ---------------------------------
 
 def upper_order_statistic(values, level):
     """The smallest sample value v with at least a fraction ``level`` of values <= v."""
@@ -186,43 +254,37 @@ def upper_order_statistic(values, level):
 
 
 def anchored_s_min(nopatch_supports, quantile, floor):
-    """s_min anchored to the S of no-patch runs: max(upper order statistic, floor).
-    Both parameters are proposals (PROPOSED_VALUES.json); no default is assumed."""
+    """s_min anchored to the S of no-patch runs: max(upper order statistic, floor)."""
     floor = _finite(floor, "floor")
     if floor < 0:
         raise ValueError("floor must be nonnegative")
     return max(upper_order_statistic(nopatch_supports, quantile), floor)
 
 
+def nopatch_supports(items, cell, w):
+    """S of the primary readout of no-patch runs (all qualifying families of a cell)."""
+    return [q_map(softmax(primary_readout(item)[0]), cell, w)[0] for item in items]
+
+
 AGREEMENT_TARGETS = ("i_P", "i_L", "i_R")
 
 
-def agreement_anchor(agreement_logits, cell, w, s_min):
-    """T_A with P, L and R weighted equally, plus the agreement-control rates.
-
-    ``agreement_logits`` is a list of (case_index, j, logits) with j the common target,
-    one of the cell's i_P, i_L and i_R. T_A is the mean over the three targets of the
-    mean T over resolved runs with that target, so a target with fewer resolved runs
-    does not weigh less (user correction of 2026-09-28). The transfer rate counts runs
-    whose argmax over the n entities is the common target; the resolution rate counts
-    runs with S >= s_min. Both are over all agreement runs given.
-    """
+def _agreement(agreement, cell, measure):
     targets = {cell[key]: key for key in AGREEMENT_TARGETS}
     per_target = {key: [] for key in AGREEMENT_TARGETS}
     runs = {key: 0 for key in AGREEMENT_TARGETS}
     transfers = resolved = 0
-    for _, j, logits in agreement_logits:
+    for _, j, item in agreement:
         if j not in targets:
             raise ValueError(f"agreement target {j} is not one of the cell's i_P, i_L, i_R")
         key = targets[j]
         runs[key] += 1
-        measured = case_measures(logits, cell, w, s_min)
-        p = softmax(logits)
-        transfers += max(range(len(p)), key=p.__getitem__) == j
+        measured = measure(item)
+        transfers += measured["argmax"] == j
         if measured["resolved"]:
             resolved += 1
             per_target[key].append(measured["T"])
-    total = len(agreement_logits)
+    total = len(agreement)
     means = {key: (math.fsum(v) / len(v) if v else None) for key, v in per_target.items()}
     missing = [key for key, mean in means.items() if mean is None]
     return {
@@ -237,26 +299,60 @@ def agreement_anchor(agreement_logits, cell, w, s_min):
     }
 
 
-def anchors(conflict_logits, agreement_logits, cell, w, s_min):
-    """T_W, T_A and d from one split. ``agreement_logits`` is a list of
-    (case_index, j, logits) with j the common target (one of i_P, i_L, i_R)."""
-    conflict = [case_measures(x, cell, w, s_min) for x in conflict_logits]
-    resolved = [c["q"] for c in conflict if c["resolved"]]
+def _anchors(conflict, agreement, cell, measure):
+    measured = [measure(x) for x in conflict]
+    resolved = [c["q"] for c in measured if c["resolved"]]
     if not resolved:
         raise ValueError("no resolved conflict case: anchors undefined")
     q_bar = [math.fsum(q[i] for q in resolved) / len(resolved) for i in range(3)]
-    agreement = agreement_anchor(agreement_logits, cell, w, s_min)
-    if agreement["T_A"] is None:
+    rates = _agreement(agreement, cell, measure)
+    if rates["T_A"] is None:
         raise ValueError("no resolved agreement run for target(s) "
-                         f"{', '.join(agreement['missing_targets'])}: T_A undefined")
+                         f"{', '.join(rates['missing_targets'])}: T_A undefined")
     t_w = concentration(q_bar)
-    t_a = agreement["T_A"]
     return {
-        "T_W": t_w, "T_A": t_a, "d": t_a - t_w, "q_bar": q_bar,
-        "m_resolved": len(resolved), "m_total": len(conflict),
-        "resolution_rate": len(resolved) / len(conflict),
-        **{k: v for k, v in agreement.items() if k not in ("T_A", "missing_targets")},
+        "T_W": t_w, "T_A": rates["T_A"], "d": rates["T_A"] - t_w, "q_bar": q_bar,
+        "m_resolved": len(resolved), "m_total": len(measured),
+        "resolution_rate": len(resolved) / len(measured),
+        **{k: v for k, v in rates.items() if k not in ("T_A", "missing_targets")},
     }
+
+
+def _primary(cell, w, s_min):
+    def measure(item):
+        return case_measures(item, cell, w, s_min)
+    return measure
+
+
+def _descriptive(cell, w, s_min):
+    def measure(logits):
+        shape = _shape(logits, cell, w, s_min)
+        return {**shape, "resolved": shape["S_ok"]}
+    return measure
+
+
+def agreement_anchor(agreement, cell, w, s_min):
+    """T_A with P, L and R weighted equally, plus the agreement-control rates (primary
+    readout). ``agreement`` is a list of (case_index, j, measurement), j the common
+    target; a run transfers if the argmax over the n answer-form logits is j and is
+    resolved under the combined gate."""
+    return _agreement(agreement, cell, _primary(cell, w, s_min))
+
+
+def anchors(conflict, agreement, cell, w, s_min):
+    """T_W, T_A and d from one split, primary readout and combined resolution gate."""
+    return _anchors(conflict, agreement, cell, _primary(cell, w, s_min))
+
+
+def describe_anchors(conflict_logits, agreement_logits, cell, w, s_min):
+    """DESCRIPTIVE ONLY: the same anchors from bare logit vectors, resolution by S alone
+    (for the paper's in-context readout). Never used by any decision."""
+    return _anchors(conflict_logits, agreement_logits, cell, _descriptive(cell, w, s_min))
+
+
+def describe_agreement_anchor(agreement_logits, cell, w, s_min):
+    """DESCRIPTIVE ONLY counterpart of ``agreement_anchor`` for bare logit vectors."""
+    return _agreement(agreement_logits, cell, _descriptive(cell, w, s_min))
 
 
 def select_cell(estimates, d_min):
@@ -301,14 +397,96 @@ def delta_threshold(q_vectors, m, N, rate, resamples, seed):
     return upper_order_statistic(differences, 1 - rate)
 
 
+def _pmf(k, n, p):
+    if p in (0.0, 1.0):
+        return float(k == (n if p == 1.0 else 0))
+    return math.exp(math.lgamma(n + 1) - math.lgamma(k + 1) - math.lgamma(n - k + 1)
+                    + k * math.log(p) + (n - k) * math.log1p(-p))
+
+
+@functools.lru_cache(maxsize=None)
+def _thresholds(N, alpha, family_size, coverage):
+    """Smallest k whose CP lower bound exceeds coverage, and largest k whose CP upper
+    bound is below it (bisection; both bounds increase with k)."""
+    def first(predicate):
+        lo, hi = 0, N + 1
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if predicate(mid):
+                hi = mid
+            else:
+                lo = mid + 1
+        return lo
+    k_adequate = first(lambda k: clopper_pearson(k, N, alpha, family_size)[0] > coverage)
+    k_excluded = first(lambda k: not clopper_pearson(k, N, alpha, family_size)[1] < coverage) - 1
+    return k_adequate, k_excluded
+
+
+def power(N, true_coverage, unresolved_rate=0.0, alpha=0.05, family_size=2, coverage=0.8):
+    """Exact power of the declared rule for one profile, assuming unresolved cases occur
+    independently of conformity: adequacy counts them as non-matches, exclusion as
+    matches."""
+    match = true_coverage * (1 - unresolved_rate)
+    k_adequate, k_excluded = _thresholds(N, alpha, family_size, coverage)
+    adequate = math.fsum(_pmf(k, N, match) for k in range(k_adequate, N + 1))
+    excluded = math.fsum(_pmf(k, N, match + unresolved_rate) for k in range(0, k_excluded + 1))
+    return {"adequate": adequate, "excluded": excluded}
+
+
+def n_rule(unresolved_rate, rule=N_RULE):
+    """The recorded N rule.
+
+    N = 200 if the unresolved rate is at most 2%; otherwise the smallest N in
+    (300, 400, 500) whose A_T-adequacy power (90% of resolved cases conform) reaches
+    0.80; if none does, N = 500 with adequacy labelled not powered, and exclusion power
+    (70% conform) must still reach 0.80, else STOP. A pilot's rate gives a provisional
+    planning N; the final N comes from split B's rate in the selected cell, at the freeze.
+    Exclusion power below 0.80 in another branch is flagged, not acted on.
+    """
+    u = _finite(unresolved_rate, "unresolved_rate")
+    if not 0 <= u <= 1:
+        raise ValueError("unresolved rate must lie in [0, 1]")
+    target = rule["declared_power"]
+
+    def powers(N):
+        return {"N": N,
+                "adequacy_power": power(N, rule["adequacy_coverage"], u)["adequate"],
+                "exclusion_power": power(N, rule["exclusion_coverage"], u)["excluded"]}
+
+    table = [powers(N) for N in (rule["default_N"], *rule["larger_N"])]
+    if u <= rule["unresolved_threshold"]:
+        chosen, branch = table[0], "unresolved rate at most 2%: N = 200"
+        adequacy_powered = chosen["adequacy_power"] >= target
+    else:
+        chosen = next((row for row in table[1:] if row["adequacy_power"] >= target), None)
+        if chosen is not None:
+            branch, adequacy_powered = "smallest N in (300, 400, 500) with adequacy power >= 0.80", True
+        else:
+            chosen, branch, adequacy_powered = table[-1], "N = 500, adequacy not powered", False
+    exclusion_ok = chosen["exclusion_power"] >= target
+    stop = branch.startswith("N = 500") and not exclusion_ok
+    return {
+        "unresolved_rate": u, "N": chosen["N"], "branch": branch,
+        "adequacy_power": chosen["adequacy_power"], "adequacy_powered": adequacy_powered,
+        "exclusion_power": chosen["exclusion_power"], "exclusion_reaches_declared_power": exclusion_ok,
+        "status": "STOP" if stop else "PROCEED",
+        "flag": (None if exclusion_ok or stop else
+                 "exclusion power below 0.80 at the chosen N; the rule text makes this a STOP "
+                 "only when N = 500 and adequacy is not powered; the user decides"),
+        "table": table,
+    }
+
+
 def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_min_floor,
-                         d_min, agreement_transfer_floor, N, false_invalid_rate,
-                         resamples, seed):
+                         d_min, agreement_transfer_floor, false_invalid_rate, resamples, seed):
     """Gates on development data, then the values to freeze. Every STOP is S1.
 
     ``split_a`` maps each candidate key to {'conflict': [...], 'agreement': [...],
-    'nopatch': [...]}; ``split_b`` holds the same for the selected cell only, keyed by
-    candidate. ``candidates`` is the declared ordered list of (key, cell).
+    'nopatch': [...]}, each item a primary measurement ({'answer_logits': [...],
+    'answer_mass_full_vocab': x}; agreement items as (case_index, j, measurement));
+    ``split_b`` holds the same for the selected cell. s_min comes from all no-patch runs
+    of the cell's qualifying families. The final N and whether adequacy counts as
+    powered come from the N rule applied to split B's unresolved rate.
     """
     w = CONTRACT["w"]
     if not 1 <= len(candidates) <= 5:
@@ -317,10 +495,11 @@ def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_m
     for key, cell in candidates:
         cell = check_cell(cell, n, w)
         data = split_a[key]
-        s_min = anchored_s_min([q_map(softmax(x), cell, w)[0] for x in data["nopatch"]],
-                               s_min_quantile, s_min_floor)
+        s_min = anchored_s_min(nopatch_supports(data["nopatch"], cell, w), s_min_quantile, s_min_floor)
         try:
             estimate = anchors(data["conflict"], data["agreement"], cell, w, s_min)
+        except TechnicalFailure:
+            raise
         except ValueError as error:
             estimate = {"d": -math.inf, "error": str(error)}
         per_cell[key] = {"cell": cell, "s_min": s_min, "split_A": estimate}
@@ -349,10 +528,20 @@ def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_m
     if anchor["d"] < d_min:
         return {**result, "status": "STOP", "level": "S1",
                 "reason": "separation d_c below d_min on split B"}
+    sizing = n_rule(1 - rate)
+    result["N_rule"] = sizing
+    if sizing["status"] == "STOP":
+        return {**result, "status": "STOP", "level": "S1",
+                "reason": "power: even N = 500 does not give exclusion power 0.80 (N rule)"}
+    N = sizing["N"]
     resolved_q = [c["q"] for c in measured if c["resolved"]]
     delta = delta_threshold(resolved_q, len(resolved_q), N, false_invalid_rate, resamples, seed)
     result["freeze"] = {
-        "cell": cell, "s_min": s_min, "d_min": d_min,
+        "cell": cell, "s_min": s_min, "d_min": d_min, "N": N,
+        "N_rule": {"unresolved_rate_B": 1 - rate, "N": N, "branch": sizing["branch"],
+                   "adequacy_powered": sizing["adequacy_powered"],
+                   "adequacy_power": sizing["adequacy_power"],
+                   "exclusion_power": sizing["exclusion_power"]},
         "agreement_transfer_floor": agreement_transfer_floor,
         "anchors": {"T_W": anchor["T_W"], "T_A": anchor["T_A"], "d": anchor["d"],
                     "q_bar_B": anchor["q_bar"], "m_B": anchor["m_resolved"]},
@@ -410,7 +599,8 @@ def _validated_manifest(manifest):
     development = manifest.get("development_gates")
     if not isinstance(development, Mapping):
         raise ValueError("manifest.development_gates missing")
-    if _finite(development.get("resolution_rate_B"), "resolution_rate_B") < CONTRACT["resolution_rate_floor"]:
+    resolution_b = _finite(development.get("resolution_rate_B"), "resolution_rate_B")
+    if resolution_b < CONTRACT["resolution_rate_floor"]:
         raise ValueError("frozen development resolution rate is below 0.90")
     if (_finite(development.get("agreement_resolution_rate_B"), "agreement_resolution_rate_B")
             < CONTRACT["agreement_resolution_floor"]):
@@ -418,8 +608,18 @@ def _validated_manifest(manifest):
     if (_finite(development.get("agreement_transfer_rate_B"), "agreement_transfer_rate_B")
             < _finite(rule.get("agreement_transfer_floor"), "agreement_transfer_floor")):
         raise ValueError("frozen agreement-control transfer rate is below its floor")
+    sizing = manifest.get("N_rule")
+    if not isinstance(sizing, Mapping):
+        raise ValueError("manifest.N_rule missing")
+    expected = n_rule(1 - resolution_b)
+    if expected["status"] != "PROCEED":
+        raise ValueError("the N rule stops at split B's unresolved rate")
+    if (N != expected["N"] or sizing.get("N") != N
+            or sizing.get("adequacy_powered") is not expected["adequacy_powered"]):
+        raise ValueError("frozen N or adequacy label differs from the N rule at split B's unresolved rate")
     return {"n": n, "cell": cell, "N": N, "s_min": s_min, "d_min": d_min, "T_W": t_w,
-            "T_A": t_a, "d": d, "q_bar_B": q_bar, "delta": delta, "rule": dict(rule)}
+            "T_A": t_a, "d": d, "q_bar_B": q_bar, "delta": delta, "rule": dict(rule),
+            "adequacy_powered": expected["adequacy_powered"]}
 
 
 def _validated_records(records, frozen):
@@ -450,24 +650,19 @@ def _validated_records(records, frozen):
 
 
 def _technical(record, frozen):
-    """Raise TechnicalFailure for a qualifying record that cannot be measured."""
+    """Raise TechnicalFailure for a qualifying record that cannot be measured. Reads the
+    primary readout only."""
     case_id = record["case_id"]
     technical = record.get("technical")
     if not isinstance(technical, Mapping) or technical.get("passed") is not True:
         raise TechnicalFailure(f"{case_id}: technical checks did not pass")
     if record.get("design_indices") != frozen["cell"]:
         raise TechnicalFailure(f"{case_id}: design indices differ from the frozen cell")
-    logits = record.get("entity_logits")
-    if not isinstance(logits, list) or len(logits) != frozen["n"]:
-        raise TechnicalFailure(f"{case_id}: expected {frozen['n']} entity logits")
     try:
-        values = [_finite(v, "logit") for v in logits]
-        mass = _finite(record.get("entity_mass_full_vocab"), "entity_mass_full_vocab")
-    except ValueError as error:
+        primary_readout(record, frozen["n"])
+    except TechnicalFailure as error:
         raise TechnicalFailure(f"{case_id}: {error}") from error
-    if not 0 <= mass <= 1:
-        raise TechnicalFailure(f"{case_id}: entity mass outside [0, 1]")
-    return values, mass
+    return {field: record[field] for field in PRIMARY_FIELDS}
 
 
 def _status(k_adequacy, k_exclusion, N):
@@ -498,17 +693,19 @@ def analyze_confirmation(manifest, records):
     """Statuses, gates, level and the between-case check for one frozen confirmation.
 
     Manifest (frozen before confirmation): ``n_groups``, ``cell`` (0-based i_P, i_L,
-    i_R, i_N), ``N``, ``rule`` (the CONTRACT plus s_min, d_min and
-    agreement_transfer_floor), ``anchors`` (T_W, T_A, d, q_bar_B, m_B), ``mean_gate``
-    (delta and how it was drawn) and ``development_gates`` (resolution_rate_B,
-    agreement_resolution_rate_B, agreement_transfer_rate_B).
+    i_R, i_N), ``N``, ``N_rule`` (N and the adequacy label from split B's unresolved
+    rate), ``rule`` (the CONTRACT plus s_min, d_min and agreement_transfer_floor),
+    ``anchors`` (T_W, T_A, d, q_bar_B, m_B), ``mean_gate`` (delta and how it was drawn)
+    and ``development_gates`` (resolution_rate_B, agreement_resolution_rate_B,
+    agreement_transfer_rate_B).
 
     Records, one per generated base context, in generation order::
 
         {'case_id': unique, 'draw_index': 0, 1, 2, ..., 'qualifies': bool,
          # only for qualifying cases (native checks passed):
          'design_indices': {...}, 'technical': {'passed': bool, ...},
-         'entity_logits': [n numbers at the last position], 'entity_mass_full_vocab': x}
+         'answer_logits': [n numbers], 'answer_mass_full_vocab': x,
+         'descriptive': {...}}   # never read here
 
     Generation stops at the N-th qualifying case, so the yield is N / len(records).
     """
@@ -516,13 +713,14 @@ def analyze_confirmation(manifest, records):
     records, qualifying = _validated_records(records, frozen)
     N, cell, w = frozen["N"], frozen["cell"], CONTRACT["w"]
     base = {"contract": dict(CONTRACT), "N": N, "generated": len(records),
-            "yield": N / len(records), "cell": cell}
+            "yield": N / len(records), "cell": cell,
+            "adequacy_powered": frozen["adequacy_powered"]}
     try:
         measured = []
         for record in qualifying:
-            logits, mass = _technical(record, frozen)
-            case = case_measures(logits, cell, w, frozen["s_min"])
-            case.update(case_id=record["case_id"], entity_mass_full_vocab=mass)
+            primary = _technical(record, frozen)
+            case = case_measures(primary, cell, w, frozen["s_min"])
+            case.update(case_id=record["case_id"])
             measured.append(case)
     except TechnicalFailure as failure:
         return {**base, "run_status": "INVALID", "invalid_reason": f"technical failure: {failure}",
@@ -563,6 +761,8 @@ def analyze_confirmation(manifest, records):
                   "max_U_below_coverage": max(upper.values()) < CONTRACT["coverage"]}
     shares = {
         "resolved": len(resolved), "unresolved": u,
+        "unresolved_by_support": sum(not c["S_ok"] for c in measured),
+        "unresolved_by_answer_mass": sum(c["S_ok"] and not c["mass_ok"] for c in measured),
         "above_T_W": sum(c["T"] > frozen["T_W"] for c in resolved),
         "below_T_W": sum(c["T"] < frozen["T_W"] for c in resolved),
         "deviating_above": sum(c["T"] - frozen["T_W"] > band for c in resolved),
@@ -592,11 +792,11 @@ def analyze_confirmation(manifest, records):
         "w_t_caveat": W_T_CAVEAT,
         "descriptive": {
             "p_native_median": statistics.median(c["p_native"] for c in measured),
-            "entity_mass_full_vocab_median": statistics.median(c["entity_mass_full_vocab"] for c in measured),
+            "answer_mass_median": statistics.median(c["answer_mass"] for c in measured),
             "S_median": statistics.median(c["S"] for c in measured),
             "background_entities": measured[0]["background_entities"],
         },
-        "cases": [{k: c[k] for k in ("case_id", "S", "T", "resolved", "labels", "W_T", "A_T")}
+        "cases": [{k: c[k] for k in ("case_id", "S", "T", "answer_mass", "resolved", "labels", "W_T", "A_T")}
                   for c in measured],
     }
 

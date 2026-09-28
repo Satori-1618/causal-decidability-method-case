@@ -1,12 +1,15 @@
 """Reproduce a Round 1 confirmation from the frozen manifest and raw records only.
 
 Standard library; no model is loaded and no runner is imported. Everything is
-recomputed here, separately from the analyzer: the softmax over entity logits, the
-q-map and T per case, resolution, both profile statuses under the declared unresolved
-rule, the technical and design-index checks, the mean-consistency gate, the level and
-whether the between-case sentence is earned. Only the Clopper-Pearson intervals come
-from the repository's existing helper, and that helper's file must carry the hash the
-manifest froze. The result must equal summary.json exactly (floats within 1e-12).
+recomputed here, separately from the analyzer: the softmax over the primary answer-form
+logits, the q-map and T per case, resolution (S >= s_min and answer-token mass >= 0.5),
+both profile statuses under the declared unresolved rule, the technical and design-index
+checks, the mean-consistency gate, the level, whether the between-case sentence is
+earned, and the final N with its adequacy label from the N rule at split B's unresolved
+rate. The paper's in-context readout, kept under a record's ``descriptive`` field, is
+never read. Only the Clopper-Pearson intervals come from the repository's existing
+helper, and that helper's file must carry the hash the manifest froze. The result must
+equal summary.json exactly (floats within 1e-12).
 
     python scripts/check_mixing_round1_records.py --results results/<confirmation>
 """
@@ -31,7 +34,12 @@ REQUIRED_FILES = {"manifest.json", "records.jsonl", "summary.json", "RUN_STARTED
 CONTRACT = {"w": 1, "kappa": 0.25, "coverage": 0.8, "alpha": 0.05, "family_size": 2,
             "label_tail": 0.0125, "resolution_rate_floor": 0.9,
             "agreement_resolution_floor": 0.9,
+            "readout": "answer form: capitalised, no leading space, exactly one token",
+            "answer_mass_floor": 0.5,
+            "resolution_rule": "S >= s_min and answer-token mass >= answer_mass_floor",
             "unresolved_rule": "non-match for adequacy; match for exclusion"}
+N_RULE = {"default_N": 200, "unresolved_threshold": 0.02, "larger_N": (300, 400, 500),
+          "declared_power": 0.80, "adequacy_coverage": 0.90, "exclusion_coverage": 0.70}
 LABELS = ("positional", "lexical", "reflexive")
 TOLERANCE = 1e-12
 
@@ -79,14 +87,14 @@ def distribution(logits):
     return [v / total for v in weights]
 
 
-def measure(p, cell, w, s_min):
+def measure(p, mass, cell, w, s_min):
     n = len(p)
     span = [j for j in range(cell["i_P"] - w, cell["i_P"] + w + 1) if 0 <= j < n]
     positional = math.fsum(p[j] for j in span)
     parts = (positional, p[cell["i_L"]], p[cell["i_R"]])
     support = math.fsum(parts)
     q = tuple(x / support for x in parts) if support > 0 else None
-    resolved = q is not None and support >= s_min
+    resolved = q is not None and support >= s_min and mass >= CONTRACT["answer_mass_floor"]
     excluded = set(span) | {cell["i_L"], cell["i_R"], cell["i_N"]}
     background = [p[j] for j in range(n) if j not in excluded]
     require(background, "no background entity for the argmax labels")
@@ -98,20 +106,76 @@ def measure(p, cell, w, s_min):
 
 
 def technical_failure(record, cell, n):
-    """Reason string if a qualifying record cannot be measured, else None."""
+    """Reason string if a qualifying record cannot be measured, else None. Reads the
+    primary answer-form fields only."""
     if not isinstance(record.get("technical"), dict) or record["technical"].get("passed") is not True:
         return "technical checks did not pass"
     if record.get("design_indices") != cell:
         return "design indices differ from the frozen cell"
-    logits = record.get("entity_logits")
+    logits = record.get("answer_logits")
     if not isinstance(logits, list) or len(logits) != n:
-        return "wrong number of entity logits"
-    values = [logits[i] for i in range(n)] + [record.get("entity_mass_full_vocab")]
+        return "wrong number of answer-form logits"
+    values = [logits[i] for i in range(n)] + [record.get("answer_mass_full_vocab")]
     if any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) for v in values):
-        return "non-finite readout"
-    if not 0 <= record["entity_mass_full_vocab"] <= 1:
-        return "entity mass outside [0, 1]"
+        return "missing or non-finite primary readout"
+    if not 0 <= record["answer_mass_full_vocab"] <= 1:
+        return "answer-token mass outside [0, 1]"
     return None
+
+
+# ---- the N rule, reimplemented here -----------------------------------------------------
+
+def binomial(k, n, p):
+    if p in (0.0, 1.0):
+        return float(k == (n if p == 1.0 else 0))
+    return math.exp(math.lgamma(n + 1) - math.lgamma(k + 1) - math.lgamma(n - k + 1)
+                    + k * math.log(p) + (n - k) * math.log1p(-p))
+
+
+_THRESHOLDS = {}
+
+
+def thresholds(N):
+    """(smallest k declaring adequacy, largest k declaring exclusion) for the contract's
+    intervals; both CP bounds increase with k."""
+    if N not in _THRESHOLDS:
+        def lower(k):
+            return clopper_pearson(k, N, CONTRACT["alpha"], CONTRACT["family_size"])[0]
+
+        def upper(k):
+            return clopper_pearson(k, N, CONTRACT["alpha"], CONTRACT["family_size"])[1]
+
+        lo, hi = 0, N + 1
+        while lo < hi:
+            mid = (lo + hi) // 2
+            lo, hi = (lo, mid) if lower(mid) > CONTRACT["coverage"] else (mid + 1, hi)
+        k_adequate = lo
+        lo, hi = 0, N + 1
+        while lo < hi:
+            mid = (lo + hi) // 2
+            lo, hi = (lo, mid) if upper(mid) >= CONTRACT["coverage"] else (mid + 1, hi)
+        _THRESHOLDS[N] = (k_adequate, lo - 1)
+    return _THRESHOLDS[N]
+
+
+def rule_for(unresolved):
+    """(N, adequacy powered, status) by the recorded N rule at an unresolved rate."""
+    def powers(N):
+        k_adequate, k_excluded = thresholds(N)
+        match = N_RULE["adequacy_coverage"] * (1 - unresolved)
+        exclusion = N_RULE["exclusion_coverage"] * (1 - unresolved) + unresolved
+        return (math.fsum(binomial(k, N, match) for k in range(k_adequate, N + 1)),
+                math.fsum(binomial(k, N, exclusion) for k in range(0, k_excluded + 1)))
+
+    target = N_RULE["declared_power"]
+    if unresolved <= N_RULE["unresolved_threshold"]:
+        adequacy, _ = powers(N_RULE["default_N"])
+        return N_RULE["default_N"], adequacy >= target, "PROCEED"
+    for N in N_RULE["larger_N"]:
+        if powers(N)[0] >= target:
+            return N, True, "PROCEED"
+    N = N_RULE["larger_N"][-1]
+    return N, False, "PROCEED" if powers(N)[1] >= target else "STOP"
 
 
 def recompute(manifest, records):
@@ -136,6 +200,11 @@ def recompute(manifest, records):
     require(number(gates["agreement_resolution_rate_B"], "agreement resolution rate")
             >= CONTRACT["agreement_resolution_floor"],
             "frozen agreement-control resolution rate below 0.90")
+    rule_N, powered, rule_status = rule_for(1 - number(gates["resolution_rate_B"], "resolution rate"))
+    sizing = manifest.get("N_rule") or {}
+    require(rule_status == "PROCEED" and N == rule_N and sizing.get("N") == rule_N
+            and sizing.get("adequacy_powered") is powered,
+            "frozen N or adequacy label differs from the N rule at split B's unresolved rate")
     require(number(gates["agreement_transfer_rate_B"], "transfer rate")
             >= number(rule["agreement_transfer_floor"], "transfer floor"),
             "frozen agreement transfer rate below its floor")
@@ -150,14 +219,15 @@ def recompute(manifest, records):
     require(len(qualifying) == N and records[-1]["qualifies"] is True,
             "qualifying cases differ from frozen N or generation did not stop at N")
 
-    out = {"generated": len(records), "N": N}
+    out = {"generated": len(records), "N": N, "adequacy_powered": powered}
     for record in qualifying:
         reason = technical_failure(record, cell, n)
         if reason:
             out.update(run_status="INVALID", invalid_kind="technical failure", level="S1",
                        statuses={"W_T": "INVALID", "A_T": "INVALID"}, earned=False)
             return out
-    cases = [measure(distribution(r["entity_logits"]), cell, w, s_min) for r in qualifying]
+    cases = [measure(distribution(r["answer_logits"]), r["answer_mass_full_vocab"], cell, w, s_min)
+             for r in qualifying]
     band = CONTRACT["kappa"] * d
     resolved = [c for c in cases if c["resolved"]]
     u = N - len(resolved)
@@ -205,6 +275,7 @@ def compare(r, summary):
     require(summary["level"] == r["level"], "summary level differs from recomputation")
     require(summary["statuses"] == r["statuses"], "summary profile statuses differ from recomputation")
     require(summary["generated"] == r["generated"] and summary["N"] == r["N"], "summary yield differs")
+    require(summary.get("adequacy_powered") is r["adequacy_powered"], "summary adequacy label differs")
     close(summary["yield"], r["N"] / r["generated"], "yield")
     require(summary["between_case"]["earned"] is r["earned"], "summary between-case decision differs")
     if r["invalid_kind"] == "technical failure":
@@ -266,6 +337,7 @@ def verify(results, *, repository_root=REPOSITORY):
     return {"verified": True, "mode": "records_only", "run_status": recomputed["run_status"],
             "level": recomputed["level"], "statuses": recomputed["statuses"],
             "u": recomputed.get("u"), "N": recomputed["N"], "yield": recomputed["N"] / recomputed["generated"],
+            "adequacy_powered": recomputed["adequacy_powered"],
             "between_case_earned": recomputed["earned"]}
 
 

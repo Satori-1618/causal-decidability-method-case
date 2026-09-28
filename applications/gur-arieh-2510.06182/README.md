@@ -45,9 +45,12 @@ fixed by declaration, the s_min wording, an equal-weight agreement anchor with a
 resolution gate), recorded the N rule, and approved the value table for a development
 pilot only, on the locally cached model. The pilot ran on 80 families
 ([results/pilot/PILOT_REPORT.md](results/pilot/PILOT_REPORT.md)): the bfloat16 dtype gate
-failed and the declared readout's validity is in question, so protocol decisions are
-needed before split A. Final approval of the table, splits A and B, the freeze and the
-confirmation are not yet authorized.
+failed and the declared readout's validity is in question. The user then approved
+**protocol v2** (float32 execution on MPS with a CPU float32 reference for gate 7; the
+answer form 'Country' as the primary readout with a 0.5 answer-token-mass gate; the
+paper's in-context readout kept as descriptive only; pools restricted so `trance` drops;
+the final N set at the freeze from split B) and a second pilot on fresh seeds. There is
+no go for split A or split B; the freeze and the confirmation are not authorized.
 
 ## Files
 
@@ -65,8 +68,8 @@ confirmation are not yet authorized.
 | [PREFLIGHT_PLAN.md](PREFLIGHT_PLAN.md), [PROPOSED_VALUES.json](PROPOSED_VALUES.json) | Round 1 preflight and development plan with the one table of values (**approved for the pilot only; final approval pending**), the corrections of 28 September 2026, the N rule, gates, power and the authorizations still needed |
 | [src/mixing_round1_design.py](src/mixing_round1_design.py) | design-index checker, the conflict case of a fixed cell, the three-way agreement control, exact power and the N rule; no model |
 | [src/mixing_prompts.py](src/mixing_prompts.py) | prompt construction exactly as upstream (row definition, `raw_input`, chat template with the first five characters dropped), from the task spec the adapter reads from the clone (`scripts/lock_sources.py`, `schema_spec`) |
-| [src/mixing_runner.py](src/mixing_runner.py) | model runner (torch): offline snapshot and file hashes, single-token pools, token alignment, last-token forward-pre hook at block ℓ with call and write counts, the entity readout (entity logits, logsumexp over the vocabulary and its complement, entity mass), greedy generation, identity self-patch, and one record per family in the checker's schema |
-| [scripts/run_mixing_pilot.py](scripts/run_mixing_pilot.py), [src/mixing_pilot_summary.py](src/mixing_pilot_summary.py) | the development pilot (offline, cached model) and its gate table from the stored files |
+| [src/mixing_runner.py](src/mixing_runner.py) | model runner (torch, protocol v2): offline snapshot and file hashes, the v2 pool rule, token alignment, last-token forward-pre hook at block ℓ with call and write counts, the primary answer-form readout (logits, answer-token mass, logsumexp over the vocabulary and its complement) and the descriptive paper readout, greedy generation, identity self-patch, and one record per family in the checker's schema |
+| [scripts/run_mixing_pilot.py](scripts/run_mixing_pilot.py), [src/mixing_pilot_summary.py](src/mixing_pilot_summary.py) | the development pilot under protocol v2 (offline, cached model), its gate table from the stored files, and the generated artifact index; pilot 1 used the versions at commit `3cdaffd` |
 | [requirements-model.txt](requirements-model.txt) | the environment used for model runs (torch 2.5.1, transformers 4.57.3) |
 | [results/pilot/](results/pilot/PILOT_REPORT.md) | the development pilot: records, gate table, readout and dtype diagnostics (`scripts/diagnose_pilot_readout.py`, `scripts/diagnose_fp32_execution.py`) and the report |
 

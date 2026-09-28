@@ -188,10 +188,51 @@ class RoundOneCheckerTests(unittest.TestCase):
     def test_edited_raw_readout_is_rejected_even_when_rehashed(self):
         summary = copy.deepcopy(self.bundle.summary)
         first = next(r for r in self.bundle.records if r["qualifies"])
-        first["entity_logits"] = worlds.logits(worlds.W_LIKE, 0.8)
+        first["answer_logits"] = worlds.logits(worlds.W_LIKE, 0.8)
         self.bundle.write_all(summary=summary)
         with self.assertRaisesRegex(checker.VerificationError, "differ"):
             self.bundle.verify()
+
+    def test_edited_answer_mass_is_rejected_even_when_rehashed(self):
+        summary = copy.deepcopy(self.bundle.summary)
+        for record in [r for r in self.bundle.records if r["qualifies"]][:20]:
+            record["answer_mass_full_vocab"] = 0.1
+        self.bundle.write_all(summary=summary)
+        with self.assertRaisesRegex(checker.VerificationError, "differ"):
+            self.bundle.verify()
+
+    def test_missing_answer_mass_is_a_technical_failure(self):
+        record = next(r for r in self.bundle.records if r["qualifies"])
+        del record["answer_mass_full_vocab"]
+        self.bundle.write_all()
+        report = self.bundle.verify()
+        self.assertEqual((report["run_status"], report["level"]), ("INVALID", "S1"))
+
+    def test_paper_readout_changes_no_verified_status(self):
+        before = self.bundle.verify()
+        for record in self.bundle.records:
+            if record["qualifies"]:
+                record["descriptive"]["paper_readout"]["entity_logits"] = [0.0] * 7
+                record["descriptive"]["paper_readout"]["entity_mass_full_vocab"] = 0.99
+                record["entity_logits"] = [5.0, -5.0, 0.0, 1.0, 2.0, 3.0, 4.0]
+        self.bundle.write_all(summary=copy.deepcopy(self.bundle.summary))
+        after = self.bundle.verify()
+        self.assertEqual(after, before)
+
+    def test_frozen_N_off_the_rule_is_rejected_even_when_rehashed(self):
+        self.bundle.manifest["development_gates"]["resolution_rate_B"] = 0.95
+        summary = copy.deepcopy(self.bundle.summary)
+        self.bundle.write_all(summary=summary)
+        with self.assertRaisesRegex(checker.VerificationError, "N rule"):
+            self.bundle.verify()
+
+    def test_checker_n_rule_matches_the_analyzer(self):
+        for u in (0.0, 0.01, 0.02, 0.025, 0.038, 0.05, 0.08, 0.2):
+            expected = ra.n_rule(u)
+            N, powered, status = checker.rule_for(u)
+            with self.subTest(u=u):
+                self.assertEqual((N, powered, status),
+                                 (expected["N"], expected["adequacy_powered"], expected["status"]))
 
     def test_unrehashed_change_is_caught_first(self):
         with (self.bundle.results / "records.jsonl").open("a") as handle:
