@@ -25,6 +25,7 @@ import math
 import os
 import platform
 import random
+import subprocess
 import sys
 import time
 from datetime import datetime
@@ -42,6 +43,8 @@ import mixing_round1_analysis as ra  # noqa: E402
 RUNNER_RELATIVE = "applications/gur-arieh-2510.06182/scripts/run_mixing_confirmation.py"
 CHECKER_RELATIVE = "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py"
 SOURCE_LOCK_RELATIVE = "SOURCE_LOCK.json"
+SPLIT_A_DECISION_RELATIVE = "results/split_A/split_A_decision.json"
+SPLIT_B_DECISION_RELATIVE = "results/split_B/split_B_decision.json"
 SEED_BASE = 4_000_000
 CASE_ID_PREFIX = "confirmation"
 GATE7_DRAW_INDICES = list(range(32))
@@ -152,6 +155,44 @@ def _relative_path(root, name, label, *, basename=False):
     return Path(root) / relative
 
 
+def _git(repository_root, *args, binary=False, check=True):
+    completed = subprocess.run(
+        ["git", *args], cwd=repository_root, capture_output=True,
+        text=not binary, check=False)
+    if check and completed.returncode:
+        stderr = completed.stderr.decode(errors="replace") if binary else completed.stderr
+        raise ConfirmationError(f"git {' '.join(args)} failed: {stderr.strip()}")
+    return completed
+
+
+def verify_git_freeze(manifest_path, repository_root=REPOSITORY):
+    """Bind the freeze bytes to HEAD and require a completely clean worktree."""
+    repository_root = Path(repository_root).resolve()
+    manifest_path = Path(manifest_path).resolve()
+    try:
+        relative = manifest_path.relative_to(repository_root)
+    except ValueError as error:
+        raise ConfirmationError("freeze manifest must be inside the repository") from error
+    top = _git(repository_root, "rev-parse", "--show-toplevel").stdout.strip()
+    _require(Path(top).resolve() == repository_root,
+             "repository_root is not the Git worktree root")
+    relative_name = relative.as_posix()
+    tracked = _git(repository_root, "ls-files", "--error-unmatch", "--", relative_name,
+                   check=False)
+    _require(tracked.returncode == 0, "freeze manifest must be tracked by Git at HEAD")
+    head = _git(repository_root, "rev-parse", "HEAD").stdout.strip()
+    committed = _git(repository_root, "show", f"HEAD:{relative_name}", binary=True).stdout
+    disk = manifest_path.read_bytes()
+    _require(disk == committed,
+             "freeze manifest is not byte-identical to the version committed at HEAD")
+    status = _git(repository_root, "status", "--porcelain", "--untracked-files=all",
+                  "--ignore-submodules=none").stdout
+    _require(not status, "confirmation requires a clean Git worktree")
+    return {"git_head": head, "manifest_path": relative_name,
+            "manifest_sha256": hashlib.sha256(disk).hexdigest(),
+            "git_dirty": False, "manifest_bytes": disk}
+
+
 def validate_frozen_manifest(manifest):
     """Validate final authorization plus the analyzer and execution contracts."""
     _require(isinstance(manifest, dict), "freeze manifest must be a JSON object")
@@ -178,7 +219,8 @@ def validate_frozen_manifest(manifest):
              "confirmation.audit_full_logit_draw_indices must be the first four draws")
     _require(manifest.get("application") == "gur-arieh-2510.06182" and manifest.get("round") == 1,
              "manifest names the wrong application or round")
-    _require(manifest.get("t_entity") == 2 and manifest.get("patch_positions") == [-1],
+    _require(type(manifest.get("t_entity")) is int and manifest["t_entity"] == 2
+             and manifest.get("patch_positions") == [-1],
              "confirmation requires t_entity = 2 and the last-token patch only")
     _require(type(manifest.get("layer")) is int and manifest["layer"] >= 0,
              "manifest.layer must be a nonnegative integer")
@@ -276,6 +318,44 @@ def _verify_one(path, expected, label):
     return actual
 
 
+def validate_development_binding(manifest, application_root=APPLICATION):
+    """Require every frozen empirical value to equal the hash-locked split decisions."""
+    data = manifest["data_sha256"]
+    required = {SPLIT_A_DECISION_RELATIVE, SPLIT_B_DECISION_RELATIVE}
+    _require(required <= set(data),
+             "frozen data set must include the split-A and split-B decisions")
+    application_root = Path(application_root)
+    split_a = load_json(application_root / SPLIT_A_DECISION_RELATIVE)
+    split_b = load_json(application_root / SPLIT_B_DECISION_RELATIVE)
+    _require(split_a.get("status") == "PROCEED" and split_a.get("stops") == []
+             and split_b.get("status") == "PROCEED" and split_b.get("stops") == [],
+             "split A or split B did not PROCEED")
+    _require(manifest.get("cell_key") == "c4"
+             and manifest["cell_key"] == split_a.get("selected") == split_b.get("cell_key"),
+             "frozen cell_key is not c4 selected on split A and used on split B")
+    split_b_result = split_b.get("split_B")
+    freeze = split_b_result.get("freeze") if isinstance(split_b_result, dict) else None
+    _require(isinstance(freeze, dict), "split-B decision has no freeze values")
+    comparisons = {
+        "cell": (manifest.get("cell"), freeze.get("cell")),
+        "N": (manifest.get("N"), freeze.get("N")),
+        "N_rule": (manifest.get("N_rule"), freeze.get("N_rule")),
+        "rule.s_min": (manifest.get("rule", {}).get("s_min"), freeze.get("s_min")),
+        "rule.d_min": (manifest.get("rule", {}).get("d_min"), freeze.get("d_min")),
+        "rule.agreement_transfer_floor": (
+            manifest.get("rule", {}).get("agreement_transfer_floor"),
+            freeze.get("agreement_transfer_floor")),
+        "anchors": (manifest.get("anchors"), freeze.get("anchors")),
+        "mean_gate": (manifest.get("mean_gate"), freeze.get("mean_gate")),
+        "development_gates": (manifest.get("development_gates"),
+                              freeze.get("development_gates")),
+    }
+    for label, (actual, expected) in comparisons.items():
+        _require(actual == expected, f"manifest {label} differs from the split-B freeze")
+    return {"passed": True, "split_A_status": split_a["status"],
+            "split_B_status": split_b["status"], "cell_key": manifest["cell_key"]}
+
+
 def verify_frozen_hashes(manifest, *, repository_root=REPOSITORY,
                          application_root=APPLICATION, cache_root=None):
     """Verify every listed hash and the source-lock/model agreement."""
@@ -290,6 +370,8 @@ def verify_frozen_hashes(manifest, *, repository_root=REPOSITORY,
     for name, expected in sorted(data.items()):
         path = _relative_path(application_root, name, "data")
         verified["data"][name] = _verify_one(path, expected, "data file")
+
+    development = validate_development_binding(manifest, application_root)
 
     _require(SOURCE_LOCK_RELATIVE in data,
              "frozen data set must include SOURCE_LOCK.json")
@@ -317,6 +399,7 @@ def verify_frozen_hashes(manifest, *, repository_root=REPOSITORY,
         "verified": verified,
         "snapshot": str(snapshot),
         "source_lock": source_lock,
+        "development": development,
     }
 
 
@@ -330,14 +413,18 @@ def preflight(manifest_path, output=None, *, repository_root=REPOSITORY,
         output = Path(output)
         _require(not output.exists() or (output.is_dir() and not any(output.iterdir())),
                  "output exists and is not an empty directory")
-    manifest_bytes = manifest_path.read_bytes()
+    git_freeze = verify_git_freeze(manifest_path, repository_root)
+    manifest_bytes = git_freeze["manifest_bytes"]
     manifest = json.loads(manifest_bytes)
     frozen = validate_frozen_manifest(manifest)
     hashes = verify_frozen_hashes(
         manifest, repository_root=repository_root, application_root=application_root,
         cache_root=cache_root)
+    final_git_freeze = verify_git_freeze(manifest_path, repository_root)
+    _require(final_git_freeze == git_freeze,
+             "Git HEAD or the committed freeze changed during preflight")
     return {"manifest": manifest, "manifest_bytes": manifest_bytes, "frozen": frozen,
-            "hashes": hashes, "manifest_path": manifest_path}
+            "hashes": hashes, "git_freeze": git_freeze, "manifest_path": manifest_path}
 
 
 def write_artifact_hashes(output):
@@ -362,7 +449,7 @@ def _tally(pairs):
     return {key: _rate(*row) for key, row in sorted(values.items())}
 
 
-def _full_logit_audit(npz_path, records, answer_ids, t_entity):
+def _full_logit_audit(npz_path, records, answer_ids, target_index):
     expected = [case_id(i) for i in AUDIT_DRAW_INDICES]
     result = {"checked": False, "expected_cases": expected, "tolerances": AUDIT_TOLERANCES}
     try:
@@ -378,7 +465,7 @@ def _full_logit_audit(npz_path, records, answer_ids, t_entity):
             for name in expected:
                 logits = arrays[name].astype("float64")
                 record = by_id[name]
-                ids = [answer_ids[group[t_entity]] for group in record["matrix"]]
+                ids = [answer_ids[group[target_index]] for group in record["matrix"]]
                 top = float(logits.max())
                 lse = top + math.log(float(np.exp(logits - top).sum()))
                 answer = [float(logits[index]) for index in ids]
@@ -564,10 +651,14 @@ def analyze_and_check(manifest, records, output, *, repository_root=REPOSITORY):
     )
     save_json(output / "summary.json", summary)
     write_artifact_hashes(output)
-    report = _load_checker(repository_root).verify(output, repository_root=repository_root)
+    checker = _load_checker(repository_root)
+    report = checker.verify(output, repository_root=repository_root)
     save_json(output / "checker_report.json", report)
     write_artifact_hashes(output)
-    return summary, report
+    final_report = checker.verify(output, repository_root=repository_root)
+    _require(final_report == report,
+             "records-only checker report changed after indexing checker_report.json")
+    return summary, final_report
 
 
 def _finalize_stop(output, table, timings):
@@ -598,6 +689,9 @@ def run_confirmation(manifest_path, upstream, output, *, cache_root=None,
     _require(task == manifest["task_spec"],
              "current upstream task specification differs from the frozen task_spec")
     runtime_report = validate_runtime_environment(manifest)
+    final_git_freeze = verify_git_freeze(manifest_path, repository_root)
+    _require(final_git_freeze == checked["git_freeze"],
+             "Git HEAD or the committed freeze changed after preflight")
 
     output.mkdir(parents=True, exist_ok=True)
     with (output / "manifest.json").open("xb") as handle:
@@ -605,6 +699,9 @@ def run_confirmation(manifest_path, upstream, output, *, cache_root=None,
     manifest_hash = sha256(output / "manifest.json")
     save_json(output / "RUN_STARTED.json", {
         "manifest_sha256": manifest_hash, "started": now(),
+        "git_head": checked["git_freeze"]["git_head"],
+        "manifest_path": checked["git_freeze"]["manifest_path"],
+        "git_dirty": False,
         "seed_base": SEED_BASE, "case_id_prefix": CASE_ID_PREFIX,
         "frozen_hashes_verified": hash_report["counts"], "upstream": upstream_report,
         "runtime_versions": runtime_report,
@@ -716,7 +813,7 @@ def run_confirmation(manifest_path, upstream, output, *, cache_root=None,
         del cpu_runner, cpu_model
 
         audit = _full_logit_audit(output / "audit_full_logits.npz", records, answer_ids,
-                                  manifest["t_entity"])
+                                  manifest["t_entity"] - 1)
         table = generic_gate_table(manifest, records, references, gate3, hash_report, audit,
                                    counts, met, execution)
         timings["finished_model_work"] = now()
