@@ -1,0 +1,28 @@
+{
+  "schema": "artifact index v2",
+  "generated_by": "scripts/run_mixing_split.py",
+  "git_head": "f822b0aaecbd11c6bf5308c3747ee349786f2dd3",
+  "data": {
+    "RUN_STARTED.json": "99823517dbf768460ee520c59dcbaaa33514b185324be86ff1c1dcfc9d11c58b",
+    "SPLIT_A_REPORT.md": "3058980892d639dbf70d86e54be97df017855a0cdbb5f268ca98cd4e57416785",
+    "audit_full_logits.npz": "b9e6e6b035b300191cc83ed018f4a175aaa8bacdfec04448daf9ab56d612b071",
+    "gate7_cpu_reference.jsonl": "eff14111266ace31a309022cb029a372c6914228c8a3086c3c328ef5bdf7c215",
+    "manifest.json": "5d972e6b8bba589590cf1765ebdf785cabf377abe409c8895381dc52751c719c",
+    "records.jsonl": "3d0e7dc0d4b13e30e20892fa0693bb53c89277d56252af9681effd89bd279b22",
+    "split_A_decision.json": "030a11c071c3859b3c2f1027f13e10a21bb17993825c63ab63142c13c80e1db3",
+    "timings.json": "033c3be266274fe0aeb946ff1cac397decf3bf093202900516ca66c03dff60e3"
+  },
+  "producers": {
+    "applications/gur-arieh-2510.06182/scripts/run_mixing_pilot.py": "9d900ba0908bd8c4d8931b393c7942aa39dfaf8c9a9aca74487f174114c0bfec",
+    "applications/gur-arieh-2510.06182/src/mixing_runner.py": "e39a53d441e22ae83a2a327aa5e3661e8aa4d672c9b4aae3ab643ebf8b632f20",
+    "applications/gur-arieh-2510.06182/src/mixing_prompts.py": "7a4fcfa92752312b7e91229b2f74fe1d8de6c578212ec88745b1a820c590a818",
+    "applications/gur-arieh-2510.06182/src/mixing_pilot_summary.py": "b7099915eb74c56d572da7b65b282062f2410f3a72bc87986af74fda76a018b5",
+    "applications/gur-arieh-2510.06182/src/mixing_round1_analysis.py": "2ec905fc95bb702bd893c55ff2ba487c032cd405e0d3c9272f2ebe3976b961bf",
+    "applications/gur-arieh-2510.06182/src/mixing_round1_design.py": "a37b74a1447333b5f3334ac1c639b19fc18116aaaae9554950816c9ad6abad05",
+    "applications/gur-arieh-2510.06182/scripts/lock_sources.py": "4c8a18b4aeac0e94a56e2dc30cacc5c5d278780e71074852ce8b46299cce7172",
+    "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py": "063fe137c836837724a7309fffc298ab021c87f37aef17e5387fb28c9f1cab56",
+    "applications/makelov-2311.17030/src/query_route_analysis.py": "3e82fa073ab9d2bebeed5dd400017d16dd6e92fb8951010a1ca5b7be244eb344",
+    "applications/gur-arieh-2510.06182/scripts/run_mixing_split.py": "9c261d4e42b5955a3aaabe1482066b117237298a6e53e4239ba9710d2b8a5211",
+    "applications/gur-arieh-2510.06182/src/mixing_splits.py": "371ca2683f78d96d8b921633b947bd87e14360a96530510294dd476b8e289880"
+  }
+}
