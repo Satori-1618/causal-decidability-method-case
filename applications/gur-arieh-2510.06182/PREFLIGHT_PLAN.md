@@ -59,10 +59,12 @@ a mechanism.
 
 ## How cases are built
 
-The model runner (added in the next commit) renders prompts from the upstream schema
-through the adapter, which reads `grammar/schemas.py` from the pinned clone; it does not
-import `tasks/dist.py`, which cannot be imported at `c53372c` (see
-[SOURCES.md](SOURCES.md)). The index logic is in `src/mixing_round1_design.py`.
+The model runner (`src/mixing_runner.py`) renders prompts with `src/mixing_prompts.py`
+from the task spec that the adapter (`scripts/lock_sources.py`, `schema_spec`) reads from
+the pinned clone's `grammar/schemas.py`; it does not import `tasks/dist.py`, which cannot
+be imported at `c53372c` (see [SOURCES.md](SOURCES.md)). The index logic is in
+`src/mixing_round1_design.py`. The pilot entry point is `scripts/run_mixing_pilot.py`;
+its gate table is computed by `src/mixing_pilot_summary.py` from the stored files only.
 
 - **Conflict case (one per fresh base context).** Draw a recipient binding matrix G with
   seven distinct musicians, genres and instruments. The recipient asks about group i_N.

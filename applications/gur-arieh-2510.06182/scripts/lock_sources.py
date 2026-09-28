@@ -18,6 +18,7 @@ Usage::
 """
 import argparse
 import ast
+import contextlib
 import hashlib
 import importlib
 import json
@@ -77,6 +78,52 @@ def registry_assignment(root):
     raise LockError("tasks/dist.py has no module-level schemas list")
 
 
+@contextlib.contextmanager
+def upstream_grammar(root):
+    """Import ``grammar.schemas`` (and ``grammar.grammar``) from the clone for the
+    duration of the block, then restore ``sys.path`` and ``sys.modules``. Both modules
+    need only the standard library. No bytecode is written into the clone."""
+    saved_path, saved_flag = list(sys.path), sys.dont_write_bytecode
+    saved_modules = {k: v for k, v in sys.modules.items() if k == "grammar" or k.startswith("grammar.")}
+    for key in saved_modules:
+        del sys.modules[key]
+    sys.path.insert(0, str(Path(root).resolve()))
+    sys.dont_write_bytecode = True
+    try:
+        yield importlib.import_module("grammar.schemas")
+    finally:
+        sys.path[:] = saved_path
+        sys.dont_write_bytecode = saved_flag
+        for key in [k for k in sys.modules if k == "grammar" or k.startswith("grammar.")]:
+            del sys.modules[key]
+        sys.modules.update(saved_modules)
+
+
+def schema_spec(root, name):
+    """One upstream task as plain data (entity pools, templates, queries), read from the
+    clone's ``grammar/schemas.py``. Prompt rendering from this spec lives in
+    ``src/mixing_prompts.py``; nothing is vendored."""
+    names, _, _ = registry_assignment(root)
+    with upstream_grammar(root) as module:
+        for constant in names:
+            schema = getattr(module, constant, None)
+            if schema is not None and schema.name == name:
+                templates = schema.templates
+                return {
+                    "constant": constant,
+                    "name": schema.name,
+                    "categories": list(schema.categories),
+                    "items": {c: list(schema.items[c]) for c in schema.categories},
+                    "definitions": dict(templates.definitions),
+                    "prefix": templates.prefix,
+                    "capitalize_first_clause": bool(templates.capitalize_first_clause),
+                    "queries": {key: {"question": q.question, "answer_category": q.answer_category}
+                                for key, q in templates.queries.items()},
+                    "max_new_tokens": schema.max_new_tokens,
+                }
+    raise LockError(f"task {name} is not in the upstream registry")
+
+
 def task_registry(root):
     """The upstream task registry, read from the clone without vendoring it.
 
@@ -85,14 +132,7 @@ def task_registry(root):
     written into the clone.
     """
     names, start, end = registry_assignment(root)
-    saved_path, saved_flag = list(sys.path), sys.dont_write_bytecode
-    saved_modules = {k: v for k, v in sys.modules.items() if k == "grammar" or k.startswith("grammar.")}
-    for key in saved_modules:
-        del sys.modules[key]
-    sys.path.insert(0, str(Path(root).resolve()))
-    sys.dont_write_bytecode = True
-    try:
-        module = importlib.import_module("grammar.schemas")
+    with upstream_grammar(root) as module:
         tasks, missing = [], []
         for constant in names:
             schema = getattr(module, constant, None)
@@ -110,12 +150,6 @@ def task_registry(root):
                             for key, query in schema.templates.queries.items()},
                 "max_new_tokens": schema.max_new_tokens,
             })
-    finally:
-        sys.path[:] = saved_path
-        sys.dont_write_bytecode = saved_flag
-        for key in [k for k in sys.modules if k == "grammar" or k.startswith("grammar.")]:
-            del sys.modules[key]
-        sys.modules.update(saved_modules)
     return {"source": f"tasks/dist.py:{start}-{end}", "schema_module": "grammar/schemas.py",
             "tasks": tasks, "listed_but_not_defined": missing}
 
