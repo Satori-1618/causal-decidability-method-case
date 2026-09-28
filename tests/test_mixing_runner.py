@@ -334,6 +334,67 @@ class TinyGemmaRunnerTests(unittest.TestCase):
         json.dumps(result, allow_nan=False)
 
 
+    def test_split_decisions_run_on_runner_records(self):
+        """Smoke test of the split-A selection and the split-B values on tiny-model
+        records marked qualifying; the numbers mean nothing, the structure and the rules
+        are checked."""
+        import mixing_round1_analysis as ra
+        import mixing_splits
+        script = load("run_mixing_split", APP / "scripts/run_mixing_split.py")
+        pools = json.loads(json.dumps(self.mr.pools_record(self.pools, {}, self.context_ids, self.answer_ids, self.spec)))
+        manifest = {"model": {"hashes": {"passed": True, "problems": [], "files": {}}},
+                    "gate3_tokens": {"passed": True, "pools_equal_the_lock": True, "pools_kept": {},
+                                     "pools_dropped": {}, "dropped_prefix": "<bos>"},
+                    "entity_pools": pools, "environment": {"device": "cpu"}}
+
+        def write(directory, records):
+            out = Path(directory)
+            (out / "manifest.json").write_text(json.dumps(manifest))
+            (out / "records.jsonl").write_text("".join(json.dumps(r) + "\n" for r in records))
+            reference = [self.runner.conflict_only(r) for r in records if r["draw_index"] < 4]
+            (out / "gate7_cpu_reference.jsonl").write_text("".join(json.dumps(r) + "\n" for r in reference))
+            return out
+
+        spec_a = json.loads(json.dumps(script.SPLIT_A))
+        spec_a.update(qualifying_per_cell=2, cap_per_cell=4)
+        spec_a["gate7_reference"]["families"] = [0, 1, 2, 3]
+        records = []
+        mixing_splits.generate_families(
+            lambda **kw: (dict(self.runner.family(rng=random.Random(kw["seed"]), n=N_GROUPS, **kw)[0], qualifies=True), None),
+            script.CELLS, seed_base=1900000, quota=2, cap=4, per_cell=True, prefix="smoke",
+            on_record=lambda r, _: records.append(r))
+        with tempfile.TemporaryDirectory() as directory:
+            decision = mixing_splits.split_a_decision(write(directory, records), spec_a)
+        self.assertEqual(decision["quota"]["met"], True)
+        self.assertEqual(list(decision["d_by_cell"]), ["c1", "c2", "c3", "c4"])
+        expected = ra.select_cell(list(decision["d_by_cell"].items()), spec_a["d_min"])
+        self.assertEqual(decision["selection"]["selected"], expected["selected"])
+        if decision["status"] == "PROCEED":
+            self.assertEqual(decision["selected"], expected["selected"])
+        else:
+            self.assertIsNone(decision["selected"])
+            self.assertTrue(decision["stops"])
+        json.dumps(decision, allow_nan=False)
+
+        spec_b = json.loads(json.dumps(script.SPLIT_B))
+        spec_b.update(cells=[script.CELLS[0]], qualifying=3, cap=6)
+        spec_b["gate7_reference"]["families"] = [0, 1, 2, 3]
+        records = []
+        mixing_splits.generate_families(
+            lambda **kw: (dict(self.runner.family(rng=random.Random(kw["seed"]), n=N_GROUPS, **kw)[0], qualifies=True), None),
+            [script.CELLS[0]], seed_base=1900100, quota=3, cap=6, per_cell=False, prefix="smoke",
+            on_record=lambda r, _: records.append(r))
+        with tempfile.TemporaryDirectory() as directory:
+            decision = mixing_splits.split_b_decision(write(directory, records), spec_b)
+        self.assertEqual(decision["cell_key"], "c1")
+        self.assertIn("s_min_B", decision["split_B"])
+        self.assertEqual(decision["status"] == "PROCEED", not decision["stops"])
+        if decision["status"] == "PROCEED":
+            freeze = decision["split_B"]["freeze"]
+            self.assertEqual(freeze["N"], ra.n_rule(decision["split_B"]["unresolved_rate_B"])["N"])
+        json.dumps(decision, allow_nan=False)
+
+
 @unittest.skipUnless(HAVE_TORCH, REASON)
 class SnapshotHashTests(unittest.TestCase):
     def make_snapshot(self, root, corrupt=None, drop=None):

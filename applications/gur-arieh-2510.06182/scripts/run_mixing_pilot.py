@@ -93,15 +93,15 @@ def git(*args):
     return subprocess.check_output(["git", *args], cwd=REPOSITORY, text=True).strip()
 
 
-def write_index(output):
+def write_index(output, producers=PRODUCERS, generated_by="scripts/run_mixing_pilot.py"):
     """artifact_hashes.json: every file in ``output`` (except this index) and every
     producer script, hashed; generated only by this function."""
     output = Path(output)
     data = {p.name: sha256(p) for p in sorted(output.iterdir()) if p.is_file() and p.name != INDEX}
-    index = {"schema": "artifact index v2", "generated_by": "scripts/run_mixing_pilot.py",
+    index = {"schema": "artifact index v2", "generated_by": generated_by,
              "git_head": git("rev-parse", "HEAD"),
              "data": data,
-             "producers": {path: sha256(REPOSITORY / path) for path in PRODUCERS}}
+             "producers": {path: sha256(REPOSITORY / path) for path in producers}}
     save(output / INDEX, index, exclusive=False)
     return index
 

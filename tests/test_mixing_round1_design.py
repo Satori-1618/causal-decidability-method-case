@@ -70,9 +70,10 @@ class DesignIndexCheckerTests(unittest.TestCase):
 
 
 class ProposedValuesTests(unittest.TestCase):
-    def test_protocol_v2_approved_for_pilot_two_only_and_final_approval_pending(self):
+    def test_protocol_v2_splits_authorized_freeze_not_and_final_approval_pending(self):
         self.assertIn("PROTOCOL v2", PROPOSED["status"])
-        self.assertIn("no go for split A", PROPOSED["status"])
+        self.assertIn("Split A and split B are authorized", PROPOSED["status"])
+        self.assertIn("the freeze and the confirmation are not authorized", PROPOSED["status"])
         self.assertFalse(PROPOSED["approved"])
         self.assertEqual(PROPOSED["approved_for_pilot2_on"], "2026-09-28")
         self.assertIn("pending", PROPOSED["final_approval"])

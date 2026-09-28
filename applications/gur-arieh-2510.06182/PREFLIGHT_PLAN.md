@@ -137,14 +137,17 @@ status.
    the rule below, as a provisional planning N; confirming that declared values are
    feasible). The specifications are the `pilot` and `pilot2` entries of
    [PROPOSED_VALUES.json](PROPOSED_VALUES.json).
-2. **Split A** (50 qualifying cases per candidate cell; not yet authorized). Fix s_min
-   per cell from its no-patch runs; estimate d = T_A − T_W for each cell; select the cell
-   with the largest d, ties by declared order. If no cell reaches d_min:
+2. **Split A** (50 qualifying cases per candidate cell; authorized 28 September 2026;
+   protocol in [SPLIT_A_B_PROTOCOL.md](SPLIT_A_B_PROTOCOL.md)). Fix s_min per cell from
+   its no-patch runs (for the selection only); estimate d = T_A − T_W for each cell;
+   select the cell with the largest d, ties by declared order. If no cell reaches d_min:
    `NOT_DECIDABLE_WITH_CURRENT_INTERVENTIONS`, S1.
-3. **Split B** (200 qualifying cases, selected cell only; not yet authorized). Resolution
-   rate under the frozen s_min (STOP below 0.90); T_W = T(mean of q) with equal weights;
-   T_A with P, L and R weighted equally; at least 90% of agreement runs resolved (else
-   STOP); d must reach d_min; δ is resampled from B's resolved q-vectors.
+3. **Split B** (200 qualifying cases, selected cell only; authorized 28 September 2026).
+   Every value that would be frozen comes from split B: s_min from B's no-patch runs
+   (user instruction of 28 September 2026); resolution rate (STOP below 0.90);
+   T_W = T(mean of q) with equal weights; T_A with P, L and R weighted equally; at least
+   90% of agreement runs resolved and transferring (else STOP); d must reach d_min; the
+   final N and its adequacy label by the rule; δ resampled from B's resolved q-vectors.
 4. **Freeze** the selected cell, T_W, T_A, d, w, s_min, δ, κ, the coverage and
    unresolved rules, the gates, seeds, the final N and its adequacy label (the N rule at
    split B's unresolved rate in the selected cell), model and code hashes, the runner and

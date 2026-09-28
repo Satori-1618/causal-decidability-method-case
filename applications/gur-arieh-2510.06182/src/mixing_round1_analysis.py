@@ -477,17 +477,11 @@ def n_rule(unresolved_rate, rule=N_RULE):
     }
 
 
-def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_min_floor,
-                         d_min, agreement_transfer_floor, false_invalid_rate, resamples, seed):
-    """Gates on development data, then the values to freeze. Every STOP is S1.
-
-    ``split_a`` maps each candidate key to {'conflict': [...], 'agreement': [...],
-    'nopatch': [...]}, each item a primary measurement ({'answer_logits': [...],
-    'answer_mass_full_vocab': x}; agreement items as (case_index, j, measurement));
-    ``split_b`` holds the same for the selected cell. s_min comes from all no-patch runs
-    of the cell's qualifying families. The final N and whether adequacy counts as
-    powered come from the N rule applied to split B's unresolved rate.
-    """
+def select_on_split_a(split_a, candidates, *, n, s_min_quantile, s_min_floor, d_min):
+    """Split A: per candidate cell, s_min from its no-patch runs, T_W, T_A and d; select
+    the largest d in declared order (ties to the earlier cell), subject to d >= d_min,
+    else NOT_DECIDABLE_WITH_CURRENT_INTERVENTIONS (S1). A cell whose anchors are
+    undefined counts as d = -1."""
     w = CONTRACT["w"]
     if not 1 <= len(candidates) <= 5:
         raise ValueError("between one and five pre-declared candidate cells")
@@ -508,12 +502,25 @@ def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_m
     result = {"candidates": per_cell, "selection": selection}
     if selection["status"] == NOT_DECIDABLE:
         return {**result, "status": "STOP", "level": "S1", "reason": NOT_DECIDABLE}
-    key = selection["selected"]
-    cell, s_min = per_cell[key]["cell"], per_cell[key]["s_min"]
-    b = split_b[key]
+    return {**result, "status": "PROCEED"}
+
+
+def freeze_from_split_b(b, cell, *, n, s_min_quantile, s_min_floor, d_min, agreement_transfer_floor,
+                        false_invalid_rate, resamples, seed):
+    """Split B, selected cell only: every value to freeze comes from split B.
+
+    s_min from B's no-patch runs (qualifying families); resolution rate (STOP below
+    0.90); T_W, T_A (P, L and R weighted equally) and d (STOP below d_min); agreement
+    resolution and transfer (STOP below their floors); the final N and the adequacy
+    label by the N rule at B's unresolved rate (STOP as the rule states); delta by the
+    two-sample resampling over B's resolved q-vectors at the final N."""
+    w = CONTRACT["w"]
+    cell = check_cell(cell, n, w)
+    s_min = anchored_s_min(nopatch_supports(b["nopatch"], cell, w), s_min_quantile, s_min_floor)
     measured = [case_measures(x, cell, w, s_min) for x in b["conflict"]]
     rate = sum(c["resolved"] for c in measured) / len(measured)
-    result["resolution_rate_B"] = rate
+    result = {"cell": cell, "s_min_B": s_min, "resolution_rate_B": rate,
+              "unresolved_rate_B": 1 - rate, "m_total_B": len(measured)}
     if rate < CONTRACT["resolution_rate_floor"]:
         return {**result, "status": "STOP", "level": "S1",
                 "reason": "support resolution rate on split B below 0.90 (population STOP)"}
@@ -537,7 +544,8 @@ def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_m
     resolved_q = [c["q"] for c in measured if c["resolved"]]
     delta = delta_threshold(resolved_q, len(resolved_q), N, false_invalid_rate, resamples, seed)
     result["freeze"] = {
-        "cell": cell, "s_min": s_min, "d_min": d_min, "N": N,
+        "cell": cell, "s_min": s_min, "s_min_source": "split B no-patch runs of qualifying families",
+        "d_min": d_min, "N": N,
         "N_rule": {"unresolved_rate_B": 1 - rate, "N": N, "branch": sizing["branch"],
                    "adequacy_powered": sizing["adequacy_powered"],
                    "adequacy_power": sizing["adequacy_power"],
@@ -546,12 +554,39 @@ def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_m
         "anchors": {"T_W": anchor["T_W"], "T_A": anchor["T_A"], "d": anchor["d"],
                     "q_bar_B": anchor["q_bar"], "m_B": anchor["m_resolved"]},
         "mean_gate": {"delta": delta, "false_invalid_rate": false_invalid_rate,
-                      "resamples": resamples, "seed": seed, "N": N},
+                      "resamples": resamples, "seed": seed, "N": N, "m": len(resolved_q)},
         "development_gates": {"resolution_rate_B": rate,
                               "agreement_resolution_rate_B": anchor["agreement_resolution_rate"],
                               "agreement_transfer_rate_B": anchor["agreement_transfer_rate"]},
     }
     return {**result, "status": "PROCEED"}
+
+
+def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_min_floor,
+                         d_min, agreement_transfer_floor, false_invalid_rate, resamples, seed):
+    """Split A selection followed by the split-B freeze values. Every STOP is S1.
+
+    ``split_a`` maps each candidate key to {'conflict': [...], 'agreement': [...],
+    'nopatch': [...]}, each item a primary measurement ({'answer_logits': [...],
+    'answer_mass_full_vocab': x}; agreement items as (case_index, j, measurement));
+    ``split_b`` holds the same for the selected cell. Split A's s_min serves only the
+    selection; every frozen value, s_min included, comes from split B (user instruction
+    of 2026-09-28)."""
+    a = select_on_split_a(split_a, candidates, n=n, s_min_quantile=s_min_quantile,
+                          s_min_floor=s_min_floor, d_min=d_min)
+    result = {"candidates": a["candidates"], "selection": a["selection"]}
+    if a["status"] != "PROCEED":
+        return {**result, "status": a["status"], "level": a["level"], "reason": a["reason"]}
+    key = a["selection"]["selected"]
+    b = freeze_from_split_b(split_b[key], a["candidates"][key]["cell"], n=n, s_min_quantile=s_min_quantile,
+                            s_min_floor=s_min_floor, d_min=d_min,
+                            agreement_transfer_floor=agreement_transfer_floor,
+                            false_invalid_rate=false_invalid_rate, resamples=resamples, seed=seed)
+    result.update({k: v for k, v in b.items() if k not in ("status", "level", "reason", "freeze")})
+    result["s_min_split_A_selected_cell"] = a["candidates"][key]["s_min"]
+    if b["status"] != "PROCEED":
+        return {**result, "status": b["status"], "level": b["level"], "reason": b["reason"]}
+    return {**result, "freeze": b["freeze"], "status": "PROCEED"}
 
 
 # ---- confirmation --------------------------------------------------------------------

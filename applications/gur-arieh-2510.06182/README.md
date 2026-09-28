@@ -51,8 +51,9 @@ answer form 'Country' as the primary readout with a 0.5 answer-token-mass gate; 
 paper's in-context readout kept as descriptive only; pools restricted so `trance` drops;
 the final N set at the freeze from split B) and a second pilot on fresh seeds. Pilot 2
 passed every declared gate and gives a provisional planning N of 200
-([results/pilot2/PILOT2_REPORT.md](results/pilot2/PILOT2_REPORT.md)). There is no go for
-split A or split B; the freeze and the confirmation are not authorized.
+([results/pilot2/PILOT2_REPORT.md](results/pilot2/PILOT2_REPORT.md)). The user then
+authorized split A and split B under [SPLIT_A_B_PROTOCOL.md](SPLIT_A_B_PROTOCOL.md),
+committed before either run; the freeze and the confirmation are not authorized.
 
 ## Files
 
@@ -72,6 +73,7 @@ split A or split B; the freeze and the confirmation are not authorized.
 | [src/mixing_prompts.py](src/mixing_prompts.py) | prompt construction exactly as upstream (row definition, `raw_input`, chat template with the first five characters dropped), from the task spec the adapter reads from the clone (`scripts/lock_sources.py`, `schema_spec`) |
 | [src/mixing_runner.py](src/mixing_runner.py) | model runner (torch, protocol v2): offline snapshot and file hashes, the v2 pool rule, token alignment, last-token forward-pre hook at block ℓ with call and write counts, the primary answer-form readout (logits, answer-token mass, logsumexp over the vocabulary and its complement) and the descriptive paper readout, greedy generation, identity self-patch, and one record per family in the checker's schema |
 | [scripts/run_mixing_pilot.py](scripts/run_mixing_pilot.py), [src/mixing_pilot_summary.py](src/mixing_pilot_summary.py) | the development pilot under protocol v2 (offline, cached model), its gate table from the stored files, and the generated artifact index; pilot 1 used the versions at commit `3cdaffd` |
+| [SPLIT_A_B_PROTOCOL.md](SPLIT_A_B_PROTOCOL.md), [scripts/run_mixing_split.py](scripts/run_mixing_split.py), [src/mixing_splits.py](src/mixing_splits.py) | the split A/B protocol (sizes, seeds, gate-7 cases, selection rule, what split B computes), its runner and its decisions |
 | [requirements-model.txt](requirements-model.txt) | the environment used for model runs (torch 2.5.1, transformers 4.57.3) |
 | [results/pilot/](results/pilot/PILOT_REPORT.md) | pilot 1 (protocol v1): records, gate table, readout and dtype diagnostics (`scripts/diagnose_pilot_readout.py`, `scripts/diagnose_fp32_execution.py`) and the report |
 | [results/pilot2/](results/pilot2/PILOT2_REPORT.md) | pilot 2 (protocol v2, fresh seeds): records, gate-7 CPU reference, gate table, generated artifact index and the report |

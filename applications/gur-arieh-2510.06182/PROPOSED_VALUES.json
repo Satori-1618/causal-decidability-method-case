@@ -2,7 +2,7 @@
   "schema_version": 3,
   "application": "gur-arieh-2510.06182",
   "round": 1,
-  "status": "PROTOCOL v2 approved by the user on 2026-09-28 after pilot 1 (float32 execution, answer-form readout, combined mass gate, pool restriction, re-declared gate 7, s_min rule, hash index, N rule precision). The remaining table is approved for pilot 2 only. There is no go for split A or split B; final approval of the full table follows the pilot-2 report. Nothing is frozen.",
+  "status": "PROTOCOL v2 approved by the user on 2026-09-28. Split A and split B are authorized (SPLIT_A_B_PROTOCOL.md, committed before the runs); the freeze and the confirmation are not authorized. Final approval of the full table happens at the freeze. Nothing is frozen.",
   "approved": false,
   "approved_for_pilot": true,
   "final_approval": "pending; the user decides after the pilot-2 report",
@@ -41,7 +41,7 @@
       "id": "s_min_rule",
       "status": "approved for pilot 2 only (2026-09-28); final approval pending",
       "value": {
-        "definition": "s_min = max(Q, floor), Q = upper order statistic at level 0.99 of S (primary answer-form readout) over all no-patch runs of the qualifying families of the respective cell (split A for the frozen value)",
+        "definition": "s_min = max(Q, floor), Q = upper order statistic at level 0.99 of S (primary answer-form readout) over all no-patch runs of the qualifying families of the respective cell; for the freeze: split B's (user instruction of 2026-09-28; the earlier text said split A); on split A per cell for the selection only",
         "quantile": 0.99,
         "floor": 0.1,
         "note": "With m <= 100 no-patch runs, ceil(0.99 m) = m, so Q is the maximum of the m runs (m = 50 on split A).",
@@ -112,17 +112,22 @@
         }
       ],
       "tie_break": "declared order c1, c2, c3, c4",
-      "justification": "Middle i_P at n = 7. Lexical and reflexive targets at the nearest admissible distance, on opposite sides of i_P, so they are neither inside the positional window nor next to each other (the paper reports suppression when lexical and reflexive indices are close, Sec. 3.3). The native answer at an end group, where native retrieval is most reliable, to keep the yield high. The four cells are the mirror images of one layout. At n = 7 and w = 1 only four slots lie outside the window, so two of i_L, i_R and i_N are always adjacent."
+      "justification": "Middle i_P at n = 7. Lexical and reflexive targets at the nearest admissible distance, on opposite sides of i_P, so they are neither inside the positional window nor next to each other (the paper reports suppression when lexical and reflexive indices are close, Sec. 3.3). The native answer at an end group, where native retrieval is most reliable, to keep the yield high. The four cells are the mirror images of one layout. At n = 7 and w = 1 only four slots lie outside the window, so two of i_L, i_R and i_N are always adjacent.",
+      "value_selection_rule": "on split A: the largest d, ties c1, c2, c3, c4, subject to d >= d_min, else NOT_DECIDABLE_WITH_CURRENT_INTERVENTIONS (S1)"
     },
     {
       "id": "split_sizes",
-      "status": "approved for pilot 2 only (2026-09-28); final approval pending",
+      "status": "fixed by the user (2026-09-28): splits authorized",
       "value": {
         "A_per_candidate_cell": 50,
         "A_total": 200,
+        "A_cap_per_cell": 100,
         "B_selected_cell": 200,
+        "B_cap": 400,
         "unit": "qualifying base contexts",
-        "generation_cap": "twice the split size"
+        "A_order": "family i = 4j + k uses cell k (c1..c4), seed 2,000,000 + i; a cell stops at its 50th qualifying family",
+        "B_order": "family i uses the selected cell, seed 3,000,000 + i; stops at the 200th qualifying family",
+        "protocol": "SPLIT_A_B_PROTOCOL.md"
       },
       "justification": "Split A only ranks d across four cells. Split B fixes the anchors: with 200 cases the standard error of T_W is about 0.02, below the smallest band half-width 0.05, and delta is resampled at m = N = 200. Each base context gives one conflict run, three agreement runs and one no-patch run."
     },
@@ -209,7 +214,8 @@
         "attention_implementation": "eager",
         "gate_7": "MPS float32 (execution) against CPU float32 (reference) on 32 pre-specified cases, 8 per cell; |delta T| <= 0.01 on the primary readout and identical resolution (combined gate) and labels",
         "gate_7_cases_pilot2": "pilot-2 families 0-31 (seeds 1,100,000-1,100,031), 8 per cell under the i mod 4 assignment",
-        "gate_7_cases_split_A": "to be fixed in the split-A protocol commit before that run (proposal: the first 8 generated families of each cell)"
+        "gate_7_cases_split_A": "split-A draw indices 0-31 = the first 8 generated families of each cell (fixed in SPLIT_A_B_PROTOCOL.md)",
+        "gate_7_cases_split_B": "split-B draw indices 0-31 = the first 32 generated families of the selected cell"
       },
       "justification": "Pilot 1: bfloat16 failed gate 7 (max |dT| 0.062); float32 on MPS fits in memory (<= 11.4 GiB), costs about the same time and differed from float32 on CPU by <= 2.2e-5 in T on 8 families."
     },
@@ -235,12 +241,12 @@
     },
     {
       "id": "entity_pools",
-      "status": "fixed by the user (2026-09-28, protocol v2)",
+      "status": "fixed by the user (2026-09-28, protocol v2; scope approved for genres only)",
       "value": {
         "rule": "every entity one token with a leading space; entities of the answered category (Genre) also exactly one token in the answer form, with context-form and answer-form ids each unique across them",
         "result": "Musician 23, Genre 23 (trance dropped: answer form 'Trance' is two tokens), Instrument 23",
         "recorded_in": "SOURCE_LOCK.json round1_entity_pools (pools and token ids); pilot runs STOP if they differ",
-        "interpretation": "the answer-form condition is applied to the answered category only, because only genres are ever answers; under an all-category reading the instruments flute, trumpet and whistle would also be dropped (flagged for the user)"
+        "interpretation": "approved 2026-09-28: the answer-form condition applies to genres only, because only genres are ever answers (the readout scores the n genres and native correctness compares the first generated token with a genre's answer form); musicians and instruments must still be one token in the context form"
       },
       "justification": "Upstream asserts single-token entities (tasks/dist.py:271-273) instead of filtering; the gated tokenizer could not be checked in this pass."
     },
@@ -288,7 +294,7 @@
     },
     {
       "id": "environment",
-      "status": "fixed by the user (2026-09-28, protocol v2)",
+      "status": "fixed by the user (2026-09-28, protocol v2; confirmed for the splits)",
       "value": "the existing .venv-round2 (read-only, PYTHONDONTWRITEBYTECODE=1) may be reused; interpreter path and version and all package versions are recorded again in each pilot manifest"
     },
     {
@@ -322,6 +328,20 @@
         "use": "development data: gates, feasibility of the declared values, the unresolved rate for the N rule; never used to estimate the frozen anchors or delta, and nothing else is tuned on it"
       },
       "justification": "Authorized by the user on 2026-09-28 to settle the likely STOP causes before split A is drawn."
+    },
+    {
+      "id": "split_B_computes",
+      "status": "fixed by the user (2026-09-28): splits authorized",
+      "value": [
+        "s_min (declared rule on split B's no-patch runs)",
+        "resolution rate (STOP below 0.90) and unresolved rate",
+        "T_W, T_A (P, L and R weighted equally), d (STOP below d_min)",
+        "agreement resolution and transfer (STOP below 0.90)",
+        "final N and the adequacy label by the N rule at split B's unresolved rate (STOP as the rule states)",
+        "delta: two-sample resampling over split B's resolved q-vectors, m = resolved B cases and the final N, 10,000 pairs, seed 251006182, false-INVALID rate 0.05",
+        "gates 1-5 and 7"
+      ],
+      "justification": "Every value that would be frozen comes from split B, never from the pilots or split A."
     }
   ],
   "approved_for_pilot2_on": "2026-09-28",
@@ -334,5 +354,6 @@
     "native correctness also requires the first generated token to equal the frozen answer-form token of the correct entity (recipient and donor)",
     "artifact index generated automatically over every file of a results directory and every producer script",
     "N rule: pilot gives a provisional planning N; the final N and the adequacy label are set at the freeze from split B's unresolved rate in the selected cell"
-  ]
+  ],
+  "splits_authorized_on": "2026-09-28"
 }
