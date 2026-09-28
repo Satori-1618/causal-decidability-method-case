@@ -15,6 +15,8 @@ import importlib.util
 import json
 import math
 import random
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -253,42 +255,235 @@ class TinyGemmaRunnerTests(unittest.TestCase):
     def test_records_validate_against_the_records_only_checker(self):
         checker = load("check_mixing_round1_records", APP / "scripts/check_mixing_round1_records.py")
         import mixing_round1_analysis as ra
-        records = self.run_families(4)
+        split_b_path = APP / "results/split_B/split_B_decision.json"
+        split_a_path = APP / "results/split_A/split_A_decision.json"
+        freeze = json.loads(split_b_path.read_text())["split_B"]["freeze"]
+        records = self.run_families(4, cells=[("c4", freeze["cell"])])
         for record in records:
-            self.assertIsNone(checker.technical_failure(record, CELL, N_GROUPS))
+            self.assertIsNone(checker.technical_failure(record, freeze["cell"], N_GROUPS))
         # Schema check only: a random tiny model is not natively correct, so copies of the
         # four records are marked qualifying and repeated to the rule's N of 200.
-        N = 200
+        N = freeze["N"]
         qualifying = []
         for i in range(N):
             r = copy.deepcopy(records[i % 4])
             r.update(case_id=f"confirmation-{i:04d}", draw_index=i,
                      seed=4_000_000 + i, cell_key="c4", qualifies=True)
+            for role in ("recipient", "donor"):
+                native = r["native"][role]
+                native.update(first_word=native["answer"].lower(),
+                              generation_ids=[self.answer_ids[native["answer"]]],
+                              readout_argmax_entity=native["answer"],
+                              first_token_is_answer_form=True, correct=True,
+                              readout_matches_generation=True)
             qualifying.append(r)
-        sizing = ra.n_rule(0.0)
         manifest = {
             "schema_version": 2, "application": "gur-arieh-2510.06182", "round": 1,
-            "stage": "schema test", "n_groups": N_GROUPS, "cell_key": "c4",
-            "cell": dict(CELL), "N": N,
-            "confirmation": {"seed_base": 4_000_000, "case_id_prefix": "confirmation", "cap": 2 * N},
-            "N_rule": {"N": sizing["N"], "adequacy_powered": sizing["adequacy_powered"]},
-            "rule": {**ra.CONTRACT, "s_min": 0.05, "d_min": 0.20, "agreement_transfer_floor": 0.9},
-            "anchors": {"T_W": 0.5, "T_A": 0.95, "d": 0.45, "q_bar_B": [0.5, 0.3, 0.2], "m_B": 100},
-            "mean_gate": {"delta": 1.0}, "development_gates": {
-                "resolution_rate_B": 1.0, "agreement_resolution_rate_B": 0.95, "agreement_transfer_rate_B": 0.95},
-            "code_files_sha256": {name: sha(ROOT / name) for name in checker.REQUIRED_CODE},
+            "stage": "confirmation", "freeze_status": "FROZEN",
+            "n_groups": N_GROUPS, "t_entity": 2, "cell_key": "c4",
+            "cell": copy.deepcopy(freeze["cell"]), "N": N,
+            "confirmation": {"authorized": True, "seed_base": 4_000_000,
+                             "case_id_prefix": "confirmation", "cap": 2 * N},
+            "N_rule": copy.deepcopy(freeze["N_rule"]),
+            "rule": {**ra.CONTRACT, "s_min": freeze["s_min"],
+                     "d_min": freeze["d_min"],
+                     "agreement_transfer_floor": freeze["agreement_transfer_floor"]},
+            "anchors": copy.deepcopy(freeze["anchors"]),
+            "mean_gate": copy.deepcopy(freeze["mean_gate"]),
+            "development_gates": copy.deepcopy(freeze["development_gates"]),
+            "execution_contract": {"identity_tolerance": 0.001,
+                                   "gate7": {"tolerance_T": 0.01}},
+            "entity_pools": {"answer_form_ids": copy.deepcopy(self.answer_ids),
+                             "pools": copy.deepcopy(self.pools), "dropped": {}},
+            "model": {"files_sha256": {}},
         }
         with tempfile.TemporaryDirectory() as directory:
-            results = Path(directory)
+            repository = Path(directory) / "repository"
+            repository.mkdir()
+            subprocess.run(["git", "init", "-q"], cwd=repository, check=True)
+            subprocess.run(["git", "config", "user.email", "fixture@example.invalid"],
+                           cwd=repository, check=True)
+            subprocess.run(["git", "config", "user.name", "Runner Fixture"],
+                           cwd=repository, check=True)
+            application = repository / "applications/gur-arieh-2510.06182"
+            results = application / "results/constructed"
+            results.mkdir(parents=True)
+            (repository / ".gitignore").write_text(
+                "applications/gur-arieh-2510.06182/results/constructed/\n")
+            for name in checker.REQUIRED_CODE:
+                target = repository / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ROOT / name, target)
+            source_lock = application / "SOURCE_LOCK.json"
+            shutil.copyfile(APP / "SOURCE_LOCK.json", source_lock)
+            decision_a = application / checker.SPLIT_A_DECISION
+            decision_b = application / checker.SPLIT_B_DECISION
+            decision_a.parent.mkdir(parents=True, exist_ok=True)
+            decision_b.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(split_a_path, decision_a)
+            shutil.copyfile(split_b_path, decision_b)
+            manifest["code_files_sha256"] = {
+                name: sha(repository / name) for name in checker.REQUIRED_CODE}
+            manifest["data_sha256"] = {
+                "SOURCE_LOCK.json": sha(source_lock),
+                checker.SPLIT_A_DECISION: sha(decision_a),
+                checker.SPLIT_B_DECISION: sha(decision_b),
+            }
+            frozen_relative = Path(
+                "applications/gur-arieh-2510.06182/FROZEN_CONFIRMATION.json")
+            frozen = repository / frozen_relative
+            frozen.write_text(json.dumps(manifest, indent=2) + "\n")
+            subprocess.run(["git", "add", "-A"], cwd=repository, check=True)
+            subprocess.run(["git", "commit", "-q", "-m", "freeze runner fixture"],
+                           cwd=repository, check=True)
+            git_head = subprocess.run(
+                ["git", "rev-parse", "HEAD"], cwd=repository, check=True,
+                capture_output=True, text=True).stdout.strip()
             (results / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-            (results / "RUN_STARTED.json").write_text(json.dumps({"manifest_sha256": sha(results / "manifest.json")}))
+            (results / "RUN_STARTED.json").write_text(json.dumps({
+                "manifest_sha256": sha(results / "manifest.json"),
+                "git_head": git_head,
+                "manifest_path": frozen_relative.as_posix(),
+                "git_dirty": False,
+                "seed_base": checker.CONFIRMATION_SEED_BASE,
+                "case_id_prefix": "confirmation",
+            }))
             (results / "records.jsonl").write_text("".join(json.dumps(r, allow_nan=False) + "\n" for r in qualifying))
+            (results / "timings.json").write_text(json.dumps({"fixture": True}))
+            import numpy as np
+            audit_arrays = {}
+            extra_id = max(self.answer_ids.values()) + 1
+            for record in qualifying[:4]:
+                answer = np.asarray(record["answer_logits"], dtype=np.float32)
+                target_mass = float(record["answer_mass_full_vocab"])
+                answer_top = float(np.max(answer))
+                answer_lse = answer_top + math.log(math.fsum(
+                    math.exp(float(value) - answer_top) for value in answer))
+                complement = answer_lse + math.log((1.0 - target_mass) / target_mass)
+                full = np.full(extra_id + 1, -100.0, dtype=np.float32)
+                for name, value in zip(record["matrix"], answer):
+                    full[self.answer_ids[name[1]]] = value
+                full[extra_id] = np.float32(complement)
+                full_top = float(np.max(full))
+                full_lse = full_top + math.log(math.fsum(
+                    math.exp(float(value) - full_top) for value in full))
+                answer = np.asarray(
+                    [full[self.answer_ids[group[1]]] for group in record["matrix"]],
+                    dtype=np.float32)
+                mass = math.fsum(math.exp(float(value) - full_lse) for value in answer)
+                record["answer_logits"] = [float(value) for value in answer]
+                record["answer_mass_full_vocab"] = mass
+                record["readout"] = {
+                    "answer_logits": copy.deepcopy(record["answer_logits"]),
+                    "answer_mass_full_vocab": mass,
+                    "logsumexp_full": full_lse,
+                }
+                audit_arrays[record["case_id"]] = full
+            np.savez_compressed(results / "audit_full_logits.npz", **audit_arrays)
+            # The audit normalization above changes the stored primary readout by at most
+            # float32 rounding, so serialize records only after constructing the NPZ.
+            (results / "records.jsonl").write_text(
+                "".join(json.dumps(r, allow_nan=False) + "\n" for r in qualifying))
+            references = [{"case_id": r["case_id"], "device": "cpu",
+                           "dtype": "torch.float32", "hook_ok": True,
+                           "conflict": {"answer_logits": r["answer_logits"],
+                                        "answer_mass_full_vocab": r["answer_mass_full_vocab"]}}
+                          for r in qualifying[:32]]
+            (results / "gate7_cpu_reference.jsonl").write_text(
+                "".join(json.dumps(r) + "\n" for r in references))
+            native = [(record, role, record["native"][role])
+                      for record in qualifying for role in ("recipient", "donor")]
+            agreement = [(row["target"], row["j"], row["donor_native"])
+                         for record in qualifying for row in record.get("agreement", [])]
+            def rate(k, n):
+                return {"k": k, "n": n, "rate": k / n if n else None}
+            def tally(pairs):
+                values = {}
+                for key, passed in pairs:
+                    row = values.setdefault(str(key), [0, 0])
+                    row[0] += bool(passed)
+                    row[1] += 1
+                return {key: rate(*row) for key, row in sorted(values.items())}
+            gate2 = {
+                "passed": True,
+                "yield": rate(N, N), "floor": checker.YIELD_FLOOR,
+                "recipient_correct_by_i_N": tally(
+                    (record["cell"]["i_N"], row["correct"])
+                    for record, role, row in native if role == "recipient"),
+                "donor_correct_by_queried_position": tally(
+                    (record["cell"]["i_P"], row["correct"])
+                    for record, role, row in native if role == "donor"),
+                "first_token_is_answer_form": tally(
+                    (role, row["first_token_is_answer_form"]) for _, role, row in native),
+                "readout_matches_generation": tally(
+                    (role, row["readout_matches_generation"]) for _, role, row in native),
+                "agreement_donor_correct_by_target": tally(
+                    (f"{target}={index}", row["correct"])
+                    for target, index, row in agreement),
+            }
+            hook_counts = {}
+            for record in qualifying:
+                for name in record["technical"]["checks"]:
+                    if name.endswith("hook"):
+                        hook_counts[name] = hook_counts.get(name, 0) + 1
+            audit = checker.verify_full_logit_audit(
+                results, manifest, qualifying, {
+                    "checked": True,
+                    "expected_cases": [f"confirmation-{i:04d}" for i in range(4)],
+                    "tolerances": checker.AUDIT_TOLERANCES,
+                    "cases": [f"confirmation-{i:04d}" for i in range(4)],
+                    "max_abs_logsumexp_difference": 0.0,
+                    "max_abs_answer_mass_difference": 0.0,
+                    "max_abs_answer_logit_difference": 0.0,
+                    "passed": True,
+                })
+            gate7_rows = [{
+                "draw_index": i, "case_id": record["case_id"],
+                "abs_T_difference": 0.0, "same_resolution": True,
+                "same_labels": True, "max_abs_answer_logit_difference": 0.0,
+                "hook_ok_cpu": True, "cpu_device": "cpu",
+                "cpu_dtype": "torch.float32",
+            } for i, record in enumerate(qualifying[:32])]
+            gates = {
+                "1_model_hashes": {"passed": True, "verified_counts": {
+                    "code": len(manifest["code_files_sha256"]),
+                    "data": len(manifest["data_sha256"]), "model": 0}},
+                "2_native_and_yield": gate2,
+                "3_tokens": {"pools_equal_the_manifest": True,
+                    "pools_equal_the_lock": True,
+                    "pools_kept": {key: len(value) for key, value in self.pools.items()},
+                    "pools_dropped": {}, "dropped_prefix": "<bos>",
+                    "passed": True, "alignment_failures": []},
+                "4_hooks": {"passed": True, "checks": hook_counts, "failed": [],
+                    "design_index_failures": [], "technical_failures": [],
+                    "full_logit_audit": audit},
+                "5_identity": {"passed": True, "families": N,
+                    "measured_families": N,
+                    "max_abs_answer_logit_difference": 0.0,
+                    "tolerance": 0.001, "same_argmax": N, "same_generation": N},
+                "7_dtype_device": {"passed": True,
+                    "comparison": "MPS float32/eager against CPU float32/eager, conflict patch",
+                    "declared_draw_indices": list(range(32)), "compared": 32,
+                    "missing": [], "max_abs_T_difference": 0.0, "tolerance": 0.01,
+                    "execution": {"main_device": "mps", "main_dtype": "torch.float32",
+                                  "attention": "eager"},
+                    "rows": gate7_rows},
+            }
+            gate_table = {"status": "PROCEED", "stops": [], "cell_key": "c4",
+                          "families": N, "qualifying": N, "gates": gates,
+                          "quota": {"passed": True, "N": N, "cap": 2 * N,
+                                    "counts": {"c4": {"generated": N, "qualifying": N}},
+                                    "generator_reported_met": True}}
+            (results / "confirmation_gates.json").write_text(
+                json.dumps(gate_table, indent=2) + "\n")
             summary = ra.analyze_confirmation(manifest, qualifying)
             summary.update(manifest_sha256=sha(results / "manifest.json"),
-                           records_sha256=sha(results / "records.jsonl"))
+                           records_sha256=sha(results / "records.jsonl"),
+                           confirmation_gates_sha256=sha(results / "confirmation_gates.json"),
+                           timings_sha256=sha(results / "timings.json"))
             (results / "summary.json").write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n")
             (results / "artifact_hashes.json").write_text(json.dumps({p.name: sha(p) for p in results.iterdir()}))
-            report = checker.verify(results, repository_root=ROOT)
+            report = checker.verify(results, repository_root=repository)
         self.assertTrue(report["verified"])
         self.assertEqual(report["N"], N)
 

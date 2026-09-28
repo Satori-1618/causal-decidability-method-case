@@ -2,7 +2,6 @@
 import copy
 import importlib.util
 import json
-import random
 import subprocess
 import sys
 import tempfile
@@ -14,7 +13,6 @@ APP = ROOT / "applications/gur-arieh-2510.06182"
 if str(APP / "src") not in sys.path:
     sys.path.insert(0, str(APP / "src"))
 import mixing_round1_analysis as ra  # noqa: E402
-import mixing_synthetic_worlds as worlds  # noqa: E402
 
 RUNNER_PATH = APP / "scripts/run_mixing_confirmation.py"
 SPEC = importlib.util.spec_from_file_location("run_mixing_confirmation", RUNNER_PATH)
@@ -27,9 +25,6 @@ def save(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n")
 
-
-def write_jsonl(path, values):
-    path.write_text("".join(json.dumps(value, allow_nan=False) + "\n" for value in values))
 
 
 class FrozenFixture:
@@ -313,109 +308,23 @@ class ConfirmationRunnerTests(unittest.TestCase):
         self.assertEqual(audit["cases"], [runner.case_id(i) for i in range(4)])
 
     def test_analyzed_output_is_compatible_with_the_records_only_checker(self):
-        freeze = json.loads((APP / runner.SPLIT_B_DECISION_RELATIVE).read_text())["split_B"]["freeze"]
-        manifest = {
-            "schema_version": 2, "application": "gur-arieh-2510.06182", "round": 1,
-            "stage": "confirmation", "freeze_status": "FROZEN", "n_groups": 7,
-            "t_entity": 2, "cell_key": "c4", "cell": copy.deepcopy(freeze["cell"]),
-            "N": freeze["N"], "N_rule": copy.deepcopy(freeze["N_rule"]),
-            "rule": {**ra.CONTRACT, "s_min": freeze["s_min"], "d_min": freeze["d_min"],
-                     "agreement_transfer_floor": freeze["agreement_transfer_floor"]},
-            "anchors": copy.deepcopy(freeze["anchors"]),
-            "mean_gate": copy.deepcopy(freeze["mean_gate"]),
-            "development_gates": copy.deepcopy(freeze["development_gates"]),
-            "confirmation": {"authorized": True, "seed_base": runner.SEED_BASE,
-                             "case_id_prefix": runner.CASE_ID_PREFIX,
-                             "cap": 2 * freeze["N"]},
-        }
-        manifest["execution_contract"] = {
-            "identity_tolerance": runner.IDENTITY_TOLERANCE,
-            "gate7": {"tolerance_T": runner.GATE7_T_TOLERANCE},
-        }
-        manifest["entity_pools"] = {"answer_form_ids": {"target": 1}}
-        code_paths = checker.REQUIRED_CODE
-        manifest["code_files_sha256"] = {
-            name: runner.sha256(ROOT / name) for name in sorted(code_paths)}
-        manifest["data_sha256"] = {
-            name: runner.sha256(APP / name) for name in (
-                "SOURCE_LOCK.json", runner.SPLIT_A_DECISION_RELATIVE,
-                runner.SPLIT_B_DECISION_RELATIVE)}
-        records = worlds.confirmation_records(
-            "heterogeneous", manifest["N"], random.Random(20260928), "fixture",
-            cell=manifest["cell"])
-        for index, record in enumerate(records):
-            correct = record["qualifies"]
-            record.update(
-                case_id=runner.case_id(index), seed=runner.seed_for(index), cell_key="c4",
-                native={role: {"answer": "target",
-                               "first_word": "target" if correct else "other",
-                               "generation_ids": [1],
-                               "readout_argmax_entity": "target" if correct else "other",
-                               "first_token_is_answer_form": True, "correct": correct,
-                               "readout_matches_generation": True}
-                        for role in ("recipient", "donor")})
-            if "answer_logits" not in record:
-                record.update(
-                    design_indices=copy.deepcopy(manifest["cell"]),
-                    technical={"passed": True},
-                    answer_logits=worlds.logits(worlds.W_LIKE, 0.8, manifest["cell"]),
-                    answer_mass_full_vocab=worlds.MASS,
-                )
-            record["identity"] = {"same_answer_argmax": True, "same_generation": True,
-                                  "max_abs_answer_logit_difference": 0.0}
+        # Reuse the adversarial checker bundle so this integration test exercises the
+        # exact frozen-Git, raw-gate and NPZ evidence surface instead of maintaining a
+        # weaker parallel fixture here.
+        from tests.test_check_mixing_round1_records import Bundle
 
-        references = []
-        gate7_rows = []
-        for record in records[:32]:
-            references.append({
-                "case_id": record["case_id"], "device": "cpu", "dtype": "torch.float32",
-                "hook_ok": True,
-                "conflict": {"answer_logits": copy.deepcopy(record["answer_logits"]),
-                             "answer_mass_full_vocab": record["answer_mass_full_vocab"]},
-            })
-            gate7_rows.append({"case_id": record["case_id"], "abs_T_difference": 0.0,
-                               "same_resolution": True, "same_labels": True,
-                               "hook_ok_cpu": True, "cpu_device": "cpu",
-                               "cpu_dtype": "torch.float32"})
-        gates = {name: {"passed": True} for name in checker.BINDING_GATES}
-        gates["4_hooks"]["full_logit_audit"] = {
-            "checked": True, "passed": True,
-            "cases": [runner.case_id(i) for i in runner.AUDIT_DRAW_INDICES],
-        }
-        gates["5_identity"].update(
-            families=len(records), measured_families=len(records),
-            same_argmax=len(records), same_generation=len(records),
-            max_abs_answer_logit_difference=0.0, tolerance=runner.IDENTITY_TOLERANCE)
-        gates["7_dtype_device"].update(
-            declared_draw_indices=list(runner.GATE7_DRAW_INDICES), compared=32, missing=[],
-            tolerance=runner.GATE7_T_TOLERANCE, max_abs_T_difference=0.0,
-            rows=gate7_rows)
-        confirmation_gates = {
-            "status": "PROCEED", "stops": [], "cell_key": "c4",
-            "families": len(records), "qualifying": manifest["N"], "gates": gates,
-            "quota": {"passed": True, "N": manifest["N"],
-                      "cap": manifest["confirmation"]["cap"],
-                      "counts": {"c4": {"generated": len(records),
-                                          "qualifying": manifest["N"]}},
-                      "generator_reported_met": True},
-        }
-
-        results = Path(self.temporary.name) / "checker-compatible"
-        results.mkdir()
-        save(results / "manifest.json", manifest)
-        save(results / "RUN_STARTED.json", {"manifest_sha256": runner.sha256(results / "manifest.json")})
-        write_jsonl(results / "records.jsonl", records)
-        save(results / "timings.json", {"fixture": True})
-        save(results / "confirmation_gates.json", confirmation_gates)
-        write_jsonl(results / "gate7_cpu_reference.jsonl", references)
-        (results / "audit_full_logits.npz").write_bytes(b"no-model fixture")
-
-        summary, report = runner.analyze_and_check(manifest, records, results,
-                                                   repository_root=ROOT)
+        repository = Path(self.temporary.name) / "analysis-repository"
+        repository.mkdir()
+        bundle = Bundle(repository, "2_heterogeneous_concentrated", real_code=True)
+        (bundle.results / "summary.json").unlink()
+        (bundle.results / "artifact_hashes.json").unlink()
+        summary, report = runner.analyze_and_check(
+            bundle.manifest, bundle.records, bundle.results,
+            repository_root=bundle.repo)
         self.assertTrue(report["verified"])
-        self.assertEqual(checker.verify(results, repository_root=ROOT), report)
+        self.assertEqual(checker.verify(bundle.results, repository_root=bundle.repo), report)
         self.assertEqual(summary["statuses"], report["statuses"])
-        hashes = json.loads((results / "artifact_hashes.json").read_text())
+        hashes = json.loads((bundle.results / "artifact_hashes.json").read_text())
         self.assertIsInstance(hashes, dict)
         self.assertTrue({"manifest.json", "records.jsonl", "summary.json",
                          "confirmation_gates.json", "checker_report.json"} <= set(hashes))
