@@ -127,6 +127,13 @@ class RoundOneCheckerTests(unittest.TestCase):
         with self.assertRaisesRegex(checker.VerificationError, "differ"):
             self.bundle.verify()
 
+    def test_frozen_agreement_resolution_below_floor_is_rejected(self):
+        self.bundle.manifest["development_gates"]["agreement_resolution_rate_B"] = 0.85
+        summary = copy.deepcopy(self.bundle.summary)
+        self.bundle.write_all(summary=summary)
+        with self.assertRaisesRegex(checker.VerificationError, "agreement-control resolution"):
+            self.bundle.verify()
+
     def test_manifest_changed_after_start_is_rejected(self):
         self.bundle.manifest["N"] = 199
         save(self.bundle.results / "manifest.json", self.bundle.manifest)

@@ -21,6 +21,7 @@ construction (not the paper's App. D.1): keep group j fixed, derange the other g
 with their bindings intact, and ask the donor about group j, so that P, L and R all
 point to j. Nothing here imports upstream code.
 """
+import functools
 import math
 import random
 import sys
@@ -144,17 +145,87 @@ def _pmf(k, n, p):
                     + k * math.log(p) + (n - k) * math.log1p(-p))
 
 
+@functools.lru_cache(maxsize=None)
+def _decisive_counts(N, alpha, family_size, coverage):
+    """Counts k out of N whose interval declares adequacy (lower bound above coverage)
+    or exclusion (upper bound below coverage). Cached: one CP evaluation per k and N."""
+    adequate, excluded = [], []
+    for k in range(N + 1):
+        lower, upper = clopper_pearson(k, N, alpha, family_size)
+        if lower > coverage:
+            adequate.append(k)
+        if upper < coverage:
+            excluded.append(k)
+    return tuple(adequate), tuple(excluded)
+
+
 def power(N, true_coverage, unresolved_rate=0.0, alpha=0.05, family_size=2, coverage=0.8):
     """Exact power of the declared rule for one profile, assuming unresolved cases occur
     independently of conformity: adequacy counts them as non-matches, exclusion as
     matches."""
     match = true_coverage * (1 - unresolved_rate)
     match_or_unresolved = match + unresolved_rate
-    adequate = sum(_pmf(k, N, match) for k in range(N + 1)
-                   if clopper_pearson(k, N, alpha, family_size)[0] > coverage)
-    excluded = sum(_pmf(k, N, match_or_unresolved) for k in range(N + 1)
-                   if clopper_pearson(k, N, alpha, family_size)[1] < coverage)
+    adequate_counts, excluded_counts = _decisive_counts(N, alpha, family_size, coverage)
+    adequate = sum(_pmf(k, N, match) for k in adequate_counts)
+    excluded = sum(_pmf(k, N, match_or_unresolved) for k in excluded_counts)
     return {"adequate": adequate, "excluded": excluded}
+
+
+# The N rule, recorded on 2026-09-28 before the pilot and applied after it.
+N_RULE = {
+    "default_N": 200,
+    "unresolved_threshold": 0.02,
+    "larger_N": (300, 400, 500),
+    "declared_power": 0.80,
+    "adequacy_coverage": 0.90,
+    "exclusion_coverage": 0.70,
+}
+
+
+def n_rule(unresolved_rate, rule=N_RULE):
+    """The declared N rule, applied to the pilot's unresolved rate among conflict cases.
+
+    N = 200 if the rate is at most 2%; otherwise the smallest N in (300, 400, 500) whose
+    A_T-adequacy power (90% of resolved cases conform) reaches 0.80 at that rate; if none
+    does, N = 500 with adequacy labelled not powered, and then exclusion power (70% of
+    resolved cases conform) must still reach 0.80, else STOP. Exclusion power is
+    reported for every branch; the rule text makes it a STOP condition only in the last
+    branch, and a shortfall elsewhere is flagged for the user, not acted on.
+    """
+    u = float(unresolved_rate)
+    if not 0 <= u <= 1:
+        raise ValueError("unresolved rate must lie in [0, 1]")
+    target = rule["declared_power"]
+
+    def powers(N):
+        return {"N": N,
+                "adequacy_power": power(N, rule["adequacy_coverage"], u)["adequate"],
+                "exclusion_power": power(N, rule["exclusion_coverage"], u)["excluded"]}
+
+    table = [powers(N) for N in (rule["default_N"], *rule["larger_N"])]
+    if u <= rule["unresolved_threshold"]:
+        chosen, branch, adequacy_powered = table[0], "unresolved rate at most 2%: N = 200", None
+    else:
+        chosen = next((row for row in table[1:] if row["adequacy_power"] >= target), None)
+        if chosen is not None:
+            branch = "smallest N in (300, 400, 500) with adequacy power >= 0.80"
+            adequacy_powered = True
+        else:
+            chosen, branch, adequacy_powered = table[-1], "N = 500, adequacy not powered", False
+    if adequacy_powered is None:
+        adequacy_powered = chosen["adequacy_power"] >= target
+    exclusion_ok = chosen["exclusion_power"] >= target
+    stop = adequacy_powered is False and branch.startswith("N = 500") and not exclusion_ok
+    return {
+        "unresolved_rate": u, "N": chosen["N"], "branch": branch,
+        "adequacy_power": chosen["adequacy_power"], "adequacy_powered": adequacy_powered,
+        "exclusion_power": chosen["exclusion_power"], "exclusion_reaches_declared_power": exclusion_ok,
+        "status": "STOP" if stop else "PROCEED",
+        "flag": (None if exclusion_ok or stop else
+                 "exclusion power below 0.80 at the chosen N; the rule text makes this a STOP "
+                 "only when N = 500 and adequacy is not powered; the user decides"),
+        "table": table,
+    }
 
 
 def yield_gate(qualifying, generated, floor):

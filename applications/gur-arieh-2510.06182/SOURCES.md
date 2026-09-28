@@ -105,8 +105,12 @@ The paper defines ℓ as the last layer before retrieval (Sec. 3.3, App. D.2) bu
 print its value for gemma-2-2b-it. The Figure 2 caption shows layer 18 and names layers
 16–18 as carrying binding information; the blog post says layers 19–25 already carry the
 retrieved entity. The notebook uses `layer = 18` (`example.ipynb:98`); the command-line
-default is 17 (`tasks/dist.py:415`). ℓ is therefore proposed, not fixed, in the
-preflight plan.
+default is 17 (`tasks/dist.py:415`). On 28 September 2026 the user fixed the study site
+by declaration at the input of decoder block 18 (`hidden_states[18]`, last token, as
+`tasks/dist.py:221`). A pilot "answer copy" check between layers 18 and 19 was dropped
+as a gate: in the Round 1 conflict design the completed-answer copy and the reflexive
+pointer predict the same token (Round 0), so it cannot separate anything. The layer-19
+patch is kept only as a labelled diagnostic.
 
 ## Openness check
 
@@ -140,7 +144,8 @@ case-level values or spread.
    `tasks/dist.py:288`, `do_filter=True` at `training.py:308`). The brief's statements
    hold for the command line and the notebook.
 4. **ℓ is not printed in the paper**, and upstream uses 18 (notebook) and 17 (command
-   line). Handling: proposed as 18, with a pilot check, awaiting approval.
+   line). Handling: fixed by declaration at 18 (user, 28 September 2026); 19 is a
+   diagnostic only.
 5. **The paper states n³ = 8,000 distributions** for its Sec. 4 data, while the released
    template never places the lexical or reflexive index on the positional one. The code
    that produced coinciding cells is not in the repository. Recorded only; Round 1 does

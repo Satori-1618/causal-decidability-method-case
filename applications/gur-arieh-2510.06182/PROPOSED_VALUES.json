@@ -1,11 +1,20 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "application": "gur-arieh-2510.06182",
   "round": 1,
-  "status": "PROPOSED, awaiting the user's approval; nothing here is frozen and no model has run",
+  "status": "APPROVED FOR THE PILOT ONLY on 2026-09-28 (task music_performance, t_entity = 2, n = 7, the four candidate cells, layer 18, d_min = 0.20, bfloat16 + eager attention, fp32 reference). Final approval of the full table is still pending and happens after the pilot report. Nothing here is frozen.",
   "approved": false,
+  "approved_for_pilot": true,
+  "approved_for_pilot_on": "2026-09-28",
+  "final_approval": "pending; the user decides after the pilot report",
   "date": "2026-09-28",
   "indices": "0-based design indices; the paper counts from 1",
+  "corrections_applied_2026_09_28": [
+    "layer: the study site is fixed by declaration at the input of decoder block 18 (hidden_states[18], last token); the 18 -> 19 answer-copy check is removed as a gate and kept only as a labelled diagnostic, never a STOP",
+    "s_min wording: with 50 no-patch runs the 0.99 upper order statistic is the maximum; the stated property is P(S_new >= max of m runs) = 1/(m+1), about 2% at m = 50, not '1% of unpatched runs'",
+    "agreement anchor: T_A weighs P, L and R equally; at least 90% of agreement-control runs must be resolved, else STOP",
+    "N rule recorded before the pilot (entry N_rule)"
+  ],
   "proposals": [
     {
       "id": "w",
@@ -15,45 +24,103 @@
     },
     {
       "id": "s_min_rule",
-      "status": "proposed",
-      "value": {"definition": "s_min = max(Q, floor), Q = upper order statistic at level 0.99 of S over no-patch runs of the same cell on split A", "quantile": 0.99, "floor": 0.10},
-      "justification": "Anchored to no-patch runs: at most 1% of unpatched runs, whose answer lies outside the three candidate positions, would count as resolved. The floor keeps q from being a ratio of tiny masses: a resolved case puts at least 10% of the entity mass on the three candidates."
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "definition": "s_min = max(Q, floor), Q = upper order statistic at level 0.99 of S over the no-patch runs of the same cell on split A (the qualifying cases' unpatched recipients)",
+        "quantile": 0.99,
+        "floor": 0.1,
+        "note": "With m <= 100 no-patch runs, ceil(0.99 m) = m, so Q is the maximum of the m runs (m = 50 on split A)."
+      },
+      "justification": "Anchored to no-patch runs, whose answer lies outside the three candidate positions. Correct property (user correction of 2026-09-28): if a new no-patch run is exchangeable with the m runs and S has no ties, the probability that its S reaches the maximum of the m runs is 1/(m + 1), about 2% at m = 50; because s_min >= Q, the probability that a new unpatched run counts as resolved is at most 1/(m + 1). It is not '1% of unpatched runs'. The floor keeps q from being a ratio of tiny masses: a resolved case puts at least 10% of the entity mass on the three candidates."
     },
     {
       "id": "d_min",
-      "status": "proposed",
-      "value": 0.20,
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": 0.2,
       "justification": "The profile bands are kappa*d wide on each side; d >= 0.20 gives bands of at least 0.05 on the T scale (range 1/3 to 1), five times the proposed dtype tolerance and above the expected sampling error of T_W from 200 split-B cases (about 0.02)."
     },
     {
       "id": "delta_procedure",
-      "status": "proposed",
-      "value": {"source": "resolved q-vectors of split B, selected cell", "m": "number of resolved split-B cases", "second_size": "frozen N", "resamples": 10000, "seed": 251006182, "false_invalid_rate": 0.05, "statistic": "sup-norm difference of the two resample means", "delta": "upper order statistic at level 1 - false_invalid_rate"},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "source": "resolved q-vectors of split B, selected cell",
+        "m": "number of resolved split-B cases",
+        "second_size": "frozen N",
+        "resamples": 10000,
+        "seed": 251006182,
+        "false_invalid_rate": 0.05,
+        "statistic": "sup-norm difference of the two resample means",
+        "delta": "upper order statistic at level 1 - false_invalid_rate"
+      },
       "justification": "As in brief Sec. 5.9. Because max is 1-Lipschitz in the sup-norm, a passed gate also bounds |T(mean q, confirmation) - T_W| by delta. A 5% false-INVALID rate costs a rerun in one of twenty drift-free confirmations. If fewer than N confirmation cases are resolved, the actual false-INVALID rate is above 5% (conservative toward INVALID)."
     },
     {
       "id": "candidate_cells",
-      "status": "proposed",
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
       "value": [
-        {"key": "c1", "cell": {"i_P": 3, "i_L": 1, "i_R": 5, "i_N": 0}},
-        {"key": "c2", "cell": {"i_P": 3, "i_L": 5, "i_R": 1, "i_N": 0}},
-        {"key": "c3", "cell": {"i_P": 3, "i_L": 1, "i_R": 5, "i_N": 6}},
-        {"key": "c4", "cell": {"i_P": 3, "i_L": 5, "i_R": 1, "i_N": 6}}
+        {
+          "key": "c1",
+          "cell": {
+            "i_P": 3,
+            "i_L": 1,
+            "i_R": 5,
+            "i_N": 0
+          }
+        },
+        {
+          "key": "c2",
+          "cell": {
+            "i_P": 3,
+            "i_L": 5,
+            "i_R": 1,
+            "i_N": 0
+          }
+        },
+        {
+          "key": "c3",
+          "cell": {
+            "i_P": 3,
+            "i_L": 1,
+            "i_R": 5,
+            "i_N": 6
+          }
+        },
+        {
+          "key": "c4",
+          "cell": {
+            "i_P": 3,
+            "i_L": 5,
+            "i_R": 1,
+            "i_N": 6
+          }
+        }
       ],
       "tie_break": "declared order c1, c2, c3, c4",
       "justification": "Middle i_P at n = 7. Lexical and reflexive targets at the nearest admissible distance, on opposite sides of i_P, so they are neither inside the positional window nor next to each other (the paper reports suppression when lexical and reflexive indices are close, Sec. 3.3). The native answer at an end group, where native retrieval is most reliable, to keep the yield high. The four cells are the mirror images of one layout. At n = 7 and w = 1 only four slots lie outside the window, so two of i_L, i_R and i_N are always adjacent."
     },
     {
       "id": "split_sizes",
-      "status": "proposed",
-      "value": {"A_per_candidate_cell": 50, "A_total": 200, "B_selected_cell": 200, "unit": "qualifying base contexts", "generation_cap": "twice the split size"},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "A_per_candidate_cell": 50,
+        "A_total": 200,
+        "B_selected_cell": 200,
+        "unit": "qualifying base contexts",
+        "generation_cap": "twice the split size"
+      },
       "justification": "Split A only ranks d across four cells. Split B fixes the anchors: with 200 cases the standard error of T_W is about 0.02, below the smallest band half-width 0.05, and delta is resampled at m = N = 200. Each base context gives one conflict run, three agreement runs and one no-patch run."
     },
     {
-      "id": "N_and_power",
-      "status": "proposed",
-      "value": {"N": 200, "declared_power": 0.80, "gated_scenario": "exclusion when 70% of resolved cases conform, at the split-B unresolved rate", "increase_rule": "if the power is below 0.80 at N = 200, use the smallest N in (250, 300) that reaches it, decided at the freeze; if none does, STOP (gate 10)", "reported_scenario": "adequacy when 90% of resolved cases conform, at the split-B unresolved rate (reported, not gated; see PREFLIGHT_PLAN.md)"},
-      "justification": "The brief's orientation reproduces exactly with the existing helper (adequacy at true coverage 0.90: 0.831 at N = 150; exclusion at 0.70: 0.842 at N = 200). Both figures assume no unresolved case. Under the declared unresolved rule adequacy power falls steeply with unresolved cases (0.39 at N = 200 with 5% unresolved), so the adequacy scenario is reported for the user's decision rather than gated."
+      "id": "N_rule",
+      "status": "fixed by the user (2026-09-28): the rule; applied after the pilot, the resulting N awaits final approval",
+      "value": {
+        "input": "the pilot's unresolved rate among qualifying conflict cases, pooled over the four candidate cells, each case resolved under its cell's pilot s_min (declared rule on the pilot's qualifying no-patch runs)",
+        "rule": "N = 200 if the pilot's unresolved rate among conflict cases is at most 2%; otherwise the smallest N in {300, 400, 500} that gives A_T-adequacy power >= 0.80 at the observed unresolved rate (at 90% conformity among resolved cases); if even 500 does not, keep N = 500 and label adequacy as not powered (exclusion must still reach power >= 0.80, else STOP)",
+        "power_model": "exact binomial power with the existing clopper_pearson helper, alpha/4 per tail; unresolved cases occur independently of conformity; adequacy counts them as non-matches, exclusion as matches; exclusion scenario: 70% of resolved cases conform",
+        "implementation": "src/mixing_round1_design.py: n_rule",
+        "open_edge": "At N = 200 exclusion power falls below 0.80 for unresolved rates from about 1.8% to 2% (0.794 at 2%). The rule text makes exclusion power a STOP condition only in the N = 500 branch; a shortfall in the N = 200 branch is flagged for the user, not acted on."
+      },
+      "justification": "Adequacy power falls steeply with unresolved cases under the declared unresolved rule (0.81 at N = 200 with 2% unresolved, 0.39 with 5%); a larger N recovers it up to about 5% unresolved."
     },
     {
       "id": "per_label_tail",
@@ -63,57 +130,126 @@
     },
     {
       "id": "gate_rates",
-      "status": "proposed",
-      "value": {"agreement_transfer_floor": 0.90, "yield_floor": 0.50, "dtype_tolerance_T": 0.01, "dtype_sample_cases": 32},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "agreement_transfer_floor": 0.9,
+        "yield_floor": 0.5,
+        "dtype_tolerance_T": 0.01,
+        "dtype_sample_cases": 32
+      },
       "justification": "Agreement transfer: T_A should describe a response in which all three signals agree; the paper reports consistent answers when two mechanisms are aligned (App. D.1). Yield: with a cap of 2N generated contexts, a yield of at least 0.50 keeps N reachable. dtype: one fifth of the smallest band half-width (0.05), with identical resolution status and argmax labels in every sampled case."
     },
     {
+      "id": "agreement_anchor",
+      "status": "fixed by the user (2026-09-28)",
+      "value": {
+        "T_A": "mean over j in {P, L, R} of (mean over resolved agreement runs with common target j of T(q)), same q-map as the conflict cases",
+        "agreement_resolution_floor": 0.9,
+        "on_failure": "STOP (S1) if fewer than 90% of the agreement-control runs are resolved (S >= s_min)",
+        "implementation": "src/mixing_round1_analysis.py: agreement_anchor, CONTRACT['agreement_resolution_floor']"
+      },
+      "justification": "Equal weights keep a target with fewer resolved runs from weighing less in T_A; the resolution gate keeps T_A from resting on a selected minority of agreement runs."
+    },
+    {
       "id": "task",
-      "status": "proposed",
-      "value": {"schema": "music_performance", "t_entity": 2, "query": "Q:Instrument_Musician A:Genre", "query_entities": [1, 3], "target_category": "Genre"},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "schema": "music_performance",
+        "t_entity": 2,
+        "query": "Q:Instrument_Musician A:Genre",
+        "query_entities": [
+          1,
+          3
+        ],
+        "target_category": "Genre"
+      },
       "justification": "The right panel of the paper's Figure 5 is the music task at t_entity = 2; App. A.1 reports lexical and reflexive balanced at t_entity = 2 on three-entity tasks and fixes the query entities to 1 and 3. On the two-entity boxes task t_entity = 2 is the last entity, where the lexical mechanism dominates."
     },
     {
       "id": "n_groups",
-      "status": "proposed",
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
       "value": 7,
       "justification": "The brief's minimum. The positional mechanism weakens in middle groups as n grows (App. A.3). If development averages at n = 7 are not mixed, no cell reaches d_min and the result is NOT_DECIDABLE_WITH_CURRENT_INTERVENTIONS (S1); raising n is then the user's decision, before split A is drawn."
     },
     {
       "id": "layer",
-      "status": "proposed",
-      "value": {"layer": 18, "convention": "input of decoder block 18, Hugging Face hidden_states[18], as tasks/dist.py:221", "check": "pilot: at layer 18 the patched answer is the donor's answer copy at or below chance; at 19 it is the majority (App. D.2 criterion); otherwise STOP and return to the user"},
-      "justification": "The paper does not print l for gemma-2-2b-it. Figure 2 shows layer 18 with layers 16-18 carrying binding information, the blog places retrieval in layers 19-25, and the notebook uses 18; the command-line default is 17."
+      "status": "fixed by the user (2026-09-28): fixed by declaration",
+      "value": {
+        "layer": 18,
+        "convention": "input of decoder block 18, Hugging Face hidden_states[18], last token only ([-1]), as tasks/dist.py:221",
+        "diagnostic": "the same conflict patch at the input of block 19 is run and reported as a labelled diagnostic (argmax shares and mean q at 18 and 19); it decides nothing and is never a STOP"
+      },
+      "justification": "Fixed by declaration, as in the upstream notebook (layer = 18) and Figure 2. The earlier proposal to gate on an 18 -> 19 answer-copy check is withdrawn: in this conflict design the completed-answer copy (A) and the reflexive pointer (R) predict the same token (Round 0), so the check cannot separate anything. The paper does not print l for gemma-2-2b-it; the command-line default is 17 and the blog places retrieval in layers 19-25."
     },
     {
       "id": "precision_and_attention",
-      "status": "proposed",
-      "value": {"dtype": "bfloat16", "attention_implementation": "eager", "reference_dtype": "float32", "logits_read_as": "float32"},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "dtype": "bfloat16",
+        "attention_implementation": "eager",
+        "reference_dtype": "float32",
+        "logits_read_as": "float32"
+      },
       "justification": "bfloat16 as in the upstream notebook (example.ipynb:152); eager attention because Gemma 2 uses logit soft-capping; the float32 reference serves gate 7."
     },
     {
       "id": "identity_self_patch",
-      "status": "proposed",
-      "value": {"max_abs_entity_logit_difference": 0.001, "also_required": "identical entity argmax and identical greedy generation"},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "max_abs_entity_logit_difference": 0.001,
+        "also_required": "identical entity argmax and identical greedy generation"
+      },
       "justification": "Gate 5: patching a prompt's own activation must reproduce its native output; the bound allows only bfloat16 kernel noise."
     },
     {
       "id": "native_correctness",
-      "status": "proposed",
-      "value": {"generation": "greedy, max_new_tokens 3 (schema value)", "criterion": "the first word of the decoded answer equals the target entity, case-insensitive", "readout_agreement": "the argmax over the n entity logits names the same entity", "agreement_donors": "native correctness recorded, not a population filter"},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "generation": "greedy, max_new_tokens 3 (schema value)",
+        "criterion": "the first word of the decoded new tokens (special tokens skipped; text up to the first whitespace, surrounding punctuation removed) equals the target entity, case-insensitive",
+        "readout_agreement": "the argmax over the n entity logits names the same entity",
+        "agreement_donors": "native correctness recorded, not a population filter"
+      },
       "justification": "Stricter than upstream's substring checker; a case enters only if recipient and donor are both natively correct and the readout agrees with the generation (brief Sec. 5.3)."
     },
     {
       "id": "entity_pools",
-      "status": "proposed",
-      "value": {"rule": "keep only entities that are one token with a leading space in the pinned tokenizer; checked at gate 3 before any sampling", "stop_if": "any category keeps fewer than n + 2 entities"},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "rule": "keep only entities that are one token with a leading space in the pinned tokenizer; checked at gate 3 before any sampling",
+        "stop_if": "any category keeps fewer than n + 2 entities"
+      },
       "justification": "Upstream asserts single-token entities (tasks/dist.py:271-273) instead of filtering; the gated tokenizer could not be checked in this pass."
     },
     {
       "id": "seeds",
-      "status": "proposed",
-      "value": {"pilot": "1000000 + i", "split_A": "2000000 + i", "split_B": "3000000 + i", "confirmation": "4000000 + i", "note": "disjoint blocks; each base context uses random.Random(seed)"},
+      "status": "approved for the pilot only (2026-09-28); final approval pending",
+      "value": {
+        "pilot": "1000000 + i",
+        "split_A": "2000000 + i",
+        "split_B": "3000000 + i",
+        "confirmation": "4000000 + i",
+        "note": "disjoint blocks; each base context uses random.Random(seed)"
+      },
       "justification": "Confirmation uses fresh base contexts from disjoint seeds (brief Sec. 5.7)."
+    },
+    {
+      "id": "pilot",
+      "status": "approved for the pilot on 2026-09-28 (development data only)",
+      "value": {
+        "model": "google/gemma-2-2b-it at 299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8 from the local Hugging Face cache, HF_HUB_OFFLINE=1 and TRANSFORMERS_OFFLINE=1; STOP if the snapshot is incomplete",
+        "families": 80,
+        "seeds": "1000000 + i, i = 0..79 (pilot block, disjoint from split A, split B and confirmation)",
+        "cell_assignment": "family i uses candidate cell c(i mod 4 + 1), 20 families per cell, interleaved",
+        "family": "recipient G = random_matrix(7, single-token pools, Random(seed)); conflict donor target_rebind(G, cell); agreement donors agreement_control(G, j, i_N, same rng) for j in (i_P, i_L, i_R) in that order",
+        "runs_per_family": "recipient unpatched (the no-patch run; greedy 3 tokens), conflict donor unpatched (greedy), conflict patch at 18, three agreement donors unpatched (greedy, recorded not filtered), three agreement patches at 18, identity self-patch at 18 (readout and greedy generation), diagnostic conflict patch at 19",
+        "fp32_reference": "families 0..31 (8 per cell): conflict patch at 18 and the no-patch run, float32 model loaded separately; tolerance |T(bf16) - T(fp32)| <= 0.01 plus identical resolution and labels",
+        "audit_full_logits": "full-vocabulary logits of the conflict patch of families 0..3 (one per cell), stored to recheck the logsumexp readout",
+        "s_min": "the declared rule applied per cell to the pilot's qualifying no-patch runs (descriptive; not frozen)",
+        "device": "MPS if available, else CPU; recorded",
+        "use": "development data: gates, feasibility of the declared values, the unresolved rate for the N rule; never used to estimate the frozen anchors or delta, and nothing else is tuned on it"
+      },
+      "justification": "Authorized by the user on 2026-09-28 to settle the likely STOP causes before split A is drawn."
     }
   ]
 }

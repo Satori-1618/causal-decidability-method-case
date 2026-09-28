@@ -11,7 +11,8 @@ design indices (i_P, i_L, i_R) and the window w:
 Two concentration profiles, fixed on development split B for one cell:
 
     T_W = T(mean_k q_k)                    equal weights over resolved cases (q, not p)
-    T_A = mean over k and j of T(q_k^agree(j)), same q-map
+    T_A = mean over j in {P, L, R} of (mean over resolved agreement runs with common
+          target j of T(q)), same q-map, so P, L and R weigh equally
     d   = T_A - T_W, signed, at least d_min
     W_T-conform: resolved and |T_k - T_W| <= kappa * d
     A_T-conform: resolved and |T_k - T_A| <= kappa * d
@@ -23,9 +24,13 @@ count as non-matches for adequacy and as matches for exclusion. Technical failur
 the run INVALID; they are never unresolved. Intervals are simultaneous Clopper-Pearson
 over the two profiles, alpha/4 per tail, from the repository's existing helper.
 
+User corrections of 2026-09-28: T_A weighs the three common targets equally (above), and
+at least 90% of the agreement-control runs must be resolved, else STOP
+(``agreement_resolution_floor``).
+
 Values the brief leaves open (s_min rule, d_min, delta procedure, gate floors) are
-arguments without defaults here; the proposed values live in PROPOSED_VALUES.json and
-await approval.
+arguments without defaults here; the values live in PROPOSED_VALUES.json (approved for
+the pilot only on 2026-09-28; final approval pending).
 """
 import math
 import random
@@ -42,7 +47,8 @@ from query_route_analysis import clopper_pearson  # noqa: E402  existing helper,
 CP_HELPER_PATH = "applications/makelov-2311.17030/src/query_route_analysis.py"
 ANALYZER_PATH = "applications/gur-arieh-2510.06182/src/mixing_round1_analysis.py"
 
-# Fixed by the brief (Sec. 5.4, 5.5, 5.8, 5.11); not proposals.
+# Fixed by the brief (Sec. 5.4, 5.5, 5.8, 5.11) and, for the agreement-resolution floor,
+# by the user's correction of 2026-09-28; not proposals.
 CONTRACT = {
     "w": 1,
     "kappa": 0.25,
@@ -51,6 +57,7 @@ CONTRACT = {
     "family_size": 2,
     "label_tail": 0.0125,
     "resolution_rate_floor": 0.9,
+    "agreement_resolution_floor": 0.9,
     "unresolved_rule": "non-match for adequacy; match for exclusion",
 }
 PROFILES = ("W_T", "A_T")
@@ -187,31 +194,68 @@ def anchored_s_min(nopatch_supports, quantile, floor):
     return max(upper_order_statistic(nopatch_supports, quantile), floor)
 
 
+AGREEMENT_TARGETS = ("i_P", "i_L", "i_R")
+
+
+def agreement_anchor(agreement_logits, cell, w, s_min):
+    """T_A with P, L and R weighted equally, plus the agreement-control rates.
+
+    ``agreement_logits`` is a list of (case_index, j, logits) with j the common target,
+    one of the cell's i_P, i_L and i_R. T_A is the mean over the three targets of the
+    mean T over resolved runs with that target, so a target with fewer resolved runs
+    does not weigh less (user correction of 2026-09-28). The transfer rate counts runs
+    whose argmax over the n entities is the common target; the resolution rate counts
+    runs with S >= s_min. Both are over all agreement runs given.
+    """
+    targets = {cell[key]: key for key in AGREEMENT_TARGETS}
+    per_target = {key: [] for key in AGREEMENT_TARGETS}
+    runs = {key: 0 for key in AGREEMENT_TARGETS}
+    transfers = resolved = 0
+    for _, j, logits in agreement_logits:
+        if j not in targets:
+            raise ValueError(f"agreement target {j} is not one of the cell's i_P, i_L, i_R")
+        key = targets[j]
+        runs[key] += 1
+        measured = case_measures(logits, cell, w, s_min)
+        p = softmax(logits)
+        transfers += max(range(len(p)), key=p.__getitem__) == j
+        if measured["resolved"]:
+            resolved += 1
+            per_target[key].append(measured["T"])
+    total = len(agreement_logits)
+    means = {key: (math.fsum(v) / len(v) if v else None) for key, v in per_target.items()}
+    missing = [key for key, mean in means.items() if mean is None]
+    return {
+        "T_A": (None if missing else math.fsum(means.values()) / len(means)),
+        "T_A_by_target": means,
+        "missing_targets": missing,
+        "agreement_runs_by_target": runs,
+        "agreement_resolved_by_target": {key: len(v) for key, v in per_target.items()},
+        "agreement_resolved": resolved, "agreement_total": total,
+        "agreement_resolution_rate": resolved / total if total else None,
+        "agreement_transfer_rate": transfers / total if total else None,
+    }
+
+
 def anchors(conflict_logits, agreement_logits, cell, w, s_min):
     """T_W, T_A and d from one split. ``agreement_logits`` is a list of
-    (case_index, j, logits) with j the common target."""
+    (case_index, j, logits) with j the common target (one of i_P, i_L, i_R)."""
     conflict = [case_measures(x, cell, w, s_min) for x in conflict_logits]
     resolved = [c["q"] for c in conflict if c["resolved"]]
     if not resolved:
         raise ValueError("no resolved conflict case: anchors undefined")
     q_bar = [math.fsum(q[i] for q in resolved) / len(resolved) for i in range(3)]
-    agreement, transfers = [], 0
-    for _, j, logits in agreement_logits:
-        measured = case_measures(logits, cell, w, s_min)
-        p = softmax(logits)
-        transfers += max(range(len(p)), key=p.__getitem__) == j
-        if measured["resolved"]:
-            agreement.append(measured["T"])
-    if not agreement:
-        raise ValueError("no resolved agreement case: T_A undefined")
+    agreement = agreement_anchor(agreement_logits, cell, w, s_min)
+    if agreement["T_A"] is None:
+        raise ValueError("no resolved agreement run for target(s) "
+                         f"{', '.join(agreement['missing_targets'])}: T_A undefined")
     t_w = concentration(q_bar)
-    t_a = math.fsum(agreement) / len(agreement)
+    t_a = agreement["T_A"]
     return {
         "T_W": t_w, "T_A": t_a, "d": t_a - t_w, "q_bar": q_bar,
         "m_resolved": len(resolved), "m_total": len(conflict),
         "resolution_rate": len(resolved) / len(conflict),
-        "agreement_resolved": len(agreement), "agreement_total": len(agreement_logits),
-        "agreement_transfer_rate": transfers / len(agreement_logits) if agreement_logits else None,
+        **{k: v for k, v in agreement.items() if k not in ("T_A", "missing_targets")},
     }
 
 
@@ -296,6 +340,9 @@ def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_m
                 "reason": "support resolution rate on split B below 0.90 (population STOP)"}
     anchor = anchors(b["conflict"], b["agreement"], cell, w, s_min)
     result["anchors"] = anchor
+    if anchor["agreement_resolution_rate"] < CONTRACT["agreement_resolution_floor"]:
+        return {**result, "status": "STOP", "level": "S1",
+                "reason": "fewer than 90% of agreement-control runs on split B are resolved"}
     if anchor["agreement_transfer_rate"] < agreement_transfer_floor:
         return {**result, "status": "STOP", "level": "S1",
                 "reason": "agreement control did not move the answer at the declared rate"}
@@ -312,6 +359,7 @@ def development_decision(split_a, split_b, candidates, *, n, s_min_quantile, s_m
         "mean_gate": {"delta": delta, "false_invalid_rate": false_invalid_rate,
                       "resamples": resamples, "seed": seed, "N": N},
         "development_gates": {"resolution_rate_B": rate,
+                              "agreement_resolution_rate_B": anchor["agreement_resolution_rate"],
                               "agreement_transfer_rate_B": anchor["agreement_transfer_rate"]},
     }
     return {**result, "status": "PROCEED"}
@@ -364,6 +412,9 @@ def _validated_manifest(manifest):
         raise ValueError("manifest.development_gates missing")
     if _finite(development.get("resolution_rate_B"), "resolution_rate_B") < CONTRACT["resolution_rate_floor"]:
         raise ValueError("frozen development resolution rate is below 0.90")
+    if (_finite(development.get("agreement_resolution_rate_B"), "agreement_resolution_rate_B")
+            < CONTRACT["agreement_resolution_floor"]):
+        raise ValueError("frozen agreement-control resolution rate is below 0.90")
     if (_finite(development.get("agreement_transfer_rate_B"), "agreement_transfer_rate_B")
             < _finite(rule.get("agreement_transfer_floor"), "agreement_transfer_floor")):
         raise ValueError("frozen agreement-control transfer rate is below its floor")
@@ -450,7 +501,7 @@ def analyze_confirmation(manifest, records):
     i_R, i_N), ``N``, ``rule`` (the CONTRACT plus s_min, d_min and
     agreement_transfer_floor), ``anchors`` (T_W, T_A, d, q_bar_B, m_B), ``mean_gate``
     (delta and how it was drawn) and ``development_gates`` (resolution_rate_B,
-    agreement_transfer_rate_B).
+    agreement_resolution_rate_B, agreement_transfer_rate_B).
 
     Records, one per generated base context, in generation order::
 

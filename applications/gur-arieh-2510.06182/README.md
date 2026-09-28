@@ -37,11 +37,14 @@ the model's mechanism.
   S2, the loop ran completely on fresh cases under a frozen rule; S3, S2 and at least
   one declared profile was excluded (always named).
 
-**First pass (this branch so far):** sources and scope, Round 0, the Round 1 analyzer
-and checker with synthetic tests, and a preflight plan whose numerical values are
-proposals awaiting approval. No model weights were downloaded and no model was run.
-Model runs need the user's approval of the proposed values, acceptance of the Gemma
-licence by the user, and explicit authorization.
+**First pass:** sources and scope, Round 0, the Round 1 analyzer and checker with
+synthetic tests, and a preflight plan. No model was run in the first pass.
+
+**Status (28 September 2026):** the user approved three protocol corrections (layer 18
+fixed by declaration, the s_min wording, an equal-weight agreement anchor with a 90%
+resolution gate), recorded the N rule, and approved the value table for a development
+pilot only, on the locally cached model. Final approval of the table, splits A and B,
+the freeze and the confirmation are not yet authorized.
 
 ## Files
 
@@ -56,9 +59,8 @@ licence by the user, and explicit authorization.
 | [src/mixing_round1_analysis.py](src/mixing_round1_analysis.py) | Round 1 analyzer: q-map, the declared unresolved rule, mean-consistency gate, between-case check, development gates; reuses the existing `clopper_pearson` helper |
 | [scripts/check_mixing_round1_records.py](scripts/check_mixing_round1_records.py) | records-only checker: recomputes every status, gate, the level and the between-case decision from the frozen manifest and raw records; imports no runner |
 | [src/mixing_synthetic_worlds.py](src/mixing_synthetic_worlds.py), [results/synthetic_worlds/worlds.json](results/synthetic_worlds/worlds.json) | the six synthetic worlds (analyzer verification only, not evidence; `scripts/run_synthetic_worlds.py --check`) |
-
-| [PREFLIGHT_PLAN.md](PREFLIGHT_PLAN.md), [PROPOSED_VALUES.json](PROPOSED_VALUES.json) | Round 1 preflight and development plan with the one table of proposed values (**awaiting approval**), gates, power, active STOP conditions and the authorizations still needed |
-| [src/mixing_round1_design.py](src/mixing_round1_design.py) | design-index checker, the conflict case of a fixed cell, the three-way agreement control, and exact power; no model |
+| [PREFLIGHT_PLAN.md](PREFLIGHT_PLAN.md), [PROPOSED_VALUES.json](PROPOSED_VALUES.json) | Round 1 preflight and development plan with the one table of values (**approved for the pilot only; final approval pending**), the corrections of 28 September 2026, the N rule, gates, power and the authorizations still needed |
+| [src/mixing_round1_design.py](src/mixing_round1_design.py) | design-index checker, the conflict case of a fixed cell, the three-way agreement control, exact power and the N rule; no model |
 
 Tests live with the repository's other tests: `tests/test_mixing_*.py` and
 `tests/test_check_mixing_round1_records.py`.

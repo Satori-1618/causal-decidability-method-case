@@ -30,6 +30,7 @@ from query_route_analysis import clopper_pearson  # noqa: E402
 REQUIRED_FILES = {"manifest.json", "records.jsonl", "summary.json", "RUN_STARTED.json"}
 CONTRACT = {"w": 1, "kappa": 0.25, "coverage": 0.8, "alpha": 0.05, "family_size": 2,
             "label_tail": 0.0125, "resolution_rate_floor": 0.9,
+            "agreement_resolution_floor": 0.9,
             "unresolved_rule": "non-match for adequacy; match for exclusion"}
 LABELS = ("positional", "lexical", "reflexive")
 TOLERANCE = 1e-12
@@ -132,6 +133,9 @@ def recompute(manifest, records):
     gates = manifest["development_gates"]
     require(number(gates["resolution_rate_B"], "resolution rate") >= CONTRACT["resolution_rate_floor"],
             "frozen development resolution rate below 0.90")
+    require(number(gates["agreement_resolution_rate_B"], "agreement resolution rate")
+            >= CONTRACT["agreement_resolution_floor"],
+            "frozen agreement-control resolution rate below 0.90")
     require(number(gates["agreement_transfer_rate_B"], "transfer rate")
             >= number(rule["agreement_transfer_floor"], "transfer floor"),
             "frozen agreement transfer rate below its floor")

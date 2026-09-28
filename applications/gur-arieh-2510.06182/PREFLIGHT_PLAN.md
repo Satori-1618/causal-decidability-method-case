@@ -1,10 +1,34 @@
-# Round 1 preflight and development plan (PROPOSED)
+# Round 1 preflight and development plan
 
-**Status: proposed, awaiting approval.** Nothing in this plan is frozen, no model weights
-were downloaded and no model was run. Every value the brief leaves open is listed once,
-in the table below, with its justification. The same values are in
-[PROPOSED_VALUES.json](PROPOSED_VALUES.json). Model runs start only after the user
-approves these values, accepts the Gemma licence and authorizes the runs.
+**Status: approved for the pilot only (28 September 2026); final approval pending.**
+The user approved three protocol corrections, recorded the N rule, and approved the
+value table below *for the pilot only* (task music performance, t_entity = 2, n = 7, the
+four candidate cells, layer 18, d_min = 0.20, bfloat16 with eager attention and a
+float32 reference). Final approval of the full table happens after the pilot report.
+Nothing in this plan is frozen. Split A, split B, the freeze and the confirmation are not
+authorized. Every value the brief leaves open is listed once, in the table below, with
+its justification; the same values are in [PROPOSED_VALUES.json](PROPOSED_VALUES.json).
+
+### Corrections of 28 September 2026
+
+1. **Layer.** The study site is fixed by declaration: the residual stream entering
+   decoder block 18 (Hugging Face `hidden_states[18]`), last token only, as upstream
+   `tasks/dist.py:221`. The earlier 18 → 19 "answer copy" check is removed as a gate. In
+   this conflict design the completed-answer copy (A) and the reflexive pointer (R)
+   predict the same token (Round 0's own result), so the check cannot separate anything.
+   A comparison of layers 18 and 19 is kept only as a labelled diagnostic and is never a
+   STOP.
+2. **s_min wording.** With 50 no-patch runs the upper order statistic at 0.99 is simply
+   their maximum. The earlier sentence "at most 1% of unpatched runs would count as
+   resolved" was wrong. The correct property: for a new no-patch run that is
+   exchangeable with the m runs (and without ties), the chance that its S reaches the
+   maximum of the m runs is 1/(m + 1), about 2% at m = 50; since s_min is at least that
+   maximum, the chance that a new unpatched run counts as resolved is at most 1/(m + 1).
+3. **Agreement anchor.** P, L and R weigh equally:
+   T_A,c = mean over j ∈ {P, L, R} of (mean over resolved agreement runs with common
+   target j of T(q)). New gate: at least 90% of the agreement-control runs must be
+   resolved, else STOP.
+4. **N rule** (applied after the pilot, recorded now; see below).
 
 ## What Round 1 asks, in plain words
 
@@ -20,13 +44,13 @@ a mechanism.
 ## Setting
 
 - **Model:** `google/gemma-2-2b-it` at revision `299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8`
-  (from metadata; not declared upstream). Model and tokenizer hashes are recorded at
-  gate 1.
+  (from metadata; not declared upstream), loaded offline from the local Hugging Face
+  cache. Model and tokenizer hashes are recorded at gate 1.
 - **Task:** music performance, target entity 2 of 3 (the genre); the question names the
   musician and the instrument ("What music did {Musician} play on the {Instrument}?").
 - **Groups:** n = 7; middle positional index (0-based 3).
-- **Patch:** the residual stream entering decoder block ℓ, last token only (`[-1]`), from
-  donor to recipient; ℓ proposed as 18.
+- **Patch:** the residual stream entering decoder block 18 (`hidden_states[18]`), last
+  token only (`[-1]`), from donor to recipient. Fixed by declaration.
 - **Readout:** logits at the last position for the n in-context genre tokens; p is their
   softmax. With the window w = 1 around i_P:
   S = window mass + p[i_L] + p[i_R]; q = (window mass, p[i_L], p[i_R]) / S; T = max(q).
@@ -35,10 +59,10 @@ a mechanism.
 
 ## How cases are built
 
-The runner, written after authorization, renders prompts from the upstream schema
-templates through the adapter; it does not import `tasks/dist.py`, which cannot be
-imported at `c53372c` (see [SOURCES.md](SOURCES.md)). The index logic below is already
-implemented and tested in `src/mixing_round1_design.py`, without any model.
+The model runner (added in the next commit) renders prompts from the upstream schema
+through the adapter, which reads `grammar/schemas.py` from the pinned clone; it does not
+import `tasks/dist.py`, which cannot be imported at `c53372c` (see
+[SOURCES.md](SOURCES.md)). The index logic is in `src/mixing_round1_design.py`.
 
 - **Conflict case (one per fresh base context).** Draw a recipient binding matrix G with
   seven distinct musicians, genres and instruments. The recipient asks about group i_N.
@@ -68,19 +92,21 @@ status.
 
 ## Development
 
-1. **Optional early pilot (advice, needs its own authorization).** About 20 base
-   contexts per candidate cell on disjoint seeds, run at ℓ and ℓ+1. It settles the three
-   likely STOP causes early: whether cell averages are mixed at n = 7, what S looks like,
-   and whether T agrees between bfloat16 and float32. Pilot cases are never reused. A
-   pilot can stop the plan or send a question back to the user; it does not tune κ, the
-   coverage requirement or the candidates.
-2. **Split A** (50 qualifying cases per candidate cell). Fix s_min per cell from its
-   no-patch runs; estimate d = T_A − T_W for each cell; select the cell with the largest
-   d, ties by declared order. If no cell reaches d_min: `NOT_DECIDABLE_WITH_CURRENT_INTERVENTIONS`, S1.
-3. **Split B** (200 qualifying cases, selected cell only). Resolution rate under the
-   frozen s_min (STOP below 0.90); T_W = T(mean of q) with equal weights; T_A = mean of
-   T over cases and the three agreement targets; d must reach d_min; δ is resampled from
-   B's resolved q-vectors.
+1. **Pilot (authorized 28 September 2026).** 80 base contexts, 20 per candidate cell,
+   seeds 1,000,000 + i, on the cached model only. It reports the gates, the unresolved
+   rate for the N rule and descriptive anchors per cell, and runs the 18 vs 19
+   diagnostic. Pilot data are development data: they are never used to estimate the
+   frozen anchors or δ, and nothing is tuned on them except what this plan declares (N by
+   the rule below; confirming that declared values are feasible). The full pilot
+   specification is the `pilot` entry of [PROPOSED_VALUES.json](PROPOSED_VALUES.json).
+2. **Split A** (50 qualifying cases per candidate cell; not yet authorized). Fix s_min
+   per cell from its no-patch runs; estimate d = T_A − T_W for each cell; select the cell
+   with the largest d, ties by declared order. If no cell reaches d_min:
+   `NOT_DECIDABLE_WITH_CURRENT_INTERVENTIONS`, S1.
+3. **Split B** (200 qualifying cases, selected cell only; not yet authorized). Resolution
+   rate under the frozen s_min (STOP below 0.90); T_W = T(mean of q) with equal weights;
+   T_A with P, L and R weighted equally; at least 90% of agreement runs resolved (else
+   STOP); d must reach d_min; δ is resampled from B's resolved q-vectors.
 4. **Freeze** the selected cell, T_W, T_A, d, w, s_min, δ, κ, the coverage and
    unresolved rules, the gates, seeds, N, model and code hashes, the runner and the
    checker. The checker (`scripts/check_mixing_round1_records.py`) is already committed.
@@ -88,49 +114,68 @@ status.
 
 ## Gates, before any interpretive patch
 
-| # | gate | proposed criterion | on failure |
+| # | gate | criterion | on failure |
 |---|---|---|---|
-| 1 | model pinned | revision above; sha256 of weight and tokenizer files recorded after licence acceptance | STOP |
+| 1 | model pinned | revision above; sha256 of weight and tokenizer files recorded from the local snapshot and matched to the cache's content addresses | STOP |
 | 2 | native competence and yield | yield ≥ 0.50 per split; native accuracy per position group reported | STOP if N is unreachable |
 | 3 | token alignment | every entity used is one token with a leading space; entity positions located by design, not by string search | STOP if a category keeps fewer than n + 2 entities |
-| 4 | hooks | exactly one write per patched forward, at block ℓ, last position; tensor shapes as expected | technical failure (INVALID) |
+| 4 | hooks | exactly one write per patched forward, at block 18, last position; tensor shapes as expected | technical failure (INVALID) |
 | 5 | identity self-patch | entity logits within 0.001, same argmax, same greedy generation | STOP |
-| 6 | agreement control | on split B, ≥ 90% of agreement runs put the entity argmax on the common target | STOP |
+| 6a | agreement transfer | on split B, ≥ 90% of agreement runs put the entity argmax on the common target | STOP |
+| 6b | agreement resolution | on split B, ≥ 90% of agreement runs are resolved (S ≥ s_min) | STOP |
 | 7 | precision | on 32 development cases, \|T(bf16) − T(fp32)\| ≤ 0.01 and identical resolution and labels | STOP |
 | 8 | support | resolution rate on split B ≥ 0.90 (fixed by the brief) | STOP (population) |
 | 9 | separation | d ≥ d_min on split B; some candidate reaches d_min on split A | STOP / NOT_DECIDABLE (S1) |
-| 10 | power | exclusion power ≥ 0.80 at the split-B unresolved rate for N in (200, 250, 300) | STOP |
-| — | layer check (pilot) | at ℓ the donor's answer copy at or below chance, at ℓ+1 the majority | STOP, return to the user |
+| 10 | power | the N rule below | STOP only as the rule states |
+| — | 18 vs 19 (diagnostic) | argmax shares and mean q of the conflict patch at blocks 18 and 19, reported | never a STOP |
 | — | mean consistency (confirmation) | ‖q̄_B − q̄_conf‖∞ ≤ δ | INVALID ("stale anchor") |
 
 Every STOP is a valid result (S1).
 
-## The one table of proposed values
+## The N rule (recorded before the pilot)
 
-Items marked *brief* are fixed by the brief and restated for completeness. All others are
-proposals awaiting approval.
+N = 200 if the pilot's unresolved rate among conflict cases is at most 2%; otherwise the
+smallest N in {300, 400, 500} that gives A_T-adequacy power ≥ 0.80 at the observed
+unresolved rate (at 90% conformity among resolved cases); if even 500 does not, keep
+N = 500 and label adequacy as not powered (exclusion must still reach power ≥ 0.80, else
+STOP). The rate is taken over the pilot's qualifying conflict cases, pooled over the four
+cells, each resolved under its cell's pilot s_min. The rule is implemented as
+`n_rule` in `src/mixing_round1_design.py`. The resulting N awaits the user's final
+approval.
 
-| value | proposal | justification |
+**Open edge, flagged, not acted on.** At N = 200 exclusion power (70% of resolved cases
+conform) drops below 0.80 for unresolved rates from about 1.8% to 2% (0.794 at 2%). The
+rule text makes exclusion power a STOP only in the N = 500 branch. If the pilot's rate
+falls in that band, the report says so and the user decides.
+
+## The one table of values
+
+Items marked *brief* are fixed by the brief, items marked *user* by the user's
+corrections of 28 September 2026. All others are approved for the pilot only.
+
+| value | value | justification |
 |---|---|---|
 | w | **1** (*brief*) | Fixed before any data; the paper reports positional predictions spread near i_P. |
-| s_min rule | **max(Q, 0.10)**, Q = upper order statistic at 0.99 of S over the cell's no-patch runs on split A | Anchored to no-patch runs: at most 1% of unpatched runs would count as resolved. The floor makes a resolved case put at least 10% of entity mass on the three candidates, so q is not a ratio of tiny masses. |
+| s_min rule | **max(Q, 0.10)**, Q = upper order statistic at 0.99 of S over the cell's no-patch runs (qualifying cases) on split A | With m ≤ 100 runs Q is their maximum. For an exchangeable new no-patch run, P(S reaches the maximum of m runs) = 1/(m + 1), about 2% at m = 50, so at most that share of new unpatched runs would count as resolved (*user* wording correction). The floor makes a resolved case put at least 10% of entity mass on the three candidates. |
 | d_min | **0.20** | Band half-width κ·d ≥ 0.05 on the T scale (1/3 to 1): five times the dtype tolerance and above the ≈ 0.02 sampling error of T_W from 200 cases. |
 | δ procedure | source **split B** (resolved q-vectors, selected cell); resample sizes m = resolved B cases and N; **10,000** resample pairs; seed **251006182**; δ = upper order statistic at 0.95 of the sup-norm difference of means | As in the brief. A passed gate also bounds \|T(q̄_conf) − T_W\| by δ, because max is 1-Lipschitz in the sup-norm. |
 | false-INVALID rate | **0.05** | One drift-free confirmation in twenty would be declared stale. If fewer than N cases resolve, the realized rate is higher (conservative toward INVALID). |
 | candidate cells (≤ 5) | **c1** (i_P 3, i_L 1, i_R 5, i_N 0), **c2** (3, 5, 1, 0), **c3** (3, 1, 5, 6), **c4** (3, 5, 1, 6); tie-break c1 → c4 | Middle i_P; lexical and reflexive at the nearest admissible distance on opposite sides, outside the window and not adjacent to each other; native answer at an end group for yield; mirror images of one layout. At n = 7 two of i_L, i_R, i_N are always adjacent. |
-| sizes of A and B | **A: 50 per candidate cell (200); B: 200** qualifying cases; cap 2× per split | A only ranks four cells; B fixes the anchors (SE of T_W ≈ 0.02) and supplies δ at m = N = 200. |
-| N and target power | **N = 200**; declared power **0.80** for exclusion when 70% of resolved cases conform, at the split-B unresolved rate; else the smallest of 250, 300 that reaches it; else STOP | The brief's orientation reproduces exactly (0.831 adequacy at N = 150; 0.842 exclusion at N = 200). Adequacy power is reported, not gated, because unresolved cases lower it steeply (table below). |
+| sizes of A and B | **A: 50 per candidate cell (200); B: 200** qualifying cases; cap 2× per split | A only ranks four cells; B fixes the anchors (SE of T_W ≈ 0.02) and supplies δ. |
+| N | **the N rule above** (*user*); target power 0.80 | See above; the brief's orientation reproduces exactly (0.831 adequacy at N = 150; 0.842 exclusion at N = 200). |
+| T_A | **mean over j ∈ {P, L, R} of the mean T over resolved agreement runs with target j** (*user*) | Equal weights keep a target with fewer resolved runs from weighing less. |
+| agreement resolution | **≥ 0.90** of agreement runs resolved (*user*) | T_A must not rest on a selected minority of agreement runs. |
 | per-label tail | **0.0125** (*brief*) | α/4, as for the profile intervals. |
 | agreement-control transfer | **≥ 0.90** of split-B agreement runs with argmax on the common target | T_A must describe a response in which the three signals agree; the paper reports consistent answers under two-way alignment (App. D.1). |
 | yield floor | **≥ 0.50** | With a cap of 2N generated contexts, N stays reachable. |
 | dtype tolerance | **\|ΔT\| ≤ 0.01** on **32** development cases, plus identical resolution and labels | One fifth of the smallest band half-width. |
 | task | **music performance, t_entity = 2** (genre; query names musician and instrument) | Figure 5 (right) is the music task at t_entity = 2; App. A.1 reports lexical and reflexive balanced there. On boxes, t_entity = 2 is the last entity and the lexical mechanism dominates. |
 | n | **7** | The brief's minimum. If averages are not mixed, the result is NOT_DECIDABLE (S1); a larger n is then the user's decision, before split A. |
-| layer ℓ | **18** (input of block 18, `hidden_states[18]`), checked in the pilot by the paper's D.2 criterion | Not printed in the paper; Figure 2 and the notebook use 18, the blog places retrieval at 19–25; the command-line default is 17. |
+| layer ℓ | **18** (input of block 18, `hidden_states[18]`), fixed by declaration (*user*); 19 only as a diagnostic | As upstream's notebook and Figure 2. The paper does not print ℓ for gemma-2-2b-it; the command-line default is 17. |
 | precision, attention | **bfloat16**, **eager** attention, logits read in float32; float32 reference for gate 7 | As in the upstream notebook; eager because Gemma 2 soft-caps attention logits. |
 | identity self-patch | **\|Δ logit\| ≤ 0.001**, same argmax and same greedy generation | Gate 5; allows only bfloat16 kernel noise. |
 | native correctness | greedy, 3 new tokens; **first word equals the target**; readout argmax agrees; agreement donors recorded, not filtered | Stricter than upstream's substring checker. |
-| entity pools | **single-token entities only**, checked on the pinned tokenizer before sampling; STOP if a category keeps fewer than n + 2 | Upstream asserts rather than filters; the gated tokenizer could not be checked in this pass. |
+| entity pools | **single-token entities only**, checked on the pinned tokenizer before sampling; STOP if a category keeps fewer than n + 2 | Upstream asserts rather than filters. |
 | seeds | disjoint blocks: pilot 1,000,000 + i; A 2,000,000 + i; B 3,000,000 + i; confirmation 4,000,000 + i | Fresh base contexts from disjoint seeds for confirmation. |
 
 ## Power, and why the unresolved rate matters
@@ -143,18 +188,18 @@ is the share of *resolved* cases that conform and unresolved cases occur indepen
 |---|---|---|---|
 | 150 | 0% | 0.831 | 0.731 |
 | 200 | 0% | 0.957 | 0.842 |
-| 200 | 1% | 0.90 | 0.82 |
-| 200 | 2% | 0.81 | 0.79 |
-| 200 | 5% | 0.39 | 0.71 |
-| 200 | 10% | 0.03 | 0.53 |
-| 250 | 5% | 0.45 | 0.79 |
-| 300 | 5% | 0.57 | 0.88 |
+| 200 | 1% | 0.899 | 0.819 |
+| 200 | 2% | 0.806 | 0.794 |
+| 200 | 5% | 0.390 | 0.705 |
+| 300 | 2.5% | 0.911 | 0.925 |
+| 400 | 4% | 0.850 | 0.969 |
+| 500 | 5% | 0.814 | 0.986 |
+| 500 | 6% | 0.627 | 0.980 |
+| 500 | 10% | 0.036 | 0.929 |
 
 The brief's orientation figures are the 0% rows and reproduce exactly. The resolution
-gate allows up to 10% unresolved cases; at that rate adequacy is practically out of
-reach and exclusion power drops to about 0.5. **Decision for the user:** accept that
-adequacy is reported but not powered when unresolved cases are more than about 2%, or
-tighten the resolution requirement. The plan does not change the brief's rule on its own.
+gate allows up to 10% unresolved cases; the N rule recovers adequacy power up to about
+5% unresolved, and above that adequacy is reported as not powered.
 
 ## Orientation from the blog (not used for any value)
 
@@ -167,29 +212,26 @@ suggests mixed averages at n = 7, but it is a mean of p, weighted by support, an
 the q-mean that T_W uses. The candidate at index 1 may carry little mass; the
 development data decide.
 
-## Active STOP conditions
+## Active STOP conditions before the pilot
 
-- Gate 1: model and tokenizer hashes are not recorded (licence not accepted). Blocking
-  for every model run.
-- Gate 3: single-token status of the entities is unverified (gated tokenizer).
-- Layer check: ℓ = 18 is inferred, not printed in the paper.
-- Gates 2 and 5–10 and the mean-consistency gate: armed, untested until data exist.
-- Power: armed, and sensitive to the unresolved rate (above).
+- Gates 1–3: checked by the pilot (model hashes from the local snapshot, the rendered
+  chat template, single-token pools).
+- Gates 4–8: checked for feasibility by the pilot; the binding checks are on split B.
+- Gate 9 and the N rule: the pilot gives descriptive anchors and the unresolved rate;
+  the binding decisions are on splits A and B.
 - Openness check: no STOP (no case-level test found).
 
-## Authorizations still needed
+The pilot's results and the STOP conditions still active after it will be in
+`results/pilot/PILOT_REPORT.md`.
 
-1. Approval of, or changes to, the proposed values above.
-2. The user accepts the Gemma licence on Hugging Face (only the user can do this) and
-   makes access available in their own environment; no token passes through this work.
-3. Download of the model and tokenizer at the pinned revision (about 5.2 GB).
-4. Installation of a pinned model-run environment outside the repository (proposed:
-   `torch==2.5.1`, `transformers==4.57.3`, as in the Makelov application; to be
-   confirmed, with Gemma 2 support checked).
-5. Model runs, in order: the optional pilot, then splits A and B, then the freeze, then
-   confirmation.
-6. Whether to timestamp the freeze externally, as the application guide recommends.
-7. Any push of this branch.
+## Authorizations still needed after the pilot
+
+1. Final approval of, or changes to, the value table, including the N that the rule
+   gives.
+2. Drawing split A and split B (model runs).
+3. The freeze, then the confirmation run.
+4. Whether to timestamp the freeze externally, as the application guide recommends.
+5. Any push of this branch.
 
 ## What Round 1 will leave open
 

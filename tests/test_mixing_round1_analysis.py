@@ -37,7 +37,8 @@ def manifest(N, t_w=0.45, t_a=0.97, q_bar=(0.45, 0.30, 0.25), delta=1.0):
         "rule": {**ra.CONTRACT, "s_min": 0.10, "d_min": 0.20, "agreement_transfer_floor": 0.9},
         "anchors": {"T_W": max(q_bar), "T_A": t_a, "d": t_a - max(q_bar), "q_bar_B": list(q_bar), "m_B": 100},
         "mean_gate": {"delta": delta},
-        "development_gates": {"resolution_rate_B": 0.95, "agreement_transfer_rate_B": 0.95},
+        "development_gates": {"resolution_rate_B": 0.95, "agreement_resolution_rate_B": 0.95,
+                              "agreement_transfer_rate_B": 0.95},
     }
 
 
@@ -59,7 +60,9 @@ class SupportWeightingTrapTest(unittest.TestCase):
     def test_anchor_is_concentration_of_mean_q_not_of_mean_p(self):
         strong_positional = distribution(0.9, 0.0, 0.0, 0.1)
         weak_lexical = distribution(0.0, 0.1, 0.0, 0.9)
-        agreement = [(0, CELL["i_P"], logits_from(distribution(0.97, 0.0, 0.0, 0.03)))]
+        agreement = [(0, CELL["i_P"], logits_from(distribution(0.97, 0.0, 0.0, 0.03))),
+                     (0, CELL["i_L"], logits_from(distribution(0.0, 0.97, 0.0, 0.03))),
+                     (0, CELL["i_R"], logits_from(distribution(0.0, 0.0, 0.97, 0.03)))]
         result = ra.anchors([logits_from(strong_positional), logits_from(weak_lexical)],
                             agreement, CELL, 1, s_min=0.05)
         self.assertAlmostEqual(result["T_W"], 0.5, places=4)
@@ -165,6 +168,67 @@ class ContractAndDesignTests(unittest.TestCase):
         self.assertEqual(ra.level("VALID", {"W_T": "excluded", "A_T": "excluded"}), "S3 (both excluded)")
         self.assertEqual(ra.level("VALID", {"W_T": "adequate", "A_T": "undecided"}), "S2")
         self.assertEqual(ra.level("INVALID", {"W_T": "INVALID", "A_T": "INVALID"}), "S1")
+
+
+class AgreementAnchorTests(unittest.TestCase):
+    """User correction of 2026-09-28: P, L and R weigh equally in T_A, and at least 90%
+    of the agreement-control runs must be resolved."""
+
+    @staticmethod
+    def agreement(j, concentrated):
+        """All mass near the common target j; with ``concentrated`` False the q-vector
+        is split 0.6/0.4 between j's candidate slot and another candidate."""
+        if concentrated:
+            masses = {j: 0.97}
+        else:
+            other = CELL["i_R"] if j != CELL["i_R"] else CELL["i_L"]
+            masses = {j: 0.582, other: 0.388}
+        p = [1e-6] * N_GROUPS
+        for index, mass in masses.items():
+            p[index] += mass
+        p[CELL["i_N"]] += 0.03
+        total = math.fsum(p)
+        return logits_from([x / total for x in p])
+
+    def test_targets_weigh_equally_whatever_their_run_counts(self):
+        runs = ([(k, CELL["i_P"], self.agreement(CELL["i_P"], True)) for k in range(6)]
+                + [(6, CELL["i_L"], self.agreement(CELL["i_L"], False)),
+                   (7, CELL["i_R"], self.agreement(CELL["i_R"], False))])
+        result = ra.agreement_anchor(runs, CELL, 1, s_min=0.10)
+        by_target = result["T_A_by_target"]
+        self.assertAlmostEqual(result["T_A"], math.fsum(by_target.values()) / 3, places=12)
+        pooled = math.fsum([by_target["i_P"]] * 6 + [by_target["i_L"], by_target["i_R"]]) / 8
+        self.assertGreater(pooled - result["T_A"], 0.05)
+        self.assertEqual(result["agreement_runs_by_target"], {"i_P": 6, "i_L": 1, "i_R": 1})
+
+    def test_a_target_without_a_resolved_run_leaves_T_A_undefined(self):
+        runs = [(k, CELL["i_P"], self.agreement(CELL["i_P"], True)) for k in range(3)]
+        runs.append((3, CELL["i_L"], self.agreement(CELL["i_L"], True)))
+        with self.assertRaisesRegex(ValueError, "i_R"):
+            ra.anchors([logits_from(W_LIKE)], runs, CELL, 1, s_min=0.10)
+        with self.assertRaisesRegex(ValueError, "not one of"):
+            ra.agreement_anchor([(0, CELL["i_N"], logits_from(W_LIKE))], CELL, 1, 0.10)
+
+    def test_agreement_resolution_below_ninety_percent_stops(self):
+        import mixing_synthetic_worlds as worlds
+        rng = __import__("random").Random(5)
+        split = worlds.development_split("w_inside", 60, rng)
+        unresolved = logits_from(UNRESOLVED)
+        split["agreement"] = [(k, j, unresolved if k % 5 == 0 else x)
+                              for k, j, x in split["agreement"]]
+        decision = ra.development_decision(
+            {"c1": split}, {"c1": split}, [("c1", CELL)], n=N_GROUPS, s_min_quantile=0.99,
+            s_min_floor=0.10, d_min=0.20, agreement_transfer_floor=0.0, N=200,
+            false_invalid_rate=0.05, resamples=50, seed=1)
+        self.assertEqual((decision["status"], decision["level"]), ("STOP", "S1"))
+        self.assertIn("agreement-control runs", decision["reason"])
+        self.assertAlmostEqual(decision["anchors"]["agreement_resolution_rate"], 0.8)
+
+    def test_frozen_agreement_resolution_below_the_floor_is_refused(self):
+        bad = manifest(20)
+        bad["development_gates"]["agreement_resolution_rate_B"] = 0.89
+        with self.assertRaisesRegex(ValueError, "agreement-control resolution"):
+            ra.analyze_confirmation(bad, [record(i, W_LIKE) for i in range(20)])
 
 
 class LabelAndSelectionTests(unittest.TestCase):

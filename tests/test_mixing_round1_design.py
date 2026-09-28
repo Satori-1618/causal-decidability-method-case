@@ -70,10 +70,35 @@ class DesignIndexCheckerTests(unittest.TestCase):
 
 
 class ProposedValuesTests(unittest.TestCase):
-    def test_everything_is_a_proposal_awaiting_approval(self):
-        self.assertIn("awaiting", PROPOSED["status"])
+    def test_approved_for_the_pilot_only_and_final_approval_pending(self):
+        self.assertIn("PILOT ONLY", PROPOSED["status"])
         self.assertFalse(PROPOSED["approved"])
-        self.assertTrue(all(p["status"] in ("proposed", "fixed by the brief") for p in PROPOSED["proposals"]))
+        self.assertTrue(PROPOSED["approved_for_pilot"])
+        self.assertEqual(PROPOSED["approved_for_pilot_on"], "2026-09-28")
+        self.assertIn("pending", PROPOSED["final_approval"])
+        allowed = ("fixed by the brief", "fixed by the user (2026-09-28)",
+                   "approved for the pilot only (2026-09-28); final approval pending",
+                   "approved for the pilot on 2026-09-28")
+        self.assertTrue(all(p["status"].startswith(allowed) for p in PROPOSED["proposals"]))
+
+    def test_layer_is_fixed_by_declaration_and_19_is_only_a_diagnostic(self):
+        layer = proposal("layer")
+        self.assertIn("fixed by declaration", layer["status"])
+        self.assertEqual(layer["value"]["layer"], 18)
+        self.assertIn("never a STOP", layer["value"]["diagnostic"])
+        self.assertNotIn("check", layer["value"])
+
+    def test_s_min_wording_states_the_order_statistic_property(self):
+        text = proposal("s_min_rule")["justification"]
+        self.assertIn("1/(m + 1)", text)
+        self.assertNotIn("at most 1% of unpatched runs", text)
+        ra_values = [i / 1000 for i in range(50)]
+        self.assertEqual(ra.upper_order_statistic(ra_values, 0.99), max(ra_values))
+
+    def test_agreement_anchor_and_its_gate_match_the_analyzer(self):
+        entry = proposal("agreement_anchor")
+        self.assertEqual(entry["value"]["agreement_resolution_floor"], ra.CONTRACT["agreement_resolution_floor"])
+        self.assertIn("mean over j in {P, L, R}", entry["value"]["T_A"])
 
     def test_values_fixed_by_the_brief_match_the_analyzer_contract(self):
         self.assertEqual(proposal("w")["value"], ra.CONTRACT["w"])
@@ -97,8 +122,25 @@ class ProposedValuesTests(unittest.TestCase):
     def test_power_orientation_of_the_brief_reproduces(self):
         self.assertAlmostEqual(design.power(150, 0.90)["adequate"], 0.831, places=3)
         self.assertAlmostEqual(design.power(200, 0.70)["excluded"], 0.842, places=3)
-        n_power = proposal("N_and_power")["value"]
-        self.assertGreaterEqual(design.power(n_power["N"], 0.70)["excluded"], n_power["declared_power"])
+        self.assertGreaterEqual(design.power(200, 0.70)["excluded"], design.N_RULE["declared_power"])
+
+    def test_n_rule_branches(self):
+        self.assertIn("at most 2%", proposal("N_rule")["value"]["rule"])
+        low = design.n_rule(0.01)
+        self.assertEqual((low["N"], low["status"], low["flag"]), (200, "PROCEED", None))
+        edge = design.n_rule(0.02)
+        self.assertEqual(edge["N"], 200)
+        self.assertLess(edge["exclusion_power"], 0.80)
+        self.assertIsNotNone(edge["flag"])
+        self.assertEqual(design.n_rule(0.025)["N"], 300)
+        self.assertEqual(design.n_rule(0.04)["N"], 400)
+        five = design.n_rule(0.05)
+        self.assertEqual((five["N"], five["adequacy_powered"]), (500, True))
+        high = design.n_rule(0.08)
+        self.assertEqual((high["N"], high["adequacy_powered"], high["status"]), (500, False, "PROCEED"))
+        self.assertGreaterEqual(high["exclusion_power"], 0.80)
+        worst = design.n_rule(0.20)
+        self.assertEqual((worst["N"], worst["adequacy_powered"], worst["status"]), (500, False, "STOP"))
 
     def test_gates(self):
         self.assertTrue(design.yield_gate(200, 380, 0.5)["passed"])
