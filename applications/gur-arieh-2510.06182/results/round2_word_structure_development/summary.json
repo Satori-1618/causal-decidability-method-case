@@ -1,0 +1,849 @@
+{
+  "stage": "DEVELOPMENT_ONLY",
+  "generated": 32,
+  "qualified": 30,
+  "nonqualifying": 2,
+  "yield": 0.9375,
+  "counts": {
+    "structure_like": 3,
+    "word_like": 3,
+    "neither_narrow_profile": 16,
+    "weak_patch_contrast": 0,
+    "outside_pair_support": 8
+  },
+  "resolved": 22,
+  "median_mean_abs_delta_nats": 5.828034043312073,
+  "confirmatory_claim": null,
+  "cases": [
+    {
+      "case_id": "word-structure-000",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -7.148272514343262,
+          "native_log_odds_P_over_L": -6.0705742835998535,
+          "delta": -1.0776982307434082,
+          "pair_mass_within_answers": 0.024165717670398726,
+          "answer_mass": 0.9857910871505737
+        },
+        {
+          "patch_log_odds_P_over_L": -3.1963415145874023,
+          "native_log_odds_P_over_L": 0.20335006713867188,
+          "delta": -3.399691581726074,
+          "pair_mass_within_answers": 0.0035688480312061387,
+          "answer_mass": 0.9920836091041565
+        }
+      ],
+      "scale": 2.238694906234741,
+      "support": false,
+      "signal": true,
+      "resolved": false,
+      "loss_structure": 0.5186042422564905,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.4813957577435095,
+      "label": "outside_pair_support"
+    },
+    {
+      "case_id": "word-structure-001",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -6.88294792175293,
+          "native_log_odds_P_over_L": -0.0036568641662597656,
+          "delta": -6.87929105758667,
+          "pair_mass_within_answers": 0.3834972630355735,
+          "answer_mass": 0.9898853302001953
+        },
+        {
+          "patch_log_odds_P_over_L": 10.65986156463623,
+          "native_log_odds_P_over_L": -4.715925693511963,
+          "delta": 15.375787258148193,
+          "pair_mass_within_answers": 0.9908885988421423,
+          "answer_mass": 0.9887173175811768
+        }
+      ],
+      "scale": 11.127539157867432,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.3817778612153569,
+      "loss_word_minus_structure": -0.6182221387846432,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-002",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 13.074028968811035,
+          "native_log_odds_P_over_L": 6.126201152801514,
+          "delta": 6.9478278160095215,
+          "pair_mass_within_answers": 0.9685137628794958,
+          "answer_mass": 0.9846485257148743
+        },
+        {
+          "patch_log_odds_P_over_L": -6.072467803955078,
+          "native_log_odds_P_over_L": -6.31540584564209,
+          "delta": 0.24293804168701172,
+          "pair_mass_within_answers": 0.04607762740760086,
+          "answer_mass": 0.9726036787033081
+        }
+      ],
+      "scale": 3.5953829288482666,
+      "support": false,
+      "signal": true,
+      "resolved": false,
+      "loss_structure": 0.9324305514893142,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.0675694485106858,
+      "label": "outside_pair_support"
+    },
+    {
+      "case_id": "word-structure-004",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 6.27806282043457,
+          "native_log_odds_P_over_L": -0.8317966461181641,
+          "delta": 7.109859466552734,
+          "pair_mass_within_answers": 0.9708701890535141,
+          "answer_mass": 0.9881573915481567
+        },
+        {
+          "patch_log_odds_P_over_L": -5.311161994934082,
+          "native_log_odds_P_over_L": -2.807389736175537,
+          "delta": -2.503772258758545,
+          "pair_mass_within_answers": 0.6506049806542034,
+          "answer_mass": 0.9894605875015259
+        }
+      ],
+      "scale": 4.80681586265564,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.4791204135339446,
+      "loss_word_minus_structure": -0.5208795864660554,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-005",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -12.858766555786133,
+          "native_log_odds_P_over_L": -2.658018112182617,
+          "delta": -10.200748443603516,
+          "pair_mass_within_answers": 0.992353341393429,
+          "answer_mass": 0.9846053719520569
+        },
+        {
+          "patch_log_odds_P_over_L": -10.511449813842773,
+          "native_log_odds_P_over_L": -8.64125394821167,
+          "delta": -1.8701958656311035,
+          "pair_mass_within_answers": 0.970322540525097,
+          "answer_mass": 0.9948140382766724
+        }
+      ],
+      "scale": 6.03547215461731,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.6901326329207981,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.3098673670792019,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-006",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -6.650995254516602,
+          "native_log_odds_P_over_L": 1.8610296249389648,
+          "delta": -8.512024879455566,
+          "pair_mass_within_answers": 0.7226835878180525,
+          "answer_mass": 0.9365273714065552
+        },
+        {
+          "patch_log_odds_P_over_L": -9.38937759399414,
+          "native_log_odds_P_over_L": -3.212146759033203,
+          "delta": -6.1772308349609375,
+          "pair_mass_within_answers": 0.6602606221321415,
+          "answer_mass": 0.940966010093689
+        }
+      ],
+      "scale": 7.344627857208252,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.1589457008501246,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.8410542991498754,
+      "label": "structure_like"
+    },
+    {
+      "case_id": "word-structure-007",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 2.3611526489257812,
+          "native_log_odds_P_over_L": 0.38437557220458984,
+          "delta": 1.9767770767211914,
+          "pair_mass_within_answers": 0.9870723443625025,
+          "answer_mass": 0.985828697681427
+        },
+        {
+          "patch_log_odds_P_over_L": -5.521360397338867,
+          "native_log_odds_P_over_L": -6.403085231781006,
+          "delta": 0.8817248344421387,
+          "pair_mass_within_answers": 0.8873929514978129,
+          "answer_mass": 0.9878954291343689
+        }
+      ],
+      "scale": 1.429250955581665,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.3830860626688884,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.6169139373311117,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-008",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 0.10426139831542969,
+          "native_log_odds_P_over_L": -5.050035119056702,
+          "delta": 5.154296517372131,
+          "pair_mass_within_answers": 0.998900008746271,
+          "answer_mass": 0.9938013553619385
+        },
+        {
+          "patch_log_odds_P_over_L": 0.9184341430664062,
+          "native_log_odds_P_over_L": 1.2203550338745117,
+          "delta": -0.30192089080810547,
+          "pair_mass_within_answers": 0.9925448642204041,
+          "answer_mass": 0.9929108619689941
+        }
+      ],
+      "scale": 2.7281087040901184,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.8893295965972872,
+      "loss_word_minus_structure": -0.11067040340271284,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-009",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -12.767576694488525,
+          "native_log_odds_P_over_L": -1.3205342292785645,
+          "delta": -11.447042465209961,
+          "pair_mass_within_answers": 0.7890140089159718,
+          "answer_mass": 0.9780580401420593
+        },
+        {
+          "patch_log_odds_P_over_L": -2.29831600189209,
+          "native_log_odds_P_over_L": -1.484914779663086,
+          "delta": -0.8134012222290039,
+          "pair_mass_within_answers": 0.0005446819482809557,
+          "answer_mass": 0.9881668090820312
+        }
+      ],
+      "scale": 6.130221843719482,
+      "support": false,
+      "signal": true,
+      "resolved": false,
+      "loss_structure": 0.8673129222782782,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.13268707772172184,
+      "label": "outside_pair_support"
+    },
+    {
+      "case_id": "word-structure-011",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 5.695340156555176,
+          "native_log_odds_P_over_L": -10.04332447052002,
+          "delta": 15.738664627075195,
+          "pair_mass_within_answers": 0.4485769565613712,
+          "answer_mass": 0.989305853843689
+        },
+        {
+          "patch_log_odds_P_over_L": 2.1160011291503906,
+          "native_log_odds_P_over_L": 1.5445880889892578,
+          "delta": 0.5714130401611328,
+          "pair_mass_within_answers": 0.08686198033463392,
+          "answer_mass": 0.9946110248565674
+        }
+      ],
+      "scale": 8.155038833618164,
+      "support": false,
+      "signal": true,
+      "resolved": false,
+      "loss_structure": 0.9299312913378718,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.07006870866212822,
+      "label": "outside_pair_support"
+    },
+    {
+      "case_id": "word-structure-012",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -0.9052152633666992,
+          "native_log_odds_P_over_L": -9.802476644515991,
+          "delta": 8.897261381149292,
+          "pair_mass_within_answers": 0.02227000926971061,
+          "answer_mass": 0.9425251483917236
+        },
+        {
+          "patch_log_odds_P_over_L": -13.212387084960938,
+          "native_log_odds_P_over_L": 1.003814697265625,
+          "delta": -14.216201782226562,
+          "pair_mass_within_answers": 0.9506722999091605,
+          "answer_mass": 0.9908600449562073
+        }
+      ],
+      "scale": 11.556731581687927,
+      "support": false,
+      "signal": true,
+      "resolved": false,
+      "loss_structure": 1.0,
+      "loss_word": 0.2301230396968521,
+      "loss_word_minus_structure": -0.7698769603031479,
+      "label": "outside_pair_support"
+    },
+    {
+      "case_id": "word-structure-013",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -2.8083534240722656,
+          "native_log_odds_P_over_L": -0.07978582382202148,
+          "delta": -2.728567600250244,
+          "pair_mass_within_answers": 0.7922692665881518,
+          "answer_mass": 0.9905312657356262
+        },
+        {
+          "patch_log_odds_P_over_L": -6.503931999206543,
+          "native_log_odds_P_over_L": -7.049502849578857,
+          "delta": 0.5455708503723145,
+          "pair_mass_within_answers": 0.9910181062135226,
+          "answer_mass": 0.9899042248725891
+        }
+      ],
+      "scale": 1.6370692253112793,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.6667392912058576,
+      "loss_word_minus_structure": -0.3332607087941424,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-014",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -8.559222221374512,
+          "native_log_odds_P_over_L": -0.01266336441040039,
+          "delta": -8.546558856964111,
+          "pair_mass_within_answers": 0.9962209581881496,
+          "answer_mass": 0.994931697845459
+        },
+        {
+          "patch_log_odds_P_over_L": -0.9892044067382812,
+          "native_log_odds_P_over_L": -2.684062957763672,
+          "delta": 1.6948585510253906,
+          "pair_mass_within_answers": 0.928035049104033,
+          "answer_mass": 0.992251992225647
+        }
+      ],
+      "scale": 5.120708703994751,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.6690187532629609,
+      "loss_word_minus_structure": -0.3309812467370391,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-015",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 5.609780311584473,
+          "native_log_odds_P_over_L": -4.484635353088379,
+          "delta": 10.094415664672852,
+          "pair_mass_within_answers": 0.9675046767886899,
+          "answer_mass": 0.9905973672866821
+        },
+        {
+          "patch_log_odds_P_over_L": 4.476944923400879,
+          "native_log_odds_P_over_L": -0.4146270751953125,
+          "delta": 4.891571998596191,
+          "pair_mass_within_answers": 0.8976886047228445,
+          "answer_mass": 0.9970061182975769
+        }
+      ],
+      "scale": 7.4929938316345215,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.347180565137454,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.652819434862546,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-016",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 11.98399543762207,
+          "native_log_odds_P_over_L": 1.61342191696167,
+          "delta": 10.3705735206604,
+          "pair_mass_within_answers": 0.9974606982177817,
+          "answer_mass": 0.9986791014671326
+        },
+        {
+          "patch_log_odds_P_over_L": -9.003225326538086,
+          "native_log_odds_P_over_L": -10.619316101074219,
+          "delta": 1.6160907745361328,
+          "pair_mass_within_answers": 0.22778609773060235,
+          "answer_mass": 0.9977366328239441
+        }
+      ],
+      "scale": 5.993332147598267,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.7303518752612842,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.2696481247387158,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-017",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 8.406712532043457,
+          "native_log_odds_P_over_L": 1.7103490829467773,
+          "delta": 6.69636344909668,
+          "pair_mass_within_answers": 0.996723918255958,
+          "answer_mass": 0.9808565378189087
+        },
+        {
+          "patch_log_odds_P_over_L": -7.827791213989258,
+          "native_log_odds_P_over_L": -3.1986827850341797,
+          "delta": -4.629108428955078,
+          "pair_mass_within_answers": 0.9867814140516246,
+          "answer_mass": 0.9807648658752441
+        }
+      ],
+      "scale": 5.662735939025879,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.18253146909912393,
+      "loss_word_minus_structure": -0.817468530900876,
+      "label": "word_like"
+    },
+    {
+      "case_id": "word-structure-018",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 9.955099105834961,
+          "native_log_odds_P_over_L": 1.0503535270690918,
+          "delta": 8.90474557876587,
+          "pair_mass_within_answers": 0.9959808017103281,
+          "answer_mass": 0.9867165684700012
+        },
+        {
+          "patch_log_odds_P_over_L": -4.40012264251709,
+          "native_log_odds_P_over_L": -3.8501901626586914,
+          "delta": -0.5499324798583984,
+          "pair_mass_within_answers": 0.6694176481768425,
+          "answer_mass": 0.9808827042579651
+        }
+      ],
+      "scale": 4.727339029312134,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.8836697608425139,
+      "loss_word_minus_structure": -0.11633023915748608,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-019",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -8.275064468383789,
+          "native_log_odds_P_over_L": -3.3554534912109375,
+          "delta": -4.919610977172852,
+          "pair_mass_within_answers": 0.3844404504837523,
+          "answer_mass": 0.9854113459587097
+        },
+        {
+          "patch_log_odds_P_over_L": -11.450037002563477,
+          "native_log_odds_P_over_L": -6.432121276855469,
+          "delta": -5.017915725708008,
+          "pair_mass_within_answers": 0.6037113721122612,
+          "answer_mass": 0.9854583144187927
+        }
+      ],
+      "scale": 4.96876335144043,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.009892275158028808,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.9901077248419712,
+      "label": "structure_like"
+    },
+    {
+      "case_id": "word-structure-020",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 12.099156379699707,
+          "native_log_odds_P_over_L": -4.194690704345703,
+          "delta": 16.29384708404541,
+          "pair_mass_within_answers": 0.9999520895395752,
+          "answer_mass": 0.957263708114624
+        },
+        {
+          "patch_log_odds_P_over_L": -1.3719120025634766,
+          "native_log_odds_P_over_L": -0.906163215637207,
+          "delta": -0.46574878692626953,
+          "pair_mass_within_answers": 0.9997775652502519,
+          "answer_mass": 0.9597647190093994
+        }
+      ],
+      "scale": 8.37979793548584,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.9444200456249705,
+      "loss_word_minus_structure": -0.055579954375029494,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-021",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -1.7968387603759766,
+          "native_log_odds_P_over_L": -1.4864006042480469,
+          "delta": -0.3104381561279297,
+          "pair_mass_within_answers": 0.6506011419255925,
+          "answer_mass": 0.9872380495071411
+        },
+        {
+          "patch_log_odds_P_over_L": 5.4323883056640625,
+          "native_log_odds_P_over_L": -5.340385913848877,
+          "delta": 10.77277421951294,
+          "pair_mass_within_answers": 0.9110106927640945,
+          "answer_mass": 0.9829241037368774
+        }
+      ],
+      "scale": 5.541606187820435,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.9439804732407324,
+      "loss_word_minus_structure": -0.05601952675926758,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-022",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 5.166825294494629,
+          "native_log_odds_P_over_L": 0.09806966781616211,
+          "delta": 5.068755626678467,
+          "pair_mass_within_answers": 0.97821389302519,
+          "answer_mass": 0.9896550178527832
+        },
+        {
+          "patch_log_odds_P_over_L": -10.941203117370605,
+          "native_log_odds_P_over_L": -5.794782638549805,
+          "delta": -5.146420478820801,
+          "pair_mass_within_answers": 0.9989669450306856,
+          "answer_mass": 0.9957537651062012
+        }
+      ],
+      "scale": 5.107588052749634,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.007602889205260364,
+      "loss_word_minus_structure": -0.9923971107947397,
+      "label": "word_like"
+    },
+    {
+      "case_id": "word-structure-023",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -16.314202308654785,
+          "native_log_odds_P_over_L": -13.006487965583801,
+          "delta": -3.307714343070984,
+          "pair_mass_within_answers": 0.8286304104250699,
+          "answer_mass": 0.992914617061615
+        },
+        {
+          "patch_log_odds_P_over_L": -9.923656463623047,
+          "native_log_odds_P_over_L": 2.104184150695801,
+          "delta": -12.027840614318848,
+          "pair_mass_within_answers": 0.9251500755239809,
+          "answer_mass": 0.9929221868515015
+        }
+      ],
+      "scale": 7.667777478694916,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.5686215005245602,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.4313784994754398,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-024",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 15.16368818283081,
+          "native_log_odds_P_over_L": -1.8303756713867188,
+          "delta": 16.99406385421753,
+          "pair_mass_within_answers": 0.9999228636759611,
+          "answer_mass": 0.9864625334739685
+        },
+        {
+          "patch_log_odds_P_over_L": -1.9610443115234375,
+          "native_log_odds_P_over_L": -7.105309724807739,
+          "delta": 5.144265413284302,
+          "pair_mass_within_answers": 0.6050266421584425,
+          "answer_mass": 0.9862763285636902
+        }
+      ],
+      "scale": 11.069164633750916,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.5352616404675239,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.4647383595324761,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-025",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 3.956514358520508,
+          "native_log_odds_P_over_L": -3.078033685684204,
+          "delta": 7.034548044204712,
+          "pair_mass_within_answers": 0.6666387170806064,
+          "answer_mass": 0.9635835886001587
+        },
+        {
+          "patch_log_odds_P_over_L": 8.998814582824707,
+          "native_log_odds_P_over_L": 1.4554529190063477,
+          "delta": 7.543361663818359,
+          "pair_mass_within_answers": 0.9709674926672776,
+          "answer_mass": 0.9850392937660217
+        }
+      ],
+      "scale": 7.288954854011536,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.034903057420750644,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.9650969425792494,
+      "label": "structure_like"
+    },
+    {
+      "case_id": "word-structure-026",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 3.9614620208740234,
+          "native_log_odds_P_over_L": 0.5600500106811523,
+          "delta": 3.401412010192871,
+          "pair_mass_within_answers": 0.9886783065834645,
+          "answer_mass": 0.9368686079978943
+        },
+        {
+          "patch_log_odds_P_over_L": 7.450474739074707,
+          "native_log_odds_P_over_L": -9.360539674758911,
+          "delta": 16.811014413833618,
+          "pair_mass_within_answers": 0.9995115546627922,
+          "answer_mass": 0.9777241349220276
+        }
+      ],
+      "scale": 10.106213212013245,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.6634335790432745,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.3365664209567255,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-027",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -2.7264881134033203,
+          "native_log_odds_P_over_L": -5.59526252746582,
+          "delta": 2.8687744140625,
+          "pair_mass_within_answers": 0.0011557832301569452,
+          "answer_mass": 0.9943587779998779
+        },
+        {
+          "patch_log_odds_P_over_L": -8.826408386230469,
+          "native_log_odds_P_over_L": 2.489190101623535,
+          "delta": -11.315598487854004,
+          "pair_mass_within_answers": 0.47744944641850706,
+          "answer_mass": 0.9878313541412354
+        }
+      ],
+      "scale": 7.092186450958252,
+      "support": false,
+      "signal": true,
+      "resolved": false,
+      "loss_structure": 1.0,
+      "loss_word": 0.5955021157579847,
+      "loss_word_minus_structure": -0.40449788424201527,
+      "label": "outside_pair_support"
+    },
+    {
+      "case_id": "word-structure-028",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -7.458819389343262,
+          "native_log_odds_P_over_L": 0.3135223388671875,
+          "delta": -7.772341728210449,
+          "pair_mass_within_answers": 0.0943690817090811,
+          "answer_mass": 0.996612548828125
+        },
+        {
+          "patch_log_odds_P_over_L": 4.359090805053711,
+          "native_log_odds_P_over_L": -3.7464709281921387,
+          "delta": 8.10556173324585,
+          "pair_mass_within_answers": 0.04594931080266075,
+          "answer_mass": 0.9968730211257935
+        }
+      ],
+      "scale": 7.938951730728149,
+      "support": false,
+      "signal": true,
+      "resolved": false,
+      "loss_structure": 1.0,
+      "loss_word": 0.020986398225955577,
+      "loss_word_minus_structure": -0.9790136017740444,
+      "label": "outside_pair_support"
+    },
+    {
+      "case_id": "word-structure-029",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -6.560447692871094,
+          "native_log_odds_P_over_L": -7.115413188934326,
+          "delta": 0.5549654960632324,
+          "pair_mass_within_answers": 0.5744649719802989,
+          "answer_mass": 0.975440502166748
+        },
+        {
+          "patch_log_odds_P_over_L": 9.557623863220215,
+          "native_log_odds_P_over_L": 4.1318440437316895,
+          "delta": 5.425779819488525,
+          "pair_mass_within_answers": 0.8451394041750072,
+          "answer_mass": 0.9809781312942505
+        }
+      ],
+      "scale": 2.990372657775879,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 0.8144159408961444,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.18558405910385556,
+      "label": "neither_narrow_profile"
+    },
+    {
+      "case_id": "word-structure-030",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": 2.42926025390625,
+          "native_log_odds_P_over_L": -1.3081998825073242,
+          "delta": 3.737460136413574,
+          "pair_mass_within_answers": 0.12258817492753309,
+          "answer_mass": 0.9920097589492798
+        },
+        {
+          "patch_log_odds_P_over_L": -9.453130722045898,
+          "native_log_odds_P_over_L": -5.513900279998779,
+          "delta": -3.939230442047119,
+          "pair_mass_within_answers": 0.8262641981384071,
+          "answer_mass": 0.991517961025238
+        }
+      ],
+      "scale": 3.8383452892303467,
+      "support": true,
+      "signal": true,
+      "resolved": true,
+      "loss_structure": 1.0,
+      "loss_word": 0.026283501148225683,
+      "loss_word_minus_structure": -0.9737164988517744,
+      "label": "word_like"
+    },
+    {
+      "case_id": "word-structure-031",
+      "arms": [
+        {
+          "patch_log_odds_P_over_L": -4.697922706604004,
+          "native_log_odds_P_over_L": -4.461440324783325,
+          "delta": -0.2364823818206787,
+          "pair_mass_within_answers": 0.00040725210778087476,
+          "answer_mass": 0.9813879728317261
+        },
+        {
+          "patch_log_odds_P_over_L": 0.10641098022460938,
+          "native_log_odds_P_over_L": 2.391145706176758,
+          "delta": -2.2847347259521484,
+          "pair_mass_within_answers": 7.138044726369159e-05,
+          "answer_mass": 0.9806956648826599
+        }
+      ],
+      "scale": 1.2606085538864136,
+      "support": false,
+      "signal": true,
+      "resolved": false,
+      "loss_structure": 0.8124061739136931,
+      "loss_word": 1.0,
+      "loss_word_minus_structure": 0.18759382608630693,
+      "label": "outside_pair_support"
+    }
+  ],
+  "gates": {
+    "technical": true,
+    "native_yield": true,
+    "agreement_transfer": true,
+    "agreement_mass": true,
+    "cpu_fp32": true
+  },
+  "technical_status": "VALID",
+  "agreement_transfer_rate": 0.95,
+  "agreement_mass_rate": 1.0,
+  "max_cpu_delta_difference_nats": 5.245208740234375e-05,
+  "planning_note": "Development only. Freeze a fresh confirmation only after reviewing resolution and rival separation.",
+  "full_logit_audit": {
+    "passed": true,
+    "arrays": 8,
+    "max_errors": {
+      "logits": 0.0,
+      "mass": 1.4050515622088255e-06
+    }
+  }
+}

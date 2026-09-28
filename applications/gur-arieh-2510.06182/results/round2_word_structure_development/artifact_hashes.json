@@ -1,0 +1,9 @@
+{
+  "RUN_STARTED.json": "346a8a6a5960a315f5f5fe8cbdb971998c9acc425531034d9bd96bea453626af",
+  "audit_full_logits.npz": "309ada966b76e98617046f03222625dabe758e3402022a412e70a1a30ede55bf",
+  "cpu_reference.jsonl": "1d1a92ca3ac138a59f3813db64be1e871f1031beee07524676b0018fc4695637",
+  "manifest.json": "f65de3f83d0a645a23cf61c34490945de491bda3822aeea2ec15b0011460aab0",
+  "records.jsonl": "5f35ea50be9cb693b82154813a2733bb824cfd1e414dcc41bb3ad03c2a4cb667",
+  "summary.json": "14bed044572d61280f6e737e108a6ab6371fdb64d1a539f18c02e9fa66cd0cb3",
+  "timings.json": "910e57e502bed5d8a93e7b43faa7fb8366eaa1609acf81528ad163c106114c88"
+}

@@ -49,6 +49,15 @@ individual cases were substantially more concentrated than that mean. This does 
 identify which mechanism operates in a case, and the stronger between-case statement
 was not earned. See [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md).
 
+**Round 2 development is also implemented and executed.** A paired word exchange tests
+whether the patch-induced preference follows a word or its target site while both
+native correct answers stay fixed. Of 30 native-qualified families, 3 match the narrow
+target-site rule, 3 the word rule, 16 neither, and 8 lack sufficient two-answer support.
+All technical gates passed. These are development descriptions; neither a mechanism nor
+a dominant invariant has been confirmed. See
+[the small protocol](ROUND2_WORD_STRUCTURE.md) and
+[the result with concrete examples](ROUND2_DEVELOPMENT_RESULT.md).
+
 ## Files
 
 | file | what |
@@ -71,6 +80,8 @@ was not earned. See [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md).
 | [results/split_A/](results/split_A/SPLIT_A_REPORT.md), [results/split_B/](results/split_B/SPLIT_B_REPORT.md) | development results: split A selected cell c4; split B fixed the anchors and final N = 300 |
 | [FREEZE.json](FREEZE.json) | final confirmation contract, frozen before the fresh run |
 | [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md), [results/confirmation/](results/confirmation/summary.json) | plain-language result and the raw, hashed confirmation artifacts; `W_T` excluded, `A_T` undecided |
+| [ROUND2_WORD_STRUCTURE.md](ROUND2_WORD_STRUCTURE.md), [ROUND2_DEVELOPMENT.json](ROUND2_DEVELOPMENT.json) | the precommitted paired word-versus-target-site development protocol and source hashes |
+| [ROUND2_DEVELOPMENT_RESULT.md](ROUND2_DEVELOPMENT_RESULT.md), [results/round2_word_structure_development/](results/round2_word_structure_development/summary.json) | 32-family development run, raw pairs, controls and replayable descriptive analysis |
 | [requirements-model.txt](requirements-model.txt) | the environment used for model runs (torch 2.5.1, transformers 4.57.3) |
 | [results/pilot/](results/pilot/PILOT_REPORT.md) | pilot 1 (protocol v1): records, gate table, readout and dtype diagnostics (`scripts/diagnose_pilot_readout.py`, `scripts/diagnose_fp32_execution.py`) and the report |
 | [results/pilot2/](results/pilot2/PILOT2_REPORT.md) | pilot 2 (protocol v2, fresh seeds): records, gate-7 CPU reference, gate table, generated artifact index and the report |
