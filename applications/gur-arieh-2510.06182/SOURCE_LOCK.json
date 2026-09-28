@@ -1,0 +1,819 @@
+{
+  "schema_version": 1,
+  "application": "gur-arieh-2510.06182",
+  "purpose": "Pinned sources and verified upstream facts for the first pass (brief sections 3 and 9, commit 1). No model was downloaded or run.",
+  "recorded_on": "2026-09-28",
+  "paper": {
+    "title": "Mixing Mechanisms: How Language Models Retrieve Bound Entities In-Context",
+    "authors": [
+      "Yoav Gur-Arieh",
+      "Mor Geva",
+      "Atticus Geiger"
+    ],
+    "affiliations_listed": [
+      "Blavatnik School of Computer Science and AI, Tel Aviv University",
+      "Pr(Ai)²R Group (rendered 'Pr(Ai)R Group' in the arXiv HTML)",
+      "Goodfire"
+    ],
+    "credit": "Credit the three authors in public text, not an organisation.",
+    "arxiv_id": "2510.06182",
+    "version": "v2",
+    "version_date": "2026-05-28",
+    "arxiv_comment": "Accepted to ICLR 2026 Main Conference",
+    "license": "CC BY 4.0",
+    "html_url": "https://arxiv.org/html/2510.06182v2",
+    "html_sha256_as_retrieved": "4a5ca1c48ef1e0adf7e3a4ea9eff7909e989a366c0d2006a7d7575fc0f39c581"
+  },
+  "blog": {
+    "url": "https://yoav.ml/blog/2025/mixing-mechs/",
+    "html_sha256_as_retrieved": "d02ed953f6aa575dd43e50cf6d7095d6e629d30eb345fe4202947a02e8342e8e",
+    "interactive_figure": {
+      "script": "https://yoav.ml/assets/js/binding-demo/index-B_g5bwzp.js",
+      "script_sha256_as_retrieved": "02db00c0083d7e9f02e81df35266c623d86179c28a4ad1be6312b740fec50031",
+      "data_url_pattern": "https://yoav.ml/data/probs_n{n}_t{t}.json",
+      "inspected_file": "https://yoav.ml/data/probs_n7_t2.json",
+      "inspected_file_sha256": "65d9236363ed13b531030615623ce5c62c49a3828416e99278b819d3cd1856a2",
+      "inspected_file_last_modified": "Sat, 26 Sep 2026 06:23:44 GMT",
+      "content": "343 = 7^3 keys 'iP=..|iL=..|iR=..' (1-based), each one probability vector of length 7 that sums to 1 within 2e-7; keys with coinciding indices are included; no case-level values, counts or dispersion"
+    },
+    "note": "The data file changed two days before retrieval; it is recorded for the openness check only and is not an input to any value."
+  },
+  "upstream": {
+    "repository": "https://github.com/yoavgur/mixing-mechs",
+    "commit": "c53372c606e7cadf2494d2ac7b08e466042052df",
+    "commit_verified": true,
+    "commit_author_date": "2026-08-08T20:42:36-04:00",
+    "commit_subject": "Fix binding info leakage by patching last token positions",
+    "default_branch_head_at_retrieval": true,
+    "retrieved_on": "2026-09-28",
+    "clone_policy": "Separate read-only clone outside this repository; nothing is vendored. scripts/lock_sources.py checks a clone against this file.",
+    "license": {
+      "spdx": "MIT",
+      "verified": true,
+      "file": "LICENSE",
+      "sha256": "fcf6ba61534736ea5c7dbe6d1edbd12d2811f02fd191f2b0e77a1c75dee25526",
+      "first_line": "MIT License",
+      "copyright_line": "Copyright (c) 2025 yoavgur"
+    },
+    "files_sha256": {
+      "LICENSE": "fcf6ba61534736ea5c7dbe6d1edbd12d2811f02fd191f2b0e77a1c75dee25526",
+      "README.md": "40f22e1bb2c1eebbc05f28d507f71d89da5990ad2820a7a8c0b39e62a4d2a336",
+      "tasks/dist.py": "846cf94bcc9c0c4806b21219b6448757a297ab2aa6004e3e0e8baae06177257e",
+      "training.py": "9544d9d1ba52f2a3fbc052a3648b9c32bc387e1788c1bfee29713f369d664d1a",
+      "grammar/schemas.py": "7d8c736190f1febe4a892eb2cb455f0fde1d595d3b66b26c8f4c1ff6858ab438",
+      "grammar/grammar.py": "69c54dfa421b43de229e9384885718e3b63fe8e96d10d5cad76af8fcbabb3086",
+      "grammar/task_to_causal_model.py": "1a6f6fc495b9f6cb6882112587304af5e9947641b6cb36168b4df80c63ad1a9b",
+      "example.ipynb": "8a35150eb87210f13f03c5429239e2f928df0641b7afdac32893723d1025187b",
+      "plotting.py": "09c5509eb485817023218b87f873e29e34a2b8bc3b0034119bc269ab3602c0b6",
+      "causal_model.py": "374f54dbd0a71a6f29285ac2184949bee906eab04a1b0b57c377be3a0672e4d5",
+      "CausalAbstraction/requirements.txt": "85374a9a75e76db7b930bf8635b76457b048c305d8245f69666d4894c45745b5"
+    }
+  },
+  "task_registry": {
+    "source": "tasks/dist.py:88-103",
+    "schema_module": "grammar/schemas.py",
+    "tasks": [
+      {
+        "constant": "SCHEMA_FILLING_LIQUIDS",
+        "name": "filling_liquids",
+        "categories": [
+          "Person",
+          "Container",
+          "Liquid"
+        ],
+        "entities_per_category": {
+          "Person": 23,
+          "Container": 24,
+          "Liquid": 23
+        },
+        "row_template": "{Person} fills a {Container} with {Liquid}",
+        "prefix": "Some people are working at a busy restaurant. To complete an order, ",
+        "queries": {
+          "Q:Container_Person A:Liquid": "Liquid",
+          "default": "Liquid",
+          "Q:Liquid_Person A:Container": "Container",
+          "Q:Person A:Container": "Container",
+          "Q:Container_Liquid A:Person": "Person"
+        },
+        "max_new_tokens": 5
+      },
+      {
+        "constant": "SCHEMA_MUSIC_PERFORMANCE",
+        "name": "music_performance",
+        "categories": [
+          "Musician",
+          "Genre",
+          "Instrument"
+        ],
+        "entities_per_category": {
+          "Musician": 23,
+          "Genre": 24,
+          "Instrument": 23
+        },
+        "row_template": "{Musician} performed {Genre} music on the {Instrument}",
+        "prefix": "At the music festival, ",
+        "queries": {
+          "Q:Genre_Musician A:Instrument": "Instrument",
+          "Q:Musician A:Genre": "Genre",
+          "Q:Instrument_Musician A:Genre": "Genre",
+          "Q:Genre_Instrument A:Musician": "Musician"
+        },
+        "max_new_tokens": 3
+      },
+      {
+        "constant": "SCHEMA_PEOPLE_AND_OBJECTS",
+        "name": "people_and_objects",
+        "categories": [
+          "Person",
+          "Object",
+          "Location"
+        ],
+        "entities_per_category": {
+          "Person": 23,
+          "Object": 82,
+          "Location": 24
+        },
+        "row_template": "{Person} put the {Object} in the {Location}",
+        "prefix": "At home, ",
+        "queries": {
+          "Q:Object_Person A:Location": "Location",
+          "Q:Person A:Object": "Object",
+          "Q:Location_Person A:Object": "Object",
+          "Q:Location_Object A:Person": "Person",
+          "default": "Location"
+        },
+        "max_new_tokens": 1
+      },
+      {
+        "constant": "SCHEMA_PROGRAMMING_PEOPLE_DICT",
+        "name": "programming_people_dict",
+        "categories": [
+          "VariableName",
+          "Name",
+          "Country"
+        ],
+        "entities_per_category": {
+          "VariableName": 26,
+          "Name": 23,
+          "Country": 25
+        },
+        "row_template": "{VariableName} = {{\"name\": \" {Name}\", \"country\": \" {Country}\"}}",
+        "prefix": "The following are dictionary variables in Python: ",
+        "queries": {
+          "default": "Country",
+          "Q:Name_VariableName A:Country": "Country",
+          "Q:VariableName A:Name": "Name",
+          "Q:Country_VariableName A:Name": "Name",
+          "Q:Country_Name A:VariableName": "VariableName"
+        },
+        "max_new_tokens": 1
+      },
+      {
+        "constant": "SCHEMA_LAB_EXPERIMENTS",
+        "name": "lab_experiments",
+        "categories": [
+          "Scientist",
+          "Substance",
+          "Equipment"
+        ],
+        "entities_per_category": {
+          "Scientist": 23,
+          "Substance": 28,
+          "Equipment": 23
+        },
+        "row_template": "{Scientist} placed the {Substance} in a {Equipment}",
+        "prefix": "In a biology laboratory experiment, ",
+        "queries": {
+          "Q:Scientist_Substance A:Equipment": "Equipment",
+          "Q:Scientist A:Substance": "Substance",
+          "Q:Equipment_Scientist A:Substance": "Substance",
+          "Q:Equipment_Substance A:Scientist": "Scientist"
+        },
+        "max_new_tokens": 5
+      },
+      {
+        "constant": "SCHEMA_CHEMISTRY_EXPERIMENTS",
+        "name": "chemistry_experiments",
+        "categories": [
+          "Chemist",
+          "Chemical",
+          "Apparatus"
+        ],
+        "entities_per_category": {
+          "Chemist": 23,
+          "Chemical": 24,
+          "Apparatus": 23
+        },
+        "row_template": "{Chemist} added the {Chemical} to a {Apparatus}",
+        "prefix": "In a chemistry laboratory experiment, ",
+        "queries": {
+          "Q:Chemical_Chemist A:Apparatus": "Apparatus",
+          "Q:Chemist A:Chemical": "Chemical",
+          "Q:Apparatus_Chemist A:Chemical": "Chemical",
+          "Q:Apparatus_Chemical A:Chemist": "Chemist"
+        },
+        "max_new_tokens": 5
+      },
+      {
+        "constant": "SCHEMA_TRANSPORTATION",
+        "name": "transportation",
+        "categories": [
+          "Driver",
+          "Vehicle",
+          "Destination"
+        ],
+        "entities_per_category": {
+          "Driver": 23,
+          "Vehicle": 23,
+          "Destination": 25
+        },
+        "row_template": "{Driver} drove the {Vehicle} to the {Destination}",
+        "prefix": "In a city transport system, ",
+        "queries": {
+          "Q:Driver_Vehicle A:Destination": "Destination",
+          "Q:Driver A:Vehicle": "Vehicle",
+          "Q:Destination_Driver A:Vehicle": "Vehicle",
+          "Q:Destination_Vehicle A:Driver": "Driver"
+        },
+        "max_new_tokens": 3
+      },
+      {
+        "constant": "SCHEMA_SPORTS_EVENTS",
+        "name": "sports_events",
+        "categories": [
+          "Athlete",
+          "Sport",
+          "Venue"
+        ],
+        "entities_per_category": {
+          "Athlete": 23,
+          "Sport": 23,
+          "Venue": 23
+        },
+        "row_template": "{Athlete} played {Sport} at the {Venue}",
+        "prefix": "In a sports competition, ",
+        "queries": {
+          "Q:Athlete_Sport A:Venue": "Venue",
+          "Q:Athlete A:Sport": "Sport",
+          "Q:Athlete_Venue A:Sport": "Sport",
+          "Q:Sport_Venue A:Athlete": "Athlete"
+        },
+        "max_new_tokens": 3
+      },
+      {
+        "constant": "SCHEMA_SPACE_OBSERVATIONS",
+        "name": "space_observations",
+        "categories": [
+          "Astronomer",
+          "Object",
+          "Instrument"
+        ],
+        "entities_per_category": {
+          "Astronomer": 23,
+          "Object": 25,
+          "Instrument": 23
+        },
+        "row_template": "{Astronomer} observed a {Object} with a {Instrument}",
+        "prefix": "During an astronomy study, ",
+        "queries": {
+          "Q:Astronomer_Object A:Instrument": "Instrument",
+          "Q:Astronomer A:Object": "Object",
+          "Q:Astronomer_Instrument A:Object": "Object",
+          "Q:Instrument_Object A:Astronomer": "Astronomer"
+        },
+        "max_new_tokens": 5
+      },
+      {
+        "constant": "SCHEMA_BOXES",
+        "name": "boxes",
+        "categories": [
+          "Object",
+          "Box"
+        ],
+        "entities_per_category": {
+          "Object": 82,
+          "Box": 26
+        },
+        "row_template": "the {Object} is in Box {Box}",
+        "prefix": "",
+        "queries": {
+          "Q:Box A:Object": "Object",
+          "Q:Object A:Box": "Box"
+        },
+        "max_new_tokens": 3
+      }
+    ],
+    "listed_but_not_defined": [
+      "SCHEMA_NUMBERED_CONTAINERS",
+      "SCHEMA_COLORED_SHAPES",
+      "SCHEMA_GEOMETRY",
+      "SCHEMA_ANIMAL_MOVEMENTS"
+    ]
+  },
+  "chat_template": {
+    "source": [
+      "tasks/dist.py:127-136",
+      "tasks/dist.py:106-117"
+    ],
+    "format": "tokenizer.apply_chat_template([{'role': 'user', 'content': raw_prompt}], tokenize=False, add_generation_prompt=True), then the first five characters are dropped ([5:], tasks/dist.py:136); the string is re-tokenized with the tokenizer's default special tokens (tasks/dist.py:356). For Gemma the answer follows the marker 'Answer:\\nmodel\\n' after decoding without special tokens (tasks/dist.py:108).",
+    "reading": "For Gemma's template the five dropped characters are presumably the literal '<bos>', which the tokenizer then adds back as a token. This is an inference from the code, not verified.",
+    "rendered_template_verified": false,
+    "deferred_to": "Gate 3 (token alignment), after the user accepts the Gemma licence: the tokenizer files are gated and were not downloaded."
+  },
+  "environment": {
+    "analysis": {
+      "python": "3.11.15",
+      "location": "virtual environment outside the repository",
+      "requirements": "requirements-analysis.txt",
+      "torch_installed": false,
+      "used_for": "source locking, Round 0, the Round 1 analyzer, checker and synthetic worlds, and the repository's offline test suite"
+    },
+    "model_runs": {
+      "status": "not pinned yet; proposed in PREFLIGHT_PLAN.md and to be pinned before any model run",
+      "upstream_pins": "none (see upstream_facts.environment_pins)"
+    }
+  },
+  "model": {
+    "id": "google/gemma-2-2b-it",
+    "revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+    "label": "not declared upstream",
+    "resolved_from": "Hugging Face model API metadata only (api/models/google/gemma-2-2b-it and api/models/google/gemma-2-2b-it/tree/<revision>); no file was downloaded",
+    "resolved_on": "2026-09-28",
+    "authentication_needed_for_revision": false,
+    "last_modified": "2024-08-27T19:41:44.000Z",
+    "gated": "manual",
+    "model_license": "gemma; not accepted (the user accepts it)",
+    "files_at_revision": [
+      {
+        "path": ".gitattributes",
+        "size": 1570,
+        "git_oid": "52373fe24473b1aa44333d318f578ae6bf04b49b"
+      },
+      {
+        "path": "README.md",
+        "size": 29091,
+        "git_oid": "22fe0c19d8977a14c2d3c1eb1ba6f53fdcf59589"
+      },
+      {
+        "path": "config.json",
+        "size": 838,
+        "git_oid": "05131f6b339647ddff99327b199ac3d34a50bf2e"
+      },
+      {
+        "path": "generation_config.json",
+        "size": 187,
+        "git_oid": "2da7d771ff9ea5f81a30bced0e7390b52061c08e"
+      },
+      {
+        "path": "model-00001-of-00002.safetensors",
+        "size": 4988025760,
+        "git_oid": "c3d93128ea3eb4fe3de52d920f8505aa82da77ab",
+        "lfs": true
+      },
+      {
+        "path": "model-00002-of-00002.safetensors",
+        "size": 240691728,
+        "git_oid": "4954f0bccecf31a8ff133fd65d7d604739a2ab7e",
+        "lfs": true
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "size": 24223,
+        "git_oid": "022daff51a2616bf88f5f0d0eac5dbd525e7cd24"
+      },
+      {
+        "path": "special_tokens_map.json",
+        "size": 636,
+        "git_oid": "8d6368f7e735fbe4781bf6e956b7c6ad0586df80"
+      },
+      {
+        "path": "tokenizer.json",
+        "size": 17525357,
+        "git_oid": "af0eac5c0056f83b8f3fcdb79165f8847111c305",
+        "lfs": true
+      },
+      {
+        "path": "tokenizer.model",
+        "size": 4241003,
+        "git_oid": "796efe9ab515c15e146ce7588e6d7b9b8134dbf8",
+        "lfs": true
+      },
+      {
+        "path": "tokenizer_config.json",
+        "size": 46996,
+        "git_oid": "36ba12877e7efaba5252f7b17ab337a59d953563"
+      }
+    ],
+    "content_hashes": "Not recorded. The API masks LFS sha256 values without authentication. Model and tokenizer sha256 are recorded at gate 1, after licence acceptance and before any model run."
+  },
+  "upstream_facts": [
+    {
+      "id": "patch_positions",
+      "brief_statement": "The paper and the experiment loop patch [-1] (tasks/dist.py:312). The helper default and the notebook patch [-1, -4, -6, -8] (tasks/dist.py:200, commit c53372c).",
+      "status": "verified",
+      "finding": "get_dist fixes token_positions = [-1] (tasks/dist.py:312) and passes it to run_with_cf_hf (tasks/dist.py:353-355). The helper run_with_cf_hf uses [-1, -4, -6, -8] only when called without token_positions (tasks/dist.py:198-200); commit c53372c changed that default from [-1] and made the same change in the notebook (example.ipynb:208). The paper states that interventions patch the last-token residual stream vector (Sec. 3 introduction and Sec. 3.3). The patched tensor is the input of decoder block layer_idx, i.e. Hugging Face hidden_states[layer_idx] (tasks/dist.py:221).",
+      "code_evidence": [
+        {
+          "file": "tasks/dist.py",
+          "line": 312,
+          "text": "    token_positions = [-1]"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 198,
+          "text": "    if token_positions is None:"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 200,
+          "text": "        token_positions = [-1, -4, -6, -8]"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 221,
+          "text": "    resid_pre_cf = hs_cf_all[layer_idx]  # shape: [B=1, T_cf, D]"
+        },
+        {
+          "file": "example.ipynb",
+          "line": 208,
+          "text": "    \"token_positions = [-1, -4, -6, -8]\\n\","
+        }
+      ],
+      "paper_evidence": [
+        "Sec. 3 (introduction) and Sec. 3.3: interventions on the full last-token residual stream vector at layer l"
+      ]
+    },
+    {
+      "id": "readout",
+      "brief_statement": "The default readout scores only in-context entity tokens (tasks/dist.py:358), and generation is off by default.",
+      "status": "verified, with one qualification",
+      "finding": "The readout takes last-position logits at the token ids of the n in-context entity tokens found by the schema matcher (tasks/dist.py:328-329, 358) and stores these raw logits, not probabilities (tasks/dist.py:393); the prediction is their argmax (tasks/dist.py:360, 366-367). Generation is off by default in the command-line entry point (tasks/dist.py:424) and in the notebook (example.ipynb:100). Qualification: the function get_dist itself defaults to generate=True (tasks/dist.py:288); the command line overrides it. Entities must be single tokens (tasks/dist.py:271-273). The softmax over the n entity indices is applied later, in the paper's averaging (Sec. 4), not in tasks/dist.py.",
+      "code_evidence": [
+        {
+          "file": "tasks/dist.py",
+          "line": 328,
+          "text": "            if schema.matchers[cat_to_query](token):"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 358,
+          "text": "            values = logits[0, -1, [to_single_token(tokenizer, prompt_str_tokenized[i]) for i in answer_indices]]"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 360,
+          "text": "            pos_pred = values.argmax().item()"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 393,
+          "text": "            results[\"dist\"].append(values.tolist())"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 424,
+          "text": "@click.option(\"--generate\", is_flag=True, default=False)"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 288,
+          "text": "    generate=True,"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 273,
+          "text": "    assert len(tokens) == 1, f\"Expected 1 token, got {len(tokens)}.\\nText: {text}\""
+        },
+        {
+          "file": "example.ipynb",
+          "line": 100,
+          "text": "    \"generate=False\\n\""
+        }
+      ],
+      "paper_evidence": [
+        "Sec. 4, 'Learning how the mechanisms are mixed': logit distributions per index combination, softmax over entity-group indices, then the mean"
+      ]
+    },
+    {
+      "id": "classification",
+      "brief_statement": "It is ordered (tasks/dist.py:369-375): the first matching label wins. Never use this classification; report ties as equivalence.",
+      "status": "verified",
+      "finding": "The patch-effect label is assigned by an if/elif chain in the order positional, keyload (lexical), payload (reflexive), no_effect, else unknown (tasks/dist.py:369-378); the notebook uses the same order with labels positional, lexical, reflexive, no_effect, mixed (example.ipynb:263-271). When two candidates predict the same entity, the earlier label wins. The argmax itself breaks ties towards the lowest index (tasks/dist.py:360). This application does not use this classification.",
+      "code_evidence": [
+        {
+          "file": "tasks/dist.py",
+          "line": 369,
+          "text": "            if try_schema_checker(pred, metadata[\"positional\"], schema):"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 370,
+          "text": "                patch_effect = \"positional\""
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 371,
+          "text": "            elif try_schema_checker(pred, metadata[\"keyload\"], schema):"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 373,
+          "text": "            elif try_schema_checker(pred, metadata[\"payload\"], schema):"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 375,
+          "text": "            elif try_schema_checker(pred, metadata[\"no_effect\"], schema):"
+        },
+        {
+          "file": "example.ipynb",
+          "line": 263,
+          "text": "    \"            patch_effect = \\\"positional\\\"\\n\","
+        },
+        {
+          "file": "example.ipynb",
+          "line": 265,
+          "text": "    \"            patch_effect = \\\"lexical\\\"\\n\","
+        },
+        {
+          "file": "example.ipynb",
+          "line": 267,
+          "text": "    \"            patch_effect = \\\"reflexive\\\"\\n\","
+        },
+        {
+          "file": "example.ipynb",
+          "line": 269,
+          "text": "    \"            patch_effect = \\\"no_effect\\\"\\n\","
+        },
+        {
+          "file": "example.ipynb",
+          "line": 271,
+          "text": "    \"            patch_effect = \\\"mixed\\\"\\n\","
+        }
+      ],
+      "paper_evidence": []
+    },
+    {
+      "id": "index_collisions",
+      "brief_statement": "Upstream draws the lexical and reflexive indices independently, so they can collide. Always check admissibility on design indices.",
+      "status": "verified",
+      "finding": "In the main template (messiness 0, tasks/dist.py:487-488; used by the notebook, example.ipynb:136) the positional index is cf_query_index (training.py:1226, 1269), the reflexive index is swap_index (training.py:1236, 1240, 1263) and the lexical index is swappy_index (training.py:1249, 1265). swap_index and swappy_index are drawn independently from the same set, all indices except the recipient and donor query indices, so they coincide with probability 1/(n-2). Upstream then locates the lexical and reflexive indices by substring matching of token strings (tasks/dist.py:331-335), so a collision yields equal indices. Nothing upstream keeps the lexical, reflexive or native index away from the positional window.",
+      "code_evidence": [
+        {
+          "file": "training.py",
+          "line": 1226,
+          "text": "    cf_query_index = random.choice(list(set(range(num_instances)) - {query_index}))"
+        },
+        {
+          "file": "training.py",
+          "line": 1236,
+          "text": "        swap_index = random.choice(list(set(range(num_instances)) - {query_index, cf_query_index}))"
+        },
+        {
+          "file": "training.py",
+          "line": 1249,
+          "text": "    swappy_index = random.choice(list(set(range(num_instances)) - {query_index, cf_query_index}))"
+        },
+        {
+          "file": "training.py",
+          "line": 1263,
+          "text": "        \"payload\": counterfactual[f\"Object.{answer_cat_id}.{cf_query_index}\"],"
+        },
+        {
+          "file": "training.py",
+          "line": 1265,
+          "text": "        \"keyload\": input[f\"Object.{answer_cat_id}.{swappy_index}\"],"
+        },
+        {
+          "file": "training.py",
+          "line": 1269,
+          "text": "        \"dst_index\": cf_query_index,"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 331,
+          "text": "                if prompt_str_tokenized[i].lower().strip() in metadata[\"keyload\"].lower().strip():"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 334,
+          "text": "                if prompt_str_tokenized[i].lower().strip() in metadata[\"payload\"].lower().strip():"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 487,
+          "text": "    elif messiness == 0:"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 488,
+          "text": "        counterfactual_template = ppkn_simpler_counterfactual_template_split_key_loc"
+        },
+        {
+          "file": "example.ipynb",
+          "line": 136,
+          "text": "    \"counterfactual_template = ppkn_simpler_counterfactual_template_split_key_loc\\n\","
+        }
+      ],
+      "paper_evidence": [
+        "Sec. 3.2: i_P, i_L and i_R vary freely from 1 to n"
+      ]
+    },
+    {
+      "id": "case_filtering",
+      "brief_statement": "do_filter is off by default, so upstream does not filter cases for native correctness.",
+      "status": "verified, with one qualification",
+      "finding": "The command-line flag --do-filter defaults to False (tasks/dist.py:435) and is passed through (tasks/dist.py:515); with do_filter False, get_counterfactual_datasets returns unfiltered samples (training.py:376). The notebook sets do_filter=False (example.ipynb:146). Qualification: get_counterfactual_datasets itself defaults to do_filter=True (training.py:308); both entry points override it.",
+      "code_evidence": [
+        {
+          "file": "tasks/dist.py",
+          "line": 435,
+          "text": "@click.option(\"--do-filter\", is_flag=True, default=False)"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 515,
+          "text": "        do_filter=do_filter,"
+        },
+        {
+          "file": "training.py",
+          "line": 308,
+          "text": "    do_filter=True,"
+        },
+        {
+          "file": "training.py",
+          "line": 376,
+          "text": "    if not do_filter:"
+        },
+        {
+          "file": "example.ipynb",
+          "line": 146,
+          "text": "    \"    do_filter=False,\\n\","
+        }
+      ],
+      "paper_evidence": []
+    },
+    {
+      "id": "agreement_conditions",
+      "brief_statement": "The paper's App. D.1 aligns only two mechanisms: positional with reflexive at t_entity = 1, and positional with lexical at t_entity = 3. There is no three-way agreement condition.",
+      "status": "verified for the paper; qualified by the blog post",
+      "finding": "App. D.1 and the Figure 18 caption describe exactly two alignment experiments on the music task: positional with reflexive at t_entity = 1 and positional with lexical at t_entity = 3. The paper has no three-way agreement experiment, and the released template (training.py:1226-1269) cannot produce i_L = i_P or i_R = i_P. However, the blog post's Figure 1 caption shows token probabilities with all three mechanisms pointing to the same entity, and its interactive figure loads one mean probability vector for every (i_P, i_L, i_R) combination, including coinciding ones (see blog.interactive_figure). How those coinciding cells were constructed is not documented in the paper or in the released code. The Round 1 agreement control therefore remains this application's own construction, but public text must not call three-way agreement unprecedented.",
+      "code_evidence": [
+        {
+          "file": "training.py",
+          "line": 1226,
+          "text": "    cf_query_index = random.choice(list(set(range(num_instances)) - {query_index}))"
+        },
+        {
+          "file": "training.py",
+          "line": 1236,
+          "text": "        swap_index = random.choice(list(set(range(num_instances)) - {query_index, cf_query_index}))"
+        },
+        {
+          "file": "training.py",
+          "line": 1249,
+          "text": "    swappy_index = random.choice(list(set(range(num_instances)) - {query_index, cf_query_index}))"
+        }
+      ],
+      "paper_evidence": [
+        "App. D.1 and Figure 18 caption",
+        "Sec. 4: 150 interventions per combination of 1 <= i_P, i_L, i_R <= n, stated as n^3 = 8,000 distributions"
+      ]
+    },
+    {
+      "id": "layer",
+      "brief_statement": "Round 1 uses the paper's layer l.",
+      "status": "not stated numerically in the paper text; inferred, with an upstream inconsistency",
+      "finding": "The paper defines l as the last layer before retrieval (Sec. 3.3, App. D.2) without printing its value for gemma-2-2b-it. The Figure 2 caption shows layer 18 and says layers 16-18 carry binding information; the blog post says layers 19-25 already carry the retrieved entity. The notebook uses layer = 18 (example.ipynb:98); the command-line default is 17 (tasks/dist.py:415). In the upstream hook convention layer 18 means the input of decoder block 18, hidden_states[18] (tasks/dist.py:221). The value is proposed, not fixed, in PREFLIGHT_PLAN.md.",
+      "code_evidence": [
+        {
+          "file": "example.ipynb",
+          "line": 98,
+          "text": "    \"layer = 18\\n\","
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 415,
+          "text": "@click.option(\"--layer\", type=int, default=17)"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 221,
+          "text": "    resid_pre_cf = hs_cf_all[layer_idx]  # shape: [B=1, T_cf, D]"
+        }
+      ],
+      "paper_evidence": [
+        "Sec. 3.3; App. D.2; Figure 2 caption"
+      ]
+    },
+    {
+      "id": "registry_importability",
+      "brief_statement": "(not in the brief) The task registry.",
+      "status": "found during source locking",
+      "finding": "tasks/dist.py lists 14 schema constants (tasks/dist.py:88-103) and imports them at module level (tasks/dist.py:43-58), but grammar/schemas.py at c53372c defines only 10 (commit 15c1a4c removed the others). Importing SCHEMA_COLORED_SHAPES from grammar.schemas raises ImportError (checked with the standard library only), so tasks/dist.py, and the notebook's import from it, cannot be imported unmodified at this commit. The ten defined schemas match the paper's ten tasks (App. A.1, Table 1). This application does not import tasks/dist.py; its adapter reads grammar/schemas.py only.",
+      "code_evidence": [
+        {
+          "file": "tasks/dist.py",
+          "line": 43,
+          "text": "from grammar.schemas import ("
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 48,
+          "text": "    SCHEMA_GEOMETRY,"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 50,
+          "text": "    SCHEMA_NUMBERED_CONTAINERS,"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 51,
+          "text": "    SCHEMA_ANIMAL_MOVEMENTS,"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 88,
+          "text": "schemas = ["
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 103,
+          "text": "]"
+        }
+      ],
+      "paper_evidence": [
+        "App. A.1 and Table 1: ten binding tasks"
+      ]
+    },
+    {
+      "id": "environment_pins",
+      "brief_statement": "Upstream pins no versions, and CausalAbstraction/requirements.txt contains a merge-conflict marker.",
+      "status": "verified",
+      "finding": "CausalAbstraction/requirements.txt lists unpinned package names and contains an unresolved merge-conflict block (lines 14-18). No other requirements or lock file exists in the repository.",
+      "code_evidence": [
+        {
+          "file": "CausalAbstraction/requirements.txt",
+          "line": 1,
+          "text": "torch"
+        },
+        {
+          "file": "CausalAbstraction/requirements.txt",
+          "line": 14,
+          "text": "<<<<<<< Updated upstream"
+        },
+        {
+          "file": "CausalAbstraction/requirements.txt",
+          "line": 16,
+          "text": "======="
+        },
+        {
+          "file": "CausalAbstraction/requirements.txt",
+          "line": 18,
+          "text": ">>>>>>> Stashed changes"
+        }
+      ],
+      "paper_evidence": []
+    },
+    {
+      "id": "model_revision_and_dtype",
+      "brief_statement": "The Hugging Face revision of google/gemma-2-2b-it is not declared upstream.",
+      "status": "verified",
+      "finding": "The model id is a command-line default without revision (tasks/dist.py:411); from_pretrained is called with a revision only when --checkpoint is given (tasks/dist.py:458-470). The command line loads torch_dtype='auto' (tasks/dist.py:470); the notebook loads bfloat16 (example.ipynb:152).",
+      "code_evidence": [
+        {
+          "file": "tasks/dist.py",
+          "line": 411,
+          "text": "@click.option(\"--model-id\", type=str, default=\"google/gemma-2-2b-it\")"
+        },
+        {
+          "file": "tasks/dist.py",
+          "line": 470,
+          "text": "        model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=\"auto\", device_map=\"auto\")"
+        },
+        {
+          "file": "example.ipynb",
+          "line": 152,
+          "text": "    \"model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.bfloat16, device_map=\\\"auto\\\")\\n\","
+        }
+      ],
+      "paper_evidence": []
+    }
+  ],
+  "openness_check": {
+    "question": "Does the paper, its appendix or the blog post already test, case by case, whether single cases look like the per-cell average (Round 1)?",
+    "searched": [
+      "paper v2 HTML: full text, all appendices (A-G), table and figure captions; keyword sweep for case-level terms (individual, per-sample, per-example, each example, instance, variance, heterogeneity, bimodal, dispersion, spread, standard deviation)",
+      "blog post text and figure captions; the interactive figure's script and one of its data files",
+      "upstream repository at c53372c: tasks/dist.py, training.py, plotting.py, example.ipynb (code; no result data are included in the repository)"
+    ],
+    "not_inspected": "Figure images (pixels) were not inspected; captions and text were.",
+    "found": [
+      "Sec. 4 averages 150 interventions per (i_P, i_L, i_R) cell after a softmax over the entity indices and fits the mixture model to these means.",
+      "Mean logit or probability distributions per cell or per index (Figures 3 right, 13, 24-26; blog Figures 4, 5 and the interactive figure).",
+      "Case-level argmax labels aggregated into shares per positional (or other single) index, pooling over the other indices (Figures 2, 8-12, 14-17, 20, 21, 27, 28, 30), and confusion matrices of predicted versus positional index (Figures 3 left, 29, 31). These are descriptive shares, not per full cell, and do not compare single cases with the cell average."
+    ],
+    "result": "No case-level test of the Round 1 question was found. No STOP."
+  }
+}

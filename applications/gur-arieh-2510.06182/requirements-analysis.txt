@@ -1,0 +1,15 @@
+# Environment used for the first pass (source locking, Round 0, Round 1 analyzer,
+# checker, synthetic worlds, and the repository's offline test suite).
+# Python 3.11.15, in a virtual environment outside this repository, with the
+# repository installed in editable mode: python -m pip install -e '.[test]'
+# No torch, no transformers, no model files. The application code itself uses only
+# the Python standard library; numpy and pytest serve the repository's test suite.
+iniconfig==2.3.0
+numpy==2.4.6
+packaging==26.3
+pluggy==1.6.0
+Pygments==2.21.0
+pytest==9.1.1
+# The environment for model runs is not pinned yet. It is proposed in
+# PREFLIGHT_PLAN.md and must be pinned (with model and tokenizer hashes) before any
+# model run.
