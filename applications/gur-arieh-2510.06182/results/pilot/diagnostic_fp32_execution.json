@@ -1,0 +1,2879 @@
+{
+  "label": "DIAGNOSTIC, pilot/development, descriptive; decides nothing",
+  "families": 32,
+  "same_families_as_pilot": true,
+  "s_min_used": 0.1,
+  "s_min_note": "the pilot's s_min was the 0.10 floor in every cell for both readouts",
+  "fp32_mps_runtime_per_family_seconds": {
+    "mean": 5.972805606718907,
+    "median": 5.4386552089999896,
+    "max": 8.221135917003267
+  },
+  "bf16_mps_runtime_per_family_seconds_same_families": {
+    "mean": 5.849954631656317
+  },
+  "memory": {
+    "load_seconds": 13.856125582999084,
+    "after_load_mps_current_gib": 9.739182949066162,
+    "after_load_mps_driver_gib": 10.2054443359375,
+    "max_mps_driver_gib_after_a_family": 11.439208984375,
+    "process_peak_rss_gib": 12.112045288085938,
+    "machine_memory_gib": 64.0
+  },
+  "bf16_vs_fp32_on_mps": {
+    "declared_in_context": {
+      "conflict_layer18": {
+        "runs": 32,
+        "max_abs_T_difference": 0.06193828048914407,
+        "median_abs_T_difference": 6.273428778036383e-05,
+        "above_0.01": 7,
+        "same_resolution": 32,
+        "same_labels": 32
+      },
+      "no_patch": {
+        "runs": 32,
+        "max_abs_T_difference": 0.02106368335565545,
+        "median_abs_T_difference": 0.002878009971980733,
+        "above_0.01": 11,
+        "same_resolution": 32,
+        "same_labels": 32
+      },
+      "agreement": {
+        "runs": 96,
+        "max_abs_T_difference": 0.018563552754453427,
+        "median_abs_T_difference": 4.130906172683524e-08,
+        "above_0.01": 1,
+        "same_resolution": 95,
+        "same_labels": 95
+      }
+    },
+    "answer_form": {
+      "conflict_layer18": {
+        "runs": 22,
+        "max_abs_T_difference": 0.12102850908533547,
+        "median_abs_T_difference": 0.0013249719137409244,
+        "above_0.01": 5,
+        "same_resolution": 22,
+        "same_labels": 21
+      },
+      "no_patch": {
+        "runs": 22,
+        "max_abs_T_difference": 0.015219427243021943,
+        "median_abs_T_difference": 0.0033118686512230155,
+        "above_0.01": 4,
+        "same_resolution": 22,
+        "same_labels": 22
+      },
+      "agreement": {
+        "runs": 66,
+        "max_abs_T_difference": 0.00509315659391707,
+        "median_abs_T_difference": 6.14543506860521e-07,
+        "above_0.01": 0,
+        "same_resolution": 66,
+        "same_labels": 66
+      }
+    }
+  },
+  "fp32_family_rerun_equals_stored_fp32_reference": {
+    "equal": 32,
+    "of": 32
+  },
+  "fp32_mps_vs_fp32_cpu_conflict_layer18": [
+    {
+      "case_id": "pilot-0000",
+      "seconds_cpu_two_forwards": 3.0384293339993746,
+      "declared_in_context": {
+        "abs_T_difference_mps_vs_cpu": 4.3841598684757344e-08,
+        "max_abs_logit_difference": 6.628036499023438e-05
+      },
+      "answer_form": {
+        "abs_T_difference_mps_vs_cpu": 1.8835239146142158e-07,
+        "max_abs_logit_difference": 4.291534423828125e-05
+      }
+    },
+    {
+      "case_id": "pilot-0001",
+      "seconds_cpu_two_forwards": 1.6398451669992937,
+      "declared_in_context": {
+        "abs_T_difference_mps_vs_cpu": 2.2438558846538115e-05,
+        "max_abs_logit_difference": 6.341934204101562e-05
+      },
+      "answer_form": {
+        "abs_T_difference_mps_vs_cpu": 9.432486965055276e-06,
+        "max_abs_logit_difference": 3.62396240234375e-05
+      }
+    },
+    {
+      "case_id": "pilot-0002",
+      "seconds_cpu_two_forwards": 1.8425475420008297,
+      "declared_in_context": {
+        "abs_T_difference_mps_vs_cpu": 1.5872814174144878e-10,
+        "max_abs_logit_difference": 2.0831823348999023e-05
+      },
+      "answer_form": {
+        "abs_T_difference_mps_vs_cpu": 3.8242599087467966e-09,
+        "max_abs_logit_difference": 3.147125244140625e-05
+      }
+    },
+    {
+      "case_id": "pilot-0003",
+      "seconds_cpu_two_forwards": 1.69173095899896,
+      "declared_in_context": {
+        "abs_T_difference_mps_vs_cpu": 3.9567089216152596e-07,
+        "max_abs_logit_difference": 5.14984130859375e-05
+      },
+      "answer_form": null
+    },
+    {
+      "case_id": "pilot-0004",
+      "seconds_cpu_two_forwards": 1.6033604580006795,
+      "declared_in_context": {
+        "abs_T_difference_mps_vs_cpu": 3.1172137393564725e-07,
+        "max_abs_logit_difference": 2.8371810913085938e-05
+      },
+      "answer_form": {
+        "abs_T_difference_mps_vs_cpu": 7.781897433001284e-06,
+        "max_abs_logit_difference": 2.6702880859375e-05
+      }
+    },
+    {
+      "case_id": "pilot-0005",
+      "seconds_cpu_two_forwards": 1.5643346670003666,
+      "declared_in_context": {
+        "abs_T_difference_mps_vs_cpu": 1.6911708700106942e-09,
+        "max_abs_logit_difference": 3.3855438232421875e-05
+      },
+      "answer_form": {
+        "abs_T_difference_mps_vs_cpu": 2.448141889210831e-08,
+        "max_abs_logit_difference": 3.910064697265625e-05
+      }
+    },
+    {
+      "case_id": "pilot-0006",
+      "seconds_cpu_two_forwards": 1.5590540409975802,
+      "declared_in_context": {
+        "abs_T_difference_mps_vs_cpu": 2.0005025151981215e-06,
+        "max_abs_logit_difference": 8.392333984375e-05
+      },
+      "answer_form": {
+        "abs_T_difference_mps_vs_cpu": 6.21340491835376e-07,
+        "max_abs_logit_difference": 4.9591064453125e-05
+      }
+    },
+    {
+      "case_id": "pilot-0007",
+      "seconds_cpu_two_forwards": 1.59656945900133,
+      "declared_in_context": {
+        "abs_T_difference_mps_vs_cpu": 1.2946632654831092e-10,
+        "max_abs_logit_difference": 3.5762786865234375e-05
+      },
+      "answer_form": null
+    }
+  ],
+  "rows": {
+    "declared_in_context": [
+      {
+        "case_id": "pilot-0000",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9980275322796668,
+        "T_fp32": 0.9981038454104156,
+        "abs_T_difference": 7.631313074885071e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0000",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.913686553066069,
+        "T_fp32": 0.9135357671946517,
+        "abs_T_difference": 0.00015078587141736932,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0000",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999914671977579,
+        "T_fp32": 0.9999928923107027,
+        "abs_T_difference": 1.4251129447639954e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0000",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999997905605545,
+        "T_fp32": 0.9999997957906511,
+        "abs_T_difference": 5.230096578046073e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0000",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9980490892589734,
+        "T_fp32": 0.9974966038922032,
+        "abs_T_difference": 0.0005524853667702168,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.5284564810589493,
+        "T_fp32": 0.5197477251529176,
+        "abs_T_difference": 0.008708755906031707,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9143147837002666,
+        "T_fp32": 0.9102798961123143,
+        "abs_T_difference": 0.0040348875879523405,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.99999998939512,
+        "T_fp32": 0.9999999915400345,
+        "abs_T_difference": 2.1449144682605947e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999993015599792,
+        "T_fp32": 0.9999994066806155,
+        "abs_T_difference": 1.0512063630674362e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999677437486684,
+        "T_fp32": 0.9999724362054412,
+        "abs_T_difference": 4.692456772814602e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999710929920087,
+        "T_fp32": 0.9999743007879168,
+        "abs_T_difference": 3.2077959081222573e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9154163415086535,
+        "T_fp32": 0.9266221065062631,
+        "abs_T_difference": 0.011205764997609613,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999999871277,
+        "T_fp32": 0.9999999999865713,
+        "abs_T_difference": 5.564437799421285e-13,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9879377666980329,
+        "T_fp32": 0.9893930466014087,
+        "abs_T_difference": 0.0014552799033757946,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999986397330896,
+        "T_fp32": 0.9999986191240028,
+        "abs_T_difference": 2.0609086770484453e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0003",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9670255410175713,
+        "T_fp32": 0.9649007338035037,
+        "abs_T_difference": 0.0021248072140676033,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0003",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.999989045310046,
+        "T_fp32": 0.9999896821436769,
+        "abs_T_difference": 6.368336309403588e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0003",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999999681588,
+        "T_fp32": 0.9999999999663904,
+        "abs_T_difference": 1.7683632336229493e-12,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0003",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9970541362945824,
+        "T_fp32": 0.9973833769173438,
+        "abs_T_difference": 0.0003292406227614064,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0003",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999996680232109,
+        "T_fp32": 0.9999996737290836,
+        "abs_T_difference": 5.705872663241962e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9905263081647048,
+        "T_fp32": 0.992996821848709,
+        "abs_T_difference": 0.002470513684004194,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.870611923368331,
+        "T_fp32": 0.8586909606209421,
+        "abs_T_difference": 0.011920962747388963,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999921582001,
+        "T_fp32": 0.9999999939787381,
+        "abs_T_difference": 1.8205379426206036e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.999999736039936,
+        "T_fp32": 0.9999997560199997,
+        "abs_T_difference": 1.998006371461969e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9152123420089792,
+        "T_fp32": 0.9147007415999335,
+        "abs_T_difference": 0.0005116004090456316,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999235724011472,
+        "T_fp32": 0.9999443943243354,
+        "abs_T_difference": 2.0821923188196756e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.5337985226230328,
+        "T_fp32": 0.5160213690645243,
+        "abs_T_difference": 0.017777153558508507,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999955680088,
+        "T_fp32": 0.9999999956821658,
+        "abs_T_difference": 1.1415701717254478e-10,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999036206282106,
+        "T_fp32": 0.9999072235714644,
+        "abs_T_difference": 3.6029432538553507e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9997454613250267,
+        "T_fp32": 0.9997352373179726,
+        "abs_T_difference": 1.0224007054082662e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.966902327916064,
+        "T_fp32": 0.9740413474928005,
+        "abs_T_difference": 0.007139019576736461,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.5868935561930785,
+        "T_fp32": 0.6013980515041565,
+        "abs_T_difference": 0.014504495311078003,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999998967930404,
+        "T_fp32": 0.9999999000757228,
+        "abs_T_difference": 3.2826824591936088e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999997830067785,
+        "T_fp32": 0.9999998194219201,
+        "abs_T_difference": 3.641514156882408e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999997327026655,
+        "T_fp32": 0.9999997809517039,
+        "abs_T_difference": 4.8249038431258384e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0007",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9998359592034483,
+        "T_fp32": 0.9998377106737875,
+        "abs_T_difference": 1.751470339206307e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0007",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.7175735186597024,
+        "T_fp32": 0.7332924387033573,
+        "abs_T_difference": 0.015718920043654827,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0007",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999897329914393,
+        "T_fp32": 0.9999893462219179,
+        "abs_T_difference": 3.8676952140992427e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0007",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.997948678338453,
+        "T_fp32": 0.9981195563251241,
+        "abs_T_difference": 0.00017087798667103637,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0007",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999999978981541,
+        "T_fp32": 0.9999999982087695,
+        "abs_T_difference": 3.1061542227206473e-10,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999885190380222,
+        "T_fp32": 0.9999844860500352,
+        "abs_T_difference": 4.032987987012682e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.5429525624329521,
+        "T_fp32": 0.5458305724049328,
+        "abs_T_difference": 0.002878009971980733,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999998208541,
+        "T_fp32": 0.9999999998154596,
+        "abs_T_difference": 5.394462654351173e-12,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999995020574373,
+        "T_fp32": 0.999999543366499,
+        "abs_T_difference": 4.130906172683524e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9994909758583388,
+        "T_fp32": 0.9994734258703548,
+        "abs_T_difference": 1.7549987983978e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0009",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.999999741166336,
+        "T_fp32": 0.9999997040229576,
+        "abs_T_difference": 3.714337848403915e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0009",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9998663075742776,
+        "T_fp32": 0.999881851454177,
+        "abs_T_difference": 1.5543879899326818e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0009",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999165935133,
+        "T_fp32": 0.999999924901983,
+        "abs_T_difference": 8.308469690021525e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0009",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999105426549,
+        "T_fp32": 0.9999999018173965,
+        "abs_T_difference": 8.725258404673752e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0009",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999999599334982,
+        "T_fp32": 0.9999999702646121,
+        "abs_T_difference": 1.0331113853290219e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0010",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.999974907705008,
+        "T_fp32": 0.9999660163100904,
+        "abs_T_difference": 8.891394917553974e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0010",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.5088820940593547,
+        "T_fp32": 0.5267460599776644,
+        "abs_T_difference": 0.017863965918309743,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0010",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999999542523,
+        "T_fp32": 0.9999999999477933,
+        "abs_T_difference": 6.458944490361773e-12,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0010",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999993553028249,
+        "T_fp32": 0.9999993839296031,
+        "abs_T_difference": 2.8626778170171008e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0010",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9982713896325923,
+        "T_fp32": 0.9983681771399979,
+        "abs_T_difference": 9.67875074056046e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0011",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999996234176932,
+        "T_fp32": 0.9999996363236063,
+        "abs_T_difference": 1.2905913115979217e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0011",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9858893464431977,
+        "T_fp32": 0.9870022384924464,
+        "abs_T_difference": 0.0011128920492486927,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0011",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9955196580055375,
+        "T_fp32": 0.9957741150075874,
+        "abs_T_difference": 0.000254457002049846,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0011",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999850931786,
+        "T_fp32": 0.9999999889191837,
+        "abs_T_difference": 3.826005179341507e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0011",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999999704750393,
+        "T_fp32": 0.9999999715728175,
+        "abs_T_difference": 1.0977782016752258e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9943090046811556,
+        "T_fp32": 0.99454503539221,
+        "abs_T_difference": 0.00023603071105438023,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.6471195900648169,
+        "T_fp32": 0.6359980898926094,
+        "abs_T_difference": 0.011121500172207477,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9997684624615493,
+        "T_fp32": 0.9997347439261419,
+        "abs_T_difference": 3.3718535407345485e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999388718568,
+        "T_fp32": 0.9999999428371249,
+        "abs_T_difference": 3.965268113859111e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999996356096047,
+        "T_fp32": 0.9999996275828132,
+        "abs_T_difference": 8.026791453730198e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0013",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999999978263947,
+        "T_fp32": 0.9999999976648097,
+        "abs_T_difference": 1.6158496762841423e-10,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0013",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.7970277667805334,
+        "T_fp32": 0.8158681528296856,
+        "abs_T_difference": 0.01884038604915217,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0013",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999940828623,
+        "T_fp32": 0.9999999953731171,
+        "abs_T_difference": 1.2902547918969276e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0013",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9970741533871836,
+        "T_fp32": 0.9980582848514136,
+        "abs_T_difference": 0.0009841314642299315,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0013",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999363968101873,
+        "T_fp32": 0.9999417243227587,
+        "abs_T_difference": 5.3275125714291605e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0014",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9698704959147476,
+        "T_fp32": 0.9571334299498897,
+        "abs_T_difference": 0.012737065964857908,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0014",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9812678929048034,
+        "T_fp32": 0.9807747532212032,
+        "abs_T_difference": 0.0004931396836002078,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0014",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999448085405,
+        "T_fp32": 0.9999999522360314,
+        "abs_T_difference": 7.427490955613791e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0014",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9998914887191799,
+        "T_fp32": 0.9998971437162508,
+        "abs_T_difference": 5.6549970709474096e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0014",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999994519215338,
+        "T_fp32": 0.9999994742029649,
+        "abs_T_difference": 2.2281431033555066e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9998958403427602,
+        "T_fp32": 0.9998944941223281,
+        "abs_T_difference": 1.346220432130174e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9873300000821438,
+        "T_fp32": 0.9887948178240682,
+        "abs_T_difference": 0.001464817741924418,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999465809471105,
+        "T_fp32": 0.9999536575585378,
+        "abs_T_difference": 7.076611427292434e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999603069069,
+        "T_fp32": 0.9999999691745981,
+        "abs_T_difference": 8.867691247971266e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999991840909072,
+        "T_fp32": 0.9999992581289828,
+        "abs_T_difference": 7.403807567030185e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999318512092246,
+        "T_fp32": 0.9999333968251805,
+        "abs_T_difference": 1.5456159558890903e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9944027359298546,
+        "T_fp32": 0.9940407237530242,
+        "abs_T_difference": 0.0003620121768304063,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999975938785,
+        "T_fp32": 0.9999999975797648,
+        "abs_T_difference": 1.4113710200547303e-11,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999989405091708,
+        "T_fp32": 0.9999990145387233,
+        "abs_T_difference": 7.40295524881418e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.8669112566183019,
+        "T_fp32": 0.8854748093727554,
+        "abs_T_difference": 0.018563552754453427,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9117673336284992,
+        "T_fp32": 0.9410403267426848,
+        "abs_T_difference": 0.02927299311418563,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.5113168800255949,
+        "T_fp32": 0.4902531966699395,
+        "abs_T_difference": 0.02106368335565545,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999925764873814,
+        "T_fp32": 0.9999927818357034,
+        "abs_T_difference": 2.053483220132435e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999967331753261,
+        "T_fp32": 0.9999965320582926,
+        "abs_T_difference": 2.0111703347147625e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999999978909916,
+        "T_fp32": 0.9999999977619045,
+        "abs_T_difference": 1.2908707436309896e-10,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999999840577384,
+        "T_fp32": 0.9999999854513179,
+        "abs_T_difference": 1.3935794740405072e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9982865000172786,
+        "T_fp32": 0.9984568073110832,
+        "abs_T_difference": 0.00017030729380462795,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.999999781804434,
+        "T_fp32": 0.9999998150663657,
+        "abs_T_difference": 3.326193165342772e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9998910750850747,
+        "T_fp32": 0.9998950351498654,
+        "abs_T_difference": 3.9600647907533926e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999999969492008,
+        "T_fp32": 0.9999999969284145,
+        "abs_T_difference": 2.0786372623149418e-11,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0019",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9998254731152492,
+        "T_fp32": 0.9998335407073724,
+        "abs_T_difference": 8.06759212323982e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0019",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.8549156581434791,
+        "T_fp32": 0.8606339607924701,
+        "abs_T_difference": 0.0057183026489909805,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0019",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9062014474537934,
+        "T_fp32": 0.9003960476067577,
+        "abs_T_difference": 0.005805399847035653,
+        "same_resolution": false,
+        "same_labels": false
+      },
+      {
+        "case_id": "pilot-0019",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999998357848698,
+        "T_fp32": 0.9999998310402064,
+        "abs_T_difference": 4.744663439915087e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0019",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999974668505129,
+        "T_fp32": 0.999997697791261,
+        "abs_T_difference": 2.3094074808049925e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9997395930976595,
+        "T_fp32": 0.9997623506515809,
+        "abs_T_difference": 2.2757553921448626e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.564474565733925,
+        "T_fp32": 0.5513760294782905,
+        "abs_T_difference": 0.013098536255634508,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999133731211,
+        "T_fp32": 0.9999999003290778,
+        "abs_T_difference": 1.3044043289944796e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999477646497,
+        "T_fp32": 0.9999999506159722,
+        "abs_T_difference": 2.851322511432386e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.999999951211959,
+        "T_fp32": 0.9999999500027128,
+        "abs_T_difference": 1.209246147659826e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.6478015251485204,
+        "T_fp32": 0.693039307543508,
+        "abs_T_difference": 0.04523778239498755,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.8263473839568924,
+        "T_fp32": 0.8198974388170662,
+        "abs_T_difference": 0.006449945139826219,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999103785456563,
+        "T_fp32": 0.9998888624692606,
+        "abs_T_difference": 2.1516076395777795e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999580171343,
+        "T_fp32": 0.9999999530324661,
+        "abs_T_difference": 4.984668122709479e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999998106732815,
+        "T_fp32": 0.9999997845420766,
+        "abs_T_difference": 2.613120486660847e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0022",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9984289232123479,
+        "T_fp32": 0.9984658898343185,
+        "abs_T_difference": 3.696662197061329e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0022",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9896873058402893,
+        "T_fp32": 0.9880736000036903,
+        "abs_T_difference": 0.001613705836599033,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0022",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.999999447155008,
+        "T_fp32": 0.9999993923217497,
+        "abs_T_difference": 5.483325826727281e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0022",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999881097426,
+        "T_fp32": 0.999999988483138,
+        "abs_T_difference": 3.733954256901484e-10,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0022",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9987930421265371,
+        "T_fp32": 0.998924659046975,
+        "abs_T_difference": 0.00013161692043794915,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.7772719886438286,
+        "T_fp32": 0.7992603335772394,
+        "abs_T_difference": 0.02198834493341073,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9689622497411563,
+        "T_fp32": 0.9714916427751014,
+        "abs_T_difference": 0.00252939303394506,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.999821960833492,
+        "T_fp32": 0.9998402921354963,
+        "abs_T_difference": 1.8331302004348515e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999997169006084,
+        "T_fp32": 0.9999997186999975,
+        "abs_T_difference": 1.7993890821799141e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9933263042116509,
+        "T_fp32": 0.9940300530205256,
+        "abs_T_difference": 0.0007037488088746935,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.992671672882094,
+        "T_fp32": 0.9934458058388441,
+        "abs_T_difference": 0.0007741329567501065,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9893077146028599,
+        "T_fp32": 0.9904147699415785,
+        "abs_T_difference": 0.0011070553387185766,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999987474333,
+        "T_fp32": 0.9999999990257763,
+        "abs_T_difference": 2.7834301530305083e-10,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9996786748249683,
+        "T_fp32": 0.9997040986932166,
+        "abs_T_difference": 2.5423868248330983e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.8518525166824421,
+        "T_fp32": 0.860696193380144,
+        "abs_T_difference": 0.008843676697701919,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999999328864135,
+        "T_fp32": 0.9999999414262165,
+        "abs_T_difference": 8.539802975882083e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9743499071290389,
+        "T_fp32": 0.9754959041683554,
+        "abs_T_difference": 0.0011459970393165042,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999978430367895,
+        "T_fp32": 0.9999980673935148,
+        "abs_T_difference": 2.243567253090717e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999464529625,
+        "T_fp32": 0.9999999530011987,
+        "abs_T_difference": 6.548236175518696e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9997870369934811,
+        "T_fp32": 0.9998067181085001,
+        "abs_T_difference": 1.9681115018932438e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.998128509002944,
+        "T_fp32": 0.9980657747151637,
+        "abs_T_difference": 6.273428778036383e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.6128668692908422,
+        "T_fp32": 0.5932452746758294,
+        "abs_T_difference": 0.019621594615012783,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999821589467,
+        "T_fp32": 0.9999999847548708,
+        "abs_T_difference": 2.595924142312356e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999995939075468,
+        "T_fp32": 0.9999996152600791,
+        "abs_T_difference": 2.135253229784695e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.8932354771134033,
+        "T_fp32": 0.8836602539285122,
+        "abs_T_difference": 0.009575223184891124,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.877145839735689,
+        "T_fp32": 0.8906903394173025,
+        "abs_T_difference": 0.01354449968161342,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9826726870310509,
+        "T_fp32": 0.982453150473783,
+        "abs_T_difference": 0.00021953655726791865,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999994229954134,
+        "T_fp32": 0.9999995161955256,
+        "abs_T_difference": 9.32001121833892e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9994938149992009,
+        "T_fp32": 0.9994908269091777,
+        "abs_T_difference": 2.988090023192669e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999999960094867,
+        "T_fp32": 0.9999999964077257,
+        "abs_T_difference": 3.98238997334488e-10,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999999976914752,
+        "T_fp32": 0.9999999977716338,
+        "abs_T_difference": 8.015865748944861e-11,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9988561552605502,
+        "T_fp32": 0.9989308946847903,
+        "abs_T_difference": 7.473942424018887e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999990815191299,
+        "T_fp32": 0.9999991587264844,
+        "abs_T_difference": 7.720735450966743e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999999951600055,
+        "T_fp32": 0.9999999951165617,
+        "abs_T_difference": 4.344380410969961e-11,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999986124896549,
+        "T_fp32": 0.9999984978615124,
+        "abs_T_difference": 1.1462814253349052e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.7969481898611026,
+        "T_fp32": 0.7350099093719585,
+        "abs_T_difference": 0.06193828048914407,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9161464875951385,
+        "T_fp32": 0.9245078584212969,
+        "abs_T_difference": 0.008361370826158399,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.999997603836396,
+        "T_fp32": 0.9999983058350486,
+        "abs_T_difference": 7.019986525413913e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999998923117663,
+        "T_fp32": 0.9999998893080642,
+        "abs_T_difference": 3.003702175874423e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999998703675181,
+        "T_fp32": 0.9999998644829459,
+        "abs_T_difference": 5.884572273906485e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0030",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9985895061019302,
+        "T_fp32": 0.9986743033498544,
+        "abs_T_difference": 8.479724792420651e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0030",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9996369036388905,
+        "T_fp32": 0.9995890981575671,
+        "abs_T_difference": 4.7805481323326404e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0030",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999998942249706,
+        "T_fp32": 0.9999998800774585,
+        "abs_T_difference": 1.414751205075504e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0030",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9959725566045113,
+        "T_fp32": 0.9965073534863349,
+        "abs_T_difference": 0.0005347968818235627,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0030",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999824104969579,
+        "T_fp32": 0.9999854697879272,
+        "abs_T_difference": 3.0592909693316628e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.5083076173277222,
+        "T_fp32": 0.5232403116468555,
+        "abs_T_difference": 0.014932694319133244,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.8653622511329986,
+        "T_fp32": 0.8670669204919473,
+        "abs_T_difference": 0.0017046693589487516,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999994790655069,
+        "T_fp32": 0.999999403648706,
+        "abs_T_difference": 7.541680091538439e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999860583766441,
+        "T_fp32": 0.9999870792168292,
+        "abs_T_difference": 1.0208401850508864e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999999935267186,
+        "T_fp32": 0.9999999930863913,
+        "abs_T_difference": 4.4032733015342274e-10,
+        "same_resolution": true,
+        "same_labels": true
+      }
+    ],
+    "answer_form": [
+      {
+        "case_id": "pilot-0000",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9951890641542525,
+        "T_fp32": 0.9929529104234477,
+        "abs_T_difference": 0.0022361537308047685,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0000",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.8324620279168466,
+        "T_fp32": 0.8357738965680697,
+        "abs_T_difference": 0.0033118686512230155,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0000",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999936926687025,
+        "T_fp32": 0.99999450611395,
+        "abs_T_difference": 8.13445247493938e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0000",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999909602326379,
+        "T_fp32": 0.9999915992078345,
+        "abs_T_difference": 6.389751966429102e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0000",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.8519777649332245,
+        "T_fp32": 0.8528426880246479,
+        "abs_T_difference": 0.0008649230914233863,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.5851396204845629,
+        "T_fp32": 0.6070179619820675,
+        "abs_T_difference": 0.02187834149750456,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.7546512264928156,
+        "T_fp32": 0.7497758955175161,
+        "abs_T_difference": 0.004875330975299463,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999976313014465,
+        "T_fp32": 0.9999979322019092,
+        "abs_T_difference": 3.0090046276853855e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999935934903184,
+        "T_fp32": 0.9999941161894044,
+        "abs_T_difference": 5.226990860141001e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0001",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999987567102255,
+        "T_fp32": 0.9999989686293898,
+        "abs_T_difference": 2.119191642169227e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9997273832115444,
+        "T_fp32": 0.9997708225454353,
+        "abs_T_difference": 4.343933389083787e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.56814666479114,
+        "T_fp32": 0.5566949462696078,
+        "abs_T_difference": 0.01145171852153215,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999998317629449,
+        "T_fp32": 0.9999998134840733,
+        "abs_T_difference": 1.827887163852182e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999485196973531,
+        "T_fp32": 0.9999542822252298,
+        "abs_T_difference": 5.762527876651546e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0002",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9998342163702162,
+        "T_fp32": 0.9998282671042332,
+        "abs_T_difference": 5.94926598296297e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.5333691933122398,
+        "T_fp32": 0.5326602957147649,
+        "abs_T_difference": 0.0007088975974748335,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.7318332741064084,
+        "T_fp32": 0.745927974455422,
+        "abs_T_difference": 0.014094700349013611,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999810728966833,
+        "T_fp32": 0.9999824224105137,
+        "abs_T_difference": 1.3495138304620014e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999997657453685,
+        "T_fp32": 0.9999997993673513,
+        "abs_T_difference": 3.362198275347339e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0004",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9944155490043841,
+        "T_fp32": 0.9946413397523668,
+        "abs_T_difference": 0.00022579074798267929,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9985329807224762,
+        "T_fp32": 0.9988419449325034,
+        "abs_T_difference": 0.0003089642100272405,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9985280077757125,
+        "T_fp32": 0.9986777377495502,
+        "abs_T_difference": 0.0001497299738376645,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999918725132257,
+        "T_fp32": 0.999991117593552,
+        "abs_T_difference": 7.5491967377328e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9887501361334289,
+        "T_fp32": 0.986234426759311,
+        "abs_T_difference": 0.002515709374117936,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0005",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999649551058217,
+        "T_fp32": 0.9999610548919776,
+        "abs_T_difference": 3.900213844110212e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9889130087337376,
+        "T_fp32": 0.9896647808888229,
+        "abs_T_difference": 0.0007517721550853729,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9019226384622091,
+        "T_fp32": 0.908725581233343,
+        "abs_T_difference": 0.006802942771133913,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999960007728754,
+        "T_fp32": 0.9999964795509917,
+        "abs_T_difference": 4.78778116264067e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999969933947724,
+        "T_fp32": 0.9999972567674238,
+        "abs_T_difference": 2.6337265135456533e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0006",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999538910969656,
+        "T_fp32": 0.9999568270115146,
+        "abs_T_difference": 2.9359145489182836e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.7982122471540647,
+        "T_fp32": 0.7792756311636885,
+        "abs_T_difference": 0.018936615990376215,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9215892094942068,
+        "T_fp32": 0.9255041383477896,
+        "abs_T_difference": 0.0039149288535828,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999938405968858,
+        "T_fp32": 0.9999932775644133,
+        "abs_T_difference": 5.630324725336422e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999477290988391,
+        "T_fp32": 0.9999542055513926,
+        "abs_T_difference": 6.476452553472178e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0008",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999962541657262,
+        "T_fp32": 0.9999965835062076,
+        "abs_T_difference": 3.2934048133093086e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9984992099791861,
+        "T_fp32": 0.9985705179838965,
+        "abs_T_difference": 7.13080047104464e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.657720982807292,
+        "T_fp32": 0.6519730298388469,
+        "abs_T_difference": 0.0057479529684451025,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9998503099297472,
+        "T_fp32": 0.9998358097966622,
+        "abs_T_difference": 1.4500133085015854e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999955393953763,
+        "T_fp32": 0.9999956193351489,
+        "abs_T_difference": 7.993977257925167e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0012",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999912189605681,
+        "T_fp32": 0.9999919536986104,
+        "abs_T_difference": 7.347380422961791e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9848186690902697,
+        "T_fp32": 0.9861436410040106,
+        "abs_T_difference": 0.0013249719137409244,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.6538523581777366,
+        "T_fp32": 0.6649634938338121,
+        "abs_T_difference": 0.011111135656075577,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.999904940719556,
+        "T_fp32": 0.9999072355509611,
+        "abs_T_difference": 2.294831405014186e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9998135292059188,
+        "T_fp32": 0.9998245446182012,
+        "abs_T_difference": 1.1015412282433523e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0015",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999665057962203,
+        "T_fp32": 0.9999665347800054,
+        "abs_T_difference": 2.8983785149705454e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.8670376817590494,
+        "T_fp32": 0.8819170871333932,
+        "abs_T_difference": 0.014879405374343846,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.6500404718710234,
+        "T_fp32": 0.6434696079070336,
+        "abs_T_difference": 0.00657086396398987,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999954466023279,
+        "T_fp32": 0.9999954030349397,
+        "abs_T_difference": 4.356738814159655e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999253954661413,
+        "T_fp32": 0.9999309098410442,
+        "abs_T_difference": 5.5143749028152556e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0016",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9998980314813104,
+        "T_fp32": 0.999913527979482,
+        "abs_T_difference": 1.549649817156329e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.5246095696897103,
+        "T_fp32": 0.4035810606043748,
+        "abs_T_difference": 0.12102850908533547,
+        "same_resolution": true,
+        "same_labels": false
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.4237023011510223,
+        "T_fp32": 0.43047961995944806,
+        "abs_T_difference": 0.006777318808425747,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999997502285154,
+        "T_fp32": 0.9999997710555661,
+        "abs_T_difference": 2.0827050750682474e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999191950688839,
+        "T_fp32": 0.9999029464609529,
+        "abs_T_difference": 1.624860793103533e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0017",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999919128773416,
+        "T_fp32": 0.9999922836526622,
+        "abs_T_difference": 3.707753206683151e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.999928647446795,
+        "T_fp32": 0.9999324439976417,
+        "abs_T_difference": 3.7965508467019404e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9638082026653703,
+        "T_fp32": 0.9640542123508455,
+        "abs_T_difference": 0.00024600968547527913,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.999997145946195,
+        "T_fp32": 0.9999974862411117,
+        "abs_T_difference": 3.402949166897429e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9996604548267842,
+        "T_fp32": 0.9996582798943104,
+        "abs_T_difference": 2.1749324737863063e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0018",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999891441604951,
+        "T_fp32": 0.9999902537681867,
+        "abs_T_difference": 1.1096076916183861e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999682673585814,
+        "T_fp32": 0.9999714644639723,
+        "abs_T_difference": 3.1971053909840563e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9977052494360544,
+        "T_fp32": 0.9974793248334501,
+        "abs_T_difference": 0.00022592460260428826,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999999932054514,
+        "T_fp32": 0.9999999927974925,
+        "abs_T_difference": 4.0795888889277876e-10,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.999993141368395,
+        "T_fp32": 0.9999928919452099,
+        "abs_T_difference": 2.494231851057904e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0020",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999955640282302,
+        "T_fp32": 0.9999952716200278,
+        "abs_T_difference": 2.924082024291508e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.975754440724028,
+        "T_fp32": 0.9776305789932559,
+        "abs_T_difference": 0.001876138269227945,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.8659619728671908,
+        "T_fp32": 0.8507425456241688,
+        "abs_T_difference": 0.015219427243021943,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999845200807536,
+        "T_fp32": 0.9999839055372467,
+        "abs_T_difference": 6.14543506860521e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999877673557623,
+        "T_fp32": 0.9999863421146339,
+        "abs_T_difference": 1.4252411284498834e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0021",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999982194754794,
+        "T_fp32": 0.9999983862964481,
+        "abs_T_difference": 1.6682096870557217e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9102342526557924,
+        "T_fp32": 0.9205348573692557,
+        "abs_T_difference": 0.01030060471346328,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9755787876648897,
+        "T_fp32": 0.9746257039782542,
+        "abs_T_difference": 0.0009530836866354919,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999083123073745,
+        "T_fp32": 0.9999148060643805,
+        "abs_T_difference": 6.493757006009737e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999620084665193,
+        "T_fp32": 0.9999588876630544,
+        "abs_T_difference": 3.120803464873312e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0023",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9998809385114864,
+        "T_fp32": 0.9998974918810176,
+        "abs_T_difference": 1.655336953121367e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9994374961155461,
+        "T_fp32": 0.9994839215549878,
+        "abs_T_difference": 4.642543944166633e-05,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.8524483552290352,
+        "T_fp32": 0.8537171479618331,
+        "abs_T_difference": 0.0012687927327978965,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999984088084889,
+        "T_fp32": 0.9999985418280435,
+        "abs_T_difference": 1.3301955459343873e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999978782882597,
+        "T_fp32": 0.9999978725135928,
+        "abs_T_difference": 5.774666855806743e-09,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0024",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9902339995163398,
+        "T_fp32": 0.9914275184957442,
+        "abs_T_difference": 0.00119351897940434,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.999998144668944,
+        "T_fp32": 0.999998217474822,
+        "abs_T_difference": 7.280587799307625e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9699809020242148,
+        "T_fp32": 0.9712180857883509,
+        "abs_T_difference": 0.0012371837641360628,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999981163012407,
+        "T_fp32": 0.9999980325306659,
+        "abs_T_difference": 8.377057481023797e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999960406307034,
+        "T_fp32": 0.9999961910608618,
+        "abs_T_difference": 1.5043015844096175e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0025",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999910305870398,
+        "T_fp32": 0.9999906491298515,
+        "abs_T_difference": 3.8145718828097586e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9450970088029037,
+        "T_fp32": 0.9541062199893754,
+        "abs_T_difference": 0.009009211186471688,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.8827172638143715,
+        "T_fp32": 0.8855087207261273,
+        "abs_T_difference": 0.002791456911755752,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999785165420417,
+        "T_fp32": 0.999981058694776,
+        "abs_T_difference": 2.5421527343194583e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999990173962843,
+        "T_fp32": 0.9999990777708917,
+        "abs_T_difference": 6.037460742458478e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0026",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9857794345843128,
+        "T_fp32": 0.9806862779903958,
+        "abs_T_difference": 0.00509315659391707,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9490253550167225,
+        "T_fp32": 0.9434888631521859,
+        "abs_T_difference": 0.00553649186453653,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9782956443015154,
+        "T_fp32": 0.9769916702199943,
+        "abs_T_difference": 0.0013039740815210532,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999970251599496,
+        "T_fp32": 0.9999970731143677,
+        "abs_T_difference": 4.7954418103124397e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9998730327475948,
+        "T_fp32": 0.9998771328517541,
+        "abs_T_difference": 4.100104159299178e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0027",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999266816096953,
+        "T_fp32": 0.999930061423154,
+        "abs_T_difference": 3.379813458659342e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9999994173877818,
+        "T_fp32": 0.9999994870980171,
+        "abs_T_difference": 6.971023536195275e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9837679674276224,
+        "T_fp32": 0.9838681140806146,
+        "abs_T_difference": 0.0001001466529921835,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999954010346055,
+        "T_fp32": 0.9999955791369018,
+        "abs_T_difference": 1.7810229635539798e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999970751977564,
+        "T_fp32": 0.9999970920548894,
+        "abs_T_difference": 1.6857133022796233e-08,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0028",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999126469765915,
+        "T_fp32": 0.9999049383409161,
+        "abs_T_difference": 7.70863567545188e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.6372633453636457,
+        "T_fp32": 0.6302765996582557,
+        "abs_T_difference": 0.006986745705390041,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9059153504248434,
+        "T_fp32": 0.9062497881014517,
+        "abs_T_difference": 0.00033443767660834567,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.999995979590081,
+        "T_fp32": 0.99999643457271,
+        "abs_T_difference": 4.549826290167758e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999735906688622,
+        "T_fp32": 0.9999694460083693,
+        "abs_T_difference": 4.144660492810814e-06,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0029",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999969072501718,
+        "T_fp32": 0.9999967110271055,
+        "abs_T_difference": 1.9622306624000885e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "conflict_layer18",
+        "qualifies": true,
+        "T_bf16": 0.9665465324142889,
+        "T_fp32": 0.9667856857223261,
+        "abs_T_difference": 0.00023915330803725432,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "no_patch",
+        "qualifies": true,
+        "T_bf16": 0.9856756606873395,
+        "T_fp32": 0.9862631064994059,
+        "abs_T_difference": 0.0005874458120663784,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "agreement_i_P",
+        "qualifies": true,
+        "T_bf16": 0.9999885221872304,
+        "T_fp32": 0.9999890776237526,
+        "abs_T_difference": 5.554365221094315e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "agreement_i_L",
+        "qualifies": true,
+        "T_bf16": 0.9999909081026809,
+        "T_fp32": 0.9999914361033626,
+        "abs_T_difference": 5.280006817320881e-07,
+        "same_resolution": true,
+        "same_labels": true
+      },
+      {
+        "case_id": "pilot-0031",
+        "run": "agreement_i_R",
+        "qualifies": true,
+        "T_bf16": 0.9999993690700925,
+        "T_fp32": 0.9999993236461918,
+        "abs_T_difference": 4.5423900640884085e-08,
+        "same_resolution": true,
+        "same_labels": true
+      }
+    ]
+  }
+}

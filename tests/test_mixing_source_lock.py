@@ -38,11 +38,21 @@ class SourceLockStructureTests(unittest.TestCase):
         self.assertTrue(is_hex(model["revision"], 40))
         self.assertEqual(model["label"], "not declared upstream")
 
-    def test_no_model_content_hash_is_claimed_before_gate_one(self):
+    def test_model_content_hashes_come_from_gate_one_of_the_pilot(self):
         model = LOCK["model"]
         self.assertTrue(all("sha256" not in entry for entry in model["files_at_revision"]))
         self.assertIn("gate 1", model["content_hashes"])
-        self.assertIn("not accepted", model["model_license"])
+        manifest = json.loads((APP / "results/pilot/manifest.json").read_text())
+        recorded = manifest["model"]["hashes"]
+        self.assertTrue(recorded["passed"])
+        self.assertEqual(model["content_hashes_gate1"],
+                         {k: {"sha256": v["sha256"], "size": v["size"]} for k, v in recorded["files"].items()})
+        locked_sizes = {e["path"]: e["size"] for e in model["files_at_revision"]}
+        for name, entry in model["content_hashes_gate1"].items():
+            self.assertTrue(is_hex(entry["sha256"], 64))
+            self.assertEqual(entry["size"], locked_sizes[name])
+        self.assertTrue(LOCK["chat_template"]["rendered_template_verified"])
+        self.assertTrue(LOCK["chat_template"]["rendered_for_X"].startswith("<bos>"))
 
     def test_every_brief_fact_has_a_status_and_cited_lines(self):
         ids = {fact["id"] for fact in LOCK["upstream_facts"]}

@@ -43,8 +43,11 @@ synthetic tests, and a preflight plan. No model was run in the first pass.
 **Status (28 September 2026):** the user approved three protocol corrections (layer 18
 fixed by declaration, the s_min wording, an equal-weight agreement anchor with a 90%
 resolution gate), recorded the N rule, and approved the value table for a development
-pilot only, on the locally cached model. Final approval of the table, splits A and B,
-the freeze and the confirmation are not yet authorized.
+pilot only, on the locally cached model. The pilot ran on 80 families
+([results/pilot/PILOT_REPORT.md](results/pilot/PILOT_REPORT.md)): the bfloat16 dtype gate
+failed and the declared readout's validity is in question, so protocol decisions are
+needed before split A. Final approval of the table, splits A and B, the freeze and the
+confirmation are not yet authorized.
 
 ## Files
 
@@ -65,6 +68,7 @@ the freeze and the confirmation are not yet authorized.
 | [src/mixing_runner.py](src/mixing_runner.py) | model runner (torch): offline snapshot and file hashes, single-token pools, token alignment, last-token forward-pre hook at block ℓ with call and write counts, the entity readout (entity logits, logsumexp over the vocabulary and its complement, entity mass), greedy generation, identity self-patch, and one record per family in the checker's schema |
 | [scripts/run_mixing_pilot.py](scripts/run_mixing_pilot.py), [src/mixing_pilot_summary.py](src/mixing_pilot_summary.py) | the development pilot (offline, cached model) and its gate table from the stored files |
 | [requirements-model.txt](requirements-model.txt) | the environment used for model runs (torch 2.5.1, transformers 4.57.3) |
+| [results/pilot/](results/pilot/PILOT_REPORT.md) | the development pilot: records, gate table, readout and dtype diagnostics (`scripts/diagnose_pilot_readout.py`, `scripts/diagnose_fp32_execution.py`) and the report |
 
 Tests live with the repository's other tests: `tests/test_mixing_*.py` (the runner tests
 use a tiny, randomly initialised Gemma 2 and a word-level tokenizer built locally in

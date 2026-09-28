@@ -316,9 +316,10 @@
       "tasks/dist.py:106-117"
     ],
     "format": "tokenizer.apply_chat_template([{'role': 'user', 'content': raw_prompt}], tokenize=False, add_generation_prompt=True), then the first five characters are dropped ([5:], tasks/dist.py:136); the string is re-tokenized with the tokenizer's default special tokens (tasks/dist.py:356). For Gemma the answer follows the marker 'Answer:\\nmodel\\n' after decoding without special tokens (tasks/dist.py:108).",
-    "reading": "For Gemma's template the five dropped characters are presumably the literal '<bos>', which the tokenizer then adds back as a token. This is an inference from the code, not verified.",
-    "rendered_template_verified": false,
-    "deferred_to": "Gate 3 (token alignment), after the user accepts the Gemma licence: the tokenizer files are gated and were not downloaded."
+    "reading": "Verified: the five dropped characters are the literal '<bos>', which the tokenizer adds back as a single BOS token.",
+    "rendered_template_verified": true,
+    "verified_on": "2026-09-28, gate 3 of the pilot, pinned tokenizer",
+    "rendered_for_X": "<bos><start_of_turn>user\nX<end_of_turn>\n<start_of_turn>model\n"
   },
   "environment": {
     "analysis": {
@@ -329,7 +330,17 @@
       "used_for": "source locking, Round 0, the Round 1 analyzer, checker and synthetic worlds, and the repository's offline test suite"
     },
     "model_runs": {
-      "status": "not pinned yet; proposed in PREFLIGHT_PLAN.md and to be pinned before any model run",
+      "status": "pinned in requirements-model.txt (28 September 2026)",
+      "location": "existing environment reused read-only: .venv-round2 of the original working tree (the Makelov model-run environment), with PYTHONDONTWRITEBYTECODE=1",
+      "versions": {
+        "torch": "2.5.1",
+        "transformers": "4.57.3",
+        "tokenizers": "0.22.2",
+        "safetensors": "0.8.0",
+        "numpy": "1.26.4"
+      },
+      "python": "3.11.15",
+      "device": "mps",
       "upstream_pins": "none (see upstream_facts.environment_pins)"
     }
   },
@@ -342,7 +353,7 @@
     "authentication_needed_for_revision": false,
     "last_modified": "2024-08-27T19:41:44.000Z",
     "gated": "manual",
-    "model_license": "gemma; not accepted (the user accepts it)",
+    "model_license": "gemma; the snapshot was already in the user's local Hugging Face cache; the user authorized its use for the pilot on 2026-09-28 (no download was made)",
     "files_at_revision": [
       {
         "path": ".gitattributes",
@@ -404,7 +415,45 @@
         "git_oid": "36ba12877e7efaba5252f7b17ab337a59d953563"
       }
     ],
-    "content_hashes": "Not recorded. The API masks LFS sha256 values without authentication. Model and tokenizer sha256 are recorded at gate 1, after licence acceptance and before any model run."
+    "content_hashes": "Recorded at gate 1 of the pilot (2026-09-28) from the local Hugging Face cache snapshot, offline: content_hashes_gate1 below and results/pilot/manifest.json. Every file matched its cache content address (sha256 for LFS files, git blob id for the others) and the locked size.",
+    "content_hashes_gate1": {
+      "config.json": {
+        "sha256": "eacec6c5ca317a87ed2c46789d9705b9274db5027e7ba59da739bfae23addb55",
+        "size": 838
+      },
+      "generation_config.json": {
+        "sha256": "a543a5d299bc2b20c52bd87ed174f561266510b57a392e12b5b5d758d798ce05",
+        "size": 187
+      },
+      "model-00001-of-00002.safetensors": {
+        "sha256": "532d792c9178805064170a3ec485b7dedbfccc6fd297b92c31a6091b6c7e41bf",
+        "size": 4988025760
+      },
+      "model-00002-of-00002.safetensors": {
+        "sha256": "6d6d9ce84db398fb6e0191f91542e5da0a73da2cb695e172a24edc2146dc8d20",
+        "size": 240691728
+      },
+      "model.safetensors.index.json": {
+        "sha256": "ada0043f3e3b2e5ab2f445cad9c0fbbf9d91ad444675e6a82b822591c63abf5a",
+        "size": 24223
+      },
+      "special_tokens_map.json": {
+        "sha256": "baec30ea10906f16adb8c18af7a34023002c1746542612b8b41c9f09e1351351",
+        "size": 636
+      },
+      "tokenizer.json": {
+        "sha256": "3f289bc05132635a8bc7aca7aa21255efd5e18f3710f43e3cdb96bcd41be4922",
+        "size": 17525357
+      },
+      "tokenizer.model": {
+        "sha256": "61a7b147390c64585d6c3543dd6fc636906c9af3865a5548f27f31aee1d4c8e2",
+        "size": 4241003
+      },
+      "tokenizer_config.json": {
+        "sha256": "cb32b7929c62608d46572e813112b3ad8a841fb98fdd6a4da8559e368a951c89",
+        "size": 46996
+      }
+    }
   },
   "upstream_facts": [
     {

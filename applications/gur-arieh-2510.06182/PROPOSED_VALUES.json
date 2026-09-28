@@ -7,6 +7,14 @@
   "approved_for_pilot": true,
   "approved_for_pilot_on": "2026-09-28",
   "final_approval": "pending; the user decides after the pilot report",
+  "pilot_outcome": {
+    "report": "results/pilot/PILOT_REPORT.md (pilot/development, descriptive)",
+    "N_by_rule": 400,
+    "unresolved_rate": "3/79 = 0.038 under the declared readout",
+    "gate_7_dtype": "FAILED under bfloat16 (max |dT| = 0.062 against 0.01); decision needed",
+    "readout_validity": "declared in-context readout carries about 2e-5 of the next-token mass and names the generated entity in 58/79 conflict runs; decision needed",
+    "values_changed_by_the_pilot": "none"
+  },
   "date": "2026-09-28",
   "indices": "0-based design indices; the paper counts from 1",
   "corrections_applied_2026_09_28": [

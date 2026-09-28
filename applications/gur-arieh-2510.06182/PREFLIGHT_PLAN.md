@@ -223,8 +223,15 @@ development data decide.
   the binding decisions are on splits A and B.
 - Openness check: no STOP (no case-level test found).
 
-The pilot's results and the STOP conditions still active after it will be in
-`results/pilot/PILOT_REPORT.md`.
+### After the pilot (28 September 2026)
+
+The pilot ran (80 families, cached model, MPS); see
+[results/pilot/PILOT_REPORT.md](results/pilot/PILOT_REPORT.md). Gates 1–6 and 8 passed,
+**gate 7 (bfloat16 against float32) failed**, and a readout-validity diagnostic found
+that the declared in-context readout carries about 2 × 10⁻⁵ of the next-token mass and
+names the generated entity in 58 of 79 conflict runs. The N rule gives N = 400 under the
+declared readout. No declared value was changed; the report lists the decisions needed
+before split A (execution dtype, primary readout and a mass gate, a repeated pilot).
 
 ## Authorizations still needed after the pilot
 

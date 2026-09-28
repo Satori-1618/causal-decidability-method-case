@@ -15,9 +15,11 @@ hash and every cited line below against a clone of the upstream repository.
 | Model | `google/gemma-2-2b-it` at revision `299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8` (last modified 27 Aug 2024), **not declared upstream** | from Hugging Face API metadata only |
 
 The model repository is gated. Its revision and file sizes were readable without
-authentication; the sha256 of the weight and tokenizer files were masked. They will be
-recorded at gate 1, after the user accepts the Gemma licence and before any model run.
-No file of the model repository was downloaded.
+authentication; the sha256 of the weight and tokenizer files were masked. At gate 1 of
+the pilot (28 September 2026) they were computed offline from the snapshot already in the
+user's local Hugging Face cache, whose use the user authorized; every file matched its
+cache content address and the locked size (`content_hashes_gate1` in the lock). No file
+of the model repository was downloaded.
 
 The upstream code is a separate read-only clone outside this repository. Nothing is
 vendored.
@@ -39,8 +41,9 @@ Categories, entity counts, templates and queries of the ten tasks are in the loc
 single user message with a generation prompt and drops the first five characters; the
 string is then tokenized again with default special tokens. For Gemma the answer is read
 after `Answer:\nmodel\n` (`tasks/dist.py:106-117`). That the five dropped characters are
-the literal `<bos>` is an inference from the code: the rendered template was not checked,
-because the tokenizer files are gated. This is deferred to gate 3.
+the literal `<bos>` was an inference from the code in the first pass; gate 3 of the pilot
+verified it on the pinned tokenizer (`<bos><start_of_turn>user\n…<end_of_turn>\n<start_of_turn>model\n`),
+and each prompt carries exactly one BOS token.
 
 ## Upstream facts from the brief
 
