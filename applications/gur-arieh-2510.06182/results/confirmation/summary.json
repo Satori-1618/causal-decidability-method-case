@@ -1,0 +1,3714 @@
+{
+  "contract": {
+    "w": 1,
+    "kappa": 0.25,
+    "coverage": 0.8,
+    "alpha": 0.05,
+    "family_size": 2,
+    "label_tail": 0.0125,
+    "resolution_rate_floor": 0.9,
+    "agreement_resolution_floor": 0.9,
+    "readout": "answer form: capitalised, no leading space, exactly one token",
+    "answer_mass_floor": 0.5,
+    "resolution_rule": "S >= s_min and answer-token mass >= answer_mass_floor",
+    "unresolved_rule": "non-match for adequacy; match for exclusion"
+  },
+  "N": 300,
+  "generated": 305,
+  "yield": 0.9836065573770492,
+  "cell": {
+    "i_P": 3,
+    "i_L": 5,
+    "i_R": 1,
+    "i_N": 6
+  },
+  "adequacy_powered": true,
+  "run_status": "VALID",
+  "invalid_reason": null,
+  "level": "S3 (W_T excluded only)",
+  "u": 10,
+  "statuses": {
+    "W_T": "excluded",
+    "A_T": "undecided"
+  },
+  "profiles": {
+    "W_T": {
+      "k_match": 16,
+      "k_match_plus_unresolved": 26,
+      "N": 300,
+      "adequacy_interval": [
+        0.028307986712243625,
+        0.09005601083639664
+      ],
+      "exclusion_interval": [
+        0.05393470256024055,
+        0.13008458185457955
+      ],
+      "lower_bound_for_adequacy": 0.028307986712243625,
+      "upper_bound_for_exclusion": 0.13008458185457955,
+      "status": "excluded"
+    },
+    "A_T": {
+      "k_match": 224,
+      "k_match_plus_unresolved": 234,
+      "N": 300,
+      "adequacy_interval": [
+        0.6858451109823984,
+        0.8012320805675535
+      ],
+      "exclusion_interval": [
+        0.721394819413893,
+        0.8314907906973799
+      ],
+      "lower_bound_for_adequacy": 0.6858451109823984,
+      "upper_bound_for_exclusion": 0.8314907906973799,
+      "status": "undecided"
+    }
+  },
+  "band_half_width": 0.11567271572797971,
+  "anchors": {
+    "T_W": 0.5337563513345881,
+    "T_A": 0.996447214246507,
+    "d": 0.46269086291191885,
+    "q_bar_B": [
+      0.5337563513345881,
+      0.4197774895571512,
+      0.04646615910826068
+    ]
+  },
+  "mean_gate": {
+    "statistic": 0.005942849778883097,
+    "delta": 0.08424668467579421,
+    "q_bar_confirmation": [
+      0.5322703736655583,
+      0.4257203393360343,
+      0.04200928699840739
+    ],
+    "passed": true
+  },
+  "between_case": {
+    "sentence": "Cases differ in which candidate position they favour.",
+    "label_counts_resolved": {
+      "positional": 157,
+      "lexical": 125,
+      "reflexive": 8
+    },
+    "ties_resolved": 0,
+    "U": {
+      "positional": 0.621565143005347,
+      "lexical": 0.5163365991978663,
+      "reflexive": 0.09823863744123432
+    },
+    "max_U": 0.621565143005347,
+    "conditions": {
+      "A_T_adequate": false,
+      "mean_gate_passed": true,
+      "max_U_below_coverage": true
+    },
+    "earned": false
+  },
+  "shares_vs_T_W": {
+    "resolved": 290,
+    "unresolved": 10,
+    "unresolved_by_support": 10,
+    "unresolved_by_answer_mass": 0,
+    "above_T_W": 282,
+    "below_T_W": 8,
+    "deviating_above": 274,
+    "deviating_below": 0
+  },
+  "w_t_reading": "More than 20% of cases are resolved and deviate from the cell-average concentration by more than kappa*d_c.",
+  "w_t_caveat": "W_T is biased toward exclusion when case argmaxes vary; the bias is largest in the selected cell.",
+  "descriptive": {
+    "p_native_median": 0.004015782763605681,
+    "answer_mass_median": 0.9890738129615784,
+    "S_median": 0.994874258616318,
+    "background_entities": 1
+  },
+  "cases": [
+    {
+      "case_id": "confirmation-0000",
+      "S": 0.9912411646000163,
+      "T": 0.9968789060133604,
+      "answer_mass": 0.9931229948997498,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0001",
+      "S": 0.9999370820999853,
+      "T": 0.9783586289655501,
+      "answer_mass": 0.9834342002868652,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0002",
+      "S": 0.9248484880527602,
+      "T": 0.9329167175646144,
+      "answer_mass": 0.9939510822296143,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0003",
+      "S": 0.9999754169188457,
+      "T": 0.9995772050629173,
+      "answer_mass": 0.9868464469909668,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0004",
+      "S": 0.9998621437111406,
+      "T": 0.993861791302966,
+      "answer_mass": 0.9946774244308472,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0005",
+      "S": 0.9972764194291895,
+      "T": 0.9837667405919731,
+      "answer_mass": 0.989387035369873,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0006",
+      "S": 0.995470922265471,
+      "T": 0.9969274586284385,
+      "answer_mass": 0.9946888089179993,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0007",
+      "S": 0.9800920793362121,
+      "T": 0.9821424184243915,
+      "answer_mass": 0.9894851446151733,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0008",
+      "S": 0.9964448568475002,
+      "T": 0.8959488668235673,
+      "answer_mass": 0.9906937479972839,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0009",
+      "S": 0.005644498433960261,
+      "T": 0.7234228480678577,
+      "answer_mass": 0.9761905670166016,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0010",
+      "S": 0.9882198646674067,
+      "T": 0.9435336918440449,
+      "answer_mass": 0.9807630181312561,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0011",
+      "S": 0.9986666568978129,
+      "T": 0.8468167543047026,
+      "answer_mass": 0.9942108392715454,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0012",
+      "S": 0.9997847165783283,
+      "T": 0.9929433680189388,
+      "answer_mass": 0.993861973285675,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0013",
+      "S": 0.8943573879375729,
+      "T": 0.9994283226373684,
+      "answer_mass": 0.9892605543136597,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0014",
+      "S": 0.9994589955949205,
+      "T": 0.9997762680917152,
+      "answer_mass": 0.9875544309616089,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0015",
+      "S": 0.9997902990810785,
+      "T": 0.8699170486111393,
+      "answer_mass": 0.9614723324775696,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0016",
+      "S": 0.24891470992762876,
+      "T": 0.9827689522948762,
+      "answer_mass": 0.9796804785728455,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0017",
+      "S": 0.9879340007077831,
+      "T": 0.9998577850901539,
+      "answer_mass": 0.9962590932846069,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0018",
+      "S": 0.9091664795528873,
+      "T": 0.6922441533219553,
+      "answer_mass": 0.9631003737449646,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0019",
+      "S": 0.9936810125272029,
+      "T": 0.999777138782895,
+      "answer_mass": 0.9910793304443359,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0020",
+      "S": 0.999496446848918,
+      "T": 0.9996685862593949,
+      "answer_mass": 0.996460497379303,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0021",
+      "S": 0.959931594880761,
+      "T": 0.718556451696585,
+      "answer_mass": 0.9898381233215332,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0023",
+      "S": 0.9420942468509557,
+      "T": 0.9610795158369483,
+      "answer_mass": 0.9815134406089783,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0024",
+      "S": 0.9692033477468864,
+      "T": 0.8149207851648579,
+      "answer_mass": 0.9907183051109314,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0025",
+      "S": 0.9989237596167436,
+      "T": 0.9930627199557192,
+      "answer_mass": 0.994588315486908,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0026",
+      "S": 0.9795133120346543,
+      "T": 0.9873669052416874,
+      "answer_mass": 0.9936193823814392,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0027",
+      "S": 0.9997533822547845,
+      "T": 0.9737339522745335,
+      "answer_mass": 0.9951272010803223,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0028",
+      "S": 0.9984524873266184,
+      "T": 0.992843814356357,
+      "answer_mass": 0.9940952062606812,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0029",
+      "S": 0.6412496892656877,
+      "T": 0.9209982282151381,
+      "answer_mass": 0.9900741577148438,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0030",
+      "S": 0.9843377698335454,
+      "T": 0.6853203619389138,
+      "answer_mass": 0.7995126247406006,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0031",
+      "S": 0.9355447678401985,
+      "T": 0.5800459156293253,
+      "answer_mass": 0.9825717210769653,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0032",
+      "S": 0.975319217564497,
+      "T": 0.9974420952057311,
+      "answer_mass": 0.9918640851974487,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0033",
+      "S": 0.9973781865025477,
+      "T": 0.6988778932720991,
+      "answer_mass": 0.9596054553985596,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0034",
+      "S": 0.9997281522874475,
+      "T": 0.99515627942049,
+      "answer_mass": 0.9746724367141724,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0035",
+      "S": 0.9998312481946212,
+      "T": 0.9999973456671375,
+      "answer_mass": 0.9937368631362915,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0036",
+      "S": 0.9959467776613143,
+      "T": 0.9983567930241827,
+      "answer_mass": 0.9808658957481384,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0037",
+      "S": 0.9962157425791787,
+      "T": 0.883946422450491,
+      "answer_mass": 0.9923542141914368,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0038",
+      "S": 0.9082195764298686,
+      "T": 0.9941995441229713,
+      "answer_mass": 0.9868502020835876,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0039",
+      "S": 0.9993090993526194,
+      "T": 0.9925827289331594,
+      "answer_mass": 0.9836480617523193,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0040",
+      "S": 0.9933503181502694,
+      "T": 0.9145358388798167,
+      "answer_mass": 0.9764159321784973,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0041",
+      "S": 0.943800950241256,
+      "T": 0.9996192136156669,
+      "answer_mass": 0.9939188361167908,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0042",
+      "S": 0.9891574201371429,
+      "T": 0.9942233424334831,
+      "answer_mass": 0.9975006580352783,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0043",
+      "S": 0.983726880698113,
+      "T": 0.9824615354711982,
+      "answer_mass": 0.9950019121170044,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0044",
+      "S": 0.9744290466260828,
+      "T": 0.7777621738337216,
+      "answer_mass": 0.9898098111152649,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0045",
+      "S": 0.9989413501902309,
+      "T": 0.8435501129790055,
+      "answer_mass": 0.9963693022727966,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0046",
+      "S": 0.7318003310219139,
+      "T": 0.9675889416767863,
+      "answer_mass": 0.9629203677177429,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0047",
+      "S": 0.9894293648332066,
+      "T": 0.9050332240714953,
+      "answer_mass": 0.9921630620956421,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0048",
+      "S": 0.9941163842833484,
+      "T": 0.7560006458392857,
+      "answer_mass": 0.9862781763076782,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0049",
+      "S": 0.9996378521169137,
+      "T": 0.9999811507689342,
+      "answer_mass": 0.9787541031837463,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0050",
+      "S": 0.973743371998161,
+      "T": 0.9900997229975055,
+      "answer_mass": 0.9976814389228821,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0051",
+      "S": 0.9316042370121109,
+      "T": 0.9987942080436077,
+      "answer_mass": 0.9857534766197205,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0052",
+      "S": 0.9892405737404244,
+      "T": 0.9544153447554032,
+      "answer_mass": 0.9891058802604675,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0053",
+      "S": 0.9993010233958427,
+      "T": 0.9882051988644127,
+      "answer_mass": 0.9824498891830444,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0054",
+      "S": 0.9955583024891436,
+      "T": 0.9646689991236381,
+      "answer_mass": 0.982463002204895,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0055",
+      "S": 0.9997143171345658,
+      "T": 0.9984443423422062,
+      "answer_mass": 0.9957784414291382,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0056",
+      "S": 0.96559769090017,
+      "T": 0.8838915780517027,
+      "answer_mass": 0.9954783916473389,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0057",
+      "S": 0.9963535262353928,
+      "T": 0.854703442075484,
+      "answer_mass": 0.9878483414649963,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0058",
+      "S": 0.9662188171453713,
+      "T": 0.802715292010701,
+      "answer_mass": 0.9854658246040344,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0059",
+      "S": 0.9946429965652819,
+      "T": 0.8519891892609702,
+      "answer_mass": 0.9920154809951782,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0060",
+      "S": 0.9988649488812458,
+      "T": 0.99965121077204,
+      "answer_mass": 0.9511376023292542,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0061",
+      "S": 0.99997314492985,
+      "T": 0.798993984103425,
+      "answer_mass": 0.9972115159034729,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0062",
+      "S": 0.9998515890313825,
+      "T": 0.8736125453966624,
+      "answer_mass": 0.9879161715507507,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0063",
+      "S": 0.9995944747472296,
+      "T": 0.9982764072306554,
+      "answer_mass": 0.99294114112854,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0064",
+      "S": 0.07703664441309012,
+      "T": 0.6721324767162415,
+      "answer_mass": 0.9785096049308777,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0065",
+      "S": 0.7521456473178295,
+      "T": 0.6706744886624683,
+      "answer_mass": 0.9590217471122742,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0066",
+      "S": 0.575858770739312,
+      "T": 0.8124409481894864,
+      "answer_mass": 0.9703819155693054,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0067",
+      "S": 0.9999817689598041,
+      "T": 0.9998322640092668,
+      "answer_mass": 0.9893983602523804,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0068",
+      "S": 0.7587602342214501,
+      "T": 0.9411646675479387,
+      "answer_mass": 0.960922360420227,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0069",
+      "S": 0.9960671462663784,
+      "T": 0.9985732150273651,
+      "answer_mass": 0.9588955640792847,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0070",
+      "S": 0.4715461324726131,
+      "T": 0.9404569676646726,
+      "answer_mass": 0.9814066886901855,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0071",
+      "S": 0.9993427984147044,
+      "T": 0.99973519389133,
+      "answer_mass": 0.9822288155555725,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0072",
+      "S": 0.9958602656848974,
+      "T": 0.8148247553156214,
+      "answer_mass": 0.9736133217811584,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0073",
+      "S": 0.9999716640665695,
+      "T": 0.976960285717179,
+      "answer_mass": 0.9923031330108643,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0074",
+      "S": 0.9999462522879841,
+      "T": 0.8526860261192343,
+      "answer_mass": 0.9922898411750793,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0075",
+      "S": 0.9040706966494467,
+      "T": 0.4701799964535463,
+      "answer_mass": 0.9792881608009338,
+      "resolved": true,
+      "labels": [
+        "reflexive"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0076",
+      "S": 0.8867486685987493,
+      "T": 0.9088212364850897,
+      "answer_mass": 0.9678994417190552,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0077",
+      "S": 0.9970353144917409,
+      "T": 0.9862583833926057,
+      "answer_mass": 0.9669564962387085,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0078",
+      "S": 0.9945388293076082,
+      "T": 0.9949760149011647,
+      "answer_mass": 0.9812588691711426,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0079",
+      "S": 0.6569567009665056,
+      "T": 0.9933444496805656,
+      "answer_mass": 0.9601767063140869,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0080",
+      "S": 0.9941022515130162,
+      "T": 0.9989252487764794,
+      "answer_mass": 0.987415075302124,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0081",
+      "S": 0.8378664125784858,
+      "T": 0.9946496826083762,
+      "answer_mass": 0.9909488558769226,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0082",
+      "S": 0.8015840695325135,
+      "T": 0.9333305493455073,
+      "answer_mass": 0.989288866519928,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0083",
+      "S": 0.999708175838191,
+      "T": 0.9992554715185902,
+      "answer_mass": 0.9883628487586975,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0084",
+      "S": 0.88063177188721,
+      "T": 0.9358171911884989,
+      "answer_mass": 0.9669269919395447,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0085",
+      "S": 0.9638771985349668,
+      "T": 0.9503277443818159,
+      "answer_mass": 0.9932518005371094,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0086",
+      "S": 0.9994428548502748,
+      "T": 0.9997020765764817,
+      "answer_mass": 0.9850091934204102,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0087",
+      "S": 0.9373612835755623,
+      "T": 0.9981104134880497,
+      "answer_mass": 0.9940268993377686,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0088",
+      "S": 0.999998255433174,
+      "T": 0.9975281422960013,
+      "answer_mass": 0.9925945997238159,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0089",
+      "S": 0.9930969496599231,
+      "T": 0.6679979438791485,
+      "answer_mass": 0.9921592473983765,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0090",
+      "S": 0.9239106419962355,
+      "T": 0.9510799501519273,
+      "answer_mass": 0.9827572703361511,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0091",
+      "S": 0.06331746997616895,
+      "T": 0.6116987768016473,
+      "answer_mass": 0.9795515537261963,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0092",
+      "S": 0.4769925574056014,
+      "T": 0.9411002268405305,
+      "answer_mass": 0.9900949001312256,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0093",
+      "S": 0.9971581158018973,
+      "T": 0.997867570353668,
+      "answer_mass": 0.9968026876449585,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0094",
+      "S": 0.9897239443060665,
+      "T": 0.9994625140271185,
+      "answer_mass": 0.996141254901886,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0095",
+      "S": 0.9977220619638536,
+      "T": 0.7050922498920585,
+      "answer_mass": 0.959665834903717,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0096",
+      "S": 0.9996932215275814,
+      "T": 0.9962667849328676,
+      "answer_mass": 0.9879953265190125,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0097",
+      "S": 0.8943159659226962,
+      "T": 0.9894146094269357,
+      "answer_mass": 0.9758294224739075,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0098",
+      "S": 0.9505151898132677,
+      "T": 0.9381205755376545,
+      "answer_mass": 0.996969997882843,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0099",
+      "S": 0.9997518468315926,
+      "T": 0.9163473916472229,
+      "answer_mass": 0.9767139554023743,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0100",
+      "S": 0.9865973986726602,
+      "T": 0.9018482548995493,
+      "answer_mass": 0.9869067072868347,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0101",
+      "S": 0.9991086331297272,
+      "T": 0.6848598068765025,
+      "answer_mass": 0.9949696660041809,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0102",
+      "S": 0.9935145015922167,
+      "T": 0.9749995010791241,
+      "answer_mass": 0.9753288626670837,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0103",
+      "S": 0.9503634946442544,
+      "T": 0.9956264663084418,
+      "answer_mass": 0.9880273342132568,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0104",
+      "S": 0.9996152074384773,
+      "T": 0.9952747312370192,
+      "answer_mass": 0.9944479465484619,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0105",
+      "S": 0.9999988548769271,
+      "T": 0.9999658616846566,
+      "answer_mass": 0.9827778935432434,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0106",
+      "S": 0.9947199446508406,
+      "T": 0.9986417068216945,
+      "answer_mass": 0.9924601912498474,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0107",
+      "S": 0.9952068273090019,
+      "T": 0.8404488147322893,
+      "answer_mass": 0.9853342771530151,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0108",
+      "S": 0.9978556599902956,
+      "T": 0.9895972970216256,
+      "answer_mass": 0.9971373677253723,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0109",
+      "S": 0.9703557947367127,
+      "T": 0.9246100829549515,
+      "answer_mass": 0.974769115447998,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0110",
+      "S": 0.9912883733842818,
+      "T": 0.9958985983227031,
+      "answer_mass": 0.9962913990020752,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0111",
+      "S": 0.9999834817856201,
+      "T": 0.999112324278635,
+      "answer_mass": 0.9979117512702942,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0112",
+      "S": 0.8856257214586506,
+      "T": 0.6138144396432693,
+      "answer_mass": 0.9620740413665771,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0113",
+      "S": 0.9975968945682131,
+      "T": 0.9572606554042151,
+      "answer_mass": 0.9986771941184998,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0114",
+      "S": 0.9999813632759069,
+      "T": 0.9924697781290738,
+      "answer_mass": 0.9729896187782288,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0115",
+      "S": 0.9999587583011503,
+      "T": 0.992281573634854,
+      "answer_mass": 0.9872097969055176,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0116",
+      "S": 0.8764661000221472,
+      "T": 0.953084936507055,
+      "answer_mass": 0.9767903089523315,
+      "resolved": true,
+      "labels": [
+        "reflexive"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0117",
+      "S": 0.9995793960142033,
+      "T": 0.9999995722289111,
+      "answer_mass": 0.9895172119140625,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0118",
+      "S": 0.9938138221908875,
+      "T": 0.9440366426657134,
+      "answer_mass": 0.980957567691803,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0119",
+      "S": 0.9993905782435814,
+      "T": 0.8820093796298641,
+      "answer_mass": 0.9932195544242859,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0120",
+      "S": 0.7460118450271935,
+      "T": 0.4195033876748408,
+      "answer_mass": 0.9859170317649841,
+      "resolved": true,
+      "labels": [
+        "reflexive"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0121",
+      "S": 0.9491840765216711,
+      "T": 0.9975727530842684,
+      "answer_mass": 0.99463951587677,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0122",
+      "S": 0.9902764766167693,
+      "T": 0.9981374132350617,
+      "answer_mass": 0.9892228245735168,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0123",
+      "S": 0.9993907011771826,
+      "T": 0.9440080414422487,
+      "answer_mass": 0.9669380784034729,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0124",
+      "S": 0.23805461956435492,
+      "T": 0.9946004870231095,
+      "answer_mass": 0.9736096262931824,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0125",
+      "S": 0.9993399232977351,
+      "T": 0.994873801753278,
+      "answer_mass": 0.9934014678001404,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0126",
+      "S": 0.988855235661962,
+      "T": 0.9979099898107446,
+      "answer_mass": 0.969292402267456,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0127",
+      "S": 0.9966919353317448,
+      "T": 0.6837016546523499,
+      "answer_mass": 0.9446759223937988,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0128",
+      "S": 0.9992936079267284,
+      "T": 0.8016727392993035,
+      "answer_mass": 0.9918130040168762,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0129",
+      "S": 0.95592818928517,
+      "T": 0.9993263598255239,
+      "answer_mass": 0.9959303736686707,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0130",
+      "S": 0.9999858053381006,
+      "T": 0.9998869386386801,
+      "answer_mass": 0.9913742542266846,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0131",
+      "S": 0.9998541241915744,
+      "T": 0.9948818192896599,
+      "answer_mass": 0.9871288537979126,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0132",
+      "S": 0.9847830415684983,
+      "T": 0.9975860314985389,
+      "answer_mass": 0.9548147320747375,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0133",
+      "S": 0.9992975404046559,
+      "T": 0.9639941528605993,
+      "answer_mass": 0.9967057108879089,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0134",
+      "S": 0.9487369703020979,
+      "T": 0.9976660613107485,
+      "answer_mass": 0.9959132671356201,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0135",
+      "S": 0.9984767182975789,
+      "T": 0.9964020879370049,
+      "answer_mass": 0.9938544034957886,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0136",
+      "S": 0.9992017474381119,
+      "T": 0.6050394464156388,
+      "answer_mass": 0.9898890852928162,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0137",
+      "S": 0.8888126455366305,
+      "T": 0.9483045805442252,
+      "answer_mass": 0.9731454849243164,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0138",
+      "S": 0.9996419810257462,
+      "T": 0.9999031237881669,
+      "answer_mass": 0.9690834879875183,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0139",
+      "S": 0.8677072007759545,
+      "T": 0.9292776774871317,
+      "answer_mass": 0.9880555868148804,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0140",
+      "S": 0.9998705273677597,
+      "T": 0.9961023050337189,
+      "answer_mass": 0.9933029413223267,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0141",
+      "S": 0.9999778547852437,
+      "T": 0.995058071173867,
+      "answer_mass": 0.996141254901886,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0142",
+      "S": 0.9806663447445735,
+      "T": 0.8599521559615367,
+      "answer_mass": 0.984505832195282,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0143",
+      "S": 0.9999261013130407,
+      "T": 0.9888362400315266,
+      "answer_mass": 0.9733812212944031,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0144",
+      "S": 0.993202141362886,
+      "T": 0.951415629149931,
+      "answer_mass": 0.9913723468780518,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0145",
+      "S": 0.8541790442577543,
+      "T": 0.5409684114094245,
+      "answer_mass": 0.9385802745819092,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0146",
+      "S": 0.8199065482739522,
+      "T": 0.882403807913244,
+      "answer_mass": 0.9957822561264038,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0147",
+      "S": 0.9954082230965109,
+      "T": 0.9985164795201725,
+      "answer_mass": 0.9896852374076843,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0148",
+      "S": 0.9999210518694858,
+      "T": 0.997287867627812,
+      "answer_mass": 0.9960538744926453,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0149",
+      "S": 0.9893762455280408,
+      "T": 0.9999478831152477,
+      "answer_mass": 0.991081178188324,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0150",
+      "S": 0.9999766022318817,
+      "T": 0.9980887204692479,
+      "answer_mass": 0.997805118560791,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0151",
+      "S": 0.9964997528085853,
+      "T": 0.9913382972973838,
+      "answer_mass": 0.9975863099098206,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0152",
+      "S": 0.9070315705395496,
+      "T": 0.5265323816438516,
+      "answer_mass": 0.9634604454040527,
+      "resolved": true,
+      "labels": [
+        "reflexive"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0153",
+      "S": 0.9999068596769826,
+      "T": 0.9996923912246914,
+      "answer_mass": 0.9946015477180481,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0154",
+      "S": 0.9986923582096198,
+      "T": 0.9885324651369497,
+      "answer_mass": 0.9912267327308655,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0155",
+      "S": 0.9987901726714553,
+      "T": 0.9997841544094465,
+      "answer_mass": 0.9902459979057312,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0156",
+      "S": 0.9996590771535063,
+      "T": 0.9990758170472194,
+      "answer_mass": 0.9972039461135864,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0157",
+      "S": 0.9982216080854762,
+      "T": 0.9996367476340725,
+      "answer_mass": 0.9889889359474182,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0158",
+      "S": 0.9999788863345557,
+      "T": 0.9996829383890143,
+      "answer_mass": 0.9954119324684143,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0159",
+      "S": 0.9961844311974679,
+      "T": 0.7259092231551606,
+      "answer_mass": 0.9899608492851257,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0160",
+      "S": 0.9943019653122274,
+      "T": 0.9965252368182255,
+      "answer_mass": 0.9423400163650513,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0161",
+      "S": 0.9999263681650145,
+      "T": 0.999821010467181,
+      "answer_mass": 0.9895663261413574,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0162",
+      "S": 0.9975222575324381,
+      "T": 0.6103759060227953,
+      "answer_mass": 0.8782083988189697,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0163",
+      "S": 0.77856486398833,
+      "T": 0.7585190891863353,
+      "answer_mass": 0.8724700808525085,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0164",
+      "S": 0.9988737634214123,
+      "T": 0.9999407092593622,
+      "answer_mass": 0.989709734916687,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0165",
+      "S": 0.9957449488640963,
+      "T": 0.9870210548734368,
+      "answer_mass": 0.9825155138969421,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0166",
+      "S": 0.9996387542422699,
+      "T": 0.9981122685500343,
+      "answer_mass": 0.9845921993255615,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0167",
+      "S": 0.9972415997897213,
+      "T": 0.6043424310964426,
+      "answer_mass": 0.9860374331474304,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0168",
+      "S": 0.890754328137671,
+      "T": 0.9972320256323867,
+      "answer_mass": 0.9535080194473267,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0169",
+      "S": 0.033579064346325196,
+      "T": 0.9230156348082408,
+      "answer_mass": 0.9920457601547241,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0170",
+      "S": 0.5280559181440352,
+      "T": 0.8024383567886725,
+      "answer_mass": 0.9756823778152466,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0171",
+      "S": 0.9898210897439466,
+      "T": 0.9773464096335355,
+      "answer_mass": 0.9142013192176819,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0172",
+      "S": 0.9998200562171525,
+      "T": 0.9968319742324934,
+      "answer_mass": 0.9856650829315186,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0173",
+      "S": 0.9999136858420156,
+      "T": 0.9978886716664024,
+      "answer_mass": 0.9948728680610657,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0174",
+      "S": 0.9977900805716954,
+      "T": 0.9963772380436384,
+      "answer_mass": 0.9981725215911865,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0175",
+      "S": 0.9981281653481061,
+      "T": 0.9972894349836916,
+      "answer_mass": 0.9914460778236389,
+      "resolved": true,
+      "labels": [
+        "reflexive"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0176",
+      "S": 0.996643013298325,
+      "T": 0.45001937572407225,
+      "answer_mass": 0.9865321516990662,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0177",
+      "S": 0.999890154570118,
+      "T": 0.8433752408238888,
+      "answer_mass": 0.9795553088188171,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0179",
+      "S": 0.9941601132614275,
+      "T": 0.9998976439975337,
+      "answer_mass": 0.9903159141540527,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0180",
+      "S": 0.9791998698977812,
+      "T": 0.8485473443614361,
+      "answer_mass": 0.9873736500740051,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0181",
+      "S": 0.9471689549454214,
+      "T": 0.919890218711469,
+      "answer_mass": 0.9753754138946533,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0182",
+      "S": 0.9812308702678455,
+      "T": 0.9964118867330134,
+      "answer_mass": 0.9442345499992371,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0183",
+      "S": 0.014883839907453242,
+      "T": 0.5289779380072395,
+      "answer_mass": 0.9771685600280762,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0184",
+      "S": 0.8020797875731219,
+      "T": 0.9614151144268184,
+      "answer_mass": 0.995079755783081,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0185",
+      "S": 0.9998396967123553,
+      "T": 0.9993772272337719,
+      "answer_mass": 0.990151584148407,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0186",
+      "S": 0.964079231969707,
+      "T": 0.9983133351643635,
+      "answer_mass": 0.9979231357574463,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0187",
+      "S": 0.9992419109393208,
+      "T": 0.999900302302662,
+      "answer_mass": 0.989202082157135,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0188",
+      "S": 0.9395561380467461,
+      "T": 0.8047724797219111,
+      "answer_mass": 0.972227156162262,
+      "resolved": true,
+      "labels": [
+        "reflexive"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0189",
+      "S": 0.9943057005928391,
+      "T": 0.9994615362553427,
+      "answer_mass": 0.9954575300216675,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0190",
+      "S": 0.9963077185215208,
+      "T": 0.7095610144367375,
+      "answer_mass": 0.9605210423469543,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0191",
+      "S": 0.985291526961327,
+      "T": 0.9983964914802526,
+      "answer_mass": 0.9954157471656799,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0192",
+      "S": 0.9954806410199081,
+      "T": 0.9983007563175388,
+      "answer_mass": 0.9837700128555298,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0193",
+      "S": 0.9950285725817953,
+      "T": 0.9730983963388489,
+      "answer_mass": 0.9946451783180237,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0194",
+      "S": 0.006406426221384698,
+      "T": 0.5386163489898181,
+      "answer_mass": 0.9923087954521179,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0195",
+      "S": 0.9995199369066298,
+      "T": 0.881052635599093,
+      "answer_mass": 0.9941785931587219,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0196",
+      "S": 0.9999577684141177,
+      "T": 0.9995935813471024,
+      "answer_mass": 0.9609901905059814,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0197",
+      "S": 0.01189354438594806,
+      "T": 0.9811488716116713,
+      "answer_mass": 0.9728466868400574,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0198",
+      "S": 0.6472918907874168,
+      "T": 0.9684951260430947,
+      "answer_mass": 0.9696474075317383,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0199",
+      "S": 0.9444706903030231,
+      "T": 0.9685067648821754,
+      "answer_mass": 0.9862838387489319,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0200",
+      "S": 0.9999885575641069,
+      "T": 0.9992209919262808,
+      "answer_mass": 0.990021288394928,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0201",
+      "S": 0.9968443759864891,
+      "T": 0.9999608621463496,
+      "answer_mass": 0.9903631210327148,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0202",
+      "S": 0.41187816204111166,
+      "T": 0.9431657831844265,
+      "answer_mass": 0.9935265183448792,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0203",
+      "S": 0.9987959438213939,
+      "T": 0.9999317801675945,
+      "answer_mass": 0.9970346689224243,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0204",
+      "S": 0.9993297516595029,
+      "T": 0.9896834290050586,
+      "answer_mass": 0.9969376921653748,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0205",
+      "S": 0.9959579398442832,
+      "T": 0.6784109106190882,
+      "answer_mass": 0.981139063835144,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0206",
+      "S": 0.9987668065909516,
+      "T": 0.9993992158902782,
+      "answer_mass": 0.986863374710083,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0207",
+      "S": 0.9749181626168333,
+      "T": 0.47071045390987754,
+      "answer_mass": 0.9631830453872681,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0208",
+      "S": 0.9938982623769077,
+      "T": 0.9905193844461752,
+      "answer_mass": 0.9890530705451965,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0209",
+      "S": 0.9999112946910241,
+      "T": 0.9972659389564312,
+      "answer_mass": 0.9979669451713562,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0210",
+      "S": 0.999984760669901,
+      "T": 0.999258814812726,
+      "answer_mass": 0.9924601912498474,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0211",
+      "S": 0.9994460396745238,
+      "T": 0.9974608635488883,
+      "answer_mass": 0.979284405708313,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0212",
+      "S": 0.3830539962401898,
+      "T": 0.8492965471012314,
+      "answer_mass": 0.9207846522331238,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0213",
+      "S": 0.9903479187288348,
+      "T": 0.9730895912068207,
+      "answer_mass": 0.8990756869316101,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0214",
+      "S": 0.9999587409166145,
+      "T": 0.9918548169135445,
+      "answer_mass": 0.9874545931816101,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0215",
+      "S": 0.29457443085647983,
+      "T": 0.7752198236018424,
+      "answer_mass": 0.9716598391532898,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0216",
+      "S": 0.9321939919922856,
+      "T": 0.982307157048535,
+      "answer_mass": 0.9919965267181396,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0217",
+      "S": 0.999995903546208,
+      "T": 0.9999968099399066,
+      "answer_mass": 0.9759690165519714,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0218",
+      "S": 0.9989715796279516,
+      "T": 0.9998460346315428,
+      "answer_mass": 0.9970137476921082,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0219",
+      "S": 0.9998803934554669,
+      "T": 0.9985298372562642,
+      "answer_mass": 0.9909507632255554,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0220",
+      "S": 0.9984091849562267,
+      "T": 0.9691441854628617,
+      "answer_mass": 0.9913572072982788,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0221",
+      "S": 0.03414797825937227,
+      "T": 0.6511435822008408,
+      "answer_mass": 0.9918035864830017,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0223",
+      "S": 0.996896239703449,
+      "T": 0.9501151595682474,
+      "answer_mass": 0.9923012256622314,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0224",
+      "S": 0.9042023711276791,
+      "T": 0.7680589804223894,
+      "answer_mass": 0.9903782606124878,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0225",
+      "S": 0.9968756768851162,
+      "T": 0.9246633136151154,
+      "answer_mass": 0.9788399934768677,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0226",
+      "S": 0.9997949365926303,
+      "T": 0.994873258043073,
+      "answer_mass": 0.9762799739837646,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0227",
+      "S": 0.999981493810691,
+      "T": 0.9999564677683085,
+      "answer_mass": 0.9918848872184753,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0228",
+      "S": 0.990232025517554,
+      "T": 0.9988651651535777,
+      "answer_mass": 0.9931665658950806,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0229",
+      "S": 0.9915617793229656,
+      "T": 0.9905246245858301,
+      "answer_mass": 0.9953321814537048,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0230",
+      "S": 0.9993486465434662,
+      "T": 0.9997983724078336,
+      "answer_mass": 0.9930926561355591,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0231",
+      "S": 0.9912828698844094,
+      "T": 0.684203677160306,
+      "answer_mass": 0.9824218153953552,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0232",
+      "S": 0.9979413503560729,
+      "T": 0.862988963085035,
+      "answer_mass": 0.99756920337677,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0233",
+      "S": 0.9980983775982175,
+      "T": 0.76969722555926,
+      "answer_mass": 0.9859603047370911,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0234",
+      "S": 0.9977637465200428,
+      "T": 0.7162345772846878,
+      "answer_mass": 0.9884307384490967,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0235",
+      "S": 0.9998357249803566,
+      "T": 0.9977110981946754,
+      "answer_mass": 0.9671169519424438,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0236",
+      "S": 0.9998136989414074,
+      "T": 0.9962550924905033,
+      "answer_mass": 0.9589486122131348,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0237",
+      "S": 0.9985893840913985,
+      "T": 0.9997325764326753,
+      "answer_mass": 0.9878087639808655,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0238",
+      "S": 0.5692752191740701,
+      "T": 0.9909382649201869,
+      "answer_mass": 0.9942563772201538,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0239",
+      "S": 0.7002520386884639,
+      "T": 0.9062562363329459,
+      "answer_mass": 0.9259555339813232,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0240",
+      "S": 0.9978750003073689,
+      "T": 0.9992670871441485,
+      "answer_mass": 0.976369321346283,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0241",
+      "S": 0.9584116231303367,
+      "T": 0.9633910674310174,
+      "answer_mass": 0.9261816143989563,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0242",
+      "S": 0.7784008106627498,
+      "T": 0.910535144663432,
+      "answer_mass": 0.9922898411750793,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0243",
+      "S": 0.8645995677317452,
+      "T": 0.5353093835494488,
+      "answer_mass": 0.9778416752815247,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0244",
+      "S": 0.9986419527373982,
+      "T": 0.999817457874007,
+      "answer_mass": 0.9897210597991943,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0245",
+      "S": 0.9975870687051371,
+      "T": 0.9990954498244089,
+      "answer_mass": 0.9902535676956177,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0246",
+      "S": 0.0653014887130435,
+      "T": 0.8266748064233391,
+      "answer_mass": 0.9909034967422485,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0247",
+      "S": 0.9998941020711842,
+      "T": 0.915191910393679,
+      "answer_mass": 0.9936478137969971,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0248",
+      "S": 0.9852778985604389,
+      "T": 0.9989821227524357,
+      "answer_mass": 0.9925113320350647,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0249",
+      "S": 0.883715065185507,
+      "T": 0.9976105430001949,
+      "answer_mass": 0.9955429434776306,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0250",
+      "S": 0.3281850164526572,
+      "T": 0.7679759674164014,
+      "answer_mass": 0.9318714141845703,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0251",
+      "S": 0.9865826211978466,
+      "T": 0.9040494664283101,
+      "answer_mass": 0.9772431254386902,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0252",
+      "S": 0.9162616747194028,
+      "T": 0.6691328257416541,
+      "answer_mass": 0.9827572703361511,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0253",
+      "S": 0.9982659650480997,
+      "T": 0.9951605857586442,
+      "answer_mass": 0.9401713013648987,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0254",
+      "S": 0.8653657384014691,
+      "T": 0.7955432408749799,
+      "answer_mass": 0.9591955542564392,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0255",
+      "S": 0.9875333905872685,
+      "T": 0.7418591216479774,
+      "answer_mass": 0.9940022826194763,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0256",
+      "S": 0.9917068918422071,
+      "T": 0.9922607601607769,
+      "answer_mass": 0.9839951992034912,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0257",
+      "S": 0.9849166036778189,
+      "T": 0.9990621742383936,
+      "answer_mass": 0.9662430286407471,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0258",
+      "S": 0.995573124389197,
+      "T": 0.9995660842448734,
+      "answer_mass": 0.993081271648407,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0259",
+      "S": 0.9971356387679079,
+      "T": 0.9998974432379342,
+      "answer_mass": 0.9972571730613708,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0260",
+      "S": 0.9808210083679444,
+      "T": 0.9993391781145409,
+      "answer_mass": 0.9897022247314453,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0261",
+      "S": 0.9984470342329225,
+      "T": 0.9997813182011153,
+      "answer_mass": 0.957508385181427,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0262",
+      "S": 0.999938797028168,
+      "T": 0.9998712146176556,
+      "answer_mass": 0.9986047744750977,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0263",
+      "S": 0.999277283730389,
+      "T": 0.9803833192426941,
+      "answer_mass": 0.9860317707061768,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0264",
+      "S": 0.9721630182686775,
+      "T": 0.99774224869621,
+      "answer_mass": 0.992914617061615,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0265",
+      "S": 0.960940751475903,
+      "T": 0.8811916661752712,
+      "answer_mass": 0.9821763634681702,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0266",
+      "S": 0.9703186983253899,
+      "T": 0.9214494616041581,
+      "answer_mass": 0.9769784808158875,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0267",
+      "S": 0.9999297452756193,
+      "T": 0.9999445915799179,
+      "answer_mass": 0.9946547150611877,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0268",
+      "S": 0.9928651484060883,
+      "T": 0.9966152353965411,
+      "answer_mass": 0.9981591701507568,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0269",
+      "S": 0.6902757951373977,
+      "T": 0.7507022703583288,
+      "answer_mass": 0.9677720665931702,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0271",
+      "S": 0.9998896665064417,
+      "T": 0.9997207802087232,
+      "answer_mass": 0.9684293866157532,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0272",
+      "S": 0.999535155047832,
+      "T": 0.9784999525872433,
+      "answer_mass": 0.9938108325004578,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0273",
+      "S": 0.999820393289918,
+      "T": 0.4997416460997644,
+      "answer_mass": 0.9933199882507324,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0274",
+      "S": 0.28327725259926906,
+      "T": 0.8216956937703689,
+      "answer_mass": 0.9777036309242249,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0275",
+      "S": 0.9973095708774699,
+      "T": 0.9903450555284634,
+      "answer_mass": 0.9561688303947449,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0276",
+      "S": 0.43143835299629135,
+      "T": 0.7312380406449114,
+      "answer_mass": 0.9863778948783875,
+      "resolved": true,
+      "labels": [
+        "reflexive"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0277",
+      "S": 0.8578337474958371,
+      "T": 0.9938151750066431,
+      "answer_mass": 0.9758238792419434,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0279",
+      "S": 0.9993724067717596,
+      "T": 0.9967171344108343,
+      "answer_mass": 0.9949886202812195,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0280",
+      "S": 0.9820937927971065,
+      "T": 0.9853819219778484,
+      "answer_mass": 0.9511848092079163,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0281",
+      "S": 0.946853566786512,
+      "T": 0.9068736109953053,
+      "answer_mass": 0.9904500246047974,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0282",
+      "S": 0.9921283112741615,
+      "T": 0.5163838902980086,
+      "answer_mass": 0.9815883040428162,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0283",
+      "S": 0.9909955742861566,
+      "T": 0.8455443635435033,
+      "answer_mass": 0.9438186287879944,
+      "resolved": true,
+      "labels": [
+        "reflexive"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0284",
+      "S": 0.9994564953314058,
+      "T": 0.983033660715464,
+      "answer_mass": 0.9920116662979126,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0285",
+      "S": 0.9886776940354506,
+      "T": 0.999541394344046,
+      "answer_mass": 0.9890945553779602,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0286",
+      "S": 0.9988500730670742,
+      "T": 0.993995799595426,
+      "answer_mass": 0.988355278968811,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0287",
+      "S": 0.9057639270530723,
+      "T": 0.9961771984889927,
+      "answer_mass": 0.9929279088973999,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0288",
+      "S": 0.0035402492527139558,
+      "T": 0.9154165863049435,
+      "answer_mass": 0.9736374616622925,
+      "resolved": false,
+      "labels": [],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0289",
+      "S": 0.9962974240504041,
+      "T": 0.9672329489170568,
+      "answer_mass": 0.9557002186775208,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0290",
+      "S": 0.8285921604844453,
+      "T": 0.9366127858532856,
+      "answer_mass": 0.9389920830726624,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0291",
+      "S": 0.9981235131100216,
+      "T": 0.9881042835581715,
+      "answer_mass": 0.9838675856590271,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0292",
+      "S": 0.9992395353116305,
+      "T": 0.6293751396219426,
+      "answer_mass": 0.9935719966888428,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": true,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0293",
+      "S": 0.9963229410785286,
+      "T": 0.9992703998939191,
+      "answer_mass": 0.9912305474281311,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0294",
+      "S": 0.9687233270408444,
+      "T": 0.9953039328863235,
+      "answer_mass": 0.989183247089386,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0295",
+      "S": 0.1897136451213343,
+      "T": 0.8097350234434466,
+      "answer_mass": 0.9923844933509827,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": false
+    },
+    {
+      "case_id": "confirmation-0296",
+      "S": 0.9919892051676216,
+      "T": 0.9954775600714793,
+      "answer_mass": 0.9928843379020691,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0297",
+      "S": 0.9738142121868923,
+      "T": 0.9740437757032732,
+      "answer_mass": 0.9685069918632507,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0298",
+      "S": 0.9999826375016243,
+      "T": 0.999959931554535,
+      "answer_mass": 0.9667665362358093,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0299",
+      "S": 0.9866347976297946,
+      "T": 0.9961304161566308,
+      "answer_mass": 0.9948045611381531,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0300",
+      "S": 0.9999824000998707,
+      "T": 0.9719912916810636,
+      "answer_mass": 0.9931362271308899,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0301",
+      "S": 0.9917338476023834,
+      "T": 0.9988017940946473,
+      "answer_mass": 0.9977404475212097,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0302",
+      "S": 0.9996916334422034,
+      "T": 0.9999732395072928,
+      "answer_mass": 0.9713578224182129,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0303",
+      "S": 0.9991372576522337,
+      "T": 0.9998090683336639,
+      "answer_mass": 0.992437481880188,
+      "resolved": true,
+      "labels": [
+        "positional"
+      ],
+      "W_T": false,
+      "A_T": true
+    },
+    {
+      "case_id": "confirmation-0304",
+      "S": 0.999500680112234,
+      "T": 0.5038843652946986,
+      "answer_mass": 0.9856387972831726,
+      "resolved": true,
+      "labels": [
+        "lexical"
+      ],
+      "W_T": true,
+      "A_T": false
+    }
+  ],
+  "manifest_sha256": "11a7beb825e94ca537944d329f0c74bb504a5adaaeb5e7078ddb7f6d5f8ce327",
+  "records_sha256": "211b13ea34603fac0dd4025324e1b5861890737f1533c449360c71be02c5cef2",
+  "confirmation_gates_sha256": "9a4f5929a9de2e68ec7cae0a7d2e2532eb2cb942138623459d57cc4cac5fb95c",
+  "timings_sha256": "06d7768545f9252e3e4e7734565590c80c813a6953bf1387ed29882214877a49"
+}

@@ -40,20 +40,14 @@ the model's mechanism.
 **First pass:** sources and scope, Round 0, the Round 1 analyzer and checker with
 synthetic tests, and a preflight plan. No model was run in the first pass.
 
-**Status (28 September 2026):** the user approved three protocol corrections (layer 18
-fixed by declaration, the s_min wording, an equal-weight agreement anchor with a 90%
-resolution gate), recorded the N rule, and approved the value table for a development
-pilot only, on the locally cached model. The pilot ran on 80 families
-([results/pilot/PILOT_REPORT.md](results/pilot/PILOT_REPORT.md)): the bfloat16 dtype gate
-failed and the declared readout's validity is in question. The user then approved
-**protocol v2** (float32 execution on MPS with a CPU float32 reference for gate 7; the
-answer form 'Country' as the primary readout with a 0.5 answer-token-mass gate; the
-paper's in-context readout kept as descriptive only; pools restricted so `trance` drops;
-the final N set at the freeze from split B) and a second pilot on fresh seeds. Pilot 2
-passed every declared gate and gives a provisional planning N of 200
-([results/pilot2/PILOT2_REPORT.md](results/pilot2/PILOT2_REPORT.md)). The user then
-authorized split A and split B under [SPLIT_A_B_PROTOCOL.md](SPLIT_A_B_PROTOCOL.md),
-committed before either run; the freeze and the confirmation are not authorized.
+**Status (28 September 2026): VALID, S3 (`W_T` excluded only).** After two pilots,
+development splits A and B, and a separate final freeze, the confirmation ran once on
+fresh 4,000,000-series seeds. It obtained 300 qualifying families from 305 generated
+families. The cell-average concentration profile `W_T` was excluded; the strict
+agreement-like profile `A_T` remained undecided. The aggregate mean replicated, but most
+individual cases were substantially more concentrated than that mean. This does not
+identify which mechanism operates in a case, and the stronger between-case statement
+was not earned. See [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md).
 
 ## Files
 
@@ -74,6 +68,9 @@ committed before either run; the freeze and the confirmation are not authorized.
 | [src/mixing_runner.py](src/mixing_runner.py) | model runner (torch, protocol v2): offline snapshot and file hashes, the v2 pool rule, token alignment, last-token forward-pre hook at block ℓ with call and write counts, the primary answer-form readout (logits, answer-token mass, logsumexp over the vocabulary and its complement) and the descriptive paper readout, greedy generation, identity self-patch, and one record per family in the checker's schema |
 | [scripts/run_mixing_pilot.py](scripts/run_mixing_pilot.py), [src/mixing_pilot_summary.py](src/mixing_pilot_summary.py) | the development pilot under protocol v2 (offline, cached model), its gate table from the stored files, and the generated artifact index; pilot 1 used the versions at commit `3cdaffd` |
 | [SPLIT_A_B_PROTOCOL.md](SPLIT_A_B_PROTOCOL.md), [scripts/run_mixing_split.py](scripts/run_mixing_split.py), [src/mixing_splits.py](src/mixing_splits.py) | the split A/B protocol (sizes, seeds, gate-7 cases, selection rule, what split B computes), its runner and its decisions |
+| [results/split_A/](results/split_A/SPLIT_A_REPORT.md), [results/split_B/](results/split_B/SPLIT_B_REPORT.md) | development results: split A selected cell c4; split B fixed the anchors and final N = 300 |
+| [FREEZE.json](FREEZE.json) | final confirmation contract, frozen before the fresh run |
+| [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md), [results/confirmation/](results/confirmation/summary.json) | plain-language result and the raw, hashed confirmation artifacts; `W_T` excluded, `A_T` undecided |
 | [requirements-model.txt](requirements-model.txt) | the environment used for model runs (torch 2.5.1, transformers 4.57.3) |
 | [results/pilot/](results/pilot/PILOT_REPORT.md) | pilot 1 (protocol v1): records, gate table, readout and dtype diagnostics (`scripts/diagnose_pilot_readout.py`, `scripts/diagnose_fp32_execution.py`) and the report |
 | [results/pilot2/](results/pilot2/PILOT2_REPORT.md) | pilot 2 (protocol v2, fresh seeds): records, gate-7 CPU reference, gate table, generated artifact index and the report |
