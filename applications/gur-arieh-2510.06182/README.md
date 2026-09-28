@@ -57,6 +57,9 @@ licence by the user, and explicit authorization.
 | [scripts/check_mixing_round1_records.py](scripts/check_mixing_round1_records.py) | records-only checker: recomputes every status, gate, the level and the between-case decision from the frozen manifest and raw records; imports no runner |
 | [src/mixing_synthetic_worlds.py](src/mixing_synthetic_worlds.py), [results/synthetic_worlds/worlds.json](results/synthetic_worlds/worlds.json) | the six synthetic worlds (analyzer verification only, not evidence; `scripts/run_synthetic_worlds.py --check`) |
 
+| [PREFLIGHT_PLAN.md](PREFLIGHT_PLAN.md), [PROPOSED_VALUES.json](PROPOSED_VALUES.json) | Round 1 preflight and development plan with the one table of proposed values (**awaiting approval**), gates, power, active STOP conditions and the authorizations still needed |
+| [src/mixing_round1_design.py](src/mixing_round1_design.py) | design-index checker, the conflict case of a fixed cell, the three-way agreement control, and exact power; no model |
+
 Tests live with the repository's other tests: `tests/test_mixing_*.py` and
 `tests/test_check_mixing_round1_records.py`.
 
