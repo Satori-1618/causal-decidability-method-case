@@ -40,6 +40,14 @@ class DraftFreezeManifestTests(unittest.TestCase):
             clone = Path(directory) / "repo"
             run(["git", "clone", "--quiet", "--shared", str(ROOT), str(clone)], cwd=ROOT)
 
+            # Once a reviewed draft exists in the repository, reproduce its generation
+            # from the clean tooling commit it names. The generator intentionally refuses
+            # to overwrite an existing draft at the current branch tip.
+            existing = ROOT / APPLICATION_RELATIVE / "FREEZE_DRAFT.json"
+            if existing.is_file():
+                base = json.loads(existing.read_text())["based_on_commit"]
+                run(["git", "checkout", "--quiet", "--detach", base], cwd=clone)
+
             # Before this test itself is committed, copy the working-tree generator into the
             # clone and commit it. In a clean checkout this is a no-op.
             shutil.copyfile(ROOT / GENERATOR_RELATIVE, clone / GENERATOR_RELATIVE)
