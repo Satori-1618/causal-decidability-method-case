@@ -18,6 +18,7 @@ RUNNER_PATH = APP / "scripts/run_mixing_confirmation.py"
 SPEC = importlib.util.spec_from_file_location("run_mixing_confirmation", RUNNER_PATH)
 runner = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(runner)
+checker = runner._load_checker(ROOT)
 
 
 def save(path, value):
@@ -111,7 +112,11 @@ class FrozenFixture:
             "model": {"id": model_id, "revision": revision, "files_sha256": model_files},
             "entity_pools": {},
             "upstream": {},
-            "development_environment": {},
+            "development_environment": {
+                "python": "3.11.15",
+                "packages": {"torch": "2.5.1", "transformers": "4.57.3",
+                             "tokenizers": "0.22.2", "numpy": "1.26.4"},
+            },
         }
         self.manifest_path = self.root / "FREEZE.json"
         self.write_manifest()
@@ -187,6 +192,22 @@ class ConfirmationRunnerTests(unittest.TestCase):
         with self.assertRaisesRegex(runner.ConfirmationError, "numeric"):
             runner.validate_frozen_manifest(manifest)
 
+    def test_runtime_versions_must_equal_the_frozen_development_versions(self):
+        expected = copy.deepcopy(self.fixture.manifest["development_environment"])
+        report = runner.validate_runtime_environment(self.fixture.manifest, actual=expected)
+        self.assertTrue(report["passed"])
+        for field, package in (("python", None), ("packages", "torch"),
+                               ("packages", "transformers"), ("packages", "tokenizers"),
+                               ("packages", "numpy")):
+            with self.subTest(field=field, package=package):
+                actual = copy.deepcopy(expected)
+                if package is None:
+                    actual[field] = "0.0.0"
+                else:
+                    actual[field][package] = "0.0.0"
+                with self.assertRaisesRegex(runner.ConfirmationError, "runtime versions differ"):
+                    runner.validate_runtime_environment(self.fixture.manifest, actual=actual)
+
     def test_analyzed_output_is_compatible_with_the_records_only_checker(self):
         result = worlds.run_world("2_heterogeneous_concentrated")
         manifest = copy.deepcopy(result["manifest"])
@@ -196,16 +217,61 @@ class ConfirmationRunnerTests(unittest.TestCase):
             "authorized": True, "seed_base": runner.SEED_BASE,
             "case_id_prefix": runner.CASE_ID_PREFIX, "cap": 2 * manifest["N"],
         }
-        code_paths = {
-            "applications/makelov-2311.17030/src/query_route_analysis.py",
-            "applications/gur-arieh-2510.06182/src/mixing_round1_analysis.py",
-            "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py",
-            runner.RUNNER_RELATIVE,
+        manifest["execution_contract"] = {
+            "identity_tolerance": runner.IDENTITY_TOLERANCE,
+            "gate7": {"tolerance_T": runner.GATE7_T_TOLERANCE},
         }
+        code_paths = checker.REQUIRED_CODE
         manifest["code_files_sha256"] = {
             name: runner.sha256(ROOT / name) for name in sorted(code_paths)}
+        manifest["data_sha256"] = {"SOURCE_LOCK.json": runner.sha256(APP / "SOURCE_LOCK.json")}
         for index, record in enumerate(records):
             record.update(case_id=runner.case_id(index), seed=runner.seed_for(index), cell_key="c4")
+            if "answer_logits" not in record:
+                record.update(
+                    design_indices=copy.deepcopy(manifest["cell"]),
+                    technical={"passed": True},
+                    answer_logits=worlds.logits(worlds.W_LIKE, 0.8, manifest["cell"]),
+                    answer_mass_full_vocab=worlds.MASS,
+                )
+            record["identity"] = {"same_answer_argmax": True, "same_generation": True,
+                                  "max_abs_answer_logit_difference": 0.0}
+
+        references = []
+        gate7_rows = []
+        for record in records[:32]:
+            references.append({
+                "case_id": record["case_id"], "device": "cpu", "dtype": "torch.float32",
+                "hook_ok": True,
+                "conflict": {"answer_logits": copy.deepcopy(record["answer_logits"]),
+                             "answer_mass_full_vocab": record["answer_mass_full_vocab"]},
+            })
+            gate7_rows.append({"case_id": record["case_id"], "abs_T_difference": 0.0,
+                               "same_resolution": True, "same_labels": True,
+                               "hook_ok_cpu": True, "cpu_device": "cpu",
+                               "cpu_dtype": "torch.float32"})
+        gates = {name: {"passed": True} for name in checker.BINDING_GATES}
+        gates["4_hooks"]["full_logit_audit"] = {
+            "checked": True, "passed": True,
+            "cases": [runner.case_id(i) for i in runner.AUDIT_DRAW_INDICES],
+        }
+        gates["5_identity"].update(
+            families=len(records), measured_families=len(records),
+            same_argmax=len(records), same_generation=len(records),
+            max_abs_answer_logit_difference=0.0, tolerance=runner.IDENTITY_TOLERANCE)
+        gates["7_dtype_device"].update(
+            declared_draw_indices=list(runner.GATE7_DRAW_INDICES), compared=32, missing=[],
+            tolerance=runner.GATE7_T_TOLERANCE, max_abs_T_difference=0.0,
+            rows=gate7_rows)
+        confirmation_gates = {
+            "status": "PROCEED", "stops": [], "cell_key": "c4",
+            "families": len(records), "qualifying": manifest["N"], "gates": gates,
+            "quota": {"passed": True, "N": manifest["N"],
+                      "cap": manifest["confirmation"]["cap"],
+                      "counts": {"c4": {"generated": len(records),
+                                          "qualifying": manifest["N"]}},
+                      "generator_reported_met": True},
+        }
 
         results = Path(self.temporary.name) / "checker-compatible"
         results.mkdir()
@@ -213,8 +279,8 @@ class ConfirmationRunnerTests(unittest.TestCase):
         save(results / "RUN_STARTED.json", {"manifest_sha256": runner.sha256(results / "manifest.json")})
         write_jsonl(results / "records.jsonl", records)
         save(results / "timings.json", {"fixture": True})
-        save(results / "confirmation_gates.json", {"status": "PROCEED", "fixture": True})
-        write_jsonl(results / "gate7_cpu_reference.jsonl", [])
+        save(results / "confirmation_gates.json", confirmation_gates)
+        write_jsonl(results / "gate7_cpu_reference.jsonl", references)
         (results / "audit_full_logits.npz").write_bytes(b"no-model fixture")
 
         summary, report = runner.analyze_and_check(manifest, records, results,

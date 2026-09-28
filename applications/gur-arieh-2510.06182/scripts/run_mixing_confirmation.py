@@ -18,10 +18,12 @@ the independent records-only checker.
 """
 import argparse
 import hashlib
+import importlib.metadata
 import importlib.util
 import json
 import math
 import os
+import platform
 import random
 import sys
 import time
@@ -48,6 +50,7 @@ YIELD_FLOOR = 0.50
 IDENTITY_TOLERANCE = 0.001
 GATE7_T_TOLERANCE = 0.01
 AUDIT_TOLERANCES = {"logsumexp": 1e-3, "answer_mass": 1e-5, "answer_logit": 1e-6}
+RUNTIME_PACKAGES = ("torch", "transformers", "tokenizers", "numpy")
 BINDING_GATES = (
     "1_model_hashes",
     "2_native_and_yield",
@@ -219,6 +222,38 @@ def validate_frozen_manifest(manifest):
     _require(REQUIRED_MODEL_FILES <= set(model_files),
              "frozen model hash set omits a required Gemma snapshot file")
     return frozen
+
+
+def validate_runtime_environment(manifest, actual=None):
+    """Require the scientifically relevant runtime versions used for development."""
+    expected_environment = manifest.get("development_environment")
+    _require(isinstance(expected_environment, dict),
+             "manifest.development_environment missing")
+    expected_packages = expected_environment.get("packages")
+    _require(isinstance(expected_environment.get("python"), str)
+             and isinstance(expected_packages, dict),
+             "frozen development environment omits Python or package versions")
+    for name in RUNTIME_PACKAGES:
+        _require(isinstance(expected_packages.get(name), str) and expected_packages[name],
+                 f"frozen development environment omits {name}")
+    if actual is None:
+        try:
+            actual = {
+                "python": platform.python_version(),
+                "packages": {name: importlib.metadata.version(name) for name in RUNTIME_PACKAGES},
+            }
+        except importlib.metadata.PackageNotFoundError as error:
+            raise ConfirmationError(f"required runtime package is not installed: {error}") from error
+    _require(isinstance(actual, dict) and isinstance(actual.get("packages"), dict),
+             "actual runtime report is malformed")
+    expected = {"python": expected_environment["python"],
+                "packages": {name: expected_packages[name] for name in RUNTIME_PACKAGES}}
+    observed = {"python": actual.get("python"),
+                "packages": {name: actual["packages"].get(name) for name in RUNTIME_PACKAGES}}
+    _require(observed == expected,
+             f"runtime versions differ from the frozen development environment: "
+             f"expected {expected}, observed {observed}")
+    return {"passed": True, **observed}
 
 
 def _default_cache_root():
@@ -562,6 +597,7 @@ def run_confirmation(manifest_path, upstream, output, *, cache_root=None,
              "current upstream verification report differs from the frozen report")
     _require(task == manifest["task_spec"],
              "current upstream task specification differs from the frozen task_spec")
+    runtime_report = validate_runtime_environment(manifest)
 
     output.mkdir(parents=True, exist_ok=True)
     with (output / "manifest.json").open("xb") as handle:
@@ -571,6 +607,7 @@ def run_confirmation(manifest_path, upstream, output, *, cache_root=None,
         "manifest_sha256": manifest_hash, "started": now(),
         "seed_base": SEED_BASE, "case_id_prefix": CASE_ID_PREFIX,
         "frozen_hashes_verified": hash_report["counts"], "upstream": upstream_report,
+        "runtime_versions": runtime_report,
     })
     (output / "records.jsonl").open("x").close()
     timings = {"started": now(), "execution": "float32 MPS/eager; CPU float32/eager gate 7"}
