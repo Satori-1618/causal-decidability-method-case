@@ -53,6 +53,12 @@ licence by the user, and explicit authorization.
 | [scripts/lock_sources.py](scripts/lock_sources.py) | small adapter: checks a separate upstream clone against the lock; nothing is vendored |
 | [ROUND0_RETROSPECTIVE.md](ROUND0_RETROSPECTIVE.md) | Round 0 (RETROSPECTIVE): which designs separate which candidates; hands one open question to Round 1 |
 | [src/mixing_round0.py](src/mixing_round0.py), [results/round0_retrospective/round0.json](results/round0_retrospective/round0.json) | the typed prediction table and its stored reconstruction (`scripts/round0_reconstruction.py --check`) |
+| [src/mixing_round1_analysis.py](src/mixing_round1_analysis.py) | Round 1 analyzer: q-map, the declared unresolved rule, mean-consistency gate, between-case check, development gates; reuses the existing `clopper_pearson` helper |
+| [scripts/check_mixing_round1_records.py](scripts/check_mixing_round1_records.py) | records-only checker: recomputes every status, gate, the level and the between-case decision from the frozen manifest and raw records; imports no runner |
+| [src/mixing_synthetic_worlds.py](src/mixing_synthetic_worlds.py), [results/synthetic_worlds/worlds.json](results/synthetic_worlds/worlds.json) | the six synthetic worlds (analyzer verification only, not evidence; `scripts/run_synthetic_worlds.py --check`) |
+
+Tests live with the repository's other tests: `tests/test_mixing_*.py` and
+`tests/test_check_mixing_round1_records.py`.
 
 Check a clone (standard library only):
 

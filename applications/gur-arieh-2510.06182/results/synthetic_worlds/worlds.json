@@ -1,0 +1,171 @@
+{
+  "label": "SYNTHETIC: analyzer verification, not evidence",
+  "verification_parameters": {
+    "s_min_quantile": 0.99,
+    "s_min_floor": 0.1,
+    "d_min": 0.2,
+    "agreement_transfer_floor": 0.9,
+    "false_invalid_rate": 0.05,
+    "resamples": 2000,
+    "seed": 20260928,
+    "N": 200
+  },
+  "note": "These parameters exist only to exercise the analyzer. The values proposed for the real run are in PROPOSED_VALUES.json and await approval.",
+  "worlds": {
+    "1a_w_band_inside": {
+      "development": "PROCEED",
+      "run_status": "VALID",
+      "invalid_reason": null,
+      "level": "S3 (A_T excluded)",
+      "statuses": {
+        "W_T": "adequate",
+        "A_T": "excluded"
+      },
+      "descriptive_statuses_ignoring_gate": {
+        "W_T": "adequate",
+        "A_T": "excluded"
+      },
+      "k_W": 200,
+      "k_A": 0,
+      "u": 0,
+      "N": 200,
+      "generated": 249,
+      "between_case_earned": false,
+      "T_W": 0.4501,
+      "T_A": 0.9862,
+      "d": 0.5361,
+      "mean_gate_passed": true,
+      "max_U": 0.8069
+    },
+    "1b_w_band_outside": {
+      "development": "PROCEED",
+      "run_status": "VALID",
+      "invalid_reason": null,
+      "level": "S3 (both excluded)",
+      "statuses": {
+        "W_T": "excluded",
+        "A_T": "excluded"
+      },
+      "descriptive_statuses_ignoring_gate": {
+        "W_T": "excluded",
+        "A_T": "excluded"
+      },
+      "k_W": 0,
+      "k_A": 0,
+      "u": 0,
+      "N": 200,
+      "generated": 249,
+      "between_case_earned": false,
+      "T_W": 0.4501,
+      "T_A": 0.9862,
+      "d": 0.5361,
+      "mean_gate_passed": true,
+      "max_U": 0.5811
+    },
+    "2_heterogeneous_concentrated": {
+      "development": "PROCEED",
+      "run_status": "VALID",
+      "invalid_reason": null,
+      "level": "S3 (W_T excluded only)",
+      "statuses": {
+        "W_T": "excluded",
+        "A_T": "adequate"
+      },
+      "descriptive_statuses_ignoring_gate": {
+        "W_T": "excluded",
+        "A_T": "adequate"
+      },
+      "k_W": 0,
+      "k_A": 200,
+      "u": 0,
+      "N": 200,
+      "generated": 249,
+      "between_case_earned": true,
+      "T_W": 0.3348,
+      "T_A": 0.9862,
+      "d": 0.6514,
+      "mean_gate_passed": true,
+      "max_U": 0.4149
+    },
+    "3_half_and_half": {
+      "development": "PROCEED",
+      "run_status": "VALID",
+      "invalid_reason": null,
+      "level": "S3 (both excluded)",
+      "statuses": {
+        "W_T": "excluded",
+        "A_T": "excluded"
+      },
+      "descriptive_statuses_ignoring_gate": {
+        "W_T": "excluded",
+        "A_T": "excluded"
+      },
+      "k_W": 100,
+      "k_A": 100,
+      "u": 0,
+      "N": 200,
+      "generated": 249,
+      "between_case_earned": false,
+      "T_W": 0.4196,
+      "T_A": 0.9862,
+      "d": 0.5666,
+      "mean_gate_passed": true,
+      "max_U": 0.6055
+    },
+    "4_below_resolution": {
+      "development": "STOP",
+      "level": "S1",
+      "reason": "support resolution rate on split B below 0.90 (population STOP)"
+    },
+    "5_stale_anchor": {
+      "development": "PROCEED",
+      "run_status": "INVALID",
+      "invalid_reason": "stale anchor (mean-consistency gate)",
+      "level": "S1",
+      "statuses": {
+        "W_T": "INVALID",
+        "A_T": "INVALID"
+      },
+      "descriptive_statuses_ignoring_gate": {
+        "W_T": "excluded",
+        "A_T": "adequate"
+      },
+      "k_W": 0,
+      "k_A": 200,
+      "u": 0,
+      "N": 200,
+      "generated": 249,
+      "between_case_earned": false,
+      "T_W": 0.3348,
+      "T_A": 0.9862,
+      "d": 0.6514,
+      "mean_gate_passed": false,
+      "max_U": 1.0
+    },
+    "6_unresolved_heavy": {
+      "development": "PROCEED",
+      "run_status": "VALID",
+      "invalid_reason": null,
+      "level": "S3 (A_T excluded)",
+      "statuses": {
+        "W_T": "undecided",
+        "A_T": "excluded"
+      },
+      "descriptive_statuses_ignoring_gate": {
+        "W_T": "undecided",
+        "A_T": "excluded"
+      },
+      "k_W": 130,
+      "k_A": 0,
+      "u": 70,
+      "N": 200,
+      "generated": 249,
+      "between_case_earned": false,
+      "T_W": 0.45,
+      "T_A": 0.9862,
+      "d": 0.5362,
+      "mean_gate_passed": true,
+      "max_U": 0.8896
+    }
+  }
+}
