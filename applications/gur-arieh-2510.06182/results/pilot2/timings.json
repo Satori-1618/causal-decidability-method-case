@@ -1,0 +1,7 @@
+{
+  "load_fp32_mps_seconds": 3.7825773330005177,
+  "families_fp32_mps_seconds": 443.16769241600196,
+  "mps_driver_gib_after_families": 11.447006225585938,
+  "load_fp32_cpu_seconds": 7.4868967500005965,
+  "gate7_cpu_reference_seconds": 75.14571458299906
+}

@@ -14,6 +14,14 @@
     "readout_validity": "declared in-context readout carries about 2e-5 of the next-token mass and names the generated entity in 58/79 conflict runs; decision needed",
     "values_changed_by_the_pilot": "none"
   },
+  "pilot2_outcome": {
+    "report": "results/pilot2/PILOT2_REPORT.md (pilot/development, descriptive)",
+    "gates": "all declared gates passed (1-8; 9 feasible)",
+    "unresolved_rate": "1/80 = 0.0125 (combined gate)",
+    "planning_N": 200,
+    "planning_N_status": "provisional; the final N is set at the freeze from split B",
+    "values_changed_by_the_pilot": "none"
+  },
   "date": "2026-09-28",
   "indices": "0-based design indices; the paper counts from 1",
   "corrections_applied_2026_09_28": [

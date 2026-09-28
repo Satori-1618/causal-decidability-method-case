@@ -49,8 +49,10 @@ failed and the declared readout's validity is in question. The user then approve
 **protocol v2** (float32 execution on MPS with a CPU float32 reference for gate 7; the
 answer form 'Country' as the primary readout with a 0.5 answer-token-mass gate; the
 paper's in-context readout kept as descriptive only; pools restricted so `trance` drops;
-the final N set at the freeze from split B) and a second pilot on fresh seeds. There is
-no go for split A or split B; the freeze and the confirmation are not authorized.
+the final N set at the freeze from split B) and a second pilot on fresh seeds. Pilot 2
+passed every declared gate and gives a provisional planning N of 200
+([results/pilot2/PILOT2_REPORT.md](results/pilot2/PILOT2_REPORT.md)). There is no go for
+split A or split B; the freeze and the confirmation are not authorized.
 
 ## Files
 
@@ -71,7 +73,8 @@ no go for split A or split B; the freeze and the confirmation are not authorized
 | [src/mixing_runner.py](src/mixing_runner.py) | model runner (torch, protocol v2): offline snapshot and file hashes, the v2 pool rule, token alignment, last-token forward-pre hook at block ℓ with call and write counts, the primary answer-form readout (logits, answer-token mass, logsumexp over the vocabulary and its complement) and the descriptive paper readout, greedy generation, identity self-patch, and one record per family in the checker's schema |
 | [scripts/run_mixing_pilot.py](scripts/run_mixing_pilot.py), [src/mixing_pilot_summary.py](src/mixing_pilot_summary.py) | the development pilot under protocol v2 (offline, cached model), its gate table from the stored files, and the generated artifact index; pilot 1 used the versions at commit `3cdaffd` |
 | [requirements-model.txt](requirements-model.txt) | the environment used for model runs (torch 2.5.1, transformers 4.57.3) |
-| [results/pilot/](results/pilot/PILOT_REPORT.md) | the development pilot: records, gate table, readout and dtype diagnostics (`scripts/diagnose_pilot_readout.py`, `scripts/diagnose_fp32_execution.py`) and the report |
+| [results/pilot/](results/pilot/PILOT_REPORT.md) | pilot 1 (protocol v1): records, gate table, readout and dtype diagnostics (`scripts/diagnose_pilot_readout.py`, `scripts/diagnose_fp32_execution.py`) and the report |
+| [results/pilot2/](results/pilot2/PILOT2_REPORT.md) | pilot 2 (protocol v2, fresh seeds): records, gate-7 CPU reference, gate table, generated artifact index and the report |
 
 Tests live with the repository's other tests: `tests/test_mixing_*.py` (the runner tests
 use a tiny, randomly initialised Gemma 2 and a word-level tokenizer built locally in

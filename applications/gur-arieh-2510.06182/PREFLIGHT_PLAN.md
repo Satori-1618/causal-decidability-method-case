@@ -279,7 +279,10 @@ before split A (execution dtype, primary readout and a mass gate, a repeated pil
 
 ### Pilot 2 (protocol v2)
 
-Results and the decisions needed before split A: `results/pilot2/PILOT2_REPORT.md`.
+Pilot 2 ran on 28 September 2026 (80 families, fresh seeds, float32 on MPS): every
+declared gate passed, 1 of 80 conflict cases was unresolved, and the provisional planning
+N is 200. Results and the decisions needed before split A:
+[results/pilot2/PILOT2_REPORT.md](results/pilot2/PILOT2_REPORT.md).
 
 ## Authorizations still needed after pilot 2
 
