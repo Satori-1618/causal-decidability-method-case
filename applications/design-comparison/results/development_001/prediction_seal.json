@@ -1,0 +1,10 @@
+{
+  "artifacts": {
+    "generation.json": "b9353c0fda98dae927db5b807e7d48ca254591db61e8d00b8e1647c079c40a78",
+    "predictions.jsonl": "99868fb591d82472721a40f72f74763ada94a113f4a7e3d57ba3270c74510e99"
+  },
+  "labels_opened_by_prediction_stage": false,
+  "records": 12288,
+  "status": "development_only",
+  "timestamp_unix": 1790692341.940435
+}
