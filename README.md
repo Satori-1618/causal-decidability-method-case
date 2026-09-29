@@ -21,6 +21,7 @@ current method. It checks stored evidence; it does not rerun the model.
 | Your question | Where to go |
 |---|---|
 | Can selecting interventions improve discrimination at the same budget? | [Research goal](docs/MECHANISM_DISCRIMINATION_GOAL.md) and [CPU development benchmark](applications/design-comparison/README.md) — known executed circuits, shared inference, substantive comparators; structural confirmation remains pending |
+| What does stepwise narrowing look like? | [One-page measured example: six classes to two to one](output/pdf/ITERATIVE_CAUSAL_NARROWING.pdf), with [replay and scope](docs/ITERATIVE_CAUSAL_NARROWING.md); [planned external Tracr demonstration](docs/EXTERNAL_ITERATIVE_DEMONSTRATION.md) |
 | What did the experiment distinguish? | [The confirmed case, in three minutes](docs/CONFIRMED_CASE.md) |
 | What happened when the method was applied again? | [Round 2: the executed 192-pair result](docs/ROUND2_RESULT.md) — three simple profiles excluded, with a worked example |
 | What does crossing donor name and position add? | [Round 3A: confirmed on 512 fresh families](docs/ROUND3A_CONFIRMATION.md) — strong position effects, but position-only invariance is inadequate; signed means hide name dependence |
