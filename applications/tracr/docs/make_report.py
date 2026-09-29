@@ -74,13 +74,13 @@ def main():
     fig.text(.075, .266,
              "Declared rival predictions; a separating condition chosen from those predictions;\n"
              "audited tensor replacement; paired precision checks; a frozen fresh-family test.",
-             fontsize=11, color=navy, linespacing=1.55)
+             fontsize=11, color=navy, linespacing=1.55, va="top")
     fig.text(.075, .191, "What this establishes", fontsize=13, color=navy, weight="bold")
     fig.text(.075, .162,
              "The method reproduces the expected narrowing in an externally built, known circuit.\n"
              "The site was chosen using compiler structure. This validates the implementation\n"
              "and tested candidate comparison; it does not discover an unknown LLM mechanism.",
-             fontsize=10.5, color=muted, linespacing=1.5)
+             fontsize=10.5, color=muted, linespacing=1.5, va="top")
     fig.text(.075, .075, "Felix Borck  |  causal-decidability-method-case  |  codex/tracr-iterative-validation", fontsize=8.5, color=muted)
     fig.text(.075, .051, "Source: applications/tracr/results/confirmation_001  •  First frozen family shown; letters map tokens 0–11.",
              fontsize=8.1, color=muted)
@@ -149,6 +149,12 @@ tests also qualify the wrapper, and a model-free verifier recomputes the decisio
 - Verification: [verification.json](results/confirmation_001/verification.json).
 - Development selected for freeze: [development_004](results/development_004/summary.json).
 - Raw tensor snapshots and scores live alongside each summary; the summary binds them by SHA256.
+
+Validation before confirmation: **99 application tests passed** (adapter, design,
+finite-population statistics and adversarial artifact/runner checks), plus **89
+existing repository tests**. The independent records-only verification recomputed
+all 128 family decisions without a model forward. The one-page PDF was rendered
+and visually checked; report generation does not alter frozen executable sources.
 
 The runner recorded {sum(summary['forward_counts'].values())} analysis forward calls
 ({summary['forward_counts']}; compiler initialization is excluded from that count)

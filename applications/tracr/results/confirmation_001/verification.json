@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "artifact hashes",
+    "freeze bindings",
+    "actual inserted tensors",
+    "full-score precision",
+    "controls",
+    "prediction-only choice",
+    "shared production classifier",
+    "whole-family adequacy"
+  ],
+  "families": 128,
+  "model_forwards": 0,
+  "paired_precision_max_error": 2.2441022928809673e-08,
+  "records": 768,
+  "site_A_successes": 128,
+  "status": "PASS",
+  "summary_sha256": "7c717ad1a4c82d991b927d5ce59efe9f9289e4d064e510a26a4ff9a7918c668b"
+}
