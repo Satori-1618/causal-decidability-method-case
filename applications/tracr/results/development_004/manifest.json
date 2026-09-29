@@ -1,0 +1,1237 @@
+{
+  "environment": {
+    "jax_devices": [
+      "TFRT_CPU_0"
+    ],
+    "jax_enable_x64": true,
+    "machine": "arm64",
+    "matmul_precision": "highest",
+    "packages": {
+      "absl-py": "2.5.0",
+      "causal-decidability": "0.2.0",
+      "chex": "0.1.88",
+      "contourpy": "1.3.3",
+      "cycler": "0.12.1",
+      "dm-haiku": "0.0.13",
+      "einops": "0.8.1",
+      "fonttools": "4.66.0",
+      "iniconfig": "2.3.0",
+      "jax": "0.4.38",
+      "jaxlib": "0.4.38",
+      "jmp": "0.0.4",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.10.1",
+      "ml_dtypes": "0.5.4",
+      "networkx": "3.4.2",
+      "numpy": "1.26.4",
+      "opt_einsum": "3.4.0",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pluggy": "1.6.0",
+      "pyparsing": "3.3.3",
+      "pytest": "8.3.5",
+      "python-dateutil": "2.9.0.post0",
+      "scipy": "1.15.3",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "tabulate": "0.10.0",
+      "toolz": "1.1.0",
+      "tracr": "1.0.0",
+      "typing_extensions": "4.16.0"
+    },
+    "platform": "macOS-15.7.3-arm64-arm-64bit",
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 08:22:19) [Clang 14.0.6 ]"
+  },
+  "families": [
+    {
+      "discriminators": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000000/discriminator-0",
+          "donor": [
+            0,
+            5,
+            2,
+            4
+          ],
+          "family_id": "development-2026092901-000000",
+          "native_index": 3,
+          "recipient": [
+            3,
+            8,
+            11,
+            9
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000000/discriminator-1",
+          "donor": [
+            0,
+            5,
+            6,
+            4
+          ],
+          "family_id": "development-2026092901-000000",
+          "native_index": 3,
+          "recipient": [
+            3,
+            8,
+            11,
+            9
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "family_id": "development-2026092901-000000",
+      "followups": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000000/followup-0",
+          "donor": [
+            0,
+            5,
+            2,
+            4
+          ],
+          "family_id": "development-2026092901-000000",
+          "native_index": 3,
+          "recipient": [
+            3,
+            8,
+            1,
+            9
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000000/followup-1",
+          "donor": [
+            0,
+            5,
+            6,
+            4
+          ],
+          "family_id": "development-2026092901-000000",
+          "native_index": 3,
+          "recipient": [
+            3,
+            8,
+            1,
+            9
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "seed": 2026092901,
+      "shared": {
+        "address": 2,
+        "case_id": "development-2026092901-000000/shared",
+        "donor": [
+          0,
+          5,
+          11,
+          4
+        ],
+        "family_id": "development-2026092901-000000",
+        "native_index": 3,
+        "recipient": [
+          3,
+          8,
+          11,
+          9
+        ],
+        "source_model_position": 2,
+        "source_query": 1,
+        "stage": "shared",
+        "target_model_position": 1,
+        "target_query": 0
+      },
+      "signature": "6d6ed4894dc2158f7304ffd7d1f117912f48b0cfac864e9ec83a18b479d50982",
+      "split": "development"
+    },
+    {
+      "discriminators": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000001/discriminator-0",
+          "donor": [
+            6,
+            2,
+            0,
+            8
+          ],
+          "family_id": "development-2026092901-000001",
+          "native_index": 3,
+          "recipient": [
+            4,
+            3,
+            10,
+            5
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000001/discriminator-1",
+          "donor": [
+            6,
+            2,
+            9,
+            8
+          ],
+          "family_id": "development-2026092901-000001",
+          "native_index": 3,
+          "recipient": [
+            4,
+            3,
+            10,
+            5
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "family_id": "development-2026092901-000001",
+      "followups": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000001/followup-0",
+          "donor": [
+            6,
+            2,
+            0,
+            8
+          ],
+          "family_id": "development-2026092901-000001",
+          "native_index": 3,
+          "recipient": [
+            4,
+            3,
+            11,
+            5
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000001/followup-1",
+          "donor": [
+            6,
+            2,
+            9,
+            8
+          ],
+          "family_id": "development-2026092901-000001",
+          "native_index": 3,
+          "recipient": [
+            4,
+            3,
+            11,
+            5
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "seed": 2026092901,
+      "shared": {
+        "address": 2,
+        "case_id": "development-2026092901-000001/shared",
+        "donor": [
+          6,
+          2,
+          10,
+          8
+        ],
+        "family_id": "development-2026092901-000001",
+        "native_index": 3,
+        "recipient": [
+          4,
+          3,
+          10,
+          5
+        ],
+        "source_model_position": 2,
+        "source_query": 1,
+        "stage": "shared",
+        "target_model_position": 1,
+        "target_query": 0
+      },
+      "signature": "519a897568f1a937dc949d546c31ee1c4aaaa38754fc966869994d57c71b9230",
+      "split": "development"
+    },
+    {
+      "discriminators": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000002/discriminator-0",
+          "donor": [
+            7,
+            5,
+            4,
+            0
+          ],
+          "family_id": "development-2026092901-000002",
+          "native_index": 3,
+          "recipient": [
+            2,
+            10,
+            9,
+            1
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000002/discriminator-1",
+          "donor": [
+            7,
+            5,
+            11,
+            0
+          ],
+          "family_id": "development-2026092901-000002",
+          "native_index": 3,
+          "recipient": [
+            2,
+            10,
+            9,
+            1
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "family_id": "development-2026092901-000002",
+      "followups": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000002/followup-0",
+          "donor": [
+            7,
+            5,
+            4,
+            0
+          ],
+          "family_id": "development-2026092901-000002",
+          "native_index": 3,
+          "recipient": [
+            2,
+            10,
+            8,
+            1
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000002/followup-1",
+          "donor": [
+            7,
+            5,
+            11,
+            0
+          ],
+          "family_id": "development-2026092901-000002",
+          "native_index": 3,
+          "recipient": [
+            2,
+            10,
+            8,
+            1
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "seed": 2026092901,
+      "shared": {
+        "address": 2,
+        "case_id": "development-2026092901-000002/shared",
+        "donor": [
+          7,
+          5,
+          9,
+          0
+        ],
+        "family_id": "development-2026092901-000002",
+        "native_index": 3,
+        "recipient": [
+          2,
+          10,
+          9,
+          1
+        ],
+        "source_model_position": 2,
+        "source_query": 1,
+        "stage": "shared",
+        "target_model_position": 1,
+        "target_query": 0
+      },
+      "signature": "1da3f74b92bc0c45f28d0cb60c568d0b5bc48d387421ecebe7152407de9a7edf",
+      "split": "development"
+    },
+    {
+      "discriminators": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000003/discriminator-0",
+          "donor": [
+            1,
+            8,
+            6,
+            5
+          ],
+          "family_id": "development-2026092901-000003",
+          "native_index": 3,
+          "recipient": [
+            0,
+            3,
+            11,
+            2
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000003/discriminator-1",
+          "donor": [
+            1,
+            8,
+            7,
+            5
+          ],
+          "family_id": "development-2026092901-000003",
+          "native_index": 3,
+          "recipient": [
+            0,
+            3,
+            11,
+            2
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "family_id": "development-2026092901-000003",
+      "followups": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000003/followup-0",
+          "donor": [
+            1,
+            8,
+            6,
+            5
+          ],
+          "family_id": "development-2026092901-000003",
+          "native_index": 3,
+          "recipient": [
+            0,
+            3,
+            9,
+            2
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000003/followup-1",
+          "donor": [
+            1,
+            8,
+            7,
+            5
+          ],
+          "family_id": "development-2026092901-000003",
+          "native_index": 3,
+          "recipient": [
+            0,
+            3,
+            9,
+            2
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "seed": 2026092901,
+      "shared": {
+        "address": 2,
+        "case_id": "development-2026092901-000003/shared",
+        "donor": [
+          1,
+          8,
+          11,
+          5
+        ],
+        "family_id": "development-2026092901-000003",
+        "native_index": 3,
+        "recipient": [
+          0,
+          3,
+          11,
+          2
+        ],
+        "source_model_position": 2,
+        "source_query": 1,
+        "stage": "shared",
+        "target_model_position": 1,
+        "target_query": 0
+      },
+      "signature": "a3992d8d1d1d2104ad3e9d9c23dc29742c8ed8b05a2f61ed86d55aae9bb6158d",
+      "split": "development"
+    },
+    {
+      "discriminators": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000004/discriminator-0",
+          "donor": [
+            2,
+            1,
+            5,
+            3
+          ],
+          "family_id": "development-2026092901-000004",
+          "native_index": 3,
+          "recipient": [
+            10,
+            9,
+            4,
+            8
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000004/discriminator-1",
+          "donor": [
+            2,
+            1,
+            11,
+            3
+          ],
+          "family_id": "development-2026092901-000004",
+          "native_index": 3,
+          "recipient": [
+            10,
+            9,
+            4,
+            8
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "family_id": "development-2026092901-000004",
+      "followups": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000004/followup-0",
+          "donor": [
+            2,
+            1,
+            5,
+            3
+          ],
+          "family_id": "development-2026092901-000004",
+          "native_index": 3,
+          "recipient": [
+            10,
+            9,
+            7,
+            8
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000004/followup-1",
+          "donor": [
+            2,
+            1,
+            11,
+            3
+          ],
+          "family_id": "development-2026092901-000004",
+          "native_index": 3,
+          "recipient": [
+            10,
+            9,
+            7,
+            8
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "seed": 2026092901,
+      "shared": {
+        "address": 2,
+        "case_id": "development-2026092901-000004/shared",
+        "donor": [
+          2,
+          1,
+          4,
+          3
+        ],
+        "family_id": "development-2026092901-000004",
+        "native_index": 3,
+        "recipient": [
+          10,
+          9,
+          4,
+          8
+        ],
+        "source_model_position": 2,
+        "source_query": 1,
+        "stage": "shared",
+        "target_model_position": 1,
+        "target_query": 0
+      },
+      "signature": "092e261eba324c4fe6bf149b32d94d247d80d33e42769fdb2be12cbb5bd9f257",
+      "split": "development"
+    },
+    {
+      "discriminators": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000005/discriminator-0",
+          "donor": [
+            1,
+            10,
+            9,
+            4
+          ],
+          "family_id": "development-2026092901-000005",
+          "native_index": 3,
+          "recipient": [
+            8,
+            0,
+            2,
+            7
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000005/discriminator-1",
+          "donor": [
+            1,
+            10,
+            11,
+            4
+          ],
+          "family_id": "development-2026092901-000005",
+          "native_index": 3,
+          "recipient": [
+            8,
+            0,
+            2,
+            7
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "family_id": "development-2026092901-000005",
+      "followups": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000005/followup-0",
+          "donor": [
+            1,
+            10,
+            9,
+            4
+          ],
+          "family_id": "development-2026092901-000005",
+          "native_index": 3,
+          "recipient": [
+            8,
+            0,
+            5,
+            7
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000005/followup-1",
+          "donor": [
+            1,
+            10,
+            11,
+            4
+          ],
+          "family_id": "development-2026092901-000005",
+          "native_index": 3,
+          "recipient": [
+            8,
+            0,
+            5,
+            7
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "seed": 2026092901,
+      "shared": {
+        "address": 2,
+        "case_id": "development-2026092901-000005/shared",
+        "donor": [
+          1,
+          10,
+          2,
+          4
+        ],
+        "family_id": "development-2026092901-000005",
+        "native_index": 3,
+        "recipient": [
+          8,
+          0,
+          2,
+          7
+        ],
+        "source_model_position": 2,
+        "source_query": 1,
+        "stage": "shared",
+        "target_model_position": 1,
+        "target_query": 0
+      },
+      "signature": "b1f08a66d87d0a93e46038d09a3f08967e701b17c12dff7439dfb6b928b59ebf",
+      "split": "development"
+    },
+    {
+      "discriminators": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000006/discriminator-0",
+          "donor": [
+            1,
+            5,
+            0,
+            4
+          ],
+          "family_id": "development-2026092901-000006",
+          "native_index": 3,
+          "recipient": [
+            2,
+            8,
+            7,
+            11
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000006/discriminator-1",
+          "donor": [
+            1,
+            5,
+            10,
+            4
+          ],
+          "family_id": "development-2026092901-000006",
+          "native_index": 3,
+          "recipient": [
+            2,
+            8,
+            7,
+            11
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "family_id": "development-2026092901-000006",
+      "followups": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000006/followup-0",
+          "donor": [
+            1,
+            5,
+            0,
+            4
+          ],
+          "family_id": "development-2026092901-000006",
+          "native_index": 3,
+          "recipient": [
+            2,
+            8,
+            6,
+            11
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000006/followup-1",
+          "donor": [
+            1,
+            5,
+            10,
+            4
+          ],
+          "family_id": "development-2026092901-000006",
+          "native_index": 3,
+          "recipient": [
+            2,
+            8,
+            6,
+            11
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "seed": 2026092901,
+      "shared": {
+        "address": 2,
+        "case_id": "development-2026092901-000006/shared",
+        "donor": [
+          1,
+          5,
+          7,
+          4
+        ],
+        "family_id": "development-2026092901-000006",
+        "native_index": 3,
+        "recipient": [
+          2,
+          8,
+          7,
+          11
+        ],
+        "source_model_position": 2,
+        "source_query": 1,
+        "stage": "shared",
+        "target_model_position": 1,
+        "target_query": 0
+      },
+      "signature": "7beaced91edf9e00a735a0711280ef3e6cb4ea623e12629b529fdd3d01cf59b1",
+      "split": "development"
+    },
+    {
+      "discriminators": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000007/discriminator-0",
+          "donor": [
+            2,
+            10,
+            7,
+            6
+          ],
+          "family_id": "development-2026092901-000007",
+          "native_index": 3,
+          "recipient": [
+            3,
+            4,
+            0,
+            9
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000007/discriminator-1",
+          "donor": [
+            2,
+            10,
+            11,
+            6
+          ],
+          "family_id": "development-2026092901-000007",
+          "native_index": 3,
+          "recipient": [
+            3,
+            4,
+            0,
+            9
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "discriminator",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "family_id": "development-2026092901-000007",
+      "followups": [
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000007/followup-0",
+          "donor": [
+            2,
+            10,
+            7,
+            6
+          ],
+          "family_id": "development-2026092901-000007",
+          "native_index": 3,
+          "recipient": [
+            3,
+            4,
+            5,
+            9
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        },
+        {
+          "address": 2,
+          "case_id": "development-2026092901-000007/followup-1",
+          "donor": [
+            2,
+            10,
+            11,
+            6
+          ],
+          "family_id": "development-2026092901-000007",
+          "native_index": 3,
+          "recipient": [
+            3,
+            4,
+            5,
+            9
+          ],
+          "source_model_position": 2,
+          "source_query": 1,
+          "stage": "followup",
+          "target_model_position": 1,
+          "target_query": 0
+        }
+      ],
+      "seed": 2026092901,
+      "shared": {
+        "address": 2,
+        "case_id": "development-2026092901-000007/shared",
+        "donor": [
+          2,
+          10,
+          0,
+          6
+        ],
+        "family_id": "development-2026092901-000007",
+        "native_index": 3,
+        "recipient": [
+          3,
+          4,
+          0,
+          9
+        ],
+        "source_model_position": 2,
+        "source_query": 1,
+        "stage": "shared",
+        "target_model_position": 1,
+        "target_query": 0
+      },
+      "signature": "032f10946b07c461638f34067099615d5bb988b5b76d9e033eacf9e6a782134a",
+      "split": "development"
+    }
+  ],
+  "freeze_sha256": null,
+  "model": {
+    "config": {
+      "activation_function": "jax.nn.relu",
+      "causal": false,
+      "dropout_rate": 0.0,
+      "key_size": 14,
+      "layer_norm": false,
+      "mlp_hidden_size": 20,
+      "num_heads": 1,
+      "num_layers": 4
+    },
+    "content_to_model_position": "content_query + 1 (BOS)",
+    "model_is_compiled_not_trained": true,
+    "parameter_hashes": {
+      "float32": "4cdf730cb736511406679a902c7428db9db6685ba51d294c15b7c332e494fb2f",
+      "float64": "574e3f1e719181a45c468df9c8c9f16d0791472b08b6c1fb7c8763a9b9522e02"
+    },
+    "residual_labels": [
+      "indices:0",
+      "indices:1",
+      "indices:2",
+      "indices:3",
+      "length_5:0",
+      "length_5:1",
+      "length_5:2",
+      "length_5:3",
+      "length_5:4",
+      "length_5_selector_width_attn_output",
+      "one",
+      "opp_idx-1_1:-4",
+      "opp_idx-1_1:-3",
+      "opp_idx-1_1:-2",
+      "opp_idx-1_1:-1",
+      "opp_idx-1_1:0",
+      "opp_idx-1_1:1",
+      "opp_idx-1_1:2",
+      "opp_idx-1_1:3",
+      "opp_idx_4:-3",
+      "opp_idx_4:-2",
+      "opp_idx_4:-1",
+      "opp_idx_4:0",
+      "opp_idx_4:1",
+      "opp_idx_4:2",
+      "opp_idx_4:3",
+      "opp_idx_4:4",
+      "reverse_2:0",
+      "reverse_2:1",
+      "reverse_2:2",
+      "reverse_2:3",
+      "reverse_2:4",
+      "reverse_2:5",
+      "reverse_2:6",
+      "reverse_2:7",
+      "reverse_2:8",
+      "reverse_2:9",
+      "reverse_2:10",
+      "reverse_2:11",
+      "tokens:0",
+      "tokens:1",
+      "tokens:2",
+      "tokens:3",
+      "tokens:4",
+      "tokens:5",
+      "tokens:6",
+      "tokens:7",
+      "tokens:8",
+      "tokens:9",
+      "tokens:10",
+      "tokens:11",
+      "tokens:BOS",
+      "tokens:compiler_pad"
+    ],
+    "sites": {
+      "site_A": {
+        "ground_truth": "address",
+        "indices": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "layer": 3,
+        "timing": "before_attention"
+      },
+      "site_B": {
+        "ground_truth": "donor_answer",
+        "indices": [
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "layer": 4,
+        "timing": "before_unembedding"
+      }
+    },
+    "upstream_commit": "9ce2b8c82b6ba10e62e86cf6f390e7536d4fd2cd"
+  },
+  "numeric_allowance": 0.01,
+  "phase": "development",
+  "scientific_tolerance": 0.01,
+  "source_hashes": {
+    "applications/tracr/DEVELOPMENT_PROTOCOL.md": "66e0a94bfc58046dd4c2372672c000bd44bea2afd89b39fc5ce582524ec2d408",
+    "applications/tracr/requirements.lock.txt": "22a4f9f5e6d55ecc1d7353d0803d395bebdf3d2bdc6d5cddd9a0897eb30f65b6",
+    "applications/tracr/requirements.txt": "d8544b349ea9bf43cce3f1d8e7a386bbc11d4b2e5962a165a35957503edec719",
+    "applications/tracr/scripts/run.py": "9d56ee04095e462ac265c1559c5cd2d12b5a4e4237f59baaf3a43ade893f378f",
+    "applications/tracr/scripts/verify.py": "4278b633ef8883b3cd99a02819acea15ce345976131ebaf84641a4bacf59987c",
+    "applications/tracr/src/tracr_demo/__init__.py": "588dafdb4c36fb96e926d69ae519b28c5ae64b3980bd3950f2f3fe3c4b45b751",
+    "applications/tracr/src/tracr_demo/adapter.py": "8b95bd0b5ebc9608ed4a40ca08697239c264980af32a258f8c2ae9ef2a61e48b",
+    "applications/tracr/src/tracr_demo/design.py": "b17d5c1056747b4cbf9a9c84bde63ea07cec24e035346cc1a2e5b2df8032fd36",
+    "applications/tracr/src/tracr_demo/experiment.py": "98540f9fd944dcce797cccefb25e43621f5a2dc62f59a851422111a3204fd7f9",
+    "applications/tracr/src/tracr_demo/statistics.py": "f6567614f53a2eb541f3fcee84465b3416c42361c853a5d5b7c18c5532340c75",
+    "src/causal_decidability/compatible_set.py": "a83a1c8ff140385b61ad52e36d4e13698efd647bd9c20e03ef10cbe4e4e8eb3f"
+  },
+  "started_at": "2026-09-29T15:23:51.774645+00:00",
+  "upstream": {
+    "python_sources": {
+      "tracr/__init__.py": "dbd485f56b72c356361676088de05d358837f7b2f5d78f96879ad849e820eaad",
+      "tracr/compiler/__init__.py": "276052cc5c938d5cafce6a42868c886682fdc47b187cedae2721f99de81ad0c9",
+      "tracr/compiler/assemble.py": "82e273127675ac1eb5766c29492035e875c37caf8cd0746515729e7f93420ca0",
+      "tracr/compiler/assemble_test.py": "5126f455202da50c2fc6d40d03e523834218913baefbd3483d580b3482a74d84",
+      "tracr/compiler/basis_inference.py": "a42831cadf50ff5b4d2daca10f98ee32d83946c89f8f9814b214da02cbc86852",
+      "tracr/compiler/basis_inference_test.py": "50dcf42c80e740fc94de554352e980ced9b2bd11cddb3ce7952e5f055ab31c8a",
+      "tracr/compiler/compiling.py": "45a432183b455219f70fd55d84e5d412b0d483d69019bedc4942bc283ebf0ebf",
+      "tracr/compiler/craft_graph_to_model.py": "c4fffa6338bc81b9933f0cdab49650352359a2036727ea0d79801bc565c258e7",
+      "tracr/compiler/craft_graph_to_model_test.py": "7fc1fef5d146880d99f8a595273c89fb6cccd60b628399b372494c8c940ff73d",
+      "tracr/compiler/craft_model_to_transformer.py": "e6aee6a4d5b7fb3fafd61bafe7d5e03eebcc29e2f2ab8a79ca8ce06aed08d8b9",
+      "tracr/compiler/expr_to_craft_graph.py": "56ef21916556d46d30acecc0803cabe6d1bdf4221a459aa9db24d0689937f09d",
+      "tracr/compiler/expr_to_craft_graph_test.py": "5a14a31140df651b1a686981c5916ce44127142021eef5b936875bb4bc9cd2da",
+      "tracr/compiler/lib.py": "2ddfaf47cc8cf3e425497dd77434caa5d0bda2729c9a10764df9c2cddd167abc",
+      "tracr/compiler/lib_test.py": "5662a336127480d88c3304cb8f82695c02a614035081acdd1199dbc5c13d7950",
+      "tracr/compiler/nodes.py": "17ca881a63aee06010c31d0570960d7b955bce1f29d863b8714763c48e67cc66",
+      "tracr/compiler/rasp_to_craft_integration_test.py": "85bc3dae6d6ab6345f69fe77714b8816d3fe30cc673098ed749b9ece98793317",
+      "tracr/compiler/rasp_to_graph.py": "4f12f599ef273ce820af292495b43588f7cfab53d86a423b967d9a86b2a3ec51",
+      "tracr/compiler/rasp_to_graph_test.py": "6a9090280cbfa434a6654c75ccc4810bd3616bd6b709c60721c0772b498e45f5",
+      "tracr/compiler/rasp_to_transformer_integration_test.py": "2297702d90e0ee6c63bb0edd1f5cc2a04728b397d30825fed3b97361eb71c4eb",
+      "tracr/compiler/test_cases.py": "e9823ddfc5a5814b9e0a7ef1d89e666421598c43ba310116509703b0b309adde",
+      "tracr/compiler/validating.py": "bf31929adfe4191061ed5f2bb5daf954a5c919a874971e3b94500f07aea6e67b",
+      "tracr/compiler/validating_test.py": "af4302125221195b6653b6f93d2d896ce768e83902dd70f9cd26a28cc83672bf",
+      "tracr/craft/__init__.py": "dbd485f56b72c356361676088de05d358837f7b2f5d78f96879ad849e820eaad",
+      "tracr/craft/bases.py": "7259c6200842ee84eb5e9d7c0dfe3ea43e808c9539460d371093bda150e0da34",
+      "tracr/craft/bases_test.py": "4b792a52e57adb15db8f32176f86f8036305d8bf4ae9a2e20b62e3274ce30ce0",
+      "tracr/craft/chamber/__init__.py": "dbd485f56b72c356361676088de05d358837f7b2f5d78f96879ad849e820eaad",
+      "tracr/craft/chamber/categorical_attn.py": "157b4615983d1226dd2a0c87b18b96235d87b641337208902e5ab839440ae030",
+      "tracr/craft/chamber/categorical_attn_test.py": "62e1e6ea7c0a4bccda085ab6e26b85689ed57a783f94082cd7f4c34e33799597",
+      "tracr/craft/chamber/categorical_mlp.py": "18e78b0209bd9afe9b5cb4bd7fe0163295c29626e4bc63a350542f5daa900431",
+      "tracr/craft/chamber/categorical_mlp_test.py": "56c079a15762b3e7e5e6de23db70ca00a9072c9813d561fcc736feff8d19a817",
+      "tracr/craft/chamber/numerical_mlp.py": "d5551a368f0638446dcfeba240210d46faa21a4d5452bfa55ce8b970806cab51",
+      "tracr/craft/chamber/numerical_mlp_test.py": "22db5ecb6c91b9e0fa4b9792c6d6256a89b443fdae94c2df64e0154610abcf43",
+      "tracr/craft/chamber/selector_width.py": "73e0592c0641a4328f4694bb2fec2e343b65344a74784b012cedebe188e1ecea",
+      "tracr/craft/chamber/selector_width_test.py": "b1cfe75f1a2487df46210ae9625a8148949673e04e8edd4c495aeb551460c3f0",
+      "tracr/craft/tests_common.py": "aca559d80e25c0cbe3d7d992ef1b3d7fa0639cf4a74a63e986493bea142d29ed",
+      "tracr/craft/transformers.py": "8a0e04201703107b1626bd8c625582ed13f2cbd34ae84cb875f2ead62c652a9c",
+      "tracr/craft/transformers_test.py": "07bcc527e0fd157c42418e2e0f69141a5a76955d913225395bdc320d63275937",
+      "tracr/craft/vectorspace_fns.py": "e5004b309ae4b572d3724e8cbb15a1573f5a8040954c0bd17464d7e712719e47",
+      "tracr/craft/vectorspace_fns_test.py": "4b86fa15a2c916e4aaab9b9254f0755a3efec5875b53be9b6fa538ef2071a560",
+      "tracr/examples/__init__.py": "dbd485f56b72c356361676088de05d358837f7b2f5d78f96879ad849e820eaad",
+      "tracr/rasp/__init__.py": "dbd485f56b72c356361676088de05d358837f7b2f5d78f96879ad849e820eaad",
+      "tracr/rasp/causal_eval.py": "9bd1e86fb531c04308a9313da16f2123a53602d8fcf858a365852f0a71e7b1b1",
+      "tracr/rasp/causal_eval_test.py": "7003ec1dafb5f4eb0cae7abe9856b17ef5824b0fea061da23309d7d340c2eef7",
+      "tracr/rasp/rasp.py": "e0545080b8a3f5cf0a3098fcbb30591ed53cd882dbe1c5ef2067d86f9d92ef73",
+      "tracr/rasp/rasp_test.py": "5e3f861f660c89b29f52918171cb9f53c189108f0b8f017237b0ef227dc3818f",
+      "tracr/transformer/__init__.py": "dbd485f56b72c356361676088de05d358837f7b2f5d78f96879ad849e820eaad",
+      "tracr/transformer/attention.py": "cd365e874477a2b36d2c0812d22cd0c16356cfba4137a8fd5e40ff3a629de5c6",
+      "tracr/transformer/compressed_model.py": "b4f82d7faf9c35aa8b235dbc240132ae7077a88d8436a79681992b6db688d5bf",
+      "tracr/transformer/compressed_model_test.py": "3e48f0f730fe77845743cfaff11a0647fcec03ae6542f1ad880cc3f1eca9cfc6",
+      "tracr/transformer/encoder.py": "67d2c72580212632d5d8059380d89af2090ed3d547a694361899fa33c574df9d",
+      "tracr/transformer/encoder_test.py": "e834c98ed1cf14cc94f6f56cb3712e7e5f92396d276afba4e1bacb612ddffe8d",
+      "tracr/transformer/model.py": "583941cd376bfc3c42ba0347ad17b2f0b3cfccfc4aa98f870e156f0a3223c2e9",
+      "tracr/transformer/model_test.py": "ec703d6f9ceeb0d45e463bc33b687065e3276c663f1468de8b199dcddcea41e5",
+      "tracr/utils/__init__.py": "dbd485f56b72c356361676088de05d358837f7b2f5d78f96879ad849e820eaad",
+      "tracr/utils/debugging.py": "0c75c12dcd28a1f4eda6829b5af55cf20e32eb98e1d4688604550f09a49f1ae5",
+      "tracr/utils/errors.py": "92c01d9bc5dd9976a1038acb6b05a4a4bbb100406305d98dbb3b86d7c3932a97",
+      "tracr/utils/errors_test.py": "ab694e07530dfc8edaf5d3b8663a109c730a3c0ea8c4b7e85806bb9b0d2e8809"
+    },
+    "revision": "9ce2b8c82b6ba10e62e86cf6f390e7536d4fd2cd"
+  }
+}

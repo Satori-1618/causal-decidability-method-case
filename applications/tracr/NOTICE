@@ -1,0 +1,9 @@
+This application uses Tracr at commit 9ce2b8c82b6ba10e62e86cf6f390e7536d4fd2cd.
+Tracr copyright 2022 DeepMind Technologies Limited; Apache License, Version 2.0.
+See LICENSE.upstream. The instrumented stack in src/tracr_demo/adapter.py adapts
+tracr/transformer/model.py while retaining upstream attention, MLP and embedding
+implementations. Modifications add one audited residual replacement and captures.
+
+Upstream: https://github.com/google-deepmind/tracr
+Paper: Lindner et al. (2023), Tracr: Compiled Transformers as a Laboratory for
+Interpretability. https://arxiv.org/abs/2301.05062
