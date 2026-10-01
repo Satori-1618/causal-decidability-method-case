@@ -29,7 +29,11 @@ They are hypothetical task-level rules, not measured neural outputs.
 
 **What the preflight adds:** if the first type produces P, letter transfer and
 preserving the task answer remain tied. More cases of that same type cannot break
-this tie. The second type supplies a separating prediction: O versus P.
+this tie. The second type supplies a separating prediction: O versus P. Each
+Goodfire design already separates its intended rule from the other two by
+construction. The added use here is to expose ambiguity among the non-target
+rules and plan a joint test of **one fixed patch**, not to discover a flaw in
+Goodfire's design.
 
 ## Result on the complete published input tables
 
@@ -37,7 +41,7 @@ this tie. The second type supplies a separating prediction: O versus P.
 |---|---:|---|
 | Position-test pairs only | 192 | Letter transfer = preserve task answer |
 | Letter-test pairs only | 192 | Position transfer = preserve task answer |
-| Both input families, as a proposed shared menu | 384 | All three rules have different patterns |
+| Both input families, as a proposed shared menu | 384 | All three declared rules have different patterns |
 
 Each source table contains 128 train rows and 64 test rows. The same grouping holds
 on each 64-row test subset. These are counts of design rows, **not an independent
@@ -45,10 +49,21 @@ sample size or a new confirmatory result**. The predictions are derived from the
 input variables and checked against Goodfire's target labels. The script then calls
 the same category preflight used in the introductory example.
 
+**A further rival remains tied.** In all 384 input rows the donor and recipient
+have the same object and correct color. A rule that transfers the donor's correct
+color and looks up its letter in the recipient's options therefore predicts exactly
+the same answer as `preserve_task_answer`, even across both designs. The three-rule
+exports above do not identify a unique mechanism. To separate these two rules,
+add a donor with a different correct color that is still among the recipient's
+options: for the recipient above, a donor stating “The shoe is orange” predicts
+Y under color transfer and P under task-answer preservation. This is a proposed
+additional condition, not a published model result or sufficient evidence by itself.
+
 ## What a researcher should do next
 
-Evaluate **one fixed learned patch** on both input families. Keep the model, layer,
-token position, subspace and scoring rule fixed. Record the actual unpatched and
+Evaluate **one fixed learned patch** across both input families and any added
+color-changing condition. Keep the model, layer, token position, subspace and
+scoring rule fixed. Record the actual unpatched and
 patched answers for every case, not only whether the intended target was matched.
 Goodfire fits separate patches for the two target variables, so its two existing
 scores cannot simply be pooled into this common-intervention comparison.
@@ -57,6 +72,11 @@ The third column is deliberately **not called “patch has no effect.”** That 
 must predict the measured unpatched answer. The published base accuracies are
 87.5% and 92.1875%, so correct task answers cannot silently substitute for those
 baselines. Before an empirical null comparison, obtain the actual answers per case.
+
+Likewise, `symbol_transfer` predicts the donor's **correct task letter**, not its
+observed response. Published donor accuracies are 82.8125% in the position design
+and 92.1875% in the letter design. Testing “copy the donor's actual answer” requires
+those per-case donor responses; it is a distinct candidate when the donor is wrong.
 
 The second preflight check, **measurement resolution**, remains unassessed. Choice
 labels give no logit-distance, and this audit has no matched precision calibration
