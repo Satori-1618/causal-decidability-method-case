@@ -1,0 +1,754 @@
+{
+  "label": "DIAGNOSTIC, pilot/development, descriptive; decides nothing and changes no declared value",
+  "answer_form_rule": "capitalised first letter, no leading space (entity[:1].upper() + entity[1:])",
+  "first_generated_token_of_unpatched_native_runs": {
+    "single-token answer form of the correct entity": 378,
+    "first piece of a multi-token answer form of the correct entity": 19,
+    "other token: Techno": 1,
+    "other token: Folk": 1,
+    "other token: Electronic": 1
+  },
+  "tokenization": {
+    "jazz": {
+      "in_context": [
+        "\u2581jazz"
+      ],
+      "answer_form": [
+        "Jazz"
+      ],
+      "lowercase": [
+        "jazz"
+      ]
+    },
+    "classical": {
+      "in_context": [
+        "\u2581classical"
+      ],
+      "answer_form": [
+        "Classical"
+      ],
+      "lowercase": [
+        "classical"
+      ]
+    },
+    "rock": {
+      "in_context": [
+        "\u2581rock"
+      ],
+      "answer_form": [
+        "Rock"
+      ],
+      "lowercase": [
+        "rock"
+      ]
+    },
+    "blues": {
+      "in_context": [
+        "\u2581blues"
+      ],
+      "answer_form": [
+        "Blues"
+      ],
+      "lowercase": [
+        "blues"
+      ]
+    },
+    "folk": {
+      "in_context": [
+        "\u2581folk"
+      ],
+      "answer_form": [
+        "Folk"
+      ],
+      "lowercase": [
+        "folk"
+      ]
+    },
+    "electronic": {
+      "in_context": [
+        "\u2581electronic"
+      ],
+      "answer_form": [
+        "Electronic"
+      ],
+      "lowercase": [
+        "electronic"
+      ]
+    },
+    "country": {
+      "in_context": [
+        "\u2581country"
+      ],
+      "answer_form": [
+        "Country"
+      ],
+      "lowercase": [
+        "country"
+      ]
+    },
+    "pop": {
+      "in_context": [
+        "\u2581pop"
+      ],
+      "answer_form": [
+        "Pop"
+      ],
+      "lowercase": [
+        "pop"
+      ]
+    },
+    "funk": {
+      "in_context": [
+        "\u2581funk"
+      ],
+      "answer_form": [
+        "Funk"
+      ],
+      "lowercase": [
+        "funk"
+      ]
+    },
+    "metal": {
+      "in_context": [
+        "\u2581metal"
+      ],
+      "answer_form": [
+        "Metal"
+      ],
+      "lowercase": [
+        "metal"
+      ]
+    },
+    "rap": {
+      "in_context": [
+        "\u2581rap"
+      ],
+      "answer_form": [
+        "Rap"
+      ],
+      "lowercase": [
+        "rap"
+      ]
+    },
+    "techno": {
+      "in_context": [
+        "\u2581techno"
+      ],
+      "answer_form": [
+        "Techno"
+      ],
+      "lowercase": [
+        "techno"
+      ]
+    },
+    "house": {
+      "in_context": [
+        "\u2581house"
+      ],
+      "answer_form": [
+        "House"
+      ],
+      "lowercase": [
+        "house"
+      ]
+    },
+    "trance": {
+      "in_context": [
+        "\u2581trance"
+      ],
+      "answer_form": [
+        "T",
+        "rance"
+      ],
+      "lowercase": [
+        "tr",
+        "ance"
+      ]
+    },
+    "soul": {
+      "in_context": [
+        "\u2581soul"
+      ],
+      "answer_form": [
+        "Soul"
+      ],
+      "lowercase": [
+        "soul"
+      ]
+    },
+    "punk": {
+      "in_context": [
+        "\u2581punk"
+      ],
+      "answer_form": [
+        "Punk"
+      ],
+      "lowercase": [
+        "punk"
+      ]
+    },
+    "disco": {
+      "in_context": [
+        "\u2581disco"
+      ],
+      "answer_form": [
+        "Disco"
+      ],
+      "lowercase": [
+        "disco"
+      ]
+    },
+    "indie": {
+      "in_context": [
+        "\u2581indie"
+      ],
+      "answer_form": [
+        "Indie"
+      ],
+      "lowercase": [
+        "indie"
+      ]
+    },
+    "gospel": {
+      "in_context": [
+        "\u2581gospel"
+      ],
+      "answer_form": [
+        "Gospel"
+      ],
+      "lowercase": [
+        "g",
+        "ospel"
+      ]
+    },
+    "ska": {
+      "in_context": [
+        "\u2581ska"
+      ],
+      "answer_form": [
+        "Ska"
+      ],
+      "lowercase": [
+        "ska"
+      ]
+    },
+    "opera": {
+      "in_context": [
+        "\u2581opera"
+      ],
+      "answer_form": [
+        "Opera"
+      ],
+      "lowercase": [
+        "opera"
+      ]
+    },
+    "latin": {
+      "in_context": [
+        "\u2581latin"
+      ],
+      "answer_form": [
+        "Latin"
+      ],
+      "lowercase": [
+        "latin"
+      ]
+    },
+    "dub": {
+      "in_context": [
+        "\u2581dub"
+      ],
+      "answer_form": [
+        "Dub"
+      ],
+      "lowercase": [
+        "dub"
+      ]
+    },
+    "ambient": {
+      "in_context": [
+        "\u2581ambient"
+      ],
+      "answer_form": [
+        "Ambient"
+      ],
+      "lowercase": [
+        "ambient"
+      ]
+    }
+  },
+  "single_token_answer_form": {
+    "jazz": true,
+    "classical": true,
+    "rock": true,
+    "blues": true,
+    "folk": true,
+    "electronic": true,
+    "country": true,
+    "pop": true,
+    "funk": true,
+    "metal": true,
+    "rap": true,
+    "techno": true,
+    "house": true,
+    "trance": false,
+    "soul": true,
+    "punk": true,
+    "disco": true,
+    "indie": true,
+    "gospel": true,
+    "ska": true,
+    "opera": true,
+    "latin": true,
+    "dub": true,
+    "ambient": true
+  },
+  "entities_without_single_token_answer_form": [
+    "trance"
+  ],
+  "qualifying_families": 79,
+  "families_with_all_answer_forms_single_token": 54,
+  "subset_rule": "qualifying families whose seven genres all have a single-token answer form",
+  "run_types": {
+    "no_patch_recipient": {
+      "runs": 54,
+      "declared_in_context": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 2.5583636584853003e-05,
+          "min": 3.659177471281106e-07,
+          "max": 0.006631852859195189
+        },
+        "argmax_names_generated_entity": {
+          "k": 54,
+          "n": 54,
+          "rate": 1.0
+        }
+      },
+      "answer_form": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 0.9818767916637386,
+          "min": 0.8837493042636638,
+          "max": 0.9978539090329022
+        },
+        "argmax_names_generated_entity": {
+          "k": 54,
+          "n": 54,
+          "rate": 1.0
+        }
+      }
+    },
+    "native_conflict_donor": {
+      "runs": 54,
+      "declared_in_context": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 1.911823086475111e-05,
+          "min": 1.43730697128158e-07,
+          "max": 0.009545151457088289
+        },
+        "argmax_names_generated_entity": {
+          "k": 54,
+          "n": 54,
+          "rate": 1.0
+        }
+      },
+      "answer_form": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 0.9888876025763813,
+          "min": 0.876342895718689,
+          "max": 0.9990599209771931
+        },
+        "argmax_names_generated_entity": {
+          "k": 54,
+          "n": 54,
+          "rate": 1.0
+        }
+      }
+    },
+    "native_agreement_donor": {
+      "runs": 162,
+      "declared_in_context": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 2.1017539152551908e-05,
+          "min": 7.019182663053235e-08,
+          "max": 0.006628830379991505
+        },
+        "argmax_names_generated_entity": {
+          "k": 162,
+          "n": 162,
+          "rate": 1.0
+        }
+      },
+      "answer_form": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 0.9871969614601077,
+          "min": 0.8871201970385536,
+          "max": 0.9987083167438706
+        },
+        "argmax_names_generated_entity": {
+          "k": 162,
+          "n": 162,
+          "rate": 1.0
+        }
+      }
+    },
+    "conflict_layer18": {
+      "runs": 54,
+      "declared_in_context": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 1.4712084370178942e-05,
+          "min": 5.8430922076738734e-08,
+          "max": 0.0028372714710193855
+        },
+        "argmax_names_generated_entity": {
+          "k": 38,
+          "n": 54,
+          "rate": 0.7037037037037037
+        }
+      },
+      "answer_form": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 0.9888684435764135,
+          "min": 0.8593768218046093,
+          "max": 0.997746186595322
+        },
+        "argmax_names_generated_entity": {
+          "k": 54,
+          "n": 54,
+          "rate": 1.0
+        }
+      }
+    },
+    "conflict_layer19_diagnostic": {
+      "runs": 54,
+      "declared_in_context": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 6.585548999376554e-06,
+          "min": 4.330533111979019e-08,
+          "max": 0.004646013191263154
+        },
+        "argmax_names_generated_entity": {
+          "k": 36,
+          "n": 54,
+          "rate": 0.6666666666666666
+        }
+      },
+      "answer_form": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 0.9909780955882581,
+          "min": 0.8801307981151428,
+          "max": 0.9978255467998697
+        },
+        "argmax_names_generated_entity": {
+          "k": 54,
+          "n": 54,
+          "rate": 1.0
+        }
+      }
+    },
+    "agreement_layer18": {
+      "runs": 162,
+      "declared_in_context": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 1.2973724745805893e-05,
+          "min": 7.057684401371327e-08,
+          "max": 0.0035510752902757543
+        },
+        "argmax_names_generated_entity": {
+          "k": 157,
+          "n": 162,
+          "rate": 0.9691358024691358
+        }
+      },
+      "answer_form": {
+        "full_vocab_mass_on_n_scored_tokens": {
+          "median": 0.9881736047878332,
+          "min": 0.899597930078019,
+          "max": 0.998928883782262
+        },
+        "argmax_names_generated_entity": {
+          "k": 162,
+          "n": 162,
+          "rate": 1.0
+        }
+      }
+    }
+  },
+  "per_cell": {
+    "c1": {
+      "cell": {
+        "i_P": 3,
+        "i_L": 1,
+        "i_R": 5,
+        "i_N": 0
+      },
+      "families": 16,
+      "declared_in_context": {
+        "s_min": 0.1,
+        "unresolved": {
+          "k": 2,
+          "n": 16,
+          "rate": 0.125
+        },
+        "anchors": {
+          "T_W": 0.5454769471928814,
+          "T_A": 0.985441173430133,
+          "d": 0.4399642262372516,
+          "q_bar": [
+            0.4545169182488748,
+            6.134558243810118e-06,
+            0.5454769471928814
+          ],
+          "T_A_by_target": {
+            "i_P": 0.9846170483029636,
+            "i_L": 0.999839551169348,
+            "i_R": 0.9718669208180876
+          },
+          "agreement_resolution_rate": 0.9791666666666666,
+          "agreement_transfer_rate": 0.9166666666666666
+        },
+        "label_shares_resolved": {
+          "positional": 0.42857142857142855,
+          "lexical": 0.0,
+          "reflexive": 0.5714285714285714
+        }
+      },
+      "answer_form": {
+        "s_min": 0.1,
+        "unresolved": {
+          "k": 0,
+          "n": 16,
+          "rate": 0.0
+        },
+        "anchors": {
+          "T_W": 0.5293693084906482,
+          "T_A": 0.9932787584996273,
+          "d": 0.4639094500089791,
+          "q_bar": [
+            0.4704337484654783,
+            0.00019694304387344124,
+            0.5293693084906482
+          ],
+          "T_A_by_target": {
+            "i_P": 0.9994296067384126,
+            "i_L": 0.9999819862293975,
+            "i_R": 0.9804246825310722
+          },
+          "agreement_resolution_rate": 1.0,
+          "agreement_transfer_rate": 0.9375
+        },
+        "label_shares_resolved": {
+          "positional": 0.5,
+          "lexical": 0.0,
+          "reflexive": 0.5
+        }
+      }
+    },
+    "c2": {
+      "cell": {
+        "i_P": 3,
+        "i_L": 5,
+        "i_R": 1,
+        "i_N": 0
+      },
+      "families": 13,
+      "declared_in_context": {
+        "s_min": 0.1,
+        "unresolved": {
+          "k": 1,
+          "n": 13,
+          "rate": 0.07692307692307693
+        },
+        "anchors": {
+          "T_W": 0.5873139827566348,
+          "T_A": 0.9989767870017667,
+          "d": 0.4116628042451319,
+          "q_bar": [
+            0.5873139827566348,
+            0.24050639913037253,
+            0.17217961811299262
+          ],
+          "T_A_by_target": {
+            "i_P": 0.9998975185640328,
+            "i_L": 0.9973640118995853,
+            "i_R": 0.999668830541682
+          },
+          "agreement_resolution_rate": 1.0,
+          "agreement_transfer_rate": 0.9743589743589743
+        },
+        "label_shares_resolved": {
+          "positional": 0.5833333333333334,
+          "lexical": 0.25,
+          "reflexive": 0.16666666666666666
+        }
+      },
+      "answer_form": {
+        "s_min": 0.1,
+        "unresolved": {
+          "k": 0,
+          "n": 13,
+          "rate": 0.0
+        },
+        "anchors": {
+          "T_W": 0.6456249693311876,
+          "T_A": 0.9918122785222141,
+          "d": 0.34618730919102647,
+          "q_bar": [
+            0.6456249693311876,
+            0.24085241373321328,
+            0.1135226169355991
+          ],
+          "T_A_by_target": {
+            "i_P": 0.9998981461673146,
+            "i_L": 0.9755545066202836,
+            "i_R": 0.9999841827790441
+          },
+          "agreement_resolution_rate": 1.0,
+          "agreement_transfer_rate": 0.9743589743589743
+        },
+        "label_shares_resolved": {
+          "positional": 0.5384615384615384,
+          "lexical": 0.3076923076923077,
+          "reflexive": 0.15384615384615385
+        }
+      }
+    },
+    "c3": {
+      "cell": {
+        "i_P": 3,
+        "i_L": 1,
+        "i_R": 5,
+        "i_N": 6
+      },
+      "families": 10,
+      "declared_in_context": {
+        "s_min": 0.1,
+        "unresolved": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0
+        },
+        "anchors": {
+          "T_W": 0.6166514019636734,
+          "T_A": 0.9818484274774054,
+          "d": 0.365197025513732,
+          "q_bar": [
+            0.38329959043910833,
+            4.9007597218219445e-05,
+            0.6166514019636734
+          ],
+          "T_A_by_target": {
+            "i_P": 0.9999969956837637,
+            "i_L": 0.9871563102106583,
+            "i_R": 0.9583919765377945
+          },
+          "agreement_resolution_rate": 0.9666666666666667,
+          "agreement_transfer_rate": 0.9
+        },
+        "label_shares_resolved": {
+          "positional": 0.4,
+          "lexical": 0.0,
+          "reflexive": 0.6
+        }
+      },
+      "answer_form": {
+        "s_min": 0.1,
+        "unresolved": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0
+        },
+        "anchors": {
+          "T_W": 0.7910157436084827,
+          "T_A": 0.9966747613599577,
+          "d": 0.205659017751475,
+          "q_bar": [
+            0.20800697258329678,
+            0.0009772838082204925,
+            0.7910157436084827
+          ],
+          "T_A_by_target": {
+            "i_P": 0.9997919263056712,
+            "i_L": 0.9998916177288395,
+            "i_R": 0.9903407400453622
+          },
+          "agreement_resolution_rate": 1.0,
+          "agreement_transfer_rate": 1.0
+        },
+        "label_shares_resolved": {
+          "positional": 0.2,
+          "lexical": 0.0,
+          "reflexive": 0.8
+        }
+      }
+    },
+    "c4": {
+      "cell": {
+        "i_P": 3,
+        "i_L": 5,
+        "i_R": 1,
+        "i_N": 6
+      },
+      "families": 15,
+      "declared_in_context": {
+        "s_min": 0.1,
+        "unresolved": {
+          "k": 0,
+          "n": 15,
+          "rate": 0.0
+        },
+        "anchors": {
+          "T_W": 0.5404531100763249,
+          "T_A": 0.990979533058954,
+          "d": 0.4505264229826291,
+          "q_bar": [
+            0.5404531100763249,
+            0.35552872501610616,
+            0.10401816490756893
+          ],
+          "T_A_by_target": {
+            "i_P": 0.9807968725214021,
+            "i_L": 0.992840368985198,
+            "i_R": 0.9993013576702616
+          },
+          "agreement_resolution_rate": 0.9777777777777777,
+          "agreement_transfer_rate": 0.9333333333333333
+        },
+        "label_shares_resolved": {
+          "positional": 0.5333333333333333,
+          "lexical": 0.3333333333333333,
+          "reflexive": 0.13333333333333333
+        }
+      },
+      "answer_form": {
+        "s_min": 0.1,
+        "unresolved": {
+          "k": 0,
+          "n": 15,
+          "rate": 0.0
+        },
+        "anchors": {
+          "T_W": 0.4985519428293942,
+          "T_A": 0.9931455251260554,
+          "d": 0.49459358229666117,
+          "q_bar": [
+            0.4963411256119201,
+            0.4985519428293942,
+            0.005106931558685678
+          ],
+          "T_A_by_target": {
+            "i_P": 0.9994390308588539,
+            "i_L": 0.9800475065464399,
+            "i_R": 0.9999500379728722
+          },
+          "agreement_resolution_rate": 1.0,
+          "agreement_transfer_rate": 0.9555555555555556
+        },
+        "label_shares_resolved": {
+          "positional": 0.4666666666666667,
+          "lexical": 0.5333333333333333,
+          "reflexive": 0.0
+        }
+      }
+    }
+  }
+}

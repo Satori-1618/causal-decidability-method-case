@@ -1,0 +1,11 @@
+{
+  "RUN_STARTED.json": "3886c504852c33b2792da2628d19c27faedb479123774df0fc74640a01379ac1",
+  "audit_full_logits.npz": "bb07a4ab9c931f542ce057cd9ead6d18eea8218656b538180409d11e97e172bd",
+  "checker_report.json": "e663f62f74b1fb82c34bc343b0ddf320e75c8930ae4a922cb2a83844dbebf00b",
+  "confirmation_gates.json": "9a4f5929a9de2e68ec7cae0a7d2e2532eb2cb942138623459d57cc4cac5fb95c",
+  "gate7_cpu_reference.jsonl": "8b7e0963e4732e35b52c5211320ff9db96531d3f945ac2f7c80df14d08dfe166",
+  "manifest.json": "11a7beb825e94ca537944d329f0c74bb504a5adaaeb5e7078ddb7f6d5f8ce327",
+  "records.jsonl": "211b13ea34603fac0dd4025324e1b5861890737f1533c449360c71be02c5cef2",
+  "summary.json": "615d5598bacd11a89fa7f43f8832c8692379b467324ab77aecfe2ea108b4d357",
+  "timings.json": "06d7768545f9252e3e4e7734565590c80c813a6953bf1387ed29882214877a49"
+}

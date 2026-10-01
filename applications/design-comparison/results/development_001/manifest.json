@@ -1,0 +1,77 @@
+{
+  "config": {
+    "alpha_per_case_policy": 0.005,
+    "amplitude_bands": {
+      "large": [
+        1.0,
+        3.0
+      ],
+      "medium": [
+        0.3,
+        1.0
+      ],
+      "small": [
+        0.1,
+        0.3
+      ]
+    },
+    "cases": 512,
+    "development_families": [
+      "linear",
+      "relu_offset"
+    ],
+    "extra_cell_budgets": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "measurement_model": "known independent Gaussian errors added to deterministic fp32 graph outputs",
+    "noise_levels": [
+      0.03,
+      0.1,
+      0.3
+    ],
+    "primary_extra_cells": 3,
+    "reserved_families_NOT_EXECUTED": [
+      "squared",
+      "saturated_relu"
+    ],
+    "samples": 8,
+    "seed": 2026092901,
+    "status": "development_only",
+    "truth_sampling": [
+      "channel_a",
+      "channel_b",
+      "balanced",
+      "joint",
+      "context_switch",
+      "context_switch_inverse",
+      "external_gain"
+    ],
+    "unit": "one independently generated circuit/context instance; policies and cells paired"
+  },
+  "created_unix": 1790692332.645959,
+  "environment": {
+    "device": "cpu",
+    "graph_dtype": "float32",
+    "numpy": "1.26.4",
+    "platform": "macOS-15.7.3-arm64-arm-64bit",
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 08:22:19) [Clang 14.0.6 ]",
+    "reference_dtype": "float64",
+    "torch": "2.5.1"
+  },
+  "git": {
+    "branch": "codex/goodfire-mixing-mechanisms",
+    "commit": "f0d0547a116fb78562bef6b754d70e9ebbc83263",
+    "dirty_status": "M README.md\n?? applications/design-comparison/\n?? docs/GOODFIRE_METHOD_ONEPAGER.md\n?? docs/GOODFIRE_REAL_CASES.json\n?? docs/GOODFIRE_REAL_CASES.md\n?? docs/MECHANISM_DISCRIMINATION_GOAL.md\n?? docs/make_goodfire_onepager.py\n?? output/\n?? tests/test_design_comparison.py\n?? tests/test_design_comparison_worlds.py"
+  },
+  "source_sha256": {
+    "applications/design-comparison/PROTOCOL.md": "93fd38e3f0ab209972ed8e806c73d82d661fba8c266e3481d8116f240cfcd038",
+    "applications/design-comparison/run.py": "82f00f2a42be168671c0937585d5f22337c40edd593fcfbb385c66a898cb477c",
+    "applications/design-comparison/selection.py": "9fed3ec9327e9086b841b8e3a6525c9ffa9ed88990ff4c765abcffcaa60d8f8b",
+    "applications/design-comparison/worlds.py": "e16942d23ff402ff2ed222497907b0d33a12fd46295f1411aaae19e19b81bbe4",
+    "docs/MECHANISM_DISCRIMINATION_GOAL.md": "4064c977edb2c6b26bba5af7e4e4f791f183e68a743ba9166b75c37fa87cde87",
+    "src/causal_decidability/compatible_set.py": "a83a1c8ff140385b61ad52e36d4e13698efd647bd9c20e03ef10cbe4e4e8eb3f"
+  }
+}

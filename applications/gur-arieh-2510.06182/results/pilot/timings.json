@@ -1,0 +1,6 @@
+{
+  "load_bf16_seconds": 3.1157670419997885,
+  "families_bf16_seconds": 502.57585816699975,
+  "load_fp32_seconds": 6.136171457999808,
+  "fp32_reference_seconds": 23.16765666699939
+}

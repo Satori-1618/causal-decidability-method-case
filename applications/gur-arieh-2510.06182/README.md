@@ -1,0 +1,99 @@
+# Application: Gur-Arieh, Geva & Geiger, "Mixing Mechanisms" (arXiv:2510.06182)
+
+Yoav Gur-Arieh, Mor Geva and Atticus Geiger, *Mixing Mechanisms: How Language Models
+Retrieve Bound Entities In-Context*, arXiv:2510.06182v2 (ICLR 2026).
+Code: [yoavgur/mixing-mechs](https://github.com/yoavgur/mixing-mechs) at commit
+`c53372c`. Blog post: <https://yoav.ml/blog/2025/mixing-mechs/>.
+
+## What this application does
+
+The paper shows that a language model retrieves an entity from a list of bound entities
+by mixing three signals: the entity's position (positional), the words used in the
+question (lexical), and a direct pointer to the entity itself (reflexive). The authors
+patch activations from one prompt into another, collect many such patches per
+combination of target positions, average the resulting distributions, and fit a model
+that mixes the three signals.
+
+This application uses that study to show, simply, that the method's four-step loop runs
+on a second, independent published case:
+
+1. Write the rivals down as executable predictions.
+2. Find a condition where their predictions differ.
+3. Check that the difference is measurable; fix the rule before the data.
+4. Decide on fresh cases.
+
+What stays open becomes the next question. An explanation nobody formulated is neither
+tested nor excluded. This is a demonstration of the procedure, not an identification of
+the model's mechanism.
+
+## Scope
+
+- **Round 0** reconstructs, without a model, which of the paper's designs separate which
+  candidates. It is labelled RETROSPECTIVE.
+- **Round 1** asks one question the paper leaves open: the paper's mixture model
+  describes *average* distributions per cell. Does a single case look like that average,
+  or do cases differ? It uses one task, one cell, one layer and last-token patching.
+- The levels S1 to S3 apply to Round 1 only: S1, a declared gate stopped the run;
+  S2, the loop ran completely on fresh cases under a frozen rule; S3, S2 and at least
+  one declared profile was excluded (always named).
+
+**First pass:** sources and scope, Round 0, the Round 1 analyzer and checker with
+synthetic tests, and a preflight plan. No model was run in the first pass.
+
+**Status (28 September 2026): VALID, S3 (`W_T` excluded only).** After two pilots,
+development splits A and B, and a separate final freeze, the confirmation ran once on
+fresh 4,000,000-series seeds. It obtained 300 qualifying families from 305 generated
+families. The cell-average concentration profile `W_T` was excluded; the strict
+agreement-like profile `A_T` remained undecided. The aggregate mean replicated, but most
+individual cases were substantially more concentrated than that mean. This does not
+identify which mechanism operates in a case, and the stronger between-case statement
+was not earned. See [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md).
+
+**Round 2 development is also implemented and executed.** A paired word exchange tests
+whether the patch-induced preference follows a word or its target site while both
+native correct answers stay fixed. Of 30 native-qualified families, 3 match the narrow
+target-site rule, 3 the word rule, 16 neither, and 8 lack sufficient two-answer support.
+All technical gates passed. These are development descriptions; neither a mechanism nor
+a dominant invariant has been confirmed. See
+[the small protocol](ROUND2_WORD_STRUCTURE.md) and
+[the result with concrete examples](ROUND2_DEVELOPMENT_RESULT.md).
+
+## Files
+
+| file | what |
+|---|---|
+| [SOURCE_LOCK.json](SOURCE_LOCK.json) | paper version, upstream commit and licence, file hashes, task registry, chat-template format, model revision from metadata, verified upstream facts with file:line, openness check |
+| [SOURCES.md](SOURCES.md) | the same facts in plain text, with the discrepancies found |
+| [requirements-analysis.txt](requirements-analysis.txt) | the pinned environment used for this pass (no model) |
+| [scripts/lock_sources.py](scripts/lock_sources.py) | small adapter: checks a separate upstream clone against the lock; nothing is vendored |
+| [ROUND0_RETROSPECTIVE.md](ROUND0_RETROSPECTIVE.md) | Round 0 (RETROSPECTIVE): which designs separate which candidates; hands one open question to Round 1 |
+| [src/mixing_round0.py](src/mixing_round0.py), [results/round0_retrospective/round0.json](results/round0_retrospective/round0.json) | the typed prediction table and its stored reconstruction (`scripts/round0_reconstruction.py --check`) |
+| [src/mixing_round1_analysis.py](src/mixing_round1_analysis.py) | Round 1 analyzer: q-map, the declared unresolved rule, mean-consistency gate, between-case check, development gates; reuses the existing `clopper_pearson` helper |
+| [scripts/check_mixing_round1_records.py](scripts/check_mixing_round1_records.py) | records-only checker: recomputes every status, gate, the level and the between-case decision from the frozen manifest and raw records; imports no runner |
+| [src/mixing_synthetic_worlds.py](src/mixing_synthetic_worlds.py), [results/synthetic_worlds/worlds.json](results/synthetic_worlds/worlds.json) | the six synthetic worlds (analyzer verification only, not evidence; `scripts/run_synthetic_worlds.py --check`) |
+| [PREFLIGHT_PLAN.md](PREFLIGHT_PLAN.md), [PROPOSED_VALUES.json](PROPOSED_VALUES.json) | Round 1 preflight and development plan with the one table of values (**approved for the pilot only; final approval pending**), the corrections of 28 September 2026, the N rule, gates, power and the authorizations still needed |
+| [src/mixing_round1_design.py](src/mixing_round1_design.py) | design-index checker, the conflict case of a fixed cell, the three-way agreement control, exact power and the N rule; no model |
+| [src/mixing_prompts.py](src/mixing_prompts.py) | prompt construction exactly as upstream (row definition, `raw_input`, chat template with the first five characters dropped), from the task spec the adapter reads from the clone (`scripts/lock_sources.py`, `schema_spec`) |
+| [src/mixing_runner.py](src/mixing_runner.py) | model runner (torch, protocol v2): offline snapshot and file hashes, the v2 pool rule, token alignment, last-token forward-pre hook at block ℓ with call and write counts, the primary answer-form readout (logits, answer-token mass, logsumexp over the vocabulary and its complement) and the descriptive paper readout, greedy generation, identity self-patch, and one record per family in the checker's schema |
+| [scripts/run_mixing_pilot.py](scripts/run_mixing_pilot.py), [src/mixing_pilot_summary.py](src/mixing_pilot_summary.py) | the development pilot under protocol v2 (offline, cached model), its gate table from the stored files, and the generated artifact index; pilot 1 used the versions at commit `3cdaffd` |
+| [SPLIT_A_B_PROTOCOL.md](SPLIT_A_B_PROTOCOL.md), [scripts/run_mixing_split.py](scripts/run_mixing_split.py), [src/mixing_splits.py](src/mixing_splits.py) | the split A/B protocol (sizes, seeds, gate-7 cases, selection rule, what split B computes), its runner and its decisions |
+| [results/split_A/](results/split_A/SPLIT_A_REPORT.md), [results/split_B/](results/split_B/SPLIT_B_REPORT.md) | development results: split A selected cell c4; split B fixed the anchors and final N = 300 |
+| [FREEZE.json](FREEZE.json) | final confirmation contract, frozen before the fresh run |
+| [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md), [results/confirmation/](results/confirmation/summary.json) | plain-language result and the raw, hashed confirmation artifacts; `W_T` excluded, `A_T` undecided |
+| [ROUND2_WORD_STRUCTURE.md](ROUND2_WORD_STRUCTURE.md), [ROUND2_DEVELOPMENT.json](ROUND2_DEVELOPMENT.json) | the precommitted paired word-versus-target-site development protocol and source hashes |
+| [ROUND2_DEVELOPMENT_RESULT.md](ROUND2_DEVELOPMENT_RESULT.md), [results/round2_word_structure_development/](results/round2_word_structure_development/summary.json) | 32-family development run, raw pairs, controls and replayable descriptive analysis |
+| [requirements-model.txt](requirements-model.txt) | the environment used for model runs (torch 2.5.1, transformers 4.57.3) |
+| [results/pilot/](results/pilot/PILOT_REPORT.md) | pilot 1 (protocol v1): records, gate table, readout and dtype diagnostics (`scripts/diagnose_pilot_readout.py`, `scripts/diagnose_fp32_execution.py`) and the report |
+| [results/pilot2/](results/pilot2/PILOT2_REPORT.md) | pilot 2 (protocol v2, fresh seeds): records, gate-7 CPU reference, gate table, generated artifact index and the report |
+
+Tests live with the repository's other tests: `tests/test_mixing_*.py` (the runner tests
+use a tiny, randomly initialised Gemma 2 and a word-level tokenizer built locally in
+`tests/mixing_tiny_model.py`; they need torch and are skipped without it) and
+`tests/test_check_mixing_round1_records.py`.
+
+Check a clone (standard library only):
+
+```bash
+python applications/gur-arieh-2510.06182/scripts/lock_sources.py \
+    --upstream /path/to/mixing-mechs --check
+```

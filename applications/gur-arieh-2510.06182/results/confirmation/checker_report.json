@@ -1,0 +1,15 @@
+{
+  "verified": true,
+  "mode": "records_only",
+  "run_status": "VALID",
+  "level": "S3 (W_T excluded only)",
+  "statuses": {
+    "W_T": "excluded",
+    "A_T": "undecided"
+  },
+  "u": 10,
+  "N": 300,
+  "yield": 0.9836065573770492,
+  "adequacy_powered": true,
+  "between_case_earned": false
+}

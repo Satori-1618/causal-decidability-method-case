@@ -1,0 +1,512 @@
+{"case_id": "6e7a1e82053f1ecb8d79", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "8fab7fd10276d0554486", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "aee1a101c60aa47eed0b", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "8e8ce3098f4f11e101a7", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "fc04b0fee691e4362c18", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "2264e72b3d9547368347", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "59648cbd6927d15cb5a7", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "46ec5fb9af966eec0391", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "b2535967958537a844a4", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "dbd951e68298cb18c70c", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "7411d7bf77ff626a8d7a", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "a066f9edbeb291a7d032", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "fea65351e2e9f7d3a434", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "a99da7c8ab20d02f54ba", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "2b5f8de06bee521f6b1f", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "8cc7cada082b0f99b51b", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "363e591eb061200d3df9", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "afbc88c86ce08cd50a5a", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "0b1b4e9a0fa49a8fd533", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "16ee3423b0491d8725a4", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "16cd62ffff5a1f22cd47", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "14b370e1c8a1c507533f", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "474e8ba7c8fa2258ee85", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "2cc180f2bda23c3caad8", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "08358eae0e6c6d316f14", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "f76bb09f3a034074e699", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "7ce24a9d2f8426179e91", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "6b2804ebdd02e6fabb78", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "3d60e91c3297b9cf29a8", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "705d389d5817b42b3475", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "1f17762e9ab199e153d9", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "6684f11bd6f40a3d5f1c", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "8c80a33a9d2cd90f47e2", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "bc9667824faaaf66d177", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "6e33de81165c0ed5c029", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "461dc646936740578dcb", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "fe91646ddf2577b15c00", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "834ab04b0906b689ff65", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "edab6600457cb2a12918", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "0a87038526784d4494b5", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "d86fd5a63c563fab01de", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "f555dcac7c1d67c8ba6e", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "76c4a8765e9d343e6734", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "e92b799cc1862eaab351", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "95f4fd9bf392694ce300", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "0b6a3e6a27c3db2efd24", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "3b943dc68ecb7fad73db", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "d14bfd6f43b92a9073d0", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "7453f87511d550d9eb75", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "ad131c4e8cd09b8cb650", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "304b07393e46a6868af2", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "ba41002b220e9221d98c", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "9ec783c7ea6a934b40b6", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "2ec970214176e04b3715", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "7fdc6a720210e6aac6a4", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "baf6669414142e8e00ee", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "60d2aefcdffaf679e9c2", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "16f3efc2afe2996a2237", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "e6117f3e6c22189381cd", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "5064d39fb6d829114de5", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "62b1ae0109e1d56fceac", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "ff6ba77cf9956b4cd446", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "d1303f3a9514ebc6f513", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "f666c5f823dafe5bf52b", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "6ccc711862b86d90ca6f", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "85cb1aa2aeb4ae7b5b7f", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "0f8ce923d24a443ca271", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "ce90c2a48f1eaf267f79", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "911239b724159be3b659", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "92d5bddd152ae399d362", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "78b54de30ba590b7043c", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "d8da377aa3470fa7d1c5", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "ad57e5ad03145f981a6c", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "c5b17c0c3b6a35e35678", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "f6a5f9f5db5df0d151e5", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "2fd8aaf22e368963a866", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "b022006252d9468d745c", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "4973ae2fce6cd41424a3", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "9d8f78ee5bd7a3da7e49", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "74cb8ccd660f3c7488bb", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "de336a46fbc2efd7c8be", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "91fd14a36bfe94847110", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "2f1c1549fd58fa13a427", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "7cec8ca98787b6c89893", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "c45b224ec305b772d4e0", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "245f3bc5e1db888646e9", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "c3454c29f9d694f296f9", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "66aa1df7a1bfa0e87848", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "25f9ff2d3d0f03f2ea11", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "74d877bcab98aadbd46f", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "e8cc4ddb36b9f3d1fadd", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "ce6154862194031559f4", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "bb22ec2178f6459a29b5", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "0e330e129cfc8e1d5e47", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "82a32583669390ed4e8f", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "307a4f78ac699eaa75aa", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "c93a9398356fd11c3ade", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "a4ce533eddb08ba023d7", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "65b142e25caddbf5effc", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "5804ad019e93889aa548", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "da3e90bba39576a86798", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "0a2f20900f3e7a165ef9", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "9de5e72559c08923f6f9", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "bfb9ead85616ae4cafff", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "d566c6639a8fc8ea0af0", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "c19a7141a90ceb5f1283", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "9b2d19bc4cc8f28665bd", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "e95b992844d87c1037e3", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "72860cfca55c90d04464", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "20d42a049e74cffae706", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "1c55c307657f2232f47e", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "c98d13c1802f3974e3cd", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "a30edd92342dae0880ca", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "59a93f79638fa5bd4636", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "ef7fdecd99aa86164b8b", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "99e352f7078c38b3d097", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "2e9229b1bb6ee9474d78", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "c47b26a8fb3066909989", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "c62d53352b7a79c13e89", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "74f0864adc07465fba88", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "3dc3f0273a8848d1a658", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "7834c7094e2fc1cb071b", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "efae276cb833110b9deb", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "062c37a820e2f9d92778", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "d80bd0d106ad3abdb782", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "a9dbe35789c8c8c35962", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "b7f6a9db49b613cb58fb", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "fb4e8de4fcc7400e0ab2", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "c087d84cade26f9ccc54", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "13bd83aa7e46377dd01d", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "7ac178f0174276c3132e", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "66d710ebca2933bbe7e3", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "72ee5763b187396128f6", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "c4b7ebf2bc9602a0693b", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "50dda5b27fdbc5254109", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "5eade3521cbbd01c20c1", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "b4c6a0d4eefd80ff8872", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "2479b804c328a74f0130", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "e5155c551b649a14d36b", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "3a65028a066a114b7ff6", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "458e2975078285c2709c", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "13de969be6ef08d7635b", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "5b194c0d03db5ba50fdb", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "d0a5b4dd49d0088a6a90", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "d35b12d99c84f853634f", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "13cda20f3d81c0255de2", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "5f9f863c1b76f126db72", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "75f0fb0f7a2b50c9ed2a", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "f766a2a6ef05e0343f94", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "49a501d9abd06fdd5de2", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "abda932738c7611e472e", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "5b6a67103160824fc879", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "93dc1833ff319d43a129", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "98b761c08dfd1f77d8ae", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "437156d8513b94487fd1", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "29ee2122e46eb05c7ca9", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "996b164ff2af626cb5c0", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "121837a852c1e42908be", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "0a6af47f0ec13134a4d3", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "58c5b0fcc9be37274639", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "7eaea3fbfb8df97def4c", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "8addf24d98faf7e86c6f", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "3a6c9a837aaa3c4e6a6f", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "4a3645b4a779cb35e024", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "67d89f7b4e5326bc5fd9", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "c64fc2595117b144c853", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "340dde6e65ece91ba4c0", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "7a2b0a425e7c5834ac61", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "8522d73ea558587aee45", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "8da64b8b05cc70c22530", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "3e0a5b969da36f88abe3", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "9422f01acfe73193909d", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "6b060e0c5628a7806db5", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "9c4dce92b283d35478f2", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "d482bc0ae0d7dbf5ee78", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "eed915cf49b13e6dc909", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "5629d5bafcff47865f11", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "e98a957fbae6847209df", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "c9b09e21ff38a04a96e3", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "6332e9d7b6991eb09aed", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "198e92a8b9a8b0c0850e", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "216261c22a06ec293902", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "a5014011e56bd9365892", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "bbac569ffd3d6ef7e46f", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "48a48ec8103420823ff1", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "91bc953b24e44366f74e", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "cf9a684d6c2308149e69", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "d87606aed50f27e4ae3d", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "4a5446bd3bef17ab7325", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "e255a68ad931397f97b2", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "f5667f8a0643ddf82fab", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "351a31553813de32e017", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "3b92d66ad46164015d5c", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "fa2c31d747bc61eeafae", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "a1ace9793782adf08caa", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "16efa551dad998881108", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "67cfdcc5e47d595c3813", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "f266d269c3d01aa43be5", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "f7e7f9e37d9a461a6771", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "88a7b6f7cc8a92106cb7", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "540b195d8860aad0983e", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "3eb95533515d1bd85841", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "ed49fc2c8b738431d699", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "83702de10f17c54d37bf", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "870d1b8b7c1a48d6a42a", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "45a30d71291edb28ac95", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "93bd0fd23d65cfe82fef", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "a9f581d16cd90ce5bea7", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "5169f45a2a9b8006e0d7", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "385a867c5d4ea21afed7", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "5ee9aa63f9d18d8d0932", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "b7c223280e7d2190d8cf", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "a913991ab5485d4d947e", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "3725398eac04ec4fbf93", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "aef044f0508eb1d5fcef", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "2dca32878ab597f477fa", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "c08bd23e00ffa57b3fb0", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "75b3275438f927445428", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "2da99776b6e204c50002", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "be5778695ef4c0a7471f", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "e938534bfcf682f30b84", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "4e45bb5f5f277a3266a0", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "aacd4289b9bbbddaf9a8", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "c69a85e2e866b12f24f2", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "01230a03052943ca127a", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "d3e3a919c032cf021c87", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "cfd6058810fe6637cb79", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "421a605aa681ea08388b", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "f824d82809537f749e76", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "354de30cbe64eca946d8", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "32652ec9cb7502b3867b", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "c678e4b97b3e63e64a1d", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "5b82b8faab8f9b405ff9", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "f8203de30e3ec99a19b3", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "e85e7de9f5c082da9512", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "e517df83e812258fb16a", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "50f6e91324ea0de98660", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "e30bdfc3e8e1f6646b75", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "da4437884e7859596e28", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "23f289bd92e438a7a28f", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "022165231f7438eac40e", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "9b3e24383b99a6a5a9dc", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "f34fcdac4c608270a3e2", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "49982d17876d4ad6c514", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "f7c3010cd1af6ddb5f98", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "133eb3a35a91e59717ba", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "c9194f79f097781d2989", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "660303ba57494bd6a03d", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "60082b525a5d8bb42a54", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "0d66b2a05df6bc739d19", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "9e88bb1bbffbbc8953e6", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "7b3b4330cbf74b81bf6f", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "3c3bb3a3112d21e0ae3f", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "ceb93fedec3c224840e9", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "251e090f9065c413d4b1", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "1bc3b32d36e0173469e6", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "79d1162d42f5f3f90802", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "c02334a53a49f694ec94", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "598fc369755b4adf2aa4", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "de4ee898b14e6fb699d7", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "2573c26bce83b4a9ddde", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "2c7d548e6edfe675648f", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "38e7619dba4d6546046e", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "5a028adf8149a3ed33fc", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "6c1b643b6138634ecfce", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "71cb13e5ea98cff25a52", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "9d26e1765e423941249a", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "7a62326e82a01ba9ef37", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "c29a4db90d24d1615cde", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "da4e8a9f2da86a0f1da7", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "2951fda9ca6b110f85be", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "a11ffdb0909c494f90a3", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "622b520473e0ebc85f1b", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "d5d53f2f0cf34bfb80b5", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "1a968b43b3c8429056e7", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "7cb00a3ddad7a9411c05", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "658d2b8b10ad46c128af", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "eb5d92bcefb2b630fe04", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "f87f310186d494a1aa5d", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "4f41194eb1b4b60f0758", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "9d7016c7b30cba77a30a", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "add1ae926dead5c219ae", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "f320de4f204a7a058d77", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "a5f6f4ed2cdf6d017b30", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "62858f3c3e972f998aa9", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "98bff08233aa5b8c2dd6", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "20a9c18f5fa60e341650", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "71b679d22dfbb60c1061", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "2bec1af1fe55f9192015", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "2d4e9a3840bd567a3fc7", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "d7beb6344d45e17c920c", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "13fe2adbdac7ad9300d3", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "524d5faff60fe7e800ff", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "3e819c5eca80d8f4ca0f", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "f2365f8ecd7cb4ac7753", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "5b0976c00cb1028b132f", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "5621acdd6696b72e1911", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "0ce35deccb6516c41ed9", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "77ca95a496dbb61c2d08", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "b4bb00f2363daed9a36b", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "999f588b5870573d4c19", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "b70359104f366ddf7ee8", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "4a7975bf1dbb6dda0dbf", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "4b8d7c594d500ddb50d0", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "52fe4f77cfdbf9ff93e7", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "7924a282ef3ff0cfaeb6", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "720624856d7fb73f1dea", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "4d47df63392fe97575cc", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "baeedbc48402db7d3dc5", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "b6277b7c28440f28569b", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "9a3bb41676998532f8e6", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "b9440f5b63758ad54f4e", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "c897ceef2113be1d3832", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "ccea616d14cc2a5a0afa", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "1192bcd1145909fd0cda", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "ae657d783820f3956fe2", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "f1bda6510d12c7c28b9e", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "e04c2e2e3a5d86d9d093", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "a5abfc6a13aa5efeb720", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "4553d0bd9eda582e78bf", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "585bef063633c9b56704", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "0fc96d24c98b847e1694", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "2838e68066da15e2d3ad", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "9f1074996d815152080b", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "6ee106ac2cd10cdbed05", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "1a769d3f27c205c150c9", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "9ee796d2f040b5458b59", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "1509261ebcb9d689a975", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "350a70d836682ef6b2bc", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "7528d415edec2bc34e08", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "f89e3a73b86ba2e769ba", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "3b2ccb3ae230320eb100", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "a7e25e7154e858ba2b07", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "eb44248e36b7a8f15465", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "882a40c253c54d36f0e7", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "59886f24f26a09669506", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "b0f0a8b53e80e6baacbe", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "06af68b786db0a7e7abe", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "dd2a13846f56c3344b8a", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "c9aaeafcf0356bf9188d", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "a3fcda45bda052b387cd", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "747fc6befed4bad2e9d6", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "89602c3e8b571c6cb6cf", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "dfd88198763bbe743124", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "0400b7cb0279d9a217e8", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "8c5f425e03538eb12b1e", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "933da1280b6e89174120", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "6586cd2aecaa0bcc9948", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "5100d7b6aa24ddd45e81", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "def84fc53874b2e64312", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "65048b41d28fb8b734cb", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "57f6f7066af40a6167f5", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "f5a098b1d099a4fcab4a", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "fb2771f1a748b0c85570", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "f590f060a85e55a71a4a", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "a86a7964935ac723a662", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "11bbed043dcfc3c0c1f0", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "8439a9b99918fb8a6d4b", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "8c2bd71e0a95b90f683f", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "eefdc289d8b788167dec", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "912489f8d7c22a8257f3", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "d782a85b5a1981402f1a", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "fdbed87003b3298c3d39", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "8725cfa32cc3f4cdfeb2", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "cc11eccd8d95abd5e71f", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "a7075135041b4a530ac5", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "9a1c7b25820bc667edcb", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "96a941f402a034d52dea", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "109cc6d92c8b92e21869", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "a38d5ea50c20f2d37135", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "d9546ff1a77bc665cd8f", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "989565633ff122c79d71", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "8666d252e1c8d3f435f8", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "83d937d75833b9f3ee73", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "28d21e693a7d486a5811", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "9b3601ea10666aae81fe", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "a72396b05ec728f59681", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "4734dcc3faa4ee18d8f2", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "4d345eb2f5b3e43fbab3", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "bdfbea752eaea0d177b6", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "95800a55307f392eda2a", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "f6a9ac1d92eeeb75d75d", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "022eab7988b5317802e8", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "92d4c3751f83ec0b143c", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "85aa1f4eafb9c9565124", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "780fa36e07a605b4bc61", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "8a7d17e101be6b2700a4", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "6dd52657258b571fdd7e", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "f0433819976a2a851d82", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "688aee5e4922805f10c5", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "61a8ebe5d733585943be", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "686441c62d818768dadd", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "a1223b451473207b1f28", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "1037daf3002cac902958", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "83fea9714150adebe17a", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "ab0e5a49fb7c198e1994", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "bebb199e8a0c057d0d2b", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "f51fe2933481beeafe05", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "b600761977bd94e13eeb", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "7108736dc6b45256b408", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "07526d331e0b09ac779b", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "1f40876dae391022e737", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "75cc23f9d86e0d0431b5", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "4451b89546e4a64cdcf8", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "a1aca012d1c4f71c5f79", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "d0c017c2dc31dc8ea5fd", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "e0b85bc60834779e2c66", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "93fafc9233f774408f12", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "fdfce9638119f75a4cd4", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "8cd8170c1efaee2030b8", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "0a679a727e4a427c4f11", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "69f55cccdad5f3ee8897", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "a80007bb25debe7bdd61", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "620cc43204c48985f12e", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "5a5046ab1c39c5e79706", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "23ca64604fd60986090b", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "9522411440d193f32731", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "4d9875bad3a0714118a6", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "4f7675846bbbfa87e9d7", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "02fcc3311344175e1a8a", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "9149a9b874cf194acc39", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "d2ce9b3edf72316e5e14", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "040e75f7c4001c80fe18", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "33f3e161da236d9a2fe3", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "148ff7b1972125f93591", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "7eccd7210daba9171871", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "b143b3d5ff140e680e66", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "824698b203eb4ddf4bd2", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "26ea9ac78e6462cec0af", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "0fcc4c067e6ddf28304f", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "19722abe3a08274621ad", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "1b18a0abc2a265a9e757", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "47a29b22019569ba9749", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "5eda38fe05b024a2fbdf", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "b8c21f305b4bd9e4e233", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "8579aeccdf558fbdbcec", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "727179fbbd04becf1f16", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "cc01f2d324b8532fa5f6", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "fab46a4a26bb827e95ca", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "91f13c3d9c533f2285ce", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "6d58b1105ffe2192e84e", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "82e8783ecd7f42448119", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "dcb7d23a02f268794aa0", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "cf7ca0f33329607d8efd", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "ded0b48f470016c22f6a", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "e785ce6a6eb28f37f6be", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "b179538836086dd79a75", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "226165b766fc566cd726", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "d4b2028804a2040bf769", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "c652671692f35fd09037", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "0d67f44ce6af3fea5bfd", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "7054b949254f945e77fb", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "f03d9ffd5032f9b8b0de", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "f08a02bb523bfba89a3c", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "c9b02d2c5b0c2fe5f121", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "a7300bd9d7931767b11c", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "d086f808f4e599ff762d", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "c98bb465f0785e58156e", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "a76b793be4d35ad21e05", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "4457e49d8685f26b8e45", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "cdbbeeaa96dbd8f179ee", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "7bea4322aea1ff7bf60f", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "7fe7814073f7c8c22602", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "c99fec5c66526647698d", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "8d511767c07247e8031b", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "e219eeb532bbd0c6aa55", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "8b7a8aad0c0735b2fcf6", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "13ffaeb4ce6ba7cbba1f", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "a81d61a7fb01abb27765", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "26b555fe20881ba581f7", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "1b47e6747069d87b1bec", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "88594f38ab969e72c8ae", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "77e9f99101418caf84a3", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "189ed862bf93ca45d784", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "69433d1cad97b9bbd039", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "2380e7ba633bcfbfdff7", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "8f6807823835bdfda792", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "6cacf871bf1badb954e0", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "0cd05f320f53280b2a1f", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "b8abfa91d8ecb7e31c65", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "0f077af05166138385b5", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "b1ac781a55ba744f338a", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "efaf705a91e1f17c5269", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "6f9dfa33613c5d60279f", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "0cd3d4f62747bc9bbb22", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "ef7071b78f516d3d08fa", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "2361e19d49617837da88", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "cb5527bae63103ad32d5", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "72af2856f9922c117bd0", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "aa4f86e23d0caecb2673", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "0b4e3d0c15f80ce8fd5e", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "643e6dcb7ea463796e92", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "80ed71040248f5da6063", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "479e12064bf1b572b488", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "9615fa2acb5515e5f39a", "in_set": true, "true_full_menu_class": ["context_switch"], "truth_name": "context_switch"}
+{"case_id": "7fc6df31096a59463a7a", "in_set": true, "true_full_menu_class": ["channel_b"], "truth_name": "channel_b"}
+{"case_id": "3a40b0d505631814d24c", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "96374af12c188a8a06a5", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "c8ad53a7cc381b0b7c4c", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "f2fd39ab8f4448755a1a", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "6a29f89770c073e78495", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "4537d48c5a742b56eed0", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "b393e5fe4044de0b5c38", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "6577d72fc6f048105568", "in_set": true, "true_full_menu_class": ["context_switch_inverse"], "truth_name": "context_switch_inverse"}
+{"case_id": "bc60b8a552669c35e061", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "aafba58a27e2eace9ffb", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "d1e89cb967353b2b85ea", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "cc27f6995b46ae31ab4c", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}
+{"case_id": "c8ed35ca5fef2c79eb94", "in_set": true, "true_full_menu_class": ["channel_a", "channel_a_alias"], "truth_name": "channel_a"}
+{"case_id": "455584fd255d33448698", "in_set": true, "true_full_menu_class": ["joint"], "truth_name": "joint"}
+{"case_id": "b4ead14061beaf84cd83", "in_set": true, "true_full_menu_class": ["balanced"], "truth_name": "balanced"}
+{"case_id": "3a0e3f68ecedf7659899", "in_set": false, "true_full_menu_class": [], "truth_name": "external_gain"}

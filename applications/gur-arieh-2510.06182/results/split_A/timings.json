@@ -1,0 +1,26 @@
+{
+  "load_fp32_mps_seconds": 4.853711042000214,
+  "families_fp32_mps_seconds": 1206.2665621250017,
+  "counts": {
+    "c1": {
+      "generated": 50,
+      "qualifying": 50
+    },
+    "c2": {
+      "generated": 51,
+      "qualifying": 50
+    },
+    "c3": {
+      "generated": 50,
+      "qualifying": 50
+    },
+    "c4": {
+      "generated": 53,
+      "qualifying": 50
+    }
+  },
+  "quota_met": true,
+  "mps_driver_gib_after_families": 11.447006225585938,
+  "load_fp32_cpu_seconds": 7.736476832997141,
+  "gate7_cpu_reference_seconds": 71.38116224999976
+}
