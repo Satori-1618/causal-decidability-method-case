@@ -12,6 +12,7 @@ general reliability or identifies every mechanism compatible with a model.
 | **DeepMind Tracr — compiled reversal** | [Result and worked example](tracr/RESULTS.md) | Known computation, two declared rivals, fresh token families. The operator chose the address site from compiler structure; this is controlled validation. |
 | **Gur-Arieh, Geva & Geiger — Mixing Mechanisms** | [Confirmation result](gur-arieh-2510.06182/CONFIRMATION_RESULT.md) | One concentration profile excluded; the stronger profile undecided. No per-case mechanism identification or refutation of the aggregate model. |
 | **Goodfire CausaLab — multiple choice** | [Design audit](goodfire-mcqa-preflight/README.md) | Reuses published input tables to expose ties. No new neural intervention or resolution calibration. |
+| **Li, Saphra et al. — Dyck-1 attention ablation** | [Measured effects and competing explanations](li-saphra-2507.06445/README.md) | Reconstructs published replacement benefits; exact countermodels show that native removal and replacement contribution remain unresolved. A zero-output reference is specified, not run. |
 
 For claim-to-artifact links and provenance, use the
 [evidence map](../docs/EVIDENCE_MAP.md). Beckmann and the full historical synthetic

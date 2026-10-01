@@ -1,0 +1,79 @@
+{
+  "input_and_producer_sha256": {
+    "applications/li-saphra-2507.06445/PROTOCOL.md": "f845e373a6d27b26ff454045e8ee3bc20f3135e4c69e2ffad9c4a6d8c878fc43",
+    "applications/li-saphra-2507.06445/SOURCE_LOCK.json": "12a8899278552c796d79b0cf39e8adb920f09a92a8cf6bc816b52b24bead605f",
+    "applications/li-saphra-2507.06445/analyze.py": "6056849baf2d148355accef87fb573a25e9e5709a0277b5b0181a6538a45e6fa",
+    "applications/li-saphra-2507.06445/countermodels.py": "1bfda9f813f846424d1b9494f9f751355ec788200f6eeb988548af20729a9821",
+    "examples/causal_preflight.py": "1d882ae61931e56564ed512e19eee517300488755b5964ef067334066bd60ff4",
+    "src/causal_decidability/design.py": "3d55a1885e1457cad8251d8e9d69b5ff8967eb25319bb377cfe42ca1122c3e0a"
+  },
+  "output_sha256": {
+    "countermodels.json": "bf5c22ca27d889f7457da0dbb51c3b05a28485c0bbd284c7b4eeb021ce0b0c38",
+    "heads.csv": "c97543e487a2592ddccc48fb54d9d24e0a4ffb3d33776e9d55e755122e51f69b",
+    "same_model_controls.csv": "aa6f365818443d8d172e2de254b5eb3c33a2eb29c8cbc458cf93dcefed16e38d",
+    "summary.json": "b8477b563dc17c758e99d4a35fc00d0bfde2d8265ce83f145b8404fc74c978be"
+  },
+  "source_hashes": {
+    "LICENSE": {
+      "bytes": 1068,
+      "sha256": "0147a195fd3f52daf3e84719bf7529c7d5ba9d8a92befc366b2be38d80153a70",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/LICENSE"
+    },
+    "README.md": {
+      "bytes": 4658,
+      "sha256": "2c13894f2c5890c189d58b2159d3e030ab05a7fb76a98e7a8872da23b599bfe5",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/README.md"
+    },
+    "data/transformer_head_properties.csv": {
+      "bytes": 485617,
+      "sha256": "69303250e0f1672ddb713218e1a329e9aa7cba1594981c0c232c6eaa4834627d",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/data/transformer_head_properties.csv"
+    },
+    "execution/run_model_utils.py": {
+      "bytes": 7182,
+      "sha256": "71072f508cae5d89d077311bb1e1d51ca10f3d0c83daf6ee655647fc4f6a091c",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/execution/run_model_utils.py"
+    },
+    "execution/save_attn_activations.py": {
+      "bytes": 9233,
+      "sha256": "642b731c2bfea0db2aba5ac419b3c034386981656e484a5855bec889d93c908d",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/execution/save_attn_activations.py"
+    },
+    "heldout/mean_ablation_dyck.py": {
+      "bytes": 5443,
+      "sha256": "ad01cdac6b76d2208c409e88a62870ac6be602dc3627b6ffedf5042ac73779a7",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/heldout/mean_ablation_dyck.py"
+    },
+    "heldout/mean_ablation_dyck_single.py": {
+      "bytes": 6268,
+      "sha256": "0c7d64a24df1eee2588d8092455222264adb6d5b4de444a606efb698fab2e962",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/heldout/mean_ablation_dyck_single.py"
+    },
+    "heldout/results/mean_ablation_dyck.csv": {
+      "bytes": 21401,
+      "sha256": "1cb4dde315b668b20fc96d56abe2929fb1aec10b41084ddab82e70d8549b1533",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/heldout/results/mean_ablation_dyck.csv"
+    },
+    "heldout/results/mean_ablation_dyck_single.csv": {
+      "bytes": 131013,
+      "sha256": "27722045ee2001cce083fee93268285035a51feae8398979b68cd1ac66393dae",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/heldout/results/mean_ablation_dyck_single.csv"
+    },
+    "utils/data.py": {
+      "bytes": 6873,
+      "sha256": "a63d634a9d2390476f534a378c0a973eff34ac5be118b05b29b1067b6c982054",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/utils/data.py"
+    },
+    "utils/minGPT/model.py": {
+      "bytes": 16699,
+      "sha256": "518a09d8f280ead364f16a8f65429b71220559b4fec959a1c9f1bb97a1e701dd",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/utils/minGPT/model.py"
+    },
+    "utils/model.py": {
+      "bytes": 3252,
+      "sha256": "1839fa6945d3ca055dde1f8f4ec40ce6463d508fc38e147beeb754586f3a2c8d",
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/utils/model.py"
+    }
+  },
+  "status": "retrospective"
+}
