@@ -73,8 +73,12 @@ or reject every declared candidate; it cannot test an explanation nobody specifi
 ## Apply it again
 
 The first result leaves a new question: **which downstream computation responds to the
-signal written by the patch?** The [proposed second round](ITERATIVE_IDENTIFICATION.md)
-compares two new predictions by holding selected Name Mover queries at their unpatched
-recipient values. It includes a runnable teaching example and a draft experimental plan;
-the route test has not been run on the model. It preserves this confirmed comparison
-while making the next uncertainty explicit.
+signal written by the patch?** [Round 2](ROUND2_RESULT.md) has now tested query reset and
+reverse transfer on 192 fresh pairs; all three simple response profiles were excluded.
+[Round 3A](ROUND3A_CONFIRMATION.md) then tested name/position invariance on 512 fresh
+families. These results preserve this confirmed relative comparison; neither supplies
+its still-unmeasured absolute adequacy. [Round 3B's native qualification](ROUND3B_STAGE_A_RESULT.md)
+has now run and stopped before patching: both competence and prediction geometry failed.
+This does not test whether a patch transfers a role. Read the
+[complete application story](../applications/makelov-2311.17030/CASE_STUDY.md) for what
+each round adds and leaves open.

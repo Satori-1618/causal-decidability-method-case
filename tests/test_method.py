@@ -23,10 +23,12 @@ class Calculator(unittest.TestCase):
         for name, eps in (('bfloat16', 2.0 ** -7), ('float16', 2.0 ** -10),
                           ('float32', 2.0 ** -23), ('float64', 2.0 ** -52)):
             self.assertEqual(calculator.half_ulp(name), eps / 2)
+
+    def test_half_ulp_against_optional_torch_reference(self):
         try:
             import torch
         except ImportError:
-            return
+            self.skipTest('dtype reference check requires .[test-hooks]')
         for name in ('bfloat16', 'float16', 'float32', 'float64'):
             self.assertEqual(calculator.half_ulp(name), torch.finfo(getattr(torch, name)).eps / 2)
 

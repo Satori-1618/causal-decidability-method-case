@@ -1,5 +1,8 @@
 # Recheck the confirmed comparison without a model
 
+This page covers Q1. For the current four-round application, start with the
+[case study](CASE_STUDY.md) and [verification guide](VERIFICATION.md).
+
 From the repository root, with Python 3.9 or later:
 
 ```bash

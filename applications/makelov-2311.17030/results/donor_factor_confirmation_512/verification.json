@@ -1,0 +1,113 @@
+{
+  "verified": true,
+  "mode": "records_only",
+  "n_families": 512,
+  "independent_profile_counts": {
+    "position_only": 301,
+    "identity_only": 0
+  },
+  "n_resolved_units": 512,
+  "profiles": {
+    "position_only": {
+      "successes": 301,
+      "n": 512,
+      "fraction": 0.587890625,
+      "interval": [
+        0.5319916661567663,
+        0.642216171063152
+      ],
+      "status": "excluded"
+    },
+    "identity_only": {
+      "successes": 0,
+      "n": 512,
+      "fraction": 0.0,
+      "interval": [
+        0.0,
+        0.00986348246255311
+      ],
+      "status": "excluded"
+    }
+  },
+  "amendment_audit": {
+    "id": "round3a-512-v1",
+    "selected_n": 512,
+    "original_stop_sha256": "fa30e74a514e91a9eeac28930384addfa1ca9ae73b871d9423defd2312a40a28",
+    "planning_sha256": "b556f4770ec4dabf71c6572d231e9a43e0ce2416989c8e98fcd6491a2f924f52",
+    "development_binding_unchanged": true,
+    "original_four_candidates_unchanged": true,
+    "coverage_required_successes": 433,
+    "normal_reference": {
+      "passes": true,
+      "smallest_mc_lower_bound": 0.8953894336912995
+    },
+    "bootstrap_checks": {
+      "gaussian": {
+        "passes": true,
+        "smallest_mc_lower_bound": 0.8894485058981345
+      },
+      "empirical": {
+        "passes": true,
+        "smallest_mc_lower_bound": 0.8678739382413114
+      }
+    },
+    "scope": "Saved planning counts, CP intervals, rules and bindings checked; no planning simulations rerun."
+  },
+  "mean_statuses": {
+    "I": "equivalent",
+    "P": "negative_relevant",
+    "J": "equivalent"
+  },
+  "full_seeded_bootstrap_reproduced": true,
+  "cp_interval_max_abs_error": 4.440892098500626e-16,
+  "numeric_reproduction_tolerance": 1e-12,
+  "optional_original_inputs_verified": [
+    "directions.npz",
+    "code:applications/makelov-2311.17030/scripts/run_donor_factor.py",
+    "code:applications/makelov-2311.17030/scripts/run_query_route.py",
+    "code:applications/makelov-2311.17030/src/makelov_read_source.py",
+    "code:applications/makelov-2311.17030/src/query_route_sampling.py",
+    "code:applications/makelov-2311.17030/src/query_route_analysis.py",
+    "code:applications/makelov-2311.17030/src/donor_factor.py",
+    "code:applications/makelov-2311.17030/src/donor_factor_sampling.py",
+    "code:applications/makelov-2311.17030/src/donor_factor_analysis.py",
+    "code:applications/makelov-2311.17030/src/donor_factor_planning.py",
+    "code:applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md",
+    "code:applications/makelov-2311.17030/scripts/run_donor_factor_512.py",
+    "code:applications/makelov-2311.17030/src/donor_factor_planning_512.py",
+    "code:applications/makelov-2311.17030/DONOR_FACTOR_512_AMENDMENT.md",
+    "runtime qualification",
+    "planning_input",
+    "development_input",
+    "history:results/makelov_read_source_001/cases.json",
+    "history:results/makelov_read_source_q1/cases.json",
+    "history:results/query_route_development/cases.json",
+    "history:results/query_route_confirmation/cases.json",
+    "history:results/makelov_replication_001/dataset.jsonl",
+    "source:common_imports.py",
+    "source:model_utils.py",
+    "source:data_utils.py",
+    "source:ioi_analysis.ipynb",
+    "source:das_mlp8.joblib",
+    "source:data/names.json",
+    "source:data/objects.json",
+    "source:data/places.json",
+    "source:data/prefixes.json",
+    "source:data/templates.json",
+    "model:model.safetensors",
+    "model:tokenizer_config.json",
+    "model:config.json",
+    "model:tokenizer.json",
+    "model:generation_config.json",
+    "model:vocab.json"
+  ],
+  "optional_original_inputs_unavailable": [],
+  "scope": [
+    "The separately versioned 512-family amendment and saved planning gates were checked; no planning simulations were rerun.",
+    "No tokenizer or model was loaded or run. Raw A-minus-B margins, factorial maps, controls, complete IID draw records, and saved exclusions were checked.",
+    "Profile counts, numeric resolution, CP bounds, family I/P/J sample means and decision rules were independently recomputed from raw cells.",
+    "Full seeded bootstrap and enriched records reproduced with NumPy analyzer.",
+    "Available originals were byte-checked. Missing originals are listed, not treated as verified.",
+    "Saved token alignments and audits are consistency checks; hashes do not recover activations, prove forwards happened, or establish an independent preregistration timestamp."
+  ]
+}

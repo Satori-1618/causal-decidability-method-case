@@ -1,6 +1,15 @@
 # Draft round 2: does restoring Name Mover queries remove the null-read patch effect?
 
+**Execution update:** the revised experiment is complete; see the
+[192-pair result](../../docs/ROUND2_RESULT.md). This original four-cell proposal remains
+below as design history.
+
 **Status: DESIGN DRAFT — NOT FROZEN — NO MODEL RUN.**
+
+**Review update:** see the [narrow revised plan](../../docs/ROUND2_RESEARCH_PLAN.md).
+It identifies a gating countermodel to the four-cell interpretation and proposes a
+reverse query transfer plus explicit adequacy rules. The original proposal below is
+retained as design history; neither version is a completed experiment.
 
 This is a second application of the method, not a new result from the stored Q1 records.
 The [reader-facing walkthrough](../../docs/ITERATIVE_IDENTIFICATION.md) explains the

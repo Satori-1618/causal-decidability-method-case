@@ -1,14 +1,74 @@
 # Public method-case snapshot
 
-This release contains the general method and the Makelov Q1 comparison in one checkout.
-It is a new publication of existing evidence, not a new experiment or a retroactive
-public preregistration. It makes no claim to invent model discrimination or to solve
-mechanistic identification generally.
+## Transferability, status and verification update — 27 September 2026
 
-The added [iterative follow-up](docs/ITERATIVE_IDENTIFICATION.md) is a teaching demo and
-draft design for a second application. It changes none of the archived evidence and
-reports no new model experiment. Its illustrative error bounds and tolerance are not
-approved thresholds for a real run.
+This change runs no model and changes no frozen decision, raw record, protocol or
+archived file. It makes the existing results easier to apply and to check:
+
+- **Decision contract.** The [method guide](docs/USING_THE_METHOD.md#case-wise-profiles-with-a-population-coverage-requirement)
+  now states the case-wise profile contract of rounds 2 and 3A: independent unit,
+  profiles, tolerance and conjunction, numerical gate, required coverage, simultaneous
+  exact intervals, and the adequate, excluded, undecided and invalid statuses. It states
+  that the rule judges units that are both resolved and profile-conform, so an exclusion
+  with unresolved units is not a demonstrated behavioural violation; rounds 2 and 3A had
+  none. The case study links it for application to other data.
+- **Status.** 3B is described everywhere on this branch as a native competence check that
+  ran and stopped, with no patches. The README's round table and 3B paragraph are updated;
+  dated reports and plans receive update notes instead of being rewritten. `main` is
+  unchanged.
+- **Short overview.** [`OVERVIEW.md`](applications/makelov-2311.17030/OVERVIEW.md)
+  summarizes the four rounds as stepwise narrowing, with one table per round.
+- **Post hoc descriptions.** `scripts/describe_post_hoc.py` reproduces, from stored records,
+  Q1's measured effect ratios, tolerance tables for rounds 2 and 3A, and diagnostics of
+  the averaged 3A contrasts. The round-2 and round-3A reports carry dated addenda. The
+  frozen decisions stand; no lenient tolerance is presented as a confirmed success. The
+  script refuses to report unless the frozen tolerances reproduce the frozen counts.
+- **Interpretation.** The case study now says that Q1 agrees with the authors'
+  explanation and quantifies it through an explicit rival comparison, with the effect
+  ratios reported as ratios rather than mechanism shares. Averaged 3A name and interaction
+  contrasts are identified as poor evidence of name independence; the case-wise profiles
+  carry that result.
+- **Verification.** The round-2 and round-3A checkers read the personal Hugging Face cache
+  only with `--use-hf-cache` or an explicit `--model-snapshot`; the records-only result no
+  longer depends on it. The guide states that editable installation needs pip 21.3 or later.
+
+## Makelov application and reproducibility update — 24 September 2026
+
+The [current case study](applications/makelov-2311.17030/CASE_STUDY.md) explains what
+each application of the existing method adds: Q1's supported relative read-source
+comparison, round 2's three profile exclusions, 3A's two invariance-profile exclusions,
+and 3B's native qualification STOP before any patching. It does not turn the latter
+into a role-transfer result or add an absolute adequacy claim to Q1.
+
+The [verification guide](applications/makelov-2311.17030/VERIFICATION.md) separates
+standard-library records checks, NumPy analysis tests, optional PyTorch tensor tests,
+and full model replay. The `test` extra now declares NumPy; `test-hooks` additionally
+declares PyTorch. Tensor-dependent tests explicitly skip when that optional runtime
+is absent. CI has separate stored-evidence, analysis and CPU tensor jobs. The analysis
+job also regenerates the two seeded 3A bootstrap calculations from saved measurements.
+
+This maintenance change runs no pretrained model and changes no research outcomes,
+frozen contracts, raw records or historical application files. The root README and
+`main` are preserved. Current entry points are the application index and case study;
+older proposal text remains historical material. Local validation is recorded in
+[the release check report](docs/MAKELOV_RELEASE_CHECKS.md); it is not a claim that the
+updated hosted CI has already run.
+
+## Round 2 execution update — 24 September 2026
+
+This branch adds a new [192-pair query-route experiment](docs/ROUND2_RESULT.md), with
+an earlier 32-pair development run, public pre-run freeze, full paired float32/float64
+measurements, simultaneous exact-binomial profile intervals and records-only checking.
+All three declared profiles fail the 80% coverage requirement; no unique mechanism is
+identified. The reverse-transfer condition adds information but does not change the
+population-level exclusion verdict already suggested by reset alone in these data.
+
+The original snapshot published the general method and existing Makelov Q1 evidence;
+that publication was not a new Q1 experiment or a retroactive public preregistration.
+All 62 archived files remain byte-identical. The original four-cell
+[teaching design](docs/ITERATIVE_IDENTIFICATION.md) is retained as history, with its
+review correction and the separate executed protocol clearly linked. No claim is made
+to invent model discrimination or solve mechanistic identification generally.
 
 ## Evidence and verification levels
 
@@ -71,10 +131,16 @@ pinned revision rather than redistributed; the archived application documents it
 
 ```bash
 python3 -m pip install -e '.[test]'
-python3 -m pytest
+python3 -m pytest -q -ra
 ```
 
 The default suite covers the current method, release integrity, Q1 integration and the
 records-only checker. The archived application suite is separate: several of its tests
 require fetched inputs or TransformerLens. It is not silently represented as having
 passed in a minimal environment.
+
+Install `.[test-hooks]` and rerun the same command to include the optional tensor
+tests. Without PyTorch, their skips are expected and visible, not counted as passes.
+These tensor tests use fake models, not pretrained weights. Use the
+[verification guide](applications/makelov-2311.17030/VERIFICATION.md) for fresh-environment
+commands and all four result checks.

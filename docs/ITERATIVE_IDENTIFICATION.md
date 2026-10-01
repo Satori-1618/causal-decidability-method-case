@@ -1,7 +1,20 @@
 # Use the same method again: from a signal source to a downstream route
 
+**Update, 27 September 2026:** the executed five-condition design has its own synthetic
+demonstration, `examples/iterative_query_transfer.py`, which uses the actual round-2
+analyzer. The four-cell demo described below is unchanged design history.
+
+**Execution update:** the revised five-condition experiment has now run. Read the
+[192-pair result](ROUND2_RESULT.md): all three declared profiles were excluded under
+the frozen adequacy rule. The proposal below is retained as design history.
+
 **Round 1 has a confirmed result. Round 2 below is a proposed experiment, with an
 executable teaching example—not a second model result.**
+
+**Critical design update:** the [reviewed round-2 plan](ROUND2_RESEARCH_PLAN.md) adds
+the reverse query transfer. The four-cell proposal below cannot distinguish queries
+carrying the effect from queries enabling a separate patch effect; the additional cell
+tests that distinction. The teaching demo has not yet been extended.
 
 The method is iterative: keep what a test established, identify the next unresolved
 distinction, and design an intervention on which the new explanations disagree. A

@@ -20,17 +20,18 @@ current method. It checks stored evidence; it does not rerun the model.
 
 | Your question | Where to go |
 |---|---|
-| Can my planned experiment distinguish my explanations? | [Two-part preflight guide, runnable example and reusable prompt](docs/METHOD_PREFLIGHT.md) |
-| Has the preflight been applied to an external repo? | [Goodfire MCQA: a simple audit of real input tables](applications/goodfire-mcqa-preflight/README.md) — no model run |
 | What did the experiment distinguish? | [The confirmed case, in three minutes](docs/CONFIRMED_CASE.md) |
-| Can the method narrow explanations in an external known circuit? | [Tracr: a shared patch effect, a separating condition, a fresh prediction](applications/tracr/README.md) |
-| How can the same method take the next step? | [Round 2: from signal source to downstream route](docs/ITERATIVE_IDENTIFICATION.md) — proposed test and executable teaching demo |
+| What happened when the method was applied again? | [Round 2: the executed 192-pair result](docs/ROUND2_RESULT.md) — three simple profiles excluded, with a worked example |
+| What does crossing donor name and position add? | [Round 3A: confirmed on 512 fresh families](docs/ROUND3A_CONFIRMATION.md) — strong position effects, but position-only invariance is inadequate; signed means hide name dependence |
+| What happened to the proposed three-role identification test? | [Round 3B Stage A: stopped before patching](docs/ROUND3B_STAGE_A_RESULT.md) — native competence and geometry failed on 32 frozen families; numerics passed; no patches |
+| What would a positive result have required? | [The frozen three-role design](docs/ROUND3B_POSITIVE_IDENTIFICATION.md) — accurate absolute predictions, strong rivals and fresh confirmation; its present task failed feasibility |
+| How does that design compare with published entity-binding mechanisms? | [Mixing Mechanisms: the pre-run crosswalk](docs/GOODFIRE_CROSSWALK.md) — which mechanisms are actually represented, which remain equivalent, and why the pointer test is a separate extension |
 | Why can a successful patch fit different explanations? | The illustration below, or the [executable points game](docs/WORKED_EXAMPLE.md) |
 | What exactly does the check verify? | [Records-only verification](applications/makelov-2311.17030/RECORDS_ONLY.md) |
 | How do I use this on my own data? | [Method and data contract](docs/USING_THE_METHOD.md) |
 | What changed in this release? | [Scope, safeguards and frozen files](RELEASE_NOTES.md) |
 
-The demonstrated result is a **relative prediction comparison for two declared
+The round-1 result is a **relative prediction comparison for two declared
 explanations of a patch operation**. It is not a uniquely identified native mechanism,
 an adequacy result, or a general reliability guarantee for every analysis in this repo.
 
@@ -103,22 +104,46 @@ effect is different from showing that the unmodified model naturally uses that s
 | Round | Question | Status |
 |---|---|---|
 | **1. Read source** | Which source better predicts the patch's effect? | **Confirmed comparison:** null-read candidate wins 64/64 fresh pairs. |
-| **2. Downstream route** | Does holding selected Name Mover queries at baseline remove or preserve that effect? | **Proposed:** new rivals, four measurement cells, controls and a constructed demo. No model result yet. |
-| **Later: native computation** | Does the unmodified model use that information in the same way? | **Open:** neither preceding comparison settles this. |
+| **2. Query reset and reverse transfer** | Does resetting selected queries remove the effect, and can those queries reproduce it alone? | **Executed:** all three predefined profiles excluded on 192 fresh pairs; all numerical and technical controls passed. |
+| **3A. Donor name and position** | Does a position-only invariance requirement describe the fixed patch across name assignments? | **Confirmed, 512 fresh families:** position-only fits 301/512, identity-only 0/512; both excluded at the declared 80% coverage. The original planning STOP and prospective 512-size amendment are preserved. |
+| **3B. Relational-query responses** | Can a frozen three-role response model predict fresh cross-query patches accurately and beat name, position and question-change alternatives? | **Native competence check run and stopped:** competence and geometry failed on 32 frozen families; numerics passed; no 3B patches were run. |
+| **Later: native computation** | Does the unmodified model use that information in the same way? | **Open:** none of these comparisons settles this. |
 
-The first result survives even if the next test is inconclusive or rejects both new
+The first result survives even if the next test is inconclusive or rejects the new
 candidates. Each round applies the same steps—specify rivals, find disagreement, check
 resolution, compare on fresh cases—to a narrower unresolved question.
 
-Read the [illustrated second round](docs/ITERATIVE_IDENTIFICATION.md), or run:
+Read the [actual second-round result](docs/ROUND2_RESULT.md), or run:
 
 ```bash
-python3 examples/iterative_path_test.py  # constructed teaching worlds, NOT new LLM results
+python3 examples/iterative_query_transfer.py  # constructed worlds; actual shipped analyzer
 ```
 
-The [draft experiment plan](applications/makelov-2311.17030/PATH_TEST_PLAN.md) states
-what must be implemented and frozen before a real run. This is a route question,
-separate from the original Q1 result's still-open adequacy question.
+The [execution protocol](applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md)
+records the frozen contract. The [earlier walkthrough](docs/ITERATIVE_IDENTIFICATION.md)
+preserves the design history, including the missing condition found during review.
+This route question is separate from Q1's still-open adequacy question.
+The [round-3A confirmation](docs/ROUND3A_CONFIRMATION.md) applies the method again to the
+donor conditions, with a four-donor worked example. Its mean position effect is strong,
+but the pure position-invariance account fails sufficiently often to be excluded.
+This remains a claim about the fixed patch, not an identified person or role representation.
+
+The [three-role design](docs/ROUND3B_POSITIVE_IDENTIFICATION.md) had a genuine positive path:
+two donors both answer **Alice in first position**, while applying their different queried
+roles to one recipient predicts **Bob versus Carol**. Three queried roles and three-name
+margins separate this from a simple answer switch and allow a test against arbitrary
+position-response amplitudes. Its [native competence check](docs/ROUND3B_STAGE_A_RESULT.md)
+has run and stopped: GPT-2 Small did not answer the role questions reliably, and its native
+responses did not separate the rivals. No 3B patch was run. The constructed example still
+shows the design without running a model:
+
+```bash
+python3 -I -S examples/role_transfer_design.py
+```
+
+The example establishes structural possibility, not GPT-2 competence or a new empirical
+finding. A differently qualified task or model would need its own development and a fresh
+confirmation.
 
 ## What data are needed?
 
@@ -151,10 +176,10 @@ report where the planning calculator succeeds and where it falls short.
 ## Install and run
 
 ```bash
-git clone https://github.com/Satori-1618/causal-decidability-method-case.git
+git clone --branch codex/plan3-person-position-role https://github.com/Satori-1618/causal-decidability-method-case.git
 cd causal-decidability-method-case
 python3 examples/confirmed_read_source.py       # confirmed 64-pair result; standard library only
-python3 examples/iterative_path_test.py         # teaching demo of a proposed second round
+python3 examples/iterative_query_transfer.py    # synthetic illustration of the second-round design
 python3 examples/twelve_cell.py                 # steps 1, 2 and 4 on a toy you can check by hand
 python3 examples/from_data.py --compare-only    # optional DEVELOPMENT pilot: 32 pairs, not Q1
 python3 -m pip install -e '.[test]'              # only needed for installation and tests
@@ -170,7 +195,7 @@ start with the records-only guide for the small confirmed case.
 
 | paper | location | status |
 |---|---|---|
-| Makelov, Lange & Nanda, arXiv:2311.17030 | [included application](applications/makelov-2311.17030/RECORDS_ONLY.md) | fixed-write/split-read pilot and confirmation Q1; older Table 1 and `resid_mid.8` material kept as historical context |
+| Makelov, Lange & Nanda, arXiv:2311.17030 | [Q1](applications/makelov-2311.17030/RECORDS_ONLY.md), [round 2](docs/ROUND2_RESULT.md), [round 3A](docs/ROUND3A_CONFIRMATION.md) | confirmed read-source comparison; 192-pair query-route and 512-family donor-factor profile exclusions; development and amendments preserved |
 
 The synthetic calculator benchmark and other application branches belong to the
 development repository and are not included in this public snapshot. Their reported
