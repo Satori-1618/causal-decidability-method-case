@@ -1,23 +1,62 @@
 # Can this experiment distinguish the explanations?
 
-A small research toolkit for planning and checking causal claims in mechanistic
-interpretability. A patch can change an answer while fitting several explanations.
-**Write down their predictions, find a condition that separates them, and check
-whether the planned measurement can resolve that difference.**
+**Before you run a mechanism experiment, check whether its result could distinguish
+your explanation from a rival.** This small toolkit compares the predictions you
+supply. If you can estimate measurement uncertainty, it also compares the predicted
+differences with that uncertainty under your stated assumptions.
 
-Start with [the practical guide](docs/METHOD_PREFLIGHT.md). It works from a tentative
-mechanism hypothesis; you do not need to know the true mechanism first.
+In activation patching, you copy an internal activation from a source run (**donor**)
+into a target run (**recipient**) and observe how the answer changes. Several
+explanations can fit that change.
+
+**You supply:** rival rules and predicted answers for your proposed test cases.
+**You get:** which rules predict the same answers, which supplied cases separate
+them, and what measurement information is still missing. You propose the rules and
+cases; the calculator checks them.
+
+## A 30-second example
+
+Does a patch transfer **a value** or **a completed choice**? Both rules predict
+“Object” in the first case. Raising the recipient's alternative from 40 to 80
+points makes their predictions disagree:
+
+![Hypothetical predictions: with the same donor choosing Object at 60 versus 10 points, both value transfer and choice transfer predict Object for a recipient at 20 versus 40. At 20 versus 80, value transfer predicts Alternative while choice transfer still predicts Object.](docs/assets/preflight-example.svg)
+
+This separates two proposed rules **in the design**; an experiment must still test
+them. The [full example](docs/METHOD_PREFLIGHT.md#start-here-if-you-are-searching-for-a-mechanism)
+also includes “always Object” and “recipient answer preserved.”
+
+## Try it in a minute
+
+Start with choice predictions. **No GPU, model run or statistical calibration is
+needed for this first check.** Use Python 3.9+, from the repository root:
+
+```bash
+python3 examples/causal_preflight.py --config examples/data/causal_preflight_choice_example.json --structure-only
+```
+
+**Expected result:** all four proposed rules have different answer patterns across
+the three example cases. This checks your prediction table; it does not yet test
+which rule matches the model. Measurement resolution remains unassessed.
+The output calls answer preservation `no_effect`; this label concerns only the answer.
+
+For your own study, [copy the template and replace the rules](docs/METHOD_PREFLIGHT.md#the-reusable-files).
+If you only have a tentative hypothesis, start with the
+[short prompt](docs/prompts/CAUSAL_PREFLIGHT_PROMPT.md#quick-start).
+You do not need to know the true mechanism first.
 
 ## Two checks before the experiment
 
 | Check | What you supply | What you learn |
 |---|---|---|
-| **Prediction separation** | Rival rules and their predictions for each planned condition. | Which rivals remain identical here, and which additional condition separates them. |
-| **Measurement resolution** | Numerical prediction gaps, independent-unit count, variability and numerical calibration. | Whether a gap clears a conditional planning screen, or which calibration is missing. |
+| **Do the predictions differ?** | Your rival rules and their predicted answers for each test case. | Which rules remain tied, and which supplied cases separate them. |
+| **Can the difference be measured?** | Numerical predictions, number of independent examples, variation across examples and numerical imprecision. | Whether the gap clears the declared planning screen, or which calibration is missing. |
 
-More samples cannot distinguish identical predictions for the quantities you chose.
-Different predictions alone do not guarantee a decisive measurement. The numerical
-screen is a planning aid, **not a general power calculation or a validated guarantee**.
+The first check is useful even when calibration is unknown. More samples cannot
+distinguish identical predictions for the quantities you chose. The second check is
+conditional on its measurement assumptions, **not a general power calculation or a
+validated guarantee**. Leave missing inputs unknown; the teaching numbers are not
+research defaults.
 
 **Then test the explanations:** verify the intervention, freeze the evaluation rule,
 and compare predictions on fresh cases. Report what is excluded, retained or still
@@ -25,16 +64,12 @@ uncertain. A better prediction is not automatically an adequate explanation; a u
 survivor is not automatically the true mechanism. Failed technical checks block the
 mechanistic interpretation rather than count against a candidate.
 
-## Try it in a minute
-
-Python 3.9+, standard library only. From the repository root:
+<details>
+<summary>Two more runnable examples: measurement planning and stored model evidence</summary>
 
 ```bash
-# Hypothetical numerical example: one tie, then a conditional resolution check.
+# Hypothetical numerical example: a tie, then a conditional resolution check.
 python3 examples/causal_preflight.py
-
-# Choice predictions: compare categories without inventing numerical distances.
-python3 examples/causal_preflight.py --config examples/data/causal_preflight_choice_example.json --structure-only
 
 # Recompute the stored GPT-2 read-source comparison; no model or download.
 python3 examples/confirmed_read_source.py
@@ -43,11 +78,7 @@ python3 examples/confirmed_read_source.py
 The final command verifies the frozen records and reproduces **B better in 64/64
 fresh pairs**. It checks stored evidence; it does not rerun GPT-2.
 
-To use your own case, copy the [numeric template](examples/data/causal_preflight_example.json)
-or [choice template](examples/data/causal_preflight_choice_example.json), and follow
-the [guide](docs/METHOD_PREFLIGHT.md). The [starter prompt](docs/prompts/CAUSAL_PREFLIGHT_PROMPT.md)
-helps formulate rules and missing inputs. Leave missing calibration unknown; do not
-inherit the example's numbers as research defaults.
+</details>
 
 ## What has been demonstrated?
 

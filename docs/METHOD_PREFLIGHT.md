@@ -25,6 +25,8 @@ which mechanism is true by inspecting a plan.
 **Run check 1 first.** More data cannot distinguish identical predictions for the
 same quantities. If only means are specified, this statement concerns those means:
 the rivals might still differ in their variances or full distributions.
+Choice predictions are enough to start; statistical and numerical calibration can
+remain unknown while you check whether the proposed rules disagree at all.
 
 ## Start here if you are searching for a mechanism
 
@@ -34,10 +36,11 @@ slot, use the [short starter prompt](prompts/CAUSAL_PREFLIGHT_PROMPT.md#quick-st
 to identify the missing specification. A missing mechanism is normal; a missing
 prediction is a reason to develop a hypothesis, not to invent a number.
 
-**Example: does a patch transfer a value or a completed choice?** Suppose discovery
-has suggested a particular layer and token position. You propose to patch that
-activation from a donor into a recipient and read the answer “Object” or
-“Alternative.” The task asks which option gives more points.
+**Example: does a patch transfer a value or a completed choice?** Activation
+patching copies an internal activation from a source run (the **donor**) into a
+target run (the **recipient**). Suppose discovery has suggested a particular layer
+and token position to patch. You read the answer “Object” or “Alternative”; the
+task asks which option gives more points.
 
 - **Value transfer:** replace the recipient's Object value with the donor's value,
   then compare it with the recipient's Alternative value.
@@ -97,8 +100,9 @@ The second command shows the tie that remains if only one new case is run.
    the corresponding comparison; labels such as “semantic” are insufficient.
    Use logical consequences, explicit equations, or separate development data.
    Do not fit predictions to the confirmation outcomes they are meant to explain.
-2. **Make one complete prediction table.** Compare each relevant pair. For tied
-   rows, propose a new condition from the rival rules and recompute the table.
+2. **Make one complete prediction table.** Compare each relevant pair. For rivals
+   with identical prediction patterns, propose a new condition from their rules
+   and recompute the table.
    Scope equality to this table; numerical agreement alone does not prove an
    analytic identity. If nothing separates a pair, report it together.
 3. **Calibrate only the promising distinctions.** Define the independent sampling
@@ -122,6 +126,20 @@ Report pairs separately: separating A from B says nothing about A versus C.
 None of these outputs excludes an explanation using empirical data.
 
 ## The reusable files
+
+**Use your own case:** copy the choice template, edit its rules and predictions,
+then run the structural check on your file:
+
+```bash
+cp examples/data/causal_preflight_choice_example.json my_preflight.json
+# Edit my_preflight.json: replace the cases, predictions and prediction_source.
+python3 examples/causal_preflight.py --config my_preflight.json --structure-only
+```
+
+Each rule needs one predicted answer per case, in the same order as `cells`.
+If a prediction is unknown, develop that rule first; do not substitute a guess.
+Use the numerical template below when you have justified numerical predictions
+and calibration for the second check.
 
 - [Runnable code](../examples/causal_preflight.py): uses the repository's existing
   prediction-grouping code; requires Python 3.9+, no packages, GPU, or model.
