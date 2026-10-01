@@ -52,7 +52,7 @@ python scripts/verify_release.py
 python -m pytest -q -ra
 ```
 
-The verification command uses NumPy and SciPy. It downloads nothing, loads no model,
+The verification command uses NumPy and Tracr's frozen SciPy 1.15.3. It downloads nothing, loads no model,
 and checks saved evidence rather than replaying the original interventions. The
 historical Tracr verifier writes a report, so the wrapper gives it a temporary copy
 of the result directory. Optional tensor tests and upstream-source tests may skip;

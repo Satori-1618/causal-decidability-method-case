@@ -43,6 +43,12 @@ powers, `1e-14` for the diagnostics. Counts, thresholds, gate decisions, statuse
 hashes and every other field remain exact. Regression tests reject material changes.
 No archived record, scientific threshold or frozen producer was edited.
 
+The initial Linux CI run passed all 445 analysis tests but failed Tracr's exact
+population-summary comparison with automatically selected SciPy 1.17.1. The
+verification extra now pins **SciPy 1.15.3**, the version in Tracr's original
+frozen requirements, rather than assuming that newer tail-probability routines
+reproduce every stored floating-point digit. The historical verifier is unchanged.
+
 ## What the combined verifier checks
 
 It invokes the existing verifiers for Makelov Q1, rounds 2 and 3A, the round-3B

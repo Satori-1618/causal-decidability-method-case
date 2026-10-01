@@ -20,7 +20,8 @@ test = ["pytest", "numpy>=1.24"]
 test-hooks = ["pytest", "numpy>=1.24", "torch>=2.2"]
 figures = ["matplotlib"]
 analysis = ["numpy>=1.24"]
-verify = ["numpy>=1.24", "scipy>=1.10"]
+# The frozen Tracr verifier compares its SciPy tail probability exactly.
+verify = ["numpy>=1.24", "scipy==1.15.3"]
 
 [project.scripts]
 causal-decide = "causal_decidability.cli:main"
