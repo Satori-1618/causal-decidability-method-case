@@ -109,7 +109,7 @@ python3 -m pytest
 ```
 
 To verify the principal bundled results together, without model execution or downloads
-during verification, use a full Git checkout and install the small verification extra:
+during verification, use Python 3.10+, a full Git checkout and the verification extra:
 
 ```bash
 python3 -m pip install -e '.[verify]'

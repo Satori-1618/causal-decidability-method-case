@@ -31,6 +31,11 @@ Earlier release notes remain available in Git history.
   below `2.3e-13`. Decisions, counts, thresholds, hashes and all other fields remain
   exact. These test comparisons do not relax experimental gates or alter results.
 - Added one command for the bundled records checks; CI runs it with full Git history.
+- Kept Tracr's historical exact verifier intact and added a release adapter for
+  cross-platform tail-probability digits. The adapter independently verifies the
+  all-success confidence boundary with exact rational arithmetic. Counts, bounds
+  and the decision must match exactly; only the nonbinding reported tail has a
+  separately checked reproduction allowance.
 
 ## Check this release
 

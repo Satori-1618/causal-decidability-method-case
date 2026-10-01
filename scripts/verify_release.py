@@ -51,7 +51,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix="causal-release-check-") as temp:
         copied_run = Path(temp) / "confirmation_001"
         shutil.copytree(ROOT / TRACR / "results/confirmation_001", copied_run)
-        run("Tracr: recorded tensors and 128-family decision", f"{TRACR}/scripts/verify.py",
+        run("Tracr: recorded tensors and exact population boundary", "scripts/check_tracr_records_portable.py",
             copied_run, "--freeze", ROOT / TRACR / "CONFIRMATION_FREEZE.json")
     print("Verified stored evidence only; no new model runs or general reliability claim.")
 

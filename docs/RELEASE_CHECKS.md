@@ -2,7 +2,8 @@
 
 These are software and stored-evidence checks for implementation commit `79eba42`.
 They are not fresh scientific confirmation or a test of general methodological value.
-The later documentation commit does not change the checked implementation.
+The later portability adapter described below adds two regression tests without
+changing frozen scientific code or data.
 
 ## Clean-clone check
 
@@ -45,9 +46,16 @@ No archived record, scientific threshold or frozen producer was edited.
 
 The initial Linux CI run passed all 445 analysis tests but failed Tracr's exact
 population-summary comparison with automatically selected SciPy 1.17.1. The
-verification extra now pins **SciPy 1.15.3**, the version in Tracr's original
-frozen requirements, rather than assuming that newer tail-probability routines
-reproduce every stored floating-point digit. The historical verifier is unchanged.
+verification extra pins **SciPy 1.15.3**, the version in Tracr's original frozen
+requirements. Pinning alone did not remove platform-dependent final digits.
+The release therefore adds a separate, explicit portability adapter; the historical
+verifier is unchanged. It runs that verifier's tensor/source/control checks and
+independently checks the all-success population boundary with integer binomial
+coefficients and exact rational arithmetic. Every population field except the
+diagnostic tail must match exactly. Both saved and recomputed tails must be within
+`1e-10` of the exact probability (rounded to float); the stored discrepancy is
+`2.13e-12`. This allowance cannot change adequacy or a confidence-bound count.
+Two regression tests reject changed decisions, bounds and material tail errors.
 
 ## What the combined verifier checks
 
@@ -58,7 +66,7 @@ category groups from the stored Goodfire MCQA prediction table. That last step d
 re-download or independently re-derive the upstream table; the MCQA adapter's separate
 command performs that source-hash-checked reconstruction.
 
-The Tracr verifier runs against a temporary copy because its historical implementation
+The Tracr adapter runs against a temporary copy because the historical verifier
 writes a verification report. No tracked artifact is rewritten. Full Git history is
 required for checks that recover the original producer or freeze commit.
 
@@ -72,6 +80,7 @@ python scripts/verify_release.py
 python -m pytest -q -ra
 ```
 
-Installing dependencies uses the package index. The checks themselves need no network,
+Full verification uses Python 3.10+ for the frozen SciPy version; the basic tools
+use Python 3.9+. Installing dependencies uses the package index. The checks need no network,
 GPU or pretrained model. CI is configured to repeat records, analysis and optional
 tensor checks; local results above do not claim that a hosted CI run has already passed.
