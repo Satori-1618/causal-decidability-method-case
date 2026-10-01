@@ -43,18 +43,25 @@ activation from a donor into a recipient and read the answer “Object” or
   then compare it with the recipient's Alternative value.
 - **Choice transfer:** output the donor's observed choice, ignoring the recipient's offer.
 - **Forced Object:** output Object regardless of the donor's choice or either value.
+- **No effect:** the patch changes nothing; the recipient gives its own answer.
+  Always include this rule: a test that cannot exclude it shows no transfer at all.
 
 These are proposed rules, not descriptions of an already discovered circuit.
 Keep the patch operator/site and answer scoring fixed while changing these cases:
 
-| Case: Object / Alternative points | Value transfer | Choice transfer | Forced Object |
-|---|---|---|---|
-| Donor 60/10 → recipient 20/40 | Object (60 > 40) | Object | Object |
-| Same donor → recipient 20/80 | Alternative (60 < 80) | Object | Object |
-| Donor 60/90 → recipient 20/40 | Object (60 > 40) | Alternative | Object |
+| Case: Object / Alternative points | Value transfer | Choice transfer | Forced Object | No effect |
+|---|---|---|---|---|
+| Donor 60/10 → recipient 20/40 | Object (60 > 40) | Object | Object | Alternative |
+| Same donor → recipient 20/80 | Alternative (60 < 80) | Object | Object | Alternative |
+| Donor 60/90 → recipient 20/40 | Object (60 > 40) | Alternative | Object | Alternative |
 
-The first row cannot distinguish these rules. The second separates value transfer
-from the other two. The third separates choice transfer from Forced Object.
+The first row cannot distinguish the three transfer rules; it separates them only
+from no effect. The second separates value transfer from choice transfer and Forced
+Object, **but not from no effect**: both predict Alternative. The third separates
+choice transfer from the other two transfer rules, **but not from no effect**.
+Each new row alone thus leaves one transfer rule tied with a patch that did nothing;
+only the two rows together separate all four rules. Without the no-effect column,
+these ties stay invisible.
 No hidden-activation values or guessed logit margins were needed to derive this.
 The table specifies **choices**, not their confidence or probability.
 
@@ -67,16 +74,26 @@ Other rules can survive these three cases; [the full example](WORKED_EXAMPLE.md)
 shows additional rivals and remaining ambiguity.
 
 **A useful preflight report already exists at this point:** “The original case
-does not distinguish the three declared rules. These two extra cases give different
-choice patterns. Measurement resolution is still unknown: no quantitative margin
-gap or calibrated error model has been supplied. Next: develop and check these
-cases on separate pilot data.” Do not feed Object/Alternative encoded as 1/0 into
-the Gaussian calculator and treat their gap as one nat.
+separates only no effect from the three transfer rules. Each extra case alone ties
+one transfer rule with no effect; together they give all four declared rules
+different choice patterns. Measurement resolution is still unknown: no quantitative
+margin gap or calibrated error model has been supplied. Next: develop and check
+these cases on separate pilot data.”
+Do not feed Object/Alternative encoded as 1/0 into the Gaussian calculator and
+treat their gap as one nat. The structural check accepts them as categories:
+
+```bash
+python3 examples/causal_preflight.py --config examples/data/causal_preflight_choice_example.json --structure-only
+python3 examples/causal_preflight.py --config examples/data/causal_preflight_choice_example.json --structure-only --cells d60_10_to_r20_80
+```
+
+The second command shows the tie that remains if only one new case is run.
 
 ## Use it on your own study
 
 1. **Write the rivals as rules.** State what the intervention changes, what stays
-   fixed, and how each rival predicts the readout. Include the closest alternative.
+   fixed, and how each rival predicts the readout. Include the closest alternative
+   and the rule that the intervention has no effect.
    Record the source or derivation of every prediction. Missing predictions block
    the corresponding comparison; labels such as “semantic” are insufficient.
    Use logical consequences, explicit equations, or separate development data.
@@ -109,11 +126,14 @@ None of these outputs excludes an explanation using empirical data.
 
 - [Runnable code](../examples/causal_preflight.py): uses the repository's existing
   prediction-grouping code; requires Python 3.9+, no packages, GPU, or model.
-  Use it when you have fixed numerical mean predictions. Use the prompt/table
-  for choice, sign-only, fitted, or missing predictions; the code does not handle them.
+  Use it when you have fixed numerical mean predictions, or choice categories for
+  the structural check only. Use the prompt/table for sign-only, fitted, or missing
+  predictions; the code does not handle them.
 - [Editable JSON template](../examples/data/causal_preflight_example.json): replace
   the teaching inputs with your rules and calibration sources; use `null` for unknown
   `n`, `sd_per_unit`, or `numerical_allowance`. Use `pilot_estimate` for estimated SD.
+- [Choice template](../examples/data/causal_preflight_choice_example.json): the
+  quick-start table above as categories, for the structural check only.
 - [Copy/paste research prompt](prompts/CAUSAL_PREFLIGHT_PROMPT.md): helps build the
   table and assess missing evidence. A language model must not invent calibration.
 
@@ -127,7 +147,12 @@ python3 examples/causal_preflight.py --config examples/data/causal_preflight_exa
 
 `--structure-only` requires only `cells` (with an `id` each), `predictions` (rows
 in cell order), and `prediction_source`. It needs no `n`, SD, `alpha`, or numerical
-allowance. To add the second check, use the full JSON template and replace its
+allowance. With `"prediction_kind": "category"`, predictions may be labels such as
+`"Object"`; they are compared for equality only. Use this for outcomes that are
+themselves categories, not for signs or directions of a graded quantity: equal signs
+are not equal predictions. `UNKNOWN` is refused, because two unknown predictions
+are not a shared prediction. Categories cannot enter the second check.
+To add the second check, use the full JSON template and replace its
 teaching calibration; do not inherit its values as research defaults.
 
 The separate numerical demo uses hypothetical rules `full_patch = a+b`,

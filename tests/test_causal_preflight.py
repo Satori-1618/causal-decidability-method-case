@@ -60,6 +60,38 @@ class TestCausalPreflight(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 self.result(structure_only=True)
 
+    def test_choice_example_single_new_rows_tie_a_rule_with_no_effect(self):
+        config = json.loads((MODULE.EXAMPLE.parent / 'causal_preflight_choice_example.json').read_text())
+        first, second, third = (cell['id'] for cell in config['cells'])
+        check = lambda cells=None: MODULE.check(config, cells, structure_only=True)
+        self.assertEqual(check([first])['identical_category_groups'],
+                         [['choice_transfer', 'forced_object', 'value_transfer'], ['no_effect']])
+        self.assertEqual(check([second])['identical_category_groups'],
+                         [['choice_transfer', 'forced_object'], ['no_effect', 'value_transfer']])
+        self.assertEqual(check([third])['identical_category_groups'],
+                         [['choice_transfer', 'no_effect'], ['forced_object', 'value_transfer']])
+        self.assertEqual(len(check([second, third])['identical_category_groups']), 4)
+        full = check()
+        self.assertEqual(len(full['identical_category_groups']), 4)
+        self.assertEqual({p['status'] for p in full['pairs']}, {'different_declared_categories'})
+        output = io.StringIO()
+        with redirect_stdout(output):
+            MODULE.display(full)
+        self.assertIn('Measurement resolution not assessed', output.getvalue())
+
+    def test_category_predictions_are_structural_only_and_never_unknown(self):
+        config = json.loads((MODULE.EXAMPLE.parent / 'causal_preflight_choice_example.json').read_text())
+        with self.assertRaises(ValueError):
+            MODULE.check(config, n=64)
+        for value in (None, '', ' ', 'UNKNOWN', ' unknown ', 1, True):
+            bad = copy.deepcopy(config)
+            bad['predictions']['no_effect'][0] = value
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                MODULE.check(bad, structure_only=True)
+        config['prediction_kind'] = 'sign'
+        with self.assertRaises(ValueError):
+            MODULE.check(config, structure_only=True)
+
     def test_one_separating_pair_does_not_certify_all_rivals(self):
         self.config['predictions']['C'] = [2.0, 0.3]
         result = self.result(n=256)

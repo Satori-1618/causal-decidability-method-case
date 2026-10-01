@@ -2,7 +2,8 @@
 
 Run without arguments for three stages of a hypothetical design. Pass --config
 for your own fixed mean predictions and separately justified calibration inputs.
-Use --structure-only to compare fixed numeric predictions without calibration.
+Use --structure-only to compare fixed numeric predictions without calibration, or
+choice categories declared with "prediction_kind": "category".
 See docs/METHOD_PREFLIGHT.md. This is a conditional screen, not a power calculator.
 """
 import argparse
@@ -32,6 +33,13 @@ def text_field(value, name):
         raise ValueError(f'{name} must be a nonempty string')
 
 
+def category(value):
+    text_field(value, 'category prediction')
+    if value.strip().upper() == 'UNKNOWN':
+        raise ValueError('UNKNOWN predictions block the comparison; they are not a shared category')
+    return value
+
+
 def check(config, selected=None, n=None, structure_only=False):
     """Return mean-signature groups and a conditional resolution screen per pair.
 
@@ -40,6 +48,8 @@ def check(config, selected=None, n=None, structure_only=False):
     Unknown calibrations are preserved. Predictions are treated as fixed/exact
     inputs; uncertainty in fitted rival predictions is not supported here.
     structure_only needs no sampling or uncertainty inputs and assesses no radius.
+    Only structure_only accepts prediction_kind 'category' (e.g. the chosen option);
+    labels are compared for equality only and have no numeric gap.
     """
     cells = config['cells']
     if not isinstance(cells, list) or not cells:
@@ -58,18 +68,30 @@ def check(config, selected=None, n=None, structure_only=False):
     predictions = config['predictions']
     if not isinstance(predictions, dict) or len(predictions) < 2:
         raise ValueError('declare at least two rivals')
+    kind = config.get('prediction_kind', 'mean')
+    if kind not in ('mean', 'category'):
+        raise ValueError("prediction_kind must be 'mean' or 'category'")
+    if kind == 'category' and not structure_only:
+        raise ValueError('category predictions have no numeric gap; use the structure-only check')
     for name, row in predictions.items():
         text_field(name, 'rival name')
         if len(row) != len(cells):
             raise ValueError('every rival must predict every declared cell')
         for value in row:
-            number(value, 'prediction')
+            category(value) if kind == 'category' else number(value, 'prediction')
     text_field(config.get('prediction_source'), 'prediction_source')
+    table = predictions
+    if kind == 'category':
+        # Equality is all that matters, so any injective coding keeps the grouping exact.
+        codes = {label: i for i, label in enumerate(sorted({v for row in predictions.values() for v in row}))}
+        table = {name: [codes[v] for v in row] for name, row in predictions.items()}
     extras = [i for i in range(len(cells)) if i not in indices]
+    noun = 'means' if kind == 'mean' else 'categories'
+    group_key = 'identical_mean_groups' if kind == 'mean' else 'identical_category_groups'
     structure = {
         'selected_cells': selected,
-        'identical_mean_groups': signatures(restrict(predictions, indices)),
-        'pairs_separated_by_all_optional_cells': gains(predictions, indices, extras),
+        group_key: signatures(restrict(table, indices)),
+        'pairs_separated_by_all_optional_cells': gains(table, indices, extras),
     }
     if structure_only:
         pairs = []
@@ -77,12 +99,15 @@ def check(config, selected=None, n=None, structure_only=False):
             differs = any(predictions[a][i] != predictions[b][i] for i in indices)
             pairs.append({
                 'rivals': [a, b], 'cells': [],
-                'status': 'different_declared_means' if differs else 'identical_declared_means',
+                'status': f'different_declared_{noun}' if differs else f'identical_declared_{noun}',
             })
         return {
             **structure,
-            'scope': 'Structural check of supplied fixed numeric mean predictions only.',
+            'scope': ('Structural check of supplied fixed numeric mean predictions only.'
+                      if kind == 'mean' else
+                      'Structural check of supplied choice categories only; equality, no gap.'),
             'mode': 'structure_only',
+            'prediction_kind': kind,
             'calibration': 'Measurement resolution not assessed; no sample-size conclusion.',
             'all_pairs_clear_planning_screen': None,
             'pairs': pairs,

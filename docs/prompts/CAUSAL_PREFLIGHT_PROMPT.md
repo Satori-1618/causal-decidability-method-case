@@ -19,7 +19,8 @@ An alternative explanation: [hypothesis, or UNKNOWN]
 What I would measure: [choice, logit margin, etc.]
 Existing evidence/rules: [paste or give paths; UNKNOWN is allowed]
 
-First help me specify at most three competing rules. Label any rule you suggest
+First help me specify at most three competing rules, plus the rule that the
+intervention has no effect. Label any rule you suggest
 as a proposal, and identify assumptions that need my input or development data.
 Show one concrete donor/recipient example and derive each rule's prediction.
 Keep predictions as choices, signs, or UNKNOWN when that is all the rules imply;

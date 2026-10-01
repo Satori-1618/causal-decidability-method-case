@@ -1,0 +1,16 @@
+{
+  "description": "Quick-start example of docs/METHOD_PREFLIGHT.md; hypothetical rules, not LLM evidence.",
+  "prediction_kind": "category",
+  "prediction_source": "Derived from the rules in docs/METHOD_PREFLIGHT.md. Object wins only with strictly more points. Value transfer: donor Object value versus recipient Alternative value. Choice transfer: donor's observed choice (60/10 chooses Object, 60/90 Alternative). Forced Object: always Object. No effect: recipient's own choice (20/40 and 20/80 both choose Alternative).",
+  "cells": [
+    {"id": "d60_10_to_r20_40"},
+    {"id": "d60_10_to_r20_80"},
+    {"id": "d60_90_to_r20_40"}
+  ],
+  "predictions": {
+    "value_transfer": ["Object", "Alternative", "Object"],
+    "choice_transfer": ["Object", "Object", "Alternative"],
+    "forced_object": ["Object", "Object", "Object"],
+    "no_effect": ["Alternative", "Alternative", "Alternative"]
+  }
+}
