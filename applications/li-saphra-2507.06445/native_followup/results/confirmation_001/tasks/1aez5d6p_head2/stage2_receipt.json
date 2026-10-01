@@ -1,0 +1,28 @@
+{
+  "prediction_file_sha256": "2dc3fb8feb29ceb555ac7aee0e6749345586716b32669fa967a996497a2d6c2d",
+  "written_before_target_arms_at": "2026-10-01T19:00:24.538740+00:00",
+  "preflight_code_sha256": "1d882ae61931e56564ed512e19eee517300488755b5964ef067334066bd60ff4",
+  "preflight": {
+    "scope": "Structural check of supplied fixed numeric mean predictions only.",
+    "mode": "structure_only",
+    "identical_mean_groups": [
+      [
+        "token_mass"
+      ],
+      [
+        "within_token"
+      ]
+    ],
+    "pairs": [
+      {
+        "rivals": [
+          "token_mass",
+          "within_token"
+        ],
+        "cells": [],
+        "status": "different_declared_means"
+      }
+    ],
+    "calibration": "Measurement resolution not assessed; no sample-size conclusion."
+  }
+}

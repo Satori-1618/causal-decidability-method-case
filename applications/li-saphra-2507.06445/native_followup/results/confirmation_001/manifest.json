@@ -1,0 +1,57 @@
+{
+  "status": "failed",
+  "started_at": "2026-10-01T19:00:16.733514+00:00",
+  "git_head": "92860b6a63e1b40ba3227c7d8edc094036ef8ace",
+  "freeze_sha256": "b457fc29fedf38fafb791996ac1b773d17202154d99e552498ec683a3c39f73a",
+  "cases_sha256": "a77ef66c44496945cd79e692b3e30df01070b08ae26bbbf01faeda410e83e460",
+  "asset_lock_sha256": "867427909b582ec0c83893a38aa473b4d6cd86086af5407292a79ef7930ed0d3",
+  "source_hashes": {
+    "applications/li-saphra-2507.06445/native_followup/frozen/confirmation_001/freeze.json": "b457fc29fedf38fafb791996ac1b773d17202154d99e552498ec683a3c39f73a",
+    "applications/li-saphra-2507.06445/native_followup/frozen/confirmation_001/cases.jsonl": "a77ef66c44496945cd79e692b3e30df01070b08ae26bbbf01faeda410e83e460",
+    "applications/li-saphra-2507.06445/native_followup/frozen/confirmation_001/COHORT_ASSET_LOCK.json": "867427909b582ec0c83893a38aa473b4d6cd86086af5407292a79ef7930ed0d3",
+    "applications/li-saphra-2507.06445/native_followup/confirm.py": "f6041b4e9406c96a988cf36024112bbab0c4f23984292fd497e4318907489407",
+    "applications/li-saphra-2507.06445/native_followup/runtime.py": "6fc064758359dcc1808e58bbfc660029deb8ec4efdfe13c72eb5f9850e9b0aa7",
+    "applications/li-saphra-2507.06445/native_followup/token_split.py": "d329cfe15384cf8b76b279a749ebdeb76504503e9d0558a9aedcc1f5071fe1a1",
+    "applications/li-saphra-2507.06445/native_followup/CONFIRMATION.md": "bbc30beae93262a977d6df1346e0c615a8ba93220ee1a0ede734020356856f35",
+    "applications/li-saphra-2507.06445/native_followup/analyze_confirmation.py": "40ba4c76fc9e628ce42421bf7065f835f604a36a98b7baa3b7344663ff74acd4",
+    "applications/li-saphra-2507.06445/native_followup/prepare_confirmation.py": "6bb6ef48fc8a020ea1043f25716840016b4e94f3fedcb1712731173bdd279174",
+    "applications/li-saphra-2507.06445/native_followup/ASSET_LOCK.json": "086eba060bdef85ed9970bebc7b9273ee7ab6b82e0efce7f62ab638551732f88",
+    "applications/li-saphra-2507.06445/SOURCE_LOCK.json": "12a8899278552c796d79b0cf39e8adb920f09a92a8cf6bc816b52b24bead605f",
+    "examples/causal_preflight.py": "1d882ae61931e56564ed512e19eee517300488755b5964ef067334066bd60ff4",
+    "src/causal_decidability/design.py": "3d55a1885e1457cad8251d8e9d69b5ff8967eb25319bb377cfe42ca1122c3e0a",
+    "applications/li-saphra-2507.06445/native_followup/qualify.py": "fa4db58ff9363074a5562df0b20c47e8bc536293abf7e96572f1e2217685a431"
+  },
+  "environment": {
+    "torch": "2.9.0",
+    "python": "3.10.10",
+    "platform": "macOS-15.7.3-arm64-arm-64bit",
+    "device": "cpu",
+    "threads": 1
+  },
+  "tasks": [
+    {
+      "task": {
+        "model_id": "1aez5d6p",
+        "n_layer": 2,
+        "n_head": 2,
+        "head": 2,
+        "init_seed": 365,
+        "shuffle_seed": 220,
+        "role": "development_checkpoint_fresh_inputs",
+        "sign_score_published": 0.9570000171661376
+      },
+      "files": {
+        "cases.jsonl": "fbccb403babc866e7d166b80ffca5292659755513f64d4ed7dc3f9d022c1cd78",
+        "controls.json": "00a51e3607740cd328216f21ca4ca9d212ea70e357ec1f196cba50dc3212c8d9",
+        "stage1_predictions.jsonl": "d2e68b668f2d6799c2003c23cd60b4e83cbe60c337ea2de3291119330b601ab0",
+        "stage1_receipt.json": "d2005e3c3a2e722c8db0a0374877007e4cf436fd5d967a1de69542fcd71ab12a",
+        "stage2_predictions.jsonl": "2dc3fb8feb29ceb555ac7aee0e6749345586716b32669fa967a996497a2d6c2d",
+        "stage2_receipt.json": "23d295ce49d8fc129b9c0dab8fade34eb05f18570e5f288e208a080dae5dccce"
+      },
+      "precision_max_error": 1.3520180600190557e-05
+    }
+  ],
+  "elapsed_seconds": 17.98629654099932,
+  "error": "AssertionError('Gate-only intervention altered native within-bracket sign pattern')",
+  "finished_at": "2026-10-01T19:00:34.719856+00:00"
+}

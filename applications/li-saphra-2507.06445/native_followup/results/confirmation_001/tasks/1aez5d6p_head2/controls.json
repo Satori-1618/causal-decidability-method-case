@@ -1,0 +1,75 @@
+{
+  "float32": {
+    "identity_max_margin_error": 0.0,
+    "identity_max_node_error": 0.0,
+    "last_layer_eos_vs_all_queries_max_error": 0.0,
+    "minimum_native_bracket_mass": 0.9352743625640869,
+    "minimum_native_symbol_mass": 0.43272605538368225,
+    "gate_sign_pattern_mismatches": 0,
+    "within_token_delivered_operator": {
+      "maximum_symbol_mass_error": 1.1920928955078125e-07,
+      "maximum_conditional_ratio_error": 7.450580596923828e-09,
+      "maximum_special_token_error": 0.0,
+      "dtype_tolerance": 7.62939453125e-06,
+      "injected_attention_exactly_requested": true
+    },
+    "token_mass_delivered_operator": {
+      "maximum_symbol_mass_error": 8.940696716308594e-08,
+      "maximum_conditional_ratio_error": 2.2351741790771484e-08,
+      "maximum_special_token_error": 0.0,
+      "dtype_tolerance": 7.62939453125e-06,
+      "injected_attention_exactly_requested": true
+    },
+    "stage2_joint_vs_routing_max_margin_error": 0.0,
+    "stage2_joint_vs_routing_max_attention_error": 0.0,
+    "offtarget_and_current_value_checks": "passed_all_eos_arms"
+  },
+  "float64": {
+    "identity_max_margin_error": 0.0,
+    "identity_max_node_error": 0.0,
+    "last_layer_eos_vs_all_queries_max_error": 0.0,
+    "minimum_native_bracket_mass": 0.9352744367315692,
+    "minimum_native_symbol_mass": 0.43272599521914534,
+    "gate_sign_pattern_mismatches": 0,
+    "within_token_delivered_operator": {
+      "maximum_symbol_mass_error": 1.6653345369377348e-16,
+      "maximum_conditional_ratio_error": 1.3877787807814457e-17,
+      "maximum_special_token_error": 0.0,
+      "dtype_tolerance": 1.4210854715202004e-14,
+      "injected_attention_exactly_requested": true
+    },
+    "token_mass_delivered_operator": {
+      "maximum_symbol_mass_error": 1.1102230246251565e-16,
+      "maximum_conditional_ratio_error": 4.163336342344337e-17,
+      "maximum_special_token_error": 0.0,
+      "dtype_tolerance": 1.4210854715202004e-14,
+      "injected_attention_exactly_requested": true
+    },
+    "stage2_joint_vs_routing_max_margin_error": 0.0,
+    "stage2_joint_vs_routing_max_attention_error": 0.0,
+    "offtarget_and_current_value_checks": "passed_all_eos_arms"
+  },
+  "fp32_fp64_max_error_by_arm": {
+    "native": 1.065829545066066e-05,
+    "uniform_all_queries": 1.1797092415832822e-05,
+    "both": 1.1797092415832822e-05,
+    "routing_only": 1.215401593857024e-05,
+    "gate_only": 1.1426037084705243e-05,
+    "within_token": 1.2670572163919758e-05,
+    "token_mass": 1.3520180600190557e-05
+  },
+  "fp32_fp64_max_error_overall": 1.3520180600190557e-05,
+  "fp32_fp64_tolerance": 0.001,
+  "fp32_fp64_prediction_error_difference_by_contrast": {
+    "routing_only minus both": 9.584450237021258e-06,
+    "gate_only minus native": 5.3915530346948515e-06,
+    "routing_only minus native": 8.252284128040799e-06,
+    "gate_only minus both": 7.04994324252084e-06,
+    "within_token minus routing_only": 4.994242992495401e-06,
+    "token_mass minus native": 5.011712916225264e-06,
+    "within_token minus native": 7.560436940057258e-06,
+    "token_mass minus routing_only": 7.480138063620245e-06
+  },
+  "fp32_fp64_prediction_error_difference_maximum": 9.584450237021258e-06,
+  "precision_gate_passed": true
+}
