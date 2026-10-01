@@ -1,0 +1,30 @@
+{
+  "status": "technical_diagnostic_only_original_invalidity_unchanged",
+  "freeze_sha256": "b457fc29fedf38fafb791996ac1b773d17202154d99e552498ec683a3c39f73a",
+  "code_sha256": "a8082b6b0bad701f3172944b91d6bb6fb1954f4edfe508057c26656f609dd713",
+  "dtype": {
+    "torch.float32": {
+      "n": 1536,
+      "mismatches": 1,
+      "details": [
+        {
+          "family_id": "b2b5a7471c9a66c16ea2",
+          "condition": "invalid_close",
+          "native_pattern": true,
+          "gate_pattern": false,
+          "native_gap": 1.862645149230957e-09,
+          "gate_gap": 0.0,
+          "ideal_gap_under_positive_scaling": 1.8625414601729034e-09,
+          "scale": 0.9999443323608384,
+          "native_tie": false,
+          "gate_tie": true
+        }
+      ]
+    },
+    "torch.float64": {
+      "n": 1536,
+      "mismatches": 0,
+      "details": []
+    }
+  }
+}

@@ -1,5 +1,11 @@
 # Better after ablation — better because of what?
 
+**New: [prospective real-model followup](native_followup/README.md).** Two nested
+factorial tests now separate components of the replacement on fresh inputs,
+with a complete 35-task transfer cohort and explicit failures.
+[Concrete example](native_followup/EXAMPLE.md) · [one-page figure](native_followup/figures/two_steps.pdf).
+The retrospective audit below is preserved as the earlier, narrower stage.
+
 **The published improvement is robust. Its decomposition is not identified.**
 In Li, Saphra and colleagues' Dyck-1 models, replacing a sign-matching head's
 attention improves OOD accuracy for 40 of 42 heads by more than one percentage

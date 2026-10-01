@@ -48,6 +48,11 @@ def main():
             for arm in ['native','both','routing_only','gate_only','within_token','token_mass']:
                 record['by_condition'][condition][arm]={'correct':sum((r['float64_'+arm]<0)==r['valid'] for r in selected), 'n':len(selected),
                     'mean_margin_effect':statistics.mean(r['float64_'+arm]-r['float64_native'] for r in selected)}
+        # Descriptive completeness only: no change to frozen candidate decisions.
+        record['interactions']={}
+        for stage,end,first,second in [('stage1','both','routing_only','gate_only'),('stage2','routing_only','within_token','token_mass')]:
+            interaction=[r['float64_'+end]-r['float64_'+first]-r['float64_'+second]+r['float64_native'] for r in rows]
+            record['interactions'][stage]={'mean':statistics.mean(interaction),'mean_absolute':statistics.mean(abs(v) for v in interaction),'max_absolute':max(abs(v) for v in interaction)}
         results.append(record)
     summary={}
     for role in ['development_checkpoint_fresh_inputs','transfer_cohort']:
