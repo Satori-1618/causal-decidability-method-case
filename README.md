@@ -21,6 +21,7 @@ current method. It checks stored evidence; it does not rerun the model.
 | Your question | Where to go |
 |---|---|
 | Can my planned experiment distinguish my explanations? | [Two-part preflight guide, runnable example and reusable prompt](docs/METHOD_PREFLIGHT.md) |
+| Has the preflight been applied to an external repo? | [Goodfire MCQA: a simple audit of real input tables](applications/goodfire-mcqa-preflight/README.md) — no model run |
 | What did the experiment distinguish? | [The confirmed case, in three minutes](docs/CONFIRMED_CASE.md) |
 | Can the method narrow explanations in an external known circuit? | [Tracr: a shared patch effect, a separating condition, a fresh prediction](applications/tracr/README.md) |
 | How can the same method take the next step? | [Round 2: from signal source to downstream route](docs/ITERATIVE_IDENTIFICATION.md) — proposed test and executable teaching demo |

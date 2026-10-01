@@ -1,0 +1,2318 @@
+{
+  "prediction_kind": "category",
+  "prediction_source": "Goodfire causalab 8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e; MCQA equations. Task-level predictions, not observed model answers. A true no-effect rule needs measured recipient baselines. Combined input menu requires ONE fixed intervention for an empirical comparison; separately fitted upstream subspaces are not the same intervention.",
+  "cells": [
+    {
+      "id": "pointer_train_000"
+    },
+    {
+      "id": "pointer_train_001"
+    },
+    {
+      "id": "pointer_train_002"
+    },
+    {
+      "id": "pointer_train_003"
+    },
+    {
+      "id": "pointer_train_004"
+    },
+    {
+      "id": "pointer_train_005"
+    },
+    {
+      "id": "pointer_train_006"
+    },
+    {
+      "id": "pointer_train_007"
+    },
+    {
+      "id": "pointer_train_008"
+    },
+    {
+      "id": "pointer_train_009"
+    },
+    {
+      "id": "pointer_train_010"
+    },
+    {
+      "id": "pointer_train_011"
+    },
+    {
+      "id": "pointer_train_012"
+    },
+    {
+      "id": "pointer_train_013"
+    },
+    {
+      "id": "pointer_train_014"
+    },
+    {
+      "id": "pointer_train_015"
+    },
+    {
+      "id": "pointer_train_016"
+    },
+    {
+      "id": "pointer_train_017"
+    },
+    {
+      "id": "pointer_train_018"
+    },
+    {
+      "id": "pointer_train_019"
+    },
+    {
+      "id": "pointer_train_020"
+    },
+    {
+      "id": "pointer_train_021"
+    },
+    {
+      "id": "pointer_train_022"
+    },
+    {
+      "id": "pointer_train_023"
+    },
+    {
+      "id": "pointer_train_024"
+    },
+    {
+      "id": "pointer_train_025"
+    },
+    {
+      "id": "pointer_train_026"
+    },
+    {
+      "id": "pointer_train_027"
+    },
+    {
+      "id": "pointer_train_028"
+    },
+    {
+      "id": "pointer_train_029"
+    },
+    {
+      "id": "pointer_train_030"
+    },
+    {
+      "id": "pointer_train_031"
+    },
+    {
+      "id": "pointer_train_032"
+    },
+    {
+      "id": "pointer_train_033"
+    },
+    {
+      "id": "pointer_train_034"
+    },
+    {
+      "id": "pointer_train_035"
+    },
+    {
+      "id": "pointer_train_036"
+    },
+    {
+      "id": "pointer_train_037"
+    },
+    {
+      "id": "pointer_train_038"
+    },
+    {
+      "id": "pointer_train_039"
+    },
+    {
+      "id": "pointer_train_040"
+    },
+    {
+      "id": "pointer_train_041"
+    },
+    {
+      "id": "pointer_train_042"
+    },
+    {
+      "id": "pointer_train_043"
+    },
+    {
+      "id": "pointer_train_044"
+    },
+    {
+      "id": "pointer_train_045"
+    },
+    {
+      "id": "pointer_train_046"
+    },
+    {
+      "id": "pointer_train_047"
+    },
+    {
+      "id": "pointer_train_048"
+    },
+    {
+      "id": "pointer_train_049"
+    },
+    {
+      "id": "pointer_train_050"
+    },
+    {
+      "id": "pointer_train_051"
+    },
+    {
+      "id": "pointer_train_052"
+    },
+    {
+      "id": "pointer_train_053"
+    },
+    {
+      "id": "pointer_train_054"
+    },
+    {
+      "id": "pointer_train_055"
+    },
+    {
+      "id": "pointer_train_056"
+    },
+    {
+      "id": "pointer_train_057"
+    },
+    {
+      "id": "pointer_train_058"
+    },
+    {
+      "id": "pointer_train_059"
+    },
+    {
+      "id": "pointer_train_060"
+    },
+    {
+      "id": "pointer_train_061"
+    },
+    {
+      "id": "pointer_train_062"
+    },
+    {
+      "id": "pointer_train_063"
+    },
+    {
+      "id": "pointer_train_064"
+    },
+    {
+      "id": "pointer_train_065"
+    },
+    {
+      "id": "pointer_train_066"
+    },
+    {
+      "id": "pointer_train_067"
+    },
+    {
+      "id": "pointer_train_068"
+    },
+    {
+      "id": "pointer_train_069"
+    },
+    {
+      "id": "pointer_train_070"
+    },
+    {
+      "id": "pointer_train_071"
+    },
+    {
+      "id": "pointer_train_072"
+    },
+    {
+      "id": "pointer_train_073"
+    },
+    {
+      "id": "pointer_train_074"
+    },
+    {
+      "id": "pointer_train_075"
+    },
+    {
+      "id": "pointer_train_076"
+    },
+    {
+      "id": "pointer_train_077"
+    },
+    {
+      "id": "pointer_train_078"
+    },
+    {
+      "id": "pointer_train_079"
+    },
+    {
+      "id": "pointer_train_080"
+    },
+    {
+      "id": "pointer_train_081"
+    },
+    {
+      "id": "pointer_train_082"
+    },
+    {
+      "id": "pointer_train_083"
+    },
+    {
+      "id": "pointer_train_084"
+    },
+    {
+      "id": "pointer_train_085"
+    },
+    {
+      "id": "pointer_train_086"
+    },
+    {
+      "id": "pointer_train_087"
+    },
+    {
+      "id": "pointer_train_088"
+    },
+    {
+      "id": "pointer_train_089"
+    },
+    {
+      "id": "pointer_train_090"
+    },
+    {
+      "id": "pointer_train_091"
+    },
+    {
+      "id": "pointer_train_092"
+    },
+    {
+      "id": "pointer_train_093"
+    },
+    {
+      "id": "pointer_train_094"
+    },
+    {
+      "id": "pointer_train_095"
+    },
+    {
+      "id": "pointer_train_096"
+    },
+    {
+      "id": "pointer_train_097"
+    },
+    {
+      "id": "pointer_train_098"
+    },
+    {
+      "id": "pointer_train_099"
+    },
+    {
+      "id": "pointer_train_100"
+    },
+    {
+      "id": "pointer_train_101"
+    },
+    {
+      "id": "pointer_train_102"
+    },
+    {
+      "id": "pointer_train_103"
+    },
+    {
+      "id": "pointer_train_104"
+    },
+    {
+      "id": "pointer_train_105"
+    },
+    {
+      "id": "pointer_train_106"
+    },
+    {
+      "id": "pointer_train_107"
+    },
+    {
+      "id": "pointer_train_108"
+    },
+    {
+      "id": "pointer_train_109"
+    },
+    {
+      "id": "pointer_train_110"
+    },
+    {
+      "id": "pointer_train_111"
+    },
+    {
+      "id": "pointer_train_112"
+    },
+    {
+      "id": "pointer_train_113"
+    },
+    {
+      "id": "pointer_train_114"
+    },
+    {
+      "id": "pointer_train_115"
+    },
+    {
+      "id": "pointer_train_116"
+    },
+    {
+      "id": "pointer_train_117"
+    },
+    {
+      "id": "pointer_train_118"
+    },
+    {
+      "id": "pointer_train_119"
+    },
+    {
+      "id": "pointer_train_120"
+    },
+    {
+      "id": "pointer_train_121"
+    },
+    {
+      "id": "pointer_train_122"
+    },
+    {
+      "id": "pointer_train_123"
+    },
+    {
+      "id": "pointer_train_124"
+    },
+    {
+      "id": "pointer_train_125"
+    },
+    {
+      "id": "pointer_train_126"
+    },
+    {
+      "id": "pointer_train_127"
+    },
+    {
+      "id": "pointer_test_128"
+    },
+    {
+      "id": "pointer_test_129"
+    },
+    {
+      "id": "pointer_test_130"
+    },
+    {
+      "id": "pointer_test_131"
+    },
+    {
+      "id": "pointer_test_132"
+    },
+    {
+      "id": "pointer_test_133"
+    },
+    {
+      "id": "pointer_test_134"
+    },
+    {
+      "id": "pointer_test_135"
+    },
+    {
+      "id": "pointer_test_136"
+    },
+    {
+      "id": "pointer_test_137"
+    },
+    {
+      "id": "pointer_test_138"
+    },
+    {
+      "id": "pointer_test_139"
+    },
+    {
+      "id": "pointer_test_140"
+    },
+    {
+      "id": "pointer_test_141"
+    },
+    {
+      "id": "pointer_test_142"
+    },
+    {
+      "id": "pointer_test_143"
+    },
+    {
+      "id": "pointer_test_144"
+    },
+    {
+      "id": "pointer_test_145"
+    },
+    {
+      "id": "pointer_test_146"
+    },
+    {
+      "id": "pointer_test_147"
+    },
+    {
+      "id": "pointer_test_148"
+    },
+    {
+      "id": "pointer_test_149"
+    },
+    {
+      "id": "pointer_test_150"
+    },
+    {
+      "id": "pointer_test_151"
+    },
+    {
+      "id": "pointer_test_152"
+    },
+    {
+      "id": "pointer_test_153"
+    },
+    {
+      "id": "pointer_test_154"
+    },
+    {
+      "id": "pointer_test_155"
+    },
+    {
+      "id": "pointer_test_156"
+    },
+    {
+      "id": "pointer_test_157"
+    },
+    {
+      "id": "pointer_test_158"
+    },
+    {
+      "id": "pointer_test_159"
+    },
+    {
+      "id": "pointer_test_160"
+    },
+    {
+      "id": "pointer_test_161"
+    },
+    {
+      "id": "pointer_test_162"
+    },
+    {
+      "id": "pointer_test_163"
+    },
+    {
+      "id": "pointer_test_164"
+    },
+    {
+      "id": "pointer_test_165"
+    },
+    {
+      "id": "pointer_test_166"
+    },
+    {
+      "id": "pointer_test_167"
+    },
+    {
+      "id": "pointer_test_168"
+    },
+    {
+      "id": "pointer_test_169"
+    },
+    {
+      "id": "pointer_test_170"
+    },
+    {
+      "id": "pointer_test_171"
+    },
+    {
+      "id": "pointer_test_172"
+    },
+    {
+      "id": "pointer_test_173"
+    },
+    {
+      "id": "pointer_test_174"
+    },
+    {
+      "id": "pointer_test_175"
+    },
+    {
+      "id": "pointer_test_176"
+    },
+    {
+      "id": "pointer_test_177"
+    },
+    {
+      "id": "pointer_test_178"
+    },
+    {
+      "id": "pointer_test_179"
+    },
+    {
+      "id": "pointer_test_180"
+    },
+    {
+      "id": "pointer_test_181"
+    },
+    {
+      "id": "pointer_test_182"
+    },
+    {
+      "id": "pointer_test_183"
+    },
+    {
+      "id": "pointer_test_184"
+    },
+    {
+      "id": "pointer_test_185"
+    },
+    {
+      "id": "pointer_test_186"
+    },
+    {
+      "id": "pointer_test_187"
+    },
+    {
+      "id": "pointer_test_188"
+    },
+    {
+      "id": "pointer_test_189"
+    },
+    {
+      "id": "pointer_test_190"
+    },
+    {
+      "id": "pointer_test_191"
+    },
+    {
+      "id": "symbol_train_000"
+    },
+    {
+      "id": "symbol_train_001"
+    },
+    {
+      "id": "symbol_train_002"
+    },
+    {
+      "id": "symbol_train_003"
+    },
+    {
+      "id": "symbol_train_004"
+    },
+    {
+      "id": "symbol_train_005"
+    },
+    {
+      "id": "symbol_train_006"
+    },
+    {
+      "id": "symbol_train_007"
+    },
+    {
+      "id": "symbol_train_008"
+    },
+    {
+      "id": "symbol_train_009"
+    },
+    {
+      "id": "symbol_train_010"
+    },
+    {
+      "id": "symbol_train_011"
+    },
+    {
+      "id": "symbol_train_012"
+    },
+    {
+      "id": "symbol_train_013"
+    },
+    {
+      "id": "symbol_train_014"
+    },
+    {
+      "id": "symbol_train_015"
+    },
+    {
+      "id": "symbol_train_016"
+    },
+    {
+      "id": "symbol_train_017"
+    },
+    {
+      "id": "symbol_train_018"
+    },
+    {
+      "id": "symbol_train_019"
+    },
+    {
+      "id": "symbol_train_020"
+    },
+    {
+      "id": "symbol_train_021"
+    },
+    {
+      "id": "symbol_train_022"
+    },
+    {
+      "id": "symbol_train_023"
+    },
+    {
+      "id": "symbol_train_024"
+    },
+    {
+      "id": "symbol_train_025"
+    },
+    {
+      "id": "symbol_train_026"
+    },
+    {
+      "id": "symbol_train_027"
+    },
+    {
+      "id": "symbol_train_028"
+    },
+    {
+      "id": "symbol_train_029"
+    },
+    {
+      "id": "symbol_train_030"
+    },
+    {
+      "id": "symbol_train_031"
+    },
+    {
+      "id": "symbol_train_032"
+    },
+    {
+      "id": "symbol_train_033"
+    },
+    {
+      "id": "symbol_train_034"
+    },
+    {
+      "id": "symbol_train_035"
+    },
+    {
+      "id": "symbol_train_036"
+    },
+    {
+      "id": "symbol_train_037"
+    },
+    {
+      "id": "symbol_train_038"
+    },
+    {
+      "id": "symbol_train_039"
+    },
+    {
+      "id": "symbol_train_040"
+    },
+    {
+      "id": "symbol_train_041"
+    },
+    {
+      "id": "symbol_train_042"
+    },
+    {
+      "id": "symbol_train_043"
+    },
+    {
+      "id": "symbol_train_044"
+    },
+    {
+      "id": "symbol_train_045"
+    },
+    {
+      "id": "symbol_train_046"
+    },
+    {
+      "id": "symbol_train_047"
+    },
+    {
+      "id": "symbol_train_048"
+    },
+    {
+      "id": "symbol_train_049"
+    },
+    {
+      "id": "symbol_train_050"
+    },
+    {
+      "id": "symbol_train_051"
+    },
+    {
+      "id": "symbol_train_052"
+    },
+    {
+      "id": "symbol_train_053"
+    },
+    {
+      "id": "symbol_train_054"
+    },
+    {
+      "id": "symbol_train_055"
+    },
+    {
+      "id": "symbol_train_056"
+    },
+    {
+      "id": "symbol_train_057"
+    },
+    {
+      "id": "symbol_train_058"
+    },
+    {
+      "id": "symbol_train_059"
+    },
+    {
+      "id": "symbol_train_060"
+    },
+    {
+      "id": "symbol_train_061"
+    },
+    {
+      "id": "symbol_train_062"
+    },
+    {
+      "id": "symbol_train_063"
+    },
+    {
+      "id": "symbol_train_064"
+    },
+    {
+      "id": "symbol_train_065"
+    },
+    {
+      "id": "symbol_train_066"
+    },
+    {
+      "id": "symbol_train_067"
+    },
+    {
+      "id": "symbol_train_068"
+    },
+    {
+      "id": "symbol_train_069"
+    },
+    {
+      "id": "symbol_train_070"
+    },
+    {
+      "id": "symbol_train_071"
+    },
+    {
+      "id": "symbol_train_072"
+    },
+    {
+      "id": "symbol_train_073"
+    },
+    {
+      "id": "symbol_train_074"
+    },
+    {
+      "id": "symbol_train_075"
+    },
+    {
+      "id": "symbol_train_076"
+    },
+    {
+      "id": "symbol_train_077"
+    },
+    {
+      "id": "symbol_train_078"
+    },
+    {
+      "id": "symbol_train_079"
+    },
+    {
+      "id": "symbol_train_080"
+    },
+    {
+      "id": "symbol_train_081"
+    },
+    {
+      "id": "symbol_train_082"
+    },
+    {
+      "id": "symbol_train_083"
+    },
+    {
+      "id": "symbol_train_084"
+    },
+    {
+      "id": "symbol_train_085"
+    },
+    {
+      "id": "symbol_train_086"
+    },
+    {
+      "id": "symbol_train_087"
+    },
+    {
+      "id": "symbol_train_088"
+    },
+    {
+      "id": "symbol_train_089"
+    },
+    {
+      "id": "symbol_train_090"
+    },
+    {
+      "id": "symbol_train_091"
+    },
+    {
+      "id": "symbol_train_092"
+    },
+    {
+      "id": "symbol_train_093"
+    },
+    {
+      "id": "symbol_train_094"
+    },
+    {
+      "id": "symbol_train_095"
+    },
+    {
+      "id": "symbol_train_096"
+    },
+    {
+      "id": "symbol_train_097"
+    },
+    {
+      "id": "symbol_train_098"
+    },
+    {
+      "id": "symbol_train_099"
+    },
+    {
+      "id": "symbol_train_100"
+    },
+    {
+      "id": "symbol_train_101"
+    },
+    {
+      "id": "symbol_train_102"
+    },
+    {
+      "id": "symbol_train_103"
+    },
+    {
+      "id": "symbol_train_104"
+    },
+    {
+      "id": "symbol_train_105"
+    },
+    {
+      "id": "symbol_train_106"
+    },
+    {
+      "id": "symbol_train_107"
+    },
+    {
+      "id": "symbol_train_108"
+    },
+    {
+      "id": "symbol_train_109"
+    },
+    {
+      "id": "symbol_train_110"
+    },
+    {
+      "id": "symbol_train_111"
+    },
+    {
+      "id": "symbol_train_112"
+    },
+    {
+      "id": "symbol_train_113"
+    },
+    {
+      "id": "symbol_train_114"
+    },
+    {
+      "id": "symbol_train_115"
+    },
+    {
+      "id": "symbol_train_116"
+    },
+    {
+      "id": "symbol_train_117"
+    },
+    {
+      "id": "symbol_train_118"
+    },
+    {
+      "id": "symbol_train_119"
+    },
+    {
+      "id": "symbol_train_120"
+    },
+    {
+      "id": "symbol_train_121"
+    },
+    {
+      "id": "symbol_train_122"
+    },
+    {
+      "id": "symbol_train_123"
+    },
+    {
+      "id": "symbol_train_124"
+    },
+    {
+      "id": "symbol_train_125"
+    },
+    {
+      "id": "symbol_train_126"
+    },
+    {
+      "id": "symbol_train_127"
+    },
+    {
+      "id": "symbol_test_128"
+    },
+    {
+      "id": "symbol_test_129"
+    },
+    {
+      "id": "symbol_test_130"
+    },
+    {
+      "id": "symbol_test_131"
+    },
+    {
+      "id": "symbol_test_132"
+    },
+    {
+      "id": "symbol_test_133"
+    },
+    {
+      "id": "symbol_test_134"
+    },
+    {
+      "id": "symbol_test_135"
+    },
+    {
+      "id": "symbol_test_136"
+    },
+    {
+      "id": "symbol_test_137"
+    },
+    {
+      "id": "symbol_test_138"
+    },
+    {
+      "id": "symbol_test_139"
+    },
+    {
+      "id": "symbol_test_140"
+    },
+    {
+      "id": "symbol_test_141"
+    },
+    {
+      "id": "symbol_test_142"
+    },
+    {
+      "id": "symbol_test_143"
+    },
+    {
+      "id": "symbol_test_144"
+    },
+    {
+      "id": "symbol_test_145"
+    },
+    {
+      "id": "symbol_test_146"
+    },
+    {
+      "id": "symbol_test_147"
+    },
+    {
+      "id": "symbol_test_148"
+    },
+    {
+      "id": "symbol_test_149"
+    },
+    {
+      "id": "symbol_test_150"
+    },
+    {
+      "id": "symbol_test_151"
+    },
+    {
+      "id": "symbol_test_152"
+    },
+    {
+      "id": "symbol_test_153"
+    },
+    {
+      "id": "symbol_test_154"
+    },
+    {
+      "id": "symbol_test_155"
+    },
+    {
+      "id": "symbol_test_156"
+    },
+    {
+      "id": "symbol_test_157"
+    },
+    {
+      "id": "symbol_test_158"
+    },
+    {
+      "id": "symbol_test_159"
+    },
+    {
+      "id": "symbol_test_160"
+    },
+    {
+      "id": "symbol_test_161"
+    },
+    {
+      "id": "symbol_test_162"
+    },
+    {
+      "id": "symbol_test_163"
+    },
+    {
+      "id": "symbol_test_164"
+    },
+    {
+      "id": "symbol_test_165"
+    },
+    {
+      "id": "symbol_test_166"
+    },
+    {
+      "id": "symbol_test_167"
+    },
+    {
+      "id": "symbol_test_168"
+    },
+    {
+      "id": "symbol_test_169"
+    },
+    {
+      "id": "symbol_test_170"
+    },
+    {
+      "id": "symbol_test_171"
+    },
+    {
+      "id": "symbol_test_172"
+    },
+    {
+      "id": "symbol_test_173"
+    },
+    {
+      "id": "symbol_test_174"
+    },
+    {
+      "id": "symbol_test_175"
+    },
+    {
+      "id": "symbol_test_176"
+    },
+    {
+      "id": "symbol_test_177"
+    },
+    {
+      "id": "symbol_test_178"
+    },
+    {
+      "id": "symbol_test_179"
+    },
+    {
+      "id": "symbol_test_180"
+    },
+    {
+      "id": "symbol_test_181"
+    },
+    {
+      "id": "symbol_test_182"
+    },
+    {
+      "id": "symbol_test_183"
+    },
+    {
+      "id": "symbol_test_184"
+    },
+    {
+      "id": "symbol_test_185"
+    },
+    {
+      "id": "symbol_test_186"
+    },
+    {
+      "id": "symbol_test_187"
+    },
+    {
+      "id": "symbol_test_188"
+    },
+    {
+      "id": "symbol_test_189"
+    },
+    {
+      "id": "symbol_test_190"
+    },
+    {
+      "id": "symbol_test_191"
+    }
+  ],
+  "predictions": {
+    "position_transfer": [
+      "Y",
+      "A",
+      "A",
+      "X",
+      "H",
+      "U",
+      "S",
+      "Z",
+      "C",
+      "X",
+      "Q",
+      "Q",
+      "Z",
+      "S",
+      "A",
+      "S",
+      "A",
+      "T",
+      "Q",
+      "P",
+      "D",
+      "M",
+      "R",
+      "V",
+      "C",
+      "E",
+      "G",
+      "D",
+      "T",
+      "N",
+      "V",
+      "R",
+      "L",
+      "R",
+      "Z",
+      "R",
+      "I",
+      "D",
+      "O",
+      "Z",
+      "K",
+      "M",
+      "G",
+      "G",
+      "C",
+      "F",
+      "A",
+      "C",
+      "E",
+      "K",
+      "E",
+      "N",
+      "Z",
+      "K",
+      "L",
+      "S",
+      "K",
+      "H",
+      "C",
+      "W",
+      "Q",
+      "X",
+      "X",
+      "Y",
+      "F",
+      "T",
+      "X",
+      "T",
+      "G",
+      "L",
+      "Z",
+      "V",
+      "Q",
+      "L",
+      "M",
+      "T",
+      "Q",
+      "T",
+      "X",
+      "I",
+      "F",
+      "C",
+      "U",
+      "I",
+      "J",
+      "F",
+      "M",
+      "X",
+      "Q",
+      "H",
+      "K",
+      "B",
+      "H",
+      "J",
+      "P",
+      "K",
+      "A",
+      "I",
+      "E",
+      "P",
+      "U",
+      "N",
+      "R",
+      "F",
+      "C",
+      "B",
+      "C",
+      "I",
+      "D",
+      "S",
+      "X",
+      "D",
+      "Z",
+      "K",
+      "S",
+      "C",
+      "Z",
+      "T",
+      "F",
+      "I",
+      "A",
+      "H",
+      "N",
+      "C",
+      "W",
+      "Q",
+      "S",
+      "N",
+      "Z",
+      "U",
+      "B",
+      "F",
+      "Q",
+      "Z",
+      "U",
+      "V",
+      "V",
+      "J",
+      "V",
+      "U",
+      "H",
+      "L",
+      "X",
+      "W",
+      "A",
+      "O",
+      "H",
+      "P",
+      "U",
+      "D",
+      "O",
+      "I",
+      "N",
+      "A",
+      "O",
+      "B",
+      "D",
+      "D",
+      "O",
+      "X",
+      "W",
+      "C",
+      "Y",
+      "I",
+      "P",
+      "F",
+      "M",
+      "D",
+      "F",
+      "O",
+      "I",
+      "W",
+      "V",
+      "A",
+      "M",
+      "Z",
+      "Q",
+      "R",
+      "A",
+      "P",
+      "R",
+      "G",
+      "C",
+      "U",
+      "B",
+      "B",
+      "C",
+      "O",
+      "P",
+      "I",
+      "X",
+      "F",
+      "P",
+      "M",
+      "U",
+      "Y",
+      "A",
+      "W",
+      "B",
+      "O",
+      "X",
+      "F",
+      "L",
+      "X",
+      "R",
+      "R",
+      "U",
+      "V",
+      "Z",
+      "I",
+      "D",
+      "I",
+      "A",
+      "U",
+      "S",
+      "B",
+      "A",
+      "M",
+      "V",
+      "F",
+      "D",
+      "C",
+      "I",
+      "J",
+      "K",
+      "T",
+      "S",
+      "T",
+      "H",
+      "F",
+      "P",
+      "Z",
+      "K",
+      "L",
+      "I",
+      "B",
+      "R",
+      "M",
+      "Z",
+      "Q",
+      "W",
+      "Y",
+      "B",
+      "O",
+      "A",
+      "E",
+      "P",
+      "K",
+      "H",
+      "W",
+      "T",
+      "S",
+      "R",
+      "E",
+      "F",
+      "N",
+      "R",
+      "I",
+      "Y",
+      "D",
+      "D",
+      "Z",
+      "O",
+      "U",
+      "O",
+      "L",
+      "S",
+      "N",
+      "L",
+      "O",
+      "L",
+      "M",
+      "K",
+      "F",
+      "M",
+      "W",
+      "H",
+      "T",
+      "Y",
+      "H",
+      "Y",
+      "I",
+      "P",
+      "O",
+      "C",
+      "M",
+      "S",
+      "R",
+      "G",
+      "U",
+      "T",
+      "W",
+      "D",
+      "Q",
+      "O",
+      "I",
+      "X",
+      "Q",
+      "E",
+      "Q",
+      "J",
+      "K",
+      "K",
+      "X",
+      "I",
+      "T",
+      "S",
+      "D",
+      "Z",
+      "Z",
+      "V",
+      "A",
+      "Q",
+      "J",
+      "R",
+      "U",
+      "E",
+      "M",
+      "O",
+      "P",
+      "X",
+      "N",
+      "A",
+      "R",
+      "V",
+      "O",
+      "Q",
+      "V",
+      "Z",
+      "T",
+      "I",
+      "G",
+      "H",
+      "L",
+      "Z",
+      "P",
+      "M",
+      "A",
+      "K",
+      "I",
+      "H",
+      "V",
+      "D",
+      "F",
+      "R",
+      "S",
+      "Q",
+      "J",
+      "G",
+      "X",
+      "O",
+      "C",
+      "B",
+      "Z",
+      "F",
+      "C",
+      "E",
+      "E",
+      "O",
+      "X",
+      "P",
+      "X",
+      "M",
+      "D",
+      "I",
+      "I",
+      "P",
+      "Q",
+      "V",
+      "V",
+      "L",
+      "P",
+      "U",
+      "M",
+      "H",
+      "K",
+      "J",
+      "D",
+      "H",
+      "M",
+      "M",
+      "F",
+      "X",
+      "J"
+    ],
+    "symbol_transfer": [
+      "P",
+      "M",
+      "K",
+      "N",
+      "L",
+      "F",
+      "J",
+      "X",
+      "O",
+      "A",
+      "F",
+      "M",
+      "M",
+      "R",
+      "R",
+      "R",
+      "C",
+      "Z",
+      "I",
+      "D",
+      "I",
+      "A",
+      "H",
+      "U",
+      "J",
+      "A",
+      "M",
+      "P",
+      "M",
+      "K",
+      "R",
+      "F",
+      "K",
+      "S",
+      "E",
+      "S",
+      "O",
+      "N",
+      "D",
+      "R",
+      "U",
+      "K",
+      "I",
+      "J",
+      "U",
+      "K",
+      "H",
+      "X",
+      "D",
+      "E",
+      "G",
+      "J",
+      "N",
+      "F",
+      "W",
+      "M",
+      "Q",
+      "W",
+      "B",
+      "J",
+      "T",
+      "S",
+      "R",
+      "E",
+      "K",
+      "N",
+      "R",
+      "U",
+      "R",
+      "R",
+      "J",
+      "Y",
+      "V",
+      "J",
+      "G",
+      "Q",
+      "L",
+      "S",
+      "U",
+      "L",
+      "O",
+      "L",
+      "M",
+      "K",
+      "F",
+      "P",
+      "T",
+      "U",
+      "F",
+      "D",
+      "P",
+      "V",
+      "D",
+      "H",
+      "S",
+      "P",
+      "Z",
+      "E",
+      "Q",
+      "A",
+      "I",
+      "T",
+      "W",
+      "D",
+      "U",
+      "R",
+      "I",
+      "X",
+      "N",
+      "P",
+      "J",
+      "N",
+      "U",
+      "X",
+      "C",
+      "S",
+      "H",
+      "K",
+      "D",
+      "G",
+      "S",
+      "N",
+      "I",
+      "M",
+      "J",
+      "N",
+      "E",
+      "M",
+      "X",
+      "N",
+      "A",
+      "R",
+      "E",
+      "S",
+      "Q",
+      "O",
+      "H",
+      "Z",
+      "T",
+      "S",
+      "I",
+      "F",
+      "B",
+      "Q",
+      "B",
+      "J",
+      "C",
+      "Q",
+      "A",
+      "F",
+      "W",
+      "V",
+      "M",
+      "D",
+      "J",
+      "S",
+      "Q",
+      "J",
+      "G",
+      "C",
+      "O",
+      "D",
+      "B",
+      "P",
+      "F",
+      "L",
+      "J",
+      "E",
+      "O",
+      "X",
+      "P",
+      "X",
+      "M",
+      "D",
+      "D",
+      "T",
+      "S",
+      "P",
+      "C",
+      "F",
+      "O",
+      "V",
+      "I",
+      "Q",
+      "J",
+      "D",
+      "K",
+      "E",
+      "H",
+      "H",
+      "M",
+      "I",
+      "O",
+      "V",
+      "B",
+      "Q",
+      "T",
+      "N",
+      "I",
+      "S",
+      "Q",
+      "I",
+      "M",
+      "E",
+      "Q",
+      "V",
+      "S",
+      "D",
+      "G",
+      "F",
+      "K",
+      "S",
+      "F",
+      "X",
+      "X",
+      "D",
+      "C",
+      "N",
+      "K",
+      "M",
+      "S",
+      "B",
+      "L",
+      "V",
+      "P",
+      "M",
+      "D",
+      "B",
+      "T",
+      "D",
+      "D",
+      "Y",
+      "Q",
+      "F",
+      "Q",
+      "G",
+      "U",
+      "J",
+      "P",
+      "G",
+      "U",
+      "U",
+      "X",
+      "P",
+      "O",
+      "K",
+      "G",
+      "X",
+      "C",
+      "S",
+      "U",
+      "B",
+      "B",
+      "U",
+      "Q",
+      "S",
+      "G",
+      "F",
+      "W",
+      "U",
+      "Z",
+      "N",
+      "P",
+      "H",
+      "R",
+      "A",
+      "Y",
+      "V",
+      "Y",
+      "B",
+      "X",
+      "Y",
+      "C",
+      "W",
+      "Q",
+      "X",
+      "G",
+      "P",
+      "H",
+      "L",
+      "W",
+      "U",
+      "M",
+      "J",
+      "A",
+      "W",
+      "I",
+      "S",
+      "R",
+      "W",
+      "S",
+      "N",
+      "B",
+      "S",
+      "E",
+      "L",
+      "I",
+      "G",
+      "Q",
+      "D",
+      "V",
+      "S",
+      "T",
+      "C",
+      "Y",
+      "S",
+      "D",
+      "J",
+      "V",
+      "H",
+      "S",
+      "T",
+      "N",
+      "Y",
+      "T",
+      "J",
+      "G",
+      "X",
+      "M",
+      "E",
+      "V",
+      "M",
+      "Q",
+      "I",
+      "F",
+      "N",
+      "L",
+      "K",
+      "R",
+      "K",
+      "H",
+      "P",
+      "A",
+      "E",
+      "E",
+      "J",
+      "X",
+      "G",
+      "J",
+      "F",
+      "P",
+      "J",
+      "Z",
+      "I",
+      "N",
+      "O",
+      "V",
+      "X",
+      "V",
+      "H",
+      "L",
+      "L",
+      "X",
+      "I",
+      "V",
+      "G",
+      "O",
+      "P",
+      "I",
+      "U",
+      "N",
+      "C",
+      "A",
+      "O",
+      "T",
+      "U",
+      "X",
+      "A",
+      "Z",
+      "E",
+      "T",
+      "S",
+      "W",
+      "R",
+      "J",
+      "C",
+      "E",
+      "R",
+      "T",
+      "V",
+      "F",
+      "O",
+      "O",
+      "W"
+    ],
+    "preserve_task_answer": [
+      "P",
+      "M",
+      "K",
+      "N",
+      "L",
+      "F",
+      "J",
+      "X",
+      "O",
+      "A",
+      "F",
+      "M",
+      "M",
+      "R",
+      "R",
+      "R",
+      "C",
+      "Z",
+      "I",
+      "D",
+      "I",
+      "A",
+      "H",
+      "U",
+      "J",
+      "A",
+      "M",
+      "P",
+      "M",
+      "K",
+      "R",
+      "F",
+      "K",
+      "S",
+      "E",
+      "S",
+      "O",
+      "N",
+      "D",
+      "R",
+      "U",
+      "K",
+      "I",
+      "J",
+      "U",
+      "K",
+      "H",
+      "X",
+      "D",
+      "E",
+      "G",
+      "J",
+      "N",
+      "F",
+      "W",
+      "M",
+      "Q",
+      "W",
+      "B",
+      "J",
+      "T",
+      "S",
+      "R",
+      "E",
+      "K",
+      "N",
+      "R",
+      "U",
+      "R",
+      "R",
+      "J",
+      "Y",
+      "V",
+      "J",
+      "G",
+      "Q",
+      "L",
+      "S",
+      "U",
+      "L",
+      "O",
+      "L",
+      "M",
+      "K",
+      "F",
+      "P",
+      "T",
+      "U",
+      "F",
+      "D",
+      "P",
+      "V",
+      "D",
+      "H",
+      "S",
+      "P",
+      "Z",
+      "E",
+      "Q",
+      "A",
+      "I",
+      "T",
+      "W",
+      "D",
+      "U",
+      "R",
+      "I",
+      "X",
+      "N",
+      "P",
+      "J",
+      "N",
+      "U",
+      "X",
+      "C",
+      "S",
+      "H",
+      "K",
+      "D",
+      "G",
+      "S",
+      "N",
+      "I",
+      "M",
+      "J",
+      "N",
+      "E",
+      "M",
+      "X",
+      "N",
+      "A",
+      "R",
+      "E",
+      "S",
+      "Q",
+      "O",
+      "H",
+      "Z",
+      "T",
+      "S",
+      "I",
+      "F",
+      "B",
+      "Q",
+      "B",
+      "J",
+      "C",
+      "Q",
+      "A",
+      "F",
+      "W",
+      "V",
+      "M",
+      "D",
+      "J",
+      "S",
+      "Q",
+      "J",
+      "G",
+      "C",
+      "O",
+      "D",
+      "B",
+      "P",
+      "F",
+      "L",
+      "J",
+      "E",
+      "O",
+      "X",
+      "P",
+      "X",
+      "M",
+      "D",
+      "D",
+      "T",
+      "S",
+      "P",
+      "C",
+      "F",
+      "O",
+      "V",
+      "I",
+      "Q",
+      "J",
+      "D",
+      "K",
+      "E",
+      "H",
+      "H",
+      "M",
+      "I",
+      "P",
+      "M",
+      "U",
+      "Y",
+      "A",
+      "W",
+      "B",
+      "O",
+      "X",
+      "F",
+      "L",
+      "X",
+      "R",
+      "R",
+      "U",
+      "V",
+      "Z",
+      "I",
+      "D",
+      "I",
+      "A",
+      "U",
+      "S",
+      "B",
+      "A",
+      "M",
+      "V",
+      "F",
+      "D",
+      "C",
+      "I",
+      "J",
+      "K",
+      "T",
+      "S",
+      "T",
+      "H",
+      "F",
+      "P",
+      "Z",
+      "K",
+      "L",
+      "I",
+      "B",
+      "R",
+      "M",
+      "Z",
+      "Q",
+      "W",
+      "Y",
+      "B",
+      "O",
+      "A",
+      "E",
+      "P",
+      "K",
+      "H",
+      "W",
+      "T",
+      "S",
+      "R",
+      "E",
+      "F",
+      "N",
+      "R",
+      "I",
+      "Y",
+      "D",
+      "D",
+      "Z",
+      "O",
+      "U",
+      "O",
+      "L",
+      "S",
+      "N",
+      "L",
+      "O",
+      "L",
+      "M",
+      "K",
+      "F",
+      "M",
+      "W",
+      "H",
+      "T",
+      "Y",
+      "H",
+      "Y",
+      "I",
+      "P",
+      "O",
+      "C",
+      "M",
+      "S",
+      "R",
+      "G",
+      "U",
+      "T",
+      "W",
+      "D",
+      "Q",
+      "O",
+      "I",
+      "X",
+      "Q",
+      "E",
+      "Q",
+      "J",
+      "K",
+      "K",
+      "X",
+      "I",
+      "T",
+      "S",
+      "D",
+      "Z",
+      "Z",
+      "V",
+      "A",
+      "Q",
+      "J",
+      "R",
+      "U",
+      "E",
+      "M",
+      "O",
+      "P",
+      "X",
+      "N",
+      "A",
+      "R",
+      "V",
+      "O",
+      "Q",
+      "V",
+      "Z",
+      "T",
+      "I",
+      "G",
+      "H",
+      "L",
+      "Z",
+      "P",
+      "M",
+      "A",
+      "K",
+      "I",
+      "H",
+      "V",
+      "D",
+      "F",
+      "R",
+      "S",
+      "Q",
+      "J",
+      "G",
+      "X",
+      "O",
+      "C",
+      "B",
+      "Z",
+      "F",
+      "C",
+      "E",
+      "E",
+      "O",
+      "X",
+      "P",
+      "X",
+      "M",
+      "D",
+      "I",
+      "I",
+      "P",
+      "Q",
+      "V",
+      "V",
+      "L",
+      "P",
+      "U",
+      "M",
+      "H",
+      "K",
+      "J",
+      "D",
+      "H",
+      "M",
+      "M",
+      "F",
+      "X",
+      "J"
+    ]
+  }
+}

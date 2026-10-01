@@ -1,0 +1,86 @@
+{
+  "repository": "https://github.com/goodfire-ai/causalab",
+  "revision": "8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e",
+  "retrieved_on": "2026-10-01",
+  "scope": "Public design inputs and source records only. No upstream code executed; no new model inference.",
+  "files": {
+    "pointer_data": {
+      "path": "demos/papers/artifacts/data/mcqa_pointer/data.json",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/artifacts/data/mcqa_pointer/data.json",
+      "sha256": "41049a64b404bce776ce1af851324f842daff2a23a034ba802a0c39b38e7d3e1",
+      "bytes": 216849
+    },
+    "symbol_data": {
+      "path": "demos/papers/artifacts/data/mcqa_symbol/data.json",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/artifacts/data/mcqa_symbol/data.json",
+      "sha256": "a792496789a9330003053dc35fef1731f6d90f17e1f9836c83de924a93a97898",
+      "bytes": 216829
+    },
+    "causal_model": {
+      "path": "causalab/tasks/MCQA/causal_models.py",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/causalab/tasks/MCQA/causal_models.py",
+      "sha256": "519a1946ea75597bec126409b88313b1b48c3177748cf2f32292ce6c29e6a54f",
+      "bytes": 3407
+    },
+    "pointer_builder": {
+      "path": "demos/papers/workflows/scripts/mcqa_pointer/build_dataset.py",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/workflows/scripts/mcqa_pointer/build_dataset.py",
+      "sha256": "76418bf53c30d9e5821c759b637dac56323aabcd51d073421d3ee0352ba0ac59",
+      "bytes": 5247
+    },
+    "symbol_builder": {
+      "path": "demos/papers/workflows/scripts/mcqa_symbol/build_dataset.py",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/workflows/scripts/mcqa_symbol/build_dataset.py",
+      "sha256": "c47c8eb061eeba0a3aff409d4867ec6dd84d098d637cd4fac912a364c5e3f017",
+      "bytes": 5109
+    },
+    "pointer_results": {
+      "path": "demos/papers/artifacts/figures/mcqa_pointer/iia_plotted.json",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/artifacts/figures/mcqa_pointer/iia_plotted.json",
+      "sha256": "5d70d4e0f37bf01df11fd18e41552679fa117a032e16ebe003ea979a858fadae",
+      "bytes": 4046
+    },
+    "symbol_results": {
+      "path": "demos/papers/artifacts/figures/mcqa_symbol/iia_plotted.json",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/artifacts/figures/mcqa_symbol/iia_plotted.json",
+      "sha256": "55f33e7d925cde6948cac91f84c74dce7d36bd0706d287a2b64d49ed714e4db9",
+      "bytes": 3861
+    },
+    "pointer_guide": {
+      "path": "demos/papers/mcqa_pointer.md",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/mcqa_pointer.md",
+      "sha256": "224b226efc4b77e5206b04385eda9cd9037c419a93f296cba69fe5460cabe0c4",
+      "bytes": 14792
+    },
+    "symbol_guide": {
+      "path": "demos/papers/mcqa_symbol.md",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/mcqa_symbol.md",
+      "sha256": "65ba4b94fa27881a490acd6fbef50e3ab9bf58a3b31aa43759d0ba7d03cc7b3f",
+      "bytes": 14334
+    },
+    "pointer_fit": {
+      "path": "demos/papers/protocols/mcqa_pointer_das_fit.json",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/protocols/mcqa_pointer_das_fit.json",
+      "sha256": "470e5e3429e6ffbf10ee408abab104c2bcbc0bb98162bf6dfbb8a8c70f6e99f9",
+      "bytes": 2172
+    },
+    "symbol_fit": {
+      "path": "demos/papers/protocols/mcqa_symbol_das_fit.json",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/protocols/mcqa_symbol_das_fit.json",
+      "sha256": "5624325a32fc6606be0d9bb57ab3d061088489274778dd217bac3d82dd9895c8",
+      "bytes": 2087
+    },
+    "pointer_apply": {
+      "path": "demos/papers/protocols/mcqa_pointer_das_apply.json",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/protocols/mcqa_pointer_das_apply.json",
+      "sha256": "d582da6bd83e6e1ffbb330a0dd9fba80593707f7f2b2ff8427883256dbcf6d4f",
+      "bytes": 1862
+    },
+    "symbol_apply": {
+      "path": "demos/papers/protocols/mcqa_symbol_das_apply.json",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/protocols/mcqa_symbol_das_apply.json",
+      "sha256": "2070713d046cc92dc8d94d6069e8e85a496875e32228970a3c70c6258eb7ca1b",
+      "bytes": 1857
+    }
+  }
+}
