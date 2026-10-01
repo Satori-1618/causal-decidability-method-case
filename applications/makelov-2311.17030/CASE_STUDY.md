@@ -5,7 +5,7 @@ information it transfers?** This application of causal decidability turns that q
 into explicit rival predictions, adds interventions where those predictions differ,
 and records both the distinctions obtained and the questions still unanswered.
 
-Start here for the current Makelov branch. The [general method](../../README.md#the-method)
+Start here for the current Makelov branch. The [general method](../../README.md)
 is already defined; this page explains what applying it contributes. The original
 [application README](README.md) is a hash-frozen historical archive, not the current
 round index. [Verify the results](VERIFICATION.md) without downloading a model.

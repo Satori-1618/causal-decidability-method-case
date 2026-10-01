@@ -24,6 +24,11 @@ Two profiles were fixed on development split B:
 
 `W_T` is our narrow, operational concentration rival. It is not a general mechanism
 claim made by the paper, so excluding it does not refute the paper's mixture model.
+The frozen analysis code states a caveat fixed before confirmation (`W_T_CAVEAT` in
+[`src/mixing_round1_analysis.py`](src/mixing_round1_analysis.py), repeated in
+[`summary.json`](results/confirmation/summary.json)): `W_T` is biased toward exclusion
+when case-level argmaxes vary, and the bias is largest in the selected cell. Read the
+exclusion below with this bias in mind.
 
 The frozen readout scores single-token, capitalised answer forms **without a leading
 space**. This differs from the upstream in-context entity-token readout, which includes
