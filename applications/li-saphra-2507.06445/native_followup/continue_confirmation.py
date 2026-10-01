@@ -68,7 +68,7 @@ def main():
                         raise ValueError('Completed artifact changed: '+name+'/'+file)
                 out.parent.mkdir(exist_ok=True,parents=True)
                 shutil.copytree(source/'tasks'/name,out)
-                result={**entry,'status':'complete','carried_from':str(source/'tasks'/name)}
+                result={**entry,'status':'completed','carried_from':str(source/'tasks'/name)}
             elif key==('0nbysgqs',2):
                 if not (source/'tasks'/name/'stage1_receipt.json').exists():
                     raise ValueError('Documented failed task artifact missing')
@@ -78,7 +78,7 @@ def main():
                         'carried_from':str(source/'tasks'/name)}
             else:
                 try:
-                    result={**run_task(task,cases,lock,out,float(freeze['numerical_tolerance'])),'status':'complete'}
+                    result={**run_task(task,cases,lock,out,float(freeze['numerical_tolerance'])),'status':'completed'}
                 except AssertionError as error:
                     out.mkdir(exist_ok=True,parents=True)
                     failure={'status':'technical_invalidity','error':repr(error),'traceback':traceback.format_exc()}
@@ -90,7 +90,7 @@ def main():
             dump(args.output/'manifest.json',manifest)
             print(result['status'],name,flush=True)
         assert len(manifest['tasks'])==len(freeze['tasks'])
-        manifest['status']='completed_with_declared_technical_outcomes'
+        manifest['status']='completed_with_invalid_tasks'
     except Exception as error:
         manifest['status']='failed'
         manifest['error']=repr(error)
