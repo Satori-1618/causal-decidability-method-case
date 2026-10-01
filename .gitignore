@@ -4,6 +4,7 @@ __pycache__/
 build/
 dist/
 .venv/
+.venv-round2/
 # fetched upstream inputs and locally rebuilt files of applications: never committed
 applications/*/artifacts/*/*
 !applications/*/artifacts/*/source_manifest.json

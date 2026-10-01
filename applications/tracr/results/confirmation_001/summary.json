@@ -1,0 +1,41 @@
+{
+  "all_qualified": true,
+  "elapsed_seconds": 5.287001958000474,
+  "family_count": 128,
+  "forward_counts": {
+    "native": 990,
+    "noop": 768,
+    "patch": 768,
+    "self_patch": 768
+  },
+  "hashes": {
+    "manifest.json": "1ac05fe3807a588cfef445aefc1dfd183c908a89a66cb6c6084ef699b80c301d",
+    "records.jsonl": "7f6ea39f663c5cb4c571619aeb53ec0771ae83c1db8dc55c5c2bd63636efebc9",
+    "tensors.npz": "68b4df0ead35b3b5d1d3cc161da03b7feb4ff631f33f0d44bfac7f7115922f99",
+    "trajectories.json": "81cb511e7d109856b737c67811eac395899e8f413f7fe3dcecc8b5f925134bae"
+  },
+  "mechanistic_claim_qualified": true,
+  "paired_precision_max_error": 2.2441022928809673e-08,
+  "phase": "confirmation",
+  "population_decision": {
+    "adequate": true,
+    "bounds": {
+      "alpha": 0.05,
+      "coverage": "each bound separately is one-sided 1-alpha",
+      "lower_rate": 0.9768676080826525,
+      "lower_successes": 116980279,
+      "upper_rate": 1.0,
+      "upper_successes": 119750392
+    },
+    "minimum_success_rate": 0.95,
+    "null_upper_tail": 0.001408055361881615,
+    "population_size": 119750392,
+    "sample_size": 128,
+    "statistical_looks": 1,
+    "status": "adequate",
+    "successes": 128
+  },
+  "record_count": 768,
+  "site_A_successes": 128,
+  "site_B_positive_controls": 0
+}

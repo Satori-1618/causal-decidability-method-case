@@ -1,0 +1,24 @@
+{
+  "all_qualified": true,
+  "confirmation_start_eligible": true,
+  "elapsed_seconds": 3.3254229170124745,
+  "family_count": 8,
+  "forward_counts": {
+    "native": 64,
+    "noop": 96,
+    "patch": 96,
+    "self_patch": 96
+  },
+  "hashes": {
+    "manifest.json": "a5eff892d211af8bdc20161d6f32d816e8d045d67b46b3a3df9013def965f82c",
+    "records.jsonl": "d8232d76dfd5a6a40f2ee83a85cbc7ab0339c61528d9a0605cdec631e4375c3e",
+    "tensors.npz": "88d981293c4f143576786ad404dc5665efdb81eec6e1defee5d51631107f985e",
+    "trajectories.json": "49d3353f521eed76325d90f0a4563b0fe25ef31a7d911796c74a3d385ca36872"
+  },
+  "paired_precision_max_error": 2.2441022928809673e-08,
+  "phase": "development",
+  "proposed_numeric_allowance": 7.62939453125e-06,
+  "record_count": 96,
+  "site_A_successes": 8,
+  "site_B_positive_controls": 8
+}

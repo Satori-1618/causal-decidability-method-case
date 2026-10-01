@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "causal-decidability"
-version = "0.2.0"
+version = "0.3.0"
 description = "Plan and check discriminating causal experiments: can this design tell the declared explanations apart?"
 readme = "README.md"
 authors = [{name = "Felix Borck"}]
@@ -16,8 +16,12 @@ dependencies = []
 Repository = "https://github.com/Satori-1618/causal-decidability-method-case"
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "numpy>=1.24"]
+test-hooks = ["pytest", "numpy>=1.24", "torch>=2.2"]
 figures = ["matplotlib"]
+analysis = ["numpy>=1.24"]
+# The frozen Tracr verifier compares its SciPy tail probability exactly.
+verify = ["numpy>=1.24", "scipy==1.15.3"]
 
 [project.scripts]
 causal-decide = "causal_decidability.cli:main"

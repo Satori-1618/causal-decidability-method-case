@@ -1,0 +1,99 @@
+{
+  "status": "retrospective illustrative replay; not an adaptive experiment",
+  "case_selection": "First linear context_switch case in archived generation order; chosen after outcomes for explanation.",
+  "case_id": "fc04b0fee691e4362c18",
+  "truth": "context_switch",
+  "samples_per_cell": 8,
+  "menu_cells": 16,
+  "alpha": 0.005,
+  "noise_model": "known independent Gaussian errors added to deterministic fp32 graph outputs",
+  "numerical_bound": 9.94091871153735e-07,
+  "stages": [
+    {
+      "cumulative_cells": [
+        "native:c0",
+        "full:c0",
+        "native:c1",
+        "full:c1"
+      ],
+      "displayed_cell": "full:c0",
+      "mean": 0.2037362235291072,
+      "comparison_radius": 0.0467625419023033,
+      "retained_groups": [
+        [
+          "channel_a",
+          "channel_a_alias"
+        ],
+        [
+          "channel_b"
+        ],
+        [
+          "balanced"
+        ],
+        [
+          "joint"
+        ],
+        [
+          "context_switch"
+        ],
+        [
+          "context_switch_inverse"
+        ]
+      ],
+      "outcome": "insufficient_evidence"
+    },
+    {
+      "cumulative_cells": [
+        "native:c0",
+        "full:c0",
+        "native:c1",
+        "full:c1",
+        "read_a:c0:d1"
+      ],
+      "displayed_cell": "read_a:c0:d1",
+      "mean": 0.20011165416891805,
+      "comparison_radius": 0.047731408824195534,
+      "retained_groups": [
+        [
+          "channel_a",
+          "channel_a_alias"
+        ],
+        [
+          "context_switch"
+        ]
+      ],
+      "outcome": "partially_resolved"
+    },
+    {
+      "cumulative_cells": [
+        "native:c0",
+        "full:c0",
+        "native:c1",
+        "full:c1",
+        "read_a:c0:d1",
+        "read_a:c1:d1"
+      ],
+      "displayed_cell": "read_a:c1:d1",
+      "mean": -0.0023271290218248477,
+      "comparison_radius": 0.04002415503420502,
+      "retained_groups": [
+        [
+          "context_switch"
+        ]
+      ],
+      "outcome": "resolved"
+    }
+  ],
+  "full_context_1": {
+    "mean": 0.19333481065174482,
+    "radius": 0.05384609741533371
+  },
+  "input_sha256": {
+    "applications/design-comparison/results/development_001/manifest.json": "f26ccd64abbd74d0a21065c62e618684e1f7e1d4d1c0383942d92de022aa9c86",
+    "applications/design-comparison/results/development_001/public_cases.jsonl": "9b37780709d81ae78c46f6d0f00c5fcc10def71fe2f50a4cb269716ce8254b0d",
+    "applications/design-comparison/results/development_001/measurements.jsonl": "90d4dfa72a7448fa5bce175c800ab7809197f7ab3fe89c30a1ca8ecadcfc5443",
+    "applications/design-comparison/results/development_001/private_labels.jsonl": "070621529a0cdcb4b5a5cc8365b33e602900772eec2b9b18b6ce9e07787b419d"
+  },
+  "builder_sha256": "77187a9eaeafbb636ea32df50f24999b710485575a3700a66558b38e1770a345",
+  "classifier_sha256": "a83a1c8ff140385b61ad52e36d4e13698efd647bd9c20e03ef10cbe4e4e8eb3f"
+}

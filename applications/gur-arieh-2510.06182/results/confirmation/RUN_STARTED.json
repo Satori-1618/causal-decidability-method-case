@@ -1,0 +1,31 @@
+{
+  "manifest_sha256": "11a7beb825e94ca537944d329f0c74bb504a5adaaeb5e7078ddb7f6d5f8ce327",
+  "started": "2026-09-28T17:55:59+02:00",
+  "git_head": "e96b357e1e5a189656166a451ad13727d1d67375",
+  "manifest_path": "applications/gur-arieh-2510.06182/FREEZE.json",
+  "git_dirty": false,
+  "seed_base": 4000000,
+  "case_id_prefix": "confirmation",
+  "frozen_hashes_verified": {
+    "code": 13,
+    "data": 11,
+    "model": 9
+  },
+  "upstream": {
+    "status": "clone matches lock",
+    "commit": "c53372c606e7cadf2494d2ac7b08e466042052df",
+    "files": 11,
+    "cited_lines": 58,
+    "tasks": 10
+  },
+  "runtime_versions": {
+    "passed": true,
+    "python": "3.11.15",
+    "packages": {
+      "torch": "2.5.1",
+      "transformers": "4.57.3",
+      "tokenizers": "0.22.2",
+      "numpy": "1.26.4"
+    }
+  }
+}

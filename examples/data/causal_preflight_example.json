@@ -1,0 +1,29 @@
+{
+  "description": "Hypothetical two-path circuit; illustrative inputs, not LLM evidence.",
+  "prediction_source": "Toy rules: full_patch=a+b, path_a_only=a. Rival A: a=0.2, b=1.8. Rival B: a=0.3, b=1.7. Decimal constants define fixed mean predictions.",
+  "independent_unit": "One independently sampled source family; paired conditions collapsed to one score per cell per family",
+  "n": 64,
+  "alpha": 0.05,
+  "cells": [
+    {
+      "id": "full_patch",
+      "sd_per_unit": 0.3,
+      "sd_kind": "known_gaussian",
+      "sd_source": "Teaching assumption: independent Gaussian family scores with known SD 0.3, not an estimated LLM variance.",
+      "numerical_allowance": 0.005,
+      "numerical_source": "Teaching assumption: absolute numerical error in this final mean is bounded by 0.005. No empirical calibration is claimed."
+    },
+    {
+      "id": "path_a_only",
+      "sd_per_unit": 0.3,
+      "sd_kind": "known_gaussian",
+      "sd_source": "Teaching assumption: independent Gaussian family scores with known SD 0.3, not an estimated LLM variance.",
+      "numerical_allowance": 0.005,
+      "numerical_source": "Teaching assumption: absolute numerical error in this final mean is bounded by 0.005. No empirical calibration is claimed."
+    }
+  ],
+  "predictions": {
+    "A": [2.0, 0.2],
+    "B": [2.0, 0.3]
+  }
+}

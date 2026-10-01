@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "application": "gur-arieh-2510.06182",
+  "round": 1,
+  "stage": "pilot",
+  "label": "DEVELOPMENT PILOT: not used to estimate frozen anchors or delta",
+  "authorized": "2026-09-28, by the user, for the pilot only",
+  "pilot": {
+    "task": "music_performance",
+    "n": 7,
+    "layer": 18,
+    "diagnostic_layer": 19,
+    "families": 80,
+    "seed_base": 1000000,
+    "cells": [
+      [
+        "c1",
+        {
+          "i_P": 3,
+          "i_L": 1,
+          "i_R": 5,
+          "i_N": 0
+        }
+      ],
+      [
+        "c2",
+        {
+          "i_P": 3,
+          "i_L": 5,
+          "i_R": 1,
+          "i_N": 0
+        }
+      ],
+      [
+        "c3",
+        {
+          "i_P": 3,
+          "i_L": 1,
+          "i_R": 5,
+          "i_N": 6
+        }
+      ],
+      [
+        "c4",
+        {
+          "i_P": 3,
+          "i_L": 5,
+          "i_R": 1,
+          "i_N": 6
+        }
+      ]
+    ],
+    "cell_assignment": "family i uses cells[i mod 4]",
+    "dtype": "bfloat16",
+    "attention": "eager",
+    "reference_dtype": "float32",
+    "fp32_reference_families": 32,
+    "audit_full_logit_families": 4,
+    "s_min_quantile": 0.99,
+    "s_min_floor": 0.1,
+    "d_min": 0.2,
+    "identity_tolerance": 0.001,
+    "dtype_tolerance_T": 0.01,
+    "agreement_transfer_floor": 0.9,
+    "agreement_resolution_floor": 0.9,
+    "yield_floor": 0.5,
+    "resolution_rate_floor": 0.9
+  },
+  "git_head": "a8e4ea194850a18c8844cac06b92a7077a724951",
+  "git_dirty": false,
+  "code_files_sha256": {
+    "applications/gur-arieh-2510.06182/src/mixing_prompts.py": "7a4fcfa92752312b7e91229b2f74fe1d8de6c578212ec88745b1a820c590a818",
+    "applications/gur-arieh-2510.06182/src/mixing_runner.py": "282474cba8920f530373d21c56491b8c134eb0b71d89680699f222791021d939",
+    "applications/gur-arieh-2510.06182/src/mixing_round1_design.py": "a52a43d7c8bd4bb190f69a44b9b057b0998955d0c4d95b72381e732f8cb8b935",
+    "applications/gur-arieh-2510.06182/src/mixing_round1_analysis.py": "685aa71d3d16fd4e44fdb1a9d27e620685960cfd5c3c2c6eaeec34156017e3d4",
+    "applications/gur-arieh-2510.06182/scripts/lock_sources.py": "4c8a18b4aeac0e94a56e2dc30cacc5c5d278780e71074852ce8b46299cce7172",
+    "applications/gur-arieh-2510.06182/scripts/run_mixing_pilot.py": "48da6c1877ac329e9076439166682d8e346b25ad364b3b25a0d431edfb4fe0c7",
+    "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py": "53cdc62acd7a930f76d1116400ec4b35bf1da2907bd9e1a0b30c3335332280b9"
+  },
+  "proposed_values_sha256": "bf91d63d48adfb0e799ecb7e93bdf019dbd96be6f94486c053447c2a6d036830",
+  "upstream": {
+    "path": "/Users/felixb/causal-decidability-deps/mixing-mechs",
+    "check": {
+      "status": "clone matches lock",
+      "commit": "c53372c606e7cadf2494d2ac7b08e466042052df",
+      "files": 11,
+      "cited_lines": 58,
+      "tasks": 10
+    }
+  },
+  "task_spec": {
+    "constant": "SCHEMA_MUSIC_PERFORMANCE",
+    "name": "music_performance",
+    "categories": [
+      "Musician",
+      "Genre",
+      "Instrument"
+    ],
+    "items": {
+      "Musician": [
+        "John",
+        "Mary",
+        "Carla",
+        "Bob",
+        "Sam",
+        "Alex",
+        "Emma",
+        "David",
+        "Sarah",
+        "Michael",
+        "Lisa",
+        "James",
+        "Anna",
+        "Daniel",
+        "Sophie",
+        "Chris",
+        "Rachel",
+        "Tom",
+        "Nina",
+        "Peter",
+        "Laura",
+        "George",
+        "Mark"
+      ],
+      "Genre": [
+        "jazz",
+        "classical",
+        "rock",
+        "blues",
+        "folk",
+        "electronic",
+        "country",
+        "pop",
+        "funk",
+        "metal",
+        "rap",
+        "techno",
+        "house",
+        "trance",
+        "soul",
+        "punk",
+        "disco",
+        "indie",
+        "gospel",
+        "ska",
+        "opera",
+        "latin",
+        "dub",
+        "ambient"
+      ],
+      "Instrument": [
+        "piano",
+        "guitar",
+        "violin",
+        "drums",
+        "flute",
+        "trumpet",
+        "bass",
+        "accordion",
+        "organ",
+        "tabla",
+        "triangle",
+        "recorder",
+        "whistle",
+        "bell",
+        "horn",
+        "pipe",
+        "stick",
+        "clap",
+        "drum",
+        "string",
+        "block",
+        "beat",
+        "tam"
+      ]
+    },
+    "definitions": {
+      "row_default": "{Musician} performed {Genre} music on the {Instrument}",
+      "ordering_012": "{Musician} performed {Genre} music on the {Instrument}"
+    },
+    "prefix": "At the music festival, ",
+    "capitalize_first_clause": false,
+    "queries": {
+      "Q:Genre_Musician A:Instrument": {
+        "question": "Respond in one word, only the answer and nothing else: What did {Musician} play {Genre} music on?",
+        "answer_category": "Instrument"
+      },
+      "Q:Musician A:Genre": {
+        "question": "Respond in one word, only the answer and nothing else: What music did {Musician} play?",
+        "answer_category": "Genre"
+      },
+      "Q:Instrument_Musician A:Genre": {
+        "question": "Respond in one word, only the answer and nothing else: What music did {Musician} play on the {Instrument}?",
+        "answer_category": "Genre"
+      },
+      "Q:Genre_Instrument A:Musician": {
+        "question": "Respond in one word, only the answer and nothing else: What musician played {Genre} music on the {Instrument}?",
+        "answer_category": "Musician"
+      }
+    },
+    "max_new_tokens": 3
+  },
+  "single_token_pools": {
+    "Musician": [
+      "John",
+      "Mary",
+      "Carla",
+      "Bob",
+      "Sam",
+      "Alex",
+      "Emma",
+      "David",
+      "Sarah",
+      "Michael",
+      "Lisa",
+      "James",
+      "Anna",
+      "Daniel",
+      "Sophie",
+      "Chris",
+      "Rachel",
+      "Tom",
+      "Nina",
+      "Peter",
+      "Laura",
+      "George",
+      "Mark"
+    ],
+    "Genre": [
+      "jazz",
+      "classical",
+      "rock",
+      "blues",
+      "folk",
+      "electronic",
+      "country",
+      "pop",
+      "funk",
+      "metal",
+      "rap",
+      "techno",
+      "house",
+      "trance",
+      "soul",
+      "punk",
+      "disco",
+      "indie",
+      "gospel",
+      "ska",
+      "opera",
+      "latin",
+      "dub",
+      "ambient"
+    ],
+    "Instrument": [
+      "piano",
+      "guitar",
+      "violin",
+      "drums",
+      "flute",
+      "trumpet",
+      "bass",
+      "accordion",
+      "organ",
+      "tabla",
+      "triangle",
+      "recorder",
+      "whistle",
+      "bell",
+      "horn",
+      "pipe",
+      "stick",
+      "clap",
+      "drum",
+      "string",
+      "block",
+      "beat",
+      "tam"
+    ]
+  },
+  "model": {
+    "id": "google/gemma-2-2b-it",
+    "revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+    "snapshot": "/Users/felixb/.cache/huggingface/hub/models--google--gemma-2-2b-it/snapshots/299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+    "hashes": {
+      "files": {
+        "config.json": {
+          "sha256": "eacec6c5ca317a87ed2c46789d9705b9274db5027e7ba59da739bfae23addb55",
+          "size": 838,
+          "cache_blob": "05131f6b339647ddff99327b199ac3d34a50bf2e",
+          "git_oid": "05131f6b339647ddff99327b199ac3d34a50bf2e",
+          "content_address_matches": true
+        },
+        "generation_config.json": {
+          "sha256": "a543a5d299bc2b20c52bd87ed174f561266510b57a392e12b5b5d758d798ce05",
+          "size": 187,
+          "cache_blob": "2da7d771ff9ea5f81a30bced0e7390b52061c08e",
+          "git_oid": "2da7d771ff9ea5f81a30bced0e7390b52061c08e",
+          "content_address_matches": true
+        },
+        "model-00001-of-00002.safetensors": {
+          "sha256": "532d792c9178805064170a3ec485b7dedbfccc6fd297b92c31a6091b6c7e41bf",
+          "size": 4988025760,
+          "cache_blob": "532d792c9178805064170a3ec485b7dedbfccc6fd297b92c31a6091b6c7e41bf",
+          "content_address_matches": true
+        },
+        "model-00002-of-00002.safetensors": {
+          "sha256": "6d6d9ce84db398fb6e0191f91542e5da0a73da2cb695e172a24edc2146dc8d20",
+          "size": 240691728,
+          "cache_blob": "6d6d9ce84db398fb6e0191f91542e5da0a73da2cb695e172a24edc2146dc8d20",
+          "content_address_matches": true
+        },
+        "model.safetensors.index.json": {
+          "sha256": "ada0043f3e3b2e5ab2f445cad9c0fbbf9d91ad444675e6a82b822591c63abf5a",
+          "size": 24223,
+          "cache_blob": "022daff51a2616bf88f5f0d0eac5dbd525e7cd24",
+          "git_oid": "022daff51a2616bf88f5f0d0eac5dbd525e7cd24",
+          "content_address_matches": true
+        },
+        "special_tokens_map.json": {
+          "sha256": "baec30ea10906f16adb8c18af7a34023002c1746542612b8b41c9f09e1351351",
+          "size": 636,
+          "cache_blob": "8d6368f7e735fbe4781bf6e956b7c6ad0586df80",
+          "git_oid": "8d6368f7e735fbe4781bf6e956b7c6ad0586df80",
+          "content_address_matches": true
+        },
+        "tokenizer.json": {
+          "sha256": "3f289bc05132635a8bc7aca7aa21255efd5e18f3710f43e3cdb96bcd41be4922",
+          "size": 17525357,
+          "cache_blob": "3f289bc05132635a8bc7aca7aa21255efd5e18f3710f43e3cdb96bcd41be4922",
+          "content_address_matches": true
+        },
+        "tokenizer.model": {
+          "sha256": "61a7b147390c64585d6c3543dd6fc636906c9af3865a5548f27f31aee1d4c8e2",
+          "size": 4241003,
+          "cache_blob": "61a7b147390c64585d6c3543dd6fc636906c9af3865a5548f27f31aee1d4c8e2",
+          "content_address_matches": true
+        },
+        "tokenizer_config.json": {
+          "sha256": "cb32b7929c62608d46572e813112b3ad8a841fb98fdd6a4da8559e368a951c89",
+          "size": 46996,
+          "cache_blob": "36ba12877e7efaba5252f7b17ab337a59d953563",
+          "git_oid": "36ba12877e7efaba5252f7b17ab337a59d953563",
+          "content_address_matches": true
+        }
+      },
+      "passed": true,
+      "problems": []
+    }
+  },
+  "gate3_tokens": {
+    "pools_kept": {
+      "Musician": 23,
+      "Genre": 24,
+      "Instrument": 23
+    },
+    "pools_dropped": {},
+    "chat_template_rendered_for_X": "<bos><start_of_turn>user\nX<end_of_turn>\n<start_of_turn>model\n",
+    "dropped_prefix": "<bos>",
+    "passed": true
+  },
+  "environment": {
+    "python": "3.11.15",
+    "executable": "/Users/felixb/causal-decidability-method-case/.venv-round2/bin/python",
+    "platform": "macOS-15.7.3-arm64-arm-64bit",
+    "machine": "arm64",
+    "device": "mps",
+    "mps_available": true,
+    "packages": {
+      "torch": "2.5.1",
+      "transformers": "4.57.3",
+      "tokenizers": "0.22.2",
+      "safetensors": "0.8.0",
+      "numpy": "1.26.4",
+      "huggingface-hub": "0.36.2",
+      "jinja2": "3.1.6",
+      "sentencepiece": "0.2.2",
+      "protobuf": "7.36.2",
+      "accelerate": "1.15.0"
+    },
+    "offline": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "started": "2026-09-28T17:55:59+02:00",
+  "execution": "float32 MPS/eager; CPU float32/eager gate 7",
+  "load_fp32_mps_seconds": 7.534139915995183,
+  "families_fp32_mps_seconds": 1828.6596251250012,
+  "counts": {
+    "c4": {
+      "generated": 305,
+      "qualifying": 300
+    }
+  },
+  "quota_met": true,
+  "mps_driver_gib_after_families": 11.447006225585938,
+  "load_fp32_cpu_seconds": 7.993425957996806,
+  "gate7_cpu_reference_seconds": 84.02033045799908,
+  "finished_model_work": "2026-09-28T18:28:14+02:00"
+}

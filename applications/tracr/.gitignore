@@ -1,0 +1,3 @@
+# Retrieved by scripts/setup.sh at the recorded revision, not an implicit submodule.
+artifacts/upstream/
+figures/*_rendered.png

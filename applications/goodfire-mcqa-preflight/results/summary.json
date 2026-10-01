@@ -1,0 +1,144 @@
+{
+  "source_revision": "8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e",
+  "analysis_sources_sha256": {
+    "run.py": "dd6af7fa57eafae6e8d1d7e9454b7959bd18df7c76eafc64044ba4f8f133b6ed",
+    "examples/causal_preflight.py": "5ffa95f9357794e0d7da83cd59721dc517473dd728f73c1bd26fde308ad8bc60",
+    "src/causal_decidability/design.py": "3d55a1885e1457cad8251d8e9d69b5ff8967eb25319bb377cfe42ca1122c3e0a",
+    "source_manifest.json": "981d1fbf818cd04a208d9602a346269a54b324dea732955befdbf4c42743f5ce"
+  },
+  "analysis": "Retrospective design audit of public inputs; zero model forwards.",
+  "scope": "Finite categorical prediction patterns of declared task-level rules only.",
+  "designs": {
+    "pointer": {
+      "rows": 192,
+      "identical_prediction_groups": [
+        [
+          "position_transfer"
+        ],
+        [
+          "preserve_task_answer",
+          "symbol_transfer"
+        ]
+      ],
+      "disagreeing_rows": {
+        "position_transfer vs symbol_transfer": 192,
+        "position_transfer vs preserve_task_answer": 192,
+        "symbol_transfer vs preserve_task_answer": 0
+      },
+      "measurement_resolution": "not assessed; categorical predictions have no numeric gap",
+      "splits": {
+        "train": 128,
+        "test": 64
+      },
+      "test_design_only": {
+        "rows": 64,
+        "identical_prediction_groups": [
+          [
+            "position_transfer"
+          ],
+          [
+            "preserve_task_answer",
+            "symbol_transfer"
+          ]
+        ],
+        "disagreeing_rows": {
+          "position_transfer vs symbol_transfer": 64,
+          "position_transfer vs preserve_task_answer": 64,
+          "symbol_transfer vs preserve_task_answer": 0
+        },
+        "measurement_resolution": "not assessed; categorical predictions have no numeric gap"
+      },
+      "published_clean_summary_not_recomputed": {
+        "base_accuracy": 0.875,
+        "counterfactual_accuracy": 0.828125,
+        "unpatched_label_rate": 0.0
+      },
+      "first_source_row": {
+        "recipient": "The shoe is blue. What color is the shoe?\nP. blue\nY. orange\nAnswer:",
+        "donor": "The shoe is blue. What color is the shoe?\nY. orange\nP. blue\nAnswer:",
+        "predictions": {
+          "position_transfer": "Y",
+          "symbol_transfer": "P",
+          "preserve_task_answer": "P"
+        }
+      }
+    },
+    "symbol": {
+      "rows": 192,
+      "identical_prediction_groups": [
+        [
+          "position_transfer",
+          "preserve_task_answer"
+        ],
+        [
+          "symbol_transfer"
+        ]
+      ],
+      "disagreeing_rows": {
+        "position_transfer vs symbol_transfer": 192,
+        "position_transfer vs preserve_task_answer": 0,
+        "symbol_transfer vs preserve_task_answer": 192
+      },
+      "measurement_resolution": "not assessed; categorical predictions have no numeric gap",
+      "splits": {
+        "train": 128,
+        "test": 64
+      },
+      "test_design_only": {
+        "rows": 64,
+        "identical_prediction_groups": [
+          [
+            "position_transfer",
+            "preserve_task_answer"
+          ],
+          [
+            "symbol_transfer"
+          ]
+        ],
+        "disagreeing_rows": {
+          "position_transfer vs symbol_transfer": 64,
+          "position_transfer vs preserve_task_answer": 0,
+          "symbol_transfer vs preserve_task_answer": 64
+        },
+        "measurement_resolution": "not assessed; categorical predictions have no numeric gap"
+      },
+      "published_clean_summary_not_recomputed": {
+        "base_accuracy": 0.921875,
+        "counterfactual_accuracy": 0.921875,
+        "unpatched_label_rate": 0.0
+      },
+      "first_source_row": {
+        "recipient": "The shoe is blue. What color is the shoe?\nP. blue\nY. orange\nAnswer:",
+        "donor": "The shoe is blue. What color is the shoe?\nO. blue\nQ. orange\nAnswer:",
+        "predictions": {
+          "position_transfer": "P",
+          "symbol_transfer": "O",
+          "preserve_task_answer": "P"
+        }
+      }
+    }
+  },
+  "empirical_no_effect_status": "UNKNOWN per case: task answer is not a measured baseline.",
+  "confirmation_status": "Not a fresh prediction, held-out method validation, or neural mechanism finding.",
+  "combined_input_menu_only": {
+    "rows": 384,
+    "identical_prediction_groups": [
+      [
+        "position_transfer"
+      ],
+      [
+        "preserve_task_answer"
+      ],
+      [
+        "symbol_transfer"
+      ]
+    ],
+    "disagreeing_rows": {
+      "position_transfer vs symbol_transfer": 384,
+      "position_transfer vs preserve_task_answer": 192,
+      "symbol_transfer vs preserve_task_answer": 192
+    },
+    "measurement_resolution": "not assessed; categorical predictions have no numeric gap"
+  },
+  "next_step": "Hold one layer, token position and learned patch operator fixed; evaluate both input families; record per-case native and patched output categories and scores. Keep development and confirmation separate."
+}

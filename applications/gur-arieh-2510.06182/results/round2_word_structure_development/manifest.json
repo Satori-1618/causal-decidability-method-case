@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "stage": "DEVELOPMENT_ONLY",
+  "question": "Patch-induced word invariance versus target-site invariance under a paired P/L genre swap",
+  "families": 32,
+  "seed_base": 5000000,
+  "cpu_reference_families": 4,
+  "round1_freeze_sha256": "11a7beb825e94ca537944d329f0c74bb504a5adaaeb5e7078ddb7f6d5f8ce327",
+  "source_round1_result_commit": "4e4e363903ce7ce96a4045c4e848df1f3ebf2516",
+  "model": "google/gemma-2-2b-it",
+  "revision": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8",
+  "layer": 18,
+  "cell": {
+    "i_P": 3,
+    "i_L": 5,
+    "i_R": 1,
+    "i_N": 6
+  },
+  "execution": "float32 MPS/eager; CPU float32/eager reference",
+  "rule": {
+    "minimum_mean_abs_delta_nats": 1.0,
+    "pair_mass_floor": 0.1,
+    "answer_mass_floor": 0.5,
+    "relative_residual_tolerance": 0.25
+  },
+  "gates": {
+    "native_yield_floor": 0.9,
+    "agreement_transfer_floor": 0.9,
+    "cpu_delta_tolerance_nats": 0.01,
+    "identity_full_logit_tolerance": 0.001
+  },
+  "runtime": {
+    "torch": "2.5.1",
+    "transformers": "4.57.3",
+    "tokenizers": "0.22.2",
+    "numpy": "1.26.4"
+  },
+  "code_sha256": {
+    "applications/gur-arieh-2510.06182/src/mixing_word_structure.py": "b7b82b5bbd0b6561621d9251ae7a071343e58ed1e6b088e187165a93fe0dac15",
+    "applications/gur-arieh-2510.06182/src/mixing_word_structure_runner.py": "f04273304f036f3e8298154aa23967fbc4646b8f924330b321625c742615ea68",
+    "applications/gur-arieh-2510.06182/scripts/run_word_structure_development.py": "3b90dcea85776ad68c60a88e516f3d3db8cb188c438944327143f041f8ff25f7",
+    "applications/gur-arieh-2510.06182/ROUND2_WORD_STRUCTURE.md": "969604ddca03573759f8bc025dc09a072ebc049308061a8dbc5ab3f859278555",
+    "tests/test_mixing_word_structure.py": "adb3591c3dd38f7dea0cec10b63a2728a9b1ee13f4ed04778c926d224845ccdb"
+  },
+  "claims": "Descriptive development counts only; no confirmatory selection or mechanism identification."
+}

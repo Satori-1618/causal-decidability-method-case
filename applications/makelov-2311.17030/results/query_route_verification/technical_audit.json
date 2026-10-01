@@ -1,0 +1,101 @@
+{
+  "audit_kind": "independent records, source, input-hash and chronology consistency audit; no new model forwards",
+  "status": "PASS",
+  "run": "query_route_confirmation",
+  "manifest_sha256": "a53c40885ff5cc61780d126d219ec42cbcda68c2f29f99a9842c573eeff03e0b",
+  "records_sha256": "e3f9c26fe72d733eafd0d50bc66d5e96037458474a27e69092cce04c948b540a",
+  "n_base_pairs": 192,
+  "n_directions": 384,
+  "n_unique_content_pairs": 192,
+  "n_unique_prompts": 384,
+  "n_model_forward_calls": 2688,
+  "artifact_hashes_verified": [
+    "directions.npz",
+    "summary.json",
+    "measurements_float32.jsonl",
+    "records.jsonl",
+    "cases.json",
+    "manifest.json",
+    "RUN_STARTED.json",
+    "measurements_float64.jsonl"
+  ],
+  "frozen_code_file_hashes_verified": 5,
+  "upstream_source_file_hashes_verified": 10,
+  "model_input_file_hashes_verified": 6,
+  "freshness": {
+    "historical_unique_prompts": 4192,
+    "pilot_unique_prompts": 64,
+    "total_excluded_prompts": 4256,
+    "confirmation_overlap_with_exclusions": 0,
+    "historical_sources": {
+      "results/makelov_read_source_001/cases.json": 64,
+      "results/makelov_read_source_q1/cases.json": 128,
+      "results/makelov_replication_001/dataset.jsonl": 4000
+    },
+    "frozen_population_and_draw_id_hashes_match": true
+  },
+  "per_precision": {
+    "float32": {
+      "site_audits": 2304,
+      "exact_identities": 576,
+      "query_insertions": 1536,
+      "d_head_reset_checks": 1152,
+      "d_head_reset_min_l2": 0.28879160165202084,
+      "d_head_reset_max_l2": 2.837040562508534,
+      "d_head_reset_min_ratio_to_conservative_l2_budget": 11825.412542778213,
+      "query_max_insertion_error": 0.0,
+      "mlp_max_insertion_error": 1.1920928955078125e-07,
+      "source_hash_pairs_distinct": 384,
+      "natural_head_changes_min_l2": 0.28020175469530006,
+      "natural_head_changes_count": 1152,
+      "all_other_slices_unchanged": true
+    },
+    "float64": {
+      "site_audits": 2304,
+      "exact_identities": 576,
+      "query_insertions": 1536,
+      "d_head_reset_checks": 1152,
+      "d_head_reset_min_l2": 0.28879124120805694,
+      "d_head_reset_max_l2": 2.83704302133239,
+      "d_head_reset_min_ratio_to_conservative_l2_budget": 6348714792996.058,
+      "query_max_insertion_error": 0.0,
+      "mlp_max_insertion_error": 2.220446049250313e-16,
+      "source_hash_pairs_distinct": 384,
+      "natural_head_changes_min_l2": 0.2802007340954496,
+      "natural_head_changes_count": 1152,
+      "all_other_slices_unchanged": true
+    }
+  },
+  "final_contrast_precision": {
+    "max_absolute_float32_float64_difference": {
+      "T": 5.03533306268622e-05,
+      "R": 4.2195991674987e-05,
+      "S": 3.601167456324106e-05,
+      "interaction": 5.780853549808285e-05
+    },
+    "max_gate_ratio_difference_divided_by_0_025_minimum_abs_T": 0.004239557479960924,
+    "min_absolute_T_across_precisions": 0.1334344581926601,
+    "resolved_base_pairs": 192
+  },
+  "independent_profile_success_counts": {
+    "transfer": 0,
+    "joint_dependence": 0,
+    "preservation": 8
+  },
+  "chronology": {
+    "freeze_commit": "e07084a322e877dd5e5639fd7b89bd83f53fb751",
+    "commit_unix": 1790251666,
+    "run_started_unix": 1790251693.257047,
+    "freeze_precedes_recorded_start_seconds": 27.257046937942505,
+    "freeze_manifest_and_code_match_current_artifacts": true
+  },
+  "limits": [
+    "Source and inserted tensor hashes, isolation and per-head changes are checked for internal consistency against saved runtime audit records; raw cached query/MLP tensors were not independently persisted or replayed.",
+    "Every selected D head changed well above the conservative dtype budget; this rules out a logged numerical no-op, not off-target semantic effects or every possible hook defect.",
+    "float64 is a higher-precision forward from the same float32-processed weights and frozen directions, not exact arithmetic or independently reloaded float64 pretrained weights.",
+    "Source review confirms q0 is cached from A and q1 from B and injected at the same absolute final prompt position; both reciprocal directions are evaluated as a single base-pair unit.",
+    "Freshness covers exact prompts in the declared historical artifacts plus all new development prompts; templates/lexicon remain shared, and model training membership is not audited.",
+    "Local Git commit and run timestamps establish internal chronology consistency, not an independently timestamped preregistration.",
+    "These checks validate the executed intervention contract and fixed response-profile counts; they do not identify a unique natural mechanism or prove complete mediation."
+  ]
+}

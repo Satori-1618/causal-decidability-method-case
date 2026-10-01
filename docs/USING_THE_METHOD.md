@@ -168,6 +168,77 @@ excluded. At 25 %, the null-read explanation is shown adequate and the visible-r
 excluded. Every one of the 32 units favours null read. These are illustrations on
 development data; a confirmation declares its tolerance first.
 
+## Case-wise profiles with a population-coverage requirement
+
+Rounds 2 and 3A of the Makelov application use a second decision contract. Use it when
+each rival states a pattern that every unit should show approximately, and the question is
+whether that pattern describes enough of the population, not which rival predicts better
+on average. The analyzers that implement it are application-specific
+(`applications/makelov-2311.17030/src/query_route_analysis.py` and
+`donor_factor_analysis.py`); the contract itself transfers. Declare every row before
+confirmation data:
+
+| Declaration | What to fix | Round 2 (query route) | Round 3A (donor name/position) |
+|---|---|---|---|
+| Independent unit | the smallest independently sampled draw; conditions derived from it stay inside it | base pair, with both swap directions | family, with four prompts and both recipient orders |
+| Profiles | the predicted value of each contrast | transfer `(R,S)=(0,T)`, joint dependence `(0,0)`, preservation `(T,0)` | position-only: both name-change effects 0; identity-only: both position-change effects 0 |
+| Case-wise tolerance | how close counts as fitting | 0.25·\|T\| of the same direction | 0.25 nat |
+| Conjunction | where the tolerance must hold for the unit to succeed | both contrasts, both directions, float32 and float64 | both effects, both recipient orders, both precisions |
+| Numerical gate | when a unit is resolved | nonzero same-sign T; cross-precision gaps ≤ 2.5 % of the smaller \|T\| | cross-precision gaps ≤ 0.01 nat on every readout |
+| Required coverage π₀ | the population share a profile must reach | 80 % | 80 % |
+| Interval | exact and simultaneous over the profiles | Clopper–Pearson, α = 0.05 over 3 profiles (α/6 per tail) | α = 0.025 over 2 profiles (0.00625 per tail) |
+
+For each profile, a unit succeeds only if it is numerically resolved **and** meets every
+profile restriction within the tolerance. Count these successes, k of n. Unresolved units
+stay in n as non-successes; no unit is filtered by outcome or replaced. The rule therefore
+judges the population share of units that are both resolved and profile-conform. Then:
+
+- **adequate:** the lower bound exceeds π₀;
+- **excluded:** the upper bound is below π₀;
+- **undecided:** the interval contains π₀;
+- **invalid:** a technical control failed; the run receives no scientific status.
+
+For example, preservation succeeded in 8 of 192 base pairs. The simultaneous interval
+[1.48 %, 9.00 %] lies below 80 %, so the profile is excluded. The standard-library helper
+`clopper_pearson(successes, n, alpha, family_size)` in `query_route_analysis.py` computes
+these intervals; the `causal_decidability` package does not yet provide a generic
+profile-coverage function.
+
+How to read the statuses:
+
+- **Excluded** means too few units are both resolved and within the tolerance for the
+  profile to describe the population. When every unit is resolved, as in rounds 2 and 3A
+  (192/192 pairs, 512/512 families), this is a statement about the measured behaviour.
+  With unresolved units it is not: an unresolved unit is not a demonstrated violation.
+  For example, 100 unresolved units give 0 successes and, under the round-2 allocation,
+  an upper bound of 4.7 %; that excludes the joint requirement without showing a single
+  behavioural violation. Report the number of unresolved units beside every exclusion.
+  An exclusion also does not mean that no unit fits, that the manipulated component is
+  irrelevant, or that another profile holds.
+- **For a claim about the behaviour itself,** treat unresolved units as unknown under a
+  rule declared in advance. One conservative rule: judge adequacy with unresolved units
+  counted as failures and exclusion with them counted as successes; if neither bound
+  clears π₀, the profile is undecided. Do not apply such a rule retroactively to a frozen
+  analysis.
+- **Adequate** means the pattern holds within the tolerance for at least π₀ of the
+  population under the sampling assumptions. It does not make the profile the unique
+  mechanism. Profiles need not be exclusive: when all effects are small, several can be
+  adequate together.
+- **Keep the rivals apart.** In round 2 every pair of endpoint profiles differs by \|T\| in
+  at least one contrast, so a tolerance of 0.5·\|T\| or more lets two profiles fit the
+  same unit and mutual exclusivity is no longer guaranteed, although other units may still
+  distinguish them. The round-2 analyzer requires exclusive profiles and refuses such
+  tolerances.
+- **The tolerance sets how strict the claim is.** Justify it before confirmation. A post
+  hoc sensitivity table can show that strictness, but it never replaces the frozen decision.
+- **Means answer a different question.** A near-zero mean contrast can hide case-wise
+  effects of opposite sign. Claim invariance from case-wise profiles, not from mean
+  equivalence.
+
+Round 3B used a third form: point-threshold feasibility gates on native behaviour. They
+can only authorize or stop a later experiment; they make no population claim about a
+mechanism.
+
 Read the [worked example](WORKED_EXAMPLE.md) next. The
 [evidence map](EVIDENCE_MAP.md) separates demonstrated distinctions from open validation
 questions; [validation details](validation.md) report the current calculator's limits.

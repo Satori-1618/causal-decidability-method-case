@@ -1,0 +1,20 @@
+{
+  "actual_truth_graph_cell_evaluations": 8192,
+  "all_controls_passed": true,
+  "artifacts": {
+    "manifest.json": "f26ccd64abbd74d0a21065c62e618684e1f7e1d4d1c0383942d92de022aa9c86",
+    "measurements.jsonl": "90d4dfa72a7448fa5bce175c800ab7809197f7ab3fe89c30a1ca8ecadcfc5443",
+    "private_labels.jsonl": "070621529a0cdcb4b5a5cc8365b33e602900772eec2b9b18b6ce9e07787b419d",
+    "public_cases.jsonl": "9b37780709d81ae78c46f6d0f00c5fcc10def71fe2f50a4cb269716ce8254b0d"
+  },
+  "common_analytic_formula_evaluations": 122880,
+  "common_qualification_graph_forwards": 155648,
+  "common_qualification_seconds": 4.505464926973218,
+  "cost_note": "Qualification executes all candidate/reference graphs as common setup. Budget comparisons count consumed potential measurements, not physical LLM savings.",
+  "elapsed_seconds": 4.8920432919985615,
+  "maximum_numerical_bound": 1.0642528987355448e-05,
+  "potential_measurement_draws": 131072,
+  "reserved_structures_executed": 0,
+  "status": "development_only",
+  "truth_execution_seconds": 0.2491990061098477
+}

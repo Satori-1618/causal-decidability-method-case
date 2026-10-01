@@ -1,145 +1,86 @@
-# What already supports the method?
+# Evidence map
 
-**The central claim is about experimental design:** an intervention effect may be real
-while several explanations predict it. The method specifies those explanations, finds
-conditions that separate them, and reports the remaining ambiguity. Calculator accuracy
-is a separate empirical claim.
+**Claim of this release:** an explicit rival table can expose an uninformative
+experiment, guide a separating condition, and keep empirical conclusions within the
+comparisons actually tested. The planning screen, rival generation and empirical
+mechanism identification are separate claims. The cases below do not jointly prove
+that the whole procedure is generally reliable.
 
-**Current snapshot:** the Makelov application and its raw Q1 records are now included
-in this checkout. Run `python3 examples/confirmed_read_source.py`; see the
-[case explanation](CONFIRMED_CASE.md) and [verification scope](../RELEASE_NOTES.md).
-Historical development branch names below are provenance, not branches readers need
-to fetch. Shi and the full synthetic benchmark are not bundled with this release.
+## Included evidence
 
-**Next step, not a new finding:** [round 2](ITERATIVE_IDENTIFICATION.md) applies the same
-logic to removal versus preservation of the patch effect under a selected-query clamp.
-Its four-cell demo is constructed, and the real-model contract is a draft. There is no
-empirical route result, no approved adequacy tolerance and no implication that Q1's
-candidate has become a uniquely identified mechanism.
+| Case | What was tested and found | Canonical record | What it does not establish |
+|---|---|---|---|
+| **Makelov Q1: read source** | Holding the write direction fixed, compare visible-only and null-only reads. B has lower prediction error in 64/64 fresh base pairs. | [Result](CONFIRMED_CASE.md), [protocol](../applications/makelov-2311.17030/PREREG_READ_SOURCE_Q1.md), [records-only check](../applications/makelov-2311.17030/RECORDS_ONLY.md). | Absolute adequacy, exclusive truth, or native use of the null component. Both rivals reproduce their measured full-patch anchor by construction. |
+| **Makelov round 2: query route** | Reset selected queries and transfer those queries alone. All three predefined response profiles are excluded on 192 fresh pairs. | [Result](ROUND2_RESULT.md), [protocol](../applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md). | A complete route or a binary conclusion that the queries participate/do not participate. The reverse condition did not change the exclusion already implied by the reset. |
+| **Makelov round 3A: donor factors** | Cross donor name and position. Position-only and name-only invariance profiles fail the declared coverage requirement on 512 fresh families. | [Result](ROUND3A_CONFIRMATION.md), [protocol](../applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md), [prospective size amendment](../applications/makelov-2311.17030/DONOR_FACTOR_512_AMENDMENT.md). | A transferred person or semantic role. The original planning STOP and amendment remain part of the record. |
+| **Makelov round 3B: role-task qualification** | Native competence and separation fail on 32 frozen families; numerical checks pass. No patches are run. | [Result](ROUND3B_STAGE_A_RESULT.md), [protocol](../applications/makelov-2311.17030/ROLE_BASELINE_PROTOCOL.md). | Absence of role representations. This task cannot support the proposed comparison. |
+| **Tracr: known reversal program** | 128/128 fresh token-assignment families reproduce the declared two-candidate tie, separation, and new prediction under the frozen test. | [Result](../applications/tracr/RESULTS.md), [freeze](../applications/tracr/CONFIRMATION_FREEZE.json), [raw records and summary](../applications/tracr/results/confirmation_001/). | Blind discovery: the address site was selected from compiler structure. No generalization to other algorithms, pretrained models, or an advantage over a strong fixed design is shown. |
+| **Mixing Mechanisms: concentration** | On 300 qualifying fresh families, the cell-average concentration profile W_T is excluded; the agreement-like profile A_T remains undecided. | [Result and scope](../applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md), [freeze](../applications/gur-arieh-2510.06182/FREEZE.json), [raw records](../applications/gur-arieh-2510.06182/results/confirmation/). | A per-case causal mechanism, exclusive lexical/positional switching, or a refutation of the paper's aggregate mixture account. W_T is this application’s restricted profile. |
+| **Goodfire CausaLab: MCQA input designs** | Each published input family leaves two of three declared rules tied; their combined input menu separates those three. Correct-color transfer remains tied with task-answer preservation. | [Audit](../applications/goodfire-mcqa-preflight/README.md), [source hashes](../applications/goodfire-mcqa-preflight/artifacts/upstream/source_manifest.json), [predictions](../applications/goodfire-mcqa-preflight/results/). | A measured neural mechanism or resolved measurement plan. Testing the combined menu requires one fixed patch; the upstream designs fit separate patches. |
 
-## 1. The structural claim: demonstrated by construction
+These counts have different units. A family can contain several conditions, tokens,
+or precision runs; they do not become additional independent cases.
 
-The [worked example](WORKED_EXAMPLE.md) has executable candidate rules. A single patch
-effect fits value transfer, choice transfer, choice reversal and a fixed output choice.
-Expanding the design separates some of these explanations. Nine candidates produce five
-prediction patterns in six cells and seven patterns in twelve cells; three point-shift
-rules remain indistinguishable.
+## Planning validation: an explicit limitation
 
-This proves the stated possibilities for this toy. It does not establish how frequently
-they occur in LLM research. The distinction exists before any statistical calculation.
+The [historical validation report](validation.md) retains the corrected results:
+**D1 forecast agreement is 88.47% / 88.20%, below the frozen 90% target.** The earlier
+91.38% / 91.48% figures used an incorrect bfloat16 mantissa constant and are superseded.
+The full synthetic benchmark is not bundled here, so its reported rates are not
+recomputed by this release's tests.
 
-## 2. Makelov: an existing empirical rival comparison
+The separate Makelov resid_mid.8 planning study met its 28/28 rule, but all forecasts
+were “decidable,” sample sizes were nested, and 21 outcomes excluded both endpoint
+candidates. A constant positive forecast would also succeed. This does not validate
+predictions of weak designs, small-sample calibration or general mechanism recovery.
 
-The strongest direct evidence is the **preregistered confirmation (Q1)** of a common-write,
-split-read comparison that a development pilot introduced. Both use the direction published
-by [Makelov, Lange and Nanda](https://arxiv.org/abs/2311.17030). Both are distinct from the
-`resid_mid.8` planning experiment below.
+The [current preflight](METHOD_PREFLIGHT.md) is deliberately narrower: a structural
+comparison plus a conditional numerical screen. Known Gaussian variability, pilot
+estimates and numerical allowances have different evidential status. A sensitivity
+estimate is not automatically a bound, and passing this screen is not a power claim.
 
-**Question:** which component supplies the signal read by this patch? At GPT-2 Small's
-MLP8 post-GELU activation, decompose the normalized direction `v` into an output-visible
-component `v_R` and an output-null component `v_N`. For donor–recipient difference `Δh`,
-hold the write direction fixed and change only the read source:
+## What “frozen before the run” means here
 
-| Intervention | Inserted change |
-|---|---|
-| Full | `v (vᵀ Δh)` |
-| Visible read | `v (v_Rᵀ Δh)` |
-| Null read | `v (v_Nᵀ Δh)` |
+Hashes bind records to specific protocol and code files; they do not establish an
+independent date. A records-only replay validates stored computations, not historical
+human review or a new model run.
 
-| Idealized candidate | Visible-read prediction | Null-read prediction |
-|---|---|---|
-| A: visible component supplies the signal | Full-patch output | Baseline output |
-| B: null component supplies the signal | Baseline output | Full-patch output |
+- **Makelov Q1:** the result manifest records development commit `829228c`; raw records
+  were committed in `6539ce5`. Earlier records report a pre-run push to the private
+  source repository; this release does not independently establish that timestamp. The
+  [provenance record](../applications/makelov-2311.17030/PROVENANCE.md) preserves original
+  file hashes; [verification](../applications/makelov-2311.17030/VERIFICATION.md) distinguishes
+  the later rounds and their source records.
+- **Tracr:** the freeze, seeds, source hashes and run records are included. Freshness
+  means new token assignments within one known program and design. Consult the
+  [development and confirmation history](../applications/tracr/RESULTS.md#development-history-and-limits)
+  rather than treating all development reruns as confirmations.
+- **Mixing Mechanisms:** freeze commit `e96b357e1e5a189656166a451ad13727d1d67375` and the
+  run manifest support local before-run chronology. That freeze was not pushed before
+  confirmation; no independent timestamp or separate human sign-off is established
+  by the repository. The original contract and artifacts remain unchanged.
+- **Goodfire MCQA:** a retrospective audit of inputs pinned at upstream commit
+  `8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e`, not a fresh-data confirmation.
 
-A full patch alone does not decide between these endpoint descriptions. The two added
-read-source conditions yield opposing predictions whenever full and baseline differ.
-These are conditional predictions using measured full/baseline endpoints, not an
-independent forecast of those endpoints.
+Publishing local history later does not turn it into a contemporaneous public freeze.
+For a new study, record the freeze externally at the time and distinguish approval,
+protocol binding, software replay and fresh empirical testing.
 
-**Pilot (development data).** On **32 base pairs**, with both swap directions grouped
-within each pair, mean absolute prediction error was **1.338 nats for A** and **0.260 for
-B**. B's paired advantage was **1.078 nats, nominal 95% bootstrap interval [0.961,
-1.198]**. The saved verification reports passing identity, intervention-fidelity and small
-paired numerical-reference checks.
+## Scope of the remaining material
 
-**Supported by the pilot:** B predicts these interventions better than A. Q1 then tested
-this on fresh pairs.
+- [Worked examples](WORKED_EXAMPLE.md) demonstrate logical possibilities by construction.
+  They do not measure their frequency in research or a benefit over expert planning.
+- [Mixing Mechanisms round 2](../applications/gur-arieh-2510.06182/ROUND2_DEVELOPMENT_RESULT.md)
+  is development only. It is not an additional confirmed mechanism.
+- The [rival-generation prompt](prompts/CAUSAL_PREFLIGHT_PROMPT.md) is supplied for use,
+  but improved AI-assisted rival generation has **not been evaluated**. A two-case
+  pilot was proposed and remains future work.
+- Beckmann is a separate application in another repository, outside this release's
+  reproducible evidence. No conclusion here depends on its unavailable data.
+- The earlier Shi resolution audit is also unbundled. It addressed statistical test
+  power and an implementation discrepancy, not a second mechanistic comparison.
 
-**Confirmed prospectively (Q1, 21 September 2026).** Frozen and pushed before the run
-(`PREREG_READ_SOURCE_Q1.md`, development repository `829228c`). On 64 fresh base pairs,
-with the pilot's case-wise loss, B predicted the two read interventions better than A in
-**64 of 64** pairs (exact sign test p = 1.1e-19). Reported, not judged: mean loss 0.238
-vs 1.223 nats. This confirms the comparison, not an adequacy claim.
-
-**Not established:** that B is accurate enough (Q2, deferred until a tolerance can be
-justified), exact, exclusively true, or a naturally used semantic variable.
-No adequacy threshold was used to convert this loss comparison into a unique compatible
-mechanism. The authors already examine row/null decomposition; this is an application
-of the explanation check, not discovery of that decomposition.
-
-**Historical packaging (22 September 2026):** both runs were packaged on development branch
-`applications/makelov-2311.17030`. Its files are now included under that directory;
-the new [records-only guide](../applications/makelov-2311.17030/RECORDS_ONLY.md) is the
-entry point for verification.
-Its `PROVENANCE.md` lists every copied file with its hash; each is byte-identical to the
-private development repository. The upstream commit is
-`e0c465b74561d9c3dd1f2afa770974bf5fcaee01`.
-
-- **Pilot:** development repository `7401b78`; raw `records.jsonl` SHA-256
-  `5e63b3b95cfd50324530ee62b703d37fcfda629460641926c07c803a39a93829`. A fresh CPU re-run
-  reproduces the prompts and directions exactly and every summary statistic within 1e-6.
-  The pilot was committed only on 21 September, a day after it ran, so its own manifest is
-  the record of when it ran. It remains a development pilot without an adequacy threshold.
-- **Q1:** preregistration frozen and pushed in `829228c` (SHA-256
-  `f5bb62caaea253e7789f919b20a9bb78c68fc4e14e6219e260110f0f415f8a72`) before the run; run
-  and score committed in `6539ce5`; raw `records.jsonl` SHA-256
-  `eb4428e174b67dd65d3a9948a550273dc6fefe6adbfb4c014baadf82542f0ef1`. The run's manifest
-  records `829228c` as its `git_head`. The added `scripts/check_read_source_q1_records.py`
-  recomputes the judged result without downloads; the historical `check_read_source_q1.py`
-  additionally depends on reconstructed tensor inputs. The development
-  repository is private, so the order of freeze and run can be checked there, not here.
-  There is no external timestamp.
-
-## 3. Shi: a supporting resolution audit, not yet a second mechanistic comparison
-
-For the sign-count test specified by [Shi et al.](https://arxiv.org/abs/2410.13032),
-the existing module computes the probability that a declared alternative escapes
-rejection. At `n = 40`, `ε = 0.1`, `α = 0.05`, an alternative with `θ = 0.80` still
-passes about **16.1%** of the time. A passed test is therefore not a bound on `θ`.
-
-This helps answer **whether an existing test can resolve a specified statistical
-departure**. It does not supply two mechanistic explanations or a separating internal
-intervention. The inspected upstream implementation also uses raw score differences
-where the paper specifies a sign indicator. The power calculation applies to the
-specified sign-count test; its applicability to published results requires resolving
-the implementation/version discrepancy.
-
-**Not included in this repository yet.** The power module (`src/equivalence_power.py`,
-corrected in commit `1a2da38`), its tables (`docs/equivalence_power.md`), the audit
-(`EQUIVALENCE_POWER_AUDIT_20260921.md`) and `docs/circuitry_issue_draft.md` are in the
-private development repository. The inspected upstream version is
-`ec9850b445b7dd0ed6fd93e9eaa44089b3a0a61e`.
-
-## 4. Calculator validation: useful, with a narrower role
-
-The [validation report](validation.md) preserves both successes and failures:
-
-- The synthetic benchmark tests known constructed worlds. Its corrected pre-run
-  agreement is 88.47% / 88.20%, below the frozen 90% target; reported false identifications
-  are zero on that grid. Neither number is universal reliability.
-- The prospective `resid_mid.8` application met its frozen 28/28 criterion, but all
-  predictions were positive, the checks use nested data, and 21 outcomes excluded both
-  endpoint candidates. This supports a limited planning claim, not mechanism recovery.
-
-## Next work, in order
-
-1. Use the method and worked example as the main explanation of the research goal.
-2. ~~Package the existing Makelov read-source pilot~~ and ~~confirm the comparison
-   (Q1)~~ done: see the included application. Q2, whether the better explanation is
-   accurate enough, needs a tolerance with an independent scientific justification first.
-3. Present Shi as the resolution audit it currently is. To make it a full second
-   mechanistic application, first specify rival mechanisms and their intervention
-   predictions; a new power table alone cannot do that.
-
-New adjective experiments and further calculator tuning are not prerequisites for this
-sequence. See the recorded [research priority](RESEARCH_SCOPE.md).
+The useful output is a **scoped distinction or a documented limit**: one or several
+rivals retained, none fitting under the declared criterion, missing resolution, or
+an invalid intervention. None of these outputs licenses a stronger claim about an
+undeclared rival or the model's complete native mechanism.

@@ -1,0 +1,12 @@
+{
+  "manifest.json": "a89b31fa3e6da70f509d43f917cbcddcb8e57e60a9c6cdb4f998269295932684",
+  "RUN_STARTED.json": "a65743984e64db37eaee476497f52812b26a89d39b407e1073ae2933a004004e",
+  "records.jsonl": "5f66cd1d4ba5e723c79e2eed54c43eda67cc34a7d9eb62c02d0196b906dfce51",
+  "fp32_reference.jsonl": "2bbe409e13ccbdb5dbf57e19a1bbec4b2cbdc7494447cac7a8416d9faf7451dc",
+  "audit_full_logits.npz": "a21a41f44280b2e36f9aa0a6041c9a102720cd89e524132b4cb82e0c52d45a34",
+  "timings.json": "b08144f2b2a404ae765f3b07fdd453f3bc141eb1464bb762df52092a7e555918",
+  "summary.json": "7d890ae4cb5e65f9d84989054f0056d1a1099281f0d78f30e6e356a7051bcf65",
+  "diagnostic_answer_form.json": "4881e3c755fa738d5ec570660cf25f2d1a0aa3ef619a147c3baa688514a631b0",
+  "diagnostic_fp32_execution.json": "243c59faf779f4ba1d5e1236bf184c3ae9dd7345d1e1506779a03b27bc5f4915",
+  "diagnostic_fp32_records.jsonl": "73033b1fe10d311be9161c25b3c1510965ccb4f125d397539fc105cd17ecf7ae"
+}

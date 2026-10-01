@@ -1,0 +1,73 @@
+{
+  "verified": true,
+  "mode": "records_only",
+  "n_base_pairs": 32,
+  "independent_profile_counts": {
+    "transfer": 0,
+    "joint_dependence": 0,
+    "preservation": 4
+  },
+  "n_resolved_pairs": 32,
+  "profiles": {
+    "transfer": {
+      "successes": 0,
+      "n": 32,
+      "fraction": 0.0,
+      "interval": [
+        0.0,
+        0.13895552166407366
+      ],
+      "status": "excluded"
+    },
+    "joint_dependence": {
+      "successes": 0,
+      "n": 32,
+      "fraction": 0.0,
+      "interval": [
+        0.0,
+        0.13895552166407366
+      ],
+      "status": "excluded"
+    },
+    "preservation": {
+      "successes": 4,
+      "n": 32,
+      "fraction": 0.125,
+      "interval": [
+        0.02526838443118564,
+        0.3276069126232336
+      ],
+      "status": "excluded"
+    }
+  },
+  "outcome": "none_meets_coverage",
+  "cp_interval_reproduction_tolerance": 1e-12,
+  "cp_interval_reproduction_max_abs_error": 3.3306690738754696e-16,
+  "optional_original_inputs_verified": [
+    "directions.npz",
+    "model:model.safetensors",
+    "model:tokenizer_config.json",
+    "model:config.json",
+    "model:tokenizer.json",
+    "model:generation_config.json",
+    "model:vocab.json"
+  ],
+  "optional_original_inputs_unavailable": [
+    "source:common_imports.py",
+    "source:model_utils.py",
+    "source:data_utils.py",
+    "source:ioi_analysis.ipynb",
+    "source:das_mlp8.joblib",
+    "source:data/names.json",
+    "source:data/objects.json",
+    "source:data/places.json",
+    "source:data/prefixes.json",
+    "source:data/templates.json"
+  ],
+  "scope": [
+    "No model was loaded or rerun. Counts independently recomputed; CP intervals and detailed summary reproduced with the frozen analyzer.",
+    "Audits and query hashes are checked for internal consistency; serialized records do not independently recover the activation tensors.",
+    "Query positions are serialized; the MLP absolute position is bound by frozen code and case position, not a separate MLP audit field.",
+    "Artifact hashes establish byte consistency, not an independent preregistration timestamp or truth of the recorded forwards."
+  ]
+}

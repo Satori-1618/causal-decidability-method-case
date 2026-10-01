@@ -1,0 +1,7954 @@
+[
+  {
+    "expected_control_label_for_scoring_only": "address",
+    "family_id": "development-2026092901-000000",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000000/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000000/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000000/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000000",
+      "r000001",
+      "r000002",
+      "r000003",
+      "r000004",
+      "r000005"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000000/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000000/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000000/discriminator-0"
+    },
+    "site": "site_A",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000000/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000000/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000000/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "donor_answer",
+    "family_id": "development-2026092901-000000",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000000/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000000/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000000/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000006",
+      "r000007",
+      "r000008",
+      "r000009",
+      "r000010",
+      "r000011"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000000/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000000/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000000/discriminator-0"
+    },
+    "site": "site_B",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000000/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000000/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000000/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "address",
+    "family_id": "development-2026092901-000001",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000001/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000001/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000001/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000012",
+      "r000013",
+      "r000014",
+      "r000015",
+      "r000016",
+      "r000017"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000001/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "donor_answer": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000001/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000001/discriminator-0"
+    },
+    "site": "site_A",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000001/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000001/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000001/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "donor_answer",
+    "family_id": "development-2026092901-000001",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000001/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000001/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000001/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000018",
+      "r000019",
+      "r000020",
+      "r000021",
+      "r000022",
+      "r000023"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000001/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "donor_answer": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000001/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000001/discriminator-0"
+    },
+    "site": "site_B",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000001/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000001/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000001/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "address",
+    "family_id": "development-2026092901-000002",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000002/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000002/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000002/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000024",
+      "r000025",
+      "r000026",
+      "r000027",
+      "r000028",
+      "r000029"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000002/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000002/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000002/discriminator-0"
+    },
+    "site": "site_A",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000002/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000002/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000002/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "donor_answer",
+    "family_id": "development-2026092901-000002",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000002/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000002/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000002/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000030",
+      "r000031",
+      "r000032",
+      "r000033",
+      "r000034",
+      "r000035"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000002/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000002/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000002/discriminator-0"
+    },
+    "site": "site_B",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000002/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000002/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000002/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "address",
+    "family_id": "development-2026092901-000003",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000003/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000003/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000003/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000036",
+      "r000037",
+      "r000038",
+      "r000039",
+      "r000040",
+      "r000041"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000003/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000003/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000003/discriminator-0"
+    },
+    "site": "site_A",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000003/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000003/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000003/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "donor_answer",
+    "family_id": "development-2026092901-000003",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000003/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.9999984502792358
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000003/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000003/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000042",
+      "r000043",
+      "r000044",
+      "r000045",
+      "r000046",
+      "r000047"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000003/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000003/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000003/discriminator-0"
+    },
+    "site": "site_B",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000003/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.9999984278382131
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000003/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000003/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "address",
+    "family_id": "development-2026092901-000004",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000004/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000004/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000004/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000048",
+      "r000049",
+      "r000050",
+      "r000051",
+      "r000052",
+      "r000053"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000004/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000004/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000004/discriminator-0"
+    },
+    "site": "site_A",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000004/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000004/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000004/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "donor_answer",
+    "family_id": "development-2026092901-000004",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000004/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000004/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000004/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000054",
+      "r000055",
+      "r000056",
+      "r000057",
+      "r000058",
+      "r000059"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000004/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000004/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000004/discriminator-0"
+    },
+    "site": "site_B",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000004/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000004/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000004/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "address",
+    "family_id": "development-2026092901-000005",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000005/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000005/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000005/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000060",
+      "r000061",
+      "r000062",
+      "r000063",
+      "r000064",
+      "r000065"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000005/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000005/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000005/discriminator-0"
+    },
+    "site": "site_A",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000005/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000005/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000005/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "donor_answer",
+    "family_id": "development-2026092901-000005",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000005/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000005/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000005/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000066",
+      "r000067",
+      "r000068",
+      "r000069",
+      "r000070",
+      "r000071"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000005/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000005/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000005/discriminator-0"
+    },
+    "site": "site_B",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000005/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000005/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000005/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "address",
+    "family_id": "development-2026092901-000006",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000006/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000006/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000006/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000072",
+      "r000073",
+      "r000074",
+      "r000075",
+      "r000076",
+      "r000077"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000006/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000006/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000006/discriminator-0"
+    },
+    "site": "site_A",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000006/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000006/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000006/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "donor_answer",
+    "family_id": "development-2026092901-000006",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000006/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000006/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000006/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984502792358,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000078",
+      "r000079",
+      "r000080",
+      "r000081",
+      "r000082",
+      "r000083"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000006/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000006/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000006/discriminator-0"
+    },
+    "site": "site_B",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000006/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000006/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000006/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984278382131,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "address",
+    "family_id": "development-2026092901-000007",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000007/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984502792358,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000007/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984502792358,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000007/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          2.4716747745734402e-12,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000084",
+      "r000085",
+      "r000086",
+      "r000087",
+      "r000088",
+      "r000089"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000007/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000007/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000007/discriminator-0"
+    },
+    "site": "site_A",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000007/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984278382131,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000007/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984278382131,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000007/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          2.471673255153328e-12,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address"
+        ],
+        "retained_before": [
+          "address"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  },
+  {
+    "expected_control_label_for_scoring_only": "donor_answer",
+    "family_id": "development-2026092901-000007",
+    "float32_trajectory": [
+      {
+        "case_id": "development-2026092901-000007/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984502792358,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000007/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000007/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.9999984502792358,
+          0.0,
+          0.0,
+          2.4716747745734402e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ],
+    "records": [
+      "r000090",
+      "r000091",
+      "r000092",
+      "r000093",
+      "r000094",
+      "r000095"
+    ],
+    "selection": {
+      "menu": [
+        {
+          "available": true,
+          "case_id": "development-2026092901-000007/discriminator-0",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "separated_pairs": 1
+        },
+        {
+          "available": true,
+          "case_id": "development-2026092901-000007/discriminator-1",
+          "cost_units": 1,
+          "predictions": {
+            "address": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "donor_answer": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "separated_pairs": 1
+        }
+      ],
+      "reason": "maximum separated group pairs per equal-cost condition; case-ID tie break",
+      "retained": [
+        "address",
+        "donor_answer"
+      ],
+      "selected_case_id": "development-2026092901-000007/discriminator-0"
+    },
+    "site": "site_B",
+    "status": "resolved",
+    "success": true,
+    "trajectory": [
+      {
+        "case_id": "development-2026092901-000007/shared",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.9999984278382131,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "insufficient_evidence",
+        "predictions": {
+          "address": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "address"
+          ],
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "shared"
+      },
+      {
+        "case_id": "development-2026092901-000007/discriminator-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "address",
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "discriminator"
+      },
+      {
+        "case_id": "development-2026092901-000007/followup-0",
+        "native_null_compatible": false,
+        "numeric_allowance": 0.01,
+        "observation": [
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.9999984278382131,
+          0.0,
+          0.0,
+          2.471673255153328e-12,
+          0.0
+        ],
+        "outcome": "resolved",
+        "predictions": {
+          "address": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "donor_answer": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "radius": 0.02,
+        "retained_after": [
+          "donor_answer"
+        ],
+        "retained_before": [
+          "donor_answer"
+        ],
+        "retained_groups": [
+          [
+            "donor_answer"
+          ]
+        ],
+        "scientific_tolerance": 0.01,
+        "stage": "followup"
+      }
+    ]
+  }
+]

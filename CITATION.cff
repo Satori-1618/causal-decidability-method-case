@@ -10,7 +10,7 @@ authors:
   - family-names: Borck
     given-names: Felix
 license: MIT
-version: 0.2.0
+version: 0.3.0
 repository-code: "https://github.com/Satori-1618/causal-decidability-method-case"
 keywords:
   - mechanistic interpretability
