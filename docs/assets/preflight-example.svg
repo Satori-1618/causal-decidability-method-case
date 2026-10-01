@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="830" viewBox="0 0 1000 830" role="img" aria-labelledby="title description">
+  <title id="title">A new condition can separate two hypothetical explanations of a patch</title>
+  <desc id="description">The donor has Object value 60 and Alternative value 10, and is stipulated to choose Object. Two hypothetical rules predict what patching the same donor activation into a recipient would do. Value transfer uses the donor's Object value and compares it with the recipient's Alternative value. Choice transfer repeats the donor's choice. For a recipient with values 20 and 40, both rules predict Object. Adding a recipient with values 20 and 80 separates the two rules: value transfer predicts Alternative because 60 is less than 80, while choice transfer still predicts Object. Only two rivals are shown. These are hypothetical predictions, not observed outcomes or a claim that other explanations are excluded.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4.5 L 0 9" fill="none" stroke="#8795A9" stroke-width="1.8" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="830" fill="#FFFFFF"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#192D47">
+    <text x="32" y="47" font-size="32" font-weight="700">A new condition can separate two explanations</text>
+    <text x="32" y="80" font-size="21" fill="#506078">Changing the answer alone does not tell you what was transferred.</text>
+
+    <!-- A shared donor and explicit candidate rules anchor both conditions. -->
+    <rect x="32" y="111" width="936" height="170" rx="16" fill="#F5F7FA" stroke="#DAE1EA" stroke-width="1.5"/>
+    <text x="56" y="148" font-size="22" font-weight="700">Donor · stipulated choice: Object</text>
+    <text x="56" y="190" font-size="21">Object</text>
+    <rect x="177" y="172" width="120" height="22" rx="4" fill="#647A96"/>
+    <text x="309" y="190" font-size="21" font-weight="700">60</text>
+    <text x="56" y="230" font-size="21">Alternative</text>
+    <rect x="177" y="212" width="20" height="22" rx="4" fill="#A8B5C7"/>
+    <text x="209" y="230" font-size="21" font-weight="700">10</text>
+    <text x="56" y="261" font-size="20" fill="#506078">Bars show the task's point values.</text>
+
+    <path d="M 431 133 V 259" stroke="#DAE1EA" stroke-width="1.5"/>
+    <circle cx="461" cy="143" r="6" fill="#087F83"/>
+    <text x="478" y="151" font-size="23" font-weight="700" fill="#086F73">Value transfer</text>
+    <text x="478" y="181" font-size="21">Compare donor's 60 with recipient's Alternative.</text>
+    <circle cx="461" cy="217" r="6" fill="#7351B5"/>
+    <text x="478" y="225" font-size="23" font-weight="700" fill="#6542A6">Choice transfer</text>
+    <text x="478" y="255" font-size="21">Repeat donor's choice: Object.</text>
+
+    <text x="500" y="313" text-anchor="middle" font-size="21" fill="#506078">Same source activation · same patch site</text>
+    <path d="M 500 323 V 334 H 256 V 351 M 500 334 H 744 V 351" fill="none" stroke="#8795A9" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <path d="M 256 341 V 351" fill="none" stroke="#8795A9" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+    <!-- The original condition leaves the two hypotheses tied. -->
+    <rect x="32" y="363" width="448" height="376" rx="16" fill="#FFFFFF" stroke="#D8E0EA" stroke-width="1.5"/>
+    <rect x="32" y="363" width="448" height="56" rx="16" fill="#EDF1F6"/>
+    <rect x="32" y="392" width="448" height="27" fill="#EDF1F6"/>
+    <text x="56" y="400" font-size="24" font-weight="700">1 · Original condition</text>
+    <text x="56" y="450" font-size="21" font-weight="700">Recipient points</text>
+    <text x="56" y="483" font-size="21">Object</text>
+    <rect x="192" y="465" width="40" height="22" rx="4" fill="#A8B5C7"/>
+    <text x="244" y="483" font-size="21">20</text>
+    <text x="56" y="517" font-size="21">Alternative</text>
+    <rect x="192" y="499" width="80" height="22" rx="4" fill="#A8B5C7"/>
+    <text x="284" y="517" font-size="21">40</text>
+
+    <rect x="56" y="540" width="400" height="69" rx="9" fill="#EAF6F5"/>
+    <rect x="56" y="540" width="5" height="69" rx="2" fill="#087F83"/>
+    <text x="74" y="568" font-size="22" font-weight="700" fill="#086F73">Value transfer → Object</text>
+    <text x="74" y="596" font-size="21" fill="#086F73">60 &gt; 40</text>
+    <rect x="56" y="621" width="400" height="69" rx="9" fill="#F2EDFA"/>
+    <rect x="56" y="621" width="5" height="69" rx="2" fill="#7351B5"/>
+    <text x="74" y="649" font-size="22" font-weight="700" fill="#6542A6">Choice transfer → Object</text>
+    <text x="74" y="677" font-size="21" fill="#6542A6">Repeat donor's choice</text>
+    <text x="256" y="722" text-anchor="middle" font-size="21" font-weight="700">Same answer · rivals remain tied</text>
+
+    <!-- Changing only the recipient offer creates a discriminating condition. -->
+    <rect x="520" y="363" width="448" height="376" rx="16" fill="#FFFFFF" stroke="#BBCBD5" stroke-width="1.5"/>
+    <rect x="520" y="363" width="448" height="56" rx="16" fill="#E9F1F5"/>
+    <rect x="520" y="392" width="448" height="27" fill="#E9F1F5"/>
+    <text x="544" y="400" font-size="24" font-weight="700">2 · Add this condition</text>
+    <text x="544" y="450" font-size="21" font-weight="700">Recipient points</text>
+    <text x="544" y="483" font-size="21">Object</text>
+    <rect x="680" y="465" width="40" height="22" rx="4" fill="#A8B5C7"/>
+    <text x="732" y="483" font-size="21">20</text>
+    <text x="544" y="517" font-size="21">Alternative</text>
+    <rect x="680" y="499" width="160" height="22" rx="4" fill="#647A96"/>
+    <text x="852" y="517" font-size="21" font-weight="700">80</text>
+
+    <rect x="544" y="540" width="400" height="69" rx="9" fill="#EAF6F5"/>
+    <rect x="544" y="540" width="5" height="69" rx="2" fill="#087F83"/>
+    <text x="562" y="568" font-size="22" font-weight="700" fill="#086F73">Value transfer → Alternative</text>
+    <text x="562" y="596" font-size="21" fill="#086F73">60 &lt; 80</text>
+    <rect x="544" y="621" width="400" height="69" rx="9" fill="#F2EDFA"/>
+    <rect x="544" y="621" width="5" height="69" rx="2" fill="#7351B5"/>
+    <text x="562" y="649" font-size="22" font-weight="700" fill="#6542A6">Choice transfer → Object</text>
+    <text x="562" y="677" font-size="21" fill="#6542A6">Repeat donor's choice</text>
+    <text x="744" y="722" text-anchor="middle" font-size="21" font-weight="700">Different answers · rivals separate</text>
+
+    <text x="32" y="778" font-size="20" fill="#506078">Two hypothetical rivals shown. These are predictions, not observed outcomes.</text>
+    <text x="32" y="808" font-size="20" fill="#506078">Separating this pair does not exclude other explanations.</text>
+  </g>
+</svg>
