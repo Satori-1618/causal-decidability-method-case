@@ -1,0 +1,101 @@
+{
+  "ood": {
+    "n": 1000,
+    "tokens": 22318,
+    "native_downstream_reconstruction_max_error": 0.0,
+    "linearization_correlation": 0.9604217674314924,
+    "linearization_mae": 0.11935693017202195,
+    "observed_routing_effect_mean": 0.49822660903473176,
+    "linearized_effect_mean": 0.5536669790260034,
+    "lexical_position_regression": {
+      "out_of_fold_r2": 0.023122307116197893,
+      "out_of_fold_rmse": 16.461807394258603
+    },
+    "lexical_position_and_depth_regression": {
+      "out_of_fold_r2": 0.30044684638307406,
+      "out_of_fold_rmse": 13.93053446792944
+    },
+    "partitions": {
+      "prefix_sign": {
+        "between": {
+          "mean": 0.42494169128986686,
+          "mean_absolute": 0.44292803731907177
+        },
+        "within": {
+          "mean": 0.12872528773613648,
+          "mean_absolute": 0.13470056908864037
+        }
+      },
+      "token": {
+        "between": {
+          "mean": 0.007396393658990602,
+          "mean_absolute": 0.009567327038903565
+        },
+        "within": {
+          "mean": 0.5462705853670127,
+          "mean_absolute": 0.5680658637275706
+        }
+      },
+      "position_half": {
+        "between": {
+          "mean": 0.08688355876620027,
+          "mean_absolute": 0.09195894714781967
+        },
+        "within": {
+          "mean": 0.4667834202598031,
+          "mean_absolute": 0.4856696892785084
+        }
+      }
+    }
+  },
+  "indist": {
+    "n": 1000,
+    "tokens": 22872,
+    "native_downstream_reconstruction_max_error": 0.0,
+    "linearization_correlation": 0.9668545480458052,
+    "linearization_mae": 0.1280380184005648,
+    "observed_routing_effect_mean": -0.374234719436168,
+    "linearized_effect_mean": -0.2545269238591828,
+    "lexical_position_regression": {
+      "out_of_fold_r2": 0.09795123123774507,
+      "out_of_fold_rmse": 2.3302846091258145
+    },
+    "lexical_position_and_depth_regression": {
+      "out_of_fold_r2": 0.4224901809977245,
+      "out_of_fold_rmse": 1.8645483261626634
+    },
+    "partitions": {
+      "prefix_sign": {
+        "between": {
+          "mean": -0.22430270972609548,
+          "mean_absolute": 0.24878564607419887
+        },
+        "within": {
+          "mean": -0.030224214133087332,
+          "mean_absolute": 0.07111094206850876
+        }
+      },
+      "token": {
+        "between": {
+          "mean": -0.06467043123752707,
+          "mean_absolute": 0.08674602605232958
+        },
+        "within": {
+          "mean": -0.18985649262165574,
+          "mean_absolute": 0.23316643626016614
+        }
+      },
+      "position_half": {
+        "between": {
+          "mean": -0.0975380557734058,
+          "mean_absolute": 0.10371599265291914
+        },
+        "within": {
+          "mean": -0.15698886808577703,
+          "mean_absolute": 0.21618352861870904
+        }
+      }
+    }
+  },
+  "status": "exploratory_native_content_diagnostic_no_new_intervention_or_confirmation"
+}
