@@ -4,6 +4,12 @@
 spending the main measurement budget. The output is a small prediction table,
 a resolution assessment, and the next justified design change.
 
+**You do not need to know the true mechanism.** Start with a question about a
+candidate component and two hypothetical rules for what it might do. The check
+asks what would follow **if each rule were true**. It helps choose the next
+experiment; it does not automatically discover components or generate correct rivals.
+Use it during discovery to improve a design, then freeze it before confirmation.
+
 This complements causal abstraction: a high-level explanation may predict an
 intervention faithfully while a rival predicts it equally well. Here we compare
 their predictions on the **chosen interventions and readouts**. We do not establish
@@ -20,30 +26,52 @@ which mechanism is true by inspecting a plan.
 same quantities. If only means are specified, this statement concerns those means:
 the rivals might still differ in their variances or full distributions.
 
-## A small example
+## Start here if you are searching for a mechanism
 
-Two hypothetical circuits produce a score through two paths: `score = a + b`.
-Explanation A specifies `a = 0.2, b = 1.8`; B specifies `a = 0.3, b = 1.7`.
-A full intervention exposes their combined contribution; a selective intervention
-exposes only path A. These are teaching rules, **not measured LLM mechanisms**.
+Write: **“I suspect component ___ does ___. An alternative is ___.
+My planned intervention is ___; I will measure ___.”** If you cannot yet fill a
+slot, use the [short starter prompt](prompts/CAUSAL_PREFLIGHT_PROMPT.md#quick-start)
+to identify the missing specification. A missing mechanism is normal; a missing
+prediction is a reason to develop a hypothesis, not to invent a number.
 
-| Planned measurement | Explanation A | Explanation B | What this adds |
-|---|---:|---:|---|
-| Full intervention: `a + b` | 2.0 | 2.0 | No distinction in the predicted score. |
-| Selective intervention: `a` | 0.2 | 0.3 | A difference of 0.1 score units. |
+**Example: does a patch transfer a value or a completed choice?** Suppose discovery
+has suggested a particular layer and token position. You propose to patch that
+activation from a donor into a recipient and read the answer “Object” or
+“Alternative.” The task asks which option gives more points.
 
-The extra condition creates a distinction, but its size still matters. Assume,
-for illustration, independent Gaussian family scores with known SD 0.3, a numerical
-error allowance of 0.005, and simultaneous 95% intervals over these two measurements.
+- **Value transfer:** replace the recipient's Object value with the donor's value,
+  then compare it with the recipient's Alternative value.
+- **Choice transfer:** output the donor's observed choice, ignoring the recipient's offer.
+- **Forced Object:** output Object regardless of the donor's choice or either value.
 
-| Design | Independent families | Gap | Twice the planning radius | Assessment |
-|---|---:|---:|---:|---|
-| Full intervention only | 64 | 0.0 | 0.178 | Identical declared predictions. |
-| Add selective intervention | 64 | 0.1 | 0.178 | Planning neighborhoods still overlap. |
-| Same two measurements | 256 | 0.1 | 0.094 | Planning neighborhoods are separated. |
+These are proposed rules, not descriptions of an already discovered circuit.
+Keep the patch operator/site and answer scoring fixed while changing these cases:
 
-The method tells the researcher **what to change and why**. The last row is a
-conditional planning result, not an experiment, a power estimate, or proof of A or B.
+| Case: Object / Alternative points | Value transfer | Choice transfer | Forced Object |
+|---|---|---|---|
+| Donor 60/10 → recipient 20/40 | Object (60 > 40) | Object | Object |
+| Same donor → recipient 20/80 | Alternative (60 < 80) | Object | Object |
+| Donor 60/90 → recipient 20/40 | Object (60 > 40) | Alternative | Object |
+
+The first row cannot distinguish these rules. The second separates value transfer
+from the other two. The third separates choice transfer from Forced Object.
+No hidden-activation values or guessed logit margins were needed to derive this.
+The table specifies **choices**, not their confidence or probability.
+
+In a real study, the choice-transfer predictions require donors actually observed
+to choose Object and Alternative respectively; points alone do not establish that.
+The value candidate explicitly hypothesizes the comparison rule—it is not assumed
+to be what the LLM does. Verify that the concrete hook implements the proposed
+patch. If the site is still unknown, locating a candidate site remains discovery.
+Other rules can survive these three cases; [the full example](WORKED_EXAMPLE.md)
+shows additional rivals and remaining ambiguity.
+
+**A useful preflight report already exists at this point:** “The original case
+does not distinguish the three declared rules. These two extra cases give different
+choice patterns. Measurement resolution is still unknown: no quantitative margin
+gap or calibrated error model has been supplied. Next: develop and check these
+cases on separate pilot data.” Do not feed Object/Alternative encoded as 1/0 into
+the Gaussian calculator and treat their gap as one nat.
 
 ## Use it on your own study
 
@@ -51,6 +79,8 @@ conditional planning result, not an experiment, a power estimate, or proof of A 
    fixed, and how each rival predicts the readout. Include the closest alternative.
    Record the source or derivation of every prediction. Missing predictions block
    the corresponding comparison; labels such as “semantic” are insufficient.
+   Use logical consequences, explicit equations, or separate development data.
+   Do not fit predictions to the confirmation outcomes they are meant to explain.
 2. **Make one complete prediction table.** Compare each relevant pair. For tied
    rows, propose a new condition from the rival rules and recompute the table.
    Scope equality to this table; numerical agreement alone does not prove an
@@ -65,6 +95,7 @@ conditional planning result, not an experiment, a power estimate, or proof of A 
 
 | Before-run output | Meaning | Next step |
 |---|---|---|
+| **Predictions missing** | Separation itself cannot yet be assessed. | Specify the rule or gather development evidence; record UNKNOWN. |
 | **Identical declared predictions** | This quantity gives no prediction-based distinction. | Change condition/readout, or retain the group. |
 | **Different, resolution unknown** | A gap exists; calibration is missing. | Obtain the missing pilot or numerical check. |
 | **Below the planning threshold** | This declared screen is not cleared. | Revise the design/calibration; do not call separation impossible. |
@@ -78,6 +109,8 @@ None of these outputs excludes an explanation using empirical data.
 
 - [Runnable code](../examples/causal_preflight.py): uses the repository's existing
   prediction-grouping code; requires Python 3.9+, no packages, GPU, or model.
+  Use it when you have fixed numerical mean predictions. Use the prompt/table
+  for choice, sign-only, fitted, or missing predictions; the code does not handle them.
 - [Editable JSON template](../examples/data/causal_preflight_example.json): replace
   the teaching inputs with your rules and calibration sources; use `null` for unknown
   `n`, `sd_per_unit`, or `numerical_allowance`. Use `pilot_estimate` for estimated SD.
@@ -88,8 +121,21 @@ From the repository root:
 
 ```bash
 python3 examples/causal_preflight.py
+python3 examples/causal_preflight.py --structure-only --cells full_patch
 python3 examples/causal_preflight.py --config examples/data/causal_preflight_example.json --n 256 --json
 ```
+
+`--structure-only` requires only `cells` (with an `id` each), `predictions` (rows
+in cell order), and `prediction_source`. It needs no `n`, SD, `alpha`, or numerical
+allowance. To add the second check, use the full JSON template and replace its
+teaching calibration; do not inherit its values as research defaults.
+
+The separate numerical demo uses hypothetical rules `full_patch = a+b`,
+`path_a_only = a`: A has `(a,b)=(0.2,1.8)`, B has `(0.3,1.7)`.
+With its **assumed** Gaussian SD 0.3 and numerical allowance 0.005, the full patch
+ties; the 0.1 gap in the extra condition fails the planning screen at `n=64`
+and clears it at `n=256`. This illustrates arithmetic, not a measured mechanism,
+a power estimate, or a recommendation to collect 256 cases.
 
 **What the example computes.** For `m` declared measurement cells, including the
 optional cells in the template, `z = NormalDist().inv_cdf(1 − alpha/(2m))`.

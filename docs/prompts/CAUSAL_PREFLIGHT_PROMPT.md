@@ -4,6 +4,36 @@ Use with the [two-part method guide](../METHOD_PREFLIGHT.md). Replace the input
 slots below, then copy the fenced prompt into a research assistant conversation.
 This is a design audit; it does not run an experiment or decide which rival is true.
 
+## Quick start
+
+Use this when you have a research idea but no finished rival table. The longer
+prompt below is for a design you can already specify. Neither requires you to
+know which mechanism is true.
+
+```text
+Help me plan a mechanism test before a confirmatory run.
+My question: [what I want to explain]
+Candidate component/site and planned patch: [what I know, or UNKNOWN]
+My current explanation: [hypothesis, not a fact]
+An alternative explanation: [hypothesis, or UNKNOWN]
+What I would measure: [choice, logit margin, etc.]
+Existing evidence/rules: [paste or give paths; UNKNOWN is allowed]
+
+First help me specify at most three competing rules. Label any rule you suggest
+as a proposal, and identify assumptions that need my input or development data.
+Show one concrete donor/recipient example and derive each rule's prediction.
+Keep predictions as choices, signs, or UNKNOWN when that is all the rules imply;
+do not invent scores, probabilities, variances, or numerical error allowances.
+If the current case does not discriminate, propose one justified change that
+makes the rules disagree. If no such change follows, explain what is missing.
+Shared signs alone do not prove equal quantitative predictions. Unknown is not
+the same as indistinguishable. Give one next action and say whether it is
+hypothesis development, structural checking, or measurement calibration.
+Do not run models or present any proposed mechanism as already identified.
+```
+
+## Full design audit
+
 ```text
 Act as a careful, useful methods reviewer. Audit whether my planned experiment
 can distinguish the declared explanations and provisionally measure their
@@ -39,6 +69,10 @@ PART 1 — DO THE DECLARED PREDICTIONS DIFFER HERE?
    Derive a value only when the supplied rule and inputs determine it; show the
    derivation. Otherwise mark it missing. Do not infer quantitative predictions
    from labels such as "semantic", "routing", or "direct effect".
+   If only choices/signs are justified, keep those and route the analysis through
+   a qualitative table. Opposite predictions can motivate a test; shared signs
+   alone are overlapping predictions, not proof of structural equivalence. The
+   numerical example requires fixed mean predictions, not arbitrary category codes.
 3. For each relevant rival pair, compare the complete declared prediction pattern.
    Report "identical on declared quantities", "different", or "unassessable".
    Exact equality needs an exact derivation or an explicitly finite/exact contract.

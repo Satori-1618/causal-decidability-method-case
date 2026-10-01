@@ -36,6 +36,30 @@ class TestCausalPreflight(unittest.TestCase):
         self.assertAlmostEqual(a['statistical_radius'], 2 * b['statistical_radius'])
         self.assertEqual(a['numerical_allowance'], b['numerical_allowance'])
 
+    def test_structural_only_needs_no_sampling_or_calibration_fields(self):
+        minimal = {
+            'cells': [{'id': cell['id']} for cell in self.config['cells']],
+            'predictions': self.config['predictions'],
+            'prediction_source': self.config['prediction_source'],
+        }
+        full = MODULE.check(minimal, selected=['full_patch'], structure_only=True)
+        extra = MODULE.check(minimal, structure_only=True)
+        self.assertEqual(full['pairs'][0]['status'], 'identical_declared_means')
+        self.assertEqual(full['pairs_separated_by_all_optional_cells'], [('A', 'B')])
+        self.assertEqual(extra['pairs'][0]['status'], 'different_declared_means')
+        self.assertIsNone(extra['all_pairs_clear_planning_screen'])
+        self.assertNotIn('n', extra)
+        output = io.StringIO()
+        with redirect_stdout(output):
+            MODULE.display(extra)
+        self.assertIn('Measurement resolution not assessed', output.getvalue())
+
+    def test_structural_only_does_not_turn_missing_or_sign_predictions_into_numbers(self):
+        for value in (None, 'positive'):
+            self.config['predictions']['A'][0] = value
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                self.result(structure_only=True)
+
     def test_one_separating_pair_does_not_certify_all_rivals(self):
         self.config['predictions']['C'] = [2.0, 0.3]
         result = self.result(n=256)

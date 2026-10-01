@@ -2,6 +2,7 @@
 
 Run without arguments for three stages of a hypothetical design. Pass --config
 for your own fixed mean predictions and separately justified calibration inputs.
+Use --structure-only to compare fixed numeric predictions without calibration.
 See docs/METHOD_PREFLIGHT.md. This is a conditional screen, not a power calculator.
 """
 import argparse
@@ -31,13 +32,14 @@ def text_field(value, name):
         raise ValueError(f'{name} must be a nonempty string')
 
 
-def check(config, selected=None, n=None):
+def check(config, selected=None, n=None, structure_only=False):
     """Return mean-signature groups and a conditional resolution screen per pair.
 
     The interval family covers ALL declared cells, including optional cells.
     A pair clears the screen if any selected cell has gap > 2*(r_stat+b).
     Unknown calibrations are preserved. Predictions are treated as fixed/exact
     inputs; uncertainty in fitted rival predictions is not supported here.
+    structure_only needs no sampling or uncertainty inputs and assesses no radius.
     """
     cells = config['cells']
     if not isinstance(cells, list) or not cells:
@@ -63,6 +65,29 @@ def check(config, selected=None, n=None):
         for value in row:
             number(value, 'prediction')
     text_field(config.get('prediction_source'), 'prediction_source')
+    extras = [i for i in range(len(cells)) if i not in indices]
+    structure = {
+        'selected_cells': selected,
+        'identical_mean_groups': signatures(restrict(predictions, indices)),
+        'pairs_separated_by_all_optional_cells': gains(predictions, indices, extras),
+    }
+    if structure_only:
+        pairs = []
+        for a, b in itertools.combinations(sorted(predictions), 2):
+            differs = any(predictions[a][i] != predictions[b][i] for i in indices)
+            pairs.append({
+                'rivals': [a, b], 'cells': [],
+                'status': 'different_declared_means' if differs else 'identical_declared_means',
+            })
+        return {
+            **structure,
+            'scope': 'Structural check of supplied fixed numeric mean predictions only.',
+            'mode': 'structure_only',
+            'calibration': 'Measurement resolution not assessed; no sample-size conclusion.',
+            'all_pairs_clear_planning_screen': None,
+            'pairs': pairs,
+            'intervention_fidelity': 'Not checked by this calculator; verify separately.',
+        }
     text_field(config.get('independent_unit'), 'independent_unit')
     n = config.get('n') if n is None else n
     if n is not None and (type(n) is not int or n < 1):
@@ -131,16 +156,13 @@ def check(config, selected=None, n=None):
         else:
             status = 'planning_overlap'
         pairs.append({'rivals': [a, b], 'status': status, 'cells': rows})
-    extras = [i for i in range(len(cells)) if i not in indices]
     return {
+        **structure,
         'scope': 'Declared fixed mean predictions; no empirical winner or power claim.',
         'calibration': 'Conditional on SD assumptions and supplied numerical allowances; '
                        'pilot SD uncertainty and fitted-prediction uncertainty are not covered.',
         'n': n, 'independent_unit': config['independent_unit'],
         'simultaneous_cell_count': len(cells), 'alpha': alpha,
-        'selected_cells': selected,
-        'identical_mean_groups': signatures(restrict(predictions, indices)),
-        'pairs_separated_by_all_optional_cells': gains(predictions, indices, extras),
         'all_pairs_clear_planning_screen': all(p['status'] == 'planning_separated' for p in pairs),
         'pairs': pairs,
         'intervention_fidelity': 'Not checked by this calculator; verify separately.',
@@ -148,7 +170,9 @@ def check(config, selected=None, n=None):
 
 
 def display(result):
-    print(f"\nCells: {', '.join(result['selected_cells'])}; n={result['n']}")
+    suffix = ('structural check only' if result.get('mode') == 'structure_only'
+              else f"n={result['n']}")
+    print(f"\nCells: {', '.join(result['selected_cells'])}; {suffix}")
     print(' ', result['calibration'])
     for pair in result['pairs']:
         print(f"  {' / '.join(pair['rivals'])}: {pair['status']}")
@@ -168,12 +192,14 @@ def main():
     parser.add_argument('--config', type=Path, help='JSON template; otherwise show the teaching example')
     parser.add_argument('--n', type=int, help='override independent-unit count')
     parser.add_argument('--cells', nargs='+', help='use these declared cell ids')
+    parser.add_argument('--structure-only', action='store_true',
+                        help='compare fixed numeric predictions; skip all resolution inputs')
     parser.add_argument('--json', action='store_true', help='emit one full machine-readable report')
     args = parser.parse_args()
     try:
         config = json.loads((args.config or EXAMPLE).read_text())
-        if args.config or args.n is not None or args.cells or args.json:
-            result = check(config, args.cells, args.n)
+        if args.config or args.n is not None or args.cells or args.json or args.structure_only:
+            result = check(config, args.cells, args.n, args.structure_only)
             print(json.dumps(result, indent=2, allow_nan=False)) if args.json else display(result)
         else:
             print('ILLUSTRATIVE INPUTS, NOT MODEL RESULTS. Conditional mean-resolution screen.')
