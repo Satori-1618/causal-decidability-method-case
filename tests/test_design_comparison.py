@@ -10,6 +10,9 @@ import sys
 import numpy as np
 import pytest
 
+# The archived runner imports and executes tensor-based synthetic worlds.
+pytest.importorskip('torch', reason='design-comparison runner tests require .[test-hooks]')
+
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT / 'applications/design-comparison'
 sys.path.insert(0, str(ROOT / 'src'))

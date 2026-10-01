@@ -75,6 +75,8 @@ def check(config, selected=None, n=None, structure_only=False):
         raise ValueError('category predictions have no numeric gap; use the structure-only check')
     for name, row in predictions.items():
         text_field(name, 'rival name')
+        if not isinstance(row, list):
+            raise ValueError('every prediction row must be a list in declared cell order')
         if len(row) != len(cells):
             raise ValueError('every rival must predict every declared cell')
         for value in row:

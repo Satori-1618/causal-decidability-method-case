@@ -14,6 +14,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from reproduction_checks import assert_records_match
 
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT / "applications/gur-arieh-2510.06182"
@@ -83,7 +84,7 @@ class PilotTwoResultTests(unittest.TestCase):
             completed = subprocess.run([sys.executable, "-B", "-c", program], capture_output=True, text=True,
                                        check=False)
         self.assertEqual(completed.returncode, 0, completed.stderr[-2000:])
-        self.assertEqual(json.loads(completed.stdout), self.summary)
+        assert_records_match(self, json.loads(completed.stdout), self.summary)
 
     def test_recorded_outcome(self):
         gates = self.summary["gates"]

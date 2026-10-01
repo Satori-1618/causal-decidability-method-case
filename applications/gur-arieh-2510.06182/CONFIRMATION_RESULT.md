@@ -4,7 +4,8 @@
 cases after the analysis rule, cell, anchors, tolerances, sample size, seeds, model
 revision, runtime and artifact hashes were frozen in [`FREEZE.json`](FREEZE.json). The
 records-only checker independently reproduces the gates and decisions from the frozen
-manifest and raw records.
+manifest and raw records. This timing is supported by local commit and run records,
+not by an externally timestamped preregistration; see Verification below.
 
 ## Question
 
@@ -20,6 +21,16 @@ Two profiles were fixed on development split B:
   `T_W = 0.533756`;
 - `A_T`: a resolved case is close to the concentration of the three-way agreement
   control, `T_A = 0.996447`.
+
+`W_T` is our narrow, operational concentration rival. It is not a general mechanism
+claim made by the paper, so excluding it does not refute the paper's mixture model.
+
+The frozen readout scores single-token, capitalised answer forms **without a leading
+space**. This differs from the upstream in-context entity-token readout, which includes
+a leading space. The change was selected during development, following the
+[pilot readout audit](results/pilot/PILOT_REPORT.md#4-readout-validity-the-declared-readout-and-the-answer-form-readout).
+The result therefore applies to this adapted readout, not an exact reproduction of the
+paper's measurement.
 
 A case matched a profile when its concentration was within
 `kappa * (T_A - T_W) = 0.115673` of the corresponding anchor. A profile required at
@@ -66,6 +77,13 @@ stronger explanation that the data did not establish.
 
 ## Verification
 
+- Local freeze commit `e96b357` is dated 2026-09-28 17:54:57 +02:00; the recorded run
+  began at 17:55:59 +02:00. [`RUN_STARTED.json`](results/confirmation/RUN_STARTED.json)
+  records that commit, a clean working tree and the manifest hash below. These bind the
+  recorded protocol to the run, but do not independently establish the chronology:
+  the freeze was not pushed before the run and was not externally timestamped.
+  A separate human review of the final freeze is not documented in this repository;
+  this does not establish that the run lacked user authorization.
 - frozen manifest SHA-256:
   `11a7beb825e94ca537944d329f0c74bb504a5adaaeb5e7078ddb7f6d5f8ce327`
 - freeze commit: `e96b357e1e5a189656166a451ad13727d1d67375`

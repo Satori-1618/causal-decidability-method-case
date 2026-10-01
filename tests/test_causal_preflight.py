@@ -60,7 +60,7 @@ class TestCausalPreflight(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 self.result(structure_only=True)
 
-    def test_choice_example_single_new_rows_tie_a_rule_with_no_effect(self):
+    def test_choice_example_single_new_rows_tie_a_rule_with_recipient_answer(self):
         config = json.loads((MODULE.EXAMPLE.parent / 'causal_preflight_choice_example.json').read_text())
         first, second, third = (cell['id'] for cell in config['cells'])
         check = lambda cells=None: MODULE.check(config, cells, structure_only=True)
@@ -78,6 +78,23 @@ class TestCausalPreflight(unittest.TestCase):
         with redirect_stdout(output):
             MODULE.display(full)
         self.assertIn('Measurement resolution not assessed', output.getvalue())
+
+    def test_prediction_rows_must_be_lists_even_when_lengths_match(self):
+        choice = json.loads((MODULE.EXAMPLE.parent / 'causal_preflight_choice_example.json').read_text())
+        # A string used to pass as three character categories; dictionary keys
+        # and tuples can also look like a correctly sized prediction sequence.
+        for row in ('AAA', {'A': 1, 'B': 2, 'C': 3}, ('A', 'A', 'A'), None):
+            bad = copy.deepcopy(choice)
+            bad['predictions']['no_effect'] = row
+            with self.subTest(kind='category', row=row), self.assertRaisesRegex(ValueError, 'must be a list'):
+                MODULE.check(bad, structure_only=True)
+        for structure_only in (False, True):
+            for row in ((2.0, 0.2), {2.0: 'first', 0.2: 'second'}, None):
+                bad = copy.deepcopy(self.config)
+                bad['predictions']['A'] = row
+                with self.subTest(kind='mean', row=row, structure_only=structure_only):
+                    with self.assertRaisesRegex(ValueError, 'must be a list'):
+                        MODULE.check(bad, structure_only=structure_only)
 
     def test_category_predictions_are_structural_only_and_never_unknown(self):
         config = json.loads((MODULE.EXAMPLE.parent / 'causal_preflight_choice_example.json').read_text())

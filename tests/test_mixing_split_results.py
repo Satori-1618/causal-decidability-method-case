@@ -6,6 +6,7 @@ that commit's code (read from git history, run in a subprocess), and the qualify
 records pass the records-only checker's per-record checks. Skipped for a split that has
 not run.
 """
+import copy
 import hashlib
 import importlib.util
 import json
@@ -14,6 +15,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from reproduction_checks import assert_records_match
 
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT / "applications/gur-arieh-2510.06182"
@@ -32,6 +34,61 @@ def sha256(data):
 
 def git_show(commit, path):
     return subprocess.run(["git", "show", f"{commit}:{path}"], cwd=ROOT, capture_output=True, check=True).stdout
+
+
+def assert_decision_matches(test, actual, expected):
+    assert_records_match(test, actual, expected)
+
+
+class DecisionComparisonTests(unittest.TestCase):
+    def test_planning_power_allowance_does_not_change_the_design(self):
+        expected = {"planning_N": {"N": 300, "adequacy_power": 0.91,
+                    "adequacy_powered": True, "status": "PROCEED",
+                    "table": [{"N": 300, "exclusion_power": 0.92}]},
+                    "scientific_tolerance": 0.1}
+        actual = copy.deepcopy(expected)
+        actual["planning_N"]["adequacy_power"] += 3e-13
+        actual["planning_N"]["table"][0]["exclusion_power"] -= 3e-13
+        assert_records_match(self, actual, expected)
+        for field, replacement in (("N", 301), ("adequacy_powered", False),
+                                   ("adequacy_power", 0.910001), ("status", "STOP")):
+            changed = copy.deepcopy(actual)
+            changed["planning_N"][field] = replacement
+            with self.subTest(field=field), self.assertRaises(AssertionError):
+                assert_records_match(self, changed, expected)
+        changed = copy.deepcopy(actual)
+        changed["scientific_tolerance"] += 1e-15
+        with self.assertRaises(AssertionError):
+            assert_records_match(self, changed, expected)
+
+    def test_tolerance_is_limited_to_two_diagnostics(self):
+        expected = {
+            "status": "PROCEED", "count": 200, "sha256": "abc",
+            "gate_table": {"audit_full_logits": {
+                "passed": True,
+                "max_abs_answer_mass_difference": 1.962677466549323e-6,
+                "max_abs_logsumexp_difference": 1.0290846610416793e-6,
+            }},
+        }
+        actual = copy.deepcopy(expected)
+        audit = actual["gate_table"]["audit_full_logits"]
+        audit["max_abs_answer_mass_difference"] += 3.5e-15
+        audit["max_abs_logsumexp_difference"] -= 3.6e-15
+        assert_decision_matches(self, actual, expected)
+        self.assertIn("max_abs_answer_mass_difference", audit)  # Inputs untouched.
+
+        for field, replacement in (("status", "STOP"), ("count", 201), ("sha256", "changed")):
+            changed = copy.deepcopy(actual)
+            changed[field] = replacement
+            with self.subTest(field=field), self.assertRaises(AssertionError):
+                assert_decision_matches(self, changed, expected)
+        for field, replacement in (("passed", False),
+                                   ("max_abs_answer_mass_difference", 2e-6),
+                                   ("max_abs_logsumexp_difference", float("nan"))):
+            changed = copy.deepcopy(actual)
+            changed["gate_table"]["audit_full_logits"][field] = replacement
+            with self.subTest(field=field), self.assertRaises(AssertionError):
+                assert_decision_matches(self, changed, expected)
 
 
 class SplitResultTests(unittest.TestCase):
@@ -91,7 +148,7 @@ class SplitResultTests(unittest.TestCase):
             with self.subTest(split=name):
                 self.assertEqual(completed.returncode, 0, completed.stderr[-2000:])
                 stored = json.loads((path / f"split_{name}_decision.json").read_text())
-                self.assertEqual(json.loads(completed.stdout), stored)
+                assert_decision_matches(self, json.loads(completed.stdout), stored)
 
     def test_records_pass_the_checkers_record_checks(self):
         spec = importlib.util.spec_from_file_location("checker", APP / "scripts/check_mixing_round1_records.py")

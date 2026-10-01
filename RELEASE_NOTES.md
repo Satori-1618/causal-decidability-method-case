@@ -1,146 +1,81 @@
-# Public method-case snapshot
+# Research release 0.3.0 — 1 October 2026
 
-## Transferability, status and verification update — 27 September 2026
+This release brings the method, the small preflight tool and the existing Makelov,
+Goodfire and Tracr applications into one checkout. It adds no pretrained-model
+experiment and changes no frozen scientific rule, source binding or raw measurement.
+Earlier release notes remain available in Git history.
 
-This change runs no model and changes no frozen decision, raw record, protocol or
-archived file. It makes the existing results easier to apply and to check:
+## Start here
 
-- **Decision contract.** The [method guide](docs/USING_THE_METHOD.md#case-wise-profiles-with-a-population-coverage-requirement)
-  now states the case-wise profile contract of rounds 2 and 3A: independent unit,
-  profiles, tolerance and conjunction, numerical gate, required coverage, simultaneous
-  exact intervals, and the adequate, excluded, undecided and invalid statuses. It states
-  that the rule judges units that are both resolved and profile-conform, so an exclusion
-  with unresolved units is not a demonstrated behavioural violation; rounds 2 and 3A had
-  none. The case study links it for application to other data.
-- **Status.** 3B is described everywhere on this branch as a native competence check that
-  ran and stopped, with no patches. The README's round table and 3B paragraph are updated;
-  dated reports and plans receive update notes instead of being rewritten. `main` is
-  unchanged.
-- **Short overview.** [`OVERVIEW.md`](applications/makelov-2311.17030/OVERVIEW.md)
-  summarizes the four rounds as stepwise narrowing, with one table per round.
-- **Post hoc descriptions.** `scripts/describe_post_hoc.py` reproduces, from stored records,
-  Q1's measured effect ratios, tolerance tables for rounds 2 and 3A, and diagnostics of
-  the averaged 3A contrasts. The round-2 and round-3A reports carry dated addenda. The
-  frozen decisions stand; no lenient tolerance is presented as a confirmed success. The
-  script refuses to report unless the frozen tolerances reproduce the frozen counts.
-- **Interpretation.** The case study now says that Q1 agrees with the authors'
-  explanation and quantifies it through an explicit rival comparison, with the effect
-  ratios reported as ratios rather than mechanism shares. Averaged 3A name and interaction
-  contrasts are identified as poor evidence of name independence; the case-wise profiles
-  carry that result.
-- **Verification.** The round-2 and round-3A checkers read the personal Hugging Face cache
-  only with `--use-hf-cache` or an explicit `--model-snapshot`; the records-only result no
-  longer depends on it. The guide states that editable installation needs pip 21.3 or later.
+- [README](README.md): the question, short commands and supported claims.
+- [Preflight](docs/METHOD_PREFLIGHT.md): build a rival table, check separation,
+  then assess measurement resolution under explicit assumptions.
+- [Applications](applications/README.md): choose a worked case.
+- [Evidence map](docs/EVIDENCE_MAP.md): results, canonical artifacts and limits.
 
-## Makelov application and reproducibility update — 24 September 2026
+## What changed
 
-The [current case study](applications/makelov-2311.17030/CASE_STUDY.md) explains what
-each application of the existing method adds: Q1's supported relative read-source
-comparison, round 2's three profile exclusions, 3A's two invariance-profile exclusions,
-and 3B's native qualification STOP before any patching. It does not turn the latter
-into a role-transfer result or add an absolute adequacy claim to Q1.
+- Integrated the previously separate Makelov, Goodfire and Tracr branches, retaining
+  their recorded histories, protocols, development outcomes and confirmation records.
+- Made the root entry points shorter and distinguished structural audits, controlled
+  validation, comparative confirmation and qualification stops.
+- Rejected malformed prediction rows: each row must be a list, not a string that
+  accidentally becomes one prediction per character.
+- Replaced the teaching example's internal "no effect" interpretation with preservation
+  of the recipient's observed answer. Donor and recipient baselines must both be checked.
+- Documented Goodfire's adapted answer-token readout, the narrow scope of our `W_T`
+  rival, and its locally recorded freeze rather than an external preregistration.
+- Made Goodfire development-reproduction tests portable across the checked runtimes.
+  Two named float64 audit diagnostics allow absolute drift up to `1e-14`; named
+  planning-power fields allow `1e-12` after measured Python-version differences
+  below `2.3e-13`. Decisions, counts, thresholds, hashes and all other fields remain
+  exact. These test comparisons do not relax experimental gates or alter results.
+- Added one command for the bundled records checks; CI runs it with full Git history.
 
-The [verification guide](applications/makelov-2311.17030/VERIFICATION.md) separates
-standard-library records checks, NumPy analysis tests, optional PyTorch tensor tests,
-and full model replay. The `test` extra now declares NumPy; `test-hooks` additionally
-declares PyTorch. Tensor-dependent tests explicitly skip when that optional runtime
-is absent. CI has separate stored-evidence, analysis and CPU tensor jobs. The analysis
-job also regenerates the two seeded 3A bootstrap calculations from saved measurements.
+## Check this release
 
-This maintenance change runs no pretrained model and changes no research outcomes,
-frozen contracts, raw records or historical application files. The root README and
-`main` are preserved. Current entry points are the application index and case study;
-older proposal text remains historical material. Local validation is recorded in
-[the release check report](docs/MAKELOV_RELEASE_CHECKS.md); it is not a claim that the
-updated hosted CI has already run.
-
-## Round 2 execution update — 24 September 2026
-
-This branch adds a new [192-pair query-route experiment](docs/ROUND2_RESULT.md), with
-an earlier 32-pair development run, public pre-run freeze, full paired float32/float64
-measurements, simultaneous exact-binomial profile intervals and records-only checking.
-All three declared profiles fail the 80% coverage requirement; no unique mechanism is
-identified. The reverse-transfer condition adds information but does not change the
-population-level exclusion verdict already suggested by reset alone in these data.
-
-The original snapshot published the general method and existing Makelov Q1 evidence;
-that publication was not a new Q1 experiment or a retroactive public preregistration.
-All 62 archived files remain byte-identical. The original four-cell
-[teaching design](docs/ITERATIVE_IDENTIFICATION.md) is retained as history, with its
-review correction and the separate executed protocol clearly linked. No claim is made
-to invent model discrimination or solve mechanistic identification generally.
-
-## Evidence and verification levels
-
-1. **Stored evidence:** `python3 examples/confirmed_read_source.py` verifies the archived
-   64-pair confirmation and checks agreement with the current analysis API. No package
-   installation, downloads, models or GPU are needed.
-2. **Optional input reconstruction:** the historical application scripts fetch pinned
-   upstream files and rebuild directions using model weights. This requires separate
-   dependencies and access to the weights; the original full verifier uses these files.
-3. **Optional experiment replay:** the historical runners perform new model forwards.
-   They are different from recomputing the stored result and are not run by the offline
-   tests or CI. `reproduce_resid_mid8.py` also runs a model; it is not an offline checker.
-
-Saved control fields are evidence about the recorded execution. Records-only verification
-does not independently replay those tensor insertions. Four Q1 pairs have CPU32/CPU64
-reference records; this is not an exhaustive numerical bound or an exact-truth reference.
-
-## Changes to the reusable tool
-
-- Tested self-anchors are refused: a measurement cannot count as its own prediction.
-- Declared equivalent candidates must have identical tested prediction specifications;
-  aliases share an adequacy decision and its multiplicity budget.
-- All-tie comparisons report no evidence of a difference.
-- Planning recommendations check statistical and numerical limits together. The ratio
-  remains a heuristic, not power, a coverage bound or an identification guarantee.
-- User-facing outputs distinguish nominal bootstrap intervals from the exact primary
-  sign test; pairwise p-values require a declared error family when many are inspected.
-
-These changes do not refit the model, change Q1's candidates or alter its frozen scorer.
-The current method is cross-checked against that scorer's archived primary result.
-
-## What has not become guaranteed
-
-The general adequacy module uses nominal percentile-bootstrap intervals. A minimum sample
-size alone does not ensure coverage, particularly for discrete or degenerate data. Use
-a justified interval procedure for the intended population, or report a bounded relative
-comparison rather than claiming adequate accuracy. The Q1 result uses its prespecified
-single exact sign test and does not claim adequacy.
-
-Q1 covers one model, site, direction and prompt generator. It concerns the constructed
-patch operation, not a uniquely identified native semantic variable. Candidate completeness,
-adequacy, other model families and safety transfer remain separate questions.
-
-## Historical files
-
-The Makelov application was copied from development commit
-`6388102b4ee7fcc6e3025908316a9ddc816c4fe6`; the method starts from
-`82e4d6ba511ab492edfa645cb8fc80dffa92a046`.
-The [frozen-file inventory](release/FROZEN_FILES.json) lists the copied paths and SHA-256
-digests. `python3 scripts/check_frozen_files.py` checks that none was changed.
-The application's old README, runner labels, numerical field names, tests and older
-experiments are retained as historical material. Start with the new records-only guide
-rather than its mixed full-reproduction command block.
-
-No private development git history, untracked drafts, model weights or fetched upstream
-inputs are part of this public snapshot. The original upstream inputs are fetched at a
-pinned revision rather than redistributed; the archived application documents its terms.
-
-## Offline tests
+The small teaching examples and Q1 check use only Python's standard library:
 
 ```bash
-python3 -m pip install -e '.[test]'
-python3 -m pytest -q -ra
+python3 examples/causal_preflight.py
+python3 examples/causal_preflight.py --config examples/data/causal_preflight_choice_example.json --structure-only
+python3 examples/confirmed_read_source.py
 ```
 
-The default suite covers the current method, release integrity, Q1 integration and the
-records-only checker. The archived application suite is separate: several of its tests
-require fetched inputs or TransformerLens. It is not silently represented as having
-passed in a minimal environment.
+For all bundled result checks, use a full Git clone and a virtual environment:
 
-Install `.[test-hooks]` and rerun the same command to include the optional tensor
-tests. Without PyTorch, their skips are expected and visible, not counted as passes.
-These tensor tests use fake models, not pretrained weights. Use the
-[verification guide](applications/makelov-2311.17030/VERIFICATION.md) for fresh-environment
-commands and all four result checks.
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -e '.[test,verify]'
+python scripts/verify_release.py
+python -m pytest -q -ra
+```
+
+The verification command uses NumPy and SciPy. It downloads nothing, loads no model,
+and checks saved evidence rather than replaying the original interventions. The
+historical Tracr verifier writes a report, so the wrapper gives it a temporary copy
+of the result directory. Optional tensor tests and upstream-source tests may skip;
+these skips are displayed. Full Tracr/model replay has separate application dependencies.
+See [release checks](docs/RELEASE_CHECKS.md) for the environments actually exercised.
+
+## Boundaries of this release
+
+- Results distinguish specified alternatives on particular tasks and interventions;
+  they do not establish an exhaustive candidate set or a unique native mechanism.
+- The historical resolution forecast scored **88.47% and 88.20%**, below its declared
+  **90%** target. The full synthetic benchmark is not bundled here; its failure and
+  other limitations are retained in [validation](docs/validation.md). The current
+  small planning screen is conditional, not a newly validated power calculator.
+- Whether the prompt improves AI-assisted rival generation is **untested**. No new
+  AI-rival pilot is presented as evidence for this release.
+- Local commit order and run hashes bind recorded protocols to runs; they do not by
+  themselves establish independent timestamps or rule out unrecorded earlier work.
+  Goodfire's final freeze has no separate human-review record in this repository.
+- Beckmann is a separate project and is not a bundled or reproducible case here.
+  No claim of measured cost savings depends on that unpublished application.
+
+The original 62-file Makelov inventory remains checked by
+`python3 scripts/check_frozen_files.py`. Application-specific verifiers additionally
+check their own contracts, measurements and source hashes. Frozen research artifacts
+are preserved; a later release of local history does not retroactively preregister it.

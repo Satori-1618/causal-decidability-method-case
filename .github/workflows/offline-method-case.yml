@@ -42,15 +42,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Goodfire recomputes development decisions with their recorded source.
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Install analysis test dependencies (no PyTorch)
-        run: python -m pip install -e '.[test]'
+        run: python -m pip install -e '.[test,verify]'
       - name: Confirm this job has no tensor runtime
         run: python -c "import importlib.util; assert importlib.util.find_spec('torch') is None"
       - name: Run analysis tests and display optional skips
         run: python -m pytest -q -ra
+      - name: Verify bundled evidence across the applications
+        run: python scripts/verify_release.py
       - name: Recompute round 3A seeded bootstrap from saved records
         run: >-
           python applications/makelov-2311.17030/scripts/check_donor_factor_512_records.py
@@ -60,6 +64,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

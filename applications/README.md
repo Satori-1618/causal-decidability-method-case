@@ -1,128 +1,82 @@
 # Applications
 
-An application takes a causal claim about an intervention, declares the rival
-explanations it has to beat, finds the conditions where their predictions differ, and
-reports which explanations the data leave compatible.
+Each case declares rivals, finds their differing predictions, and reports what its
+data can decide. **They test different parts of the method.** None establishes
+general reliability or identifies every mechanism compatible with a model.
 
-## Index
+## Choose a case
 
-The Makelov application is included in this checkout. Start with its
-[short overview](makelov-2311.17030/OVERVIEW.md) or the current
-[four-round case study](makelov-2311.17030/CASE_STUDY.md), then
-[verification and installation](makelov-2311.17030/VERIFICATION.md).
-The stored results can be checked with Python alone, without models or downloads.
-The application's original README is a hash-frozen historical document; it is not
-the current experiment index.
+| Application | Read first | Evidence and limit |
+|---|---|---|
+| **Makelov, Lange & Nanda — GPT-2** | [Four-round overview](makelov-2311.17030/OVERVIEW.md) | Fresh comparison, later profile exclusions, then a qualification stop. Explains aspects of a fixed patch; native mechanism and Q1 adequacy remain open. |
+| **DeepMind Tracr — compiled reversal** | [Result and worked example](tracr/RESULTS.md) | Known computation, two declared rivals, fresh token families. The operator chose the address site from compiler structure; this is controlled validation. |
+| **Gur-Arieh, Geva & Geiger — Mixing Mechanisms** | [Confirmation result](gur-arieh-2510.06182/CONFIRMATION_RESULT.md) | One concentration profile excluded; the stronger profile undecided. No per-case mechanism identification or refutation of the aggregate model. |
+| **Goodfire CausaLab — multiple choice** | [Design audit](goodfire-mcqa-preflight/README.md) | Reuses published input tables to expose ties. No new neural intervention or resolution calibration. |
 
-The query-route comparison has run on 192 fresh pairs; the name/position comparison
-on 512 fresh families. The proposed three-role experiment stopped after native
-qualification on 32 families, before any patching. The original
-[four-cell teaching proposal](../docs/ITERATIVE_IDENTIFICATION.md) remains design
-history, separate from the revised executed five-condition experiment.
+For claim-to-artifact links and provenance, use the
+[evidence map](../docs/EVIDENCE_MAP.md). Beckmann and the full historical synthetic
+benchmark are not bundled; the benchmark's limitations remain in
+[validation](../docs/validation.md).
 
-| paper | directory | what | status |
-|---|---|---|---|
-| Makelov, Lange & Nanda (2023), *Is this the subspace you are looking for?* arXiv:2311.17030 | [Current case](makelov-2311.17030/CASE_STUDY.md) | Read source → downstream route → name/position → role-task qualification | Q1: B better in 64/64; round 2: three profiles excluded; 3A: two invariance profiles excluded; 3B: qualification STOP, no patches. Q1 absolute adequacy and native semantic identification remain open. |
+## Reproduce at the appropriate level
 
-## How to apply the method
+**All included stored cases, without models or downloads during verification:**
 
-**Ordinary application: which explanations remain compatible?** This is the method.
-Write the preregistration with [PREREG_TEMPLATE.md](PREREG_TEMPLATE.md), then:
+```bash
+python3 -m pip install -e '.[verify]'
+python3 scripts/verify_release.py
+```
 
-1. **Freeze** the candidates and their predictions, the separating conditions, the units,
-   the adequacy bound and the uncertainty rule, and timestamp the freeze externally.
-2. **Pilot**, if needed, on units kept apart from the confirmation. It may inform the
-   sample size, never the adequacy bound or the candidates.
-3. **Confirm** on fresh units, once. Run `examples/from_data.py` (or `evaluate`) with the
-   frozen declarations and a coverage-justified decision rule. The shipped adequacy
-   intervals are nominal bootstrap intervals; calibrate them for your data, or use a
-   justified relative comparison without an adequacy claim. Report the outcome and, for each excluded candidate, the
-   conditions that excluded it. "No candidate fits" is a correct result.
-4. **Record deviations** in the preregistration, dated, before reading the outcome.
+This needs a full Git checkout and the small NumPy/SciPy verification extra. It also
+checks Tracr's stored tensors without installing the Tracr/JAX model environment.
 
-**Retrospective use (light).** Take the per-example values behind a published contrast,
-declare the rivals it is meant to separate, and compute separation and paired resolution
-(`paired`). This asks which column of a table carries the claim. In the Makelov
-application the same rowspace-versus-nullspace contrast sits at 85.9 paired standard
-errors on logit difference and 2.65 on interchange accuracy, where it rests on 7
-discordant examples against 0.
+**Makelov, stored evidence, standard library, offline:**
 
-**Calculator validation (optional, separate).** To test whether the pre-run ratio predicts
-what a design will decide, use
-[CALCULATOR_VALIDATION_TEMPLATE.md](CALCULATOR_VALIDATION_TEMPLATE.md), as the
-`resid_mid.8` study did: freeze, blinded pilot, calculator predictions frozen with the
-confirmation runner, confirmation. This validates a planning tool; it is not needed to
-apply the method.
+```bash
+python3 examples/confirmed_read_source.py
+```
 
-## Lessons from the first applications, already in the templates
+The [verification guide](makelov-2311.17030/VERIFICATION.md) lists the later-round
+checks and separates records replay from running GPT-2 again. The application's
+original README is a frozen historical artifact; use the overview as its front page.
 
-- **Declare the tolerance before the data.** With the pilot's own loss, the stored Makelov
-  read-source data exclude both candidates at a tolerance of 10 % of the full effect, and
-  show the null-read candidate adequate at 25 %. Both are correct answers to different
-  questions, so the question has to be fixed first, on scientific grounds.
-- **Choose the loss for the question.** Averaging signed errors lets +2 and −2 cancel, so
-  a candidate can look perfect while missing every case. The read-source pilot compared
-  absolute errors per case; its continuation keeps that loss.
-- **Retained is not adequate.** Being the only candidate left says nothing about how well
-  it predicts. Report excluded, adequate and undecided separately.
-- **A fractional tolerance is an estimate.** If the tolerance is a fraction of an effect
-  measured on the same units, resample the two together.
-- **An anchored candidate reproduces its anchor by construction.** Both Makelov
-  candidates are stated relative to the measured full patch, so the full patch cannot test
-  them; only the read conditions can. Mark anchored predictions as such.
-- **Say what a decision is supposed to predict.** At `resid_mid.8`, "decided" meant "at
-  least one endpoint excluded", and in 21 of 28 checks both endpoints were excluded. Fix in
-  Freeze A whether the target is any exclusion, the correct candidate set, or identification
-  of a relevant effect, and report which rivals remain, not only decided / undecided.
-- **Calibrate the realized rule at the sample sizes you use.** A normal interval from the
-  sample SD over-excludes on small discrete samples: 3.9 % false exclusions at n = 12
-  instead of 0.5 %. Use exact tests for discrete readouts, and predict with the matching
-  model (exact power rather than the normal floor).
-- **For calculator validation, choose sample sizes that give weak and strong designs.** At
-  `resid_mid.8` every frozen prediction landed above ratio 2, so a constant prediction
-  would have scored as well. Declare a *rule* that picks sizes from the pilot, score it
-  against a simple baseline, and use separate confirmation blocks rather than nested
-  prefixes.
-- **Timestamp externally at the time.** Commits and hashes bind versions to each other;
-  they do not prove when a freeze happened, and publishing a private history later does
-  not add that.
-- **Define every effect relative to the clean run,** so that an inert intervention has
-  effect exactly 0.
-- **Pin data generation** (hash seeds, symbol orders, the builder) and check it at runtime.
-  Upstream IOI code uses `list(set(pattern))`, whose order depends on `PYTHONHASHSEED`.
-- **Randomise or interleave the evaluation order.** Generated data often comes in blocks,
-  and a prefix of one block is not a draw from the declared distribution.
-- **Binary readouts leak through their SD.** For a {−1, 0, 1} contrast the SD reveals the
-  rate up to p ↔ 1 − p, so a pilot is blinded only nominally on such a readout. Say so in
-  advance.
-- **Keep numerics out of the question** unless they are the question. In float32 the
-  statistical floor binds, and the numerical floor is not tested.
-- **Report effect ratios as ratios.** A single-component patch reaching 86 % of the full
-  patch's effect is not an 86 % share of the mechanism: the patches are not additive and
-  the network downstream is nonlinear.
+**Mixing Mechanisms, stored evidence, standard library, offline:**
 
-## Adding an application
+```bash
+python3 applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py --results applications/gur-arieh-2510.06182/results/confirmation
+```
 
-1. Branch from `main` as `applications/<first-author>-<arxiv-id>` (`git switch -c …`; use
-   `git switch`, not `git checkout`, because the branch name matches the directory).
-2. Put everything under `applications/<first-author>-<arxiv-id>/`: `README.md`,
-   `PREREG_*.md`, `src/`, `scripts/`, `results/`, `tests/`, and a pinned copy of the
-   calculator version you ran with.
-3. Do not vendor upstream files whose licence does not allow it. Fetch them at a pinned
-   revision and verify their hashes instead.
-4. Add a row to the index above on `main` once the application has a result, whatever the
-   result is.
+Use a Git checkout with the included history: the checker validates the recorded
+freeze commit as well as files. Its [README](gur-arieh-2510.06182/README.md) gives the
+model environment. Round 2 is development only.
 
-## Candidate papers
+**Goodfire MCQA, input-table reconstruction, standard library:**
 
-Not yet checked for public per-example code or suitable rivals; a starting list only.
+```bash
+python3 applications/goodfire-mcqa-preflight/run.py
+```
 
-- Wang et al. (2022), IOI circuit, arXiv:2211.00593. Path patching, many head-level
-  claims, with backup heads as natural rivals.
-- Geiger et al. (2023), distributed alignment search, arXiv:2303.02536. IIA scores
-  compare alignments; how far apart do rival alignments' predictions lie?
-- Wu et al. (2023), Boundless DAS, arXiv:2305.08809.
-- Hanna, Liu & Variengien (2023), greater-than circuit, arXiv:2305.00586.
-- Conmy et al. (2023), ACDC, arXiv:2304.14997.
-- Shi et al. (2024), hypothesis tests for circuits, arXiv:2410.13032. Their §5 leaves the
-  Type II error of the equivalence test open.
+The first run downloads small files from a pinned upstream commit and verifies
+their hashes. It executes no upstream code and loads no model.
+
+**Tracr model replay:** follow its [setup guide](tracr/README.md#reproduce) only to
+execute the compiled Transformer or its application tests. The combined check above
+suffices for the stored evidence. Replaying the stored sample is not a second fresh
+confirmation.
+
+## Apply the procedure to a new study
+
+1. Start with the [two-check guide](../docs/METHOD_PREFLIGHT.md). Use an explicit
+   candidate table; preserve ties and unknown calibration.
+2. Develop the design separately from confirmation. Check the implemented
+   intervention and the final measurement's numerical sensitivity.
+3. Freeze predictions, units, loss, tolerance if assessing adequacy, and the
+   uncertainty rule before fresh outcomes. Timestamp the freeze externally at the
+   time if claiming an externally verifiable preregistration.
+4. Report the result and remaining ambiguity, including failed checks or no fitting
+   candidate. A comparison win alone is not adequate fit.
+
+[PREREG_TEMPLATE.md](PREREG_TEMPLATE.md) supports empirical evaluation;
+[CALCULATOR_VALIDATION_TEMPLATE.md](CALCULATOR_VALIDATION_TEMPLATE.md) is for the
+separate question of forecasting whether an experiment will decide. The
+[technical guide](../docs/USING_THE_METHOD.md) documents the existing code paths.

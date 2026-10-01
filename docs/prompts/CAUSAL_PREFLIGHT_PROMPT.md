@@ -3,6 +3,7 @@
 Use with the [two-part method guide](../METHOD_PREFLIGHT.md). Replace the input
 slots below, then copy the fenced prompt into a research assistant conversation.
 This is a design audit; it does not run an experiment or decide which rival is true.
+Whether this prompt improves AI-assisted rival generation is untested.
 
 ## Quick start
 
@@ -19,8 +20,10 @@ An alternative explanation: [hypothesis, or UNKNOWN]
 What I would measure: [choice, logit margin, etc.]
 Existing evidence/rules: [paste or give paths; UNKNOWN is allowed]
 
-First help me specify at most three competing rules, plus the rule that the
-intervention has no effect. Label any rule you suggest
+First help me specify at most three competing rules, plus preservation of the
+observed unpatched readout. This does not mean the patch is internally inactive.
+Use observed donor and recipient baselines, or mark them UNKNOWN; do not substitute
+task-correct answers. Label any rule you suggest
 as a proposal, and identify assumptions that need my input or development data.
 Show one concrete donor/recipient example and derive each rule's prediction.
 Keep predictions as choices, signs, or UNKNOWN when that is all the rules imply;
@@ -45,6 +48,7 @@ INPUTS (write UNKNOWN where unavailable)
 - Scientific question, population, model, and intended claim: [fill in]
 - Finite declared rival set, each rival's causal rule and assumptions: [fill in]
 - Planned conditions, including donor/recipient/context/control: [fill in]
+- Observed unpatched donor and recipient readouts: [fill in]
 - Exact intervention operator, site/token, and what is held fixed: [fill in]
 - Readout, estimand, units, aggregation, and any normalization: [fill in]
 - Each rival's prediction for every condition/readout, with its derivation or
