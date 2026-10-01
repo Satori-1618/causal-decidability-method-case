@@ -41,7 +41,7 @@ estimate is not automatically a bound, and passing this screen is not a power cl
 
 ## What “frozen before the run” means here
 
-Hashes establish which protocol and code produced a record; they do not establish an
+Hashes bind records to specific protocol and code files; they do not establish an
 independent date. A records-only replay validates stored computations, not historical
 human review or a new model run.
 
