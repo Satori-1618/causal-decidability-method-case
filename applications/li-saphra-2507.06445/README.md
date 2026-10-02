@@ -4,6 +4,9 @@
 factorial tests now separate components of the replacement on fresh inputs,
 with a complete 35-task transfer cohort and explicit failures.
 [Concrete example](native_followup/EXAMPLE.md) · [one-page figure](native_followup/figures/two_steps.pdf).
+The next [value-transfer round](value_followup/README.md) tests prefix balance
+against position. Its 32-family development is complete; the predeclared gate
+did not authorize confirmation. It is separate from the confirmed result above.
 The retrospective audit below is preserved as the earlier, narrower stage.
 
 **The published improvement is robust. Its decomposition is not identified.**
