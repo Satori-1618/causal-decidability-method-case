@@ -1,0 +1,25 @@
+{
+  "n_per_stratum": 32,
+  "conditional_on": "filled strata and valid technical gates",
+  "rates_are_assumptions_not_pilot_predictions": true,
+  "scenarios": [
+    {
+      "accepted_rate": 0.9,
+      "rejected_rate": 0.05,
+      "positive_enrichment": 0.9999999082682113,
+      "substantial_enrichment": 0.9975556343401664
+    },
+    {
+      "accepted_rate": 0.75,
+      "rejected_rate": 0.1,
+      "positive_enrichment": 0.9923163368525025,
+      "substantial_enrichment": 0.5644072464017293
+    },
+    {
+      "accepted_rate": 0.5,
+      "rejected_rate": 0.1,
+      "positive_enrichment": 0.5768619543195944,
+      "substantial_enrichment": 0.016359477572645678
+    }
+  ]
+}
