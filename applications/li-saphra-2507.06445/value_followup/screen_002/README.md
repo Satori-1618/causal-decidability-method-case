@@ -1,8 +1,25 @@
 # Can a baseline predict which cases will separate two explanations?
 
-**Status: prepared; results pending.** This is a prospective test of a screen
-suggested by the earlier pilot, on one previously selected Dyck head. The failed
+**The frozen screen worked on fresh cases: 30/32 accepted families separated
+the rivals, versus 0/32 rejected families.** The difference is **93.75 percentage
+points**, with a simultaneous >=95% interval of **[64.13, 99.47] points**, above
+the prespecified 25-point practical target. This validates this screen locally
+on one previously selected Dyck head. The failed
 [first development round](../README.md) remains unchanged.
+
+![The complete prospective screen comparison](figures/screen_result.png)
+
+| Separate questions | Fresh result | Frozen decision |
+|---|---:|---|
+| Does native margin <8 enrich for anchor-separable families? | 30/32 accepted; 0/32 rejected | Substantial enrichment supported |
+| Does the balance-class account predict all six target transfers? | 19/30 separating accepted families | Development gate fails |
+| Does the position account predict all six target transfers? | 0/30 | Development gate fails |
+
+**The screen found informative cases; it did not make the explanations accurate.**
+The secondary gate still requires at least 16 separating families and 90% matches
+for one candidate. The observed balance-class match rate was **63.33%**. No
+semantic confirmation was run, and no rule was relaxed. These secondary counts
+are developmental, not new confirmatory candidate-exclusion claims.
 
 ## The useful distinction
 
@@ -31,11 +48,31 @@ declared causally irrelevant.
 - The six remaining transfers are measured for accepted families only. The
   earlier **16/32 separating plus 90% prediction matches** gate stays unchanged.
 
-The screen cutoff was chosen after the first pilot. Fresh testing can validate
-it locally, but cannot erase that development history or establish transfer to
+The screen cutoff was chosen after the first pilot. Fresh testing validates
+its local enrichment, but cannot erase that development history or establish transfer to
 other heads. The signed cutoff is not a general confidence rule: confidently
 incorrect negative margins also pass it. It does not identify numerical balance,
 its sign, a saturation mechanism or a complete circuit.
+
+## Record and scope
+
+Protocol, code and prepared inputs were frozen locally at **`7e808be`** before
+this run. Of the 1,024 baseline candidates, 440 passed the screen and 584 did not;
+only 32 per stratum were selected for the comparison. All 64 selected families
+were retained. The run measured 320 intervention cells in both dtypes. Technical
+controls passed, including a maximum fp32/fp64 anchor-contrast difference of
+`0.00000313` nat and target prediction-error difference of `0.00000492` nat,
+both below the frozen 0.001-nat allowance.
+
+Model execution took **2.64 seconds** on CPU, after source/input checks; preparation,
+implementation and review are additional. This validation deliberately measured
+rejected cases and 1,024 native candidates. It does **not** demonstrate net
+compute savings or justify applying the same 8-nat cutoff to other models.
+
+The methodological result is a successful local instance of **predicting
+practical separability before intervention**, distinct from predicting which
+mechanistic account will fit. The procedure is reusable; this numerical cutoff
+and its performance still need evaluation on untouched heads and tasks.
 
 ## Inspect and reproduce
 
@@ -50,7 +87,10 @@ The verifier follows a separate implementation from the producer/analyzer. It
 checks saved native scores, first-in-order selection, freshness, forecasts,
 tensor arithmetic and both decisions. It is not an independent neural rerun;
 whole-layer unchangedness is checked during production but full-layer tensors
-are not archived. Receipts and git provenance are local, not external timestamps.
+are not archived. Historical exclusions are reconstructed from the bound
+committed inventory plus the earlier development inputs; original upstream
+files are also hash-checked when available. Receipts and git provenance are local,
+not external timestamps.
 
 To replay model execution, use a full git checkout and the Python/PyTorch
 environment and pinned asset downloaders in [the reproduction guide](../REPRODUCE.md).
@@ -69,4 +109,6 @@ not a fresh confirmation. No GPU or training is needed. Numerical gates must
 pass in the replay environment; byte-identical neural outputs are not promised.
 
 [Protocol](PROTOCOL.md) · [Power assumptions](planning.json) ·
-[Prepared inputs](inputs/preparation.json) · [Pre-run review](REVIEW_PRE_RUN.md)
+[Prepared inputs](inputs/preparation.json) · [Pre-run review](REVIEW_PRE_RUN.md) ·
+[Raw run](results/run_001/manifest.json) · [Analysis](results/report.json) ·
+[Independent verification](VERIFICATION.md)

@@ -1,12 +1,16 @@
 # Better after ablation — better because of what?
 
-**New: [prospective real-model followup](native_followup/README.md).** Two nested
+**[Prospective real-model followup](native_followup/README.md).** Two successive
 factorial tests now separate components of the replacement on fresh inputs,
 with a complete 35-task transfer cohort and explicit failures.
 [Concrete example](native_followup/EXAMPLE.md) · [one-page figure](native_followup/figures/two_steps.pdf).
 The next [value-transfer round](value_followup/README.md) tests prefix balance
 against position. Its 32-family development is complete; the predeclared gate
 did not authorize confirmation. It is separate from the confirmed result above.
+A subsequent [prospective native-margin screen](value_followup/screen_002/README.md)
+found anchor-separable outcomes in **30/32 accepted versus 0/32 rejected fresh
+families**, while balance-class fit remained insufficient (**19/30**). The screen
+is locally validated; the semantic mechanism is not confirmed.
 The retrospective audit below is preserved as the earlier, narrower stage.
 
 **The published improvement is robust. Its decomposition is not identified.**

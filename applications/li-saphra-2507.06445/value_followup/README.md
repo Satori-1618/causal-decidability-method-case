@@ -6,6 +6,12 @@ pattern on the eight separating families. The predefined confirmation gate was
 not met. This does not change the earlier confirmed intervention-decomposition
 results.
 
+**Next iteration:** a separately frozen [prospective margin-screen test](screen_002/README.md)
+found separating outcomes in **30/32 accepted versus 0/32 rejected fresh
+families**. Its balance-class fit was **19/30**, so the mechanism-development
+gate still failed. This validates the screen locally and leaves the earlier
+development result below unchanged.
+
 ![Complete development result](figures/value_development.png)
 
 ## Why this is the next method iteration
