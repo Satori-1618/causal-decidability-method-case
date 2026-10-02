@@ -1,0 +1,20 @@
+{
+  "phase": "development",
+  "seed": 25100201,
+  "families": 32,
+  "sampling": "iid family draws with replacement; distinct prefixes within each cell",
+  "cases_sha256": "c903abae2cf1b4af46fafb0de6287de073e23ee8c8fed02ede6407c34770caa0",
+  "exclusions_sha256": "4ec0282b210904582bf1e3719421ad2ec79c2405c54df70fb42a83d6b07badc5",
+  "generator_sha256": "8851798c3397db9113fd0fc4b6c78866beb98d32525bef49ac0faf914362fa94",
+  "prefix_support_before_exclusions_and_hash_split": {
+    "-2_20": 15504,
+    "-2_28": 3749460,
+    "2_20": 2907,
+    "2_28": 1332045
+  },
+  "unique_donor_prefixes": 252,
+  "donor_prefix_draws": 256,
+  "max_prefix_reuse_across_families": 2,
+  "unique_recipients": 32,
+  "max_recipient_reuse": 1
+}
