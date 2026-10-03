@@ -22,12 +22,15 @@ def verify_hashes(root, files):
 
 
 def verify_contract(plan):
-    if (plan['status'] != 'awaiting_independent_review'
-            or plan['execution_authorized'] is not False
-            or plan['model_measurements_performed'] is not False):
-        raise ValueError('This is a review-only freeze, not an execution release')
-    if plan['provenance']['new_input_pools_prepared'] is not False:
-        raise ValueError('Input preparation is a separate pre-execution freeze')
+    workflow = (plan['status'], plan['execution_authorized'])
+    if workflow not in [('awaiting_final_pre_run_review', False), ('released_for_execution', True)]:
+        raise ValueError('Inconsistent review-only or released workflow state')
+    if plan['model_measurements_performed'] is not False:
+        raise ValueError('Pre-run plan must not be relabelled as an outcome record')
+    if type(plan['provenance']['new_input_pools_prepared']) is not bool:
+        raise ValueError('Input preparation status must be explicit')
+    if plan['execution_authorized'] and not plan['provenance']['new_input_pools_prepared']:
+        raise ValueError('Cannot release without prepared inputs')
     cohort = plan['cohort']
     if len(cohort) != analysis.HEADS or len({c['model'] for c in cohort}) != analysis.HEADS:
         raise ValueError('Expected exactly six distinct frozen models')
@@ -63,16 +66,40 @@ def verify_contract(plan):
         raise ValueError('No secondary model run is authorized')
 
 
+def require_execution_release(plan, release):
+    """No command-line override: final review and explicit user release required."""
+    verify_contract(plan)
+    review = release.get('final_review', {})
+    if (plan['execution_authorized'] is not True
+            or plan['status'] != 'released_for_execution'
+            or release.get('status') != 'approved'
+            or release.get('execution_authorized') is not True
+            or review.get('status') != 'PASS'
+            or not isinstance(review.get('reviewer'), str) or not review['reviewer'].strip()
+            or not isinstance(review.get('reviewed_commit'), str)
+            or len(review['reviewed_commit']) != 40
+            or any(c not in '0123456789abcdef' for c in review['reviewed_commit'])
+            or not isinstance(release.get('user_execution_authorization'), str)
+            or not release['user_execution_authorization'].strip()):
+        raise ValueError('Execution blocked: final pre-run review and user release are pending')
+
+
 def main():
     lock = json.loads((HERE/'SOURCE_LOCK.json').read_text())
     verify_hashes(ROOT, lock['files'])
     plan = json.loads((HERE/'plan.json').read_text())
     verify_contract(plan)
+    release = json.loads((HERE/'EXECUTION_RELEASE.json').read_text())
+    if plan['execution_authorized']:
+        require_execution_release(plan, release)
+    elif release.get('status') != 'pending' or release.get('execution_authorized') is not False:
+        raise ValueError('Plan and execution-release status disagree')
     old = json.loads((HERE.parent.parent/'native_followup/frozen/confirmation_001/COHORT_ASSET_LOCK.json').read_text())
     for head in plan['cohort']:
         if head['sha256'] != old['files'][head['checkpoint']]['sha256']:
             raise ValueError('Checkpoint differs from prior public source lock')
-    print('PASS: {} file hashes; six-head plan matches calculator and checkpoint locks; review pending; execution not authorized'.format(len(lock['files'])))
+    print('PASS: {} file hashes; six-head plan matches calculator and checkpoint locks; {}'.format(
+        len(lock['files']), 'execution released' if plan['execution_authorized'] else 'final review pending; execution not authorized'))
 
 
 if __name__ == '__main__':

@@ -1,10 +1,10 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "round": "screen_transfer_003",
-  "status": "awaiting_independent_review",
+  "status": "awaiting_final_pre_run_review",
   "execution_authorized": false,
   "model_measurements_performed": false,
-  "scope": "Plan and hypothetical calculations only; implementation/input freeze required after independent review and before any new native scores.",
+  "scope": "Design amendment and runner/input freeze; final pre-run review and explicit execution release required before any new native score.",
   "cohort": [
     {
       "model": "50h5xlod",
@@ -105,7 +105,7 @@
     "opens": 16,
     "closes": 16,
     "requires_negative_prefix": true,
-    "families_per_stratum": 32,
+    "families_per_stratum": 64,
     "shortfall": "insufficient_yield; no transfers, extensions or replacement head",
     "pool_refresh_allowed": false
   },
@@ -134,11 +134,11 @@
       "float64"
     ],
     "secondary_target_transfers": false,
-    "maximum_anchor_cells": 768
+    "maximum_anchor_cells": 1536
   },
   "inference": {
     "heads": 6,
-    "families_per_stratum": 32,
+    "families_per_stratum": 64,
     "one_sided_cp_bounds": 24,
     "tail_alpha": 0.0020833333333333333,
     "minimum_uplift": 0.25,
@@ -152,14 +152,14 @@
     "baseline_sequence_forwards": 2,
     "two_anchor_family_sequence_forwards": 16,
     "reuse_credit": false,
-    "maximum_scheduled_sequence_forwards_per_head": 3072,
-    "maximum_scheduled_sequence_forwards_cohort": 18432,
+    "maximum_scheduled_sequence_forwards_per_head": 4096,
+    "maximum_scheduled_sequence_forwards_cohort": 24576,
     "random_comparator": "descriptive stratified plug-in estimate, not measured random arm",
     "random_yield": "q*p_A+(1-q)*p_R",
-    "fixed_policy": "(1024*b+32*f)/(32*p_A)",
+    "fixed_policy": "(1024*b+64*f)/(64*p_A)",
     "random_policy": "(b+f)/p_random",
     "ideal_stream_not_scheduled": "(b/q+f)/p_A",
-    "validation_total": "1024*b+64*f"
+    "validation_total": "1024*b+128*f"
   },
   "mechanistic_next": {
     "separate_round": true,
@@ -181,6 +181,15 @@
     "public_plan_freeze_required": true,
     "source_lock": "SOURCE_LOCK.json",
     "new_input_pools_prepared": false,
-    "review": "REVIEW.md"
+    "review": "REVIEW.md",
+    "amendment_of_commit": "7f6ebdeed0232dc8d3c08faec34be06f960335dc",
+    "amendment": "AMENDMENT_001.md",
+    "execution_release": "EXECUTION_RELEASE.json"
+  },
+  "design_review": {
+    "status": "PASS_WITH_AMENDMENT",
+    "source": "User-supplied independent review text; reviewer identity not supplied.",
+    "accepted_amendment": "64 families per stratum; preserve all other scientific thresholds and fixed native budget.",
+    "final_pre_run_review": "pending"
   }
 }

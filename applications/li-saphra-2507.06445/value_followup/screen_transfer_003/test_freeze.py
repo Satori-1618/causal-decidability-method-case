@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from verify_plan import HERE, verify_contract, verify_hashes
+from verify_plan import HERE, verify_contract, verify_hashes, require_execution_release
 
 
 class FreezeTests(unittest.TestCase):
@@ -19,6 +19,18 @@ class FreezeTests(unittest.TestCase):
         self.plan['execution_authorized'] = True
         with self.assertRaisesRegex(ValueError, 'review-only'):
             verify_contract(self.plan)
+
+    def test_current_release_blocks_execution(self):
+        release = json.loads((HERE/'EXECUTION_RELEASE.json').read_text())
+        with self.assertRaisesRegex(ValueError, 'Execution blocked'):
+            require_execution_release(self.plan, release)
+
+    def test_plan_toggle_alone_cannot_release(self):
+        self.plan.update(status='released_for_execution', execution_authorized=True)
+        self.plan['provenance']['new_input_pools_prepared'] = True
+        release = json.loads((HERE/'EXECUTION_RELEASE.json').read_text())
+        with self.assertRaisesRegex(ValueError, 'Execution blocked'):
+            require_execution_release(self.plan, release)
 
     def test_budget_cannot_drift(self):
         self.plan['screen']['native_candidates_per_head'] += 1

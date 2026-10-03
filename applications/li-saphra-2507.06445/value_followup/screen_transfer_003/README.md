@@ -1,6 +1,7 @@
 # Does the screen transfer to six other heads?
 
-**Status: plan frozen for independent review; no screening or intervention run.**
+**Status: reviewed design amended to 64 per stratum; awaiting final pre-run review.
+No screening or intervention run.**
 
 **Goal:** test whether one fixed rule, using only a recipient's native output,
 enriches for cases where the planned interventions can separate two explanations.
@@ -17,7 +18,7 @@ failed (19/30 balance matches). Those results remain unchanged.
 1. Score exactly **1,024 fresh candidate recipients per head** with the fixed,
    model-normalized version of the old signed-margin cutoff. No transfers inform
    this selection.
-2. Take the first **32 accepted and 32 rejected families**. If either quota is
+2. Take the first **64 accepted and 64 rejected families**. If either quota is
    missing, report **insufficient yield**; do not extend the pool or replace the
    head. Measure only the original two anchor transfers in each family.
 3. Report each head's enrichment with simultaneous bounds. The strong target is
@@ -29,7 +30,7 @@ failed (19/30 balance matches). Those results remain unchanged.
    rejected validation arm. These are policy estimates, not an observed random
    control or a demonstrated saving.
 
-Maximum scope: **6,144 native candidates, 384 families, 768 anchor cells**, each
+Maximum scope: **6,144 native candidates, 768 families, 1,536 anchor cells**, each
 measured in fp32 and fp64. No target-cell mechanism test is part of this run.
 
 ## Review materials
@@ -38,8 +39,8 @@ measured in fp32 and fp64. No target-cell mechanism test is part of this run.
 - [Machine-readable plan](plan.json) and [hypothetical precision calculation](planning.json).
 - [Later mechanistic round](MECHANISTIC_NEXT.md): two prefix-averaged anchors per
   balance level, with calibration and target prefixes kept separate.
-- [Review checklist](REVIEW.md): remains pending. Agent-assisted preparation is
-  not independent approval to execute.
+- [Review record and final checklist](REVIEW.md): design review accepted with the
+  [sample-size amendment](AMENDMENT_001.md); final execution review remains pending.
 - [Source lock](SOURCE_LOCK.json): binds this plan, calculators and inherited sources.
 
 From this directory, these commands use only files and hypothetical numbers:

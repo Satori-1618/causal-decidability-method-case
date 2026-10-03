@@ -1,17 +1,22 @@
 # Independent review before execution
 
-**Status: PENDING. No execution approval.** Preparing this plan with additional
-agents is not the independent review requested by the user. No six-head native
-margin, screen assignment or intervention outcome has been measured for this round.
+**Design review: PASS WITH AMENDMENT. Final pre-run review: PENDING.**
+The user supplied the review and approved raising both quotas to 64, with the
+1,024 budget and thresholds unchanged. See [Amendment 001](AMENDMENT_001.md).
+No six-head native margin, screen assignment or intervention outcome has been
+measured for this round. There is no execution approval.
 
-Reviewer: not assigned. Review date and decision: pending.
+Design reviewer: user-supplied review text; identity not supplied. Recorded on
+3 October 2026. Its historical feasibility check used existing cohort native
+margins only and did not change a cutoff. Additional agent checks are preparation
+QA, not external human peer review. Final reviewer and decision: pending.
 
 Check the public freeze, not just a narrative summary:
 
 - [ ] The six heads and their prior selection are explicit; no untouched-cohort claim.
 - [ ] The signed model-range normalization is valid for the pinned architecture.
       The old cutoff supplies the only calibration; target outcomes supply none.
-- [ ] Exactly 1,024 candidate slots/head; missing either 32-family quota gives
+- [ ] Exactly 1,024 candidate slots/head; missing either 64-family quota gives
       insufficient yield, stays among six, and cannot trigger more sampling.
 - [ ] The two-anchor operator, numerical gates and 0.202-nat outcome are unchanged.
       Verification handles both 16- and 32-dimensional head values.
@@ -28,5 +33,6 @@ Check the public freeze, not just a narrative summary:
       before any new scores; the runner fails closed on missing review/source locks.
 
 A review rejection or requested change produces a recorded amendment, not a
-silent plan edit. A review PASS permits seeking execution release; it does not
-override the user's instruction to stop here.
+silent plan edit. The checklist above must be checked against the final runner
+and prepared inputs. A design-review PASS does not approve execution; the
+separate `EXECUTION_RELEASE.json` remains pending.

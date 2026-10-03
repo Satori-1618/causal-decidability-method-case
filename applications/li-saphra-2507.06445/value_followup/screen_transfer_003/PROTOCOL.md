@@ -1,6 +1,7 @@
 # Screen-transfer 003: fixed-cohort prospective test
 
-**Plan only, awaiting independent review.** The unit is a recipient–donor family.
+**Amended plan, awaiting final pre-run review.** See [Amendment 001](AMENDMENT_001.md):
+32 becomes 64 per stratum before any new model measurements. The unit is a recipient–donor family.
 This round measures anchor separability, not candidate adequacy or saturation.
 Previous stops and thresholds remain part of the record.
 
@@ -55,7 +56,7 @@ before measuring their native margins. Never fit a ceiling from new outcomes.
   bracket, at least one negative prefix, the fixed development hash partition.
   Draw **1,024 recipients with replacement per head**, with the table's seeds.
   Finish that pool even if both quotas fill early. Do not replenish it.
-- Draw 64 donor templates independently using the existing `design.generate`:
+- Draw 128 donor templates independently using the existing `design.generate`:
   balances −2/+2, positions 20/28, target `)`, prefix minimum −4, two distinct
   prefixes per grid cell. Only `neg_20_0` and `pos_28_0` will be measured.
 - Preserve prior public/native exclusions and add every full donor/recipient
@@ -67,11 +68,11 @@ before measuring their native margins. Never fit a ceiling from new outcomes.
 - All six pools use the same fixed historical exclusions; do not condition one
   head's sampling on another's outcomes. Report repeats within/between pools.
   Distinct family draws, not unique strings, are the sampling units.
-- Score every candidate in fp32 and fp64. Select the first 32 accepted and first
-  32 rejected in input order. Attach donor templates 0–31 to accepted recipients
-  and 32–63 to rejected recipients. Save all scores, assignments and hashes
+- Score every candidate in fp32 and fp64. Select the first 64 accepted and first
+  64 rejected in input order. Attach donor templates 0–63 to accepted recipients
+  and 64–127 to rejected recipients. Save all scores, assignments and hashes
   **before any transfer for that head**.
-- If either stratum has fewer than 32, label the head `insufficient_yield`,
+- If either stratum has fewer than 64, label the head `insufficient_yield`,
   retain its acceptance rate and cost, and perform no transfers for that head.
   No extra candidates, smaller quota, threshold adjustment or substitute head.
 
@@ -105,7 +106,7 @@ or third-balance experiment starts automatically.
 
 For each valid head, estimate `Delta = p_A - p_R`, the difference in separating
 family rates for accepted versus rejected recipients. Donors follow the same
-outcome-independent distribution in both groups. There are n=32 per stratum.
+outcome-independent distribution in both groups. There are n=64 per stratum.
 Use Clopper–Pearson bounds with **alpha=0.05/24 per one-sided bound** (four per
 head). Derive `Delta_CI=[L_A-U_R, U_A-L_R]`. All six intervals have at least 95%
 simultaneous coverage by the union bound, without independence between heads.
@@ -120,16 +121,17 @@ If fewer than four support the target, say **target not established**, not
 failures. Report how many upper bounds exclude +0.25.
 
 `planning.json` enumerates exact hypothetical binomial power conditional on
-filled, technically valid strata. With true rates 0.90/0.05, per-head power for
-the strong target is about 95.5%; at 0.75/0.10 it is only about 20.8%.
-This is a bounded test of **strong** transfer. Cohort powers under equal,
+filled, technically valid strata. At true rates 0.75/0.10, per-head power is
+about 81.8%, giving about 92.2% four-of-six power under equal independent rates.
+At 0.60/0.10, four-of-six power remains only about 0.4% under those assumptions.
+This is a bounded test of **strong** transfer; these effect sizes are assumptions. Cohort powers under equal,
 independent heads are explicitly illustrative; dependence-free bounds are also
 reported. Neither calculation predicts these selected heads' effects.
 
 ## 6. Random-selection yield and costs: descriptive policy estimates
 
 For each complete head, let `q = accepted_pool_count/1024`,
-`p_A = accepted_separating/32`, `p_R = rejected_separating/32`.
+`p_A = accepted_separating/64`, `p_R = rejected_separating/64`.
 Estimate unfiltered random-family yield by **`p_random=q*p_A+(1-q)*p_R`**.
 Report `p_A-p_random`, not just the larger accepted-versus-rejected contrast.
 This is a plug-in estimate from stratified measurements, not a measured random
@@ -144,14 +146,14 @@ uses the same preliminary native pass and unoptimized measurement recipe.
 
 | Quantity | Frozen calculation |
 |---|---|
-| Fixed-pool policy cost per separating accepted family | `(1024*b + 32*f)/(32*p_A)` |
+| Fixed-pool policy cost per separating accepted family | `(1024*b + 64*f)/(64*p_A)` |
 | Random policy cost per separating family, estimated | `(b+f)/p_random` |
 | Idealized streaming policy, **not this schedule** | `(b/q+f)/p_A` |
-| Actual validation plan, including rejected families | `1024*b + 64*f` |
-| Rejected-arm measurement overhead | `32*f` |
+| Actual validation plan, including rejected families | `1024*b + 128*f` |
+| Rejected-arm measurement overhead | `64*f` |
 
-With this recipe the complete validation is **3,072 sequence-forwards per head,
-18,432 for six**, before any separately reported retries/additional controls.
+With this recipe the complete validation is **4,096 sequence-forwards per head,
+24,576 for six**, before any separately reported retries/additional controls.
 No scientific retries are permitted; aborted work is still costed. Count costs
 from actual execution, reconcile deviations, and do not silently swap in an
 optimized recipe. The fixed policy leaves unused accepted recipients in its
@@ -170,8 +172,9 @@ Push this plan and its source hashes before any new native score or transfer.
 Record the remote commit. A later public push cannot retroactively establish
 external timing for old runs. No claim of externally witnessed old freezes is made.
 
-Independent review must cover `REVIEW.md`. Then prepare/verify the runner and
-inputs without outcome peeking, record the review decision and publish their
+The supplied design review is recorded in `REVIEW.md`; its required sample-size
+change is this amendment. Final pre-run review must still cover the runner and
+inputs without outcome peeking. Record that review decision and publish their
 freeze before execution. Changes to this plan need a dated amendment and renewed
 review. The separate [anchor revision](MECHANISTIC_NEXT.md) does not run as part
-of screen transfer. This handoff stops at the plan; execution is not authorized.
+of screen transfer. This handoff stops before execution; a plan-review PASS is not a final execution release.

@@ -11,7 +11,7 @@ import math
 from pathlib import Path
 
 SCREEN_BUDGET = 1024
-N = 32
+N = 64
 HEADS = 6
 REQUIRED_HEADS = 4
 ALPHA = .05
@@ -19,7 +19,7 @@ TAIL_ALPHA = ALPHA / (4 * HEADS)
 MINIMUM_UPLIFT = .25
 BASELINE_SEQUENCE_FORWARDS = 2
 FAMILY_SEQUENCE_FORWARDS = 16
-HYPOTHETICAL_RATES = ((.90, .05), (.80, .10), (.75, .10), (.50, .10))
+HYPOTHETICAL_RATES = ((.90, .05), (.80, .10), (.75, .10), (.60, .10), (.50, .10))
 
 
 def _count(value, maximum, name):
@@ -76,7 +76,7 @@ def exact_bounds(k, n=N, alpha=TAIL_ALPHA):
 
 
 def head_result(accepted_hits, rejected_hits):
-    """One head, exactly 32 measured families in each stratum."""
+    """One head, exactly 64 measured families in each stratum."""
     _count(accepted_hits, N, 'accepted_hits')
     _count(rejected_hits, N, 'rejected_hits')
     a = exact_bounds(accepted_hits)
@@ -153,7 +153,7 @@ def cost_estimates(acceptance_count, accepted_hits, rejected_hits,
     """
     _count(acceptance_count, SCREEN_BUDGET, 'acceptance_count')
     if acceptance_count < N or SCREEN_BUDGET-acceptance_count < N:
-        raise ValueError('insufficient_yield: both strata need at least 32 of the fixed 1024 candidates')
+        raise ValueError('insufficient_yield: both strata need at least 64 of the fixed 1024 candidates')
     _count(accepted_hits, N, 'accepted_hits')
     _count(rejected_hits, N, 'rejected_hits')
     for name, value in [('b', b), ('f', f)]:
@@ -204,11 +204,11 @@ def planning_report():
                 {'rejected_hits': r, 'minimum_accepted_hits': next((a for a in range(N+1)
                  if head_result(a, r)['substantial_enrichment']), None)} for r in range(N+1)],
             'cost_formulas': {'random_yield': 'q*p_A + (1-q)*p_R',
-                              'fixed_screened_policy': '(1024*b + 32*f)/(32*p_A)',
+                              'fixed_screened_policy': '(1024*b + 64*f)/(64*p_A)',
                               'random_selection_policy': '(b+f)/p_random',
                               'ideal_stream_NOT_SCHEDULED': '(b/q+f)/p_A',
-                              'validation_total': '1024*b + 64*f'},
-            'shortfall': 'Fewer than 32 accepted OR 32 rejected means insufficient yield; no imputation or additional screening.',
+                              'validation_total': '1024*b + 128*f'},
+            'shortfall': 'Fewer than 64 accepted OR 64 rejected means insufficient yield; no imputation or additional screening.',
             'limitations': ['Hypothetical rates are assumptions, not predictions from measured results.',
                             'Power is conditional on quotas and technical gates passing.',
                             'Shared inputs may invalidate independent six-head power; dependence-free bounds are also reported.',
