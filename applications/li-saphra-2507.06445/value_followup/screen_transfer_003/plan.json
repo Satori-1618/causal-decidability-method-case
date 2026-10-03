@@ -180,11 +180,14 @@
     "upstream_revision": "dedb269eca6a9cf0bc409792003e6f815f2dce34",
     "public_plan_freeze_required": true,
     "source_lock": "SOURCE_LOCK.json",
-    "new_input_pools_prepared": false,
+    "new_input_pools_prepared": true,
     "review": "REVIEW.md",
     "amendment_of_commit": "7f6ebdeed0232dc8d3c08faec34be06f960335dc",
     "amendment": "AMENDMENT_001.md",
-    "execution_release": "EXECUTION_RELEASE.json"
+    "execution_release": "EXECUTION_RELEASE.json",
+    "prepared_inputs": "inputs/preparation.json",
+    "prepared_inputs_sha256": "76ce0d277f33ed69e27ebdc4d9f878814df08dc5bc8d2643bf46a5811b2011c2",
+    "reviewed_design_amendment_commit": "1d10892c38fcf63cc783f8087afcfdbd8f125957"
   },
   "design_review": {
     "status": "PASS_WITH_AMENDMENT",

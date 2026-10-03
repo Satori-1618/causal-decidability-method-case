@@ -1,0 +1,13 @@
+{
+  "candidate_pool_size": 1024,
+  "donor_prefix_draws": 1024,
+  "donor_seed": 26100302,
+  "donor_templates": 128,
+  "head_key": "50h5xlod_head1",
+  "maximum_candidate_reuse": 1,
+  "maximum_donor_prefix_reuse": 5,
+  "recipient_seed": 26100301,
+  "sampling": "With replacement across families; donor templates independent of native screening",
+  "unique_candidate_strings": 1024,
+  "unique_donor_prefixes": 953
+}

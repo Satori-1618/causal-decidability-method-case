@@ -89,6 +89,12 @@ def main():
     verify_hashes(ROOT, lock['files'])
     plan = json.loads((HERE/'plan.json').read_text())
     verify_contract(plan)
+    if plan['provenance']['new_input_pools_prepared']:
+        if plan['provenance'].get('prepared_inputs') != 'inputs/preparation.json':
+            raise ValueError('Prepared inputs must use the frozen directory')
+        preparation = HERE/'inputs/preparation.json'
+        if hashlib.sha256(preparation.read_bytes()).hexdigest() != plan['provenance'].get('prepared_inputs_sha256'):
+            raise ValueError('Prepared input manifest differs from the plan')
     release = json.loads((HERE/'EXECUTION_RELEASE.json').read_text())
     if plan['execution_authorized']:
         require_execution_release(plan, release)

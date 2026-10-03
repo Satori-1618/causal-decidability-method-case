@@ -42,6 +42,11 @@ measured in fp32 and fp64. No target-cell mechanism test is part of this run.
 - [Review record and final checklist](REVIEW.md): design review accepted with the
   [sample-size amendment](AMENDMENT_001.md); final execution review remains pending.
 - [Source lock](SOURCE_LOCK.json): binds this plan, calculators and inherited sources.
+- [Prepared inputs](inputs/preparation.json): all six unscored recipient pools
+  and donor grids, with historical exclusions and deterministic regeneration.
+- [Runner](run_transfer.py) and [saved-record audit](analyze_transfer.py): the
+  runtime reuses the existing intervention; the audit recomputes node arithmetic,
+  selection, separation, statistics and costs from stored records.
 
 From this directory, these commands use only files and hypothetical numbers:
 
@@ -49,9 +54,22 @@ From this directory, these commands use only files and hypothetical numbers:
 python3 verify_plan.py
 python3 -m unittest discover -s . -p 'test_*.py'
 python3 plan_analysis.py --check
+python3 prepare_transfer.py --validate-only
+python3 run_transfer.py --validate-only
 ```
 
-There is deliberately **no model-run command** here. After independent review,
-the runner and prepared inputs must be checked against this public plan, frozen
-and pushed before any new native score is measured. Any design change requires
-an explicit amendment, not an edit hidden inside execution.
+The runner defaults to validation. **`--execute` is blocked** by the pending
+[execution release](EXECUTION_RELEASE.json), before importing a model runtime.
+No new model was constructed or run to test this wrapper: tests use arithmetic,
+prepared strings and synthetic/fake execution. The operator itself was exercised
+in the earlier rounds. Integration on these six heads is not yet empirically
+verified; final review must not mistake passing unit tests for a model result.
+
+The record audit reconstructs the saved target-node arithmetic. Whole-layer
+off-target invariance is checked by the producer at execution; its full tensors
+are not archived, so those checks cannot be independently recomputed from the
+compact snapshots. No six-head result or cost saving is claimed.
+
+After final review, a separate versioned execution release must record the
+reviewed commit and explicit authorization. Any scientific design change requires
+an amendment. This handoff stops before that release and all model measurements.

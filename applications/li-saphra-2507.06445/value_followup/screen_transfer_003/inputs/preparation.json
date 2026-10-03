@@ -1,0 +1,254 @@
+{
+  "between_head_overlaps": {
+    "pairs": [
+      {
+        "head_a": "50h5xlod_head1",
+        "head_b": "8a65u5l6_head1",
+        "shared_donor_prefix_hashes": 105,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "50h5xlod_head1",
+        "head_b": "dsibxabs_head4",
+        "shared_donor_prefix_hashes": 111,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "50h5xlod_head1",
+        "head_b": "qtda56zd_head2",
+        "shared_donor_prefix_hashes": 117,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "50h5xlod_head1",
+        "head_b": "we9o801g_head2",
+        "shared_donor_prefix_hashes": 104,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "50h5xlod_head1",
+        "head_b": "wfwpq5xc_head1",
+        "shared_donor_prefix_hashes": 99,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "8a65u5l6_head1",
+        "head_b": "dsibxabs_head4",
+        "shared_donor_prefix_hashes": 110,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "8a65u5l6_head1",
+        "head_b": "qtda56zd_head2",
+        "shared_donor_prefix_hashes": 107,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "8a65u5l6_head1",
+        "head_b": "we9o801g_head2",
+        "shared_donor_prefix_hashes": 102,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "8a65u5l6_head1",
+        "head_b": "wfwpq5xc_head1",
+        "shared_donor_prefix_hashes": 102,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "dsibxabs_head4",
+        "head_b": "qtda56zd_head2",
+        "shared_donor_prefix_hashes": 108,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "dsibxabs_head4",
+        "head_b": "we9o801g_head2",
+        "shared_donor_prefix_hashes": 101,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "dsibxabs_head4",
+        "head_b": "wfwpq5xc_head1",
+        "shared_donor_prefix_hashes": 91,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "qtda56zd_head2",
+        "head_b": "we9o801g_head2",
+        "shared_donor_prefix_hashes": 107,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "qtda56zd_head2",
+        "head_b": "wfwpq5xc_head1",
+        "shared_donor_prefix_hashes": 99,
+        "shared_recipient_strings": 0
+      },
+      {
+        "head_a": "we9o801g_head2",
+        "head_b": "wfwpq5xc_head1",
+        "shared_donor_prefix_hashes": 104,
+        "shared_recipient_strings": 0
+      }
+    ],
+    "scope": "All prepared donors, including unmeasured cells and unused templates",
+    "unique_candidate_strings_across_heads": 6144,
+    "unique_donor_prefixes_across_heads": 4666
+  },
+  "files": {
+    "50h5xlod_head1/candidates.jsonl": "76a83cd88afbb3cd7f1c7c3be3e52b7ec749b7e196cc1d1c48d20cd5f84d3653",
+    "50h5xlod_head1/donor_families.jsonl": "85f845085e09c3f5c6b7bdf8e994e3f3279f3ebfbbf2a1c516dd747838033bd1",
+    "50h5xlod_head1/preparation.json": "51d6c0f01293befd1804ddf66bbf51053c26d06b27065634ee4ec788b0000970",
+    "8a65u5l6_head1/candidates.jsonl": "2d529f66e7e6b9b67547f026c62870fb92849a48f3e85c9e528a54cb178af282",
+    "8a65u5l6_head1/donor_families.jsonl": "762a1e4abdd915d9e6384f3c128ef498200a6f2bd3034940e76f7eee8e485fdd",
+    "8a65u5l6_head1/preparation.json": "21f3b1dcf7b3a45d3fd4df49d948c3ae79a9e307d57566b16b3bb51c8b9c12a2",
+    "dsibxabs_head4/candidates.jsonl": "b447e85bf238cd58041f5e624cf204af923508aec8513bc563230f2717cceaa5",
+    "dsibxabs_head4/donor_families.jsonl": "a620a52e1a8defffb45212caf2e8404fd41beab15e5763819eebeadd9644908a",
+    "dsibxabs_head4/preparation.json": "f817806e6b02cbedbd794322582d7b7cd4f08e0eb469b7f1ddfd075baf52d3d9",
+    "exclusions.json": "7c14de97c6563c42d77a7715b82ac8a663c61378d73f9254a7be9e270dec6776",
+    "qtda56zd_head2/candidates.jsonl": "f32b773b8e885293cdac7b423869bb5aabe03c53bd8b0ace5a931727db3568bf",
+    "qtda56zd_head2/donor_families.jsonl": "c3c58366951c52aeb719869d29ac8b6d0e6953909d193a20575776f85a5b010f",
+    "qtda56zd_head2/preparation.json": "4edc4d012ac5d9a7d1980d71d506b7d2ef7cb6a9bb7ade2a554eccb8b28bdff6",
+    "we9o801g_head2/candidates.jsonl": "a8694d39d11e21647b398fc805f034e91bcfe13eaec14daea7559e633b6ead38",
+    "we9o801g_head2/donor_families.jsonl": "9d0114b6cfc7968af914b56f88b8edf9c03b7c52764a3e8a3b462f5fd994b22e",
+    "we9o801g_head2/preparation.json": "c11d92155bf25f730c5830b41c8dfef097f6c2392e290e6e2e3d9de723f69933",
+    "wfwpq5xc_head1/candidates.jsonl": "9c31ac95e1b204c35e6be59d1d6432408f7b85e72bc8ee26d4cb962137cca2b1",
+    "wfwpq5xc_head1/donor_families.jsonl": "d7bf6e787d3c29417e16398cfd9cd0df54d8852d7fda4fbf442ea9748c4b95d3",
+    "wfwpq5xc_head1/preparation.json": "011b2db235aef98e8036160d19f00520d0c22a4cb8e2de185f023224426ba27b"
+  },
+  "heads": {
+    "50h5xlod_head1": {
+      "candidate_pool_size": 1024,
+      "donor_prefix_draws": 1024,
+      "donor_seed": 26100302,
+      "donor_templates": 128,
+      "head_key": "50h5xlod_head1",
+      "maximum_candidate_reuse": 1,
+      "maximum_donor_prefix_reuse": 5,
+      "recipient_seed": 26100301,
+      "sampling": "With replacement across families; donor templates independent of native screening",
+      "unique_candidate_strings": 1024,
+      "unique_donor_prefixes": 953
+    },
+    "8a65u5l6_head1": {
+      "candidate_pool_size": 1024,
+      "donor_prefix_draws": 1024,
+      "donor_seed": 26100304,
+      "donor_templates": 128,
+      "head_key": "8a65u5l6_head1",
+      "maximum_candidate_reuse": 1,
+      "maximum_donor_prefix_reuse": 4,
+      "recipient_seed": 26100303,
+      "sampling": "With replacement across families; donor templates independent of native screening",
+      "unique_candidate_strings": 1024,
+      "unique_donor_prefixes": 951
+    },
+    "dsibxabs_head4": {
+      "candidate_pool_size": 1024,
+      "donor_prefix_draws": 1024,
+      "donor_seed": 26100306,
+      "donor_templates": 128,
+      "head_key": "dsibxabs_head4",
+      "maximum_candidate_reuse": 1,
+      "maximum_donor_prefix_reuse": 5,
+      "recipient_seed": 26100305,
+      "sampling": "With replacement across families; donor templates independent of native screening",
+      "unique_candidate_strings": 1024,
+      "unique_donor_prefixes": 948
+    },
+    "qtda56zd_head2": {
+      "candidate_pool_size": 1024,
+      "donor_prefix_draws": 1024,
+      "donor_seed": 26100308,
+      "donor_templates": 128,
+      "head_key": "qtda56zd_head2",
+      "maximum_candidate_reuse": 1,
+      "maximum_donor_prefix_reuse": 4,
+      "recipient_seed": 26100307,
+      "sampling": "With replacement across families; donor templates independent of native screening",
+      "unique_candidate_strings": 1024,
+      "unique_donor_prefixes": 944
+    },
+    "we9o801g_head2": {
+      "candidate_pool_size": 1024,
+      "donor_prefix_draws": 1024,
+      "donor_seed": 26100310,
+      "donor_templates": 128,
+      "head_key": "we9o801g_head2",
+      "maximum_candidate_reuse": 1,
+      "maximum_donor_prefix_reuse": 4,
+      "recipient_seed": 26100309,
+      "sampling": "With replacement across families; donor templates independent of native screening",
+      "unique_candidate_strings": 1024,
+      "unique_donor_prefixes": 941
+    },
+    "wfwpq5xc_head1": {
+      "candidate_pool_size": 1024,
+      "donor_prefix_draws": 1024,
+      "donor_seed": 26100312,
+      "donor_templates": 128,
+      "head_key": "wfwpq5xc_head1",
+      "maximum_candidate_reuse": 1,
+      "maximum_donor_prefix_reuse": 4,
+      "recipient_seed": 26100311,
+      "sampling": "With replacement across families; donor templates independent of native screening",
+      "unique_candidate_strings": 1024,
+      "unique_donor_prefixes": 937
+    }
+  },
+  "historical_prefix_counts": {
+    "20": 5054,
+    "28": 3671
+  },
+  "historical_unique_full_strings": 5424,
+  "recipe": {
+    "heads": [
+      {
+        "donor_seed": 26100302,
+        "head_one_based": 1,
+        "model": "50h5xlod",
+        "recipient_seed": 26100301
+      },
+      {
+        "donor_seed": 26100304,
+        "head_one_based": 1,
+        "model": "8a65u5l6",
+        "recipient_seed": 26100303
+      },
+      {
+        "donor_seed": 26100306,
+        "head_one_based": 4,
+        "model": "dsibxabs",
+        "recipient_seed": 26100305
+      },
+      {
+        "donor_seed": 26100308,
+        "head_one_based": 2,
+        "model": "qtda56zd",
+        "recipient_seed": 26100307
+      },
+      {
+        "donor_seed": 26100310,
+        "head_one_based": 2,
+        "model": "we9o801g",
+        "recipient_seed": 26100309
+      },
+      {
+        "donor_seed": 26100312,
+        "head_one_based": 1,
+        "model": "wfwpq5xc",
+        "recipient_seed": 26100311
+      }
+    ],
+    "per_stratum": 64,
+    "phase": "development",
+    "pool_size": 1024,
+    "round": "screen_transfer_003"
+  },
+  "round": "screen_transfer_003",
+  "sources": {
+    "applications/li-saphra-2507.06445/value_followup/design.py": "8851798c3397db9113fd0fc4b6c78866beb98d32525bef49ac0faf914362fa94",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/prepare_transfer.py": "030fc7834c4ebf7f2a3797ffed88d22a6a1d7e2a4af6374fd510d194eb92ac61"
+  }
+}
