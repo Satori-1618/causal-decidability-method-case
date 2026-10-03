@@ -1,7 +1,11 @@
 # Does the screen transfer to six other heads?
 
-**Status: final pre-run review PASS; user authorized one six-head execution.
-Release will be pushed before any measurement.**
+**Completed: the frozen screening target passed on all six heads (four required).**
+Selected families separated in 59–64/64 cases per head, compared with 1–14/64
+rejected cases. No head failed or missed its quota. The fixed-pool cost estimate
+was less favorable than random selection on every head; no savings are claimed.
+
+[Read the result](RESULT.md) · [Verify saved records](VERIFICATION.md)
 
 **Goal:** test whether one fixed rule, using only a recipient's native output,
 enriches for cases where the planned interventions can separate two explanations.
@@ -48,7 +52,7 @@ measured in fp32 and fp64. No target-cell mechanism test is part of this run.
   runtime reuses the existing intervention; the audit recomputes node arithmetic,
   selection, separation, statistics and costs from stored records.
 
-From this directory, these commands use only files and hypothetical numbers:
+From this directory, these commands validate the frozen inputs and plan without new measurements:
 
 ```bash
 python3 verify_plan.py
@@ -76,3 +80,10 @@ The record audit reconstructs saved target-node arithmetic. Whole-layer
 off-target invariance is checked by the producer; its full tensors are not
 archived, so those checks cannot be independently recomputed from compact
 snapshots. This run tests screening, not mechanism adequacy or measured savings.
+
+
+The single authorized execution is complete. Preserve `plan.json` and the release
+as their historical pre-run records. Do not start another run under this release;
+a replication or the separate mechanistic round needs its own authorization.
+Saved-record analysis uses the documented compatibility wrapper in
+[VERIFICATION.md](VERIFICATION.md); the original analyzer is retained unchanged.

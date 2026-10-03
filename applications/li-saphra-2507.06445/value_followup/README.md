@@ -12,11 +12,11 @@ families**. Its balance-class fit was **19/30**, so the mechanism-development
 gate still failed. This validates the screen locally and leaves the earlier
 development result below unchanged.
 
-**Next experiment, prepared but not run:** [transfer the screen to six fixed heads](screen_transfer_003/README.md),
-with a fixed screening budget, a random-yield/cost comparison and a separate
-averaged-anchor specification. The reviewed plan now uses 64 families per stratum;
-the frozen runner and inputs await final pre-run review, and
-no execution is authorized.
+**Six-head transfer completed:** [the frozen screen passed on all six heads](screen_transfer_003/RESULT.md)
+(four required), with 59–64/64 separating accepted families versus 1–14/64
+rejected families per head. This supports prospective case selection within the
+selected cohort; it does not identify the mechanism or demonstrate cost savings.
+The separate averaged-anchor mechanistic round has not run.
 
 ![Complete development result](figures/value_development.png)
 

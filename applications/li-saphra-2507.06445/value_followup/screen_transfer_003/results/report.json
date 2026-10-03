@@ -1,0 +1,5420 @@
+{
+  "status": "saved_record_audit_completed",
+  "heads": [
+    {
+      "head_key": "50h5xlod_head1",
+      "status": "completed",
+      "head_width": 32,
+      "pool_counts": {
+        "accepted": 296,
+        "rejected": 728
+      },
+      "statistics": {
+        "accepted_hits": 64,
+        "rejected_hits": 9,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.9080413081362957,
+          1.0
+        ],
+        "rejected_interval": [
+          0.04460892938286705,
+          0.3037662401928033
+        ],
+        "delta": 0.859375,
+        "delta_interval": [
+          0.6042750679434924,
+          0.9553910706171329
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      "cost_estimates": {
+        "status": "descriptive_point_estimates_only",
+        "counts": {
+          "screened": 1024,
+          "accepted": 296,
+          "accepted_separating": 64,
+          "rejected_separating": 9
+        },
+        "acceptance_rate": 0.2890625,
+        "accepted_yield": 1.0,
+        "rejected_yield": 0.140625,
+        "random_selection_yield_estimate": 0.3890380859375,
+        "accepted_minus_random_yield_estimate": 0.6109619140625,
+        "cost_unit": "sequence forwards, including both dtypes; not walltime",
+        "baseline_cost_b": 2,
+        "two_anchor_family_cost_f": 16,
+        "fixed_screened_policy_total_cost": 3072,
+        "validation_total_cost": 4096,
+        "rejected_arm_measurement_overhead": 1024,
+        "estimated_cost_per_separating_family": {
+          "fixed_screened_policy": {
+            "status": "finite",
+            "value": 48.0
+          },
+          "random_selection_policy": {
+            "status": "finite",
+            "value": 46.26796360213367
+          },
+          "ideal_stream_NOT_SCHEDULED": {
+            "status": "finite",
+            "value": 22.91891891891892
+          },
+          "validation_run_NOT_DEPLOYMENT": {
+            "status": "finite",
+            "value": 56.10958904109589
+          }
+        },
+        "fixed_policy_cheaper_under_point_estimates": false,
+        "limits": [
+          "Random yield is a stratified plug-in estimate, not an observed random arm.",
+          "No uncertainty or verified net savings is claimed for these ratios.",
+          "Ideal stream amortization is not the fixed-budget scheduled validation.",
+          "Family cost includes repeated native passes; no unimplemented caching is credited.",
+          "Validation pays for rejected families; deployment estimates omit that validation-only overhead."
+        ]
+      },
+      "family_results": [
+        {
+          "family_id": "2c5bbbe0866732cd38e6",
+          "stratum": "accepted",
+          "anchor_gap": 0.9902064352645334,
+          "separating": true
+        },
+        {
+          "family_id": "ca56358744d1ca5077d5",
+          "stratum": "accepted",
+          "anchor_gap": 4.116277589717363,
+          "separating": true
+        },
+        {
+          "family_id": "6c459ccc1231ffa1b7ec",
+          "stratum": "accepted",
+          "anchor_gap": 1.6901891807156755,
+          "separating": true
+        },
+        {
+          "family_id": "eec0d3f4484a5085f31b",
+          "stratum": "accepted",
+          "anchor_gap": 0.8626668653843286,
+          "separating": true
+        },
+        {
+          "family_id": "83e0cc034cb1d1b2c6da",
+          "stratum": "accepted",
+          "anchor_gap": 3.177986585024928,
+          "separating": true
+        },
+        {
+          "family_id": "8daa62c0bd0535c1099e",
+          "stratum": "accepted",
+          "anchor_gap": 4.538161125642721,
+          "separating": true
+        },
+        {
+          "family_id": "5e8ed27edd92d284f099",
+          "stratum": "accepted",
+          "anchor_gap": 3.8870594422655125,
+          "separating": true
+        },
+        {
+          "family_id": "a63e6700b67623c02e2f",
+          "stratum": "accepted",
+          "anchor_gap": 3.45046180794061,
+          "separating": true
+        },
+        {
+          "family_id": "04d64920b49acb147e4f",
+          "stratum": "accepted",
+          "anchor_gap": 4.512643496338612,
+          "separating": true
+        },
+        {
+          "family_id": "4444a259bb05592aea6b",
+          "stratum": "accepted",
+          "anchor_gap": 1.168746469624331,
+          "separating": true
+        },
+        {
+          "family_id": "96f45e036e8899004298",
+          "stratum": "accepted",
+          "anchor_gap": 4.136932752720914,
+          "separating": true
+        },
+        {
+          "family_id": "3057f68f253695cb21b2",
+          "stratum": "accepted",
+          "anchor_gap": 1.555998989554733,
+          "separating": true
+        },
+        {
+          "family_id": "bba00997c3f587548137",
+          "stratum": "accepted",
+          "anchor_gap": 1.951559233157644,
+          "separating": true
+        },
+        {
+          "family_id": "9df68167a7c7ec16c6a0",
+          "stratum": "accepted",
+          "anchor_gap": 4.348548035805753,
+          "separating": true
+        },
+        {
+          "family_id": "3d39ce1955a92ed5f3b6",
+          "stratum": "accepted",
+          "anchor_gap": 0.7320553508587571,
+          "separating": true
+        },
+        {
+          "family_id": "c77485386cdfe7cc1c01",
+          "stratum": "accepted",
+          "anchor_gap": 1.1445403859999237,
+          "separating": true
+        },
+        {
+          "family_id": "42115917848d69d33de6",
+          "stratum": "accepted",
+          "anchor_gap": 4.250860418541108,
+          "separating": true
+        },
+        {
+          "family_id": "b01b5e671fb16ff8c106",
+          "stratum": "accepted",
+          "anchor_gap": 1.4879890448261275,
+          "separating": true
+        },
+        {
+          "family_id": "aca5f3fdf3ff979a5866",
+          "stratum": "accepted",
+          "anchor_gap": 2.1771851857969695,
+          "separating": true
+        },
+        {
+          "family_id": "ba23f19c66567073543a",
+          "stratum": "accepted",
+          "anchor_gap": 2.8606695582572073,
+          "separating": true
+        },
+        {
+          "family_id": "f1009480c7d6c4cf92fb",
+          "stratum": "accepted",
+          "anchor_gap": 4.217343328325911,
+          "separating": true
+        },
+        {
+          "family_id": "43d987a89a7eb0425bcf",
+          "stratum": "accepted",
+          "anchor_gap": 4.36847515389339,
+          "separating": true
+        },
+        {
+          "family_id": "f47989bb19cce72fc05a",
+          "stratum": "accepted",
+          "anchor_gap": 1.5205164146525139,
+          "separating": true
+        },
+        {
+          "family_id": "6985decf0794e30613be",
+          "stratum": "accepted",
+          "anchor_gap": 1.768009271637192,
+          "separating": true
+        },
+        {
+          "family_id": "f72c11ac83183d4cd3a7",
+          "stratum": "accepted",
+          "anchor_gap": 0.78160015451998,
+          "separating": true
+        },
+        {
+          "family_id": "ef9ac9e01b1101ed9ea4",
+          "stratum": "accepted",
+          "anchor_gap": 0.32964210896458024,
+          "separating": true
+        },
+        {
+          "family_id": "d430bfe877df2b9a3d34",
+          "stratum": "accepted",
+          "anchor_gap": 1.9944382825775584,
+          "separating": true
+        },
+        {
+          "family_id": "fd48e3910cbd87515aa9",
+          "stratum": "accepted",
+          "anchor_gap": 1.1308443545313995,
+          "separating": true
+        },
+        {
+          "family_id": "dc9ab1e86b9b3cc96bfd",
+          "stratum": "accepted",
+          "anchor_gap": 3.403132288062853,
+          "separating": true
+        },
+        {
+          "family_id": "18f19c794d6cf50abb55",
+          "stratum": "accepted",
+          "anchor_gap": 0.8020689586600911,
+          "separating": true
+        },
+        {
+          "family_id": "72cca303eec9f5a3467d",
+          "stratum": "accepted",
+          "anchor_gap": 0.6685341871840107,
+          "separating": true
+        },
+        {
+          "family_id": "038f2a9532212f644380",
+          "stratum": "accepted",
+          "anchor_gap": 3.5421601957933557,
+          "separating": true
+        },
+        {
+          "family_id": "086009e3c632df3722c0",
+          "stratum": "accepted",
+          "anchor_gap": 3.1398560697515636,
+          "separating": true
+        },
+        {
+          "family_id": "9d82ae261bb08f4c11f5",
+          "stratum": "accepted",
+          "anchor_gap": 1.2473161723556396,
+          "separating": true
+        },
+        {
+          "family_id": "0917a7bbce4793625731",
+          "stratum": "accepted",
+          "anchor_gap": 3.128701962073213,
+          "separating": true
+        },
+        {
+          "family_id": "8e5ddaa44e9fe00c6e56",
+          "stratum": "accepted",
+          "anchor_gap": 2.883309728695153,
+          "separating": true
+        },
+        {
+          "family_id": "e97241b21313b87e7b5f",
+          "stratum": "accepted",
+          "anchor_gap": 3.4714231725537648,
+          "separating": true
+        },
+        {
+          "family_id": "9d3d2f0045d5da3fa602",
+          "stratum": "accepted",
+          "anchor_gap": 2.1527083327692473,
+          "separating": true
+        },
+        {
+          "family_id": "bf532d75d6b672191496",
+          "stratum": "accepted",
+          "anchor_gap": 4.06713188273134,
+          "separating": true
+        },
+        {
+          "family_id": "41123cb812fc711e2b5b",
+          "stratum": "accepted",
+          "anchor_gap": 2.826936776290673,
+          "separating": true
+        },
+        {
+          "family_id": "eacfdcaea168021edb7b",
+          "stratum": "accepted",
+          "anchor_gap": 0.5747420680311546,
+          "separating": true
+        },
+        {
+          "family_id": "2cafa40c5b7a73f5be1e",
+          "stratum": "accepted",
+          "anchor_gap": 4.362133028277945,
+          "separating": true
+        },
+        {
+          "family_id": "471a0cc419010481220d",
+          "stratum": "accepted",
+          "anchor_gap": 2.0611659839670677,
+          "separating": true
+        },
+        {
+          "family_id": "4426697b8c352ae5411d",
+          "stratum": "accepted",
+          "anchor_gap": 1.2342533617023754,
+          "separating": true
+        },
+        {
+          "family_id": "71be20635d75c15d4962",
+          "stratum": "accepted",
+          "anchor_gap": 1.5365720208755391,
+          "separating": true
+        },
+        {
+          "family_id": "918abbe7d5166dc6d8fc",
+          "stratum": "accepted",
+          "anchor_gap": 1.3675257613678005,
+          "separating": true
+        },
+        {
+          "family_id": "6ed3c3d8feefd5c331e5",
+          "stratum": "accepted",
+          "anchor_gap": 1.6969362214576469,
+          "separating": true
+        },
+        {
+          "family_id": "443158b4a1790aa69c6c",
+          "stratum": "accepted",
+          "anchor_gap": 3.3417466696551834,
+          "separating": true
+        },
+        {
+          "family_id": "c636137b901a45b87aee",
+          "stratum": "accepted",
+          "anchor_gap": 3.6220585778805465,
+          "separating": true
+        },
+        {
+          "family_id": "e96957412f3770a62c5a",
+          "stratum": "accepted",
+          "anchor_gap": 1.1089449989946036,
+          "separating": true
+        },
+        {
+          "family_id": "ae5fe19bdd100aec0b82",
+          "stratum": "accepted",
+          "anchor_gap": 2.137559456805179,
+          "separating": true
+        },
+        {
+          "family_id": "af6bd3ef89a33e7c1c0c",
+          "stratum": "accepted",
+          "anchor_gap": 1.2125816760875958,
+          "separating": true
+        },
+        {
+          "family_id": "f439c5cd4372c7ae1331",
+          "stratum": "accepted",
+          "anchor_gap": 0.9264106848735274,
+          "separating": true
+        },
+        {
+          "family_id": "07eba4e289122b761cc8",
+          "stratum": "accepted",
+          "anchor_gap": 3.42932040110507,
+          "separating": true
+        },
+        {
+          "family_id": "eb700d1503035e130c63",
+          "stratum": "accepted",
+          "anchor_gap": 2.7195798003435536,
+          "separating": true
+        },
+        {
+          "family_id": "09abd08dcf2786d7795b",
+          "stratum": "accepted",
+          "anchor_gap": 4.250584990293196,
+          "separating": true
+        },
+        {
+          "family_id": "0227216acfbb9d6dd3f5",
+          "stratum": "accepted",
+          "anchor_gap": 0.8450521849564652,
+          "separating": true
+        },
+        {
+          "family_id": "6f162ecd7b83bbad97aa",
+          "stratum": "accepted",
+          "anchor_gap": 1.2797829377873482,
+          "separating": true
+        },
+        {
+          "family_id": "7382609566b76cedb954",
+          "stratum": "accepted",
+          "anchor_gap": 0.5818941168814398,
+          "separating": true
+        },
+        {
+          "family_id": "bdc1a68ebffdb5e6c355",
+          "stratum": "accepted",
+          "anchor_gap": 2.7345295742035693,
+          "separating": true
+        },
+        {
+          "family_id": "540307f3733b440a6447",
+          "stratum": "accepted",
+          "anchor_gap": 4.201058938224678,
+          "separating": true
+        },
+        {
+          "family_id": "dde7ca3e54c9fc9e5091",
+          "stratum": "accepted",
+          "anchor_gap": 2.697127747232486,
+          "separating": true
+        },
+        {
+          "family_id": "2e69831a81dc01435f32",
+          "stratum": "accepted",
+          "anchor_gap": 4.192808663634761,
+          "separating": true
+        },
+        {
+          "family_id": "4cb5ec235db5806d874c",
+          "stratum": "accepted",
+          "anchor_gap": 1.0009104219367693,
+          "separating": true
+        },
+        {
+          "family_id": "cdf1c078eae9e45be8ec",
+          "stratum": "rejected",
+          "anchor_gap": 0.3079997515420452,
+          "separating": true
+        },
+        {
+          "family_id": "a5c30fa90de9d0c91cd3",
+          "stratum": "rejected",
+          "anchor_gap": 0.009745636585745565,
+          "separating": false
+        },
+        {
+          "family_id": "df33feaab70bc52f9632",
+          "stratum": "rejected",
+          "anchor_gap": 0.16353728427373326,
+          "separating": false
+        },
+        {
+          "family_id": "2746a7f095ec499b449e",
+          "stratum": "rejected",
+          "anchor_gap": 0.23884394393359898,
+          "separating": true
+        },
+        {
+          "family_id": "81e0ad77166d8c068455",
+          "stratum": "rejected",
+          "anchor_gap": 0.32043913950495284,
+          "separating": true
+        },
+        {
+          "family_id": "c3477811487a64fcda30",
+          "stratum": "rejected",
+          "anchor_gap": 0.006261012071910876,
+          "separating": false
+        },
+        {
+          "family_id": "1ab0cc6bbeb1e0acb965",
+          "stratum": "rejected",
+          "anchor_gap": 0.001545828242888625,
+          "separating": false
+        },
+        {
+          "family_id": "5fb53adcfd79adaedb8c",
+          "stratum": "rejected",
+          "anchor_gap": 0.020641154788139104,
+          "separating": false
+        },
+        {
+          "family_id": "0b336f67ffa86eb63d42",
+          "stratum": "rejected",
+          "anchor_gap": 0.01059891512168143,
+          "separating": false
+        },
+        {
+          "family_id": "7a378d0a8783176d5076",
+          "stratum": "rejected",
+          "anchor_gap": 0.007706327530200063,
+          "separating": false
+        },
+        {
+          "family_id": "082b40dd7322be3c57a9",
+          "stratum": "rejected",
+          "anchor_gap": 0.03664315189019973,
+          "separating": false
+        },
+        {
+          "family_id": "72f9df83892ee476f89c",
+          "stratum": "rejected",
+          "anchor_gap": 0.012741922388759264,
+          "separating": false
+        },
+        {
+          "family_id": "ed0d85591e3597d50f5c",
+          "stratum": "rejected",
+          "anchor_gap": 0.008854193825065693,
+          "separating": false
+        },
+        {
+          "family_id": "708773a6658acb30cf97",
+          "stratum": "rejected",
+          "anchor_gap": 0.08895370817950354,
+          "separating": false
+        },
+        {
+          "family_id": "c0d0d6a11fbc63da2c8e",
+          "stratum": "rejected",
+          "anchor_gap": 0.38451925731162984,
+          "separating": true
+        },
+        {
+          "family_id": "5d522b21fd946719e8e7",
+          "stratum": "rejected",
+          "anchor_gap": 0.5293916180254383,
+          "separating": true
+        },
+        {
+          "family_id": "5f8520c384d3146af0ac",
+          "stratum": "rejected",
+          "anchor_gap": 0.00266231353763402,
+          "separating": false
+        },
+        {
+          "family_id": "1a97aed548f35af9b368",
+          "stratum": "rejected",
+          "anchor_gap": 0.011195062863978755,
+          "separating": false
+        },
+        {
+          "family_id": "2f760e26520ff397448d",
+          "stratum": "rejected",
+          "anchor_gap": 0.024459838877922024,
+          "separating": false
+        },
+        {
+          "family_id": "1db7c2e69076a67cb2c3",
+          "stratum": "rejected",
+          "anchor_gap": 0.06500378973546539,
+          "separating": false
+        },
+        {
+          "family_id": "d257960f53781a237083",
+          "stratum": "rejected",
+          "anchor_gap": 0.010244956722432974,
+          "separating": false
+        },
+        {
+          "family_id": "66a55108cde033c8055c",
+          "stratum": "rejected",
+          "anchor_gap": 0.0054812188166186715,
+          "separating": false
+        },
+        {
+          "family_id": "872d0cc29f890fa0a4f2",
+          "stratum": "rejected",
+          "anchor_gap": 0.004421723527716637,
+          "separating": false
+        },
+        {
+          "family_id": "e943156b65b8bbf055d1",
+          "stratum": "rejected",
+          "anchor_gap": 0.0028183320322829886,
+          "separating": false
+        },
+        {
+          "family_id": "5044845a1c49ee8a2c76",
+          "stratum": "rejected",
+          "anchor_gap": 0.0012151838919276514,
+          "separating": false
+        },
+        {
+          "family_id": "3277f41d24c22c7929c0",
+          "stratum": "rejected",
+          "anchor_gap": 0.17162916193380973,
+          "separating": false
+        },
+        {
+          "family_id": "cc6b599f71e1254b0bd0",
+          "stratum": "rejected",
+          "anchor_gap": 0.002290491695382535,
+          "separating": false
+        },
+        {
+          "family_id": "a9633f74ec191cc5f7d4",
+          "stratum": "rejected",
+          "anchor_gap": 0.0062904792310805036,
+          "separating": false
+        },
+        {
+          "family_id": "b6bd99f135a7c5b16a6f",
+          "stratum": "rejected",
+          "anchor_gap": 0.4736813801550941,
+          "separating": true
+        },
+        {
+          "family_id": "bd2b98c36643e934abb2",
+          "stratum": "rejected",
+          "anchor_gap": 0.11862970622304214,
+          "separating": false
+        },
+        {
+          "family_id": "c32a47c6b740de236e37",
+          "stratum": "rejected",
+          "anchor_gap": 0.009192695538458473,
+          "separating": false
+        },
+        {
+          "family_id": "3623b8d29aa2a89beb6a",
+          "stratum": "rejected",
+          "anchor_gap": 0.012563598541801113,
+          "separating": false
+        },
+        {
+          "family_id": "ad68960701f483608ace",
+          "stratum": "rejected",
+          "anchor_gap": 0.007883484878075997,
+          "separating": false
+        },
+        {
+          "family_id": "0ff9aa010351fc9f7ec8",
+          "stratum": "rejected",
+          "anchor_gap": 0.011138262849248903,
+          "separating": false
+        },
+        {
+          "family_id": "11d1f64b0dd5766c0434",
+          "stratum": "rejected",
+          "anchor_gap": 0.028899586731934157,
+          "separating": false
+        },
+        {
+          "family_id": "64be0366f25a2d6fc63c",
+          "stratum": "rejected",
+          "anchor_gap": 0.0033752933063553314,
+          "separating": false
+        },
+        {
+          "family_id": "3125bd8460dd5122be36",
+          "stratum": "rejected",
+          "anchor_gap": 0.18033276926508002,
+          "separating": false
+        },
+        {
+          "family_id": "e155393e7db5fe9c962a",
+          "stratum": "rejected",
+          "anchor_gap": 0.05129852739330065,
+          "separating": false
+        },
+        {
+          "family_id": "204ce55ff9e1cc49fb30",
+          "stratum": "rejected",
+          "anchor_gap": 0.021276497454135956,
+          "separating": false
+        },
+        {
+          "family_id": "1c85881d543f19988cde",
+          "stratum": "rejected",
+          "anchor_gap": 0.011007331380271879,
+          "separating": false
+        },
+        {
+          "family_id": "222c8c239a4616d2f4f7",
+          "stratum": "rejected",
+          "anchor_gap": 0.39317669846382675,
+          "separating": true
+        },
+        {
+          "family_id": "adbf0d88bc5636febe33",
+          "stratum": "rejected",
+          "anchor_gap": 0.005937380212702514,
+          "separating": false
+        },
+        {
+          "family_id": "fb0099c96edd3fa3819a",
+          "stratum": "rejected",
+          "anchor_gap": 0.0036279520677346966,
+          "separating": false
+        },
+        {
+          "family_id": "1acab1f9fded71bb6fa8",
+          "stratum": "rejected",
+          "anchor_gap": 0.040162607468851697,
+          "separating": false
+        },
+        {
+          "family_id": "7e4f5b69f7161545027e",
+          "stratum": "rejected",
+          "anchor_gap": 0.010149283729054659,
+          "separating": false
+        },
+        {
+          "family_id": "239b0d13df9d0ce7caaa",
+          "stratum": "rejected",
+          "anchor_gap": 0.008344000963536935,
+          "separating": false
+        },
+        {
+          "family_id": "4e68af714d0623f52713",
+          "stratum": "rejected",
+          "anchor_gap": 0.06969033533928748,
+          "separating": false
+        },
+        {
+          "family_id": "1c700ff00c8fc1a10a75",
+          "stratum": "rejected",
+          "anchor_gap": 0.007905969270015412,
+          "separating": false
+        },
+        {
+          "family_id": "749ef88f31f3ff458275",
+          "stratum": "rejected",
+          "anchor_gap": 0.011273778859517414,
+          "separating": false
+        },
+        {
+          "family_id": "2717e52627fc8892148b",
+          "stratum": "rejected",
+          "anchor_gap": 0.005392191158112958,
+          "separating": false
+        },
+        {
+          "family_id": "27157e255a4d308def3b",
+          "stratum": "rejected",
+          "anchor_gap": 0.04432442534586567,
+          "separating": false
+        },
+        {
+          "family_id": "f6f2f50690892fabd8f0",
+          "stratum": "rejected",
+          "anchor_gap": 0.0022561996237193682,
+          "separating": false
+        },
+        {
+          "family_id": "1e0fe3658a258719a717",
+          "stratum": "rejected",
+          "anchor_gap": 0.016811190622030736,
+          "separating": false
+        },
+        {
+          "family_id": "9c1a44ad76e5e895d466",
+          "stratum": "rejected",
+          "anchor_gap": 0.006946486609508362,
+          "separating": false
+        },
+        {
+          "family_id": "df4f375f7a908e86bf7e",
+          "stratum": "rejected",
+          "anchor_gap": 0.011817378183586413,
+          "separating": false
+        },
+        {
+          "family_id": "4faf46ce5eaeb6162f00",
+          "stratum": "rejected",
+          "anchor_gap": 0.04199051293147793,
+          "separating": false
+        },
+        {
+          "family_id": "0fbcab117952cc8d83a5",
+          "stratum": "rejected",
+          "anchor_gap": 0.06856639402792908,
+          "separating": false
+        },
+        {
+          "family_id": "4f7d0a43cd9b8e8421d6",
+          "stratum": "rejected",
+          "anchor_gap": 0.010359953655027176,
+          "separating": false
+        },
+        {
+          "family_id": "54c6836a0a8d074afd98",
+          "stratum": "rejected",
+          "anchor_gap": 0.007701387055096376,
+          "separating": false
+        },
+        {
+          "family_id": "4f4edb7133da97c6207a",
+          "stratum": "rejected",
+          "anchor_gap": 0.3014317317139801,
+          "separating": true
+        },
+        {
+          "family_id": "6b7b2acc4c0df5a6d238",
+          "stratum": "rejected",
+          "anchor_gap": 0.5407631730576732,
+          "separating": true
+        },
+        {
+          "family_id": "eaff44db9f033424380a",
+          "stratum": "rejected",
+          "anchor_gap": 0.038321533483878234,
+          "separating": false
+        },
+        {
+          "family_id": "baa3110e3e0936531456",
+          "stratum": "rejected",
+          "anchor_gap": 0.0036891077415557305,
+          "separating": false
+        },
+        {
+          "family_id": "a0f1c1c95fd839844dfb",
+          "stratum": "rejected",
+          "anchor_gap": 0.005681358315968943,
+          "separating": false
+        }
+      ],
+      "verification": {
+        "native_candidates": 1024,
+        "families": 128,
+        "snapshots": 512,
+        "max_native_dtype_difference": 2.253014526099051e-05,
+        "max_signed_anchor_dtype_difference": 1.3425269578704047e-05,
+        "maximum_construction_roundoff": {
+          "float32": 7.843974636490003e-09,
+          "float64": 0.0
+        }
+      },
+      "recorded_cost": {
+        "sequence_forwards_attempted": 4096,
+        "sequence_forwards_completed": 4096,
+        "forward_batches_attempted": 64,
+        "forward_batches_completed": 64,
+        "failed_forward_internal_progress_unknown": false,
+        "completed_sequence_forwards_by_stage_dtype": {
+          "native": {
+            "float32": 1024,
+            "float64": 1024
+          },
+          "anchors": {
+            "float32": 1024,
+            "float64": 1024
+          }
+        }
+      }
+    },
+    {
+      "head_key": "8a65u5l6_head1",
+      "status": "completed",
+      "head_width": 32,
+      "pool_counts": {
+        "accepted": 460,
+        "rejected": 564
+      },
+      "statistics": {
+        "accepted_hits": 62,
+        "rejected_hits": 8,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.848509692609414,
+          0.9989614337498287
+        ],
+        "rejected_interval": [
+          0.036043198466519016,
+          0.2841706229380777
+        ],
+        "delta": 0.84375,
+        "delta_interval": [
+          0.5643390696713363,
+          0.9629182352833097
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      "cost_estimates": {
+        "status": "descriptive_point_estimates_only",
+        "counts": {
+          "screened": 1024,
+          "accepted": 460,
+          "accepted_separating": 62,
+          "rejected_separating": 8
+        },
+        "acceptance_rate": 0.44921875,
+        "accepted_yield": 0.96875,
+        "rejected_yield": 0.125,
+        "random_selection_yield_estimate": 0.5040283203125,
+        "accepted_minus_random_yield_estimate": 0.4647216796875,
+        "cost_unit": "sequence forwards, including both dtypes; not walltime",
+        "baseline_cost_b": 2,
+        "two_anchor_family_cost_f": 16,
+        "fixed_screened_policy_total_cost": 3072,
+        "validation_total_cost": 4096,
+        "rejected_arm_measurement_overhead": 1024,
+        "estimated_cost_per_separating_family": {
+          "fixed_screened_policy": {
+            "status": "finite",
+            "value": 49.54838709677419
+          },
+          "random_selection_policy": {
+            "status": "finite",
+            "value": 35.712279002179706
+          },
+          "ideal_stream_NOT_SCHEDULED": {
+            "status": "finite",
+            "value": 21.111921458625524
+          },
+          "validation_run_NOT_DEPLOYMENT": {
+            "status": "finite",
+            "value": 58.51428571428571
+          }
+        },
+        "fixed_policy_cheaper_under_point_estimates": false,
+        "limits": [
+          "Random yield is a stratified plug-in estimate, not an observed random arm.",
+          "No uncertainty or verified net savings is claimed for these ratios.",
+          "Ideal stream amortization is not the fixed-budget scheduled validation.",
+          "Family cost includes repeated native passes; no unimplemented caching is credited.",
+          "Validation pays for rejected families; deployment estimates omit that validation-only overhead."
+        ]
+      },
+      "family_results": [
+        {
+          "family_id": "1c3bcdf307c4ef340bad",
+          "stratum": "accepted",
+          "anchor_gap": 1.2016744285627503,
+          "separating": true
+        },
+        {
+          "family_id": "566846773ad4ee1fba9c",
+          "stratum": "accepted",
+          "anchor_gap": 0.6774315482517412,
+          "separating": true
+        },
+        {
+          "family_id": "1ddc501a99c753a7b549",
+          "stratum": "accepted",
+          "anchor_gap": 2.0002491561815265,
+          "separating": true
+        },
+        {
+          "family_id": "3984b004597ad6958889",
+          "stratum": "accepted",
+          "anchor_gap": 0.467114823133004,
+          "separating": true
+        },
+        {
+          "family_id": "050504a0adc85ca0646d",
+          "stratum": "accepted",
+          "anchor_gap": 0.3804453207134433,
+          "separating": true
+        },
+        {
+          "family_id": "b3a0368307ec3d30ffcf",
+          "stratum": "accepted",
+          "anchor_gap": 4.559545732768384,
+          "separating": true
+        },
+        {
+          "family_id": "8426267090283facad4a",
+          "stratum": "accepted",
+          "anchor_gap": 0.9092443794974887,
+          "separating": true
+        },
+        {
+          "family_id": "e3f8edb748a9863d5e17",
+          "stratum": "accepted",
+          "anchor_gap": 0.17724045004534617,
+          "separating": false
+        },
+        {
+          "family_id": "25de66d01bcd58436c44",
+          "stratum": "accepted",
+          "anchor_gap": 0.3426219138434696,
+          "separating": true
+        },
+        {
+          "family_id": "8f161f1018f5bbb5c7a2",
+          "stratum": "accepted",
+          "anchor_gap": 1.4398766329508472,
+          "separating": true
+        },
+        {
+          "family_id": "fab09304d8ec492a5263",
+          "stratum": "accepted",
+          "anchor_gap": 2.34555510872541,
+          "separating": true
+        },
+        {
+          "family_id": "ed8f98be967589fef85e",
+          "stratum": "accepted",
+          "anchor_gap": 1.9925772281793108,
+          "separating": true
+        },
+        {
+          "family_id": "49a2a412ec22427dba68",
+          "stratum": "accepted",
+          "anchor_gap": 5.308486997187578,
+          "separating": true
+        },
+        {
+          "family_id": "e28fa1fcf876983c77bf",
+          "stratum": "accepted",
+          "anchor_gap": 5.9548158617389895,
+          "separating": true
+        },
+        {
+          "family_id": "c49f9df292589721a1d2",
+          "stratum": "accepted",
+          "anchor_gap": 2.8630604619166635,
+          "separating": true
+        },
+        {
+          "family_id": "66cd59d542d32e922774",
+          "stratum": "accepted",
+          "anchor_gap": 0.5035747272136568,
+          "separating": true
+        },
+        {
+          "family_id": "067083c2f629f65e01f7",
+          "stratum": "accepted",
+          "anchor_gap": 1.43240767004177,
+          "separating": true
+        },
+        {
+          "family_id": "30cb9dbde3862f10ccc1",
+          "stratum": "accepted",
+          "anchor_gap": 0.7418105767276746,
+          "separating": true
+        },
+        {
+          "family_id": "65ce87e22047adc6dd4d",
+          "stratum": "accepted",
+          "anchor_gap": 1.570809265503959,
+          "separating": true
+        },
+        {
+          "family_id": "4f0b5530d50b81c9b382",
+          "stratum": "accepted",
+          "anchor_gap": 2.1254560143461285,
+          "separating": true
+        },
+        {
+          "family_id": "6ec3b4f6a879ac764aad",
+          "stratum": "accepted",
+          "anchor_gap": 3.0379857287371363,
+          "separating": true
+        },
+        {
+          "family_id": "150f309991a141eb1e47",
+          "stratum": "accepted",
+          "anchor_gap": 0.434641100112767,
+          "separating": true
+        },
+        {
+          "family_id": "7b7fb2264e2646aa0d01",
+          "stratum": "accepted",
+          "anchor_gap": 0.5132174555669753,
+          "separating": true
+        },
+        {
+          "family_id": "6ac1d72d3d83383dcbbc",
+          "stratum": "accepted",
+          "anchor_gap": 7.019365084420247,
+          "separating": true
+        },
+        {
+          "family_id": "fc73e12250549bbf1e94",
+          "stratum": "accepted",
+          "anchor_gap": 1.04321620676666,
+          "separating": true
+        },
+        {
+          "family_id": "e56021c52bf46f8999d1",
+          "stratum": "accepted",
+          "anchor_gap": 1.395502507014946,
+          "separating": true
+        },
+        {
+          "family_id": "1b77bf809c86287b74fd",
+          "stratum": "accepted",
+          "anchor_gap": 0.4675341746534336,
+          "separating": true
+        },
+        {
+          "family_id": "84ee8b569274e6c36c72",
+          "stratum": "accepted",
+          "anchor_gap": 3.749028454679568,
+          "separating": true
+        },
+        {
+          "family_id": "29e0cd58031d376c10b1",
+          "stratum": "accepted",
+          "anchor_gap": 5.649092276073069,
+          "separating": true
+        },
+        {
+          "family_id": "58c57c3d4797d6fe2b5a",
+          "stratum": "accepted",
+          "anchor_gap": 1.598710809160412,
+          "separating": true
+        },
+        {
+          "family_id": "8d9f9ef4ecc7573d8892",
+          "stratum": "accepted",
+          "anchor_gap": 5.400168171822673,
+          "separating": true
+        },
+        {
+          "family_id": "5e0daf94e96440f98eec",
+          "stratum": "accepted",
+          "anchor_gap": 2.0773055409546615,
+          "separating": true
+        },
+        {
+          "family_id": "231be5b17f626bcb7580",
+          "stratum": "accepted",
+          "anchor_gap": 1.8884744204483184,
+          "separating": true
+        },
+        {
+          "family_id": "a9f5cdfd27a08c12232c",
+          "stratum": "accepted",
+          "anchor_gap": 5.131031825859889,
+          "separating": true
+        },
+        {
+          "family_id": "eca82c1a51f77a85ace6",
+          "stratum": "accepted",
+          "anchor_gap": 1.1255496078328449,
+          "separating": true
+        },
+        {
+          "family_id": "7b1352846a25a26e7a5f",
+          "stratum": "accepted",
+          "anchor_gap": 3.7143433596793587,
+          "separating": true
+        },
+        {
+          "family_id": "0d535b1da0676dd0e13c",
+          "stratum": "accepted",
+          "anchor_gap": 3.2033243270778735,
+          "separating": true
+        },
+        {
+          "family_id": "1c300fb79cefdd8eba15",
+          "stratum": "accepted",
+          "anchor_gap": 1.9341336602790324,
+          "separating": true
+        },
+        {
+          "family_id": "98856ab781d63cf84a9f",
+          "stratum": "accepted",
+          "anchor_gap": 4.539407492454696,
+          "separating": true
+        },
+        {
+          "family_id": "70c35591842d5e5ae491",
+          "stratum": "accepted",
+          "anchor_gap": 2.7214421649601412,
+          "separating": true
+        },
+        {
+          "family_id": "08200066baec311be816",
+          "stratum": "accepted",
+          "anchor_gap": 2.326922809973312,
+          "separating": true
+        },
+        {
+          "family_id": "2499d214308ef7cd0467",
+          "stratum": "accepted",
+          "anchor_gap": 1.0780594783087363,
+          "separating": true
+        },
+        {
+          "family_id": "17f06f2c14368de0d86e",
+          "stratum": "accepted",
+          "anchor_gap": 0.655385304522687,
+          "separating": true
+        },
+        {
+          "family_id": "b726e374def49edf8e94",
+          "stratum": "accepted",
+          "anchor_gap": 3.6657253440718245,
+          "separating": true
+        },
+        {
+          "family_id": "8b285598d33152be9c8c",
+          "stratum": "accepted",
+          "anchor_gap": 1.0767574386844512,
+          "separating": true
+        },
+        {
+          "family_id": "5b259f36196937a7b3c5",
+          "stratum": "accepted",
+          "anchor_gap": 1.647262681520175,
+          "separating": true
+        },
+        {
+          "family_id": "a627538adbe04cae618b",
+          "stratum": "accepted",
+          "anchor_gap": 0.4010055656076652,
+          "separating": true
+        },
+        {
+          "family_id": "dd62334fa9902989ba45",
+          "stratum": "accepted",
+          "anchor_gap": 3.5062045731856455,
+          "separating": true
+        },
+        {
+          "family_id": "8d2d582a5beac948cc15",
+          "stratum": "accepted",
+          "anchor_gap": 0.15680256845663365,
+          "separating": false
+        },
+        {
+          "family_id": "8043921a3c3e1f5d93d4",
+          "stratum": "accepted",
+          "anchor_gap": 1.7959070698465815,
+          "separating": true
+        },
+        {
+          "family_id": "2dacb5f141ddbdb1fe51",
+          "stratum": "accepted",
+          "anchor_gap": 0.7682856664704136,
+          "separating": true
+        },
+        {
+          "family_id": "1270f015035d918ea2dd",
+          "stratum": "accepted",
+          "anchor_gap": 7.111861022752254,
+          "separating": true
+        },
+        {
+          "family_id": "11f7b791f36e2c141ca8",
+          "stratum": "accepted",
+          "anchor_gap": 2.422193139926401,
+          "separating": true
+        },
+        {
+          "family_id": "0683256159849e3b4ee6",
+          "stratum": "accepted",
+          "anchor_gap": 0.35605555481675033,
+          "separating": true
+        },
+        {
+          "family_id": "e205adaa6e7c991df3db",
+          "stratum": "accepted",
+          "anchor_gap": 6.474537909640678,
+          "separating": true
+        },
+        {
+          "family_id": "0ad28775610280357acb",
+          "stratum": "accepted",
+          "anchor_gap": 3.395064127020053,
+          "separating": true
+        },
+        {
+          "family_id": "545a4d90fdd51b061d19",
+          "stratum": "accepted",
+          "anchor_gap": 3.44314793920676,
+          "separating": true
+        },
+        {
+          "family_id": "31c68bf02285456c9ce9",
+          "stratum": "accepted",
+          "anchor_gap": 0.7222037488609452,
+          "separating": true
+        },
+        {
+          "family_id": "b499a8a2b37908979e5f",
+          "stratum": "accepted",
+          "anchor_gap": 6.377348123795417,
+          "separating": true
+        },
+        {
+          "family_id": "9f9e26cc0090801213c3",
+          "stratum": "accepted",
+          "anchor_gap": 1.8269602597238244,
+          "separating": true
+        },
+        {
+          "family_id": "49c5fd44b93d1d3e800d",
+          "stratum": "accepted",
+          "anchor_gap": 5.7858913887748145,
+          "separating": true
+        },
+        {
+          "family_id": "b1bb75e914e03415d653",
+          "stratum": "accepted",
+          "anchor_gap": 0.2809584592695522,
+          "separating": true
+        },
+        {
+          "family_id": "b896fea1fef112d85f38",
+          "stratum": "accepted",
+          "anchor_gap": 2.437901781977086,
+          "separating": true
+        },
+        {
+          "family_id": "27ef5c340f06bdc7b614",
+          "stratum": "accepted",
+          "anchor_gap": 2.039685422778736,
+          "separating": true
+        },
+        {
+          "family_id": "4617546d992f104350bc",
+          "stratum": "rejected",
+          "anchor_gap": 0.021351584654597744,
+          "separating": false
+        },
+        {
+          "family_id": "a34a914a39fb4737dfa9",
+          "stratum": "rejected",
+          "anchor_gap": 0.03707879621046395,
+          "separating": false
+        },
+        {
+          "family_id": "587a129adb35390ba2e8",
+          "stratum": "rejected",
+          "anchor_gap": 0.09432000068075652,
+          "separating": false
+        },
+        {
+          "family_id": "e317dba0dfdf19a4c664",
+          "stratum": "rejected",
+          "anchor_gap": 0.004999595955645475,
+          "separating": false
+        },
+        {
+          "family_id": "2fc3a524f3a87cf0426a",
+          "stratum": "rejected",
+          "anchor_gap": 0.017405737824262246,
+          "separating": false
+        },
+        {
+          "family_id": "40f2dbaf3e72f63ed672",
+          "stratum": "rejected",
+          "anchor_gap": 0.03088745665364634,
+          "separating": false
+        },
+        {
+          "family_id": "28fa377579dccf12d9af",
+          "stratum": "rejected",
+          "anchor_gap": 0.031441533024782586,
+          "separating": false
+        },
+        {
+          "family_id": "0cc2462d9563ecd7bc10",
+          "stratum": "rejected",
+          "anchor_gap": 0.03769541198592208,
+          "separating": false
+        },
+        {
+          "family_id": "9a93bf8913fb3f18010a",
+          "stratum": "rejected",
+          "anchor_gap": 0.05746453107666838,
+          "separating": false
+        },
+        {
+          "family_id": "bfd51948ee040e2e9baa",
+          "stratum": "rejected",
+          "anchor_gap": 0.010280406485367877,
+          "separating": false
+        },
+        {
+          "family_id": "2409ac0af41e703ff56f",
+          "stratum": "rejected",
+          "anchor_gap": 0.010070159626966557,
+          "separating": false
+        },
+        {
+          "family_id": "53a476337176bb294083",
+          "stratum": "rejected",
+          "anchor_gap": 0.21752479615484432,
+          "separating": true
+        },
+        {
+          "family_id": "25d5ea40b6f4ed7cd53f",
+          "stratum": "rejected",
+          "anchor_gap": 0.0165866819028615,
+          "separating": false
+        },
+        {
+          "family_id": "e8b60b26a86c02f6b3d4",
+          "stratum": "rejected",
+          "anchor_gap": 0.017974265510725118,
+          "separating": false
+        },
+        {
+          "family_id": "97370b95c4704086ed89",
+          "stratum": "rejected",
+          "anchor_gap": 0.15603611482678303,
+          "separating": false
+        },
+        {
+          "family_id": "6c5a930544c9cfca1f08",
+          "stratum": "rejected",
+          "anchor_gap": 0.19007007052015723,
+          "separating": false
+        },
+        {
+          "family_id": "d29e1a0092d190642720",
+          "stratum": "rejected",
+          "anchor_gap": 0.30896973020962015,
+          "separating": true
+        },
+        {
+          "family_id": "addd3b949b8193624fcb",
+          "stratum": "rejected",
+          "anchor_gap": 0.12814996606964968,
+          "separating": false
+        },
+        {
+          "family_id": "b13f1c7054340b7413f3",
+          "stratum": "rejected",
+          "anchor_gap": 0.09039842812750365,
+          "separating": false
+        },
+        {
+          "family_id": "dfcc2057ec21ab74d2bf",
+          "stratum": "rejected",
+          "anchor_gap": 0.016095321092393533,
+          "separating": false
+        },
+        {
+          "family_id": "9d32b7f8d7bc97a3328d",
+          "stratum": "rejected",
+          "anchor_gap": 0.0215018576931989,
+          "separating": false
+        },
+        {
+          "family_id": "3e93d8804c571943941c",
+          "stratum": "rejected",
+          "anchor_gap": 0.0319016768579381,
+          "separating": false
+        },
+        {
+          "family_id": "65e0a4345f1de17e86ab",
+          "stratum": "rejected",
+          "anchor_gap": 0.07786303668934558,
+          "separating": false
+        },
+        {
+          "family_id": "42fc66326c988c40598e",
+          "stratum": "rejected",
+          "anchor_gap": 0.01658093137037575,
+          "separating": false
+        },
+        {
+          "family_id": "0106276544b8d213cd87",
+          "stratum": "rejected",
+          "anchor_gap": 0.01715553648278423,
+          "separating": false
+        },
+        {
+          "family_id": "6222776274968e496364",
+          "stratum": "rejected",
+          "anchor_gap": 0.02280048561301129,
+          "separating": false
+        },
+        {
+          "family_id": "d51ad14c080ea3b2421f",
+          "stratum": "rejected",
+          "anchor_gap": 0.9674876057409616,
+          "separating": true
+        },
+        {
+          "family_id": "a9d2096a401927a1531c",
+          "stratum": "rejected",
+          "anchor_gap": 0.030857940141110873,
+          "separating": false
+        },
+        {
+          "family_id": "98120149215b2d046127",
+          "stratum": "rejected",
+          "anchor_gap": 0.04372932314694111,
+          "separating": false
+        },
+        {
+          "family_id": "f5f3ea8cb2b45d54c368",
+          "stratum": "rejected",
+          "anchor_gap": 0.008451461683106842,
+          "separating": false
+        },
+        {
+          "family_id": "f8d58083dc483af9d082",
+          "stratum": "rejected",
+          "anchor_gap": 0.36661779531585026,
+          "separating": true
+        },
+        {
+          "family_id": "119f1520a246aa873361",
+          "stratum": "rejected",
+          "anchor_gap": 0.02190460204921152,
+          "separating": false
+        },
+        {
+          "family_id": "4b9b1876e515919c0baf",
+          "stratum": "rejected",
+          "anchor_gap": 0.019112780608143254,
+          "separating": false
+        },
+        {
+          "family_id": "dfda2f5748aac130e388",
+          "stratum": "rejected",
+          "anchor_gap": 0.06815100043753475,
+          "separating": false
+        },
+        {
+          "family_id": "946f001ab56c81421d9d",
+          "stratum": "rejected",
+          "anchor_gap": 0.01903478951700599,
+          "separating": false
+        },
+        {
+          "family_id": "ea8b5c1417d3f6e95f36",
+          "stratum": "rejected",
+          "anchor_gap": 0.024278236708747514,
+          "separating": false
+        },
+        {
+          "family_id": "5f5fdba9627e458aeaaf",
+          "stratum": "rejected",
+          "anchor_gap": 0.017660658331921653,
+          "separating": false
+        },
+        {
+          "family_id": "fa6b5a4a7ca79901f326",
+          "stratum": "rejected",
+          "anchor_gap": 0.029146243556672502,
+          "separating": false
+        },
+        {
+          "family_id": "d9d03977a17d81ac8ada",
+          "stratum": "rejected",
+          "anchor_gap": 0.8105568728141268,
+          "separating": true
+        },
+        {
+          "family_id": "dbb543acd910680a4e2a",
+          "stratum": "rejected",
+          "anchor_gap": 0.008318379347549865,
+          "separating": false
+        },
+        {
+          "family_id": "40eb3fec6607dd26a4b8",
+          "stratum": "rejected",
+          "anchor_gap": 0.8370684179530414,
+          "separating": true
+        },
+        {
+          "family_id": "7944ef19e08957738b14",
+          "stratum": "rejected",
+          "anchor_gap": 0.027852111288455106,
+          "separating": false
+        },
+        {
+          "family_id": "363a744c94989f43d5c4",
+          "stratum": "rejected",
+          "anchor_gap": 0.01924539102988554,
+          "separating": false
+        },
+        {
+          "family_id": "31280d91ae87838b8bb6",
+          "stratum": "rejected",
+          "anchor_gap": 0.010875483884188242,
+          "separating": false
+        },
+        {
+          "family_id": "3c4524c45ffe2ab476c6",
+          "stratum": "rejected",
+          "anchor_gap": 0.01973502584515252,
+          "separating": false
+        },
+        {
+          "family_id": "32454cccd0845e8ca560",
+          "stratum": "rejected",
+          "anchor_gap": 0.4585371165325576,
+          "separating": true
+        },
+        {
+          "family_id": "cca208ed9901c3dd1355",
+          "stratum": "rejected",
+          "anchor_gap": 0.08389877859489303,
+          "separating": false
+        },
+        {
+          "family_id": "f24cc7cd9d145d4397f8",
+          "stratum": "rejected",
+          "anchor_gap": 0.005611771405638066,
+          "separating": false
+        },
+        {
+          "family_id": "c78509afef62dd03c0b6",
+          "stratum": "rejected",
+          "anchor_gap": 0.02069070584024324,
+          "separating": false
+        },
+        {
+          "family_id": "4d5b4d5aa1b86e37f98d",
+          "stratum": "rejected",
+          "anchor_gap": 0.0438548018234588,
+          "separating": false
+        },
+        {
+          "family_id": "a4076d6cd779744659fc",
+          "stratum": "rejected",
+          "anchor_gap": 0.02297165657752842,
+          "separating": false
+        },
+        {
+          "family_id": "858c21dee295fa23879c",
+          "stratum": "rejected",
+          "anchor_gap": 0.03335752240576184,
+          "separating": false
+        },
+        {
+          "family_id": "481b956ec3a787236970",
+          "stratum": "rejected",
+          "anchor_gap": 0.01555178581405059,
+          "separating": false
+        },
+        {
+          "family_id": "646e80b6d6cfec80e1ff",
+          "stratum": "rejected",
+          "anchor_gap": 0.009991091843609468,
+          "separating": false
+        },
+        {
+          "family_id": "2e6f621dc7c8e5ef65c7",
+          "stratum": "rejected",
+          "anchor_gap": 0.03780948361680814,
+          "separating": false
+        },
+        {
+          "family_id": "f2961d3275f54b2a8cc8",
+          "stratum": "rejected",
+          "anchor_gap": 0.027786859751074644,
+          "separating": false
+        },
+        {
+          "family_id": "64527c205b3982c3e493",
+          "stratum": "rejected",
+          "anchor_gap": 0.037602974943602874,
+          "separating": false
+        },
+        {
+          "family_id": "ddbdc160c73e3d4a5085",
+          "stratum": "rejected",
+          "anchor_gap": 0.39835926819156775,
+          "separating": true
+        },
+        {
+          "family_id": "59344791e6f1f48d19e7",
+          "stratum": "rejected",
+          "anchor_gap": 0.06371625335448527,
+          "separating": false
+        },
+        {
+          "family_id": "f432f496ccef88ffab1c",
+          "stratum": "rejected",
+          "anchor_gap": 0.013842319781335988,
+          "separating": false
+        },
+        {
+          "family_id": "92260fce6b0959e6d8b9",
+          "stratum": "rejected",
+          "anchor_gap": 0.020109182178838836,
+          "separating": false
+        },
+        {
+          "family_id": "5858bd81de66aee01853",
+          "stratum": "rejected",
+          "anchor_gap": 0.004164643345486496,
+          "separating": false
+        },
+        {
+          "family_id": "48e6ee9c3e363c7d947e",
+          "stratum": "rejected",
+          "anchor_gap": 0.1741710940003749,
+          "separating": false
+        },
+        {
+          "family_id": "f0230edd1933c7d149ea",
+          "stratum": "rejected",
+          "anchor_gap": 0.010318433012646011,
+          "separating": false
+        }
+      ],
+      "verification": {
+        "native_candidates": 1024,
+        "families": 128,
+        "snapshots": 512,
+        "max_native_dtype_difference": 1.771725362953447e-05,
+        "max_signed_anchor_dtype_difference": 1.8846563509811176e-05,
+        "maximum_construction_roundoff": {
+          "float32": 1.4786514568321252e-08,
+          "float64": 0.0
+        }
+      },
+      "recorded_cost": {
+        "sequence_forwards_attempted": 4096,
+        "sequence_forwards_completed": 4096,
+        "forward_batches_attempted": 64,
+        "forward_batches_completed": 64,
+        "failed_forward_internal_progress_unknown": false,
+        "completed_sequence_forwards_by_stage_dtype": {
+          "native": {
+            "float32": 1024,
+            "float64": 1024
+          },
+          "anchors": {
+            "float32": 1024,
+            "float64": 1024
+          }
+        }
+      }
+    },
+    {
+      "head_key": "dsibxabs_head4",
+      "status": "completed",
+      "head_width": 16,
+      "pool_counts": {
+        "accepted": 330,
+        "rejected": 694
+      },
+      "statistics": {
+        "accepted_hits": 64,
+        "rejected_hits": 6,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.9080413081362957,
+          1.0
+        ],
+        "rejected_interval": [
+          0.02064040982257863,
+          0.24339304097349118
+        ],
+        "delta": 0.90625,
+        "delta_interval": [
+          0.6646482671628045,
+          0.9793595901774214
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      "cost_estimates": {
+        "status": "descriptive_point_estimates_only",
+        "counts": {
+          "screened": 1024,
+          "accepted": 330,
+          "accepted_separating": 64,
+          "rejected_separating": 6
+        },
+        "acceptance_rate": 0.322265625,
+        "accepted_yield": 1.0,
+        "rejected_yield": 0.09375,
+        "random_selection_yield_estimate": 0.38580322265625,
+        "accepted_minus_random_yield_estimate": 0.61419677734375,
+        "cost_unit": "sequence forwards, including both dtypes; not walltime",
+        "baseline_cost_b": 2,
+        "two_anchor_family_cost_f": 16,
+        "fixed_screened_policy_total_cost": 3072,
+        "validation_total_cost": 4096,
+        "rejected_arm_measurement_overhead": 1024,
+        "estimated_cost_per_separating_family": {
+          "fixed_screened_policy": {
+            "status": "finite",
+            "value": 48.0
+          },
+          "random_selection_policy": {
+            "status": "finite",
+            "value": 46.65590887517798
+          },
+          "ideal_stream_NOT_SCHEDULED": {
+            "status": "finite",
+            "value": 22.206060606060607
+          },
+          "validation_run_NOT_DEPLOYMENT": {
+            "status": "finite",
+            "value": 58.51428571428571
+          }
+        },
+        "fixed_policy_cheaper_under_point_estimates": false,
+        "limits": [
+          "Random yield is a stratified plug-in estimate, not an observed random arm.",
+          "No uncertainty or verified net savings is claimed for these ratios.",
+          "Ideal stream amortization is not the fixed-budget scheduled validation.",
+          "Family cost includes repeated native passes; no unimplemented caching is credited.",
+          "Validation pays for rejected families; deployment estimates omit that validation-only overhead."
+        ]
+      },
+      "family_results": [
+        {
+          "family_id": "ea97a77a329454e6672a",
+          "stratum": "accepted",
+          "anchor_gap": 2.0130113581439826,
+          "separating": true
+        },
+        {
+          "family_id": "27380fedebadfe34ff3b",
+          "stratum": "accepted",
+          "anchor_gap": 6.026548335026206,
+          "separating": true
+        },
+        {
+          "family_id": "25b857f6d53412816965",
+          "stratum": "accepted",
+          "anchor_gap": 3.4791381287420027,
+          "separating": true
+        },
+        {
+          "family_id": "80365712df59d17fad86",
+          "stratum": "accepted",
+          "anchor_gap": 2.6100519538842644,
+          "separating": true
+        },
+        {
+          "family_id": "13901497d0691cfdde0b",
+          "stratum": "accepted",
+          "anchor_gap": 4.410070452697265,
+          "separating": true
+        },
+        {
+          "family_id": "39c75f7148c518a4b930",
+          "stratum": "accepted",
+          "anchor_gap": 8.389883046278829,
+          "separating": true
+        },
+        {
+          "family_id": "f657647c49f43821ff99",
+          "stratum": "accepted",
+          "anchor_gap": 0.8543018427354028,
+          "separating": true
+        },
+        {
+          "family_id": "067cc41d79ca4b5235b2",
+          "stratum": "accepted",
+          "anchor_gap": 7.416805511851427,
+          "separating": true
+        },
+        {
+          "family_id": "06ecd7ceeaa1faeceeda",
+          "stratum": "accepted",
+          "anchor_gap": 2.729411348400143,
+          "separating": true
+        },
+        {
+          "family_id": "d9b4b45d4bb795bdf427",
+          "stratum": "accepted",
+          "anchor_gap": 8.422239147105289,
+          "separating": true
+        },
+        {
+          "family_id": "86a065f0da3049a71a63",
+          "stratum": "accepted",
+          "anchor_gap": 4.20607173619468,
+          "separating": true
+        },
+        {
+          "family_id": "cb6f4f72715d855a0937",
+          "stratum": "accepted",
+          "anchor_gap": 0.56702784582221,
+          "separating": true
+        },
+        {
+          "family_id": "92e0291d0a4d1fb3942c",
+          "stratum": "accepted",
+          "anchor_gap": 1.4990106584053215,
+          "separating": true
+        },
+        {
+          "family_id": "c14b8e3dd355f4e49d6d",
+          "stratum": "accepted",
+          "anchor_gap": 1.7449084760967022,
+          "separating": true
+        },
+        {
+          "family_id": "995c90f828fdeed53d56",
+          "stratum": "accepted",
+          "anchor_gap": 4.294882074726877,
+          "separating": true
+        },
+        {
+          "family_id": "806aa9a8ae63b671a0ef",
+          "stratum": "accepted",
+          "anchor_gap": 1.7220979272185888,
+          "separating": true
+        },
+        {
+          "family_id": "510fee5400c4e43ca2ca",
+          "stratum": "accepted",
+          "anchor_gap": 5.75910000770172,
+          "separating": true
+        },
+        {
+          "family_id": "506621d9d8a81ba3cbed",
+          "stratum": "accepted",
+          "anchor_gap": 7.690099765685829,
+          "separating": true
+        },
+        {
+          "family_id": "9913842dbf27772f103d",
+          "stratum": "accepted",
+          "anchor_gap": 0.713015334243952,
+          "separating": true
+        },
+        {
+          "family_id": "0957c17016d0d9c3052f",
+          "stratum": "accepted",
+          "anchor_gap": 5.139939531101249,
+          "separating": true
+        },
+        {
+          "family_id": "422e5be4e3074827d5f2",
+          "stratum": "accepted",
+          "anchor_gap": 4.173780943320525,
+          "separating": true
+        },
+        {
+          "family_id": "d36f8e998566828c6e46",
+          "stratum": "accepted",
+          "anchor_gap": 3.0928433984167256,
+          "separating": true
+        },
+        {
+          "family_id": "ca4cd4a114402a99a32a",
+          "stratum": "accepted",
+          "anchor_gap": 5.340334115507379,
+          "separating": true
+        },
+        {
+          "family_id": "5200404bb806bad2bbc5",
+          "stratum": "accepted",
+          "anchor_gap": 1.2123870147171179,
+          "separating": true
+        },
+        {
+          "family_id": "4fed93bd89f44d0d1c9e",
+          "stratum": "accepted",
+          "anchor_gap": 9.815035701303188,
+          "separating": true
+        },
+        {
+          "family_id": "e73b18c8e541b6c96f93",
+          "stratum": "accepted",
+          "anchor_gap": 5.655355123803592,
+          "separating": true
+        },
+        {
+          "family_id": "6d5f0648dd06f8fc94c9",
+          "stratum": "accepted",
+          "anchor_gap": 3.4854537841475333,
+          "separating": true
+        },
+        {
+          "family_id": "76c931b0f2c875b25ddd",
+          "stratum": "accepted",
+          "anchor_gap": 5.845901729159119,
+          "separating": true
+        },
+        {
+          "family_id": "62057e779cb00a3ecccd",
+          "stratum": "accepted",
+          "anchor_gap": 8.777427938708318,
+          "separating": true
+        },
+        {
+          "family_id": "1082605502d7043de3a6",
+          "stratum": "accepted",
+          "anchor_gap": 8.375825286547759,
+          "separating": true
+        },
+        {
+          "family_id": "ee1961721846d6af992d",
+          "stratum": "accepted",
+          "anchor_gap": 1.1233415648782632,
+          "separating": true
+        },
+        {
+          "family_id": "ba2cc4709753f74e3f5c",
+          "stratum": "accepted",
+          "anchor_gap": 2.311621243770725,
+          "separating": true
+        },
+        {
+          "family_id": "327bbcd6068a53d6cf1e",
+          "stratum": "accepted",
+          "anchor_gap": 8.917993241116017,
+          "separating": true
+        },
+        {
+          "family_id": "c3ce3765cadea1697ed6",
+          "stratum": "accepted",
+          "anchor_gap": 1.112145422920161,
+          "separating": true
+        },
+        {
+          "family_id": "f7574738f6a43b98d746",
+          "stratum": "accepted",
+          "anchor_gap": 9.100310658529017,
+          "separating": true
+        },
+        {
+          "family_id": "74a6c53031eda16fff31",
+          "stratum": "accepted",
+          "anchor_gap": 0.36407414711333175,
+          "separating": true
+        },
+        {
+          "family_id": "3bac8328a9b3a3548407",
+          "stratum": "accepted",
+          "anchor_gap": 8.940744307661511,
+          "separating": true
+        },
+        {
+          "family_id": "53fc798aadeb5c45cec1",
+          "stratum": "accepted",
+          "anchor_gap": 8.916288294319246,
+          "separating": true
+        },
+        {
+          "family_id": "7f9e0883a992a364fcc9",
+          "stratum": "accepted",
+          "anchor_gap": 2.4026729953850037,
+          "separating": true
+        },
+        {
+          "family_id": "e4550eeb1bd44a28e202",
+          "stratum": "accepted",
+          "anchor_gap": 0.9159732473315163,
+          "separating": true
+        },
+        {
+          "family_id": "40df77032a5b33b888cd",
+          "stratum": "accepted",
+          "anchor_gap": 1.8966561183968658,
+          "separating": true
+        },
+        {
+          "family_id": "d09ddcfd3325a35ef910",
+          "stratum": "accepted",
+          "anchor_gap": 2.897393840692394,
+          "separating": true
+        },
+        {
+          "family_id": "57bb0817f98d8894a1ca",
+          "stratum": "accepted",
+          "anchor_gap": 8.350788270978597,
+          "separating": true
+        },
+        {
+          "family_id": "c2396d1a716bb97b863c",
+          "stratum": "accepted",
+          "anchor_gap": 1.1871136495250258,
+          "separating": true
+        },
+        {
+          "family_id": "a7a8a5ca0be80b827c64",
+          "stratum": "accepted",
+          "anchor_gap": 1.7609614138528853,
+          "separating": true
+        },
+        {
+          "family_id": "1a371eb3cf16bc0712c2",
+          "stratum": "accepted",
+          "anchor_gap": 2.9960653732123426,
+          "separating": true
+        },
+        {
+          "family_id": "f0542cfd6b9d661c6345",
+          "stratum": "accepted",
+          "anchor_gap": 1.9499269847591236,
+          "separating": true
+        },
+        {
+          "family_id": "359da56e3179c547f787",
+          "stratum": "accepted",
+          "anchor_gap": 9.541115796047913,
+          "separating": true
+        },
+        {
+          "family_id": "24ac5bc87c1a45f80d1c",
+          "stratum": "accepted",
+          "anchor_gap": 4.025189022410876,
+          "separating": true
+        },
+        {
+          "family_id": "43a502bf468d1cfcc08a",
+          "stratum": "accepted",
+          "anchor_gap": 4.794263656827631,
+          "separating": true
+        },
+        {
+          "family_id": "3b43ae868ee1ad22ecc2",
+          "stratum": "accepted",
+          "anchor_gap": 5.806293696984034,
+          "separating": true
+        },
+        {
+          "family_id": "d48cfac95b577f2a55ca",
+          "stratum": "accepted",
+          "anchor_gap": 1.4729236948908344,
+          "separating": true
+        },
+        {
+          "family_id": "d29966cdbed583dbd09c",
+          "stratum": "accepted",
+          "anchor_gap": 7.638530811421812,
+          "separating": true
+        },
+        {
+          "family_id": "f07058943841dbfe3b19",
+          "stratum": "accepted",
+          "anchor_gap": 1.3979132810625767,
+          "separating": true
+        },
+        {
+          "family_id": "216ec51b785cfefcf5bf",
+          "stratum": "accepted",
+          "anchor_gap": 7.748486697951008,
+          "separating": true
+        },
+        {
+          "family_id": "7560c5016a3111d85a13",
+          "stratum": "accepted",
+          "anchor_gap": 9.605167074155768,
+          "separating": true
+        },
+        {
+          "family_id": "32a01df04a9b46b113e5",
+          "stratum": "accepted",
+          "anchor_gap": 2.067147782578841,
+          "separating": true
+        },
+        {
+          "family_id": "daef9bf706e56c368e2b",
+          "stratum": "accepted",
+          "anchor_gap": 2.2125187175084093,
+          "separating": true
+        },
+        {
+          "family_id": "4af7d2eee8a529cc0558",
+          "stratum": "accepted",
+          "anchor_gap": 3.487634625265916,
+          "separating": true
+        },
+        {
+          "family_id": "9c9b95f9f0d5f69a8978",
+          "stratum": "accepted",
+          "anchor_gap": 0.9983734447939945,
+          "separating": true
+        },
+        {
+          "family_id": "63e3df7e011e2025d2a2",
+          "stratum": "accepted",
+          "anchor_gap": 1.853836683595171,
+          "separating": true
+        },
+        {
+          "family_id": "0b66011ea7c071710737",
+          "stratum": "accepted",
+          "anchor_gap": 0.5498912276891019,
+          "separating": true
+        },
+        {
+          "family_id": "aec5163c7a05058be55d",
+          "stratum": "accepted",
+          "anchor_gap": 8.502353266739695,
+          "separating": true
+        },
+        {
+          "family_id": "631565a962ffb169c145",
+          "stratum": "accepted",
+          "anchor_gap": 7.808595959373423,
+          "separating": true
+        },
+        {
+          "family_id": "ef502e3c4d2f67e44b5c",
+          "stratum": "rejected",
+          "anchor_gap": 0.028192373287691197,
+          "separating": false
+        },
+        {
+          "family_id": "7d6ce84889d1f03fdbfb",
+          "stratum": "rejected",
+          "anchor_gap": 0.10904408158359402,
+          "separating": false
+        },
+        {
+          "family_id": "4def9f76b2600b8bfff9",
+          "stratum": "rejected",
+          "anchor_gap": 0.05535124276321568,
+          "separating": false
+        },
+        {
+          "family_id": "f97746c07ea40891e1ec",
+          "stratum": "rejected",
+          "anchor_gap": 0.06158872410196814,
+          "separating": false
+        },
+        {
+          "family_id": "d188c52fb4685f9d08d6",
+          "stratum": "rejected",
+          "anchor_gap": 0.025554891333410268,
+          "separating": false
+        },
+        {
+          "family_id": "b1a900c31562fe9b8860",
+          "stratum": "rejected",
+          "anchor_gap": 0.018853456307878602,
+          "separating": false
+        },
+        {
+          "family_id": "5edebf00323e691bbd3a",
+          "stratum": "rejected",
+          "anchor_gap": 0.0018411138858258624,
+          "separating": false
+        },
+        {
+          "family_id": "f851ac26d54faef31f75",
+          "stratum": "rejected",
+          "anchor_gap": 0.039645923786235215,
+          "separating": false
+        },
+        {
+          "family_id": "5e1be1800757b63caa7e",
+          "stratum": "rejected",
+          "anchor_gap": 0.6274059291345857,
+          "separating": true
+        },
+        {
+          "family_id": "8356bbcf715f4dd1cab0",
+          "stratum": "rejected",
+          "anchor_gap": 0.042132471254305415,
+          "separating": false
+        },
+        {
+          "family_id": "91450b7b6bea35455faf",
+          "stratum": "rejected",
+          "anchor_gap": 0.1006332268827066,
+          "separating": false
+        },
+        {
+          "family_id": "e0de89382c481c992778",
+          "stratum": "rejected",
+          "anchor_gap": 0.02483246069754763,
+          "separating": false
+        },
+        {
+          "family_id": "da6826fd9aa860082f00",
+          "stratum": "rejected",
+          "anchor_gap": 0.025796526104631567,
+          "separating": false
+        },
+        {
+          "family_id": "911d6800482a04e49195",
+          "stratum": "rejected",
+          "anchor_gap": 0.03052297978907781,
+          "separating": false
+        },
+        {
+          "family_id": "082c2a4e13ab6e950dc3",
+          "stratum": "rejected",
+          "anchor_gap": 0.29764996848251535,
+          "separating": true
+        },
+        {
+          "family_id": "d50302b753a855e4bd0e",
+          "stratum": "rejected",
+          "anchor_gap": 0.0344414096229837,
+          "separating": false
+        },
+        {
+          "family_id": "bce0b12eaa39346e00d2",
+          "stratum": "rejected",
+          "anchor_gap": 0.06417969606770413,
+          "separating": false
+        },
+        {
+          "family_id": "46904ac24d9a81a90158",
+          "stratum": "rejected",
+          "anchor_gap": 0.040167171953884306,
+          "separating": false
+        },
+        {
+          "family_id": "93990d57b6497bfc29fc",
+          "stratum": "rejected",
+          "anchor_gap": 0.03760734792514597,
+          "separating": false
+        },
+        {
+          "family_id": "71bd2d89f88270b8c0db",
+          "stratum": "rejected",
+          "anchor_gap": 0.0346018054167363,
+          "separating": false
+        },
+        {
+          "family_id": "c454f39f4bbeff4898f1",
+          "stratum": "rejected",
+          "anchor_gap": 0.008056885442044859,
+          "separating": false
+        },
+        {
+          "family_id": "acf5bd8f38163f1c628c",
+          "stratum": "rejected",
+          "anchor_gap": 0.024813543409663907,
+          "separating": false
+        },
+        {
+          "family_id": "239c453cff28afe1e001",
+          "stratum": "rejected",
+          "anchor_gap": 0.021654486838068365,
+          "separating": false
+        },
+        {
+          "family_id": "2ff80779c288652cc8a8",
+          "stratum": "rejected",
+          "anchor_gap": 0.03535645243437635,
+          "separating": false
+        },
+        {
+          "family_id": "f3c02bda92370c5e1bd3",
+          "stratum": "rejected",
+          "anchor_gap": 0.0050024765232628,
+          "separating": false
+        },
+        {
+          "family_id": "a22e864657f591e418e6",
+          "stratum": "rejected",
+          "anchor_gap": 0.23431663145888848,
+          "separating": true
+        },
+        {
+          "family_id": "480023067faff1918a7d",
+          "stratum": "rejected",
+          "anchor_gap": 0.033684520989174516,
+          "separating": false
+        },
+        {
+          "family_id": "75b7c24bf1809640471a",
+          "stratum": "rejected",
+          "anchor_gap": 0.09405290866114946,
+          "separating": false
+        },
+        {
+          "family_id": "632c1ef8c1f9767e751a",
+          "stratum": "rejected",
+          "anchor_gap": 0.010064768590156703,
+          "separating": false
+        },
+        {
+          "family_id": "9107899b77757fcbbc42",
+          "stratum": "rejected",
+          "anchor_gap": 1.0010553566338185,
+          "separating": true
+        },
+        {
+          "family_id": "1b17666dd19a14871a2f",
+          "stratum": "rejected",
+          "anchor_gap": 0.08004896220120727,
+          "separating": false
+        },
+        {
+          "family_id": "69ce26296b89397d0035",
+          "stratum": "rejected",
+          "anchor_gap": 0.052359346164383425,
+          "separating": false
+        },
+        {
+          "family_id": "24e49ca4d669c434f5b2",
+          "stratum": "rejected",
+          "anchor_gap": 0.02882787424623956,
+          "separating": false
+        },
+        {
+          "family_id": "77a0a5006aae7fdb3cd9",
+          "stratum": "rejected",
+          "anchor_gap": 0.05456673743605478,
+          "separating": false
+        },
+        {
+          "family_id": "e6935aaf6fadf7b0b0c6",
+          "stratum": "rejected",
+          "anchor_gap": 0.28647599051122796,
+          "separating": true
+        },
+        {
+          "family_id": "874d7a47d46055c946a7",
+          "stratum": "rejected",
+          "anchor_gap": 0.03523504775830588,
+          "separating": false
+        },
+        {
+          "family_id": "f8be76fe5551013dea4f",
+          "stratum": "rejected",
+          "anchor_gap": 0.057039793280054596,
+          "separating": false
+        },
+        {
+          "family_id": "266968a2281585987503",
+          "stratum": "rejected",
+          "anchor_gap": 0.038277039860304285,
+          "separating": false
+        },
+        {
+          "family_id": "1cbdd10764c7f5ad091b",
+          "stratum": "rejected",
+          "anchor_gap": 0.007357673817491417,
+          "separating": false
+        },
+        {
+          "family_id": "1288c6172e77c74e58cf",
+          "stratum": "rejected",
+          "anchor_gap": 0.02891360017754252,
+          "separating": false
+        },
+        {
+          "family_id": "abdcd6d83632861a735a",
+          "stratum": "rejected",
+          "anchor_gap": 0.02377723253034425,
+          "separating": false
+        },
+        {
+          "family_id": "ad28905381dc39cac4ee",
+          "stratum": "rejected",
+          "anchor_gap": 0.032586882304523,
+          "separating": false
+        },
+        {
+          "family_id": "ac5b2c64aab4115dd19a",
+          "stratum": "rejected",
+          "anchor_gap": 0.04575042432574428,
+          "separating": false
+        },
+        {
+          "family_id": "c34c3fb41771674ae8b1",
+          "stratum": "rejected",
+          "anchor_gap": 0.050281033390138674,
+          "separating": false
+        },
+        {
+          "family_id": "db841d936670f9231da5",
+          "stratum": "rejected",
+          "anchor_gap": 0.04109534346465615,
+          "separating": false
+        },
+        {
+          "family_id": "7387e8dd0ce34638a5ca",
+          "stratum": "rejected",
+          "anchor_gap": 0.009359782017961393,
+          "separating": false
+        },
+        {
+          "family_id": "adcddbc48e429e4f0f97",
+          "stratum": "rejected",
+          "anchor_gap": 0.1637164849789574,
+          "separating": false
+        },
+        {
+          "family_id": "711c2fca29a9176d0a5e",
+          "stratum": "rejected",
+          "anchor_gap": 0.026292821635069075,
+          "separating": false
+        },
+        {
+          "family_id": "65268b2c5bede61f6e6a",
+          "stratum": "rejected",
+          "anchor_gap": 0.45394805560618323,
+          "separating": true
+        },
+        {
+          "family_id": "19e3c5aa57f5f0c3c110",
+          "stratum": "rejected",
+          "anchor_gap": 0.03576631757672111,
+          "separating": false
+        },
+        {
+          "family_id": "c2ab17422e94ae1beaca",
+          "stratum": "rejected",
+          "anchor_gap": 0.013677477540047889,
+          "separating": false
+        },
+        {
+          "family_id": "4c36bf9a942a74cd6127",
+          "stratum": "rejected",
+          "anchor_gap": 0.17066879400619328,
+          "separating": false
+        },
+        {
+          "family_id": "634072f4da6eb5277b00",
+          "stratum": "rejected",
+          "anchor_gap": 0.014882153875014126,
+          "separating": false
+        },
+        {
+          "family_id": "c895e2c7a769b66d9836",
+          "stratum": "rejected",
+          "anchor_gap": 0.018002779855711637,
+          "separating": false
+        },
+        {
+          "family_id": "5ce1e11cd1f7bb5ee2a0",
+          "stratum": "rejected",
+          "anchor_gap": 0.0028514910298049756,
+          "separating": false
+        },
+        {
+          "family_id": "f6c66ee90cf4922114cc",
+          "stratum": "rejected",
+          "anchor_gap": 0.04505624607591763,
+          "separating": false
+        },
+        {
+          "family_id": "0a87662691e8f06428db",
+          "stratum": "rejected",
+          "anchor_gap": 0.049240678534532734,
+          "separating": false
+        },
+        {
+          "family_id": "1ed34ecc00a6b99ac9d8",
+          "stratum": "rejected",
+          "anchor_gap": 0.02813761925533953,
+          "separating": false
+        },
+        {
+          "family_id": "e87014323afe6ae61e2e",
+          "stratum": "rejected",
+          "anchor_gap": 0.11115180575616712,
+          "separating": false
+        },
+        {
+          "family_id": "61f6480cd0034fad259e",
+          "stratum": "rejected",
+          "anchor_gap": 0.014956490665369415,
+          "separating": false
+        },
+        {
+          "family_id": "1043e83d11ce0ce0f98f",
+          "stratum": "rejected",
+          "anchor_gap": 0.0915431293547897,
+          "separating": false
+        },
+        {
+          "family_id": "e9bba871d317a4120f20",
+          "stratum": "rejected",
+          "anchor_gap": 0.014364483475674206,
+          "separating": false
+        },
+        {
+          "family_id": "1463673d2f7b0ba76f65",
+          "stratum": "rejected",
+          "anchor_gap": 0.026681600065158406,
+          "separating": false
+        },
+        {
+          "family_id": "88874b6604035a2101ac",
+          "stratum": "rejected",
+          "anchor_gap": 0.011425069600635496,
+          "separating": false
+        }
+      ],
+      "verification": {
+        "native_candidates": 1024,
+        "families": 128,
+        "snapshots": 512,
+        "max_native_dtype_difference": 2.9128996268501517e-05,
+        "max_signed_anchor_dtype_difference": 2.026530201337806e-05,
+        "maximum_construction_roundoff": {
+          "float32": 1.486791845195512e-08,
+          "float64": 0.0
+        }
+      },
+      "recorded_cost": {
+        "sequence_forwards_attempted": 4096,
+        "sequence_forwards_completed": 4096,
+        "forward_batches_attempted": 64,
+        "forward_batches_completed": 64,
+        "failed_forward_internal_progress_unknown": false,
+        "completed_sequence_forwards_by_stage_dtype": {
+          "native": {
+            "float32": 1024,
+            "float64": 1024
+          },
+          "anchors": {
+            "float32": 1024,
+            "float64": 1024
+          }
+        }
+      }
+    },
+    {
+      "head_key": "qtda56zd_head2",
+      "status": "completed",
+      "head_width": 32,
+      "pool_counts": {
+        "accepted": 539,
+        "rejected": 485
+      },
+      "statistics": {
+        "accepted_hits": 59,
+        "rejected_hits": 14,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.7779863622914873,
+          0.9859737738895695
+        ],
+        "rejected_interval": [
+          0.09359985291672082,
+          0.3960015576966923
+        ],
+        "delta": 0.703125,
+        "delta_interval": [
+          0.381984804594795,
+          0.8923739209728487
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      "cost_estimates": {
+        "status": "descriptive_point_estimates_only",
+        "counts": {
+          "screened": 1024,
+          "accepted": 539,
+          "accepted_separating": 59,
+          "rejected_separating": 14
+        },
+        "acceptance_rate": 0.5263671875,
+        "accepted_yield": 0.921875,
+        "rejected_yield": 0.21875,
+        "random_selection_yield_estimate": 0.5888519287109375,
+        "accepted_minus_random_yield_estimate": 0.3330230712890625,
+        "cost_unit": "sequence forwards, including both dtypes; not walltime",
+        "baseline_cost_b": 2,
+        "two_anchor_family_cost_f": 16,
+        "fixed_screened_policy_total_cost": 3072,
+        "validation_total_cost": 4096,
+        "rejected_arm_measurement_overhead": 1024,
+        "estimated_cost_per_separating_family": {
+          "fixed_screened_policy": {
+            "status": "finite",
+            "value": 52.067796610169495
+          },
+          "random_selection_policy": {
+            "status": "finite",
+            "value": 30.567956259231426
+          },
+          "ideal_stream_NOT_SCHEDULED": {
+            "status": "finite",
+            "value": 21.477563598628972
+          },
+          "validation_run_NOT_DEPLOYMENT": {
+            "status": "finite",
+            "value": 56.10958904109589
+          }
+        },
+        "fixed_policy_cheaper_under_point_estimates": false,
+        "limits": [
+          "Random yield is a stratified plug-in estimate, not an observed random arm.",
+          "No uncertainty or verified net savings is claimed for these ratios.",
+          "Ideal stream amortization is not the fixed-budget scheduled validation.",
+          "Family cost includes repeated native passes; no unimplemented caching is credited.",
+          "Validation pays for rejected families; deployment estimates omit that validation-only overhead."
+        ]
+      },
+      "family_results": [
+        {
+          "family_id": "bba8b25fde18ac4688ab",
+          "stratum": "accepted",
+          "anchor_gap": 6.282712838166616,
+          "separating": true
+        },
+        {
+          "family_id": "7cd113ccf8ad6ea46f97",
+          "stratum": "accepted",
+          "anchor_gap": 0.3988831935815629,
+          "separating": true
+        },
+        {
+          "family_id": "b02d11ed2a55ac110868",
+          "stratum": "accepted",
+          "anchor_gap": 0.5131266168266375,
+          "separating": true
+        },
+        {
+          "family_id": "af0a4ff119d1c59d6c03",
+          "stratum": "accepted",
+          "anchor_gap": 1.946926961791828,
+          "separating": true
+        },
+        {
+          "family_id": "84c1a800aba95f7c7d04",
+          "stratum": "accepted",
+          "anchor_gap": 0.9015436011577682,
+          "separating": true
+        },
+        {
+          "family_id": "181762f11bf0fb1e4696",
+          "stratum": "accepted",
+          "anchor_gap": 1.1278282521298681,
+          "separating": true
+        },
+        {
+          "family_id": "9cd042b3bfb67db1b775",
+          "stratum": "accepted",
+          "anchor_gap": 6.440376168466642,
+          "separating": true
+        },
+        {
+          "family_id": "d445457c6ab4a21b3b16",
+          "stratum": "accepted",
+          "anchor_gap": 2.6219442581737162,
+          "separating": true
+        },
+        {
+          "family_id": "8839be057469ff35475a",
+          "stratum": "accepted",
+          "anchor_gap": 0.27677413761484004,
+          "separating": true
+        },
+        {
+          "family_id": "ff0e1eb457f938289cae",
+          "stratum": "accepted",
+          "anchor_gap": 1.7492926612224284,
+          "separating": true
+        },
+        {
+          "family_id": "827785643bc737ebe4a3",
+          "stratum": "accepted",
+          "anchor_gap": 0.8121390542779157,
+          "separating": true
+        },
+        {
+          "family_id": "1794337b745c057130c3",
+          "stratum": "accepted",
+          "anchor_gap": 0.21257165995100102,
+          "separating": true
+        },
+        {
+          "family_id": "f1ec6590ee5882d95e8c",
+          "stratum": "accepted",
+          "anchor_gap": 1.094042235387704,
+          "separating": true
+        },
+        {
+          "family_id": "211c83e62aac6267e84c",
+          "stratum": "accepted",
+          "anchor_gap": 0.5389238085176,
+          "separating": true
+        },
+        {
+          "family_id": "c0e9bc52f4ed84e89b7f",
+          "stratum": "accepted",
+          "anchor_gap": 3.1143082345006796,
+          "separating": true
+        },
+        {
+          "family_id": "7718a938448c0d8d9ecb",
+          "stratum": "accepted",
+          "anchor_gap": 0.6676268354859136,
+          "separating": true
+        },
+        {
+          "family_id": "4a00467af6a6f36ec385",
+          "stratum": "accepted",
+          "anchor_gap": 2.8414606545851337,
+          "separating": true
+        },
+        {
+          "family_id": "30fa9b26429695457118",
+          "stratum": "accepted",
+          "anchor_gap": 2.279088030589099,
+          "separating": true
+        },
+        {
+          "family_id": "47ea9e346fa1db56029b",
+          "stratum": "accepted",
+          "anchor_gap": 1.3142927136974656,
+          "separating": true
+        },
+        {
+          "family_id": "1604891c349eb8779831",
+          "stratum": "accepted",
+          "anchor_gap": 7.479871843793432,
+          "separating": true
+        },
+        {
+          "family_id": "4c39d98b9e63c7d43747",
+          "stratum": "accepted",
+          "anchor_gap": 0.7562164841029198,
+          "separating": true
+        },
+        {
+          "family_id": "0baaec696c18449c3607",
+          "stratum": "accepted",
+          "anchor_gap": 3.324451092170975,
+          "separating": true
+        },
+        {
+          "family_id": "e9fd7234c451edb3873b",
+          "stratum": "accepted",
+          "anchor_gap": 2.467810567177761,
+          "separating": true
+        },
+        {
+          "family_id": "efbb7bbeb05a285c695f",
+          "stratum": "accepted",
+          "anchor_gap": 0.2934980089579753,
+          "separating": true
+        },
+        {
+          "family_id": "d9369684d4239bb902d8",
+          "stratum": "accepted",
+          "anchor_gap": 0.9318389213298017,
+          "separating": true
+        },
+        {
+          "family_id": "4250dbd114981b94ea12",
+          "stratum": "accepted",
+          "anchor_gap": 0.19483890886590238,
+          "separating": false
+        },
+        {
+          "family_id": "ca402ae7102964494497",
+          "stratum": "accepted",
+          "anchor_gap": 4.870725415547191,
+          "separating": true
+        },
+        {
+          "family_id": "f09f133d3dfca797d247",
+          "stratum": "accepted",
+          "anchor_gap": 0.0008556230892295957,
+          "separating": false
+        },
+        {
+          "family_id": "36e099299125b794e2ea",
+          "stratum": "accepted",
+          "anchor_gap": 0.3787352944104754,
+          "separating": true
+        },
+        {
+          "family_id": "769e2c9b312f0359771a",
+          "stratum": "accepted",
+          "anchor_gap": 8.984240849580859,
+          "separating": true
+        },
+        {
+          "family_id": "cf82a3390552539e8359",
+          "stratum": "accepted",
+          "anchor_gap": 1.0270080028441768,
+          "separating": true
+        },
+        {
+          "family_id": "c369d476ca00c6d5cfa0",
+          "stratum": "accepted",
+          "anchor_gap": 2.067735520360648,
+          "separating": true
+        },
+        {
+          "family_id": "77a2038fd59eb2496104",
+          "stratum": "accepted",
+          "anchor_gap": 1.3202496135804527,
+          "separating": true
+        },
+        {
+          "family_id": "e842b8563dbc7c205f4c",
+          "stratum": "accepted",
+          "anchor_gap": 1.8424144075368298,
+          "separating": true
+        },
+        {
+          "family_id": "fdb34cbc1543b68f40d1",
+          "stratum": "accepted",
+          "anchor_gap": 1.23962684252613,
+          "separating": true
+        },
+        {
+          "family_id": "9eb2279faab3e247a039",
+          "stratum": "accepted",
+          "anchor_gap": 1.1486453465679851,
+          "separating": true
+        },
+        {
+          "family_id": "aa1285a4c539674627d5",
+          "stratum": "accepted",
+          "anchor_gap": 10.153786363964281,
+          "separating": true
+        },
+        {
+          "family_id": "9306d3eca1fdd839c5c7",
+          "stratum": "accepted",
+          "anchor_gap": 5.828567761056173,
+          "separating": true
+        },
+        {
+          "family_id": "33c5db0e0bd5f7925470",
+          "stratum": "accepted",
+          "anchor_gap": 8.932120157222787,
+          "separating": true
+        },
+        {
+          "family_id": "fc90267842ee8fafef40",
+          "stratum": "accepted",
+          "anchor_gap": 6.546861348515181,
+          "separating": true
+        },
+        {
+          "family_id": "63c164cd8c063fccd52d",
+          "stratum": "accepted",
+          "anchor_gap": 1.0427100094763437,
+          "separating": true
+        },
+        {
+          "family_id": "070f98e6d693e7804565",
+          "stratum": "accepted",
+          "anchor_gap": 2.8908256942637482,
+          "separating": true
+        },
+        {
+          "family_id": "6ab2f0a38876495fa473",
+          "stratum": "accepted",
+          "anchor_gap": 0.42339098768502836,
+          "separating": true
+        },
+        {
+          "family_id": "7868a121020ad3d8ef15",
+          "stratum": "accepted",
+          "anchor_gap": 0.7225441686932488,
+          "separating": true
+        },
+        {
+          "family_id": "a0d35d95080adc3cfb41",
+          "stratum": "accepted",
+          "anchor_gap": 2.395220499843928,
+          "separating": true
+        },
+        {
+          "family_id": "ef6fd94c72a67ba08ee5",
+          "stratum": "accepted",
+          "anchor_gap": 1.688375650952282,
+          "separating": true
+        },
+        {
+          "family_id": "cb5af840bd2d56680676",
+          "stratum": "accepted",
+          "anchor_gap": 11.149860460472382,
+          "separating": true
+        },
+        {
+          "family_id": "4ba0de83d3f5880c1707",
+          "stratum": "accepted",
+          "anchor_gap": 10.41370912930145,
+          "separating": true
+        },
+        {
+          "family_id": "30a271930a683f204d07",
+          "stratum": "accepted",
+          "anchor_gap": 0.20085337485309473,
+          "separating": false
+        },
+        {
+          "family_id": "ef545a35b9903dbc6f62",
+          "stratum": "accepted",
+          "anchor_gap": 2.4243273923601425,
+          "separating": true
+        },
+        {
+          "family_id": "42707571fa20b322f354",
+          "stratum": "accepted",
+          "anchor_gap": 0.26682160634655006,
+          "separating": true
+        },
+        {
+          "family_id": "7c9722f553f1b0ba2b98",
+          "stratum": "accepted",
+          "anchor_gap": 4.282772003327095,
+          "separating": true
+        },
+        {
+          "family_id": "bb432c6d536b28d2c528",
+          "stratum": "accepted",
+          "anchor_gap": 0.014675487483360783,
+          "separating": false
+        },
+        {
+          "family_id": "195db529a0f91cb583fa",
+          "stratum": "accepted",
+          "anchor_gap": 0.8293240742697234,
+          "separating": true
+        },
+        {
+          "family_id": "ca781092d9af325e5c28",
+          "stratum": "accepted",
+          "anchor_gap": 0.5251857475760975,
+          "separating": true
+        },
+        {
+          "family_id": "3a2a0a192f25a3e33fba",
+          "stratum": "accepted",
+          "anchor_gap": 1.3001762555119658,
+          "separating": true
+        },
+        {
+          "family_id": "cb886efa9d3ca9ffa297",
+          "stratum": "accepted",
+          "anchor_gap": 2.917897910897178,
+          "separating": true
+        },
+        {
+          "family_id": "4e21e7116189656411c1",
+          "stratum": "accepted",
+          "anchor_gap": 3.1395452756416873,
+          "separating": true
+        },
+        {
+          "family_id": "33e86dba4560f14a531b",
+          "stratum": "accepted",
+          "anchor_gap": 4.589269340087857,
+          "separating": true
+        },
+        {
+          "family_id": "7f21d0d7dc1f598cc908",
+          "stratum": "accepted",
+          "anchor_gap": 5.221240188628719,
+          "separating": true
+        },
+        {
+          "family_id": "1744f192a0f0aa98f3ea",
+          "stratum": "accepted",
+          "anchor_gap": 7.85053559935694,
+          "separating": true
+        },
+        {
+          "family_id": "3c582e2ccd8fd5da88e1",
+          "stratum": "accepted",
+          "anchor_gap": 4.367157639878542,
+          "separating": true
+        },
+        {
+          "family_id": "d702d4201d831d506df6",
+          "stratum": "accepted",
+          "anchor_gap": 0.14076999509703825,
+          "separating": false
+        },
+        {
+          "family_id": "500e7d1b552b400e8581",
+          "stratum": "accepted",
+          "anchor_gap": 6.084853865353562,
+          "separating": true
+        },
+        {
+          "family_id": "e3af204a66a5ad767eea",
+          "stratum": "rejected",
+          "anchor_gap": 0.007973180233197041,
+          "separating": false
+        },
+        {
+          "family_id": "30e254f625d2712986de",
+          "stratum": "rejected",
+          "anchor_gap": 0.04078744489749475,
+          "separating": false
+        },
+        {
+          "family_id": "72a8298fc061a215fd04",
+          "stratum": "rejected",
+          "anchor_gap": 0.04558707140737894,
+          "separating": false
+        },
+        {
+          "family_id": "af3a76f4e69a8ea08728",
+          "stratum": "rejected",
+          "anchor_gap": 0.06115007786345217,
+          "separating": false
+        },
+        {
+          "family_id": "441a80f9f7de9fe421aa",
+          "stratum": "rejected",
+          "anchor_gap": 0.1271623417968133,
+          "separating": false
+        },
+        {
+          "family_id": "9a811ac0869cacf2e464",
+          "stratum": "rejected",
+          "anchor_gap": 0.1485006691687918,
+          "separating": false
+        },
+        {
+          "family_id": "0bd3434c0d54bd44b634",
+          "stratum": "rejected",
+          "anchor_gap": 0.07678526118189666,
+          "separating": false
+        },
+        {
+          "family_id": "aad5f50ac651857028b8",
+          "stratum": "rejected",
+          "anchor_gap": 0.18256136570001935,
+          "separating": false
+        },
+        {
+          "family_id": "4458935188d36bced4fb",
+          "stratum": "rejected",
+          "anchor_gap": 0.02002165850518267,
+          "separating": false
+        },
+        {
+          "family_id": "f3bdb1bf15d16137365d",
+          "stratum": "rejected",
+          "anchor_gap": 0.5120639891359087,
+          "separating": true
+        },
+        {
+          "family_id": "0aed31bda4e9fc95e6f4",
+          "stratum": "rejected",
+          "anchor_gap": 0.05009128046114952,
+          "separating": false
+        },
+        {
+          "family_id": "fca6da6ecfbff322c087",
+          "stratum": "rejected",
+          "anchor_gap": 0.09096654612823407,
+          "separating": false
+        },
+        {
+          "family_id": "b475f9eb2abd9e888c9d",
+          "stratum": "rejected",
+          "anchor_gap": 0.0956581105250418,
+          "separating": false
+        },
+        {
+          "family_id": "3c9e7935676d5d4d4c38",
+          "stratum": "rejected",
+          "anchor_gap": 0.3062108168033788,
+          "separating": true
+        },
+        {
+          "family_id": "bd3a9b3dea4f4bc849f0",
+          "stratum": "rejected",
+          "anchor_gap": 0.10126719001699591,
+          "separating": false
+        },
+        {
+          "family_id": "2fb76153b8f171036b0c",
+          "stratum": "rejected",
+          "anchor_gap": 0.08884049088601031,
+          "separating": false
+        },
+        {
+          "family_id": "f03b2b16e11d6b972676",
+          "stratum": "rejected",
+          "anchor_gap": 0.28918536473622325,
+          "separating": true
+        },
+        {
+          "family_id": "8cf7b625b0b317dc03a1",
+          "stratum": "rejected",
+          "anchor_gap": 0.22742180985287064,
+          "separating": true
+        },
+        {
+          "family_id": "72d81bcaaf4a7f7c8688",
+          "stratum": "rejected",
+          "anchor_gap": 0.004056833034987051,
+          "separating": false
+        },
+        {
+          "family_id": "826374a35aa48f5b1eee",
+          "stratum": "rejected",
+          "anchor_gap": 0.048510904219682516,
+          "separating": false
+        },
+        {
+          "family_id": "112a85eba9c4c17d8e74",
+          "stratum": "rejected",
+          "anchor_gap": 0.010492107558928154,
+          "separating": false
+        },
+        {
+          "family_id": "013964f471872be8e6ca",
+          "stratum": "rejected",
+          "anchor_gap": 0.07600786660228032,
+          "separating": false
+        },
+        {
+          "family_id": "10b0e514ce6444c74e16",
+          "stratum": "rejected",
+          "anchor_gap": 0.03436107732780869,
+          "separating": false
+        },
+        {
+          "family_id": "11ce0867bb3ed75bcfb3",
+          "stratum": "rejected",
+          "anchor_gap": 0.05286161900394504,
+          "separating": false
+        },
+        {
+          "family_id": "1f36d433f83c207bf57f",
+          "stratum": "rejected",
+          "anchor_gap": 0.007340187795895403,
+          "separating": false
+        },
+        {
+          "family_id": "db7fcbbe96d3127a8484",
+          "stratum": "rejected",
+          "anchor_gap": 0.07983563541059269,
+          "separating": false
+        },
+        {
+          "family_id": "5e2c886fc9a4fd450313",
+          "stratum": "rejected",
+          "anchor_gap": 0.04677912033331211,
+          "separating": false
+        },
+        {
+          "family_id": "1f10c1a63447d502f2aa",
+          "stratum": "rejected",
+          "anchor_gap": 0.01469433559558908,
+          "separating": false
+        },
+        {
+          "family_id": "3fab38f0a82f7c448452",
+          "stratum": "rejected",
+          "anchor_gap": 0.19332817840383854,
+          "separating": false
+        },
+        {
+          "family_id": "72500b448fcbd85aa812",
+          "stratum": "rejected",
+          "anchor_gap": 0.3029844770643866,
+          "separating": true
+        },
+        {
+          "family_id": "bc686b19bd0357a4e3ee",
+          "stratum": "rejected",
+          "anchor_gap": 0.05133804420771071,
+          "separating": false
+        },
+        {
+          "family_id": "5543e50b5d0d3af0c28f",
+          "stratum": "rejected",
+          "anchor_gap": 0.11299561827843618,
+          "separating": false
+        },
+        {
+          "family_id": "9940ebd5237e3a346c3f",
+          "stratum": "rejected",
+          "anchor_gap": 0.09278539753551662,
+          "separating": false
+        },
+        {
+          "family_id": "d85a20bc820211772f35",
+          "stratum": "rejected",
+          "anchor_gap": 0.0511429574481479,
+          "separating": false
+        },
+        {
+          "family_id": "c9fb77450f530433c8da",
+          "stratum": "rejected",
+          "anchor_gap": 0.3844404129048815,
+          "separating": true
+        },
+        {
+          "family_id": "62e6d76145f7e8db4b57",
+          "stratum": "rejected",
+          "anchor_gap": 0.04241354865729008,
+          "separating": false
+        },
+        {
+          "family_id": "7f266a8b9b8e63c744d0",
+          "stratum": "rejected",
+          "anchor_gap": 0.18769016380518266,
+          "separating": false
+        },
+        {
+          "family_id": "1384caab38e72c1ca668",
+          "stratum": "rejected",
+          "anchor_gap": 0.08330320176395745,
+          "separating": false
+        },
+        {
+          "family_id": "f964332ca7d90652d786",
+          "stratum": "rejected",
+          "anchor_gap": 0.028664949076461,
+          "separating": false
+        },
+        {
+          "family_id": "57f401cad610f8587f98",
+          "stratum": "rejected",
+          "anchor_gap": 1.0861383209867093,
+          "separating": true
+        },
+        {
+          "family_id": "39dedfaafa74e02e65ea",
+          "stratum": "rejected",
+          "anchor_gap": 0.10294361755994608,
+          "separating": false
+        },
+        {
+          "family_id": "de0d81453cf7012ae0fe",
+          "stratum": "rejected",
+          "anchor_gap": 0.04638250204122585,
+          "separating": false
+        },
+        {
+          "family_id": "a60506c480b121580d24",
+          "stratum": "rejected",
+          "anchor_gap": 0.033622464251838124,
+          "separating": false
+        },
+        {
+          "family_id": "ee318c3f7f7bb5c40664",
+          "stratum": "rejected",
+          "anchor_gap": 0.08064475810583183,
+          "separating": false
+        },
+        {
+          "family_id": "646037f032ce661c1b8d",
+          "stratum": "rejected",
+          "anchor_gap": 0.09235979739372269,
+          "separating": false
+        },
+        {
+          "family_id": "225d8b5ccfea023440a7",
+          "stratum": "rejected",
+          "anchor_gap": 0.346497782093909,
+          "separating": true
+        },
+        {
+          "family_id": "4e821f0501fc91283185",
+          "stratum": "rejected",
+          "anchor_gap": 0.21600734942659194,
+          "separating": true
+        },
+        {
+          "family_id": "33d2fb1338a7ab0b45b7",
+          "stratum": "rejected",
+          "anchor_gap": 0.7874382314677622,
+          "separating": true
+        },
+        {
+          "family_id": "9a1c7626e8673f67590a",
+          "stratum": "rejected",
+          "anchor_gap": 0.11901572159132634,
+          "separating": false
+        },
+        {
+          "family_id": "28f258c4c3859a099eed",
+          "stratum": "rejected",
+          "anchor_gap": 0.0018194572850660506,
+          "separating": false
+        },
+        {
+          "family_id": "d67df2c3f51dc07950b8",
+          "stratum": "rejected",
+          "anchor_gap": 0.05326456895916465,
+          "separating": false
+        },
+        {
+          "family_id": "d27ca52e59ef4559037d",
+          "stratum": "rejected",
+          "anchor_gap": 0.2049569130196076,
+          "separating": true
+        },
+        {
+          "family_id": "65803b9fe21dd0833dbb",
+          "stratum": "rejected",
+          "anchor_gap": 0.14096672461250392,
+          "separating": false
+        },
+        {
+          "family_id": "ee84a03fc1778b0461fb",
+          "stratum": "rejected",
+          "anchor_gap": 0.06872199422939751,
+          "separating": false
+        },
+        {
+          "family_id": "06f15ec95360e06cea6b",
+          "stratum": "rejected",
+          "anchor_gap": 0.06752034591440825,
+          "separating": false
+        },
+        {
+          "family_id": "38f80c3e22e334f0d3f9",
+          "stratum": "rejected",
+          "anchor_gap": 0.8010722555547058,
+          "separating": true
+        },
+        {
+          "family_id": "751e69bcc35e24e762d0",
+          "stratum": "rejected",
+          "anchor_gap": 0.2761492464857138,
+          "separating": true
+        },
+        {
+          "family_id": "f159a311850b2f0251a9",
+          "stratum": "rejected",
+          "anchor_gap": 0.022393224794413413,
+          "separating": false
+        },
+        {
+          "family_id": "219a996d550cd11ec479",
+          "stratum": "rejected",
+          "anchor_gap": 0.06861573346627026,
+          "separating": false
+        },
+        {
+          "family_id": "489963035cdb6c60b64a",
+          "stratum": "rejected",
+          "anchor_gap": 0.08616766295999412,
+          "separating": false
+        },
+        {
+          "family_id": "b818cb6bff913b53d236",
+          "stratum": "rejected",
+          "anchor_gap": 0.23842174994030252,
+          "separating": true
+        },
+        {
+          "family_id": "f8dd7a6f1bbba2e9608e",
+          "stratum": "rejected",
+          "anchor_gap": 0.04772872249528248,
+          "separating": false
+        },
+        {
+          "family_id": "c216dd73a8b762486004",
+          "stratum": "rejected",
+          "anchor_gap": 0.05164416661380855,
+          "separating": false
+        },
+        {
+          "family_id": "3f6913d2bfbdf07a1de5",
+          "stratum": "rejected",
+          "anchor_gap": 0.11481514805716486,
+          "separating": false
+        }
+      ],
+      "verification": {
+        "native_candidates": 1024,
+        "families": 128,
+        "snapshots": 512,
+        "max_native_dtype_difference": 3.839622375068075e-05,
+        "max_signed_anchor_dtype_difference": 1.615158148915441e-05,
+        "maximum_construction_roundoff": {
+          "float32": 1.5264113306656668e-08,
+          "float64": 0.0
+        }
+      },
+      "recorded_cost": {
+        "sequence_forwards_attempted": 4096,
+        "sequence_forwards_completed": 4096,
+        "forward_batches_attempted": 64,
+        "forward_batches_completed": 64,
+        "failed_forward_internal_progress_unknown": false,
+        "completed_sequence_forwards_by_stage_dtype": {
+          "native": {
+            "float32": 1024,
+            "float64": 1024
+          },
+          "anchors": {
+            "float32": 1024,
+            "float64": 1024
+          }
+        }
+      }
+    },
+    {
+      "head_key": "we9o801g_head2",
+      "status": "completed",
+      "head_width": 32,
+      "pool_counts": {
+        "accepted": 541,
+        "rejected": 483
+      },
+      "statistics": {
+        "accepted_hits": 61,
+        "rejected_hits": 11,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.8235921411223293,
+          0.9960906214484015
+        ],
+        "rejected_interval": [
+          0.06310674401589622,
+          0.34169046253079227
+        ],
+        "delta": 0.78125,
+        "delta_interval": [
+          0.481901678591537,
+          0.9329838774325053
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      "cost_estimates": {
+        "status": "descriptive_point_estimates_only",
+        "counts": {
+          "screened": 1024,
+          "accepted": 541,
+          "accepted_separating": 61,
+          "rejected_separating": 11
+        },
+        "acceptance_rate": 0.5283203125,
+        "accepted_yield": 0.953125,
+        "rejected_yield": 0.171875,
+        "random_selection_yield_estimate": 0.584625244140625,
+        "accepted_minus_random_yield_estimate": 0.368499755859375,
+        "cost_unit": "sequence forwards, including both dtypes; not walltime",
+        "baseline_cost_b": 2,
+        "two_anchor_family_cost_f": 16,
+        "fixed_screened_policy_total_cost": 3072,
+        "validation_total_cost": 4096,
+        "rejected_arm_measurement_overhead": 1024,
+        "estimated_cost_per_separating_family": {
+          "fixed_screened_policy": {
+            "status": "finite",
+            "value": 50.36065573770492
+          },
+          "random_selection_policy": {
+            "status": "finite",
+            "value": 30.788954429190373
+          },
+          "ideal_stream_NOT_SCHEDULED": {
+            "status": "finite",
+            "value": 20.758643677464317
+          },
+          "validation_run_NOT_DEPLOYMENT": {
+            "status": "finite",
+            "value": 56.888888888888886
+          }
+        },
+        "fixed_policy_cheaper_under_point_estimates": false,
+        "limits": [
+          "Random yield is a stratified plug-in estimate, not an observed random arm.",
+          "No uncertainty or verified net savings is claimed for these ratios.",
+          "Ideal stream amortization is not the fixed-budget scheduled validation.",
+          "Family cost includes repeated native passes; no unimplemented caching is credited.",
+          "Validation pays for rejected families; deployment estimates omit that validation-only overhead."
+        ]
+      },
+      "family_results": [
+        {
+          "family_id": "805ab2ad122fc55c6468",
+          "stratum": "accepted",
+          "anchor_gap": 1.5966034284455208,
+          "separating": true
+        },
+        {
+          "family_id": "849b0375111549955f9e",
+          "stratum": "accepted",
+          "anchor_gap": 0.19784878731791267,
+          "separating": false
+        },
+        {
+          "family_id": "82f560345d63811f6a89",
+          "stratum": "accepted",
+          "anchor_gap": 2.1787623226983612,
+          "separating": true
+        },
+        {
+          "family_id": "c7b56ba4eca74413dc79",
+          "stratum": "accepted",
+          "anchor_gap": 2.336564036595284,
+          "separating": true
+        },
+        {
+          "family_id": "597e7a80de20fee89fa0",
+          "stratum": "accepted",
+          "anchor_gap": 2.240251036765761,
+          "separating": true
+        },
+        {
+          "family_id": "532262a0330da079f554",
+          "stratum": "accepted",
+          "anchor_gap": 0.7817031047351968,
+          "separating": true
+        },
+        {
+          "family_id": "71aae8060cd1473b1d8b",
+          "stratum": "accepted",
+          "anchor_gap": 0.6971636950630984,
+          "separating": true
+        },
+        {
+          "family_id": "877acc3880295017021f",
+          "stratum": "accepted",
+          "anchor_gap": 0.5231336787942915,
+          "separating": true
+        },
+        {
+          "family_id": "40ce363f0a17f7213766",
+          "stratum": "accepted",
+          "anchor_gap": 5.236302922149643,
+          "separating": true
+        },
+        {
+          "family_id": "bc2a981a0d431af20024",
+          "stratum": "accepted",
+          "anchor_gap": 2.5844739795491556,
+          "separating": true
+        },
+        {
+          "family_id": "10b97d3394cbdf2b3185",
+          "stratum": "accepted",
+          "anchor_gap": 1.9137794840900488,
+          "separating": true
+        },
+        {
+          "family_id": "ab64c9dcfd611d428e6d",
+          "stratum": "accepted",
+          "anchor_gap": 6.3356497598246335,
+          "separating": true
+        },
+        {
+          "family_id": "f61d1ac1e79586e2d427",
+          "stratum": "accepted",
+          "anchor_gap": 6.144727696869712,
+          "separating": true
+        },
+        {
+          "family_id": "38414a90c68b292ae385",
+          "stratum": "accepted",
+          "anchor_gap": 4.9919103067065125,
+          "separating": true
+        },
+        {
+          "family_id": "3127c4d9456ca842bf17",
+          "stratum": "accepted",
+          "anchor_gap": 2.7659896317848274,
+          "separating": true
+        },
+        {
+          "family_id": "305f276dbccc6f55463c",
+          "stratum": "accepted",
+          "anchor_gap": 4.181578608474433,
+          "separating": true
+        },
+        {
+          "family_id": "cfdfe8fa873db704fff9",
+          "stratum": "accepted",
+          "anchor_gap": 2.185075606198966,
+          "separating": true
+        },
+        {
+          "family_id": "a4d64da1340470e86bc1",
+          "stratum": "accepted",
+          "anchor_gap": 0.7345928104890156,
+          "separating": true
+        },
+        {
+          "family_id": "bbeadc5c2a209c014043",
+          "stratum": "accepted",
+          "anchor_gap": 1.6877894510215397,
+          "separating": true
+        },
+        {
+          "family_id": "b224d603348a894435b8",
+          "stratum": "accepted",
+          "anchor_gap": 3.0905400577984334,
+          "separating": true
+        },
+        {
+          "family_id": "5cfd85350066f0107746",
+          "stratum": "accepted",
+          "anchor_gap": 1.075656429648868,
+          "separating": true
+        },
+        {
+          "family_id": "b2edf5af93b480975fee",
+          "stratum": "accepted",
+          "anchor_gap": 3.582007963353977,
+          "separating": true
+        },
+        {
+          "family_id": "d94bf57885a8b7bfc24e",
+          "stratum": "accepted",
+          "anchor_gap": 2.3719024157811983,
+          "separating": true
+        },
+        {
+          "family_id": "6128be08d11a2ef35355",
+          "stratum": "accepted",
+          "anchor_gap": 4.44591682622878,
+          "separating": true
+        },
+        {
+          "family_id": "532e9c4e1d9086b94bb9",
+          "stratum": "accepted",
+          "anchor_gap": 1.5311066394035624,
+          "separating": true
+        },
+        {
+          "family_id": "92e56101c040b66aa03a",
+          "stratum": "accepted",
+          "anchor_gap": 6.387240488599238,
+          "separating": true
+        },
+        {
+          "family_id": "3f710694c6f767b068e7",
+          "stratum": "accepted",
+          "anchor_gap": 4.288134193110276,
+          "separating": true
+        },
+        {
+          "family_id": "9fba5c6a168aae60ecd2",
+          "stratum": "accepted",
+          "anchor_gap": 0.1590394746526851,
+          "separating": false
+        },
+        {
+          "family_id": "ffdfad22fd96516f2208",
+          "stratum": "accepted",
+          "anchor_gap": 0.930354570222045,
+          "separating": true
+        },
+        {
+          "family_id": "7b2e9c30b7760557d472",
+          "stratum": "accepted",
+          "anchor_gap": 2.5654209960466243,
+          "separating": true
+        },
+        {
+          "family_id": "486512f4b8a018b4b2ac",
+          "stratum": "accepted",
+          "anchor_gap": 1.270332529366243,
+          "separating": true
+        },
+        {
+          "family_id": "88a485584addd2d8d0fa",
+          "stratum": "accepted",
+          "anchor_gap": 2.5871379893740825,
+          "separating": true
+        },
+        {
+          "family_id": "5ef081adb8787b83e40c",
+          "stratum": "accepted",
+          "anchor_gap": 3.224731631687875,
+          "separating": true
+        },
+        {
+          "family_id": "c4bff3445c82926096a6",
+          "stratum": "accepted",
+          "anchor_gap": 0.4254900150710359,
+          "separating": true
+        },
+        {
+          "family_id": "e4be480440a29643189e",
+          "stratum": "accepted",
+          "anchor_gap": 0.8244383176523904,
+          "separating": true
+        },
+        {
+          "family_id": "7fac88f429ab3747e3fc",
+          "stratum": "accepted",
+          "anchor_gap": 6.038463939687499,
+          "separating": true
+        },
+        {
+          "family_id": "25a7c3afc09e35520d0e",
+          "stratum": "accepted",
+          "anchor_gap": 2.405112133432281,
+          "separating": true
+        },
+        {
+          "family_id": "cfcc4a4c24e3a9812149",
+          "stratum": "accepted",
+          "anchor_gap": 4.493002464551351,
+          "separating": true
+        },
+        {
+          "family_id": "677e9e39096caeee5093",
+          "stratum": "accepted",
+          "anchor_gap": 5.69085759292475,
+          "separating": true
+        },
+        {
+          "family_id": "367c7d43b5af2883ae20",
+          "stratum": "accepted",
+          "anchor_gap": 2.335066291554858,
+          "separating": true
+        },
+        {
+          "family_id": "2804ed3f6b8146098856",
+          "stratum": "accepted",
+          "anchor_gap": 0.7488105936225935,
+          "separating": true
+        },
+        {
+          "family_id": "35ad1c71cbad5b5cb76d",
+          "stratum": "accepted",
+          "anchor_gap": 1.2378761692170546,
+          "separating": true
+        },
+        {
+          "family_id": "478675b93e5ebef93212",
+          "stratum": "accepted",
+          "anchor_gap": 1.895738392513528,
+          "separating": true
+        },
+        {
+          "family_id": "13602377f725208cf65d",
+          "stratum": "accepted",
+          "anchor_gap": 1.7962243877139423,
+          "separating": true
+        },
+        {
+          "family_id": "52eac93462b8335c6bf1",
+          "stratum": "accepted",
+          "anchor_gap": 5.273746325373038,
+          "separating": true
+        },
+        {
+          "family_id": "93e60f600ea59e6d6f7a",
+          "stratum": "accepted",
+          "anchor_gap": 0.1510066611753409,
+          "separating": false
+        },
+        {
+          "family_id": "f07e1ca0c80f0832b34a",
+          "stratum": "accepted",
+          "anchor_gap": 5.741551814359532,
+          "separating": true
+        },
+        {
+          "family_id": "5deb9a6b5fb2f489f801",
+          "stratum": "accepted",
+          "anchor_gap": 6.210238457660702,
+          "separating": true
+        },
+        {
+          "family_id": "383c8a7bb3979aa85207",
+          "stratum": "accepted",
+          "anchor_gap": 2.1854214020911034,
+          "separating": true
+        },
+        {
+          "family_id": "343aa3fcbdf76a7388f1",
+          "stratum": "accepted",
+          "anchor_gap": 0.9235358410323791,
+          "separating": true
+        },
+        {
+          "family_id": "4030af5375db2da5e977",
+          "stratum": "accepted",
+          "anchor_gap": 1.7108033454139058,
+          "separating": true
+        },
+        {
+          "family_id": "ddb66606af958d970797",
+          "stratum": "accepted",
+          "anchor_gap": 6.1789961430161995,
+          "separating": true
+        },
+        {
+          "family_id": "af71005fac28b1322fdb",
+          "stratum": "accepted",
+          "anchor_gap": 1.4373022295307338,
+          "separating": true
+        },
+        {
+          "family_id": "60e817627a003cce0ee5",
+          "stratum": "accepted",
+          "anchor_gap": 5.7445243790927325,
+          "separating": true
+        },
+        {
+          "family_id": "8c1280868e1a1ed88afa",
+          "stratum": "accepted",
+          "anchor_gap": 3.3426502033309036,
+          "separating": true
+        },
+        {
+          "family_id": "4d4a349d5b79c8a30954",
+          "stratum": "accepted",
+          "anchor_gap": 0.22965144353071665,
+          "separating": true
+        },
+        {
+          "family_id": "9d08e5bbbdec292d638d",
+          "stratum": "accepted",
+          "anchor_gap": 4.673529849358931,
+          "separating": true
+        },
+        {
+          "family_id": "90256e2b53a99c9bb8f0",
+          "stratum": "accepted",
+          "anchor_gap": 1.8182352174807992,
+          "separating": true
+        },
+        {
+          "family_id": "3510e9ec53c3706348e1",
+          "stratum": "accepted",
+          "anchor_gap": 5.75124349368127,
+          "separating": true
+        },
+        {
+          "family_id": "94e162621cc66cfd4a9d",
+          "stratum": "accepted",
+          "anchor_gap": 0.6868925315407548,
+          "separating": true
+        },
+        {
+          "family_id": "4331575a435006ba85e1",
+          "stratum": "accepted",
+          "anchor_gap": 5.424515344500785,
+          "separating": true
+        },
+        {
+          "family_id": "56a0e1a532909cb11bf3",
+          "stratum": "accepted",
+          "anchor_gap": 2.3433074870879924,
+          "separating": true
+        },
+        {
+          "family_id": "e783f11c86dc36235827",
+          "stratum": "accepted",
+          "anchor_gap": 2.09485711994449,
+          "separating": true
+        },
+        {
+          "family_id": "bc950b0e588740d60480",
+          "stratum": "accepted",
+          "anchor_gap": 0.5985162323794313,
+          "separating": true
+        },
+        {
+          "family_id": "68c368fe96fe515640b0",
+          "stratum": "rejected",
+          "anchor_gap": 0.0003226230419919318,
+          "separating": false
+        },
+        {
+          "family_id": "a07370f0d0fe33b034f7",
+          "stratum": "rejected",
+          "anchor_gap": 0.007459927810673506,
+          "separating": false
+        },
+        {
+          "family_id": "d15aa568a906497ee611",
+          "stratum": "rejected",
+          "anchor_gap": 0.02107897617587895,
+          "separating": false
+        },
+        {
+          "family_id": "c6b8cb0c6967bedb649f",
+          "stratum": "rejected",
+          "anchor_gap": 0.07412615114224508,
+          "separating": false
+        },
+        {
+          "family_id": "99fca32a5d98da78b3c3",
+          "stratum": "rejected",
+          "anchor_gap": 0.026256321157331897,
+          "separating": false
+        },
+        {
+          "family_id": "040d46ac0ea389fc1412",
+          "stratum": "rejected",
+          "anchor_gap": 0.3386918268867998,
+          "separating": true
+        },
+        {
+          "family_id": "d3548ef7f3f2c95cc936",
+          "stratum": "rejected",
+          "anchor_gap": 0.02923647997903167,
+          "separating": false
+        },
+        {
+          "family_id": "c6debde387bb6aece179",
+          "stratum": "rejected",
+          "anchor_gap": 0.7890675495235513,
+          "separating": true
+        },
+        {
+          "family_id": "83d780330477d5f7bd32",
+          "stratum": "rejected",
+          "anchor_gap": 0.022890561646338625,
+          "separating": false
+        },
+        {
+          "family_id": "840cac44826f404f310c",
+          "stratum": "rejected",
+          "anchor_gap": 0.02967476234113775,
+          "separating": false
+        },
+        {
+          "family_id": "a4fc51328c83b6c6e498",
+          "stratum": "rejected",
+          "anchor_gap": 0.21932701174080016,
+          "separating": true
+        },
+        {
+          "family_id": "1c810e18db341afebc53",
+          "stratum": "rejected",
+          "anchor_gap": 0.12141078753641033,
+          "separating": false
+        },
+        {
+          "family_id": "3304109cb94b316347f9",
+          "stratum": "rejected",
+          "anchor_gap": 0.10665614351071184,
+          "separating": false
+        },
+        {
+          "family_id": "172e1dbbd5458c0e49fb",
+          "stratum": "rejected",
+          "anchor_gap": 0.550773336106122,
+          "separating": true
+        },
+        {
+          "family_id": "06a7b22e1eff3da96911",
+          "stratum": "rejected",
+          "anchor_gap": 0.009763082005138202,
+          "separating": false
+        },
+        {
+          "family_id": "24da80e7e47cd086c4c8",
+          "stratum": "rejected",
+          "anchor_gap": 0.6395994784481722,
+          "separating": true
+        },
+        {
+          "family_id": "bc405364cb22ccfcd9aa",
+          "stratum": "rejected",
+          "anchor_gap": 0.022983816380355293,
+          "separating": false
+        },
+        {
+          "family_id": "02c946c28100705cf162",
+          "stratum": "rejected",
+          "anchor_gap": 0.008518102456719134,
+          "separating": false
+        },
+        {
+          "family_id": "3bb8992cdde3bd869584",
+          "stratum": "rejected",
+          "anchor_gap": 0.00966161262026155,
+          "separating": false
+        },
+        {
+          "family_id": "078f0908e6688f793a9f",
+          "stratum": "rejected",
+          "anchor_gap": 0.020553462319789162,
+          "separating": false
+        },
+        {
+          "family_id": "4ce6791498f8faf9467e",
+          "stratum": "rejected",
+          "anchor_gap": 0.020469328162313616,
+          "separating": false
+        },
+        {
+          "family_id": "31bd0b575f2be19b672c",
+          "stratum": "rejected",
+          "anchor_gap": 0.03956176474878248,
+          "separating": false
+        },
+        {
+          "family_id": "90243ebd8e3fb4510c64",
+          "stratum": "rejected",
+          "anchor_gap": 0.43545424279662726,
+          "separating": true
+        },
+        {
+          "family_id": "dc1b01e9bcd6c676ec1e",
+          "stratum": "rejected",
+          "anchor_gap": 0.022966411453287705,
+          "separating": false
+        },
+        {
+          "family_id": "09c2b45f30b86cce59ef",
+          "stratum": "rejected",
+          "anchor_gap": 0.7337361245429079,
+          "separating": true
+        },
+        {
+          "family_id": "3bd4a20a20a508c4503a",
+          "stratum": "rejected",
+          "anchor_gap": 0.02547204564164751,
+          "separating": false
+        },
+        {
+          "family_id": "b0afa92ae58dccb1df01",
+          "stratum": "rejected",
+          "anchor_gap": 0.005528964834619288,
+          "separating": false
+        },
+        {
+          "family_id": "7850188014e9ff12353d",
+          "stratum": "rejected",
+          "anchor_gap": 0.041172916692984174,
+          "separating": false
+        },
+        {
+          "family_id": "59fc039986ba62426d93",
+          "stratum": "rejected",
+          "anchor_gap": 0.017841154086671196,
+          "separating": false
+        },
+        {
+          "family_id": "7665c88efafed0b7ed5e",
+          "stratum": "rejected",
+          "anchor_gap": 0.10204887367386206,
+          "separating": false
+        },
+        {
+          "family_id": "feb85ece340c772e2744",
+          "stratum": "rejected",
+          "anchor_gap": 0.03416824148162512,
+          "separating": false
+        },
+        {
+          "family_id": "58a50ac98a2c2868a2bc",
+          "stratum": "rejected",
+          "anchor_gap": 0.04049616008779111,
+          "separating": false
+        },
+        {
+          "family_id": "51e84912041e463c7999",
+          "stratum": "rejected",
+          "anchor_gap": 0.10748885821149301,
+          "separating": false
+        },
+        {
+          "family_id": "8436b004219f01bf89ef",
+          "stratum": "rejected",
+          "anchor_gap": 0.2192142163028521,
+          "separating": true
+        },
+        {
+          "family_id": "8369c6a7d995e05d090d",
+          "stratum": "rejected",
+          "anchor_gap": 0.7188922584123816,
+          "separating": true
+        },
+        {
+          "family_id": "c3e361ca8dda65af5566",
+          "stratum": "rejected",
+          "anchor_gap": 0.0016327777020137546,
+          "separating": false
+        },
+        {
+          "family_id": "71f154d1d16749c8f713",
+          "stratum": "rejected",
+          "anchor_gap": 0.00989161539841632,
+          "separating": false
+        },
+        {
+          "family_id": "686af7aa863cd7336a8f",
+          "stratum": "rejected",
+          "anchor_gap": 0.17766250343327705,
+          "separating": false
+        },
+        {
+          "family_id": "933912c68fc3fb8f8506",
+          "stratum": "rejected",
+          "anchor_gap": 0.01649862414732617,
+          "separating": false
+        },
+        {
+          "family_id": "4994fd3f20c85f157255",
+          "stratum": "rejected",
+          "anchor_gap": 0.02225967325007261,
+          "separating": false
+        },
+        {
+          "family_id": "45b58aaa1c848f444507",
+          "stratum": "rejected",
+          "anchor_gap": 0.015685774701989175,
+          "separating": false
+        },
+        {
+          "family_id": "d9c3504e876ce73d99d7",
+          "stratum": "rejected",
+          "anchor_gap": 0.010023498428008537,
+          "separating": false
+        },
+        {
+          "family_id": "bb49837fb637180dd1e9",
+          "stratum": "rejected",
+          "anchor_gap": 0.02420226610346532,
+          "separating": false
+        },
+        {
+          "family_id": "a3adc36fff8b588a3e23",
+          "stratum": "rejected",
+          "anchor_gap": 0.004149455711239369,
+          "separating": false
+        },
+        {
+          "family_id": "b62a6866dc61ff3604fd",
+          "stratum": "rejected",
+          "anchor_gap": 0.03043738665930107,
+          "separating": false
+        },
+        {
+          "family_id": "08235e749ccbddcaa7ea",
+          "stratum": "rejected",
+          "anchor_gap": 0.0355817948005992,
+          "separating": false
+        },
+        {
+          "family_id": "114fcc6c1e85b3154f2f",
+          "stratum": "rejected",
+          "anchor_gap": 0.16912899713423002,
+          "separating": false
+        },
+        {
+          "family_id": "46d1b12686cecbcd0244",
+          "stratum": "rejected",
+          "anchor_gap": 0.023727797807115536,
+          "separating": false
+        },
+        {
+          "family_id": "6f0da4d3708683e16726",
+          "stratum": "rejected",
+          "anchor_gap": 0.09107580990725239,
+          "separating": false
+        },
+        {
+          "family_id": "44f492c52f3dd8a7214d",
+          "stratum": "rejected",
+          "anchor_gap": 0.047396870001975344,
+          "separating": false
+        },
+        {
+          "family_id": "93edbd5112ce99be4378",
+          "stratum": "rejected",
+          "anchor_gap": 0.008947400609734757,
+          "separating": false
+        },
+        {
+          "family_id": "ea4e7eee356d2544e0ed",
+          "stratum": "rejected",
+          "anchor_gap": 0.011906436181144286,
+          "separating": false
+        },
+        {
+          "family_id": "938742e1157d1f19de15",
+          "stratum": "rejected",
+          "anchor_gap": 0.12400565635079452,
+          "separating": false
+        },
+        {
+          "family_id": "db2aa8cb79b1bed8cfbd",
+          "stratum": "rejected",
+          "anchor_gap": 0.010235293880199947,
+          "separating": false
+        },
+        {
+          "family_id": "5bd66ce83ceebfc1e5e7",
+          "stratum": "rejected",
+          "anchor_gap": 0.009655210416248394,
+          "separating": false
+        },
+        {
+          "family_id": "8a3610070a82c01d0252",
+          "stratum": "rejected",
+          "anchor_gap": 0.009815588336019587,
+          "separating": false
+        },
+        {
+          "family_id": "fcda9a3f3f4fca56fd51",
+          "stratum": "rejected",
+          "anchor_gap": 0.02997071320998934,
+          "separating": false
+        },
+        {
+          "family_id": "2e16adf3bf2a4e54eccf",
+          "stratum": "rejected",
+          "anchor_gap": 0.028312532133755397,
+          "separating": false
+        },
+        {
+          "family_id": "473f6377e84c3fed7150",
+          "stratum": "rejected",
+          "anchor_gap": 0.7102489631051832,
+          "separating": true
+        },
+        {
+          "family_id": "2848bbb4d4f0fabf98cc",
+          "stratum": "rejected",
+          "anchor_gap": 0.009908256533888604,
+          "separating": false
+        },
+        {
+          "family_id": "654db99d25d8cbc862f3",
+          "stratum": "rejected",
+          "anchor_gap": 0.37914920377870764,
+          "separating": true
+        },
+        {
+          "family_id": "ffeb7978afc653181994",
+          "stratum": "rejected",
+          "anchor_gap": 0.04895465465027016,
+          "separating": false
+        },
+        {
+          "family_id": "f7ecd1599c0533bc8dac",
+          "stratum": "rejected",
+          "anchor_gap": 0.12072158023562807,
+          "separating": false
+        },
+        {
+          "family_id": "4321c1a433dfde880dcd",
+          "stratum": "rejected",
+          "anchor_gap": 0.026951605331273498,
+          "separating": false
+        }
+      ],
+      "verification": {
+        "native_candidates": 1024,
+        "families": 128,
+        "snapshots": 512,
+        "max_native_dtype_difference": 3.2991693125428156e-05,
+        "max_signed_anchor_dtype_difference": 1.6032605310911663e-05,
+        "maximum_construction_roundoff": {
+          "float32": 1.2579189356820564e-08,
+          "float64": 0.0
+        }
+      },
+      "recorded_cost": {
+        "sequence_forwards_attempted": 4096,
+        "sequence_forwards_completed": 4096,
+        "forward_batches_attempted": 64,
+        "forward_batches_completed": 64,
+        "failed_forward_internal_progress_unknown": false,
+        "completed_sequence_forwards_by_stage_dtype": {
+          "native": {
+            "float32": 1024,
+            "float64": 1024
+          },
+          "anchors": {
+            "float32": 1024,
+            "float64": 1024
+          }
+        }
+      }
+    },
+    {
+      "head_key": "wfwpq5xc_head1",
+      "status": "completed",
+      "head_width": 32,
+      "pool_counts": {
+        "accepted": 423,
+        "rejected": 601
+      },
+      "statistics": {
+        "accepted_hits": 64,
+        "rejected_hits": 1,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.9080413081362957,
+          1.0
+        ],
+        "rejected_interval": [
+          3.258550800300956e-05,
+          0.12414482802655619
+        ],
+        "delta": 0.984375,
+        "delta_interval": [
+          0.7838964801097394,
+          0.999967414491997
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      "cost_estimates": {
+        "status": "descriptive_point_estimates_only",
+        "counts": {
+          "screened": 1024,
+          "accepted": 423,
+          "accepted_separating": 64,
+          "rejected_separating": 1
+        },
+        "acceptance_rate": 0.4130859375,
+        "accepted_yield": 1.0,
+        "rejected_yield": 0.015625,
+        "random_selection_yield_estimate": 0.4222564697265625,
+        "accepted_minus_random_yield_estimate": 0.5777435302734375,
+        "cost_unit": "sequence forwards, including both dtypes; not walltime",
+        "baseline_cost_b": 2,
+        "two_anchor_family_cost_f": 16,
+        "fixed_screened_policy_total_cost": 3072,
+        "validation_total_cost": 4096,
+        "rejected_arm_measurement_overhead": 1024,
+        "estimated_cost_per_separating_family": {
+          "fixed_screened_policy": {
+            "status": "finite",
+            "value": 48.0
+          },
+          "random_selection_policy": {
+            "status": "finite",
+            "value": 42.628121273443426
+          },
+          "ideal_stream_NOT_SCHEDULED": {
+            "status": "finite",
+            "value": 20.84160756501182
+          },
+          "validation_run_NOT_DEPLOYMENT": {
+            "status": "finite",
+            "value": 63.01538461538462
+          }
+        },
+        "fixed_policy_cheaper_under_point_estimates": false,
+        "limits": [
+          "Random yield is a stratified plug-in estimate, not an observed random arm.",
+          "No uncertainty or verified net savings is claimed for these ratios.",
+          "Ideal stream amortization is not the fixed-budget scheduled validation.",
+          "Family cost includes repeated native passes; no unimplemented caching is credited.",
+          "Validation pays for rejected families; deployment estimates omit that validation-only overhead."
+        ]
+      },
+      "family_results": [
+        {
+          "family_id": "28106d8fe3e700cb043b",
+          "stratum": "accepted",
+          "anchor_gap": 3.3228403768089887,
+          "separating": true
+        },
+        {
+          "family_id": "eed4d5ecdceace511711",
+          "stratum": "accepted",
+          "anchor_gap": 1.5656106415388296,
+          "separating": true
+        },
+        {
+          "family_id": "7d82c2a724abfce0eda0",
+          "stratum": "accepted",
+          "anchor_gap": 0.4992274010681168,
+          "separating": true
+        },
+        {
+          "family_id": "1d3f9227da4081c3d169",
+          "stratum": "accepted",
+          "anchor_gap": 1.335575739205499,
+          "separating": true
+        },
+        {
+          "family_id": "7b474861668a5cbd505f",
+          "stratum": "accepted",
+          "anchor_gap": 4.1884757235481995,
+          "separating": true
+        },
+        {
+          "family_id": "089c5823b3a5b94350fa",
+          "stratum": "accepted",
+          "anchor_gap": 0.47245276552187754,
+          "separating": true
+        },
+        {
+          "family_id": "a1ca0e2ea717314e8143",
+          "stratum": "accepted",
+          "anchor_gap": 2.2095418525037713,
+          "separating": true
+        },
+        {
+          "family_id": "59557827af308f86c6ee",
+          "stratum": "accepted",
+          "anchor_gap": 3.2671787033472515,
+          "separating": true
+        },
+        {
+          "family_id": "da04a8132c1bc20aacd7",
+          "stratum": "accepted",
+          "anchor_gap": 3.1892931413087195,
+          "separating": true
+        },
+        {
+          "family_id": "8761374195c5c742dc78",
+          "stratum": "accepted",
+          "anchor_gap": 4.058252784655448,
+          "separating": true
+        },
+        {
+          "family_id": "69d56e128dc69ba8945a",
+          "stratum": "accepted",
+          "anchor_gap": 2.8500841693563332,
+          "separating": true
+        },
+        {
+          "family_id": "37ae39bd4e2c31612e80",
+          "stratum": "accepted",
+          "anchor_gap": 2.9777258680665604,
+          "separating": true
+        },
+        {
+          "family_id": "0167fa22ce3073fbf2df",
+          "stratum": "accepted",
+          "anchor_gap": 0.790497676870852,
+          "separating": true
+        },
+        {
+          "family_id": "f1f4a717b86dc1fbad0a",
+          "stratum": "accepted",
+          "anchor_gap": 2.8655753441867815,
+          "separating": true
+        },
+        {
+          "family_id": "eaa829873b7d56f4048a",
+          "stratum": "accepted",
+          "anchor_gap": 4.665180812591066,
+          "separating": true
+        },
+        {
+          "family_id": "a84ec6d180d28854072a",
+          "stratum": "accepted",
+          "anchor_gap": 0.5683047721410581,
+          "separating": true
+        },
+        {
+          "family_id": "54e7b86695d3fc423465",
+          "stratum": "accepted",
+          "anchor_gap": 2.9500971962666798,
+          "separating": true
+        },
+        {
+          "family_id": "bc3349c7b34356733d7a",
+          "stratum": "accepted",
+          "anchor_gap": 3.363257364312468,
+          "separating": true
+        },
+        {
+          "family_id": "1b7d0a3d9fc2217f8c47",
+          "stratum": "accepted",
+          "anchor_gap": 0.3813408336297748,
+          "separating": true
+        },
+        {
+          "family_id": "29742d674218b86f8e84",
+          "stratum": "accepted",
+          "anchor_gap": 1.8484957176844015,
+          "separating": true
+        },
+        {
+          "family_id": "dcffdbc36857a1f5f4fa",
+          "stratum": "accepted",
+          "anchor_gap": 4.007598954089422,
+          "separating": true
+        },
+        {
+          "family_id": "a9d8187e287f3433d14d",
+          "stratum": "accepted",
+          "anchor_gap": 1.0248048379796089,
+          "separating": true
+        },
+        {
+          "family_id": "c4d3a2f493ff96233fc5",
+          "stratum": "accepted",
+          "anchor_gap": 2.657429628793812,
+          "separating": true
+        },
+        {
+          "family_id": "c256f499648bc1774d49",
+          "stratum": "accepted",
+          "anchor_gap": 0.5259159707847587,
+          "separating": true
+        },
+        {
+          "family_id": "53a160afb461eaf812e6",
+          "stratum": "accepted",
+          "anchor_gap": 2.5325022148304015,
+          "separating": true
+        },
+        {
+          "family_id": "e44f0fdc7bae3a0ac9e0",
+          "stratum": "accepted",
+          "anchor_gap": 1.7068818932704746,
+          "separating": true
+        },
+        {
+          "family_id": "887106c374f3b244fd4f",
+          "stratum": "accepted",
+          "anchor_gap": 2.00327281471833,
+          "separating": true
+        },
+        {
+          "family_id": "0f07ff17e9db51b2ca87",
+          "stratum": "accepted",
+          "anchor_gap": 0.7880645784394629,
+          "separating": true
+        },
+        {
+          "family_id": "daa5bee8641146ba8c59",
+          "stratum": "accepted",
+          "anchor_gap": 0.797937332329318,
+          "separating": true
+        },
+        {
+          "family_id": "6c496fa0ac9a804b0030",
+          "stratum": "accepted",
+          "anchor_gap": 1.4036988011514406,
+          "separating": true
+        },
+        {
+          "family_id": "0a6855dda04b1d0f061a",
+          "stratum": "accepted",
+          "anchor_gap": 2.405994381011416,
+          "separating": true
+        },
+        {
+          "family_id": "9aa41050a9b3f9aa9eff",
+          "stratum": "accepted",
+          "anchor_gap": 3.4767793255442343,
+          "separating": true
+        },
+        {
+          "family_id": "7a10e51e1c4da62de13a",
+          "stratum": "accepted",
+          "anchor_gap": 3.0720369286630422,
+          "separating": true
+        },
+        {
+          "family_id": "a2d03d90b812f4615462",
+          "stratum": "accepted",
+          "anchor_gap": 1.2980297621056556,
+          "separating": true
+        },
+        {
+          "family_id": "e083d48b32dff073ecd7",
+          "stratum": "accepted",
+          "anchor_gap": 1.401186103631523,
+          "separating": true
+        },
+        {
+          "family_id": "138e203da26a12588ec1",
+          "stratum": "accepted",
+          "anchor_gap": 2.656215790772352,
+          "separating": true
+        },
+        {
+          "family_id": "419df14c3a8653da5b49",
+          "stratum": "accepted",
+          "anchor_gap": 1.8106802050151023,
+          "separating": true
+        },
+        {
+          "family_id": "4a96bbab7b55c2c5dce7",
+          "stratum": "accepted",
+          "anchor_gap": 4.599677294615786,
+          "separating": true
+        },
+        {
+          "family_id": "4f93fb712f087169c99a",
+          "stratum": "accepted",
+          "anchor_gap": 2.9080567430653,
+          "separating": true
+        },
+        {
+          "family_id": "572e06c1361a900d3493",
+          "stratum": "accepted",
+          "anchor_gap": 2.856553898677026,
+          "separating": true
+        },
+        {
+          "family_id": "3e81366535d6a23d673d",
+          "stratum": "accepted",
+          "anchor_gap": 3.7089727578431555,
+          "separating": true
+        },
+        {
+          "family_id": "9c551b4f131be6370242",
+          "stratum": "accepted",
+          "anchor_gap": 4.516795896363821,
+          "separating": true
+        },
+        {
+          "family_id": "70fd3f6de0aff272cdae",
+          "stratum": "accepted",
+          "anchor_gap": 0.4657478113004956,
+          "separating": true
+        },
+        {
+          "family_id": "ee40351fcba606d31a9d",
+          "stratum": "accepted",
+          "anchor_gap": 3.560208738720692,
+          "separating": true
+        },
+        {
+          "family_id": "39283a3d7212136f27a8",
+          "stratum": "accepted",
+          "anchor_gap": 1.8323038961952687,
+          "separating": true
+        },
+        {
+          "family_id": "947d27236877ce6b6415",
+          "stratum": "accepted",
+          "anchor_gap": 1.3946433618366427,
+          "separating": true
+        },
+        {
+          "family_id": "ef57bd0c057d11b2584b",
+          "stratum": "accepted",
+          "anchor_gap": 0.6838657968426105,
+          "separating": true
+        },
+        {
+          "family_id": "18dc7a5cc45bee191298",
+          "stratum": "accepted",
+          "anchor_gap": 2.1258542578175526,
+          "separating": true
+        },
+        {
+          "family_id": "757d40a505f9aca9fa27",
+          "stratum": "accepted",
+          "anchor_gap": 2.0253361382495925,
+          "separating": true
+        },
+        {
+          "family_id": "f21d984d0d1852322e9e",
+          "stratum": "accepted",
+          "anchor_gap": 0.6012398693349894,
+          "separating": true
+        },
+        {
+          "family_id": "2f116438231ecff4be92",
+          "stratum": "accepted",
+          "anchor_gap": 2.8987414374851475,
+          "separating": true
+        },
+        {
+          "family_id": "80c247e733227295b335",
+          "stratum": "accepted",
+          "anchor_gap": 0.9037334483164852,
+          "separating": true
+        },
+        {
+          "family_id": "adc23a56f42bdef241e2",
+          "stratum": "accepted",
+          "anchor_gap": 2.2930581016586125,
+          "separating": true
+        },
+        {
+          "family_id": "ec24c517e4eba8e14d6a",
+          "stratum": "accepted",
+          "anchor_gap": 2.851748403872447,
+          "separating": true
+        },
+        {
+          "family_id": "b462a0017be37e993c85",
+          "stratum": "accepted",
+          "anchor_gap": 1.0145210860545806,
+          "separating": true
+        },
+        {
+          "family_id": "0158b744a4489e6eccf1",
+          "stratum": "accepted",
+          "anchor_gap": 2.3539412257016865,
+          "separating": true
+        },
+        {
+          "family_id": "a33711c1450adaac216b",
+          "stratum": "accepted",
+          "anchor_gap": 4.377636340096991,
+          "separating": true
+        },
+        {
+          "family_id": "b76b14d3c7b05bce2374",
+          "stratum": "accepted",
+          "anchor_gap": 4.0262156728737555,
+          "separating": true
+        },
+        {
+          "family_id": "a59b72e3dd548999a639",
+          "stratum": "accepted",
+          "anchor_gap": 3.9535501470454673,
+          "separating": true
+        },
+        {
+          "family_id": "60d4de7f616204c8d728",
+          "stratum": "accepted",
+          "anchor_gap": 2.6050974854040696,
+          "separating": true
+        },
+        {
+          "family_id": "42b8cf510babc01c7d47",
+          "stratum": "accepted",
+          "anchor_gap": 2.9502611531438134,
+          "separating": true
+        },
+        {
+          "family_id": "72483ce6b0037b3f7654",
+          "stratum": "accepted",
+          "anchor_gap": 0.45926244287205087,
+          "separating": true
+        },
+        {
+          "family_id": "e7dddda23d7688d7b731",
+          "stratum": "accepted",
+          "anchor_gap": 1.1667339759589712,
+          "separating": true
+        },
+        {
+          "family_id": "349fba476da7ee906cfe",
+          "stratum": "accepted",
+          "anchor_gap": 1.1739544959369397,
+          "separating": true
+        },
+        {
+          "family_id": "9dbca916f1d1c2b4bb0e",
+          "stratum": "rejected",
+          "anchor_gap": 0.02011473622563642,
+          "separating": false
+        },
+        {
+          "family_id": "df09eb680d59f94fcf03",
+          "stratum": "rejected",
+          "anchor_gap": 0.03445093569752267,
+          "separating": false
+        },
+        {
+          "family_id": "771d65185c9e6ece91ef",
+          "stratum": "rejected",
+          "anchor_gap": 0.07486252362348189,
+          "separating": false
+        },
+        {
+          "family_id": "9735937be56d12e121aa",
+          "stratum": "rejected",
+          "anchor_gap": 0.04288908203999853,
+          "separating": false
+        },
+        {
+          "family_id": "7f2bde34119fca2ef04b",
+          "stratum": "rejected",
+          "anchor_gap": 0.04861024187846219,
+          "separating": false
+        },
+        {
+          "family_id": "05abfafaa45232276ced",
+          "stratum": "rejected",
+          "anchor_gap": 0.018492329987658707,
+          "separating": false
+        },
+        {
+          "family_id": "75a1412b4bf3f6b5a572",
+          "stratum": "rejected",
+          "anchor_gap": 0.02906586600205152,
+          "separating": false
+        },
+        {
+          "family_id": "606c4d0df286c418b73b",
+          "stratum": "rejected",
+          "anchor_gap": 0.027154684738910362,
+          "separating": false
+        },
+        {
+          "family_id": "4b859a7ec7f06be3e781",
+          "stratum": "rejected",
+          "anchor_gap": 0.039967803460411844,
+          "separating": false
+        },
+        {
+          "family_id": "269f588b53b88b12541f",
+          "stratum": "rejected",
+          "anchor_gap": 0.03482004636690306,
+          "separating": false
+        },
+        {
+          "family_id": "1b92236c7657eac2c317",
+          "stratum": "rejected",
+          "anchor_gap": 0.0064238718069908884,
+          "separating": false
+        },
+        {
+          "family_id": "3f8f327eb8fdd66c4cbf",
+          "stratum": "rejected",
+          "anchor_gap": 0.15122270252719439,
+          "separating": false
+        },
+        {
+          "family_id": "d4f7ea9dff1d642589ae",
+          "stratum": "rejected",
+          "anchor_gap": 0.17354142761464608,
+          "separating": false
+        },
+        {
+          "family_id": "8a5e8ec6f855fa88c73f",
+          "stratum": "rejected",
+          "anchor_gap": 0.021690217475029527,
+          "separating": false
+        },
+        {
+          "family_id": "81d46b622cdcb58a920e",
+          "stratum": "rejected",
+          "anchor_gap": 0.04129967379085997,
+          "separating": false
+        },
+        {
+          "family_id": "9ba0a0a2a67857d0642c",
+          "stratum": "rejected",
+          "anchor_gap": 0.04210804708121607,
+          "separating": false
+        },
+        {
+          "family_id": "23384826932c19aec399",
+          "stratum": "rejected",
+          "anchor_gap": 0.007353737881128808,
+          "separating": false
+        },
+        {
+          "family_id": "3a8f9e973bf5fc80a5fd",
+          "stratum": "rejected",
+          "anchor_gap": 0.04992772884703989,
+          "separating": false
+        },
+        {
+          "family_id": "a083635cd77feaec7d89",
+          "stratum": "rejected",
+          "anchor_gap": 0.06475951652898537,
+          "separating": false
+        },
+        {
+          "family_id": "fc6f350d598947c26bec",
+          "stratum": "rejected",
+          "anchor_gap": 0.001627256825948109,
+          "separating": false
+        },
+        {
+          "family_id": "9a596d3e7fc7f843f47a",
+          "stratum": "rejected",
+          "anchor_gap": 0.040879489959010584,
+          "separating": false
+        },
+        {
+          "family_id": "1b83687f46ebc7dcf34f",
+          "stratum": "rejected",
+          "anchor_gap": 0.021950189182319946,
+          "separating": false
+        },
+        {
+          "family_id": "20cfc07f77d8f4ca1d7f",
+          "stratum": "rejected",
+          "anchor_gap": 0.07259774704761313,
+          "separating": false
+        },
+        {
+          "family_id": "5bc0a3d9a41567cc1549",
+          "stratum": "rejected",
+          "anchor_gap": 0.043483319367842554,
+          "separating": false
+        },
+        {
+          "family_id": "2847419842f4e68da4b2",
+          "stratum": "rejected",
+          "anchor_gap": 0.019296711797096577,
+          "separating": false
+        },
+        {
+          "family_id": "1ed8c982aa80a08d678d",
+          "stratum": "rejected",
+          "anchor_gap": 0.04081881727116432,
+          "separating": false
+        },
+        {
+          "family_id": "edea348a5be837248751",
+          "stratum": "rejected",
+          "anchor_gap": 0.015512144928583993,
+          "separating": false
+        },
+        {
+          "family_id": "3ffb38992c9767b419c9",
+          "stratum": "rejected",
+          "anchor_gap": 0.08444647041705444,
+          "separating": false
+        },
+        {
+          "family_id": "5d50a32dec258d42ae91",
+          "stratum": "rejected",
+          "anchor_gap": 0.2924951076776061,
+          "separating": true
+        },
+        {
+          "family_id": "b2cc4408ee0533ea8e10",
+          "stratum": "rejected",
+          "anchor_gap": 0.045948312237261035,
+          "separating": false
+        },
+        {
+          "family_id": "e49c417c4e8baa32dfe6",
+          "stratum": "rejected",
+          "anchor_gap": 0.007631812002369287,
+          "separating": false
+        },
+        {
+          "family_id": "214ac9d564f3c0f06b53",
+          "stratum": "rejected",
+          "anchor_gap": 0.04614179103256433,
+          "separating": false
+        },
+        {
+          "family_id": "b83677df0f533948c1d6",
+          "stratum": "rejected",
+          "anchor_gap": 0.028938027747749118,
+          "separating": false
+        },
+        {
+          "family_id": "11e0288800b7c4c597bc",
+          "stratum": "rejected",
+          "anchor_gap": 0.034708408138863334,
+          "separating": false
+        },
+        {
+          "family_id": "66f92f47f51546c06d39",
+          "stratum": "rejected",
+          "anchor_gap": 0.032887225069513804,
+          "separating": false
+        },
+        {
+          "family_id": "b8c6914a0e30afeeab81",
+          "stratum": "rejected",
+          "anchor_gap": 0.046696386523139566,
+          "separating": false
+        },
+        {
+          "family_id": "f520ab8dd636586edba9",
+          "stratum": "rejected",
+          "anchor_gap": 0.05246108721359377,
+          "separating": false
+        },
+        {
+          "family_id": "6d321dfd7f1429f7b2c8",
+          "stratum": "rejected",
+          "anchor_gap": 0.05068308405211397,
+          "separating": false
+        },
+        {
+          "family_id": "e3da5c562fce78696622",
+          "stratum": "rejected",
+          "anchor_gap": 0.049820397968941776,
+          "separating": false
+        },
+        {
+          "family_id": "dbcb915acb55e1257eae",
+          "stratum": "rejected",
+          "anchor_gap": 0.024895010174493137,
+          "separating": false
+        },
+        {
+          "family_id": "3a38f8279f1e0290bf30",
+          "stratum": "rejected",
+          "anchor_gap": 0.042454256496395004,
+          "separating": false
+        },
+        {
+          "family_id": "d44a18ee902f52fe93b9",
+          "stratum": "rejected",
+          "anchor_gap": 0.05526744118227711,
+          "separating": false
+        },
+        {
+          "family_id": "fa37dd18141b7bf6de8c",
+          "stratum": "rejected",
+          "anchor_gap": 0.04637494580890689,
+          "separating": false
+        },
+        {
+          "family_id": "056ade2741ab4695ba41",
+          "stratum": "rejected",
+          "anchor_gap": 0.0846813126002619,
+          "separating": false
+        },
+        {
+          "family_id": "1f87036bb59bd3f6cda9",
+          "stratum": "rejected",
+          "anchor_gap": 0.19828390608596358,
+          "separating": false
+        },
+        {
+          "family_id": "fed86a377927c99f81c1",
+          "stratum": "rejected",
+          "anchor_gap": 0.04763211340274154,
+          "separating": false
+        },
+        {
+          "family_id": "9449746151ea810ac71f",
+          "stratum": "rejected",
+          "anchor_gap": 0.0419240904895517,
+          "separating": false
+        },
+        {
+          "family_id": "bf7a914a4ee3c8168371",
+          "stratum": "rejected",
+          "anchor_gap": 0.019714751403483888,
+          "separating": false
+        },
+        {
+          "family_id": "dcf1a706d0d4f0659a9d",
+          "stratum": "rejected",
+          "anchor_gap": 0.07020976562466075,
+          "separating": false
+        },
+        {
+          "family_id": "b79a8b9e0c8493a878df",
+          "stratum": "rejected",
+          "anchor_gap": 0.013880390937865528,
+          "separating": false
+        },
+        {
+          "family_id": "33aee6aeeccb2b722f0f",
+          "stratum": "rejected",
+          "anchor_gap": 0.07630633234852091,
+          "separating": false
+        },
+        {
+          "family_id": "b10d261e5af7faef6405",
+          "stratum": "rejected",
+          "anchor_gap": 0.023353210070194308,
+          "separating": false
+        },
+        {
+          "family_id": "5318f54c792afff326df",
+          "stratum": "rejected",
+          "anchor_gap": 0.02914194175561846,
+          "separating": false
+        },
+        {
+          "family_id": "278ae25030dfb305f87f",
+          "stratum": "rejected",
+          "anchor_gap": 0.0006948771088666206,
+          "separating": false
+        },
+        {
+          "family_id": "25618dd99f3d06f98b8c",
+          "stratum": "rejected",
+          "anchor_gap": 0.05412040334843127,
+          "separating": false
+        },
+        {
+          "family_id": "3c16fd5edf1a94915a43",
+          "stratum": "rejected",
+          "anchor_gap": 0.09694225918124388,
+          "separating": false
+        },
+        {
+          "family_id": "b79b48c24527293d96c3",
+          "stratum": "rejected",
+          "anchor_gap": 0.0034392976430090982,
+          "separating": false
+        },
+        {
+          "family_id": "acc7cbf9eb1c06b9a9d2",
+          "stratum": "rejected",
+          "anchor_gap": 0.06547027505670222,
+          "separating": false
+        },
+        {
+          "family_id": "f409c258f696fe7eb746",
+          "stratum": "rejected",
+          "anchor_gap": 0.03632938300326671,
+          "separating": false
+        },
+        {
+          "family_id": "f3481560db63721c64ec",
+          "stratum": "rejected",
+          "anchor_gap": 0.00011107604046145525,
+          "separating": false
+        },
+        {
+          "family_id": "132075ad8f59dc12bea1",
+          "stratum": "rejected",
+          "anchor_gap": 0.030928798426812065,
+          "separating": false
+        },
+        {
+          "family_id": "04c9150452adc8c9759e",
+          "stratum": "rejected",
+          "anchor_gap": 0.006597202463817453,
+          "separating": false
+        },
+        {
+          "family_id": "e6dcd5a05f607e5e83a5",
+          "stratum": "rejected",
+          "anchor_gap": 0.09823498503727635,
+          "separating": false
+        },
+        {
+          "family_id": "a323d06cac475891c1fd",
+          "stratum": "rejected",
+          "anchor_gap": 0.03147190411795897,
+          "separating": false
+        }
+      ],
+      "verification": {
+        "native_candidates": 1024,
+        "families": 128,
+        "snapshots": 512,
+        "max_native_dtype_difference": 2.278978025760381e-05,
+        "max_signed_anchor_dtype_difference": 7.980034379961864e-06,
+        "maximum_construction_roundoff": {
+          "float32": 1.4702637551877729e-08,
+          "float64": 0.0
+        }
+      },
+      "recorded_cost": {
+        "sequence_forwards_attempted": 4096,
+        "sequence_forwards_completed": 4096,
+        "forward_batches_attempted": 64,
+        "forward_batches_completed": 64,
+        "failed_forward_internal_progress_unknown": false,
+        "completed_sequence_forwards_by_stage_dtype": {
+          "native": {
+            "float32": 1024,
+            "float64": 1024
+          },
+          "anchors": {
+            "float32": 1024,
+            "float64": 1024
+          }
+        }
+      }
+    }
+  ],
+  "cohort_decision": {
+    "head_results": [
+      {
+        "accepted_hits": 64,
+        "rejected_hits": 9,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.9080413081362957,
+          1.0
+        ],
+        "rejected_interval": [
+          0.04460892938286705,
+          0.3037662401928033
+        ],
+        "delta": 0.859375,
+        "delta_interval": [
+          0.6042750679434924,
+          0.9553910706171329
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      {
+        "accepted_hits": 62,
+        "rejected_hits": 8,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.848509692609414,
+          0.9989614337498287
+        ],
+        "rejected_interval": [
+          0.036043198466519016,
+          0.2841706229380777
+        ],
+        "delta": 0.84375,
+        "delta_interval": [
+          0.5643390696713363,
+          0.9629182352833097
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      {
+        "accepted_hits": 64,
+        "rejected_hits": 6,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.9080413081362957,
+          1.0
+        ],
+        "rejected_interval": [
+          0.02064040982257863,
+          0.24339304097349118
+        ],
+        "delta": 0.90625,
+        "delta_interval": [
+          0.6646482671628045,
+          0.9793595901774214
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      {
+        "accepted_hits": 59,
+        "rejected_hits": 14,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.7779863622914873,
+          0.9859737738895695
+        ],
+        "rejected_interval": [
+          0.09359985291672082,
+          0.3960015576966923
+        ],
+        "delta": 0.703125,
+        "delta_interval": [
+          0.381984804594795,
+          0.8923739209728487
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      {
+        "accepted_hits": 61,
+        "rejected_hits": 11,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.8235921411223293,
+          0.9960906214484015
+        ],
+        "rejected_interval": [
+          0.06310674401589622,
+          0.34169046253079227
+        ],
+        "delta": 0.78125,
+        "delta_interval": [
+          0.481901678591537,
+          0.9329838774325053
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      },
+      {
+        "accepted_hits": 64,
+        "rejected_hits": 1,
+        "families_per_stratum": 64,
+        "accepted_interval": [
+          0.9080413081362957,
+          1.0
+        ],
+        "rejected_interval": [
+          3.258550800300956e-05,
+          0.12414482802655619
+        ],
+        "delta": 0.984375,
+        "delta_interval": [
+          0.7838964801097394,
+          0.999967414491997
+        ],
+        "substantial_enrichment": true,
+        "practical_status": "supported",
+        "directional_status": "positive"
+      }
+    ],
+    "substantial_heads": 6,
+    "unavailable_heads": 0,
+    "positive_direction_heads": 6,
+    "primary_success": true,
+    "criterion": "At least four of the fixed six lower Delta bounds exceed 0.25"
+  },
+  "scope": "Fixed selected six-head cohort; anchor separability, not mechanism identification.",
+  "limits": [
+    "Unavailable heads remain in the six; no replacement or zero-effect imputation.",
+    "Statistical bounds and numerical gates are different quantities.",
+    "Cost ratios and random-selection yields are descriptive plug-in estimates.",
+    "No model forward is repeated by this audit.",
+    "Full-layer unchangedness is producer-reported; only target snapshots are archived.",
+    "Local hashes/timestamps do not establish external preregistration.",
+    "Saved readout vectors can verify normalization algebra, not independently extract checkpoint weights."
+  ],
+  "provenance": {
+    "git_head": "4dd5e5c2b81cfb0881bf09d03ab666848f7132ea",
+    "manifest_sha256": "24c131b8920f64acc6d2992e5af8f02f7e149ce4bd223d7de1e6f1dc5f27dc64",
+    "plan_sha256": "64ac567c684ec1a8da449003cec186d7a3c243ddae758516342e97c0d157c884",
+    "analysis_sha256": "20475a4de85f4863cdf0047962f2d7dd8c86655c1af9c9664f385a900c58c2a9",
+    "verified_source_files": 61
+  },
+  "recorded_cohort_cost": {
+    "sequence_forwards_attempted": 24576,
+    "sequence_forwards_completed": 24576,
+    "failed_forward_internal_progress_unknown": false
+  },
+  "analysis_compatibility": {
+    "status": "post_run_schema_correction",
+    "reason": "The frozen analyzer used the top-level release label for the nested review status; the frozen runner requires release.status=approved and final_review.status=PASS. Only this literal is corrected.",
+    "frozen_analyzer_sha256": "20475a4de85f4863cdf0047962f2d7dd8c86655c1af9c9664f385a900c58c2a9",
+    "executed_analyzer_source_sha256": "31fe8e4d80aed5f64fd36dad7eeb5015e6b00e4561d2cdd46c8e3766ea5ee993",
+    "wrapper_sha256": "d914176c5d23cf2862810fdc2689874282e99e16581f50b05b1884aaeb26865a",
+    "frozen_release_validator_sha256": "93eb0bd0cf4c12c19d504fc48c74aca7ba1a8e97e1a5e8f3938af61d74280fca",
+    "source_change_count": 1,
+    "replaced_text": "release['final_review']['status'] == 'approved'",
+    "replacement_text": "release['final_review']['status'] == 'PASS'",
+    "scientific_rules_changed": false,
+    "frozen_files_or_raw_records_modified": false,
+    "neural_rerun_performed": false
+  }
+}

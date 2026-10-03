@@ -1,0 +1,193 @@
+{
+  "audit_kind": "Post-run independent recount; no production analysis imported or neural forward run",
+  "provenance": {
+    "script_sha256": "027bbaf0cb652bea62eb541bea0dd3d29e39eef793f4808c1b3da2123db7aea1",
+    "scipy_version": "1.15.3",
+    "manifest_sha256": "24c131b8920f64acc6d2992e5af8f02f7e149ce4bd223d7de1e6f1dc5f27dc64",
+    "run_git_head": "4dd5e5c2b81cfb0881bf09d03ab666848f7132ea",
+    "reviewed_commit": "23f7f7f6c6e4da8de391b131d7cb7c770ca3a5af",
+    "verified_source_hashes": 61
+  },
+  "heads": [
+    {
+      "head": "50h5xlod_head1",
+      "status": "completed",
+      "accepted_pool": 296,
+      "q": 0.2890625,
+      "counts": {
+        "accepted": 64,
+        "rejected": 9
+      },
+      "delta": 0.859375,
+      "delta_interval": [
+        0.6042750679434923,
+        0.9553910706171329
+      ],
+      "strong": true,
+      "positive": true,
+      "exclude_strong": false,
+      "accepted_yield": 1.0,
+      "estimated_random_yield": 0.3890380859375,
+      "improvement_vs_estimated_random": 0.6109619140625,
+      "fixed_cost": 48.0,
+      "estimated_random_cost": 46.26796360213367,
+      "ideal_streaming_cost_not_executed": 22.91891891891892,
+      "native_precision_max": 2.253014526099051e-05,
+      "anchor_precision_max": 1.3425269578704047e-05,
+      "sequence_forwards_attempted": 4096,
+      "sequence_forwards_completed": 4096,
+      "completed_batches": 64
+    },
+    {
+      "head": "8a65u5l6_head1",
+      "status": "completed",
+      "accepted_pool": 460,
+      "q": 0.44921875,
+      "counts": {
+        "accepted": 62,
+        "rejected": 8
+      },
+      "delta": 0.84375,
+      "delta_interval": [
+        0.5643390696713363,
+        0.9629182352833096
+      ],
+      "strong": true,
+      "positive": true,
+      "exclude_strong": false,
+      "accepted_yield": 0.96875,
+      "estimated_random_yield": 0.5040283203125,
+      "improvement_vs_estimated_random": 0.4647216796875,
+      "fixed_cost": 49.54838709677419,
+      "estimated_random_cost": 35.712279002179706,
+      "ideal_streaming_cost_not_executed": 21.111921458625524,
+      "native_precision_max": 1.771725362953447e-05,
+      "anchor_precision_max": 1.8846563509811176e-05,
+      "sequence_forwards_attempted": 4096,
+      "sequence_forwards_completed": 4096,
+      "completed_batches": 64
+    },
+    {
+      "head": "dsibxabs_head4",
+      "status": "completed",
+      "accepted_pool": 330,
+      "q": 0.322265625,
+      "counts": {
+        "accepted": 64,
+        "rejected": 6
+      },
+      "delta": 0.90625,
+      "delta_interval": [
+        0.6646482671628043,
+        0.9793595901774214
+      ],
+      "strong": true,
+      "positive": true,
+      "exclude_strong": false,
+      "accepted_yield": 1.0,
+      "estimated_random_yield": 0.38580322265625,
+      "improvement_vs_estimated_random": 0.61419677734375,
+      "fixed_cost": 48.0,
+      "estimated_random_cost": 46.65590887517798,
+      "ideal_streaming_cost_not_executed": 22.206060606060607,
+      "native_precision_max": 2.9128996268501517e-05,
+      "anchor_precision_max": 2.026530201337806e-05,
+      "sequence_forwards_attempted": 4096,
+      "sequence_forwards_completed": 4096,
+      "completed_batches": 64
+    },
+    {
+      "head": "qtda56zd_head2",
+      "status": "completed",
+      "accepted_pool": 539,
+      "q": 0.5263671875,
+      "counts": {
+        "accepted": 59,
+        "rejected": 14
+      },
+      "delta": 0.703125,
+      "delta_interval": [
+        0.3819848045947949,
+        0.8923739209728487
+      ],
+      "strong": true,
+      "positive": true,
+      "exclude_strong": false,
+      "accepted_yield": 0.921875,
+      "estimated_random_yield": 0.5888519287109375,
+      "improvement_vs_estimated_random": 0.3330230712890625,
+      "fixed_cost": 52.067796610169495,
+      "estimated_random_cost": 30.567956259231426,
+      "ideal_streaming_cost_not_executed": 21.477563598628972,
+      "native_precision_max": 3.839622375068075e-05,
+      "anchor_precision_max": 1.615158148915441e-05,
+      "sequence_forwards_attempted": 4096,
+      "sequence_forwards_completed": 4096,
+      "completed_batches": 64
+    },
+    {
+      "head": "we9o801g_head2",
+      "status": "completed",
+      "accepted_pool": 541,
+      "q": 0.5283203125,
+      "counts": {
+        "accepted": 61,
+        "rejected": 11
+      },
+      "delta": 0.78125,
+      "delta_interval": [
+        0.481901678591537,
+        0.9329838774325053
+      ],
+      "strong": true,
+      "positive": true,
+      "exclude_strong": false,
+      "accepted_yield": 0.953125,
+      "estimated_random_yield": 0.584625244140625,
+      "improvement_vs_estimated_random": 0.368499755859375,
+      "fixed_cost": 50.36065573770492,
+      "estimated_random_cost": 30.788954429190373,
+      "ideal_streaming_cost_not_executed": 20.758643677464317,
+      "native_precision_max": 3.2991693125428156e-05,
+      "anchor_precision_max": 1.6032605310911663e-05,
+      "sequence_forwards_attempted": 4096,
+      "sequence_forwards_completed": 4096,
+      "completed_batches": 64
+    },
+    {
+      "head": "wfwpq5xc_head1",
+      "status": "completed",
+      "accepted_pool": 423,
+      "q": 0.4130859375,
+      "counts": {
+        "accepted": 64,
+        "rejected": 1
+      },
+      "delta": 0.984375,
+      "delta_interval": [
+        0.7838964801097393,
+        0.999967414491997
+      ],
+      "strong": true,
+      "positive": true,
+      "exclude_strong": false,
+      "accepted_yield": 1.0,
+      "estimated_random_yield": 0.4222564697265625,
+      "improvement_vs_estimated_random": 0.5777435302734375,
+      "fixed_cost": 48.0,
+      "estimated_random_cost": 42.628121273443426,
+      "ideal_streaming_cost_not_executed": 20.84160756501182,
+      "native_precision_max": 2.278978025760381e-05,
+      "anchor_precision_max": 7.980034379961864e-06,
+      "sequence_forwards_attempted": 4096,
+      "sequence_forwards_completed": 4096,
+      "completed_batches": 64
+    }
+  ],
+  "strong_heads": 6,
+  "positive_heads": 6,
+  "primary_success": true,
+  "total_sequence_forwards": 24576,
+  "recorded_elapsed_seconds": 13.243687583017163,
+  "limitation": "Random-policy yield/cost are descriptive estimates; fixed-pool cost is not lower in these six heads."
+}
