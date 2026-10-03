@@ -16,7 +16,9 @@ development result below unchanged.
 (four required), with 59–64/64 separating accepted families versus 1–14/64
 rejected families per head. This supports prospective case selection within the
 selected cohort; it does not identify the mechanism or demonstrate cost savings.
-The separate averaged-anchor mechanistic round has not run.
+The [averaged-anchor mechanism round](averaged_anchors_004/README.md) is now
+prepared for independent review: 256 families on `a9g0io1r`, with fixed inputs,
+power and start rules. It has not run and execution remains blocked.
 
 ![Complete development result](figures/value_development.png)
 

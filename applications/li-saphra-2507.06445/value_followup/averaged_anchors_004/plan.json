@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "round": "averaged_anchors_004",
+  "status": "awaiting_final_pre_run_review",
+  "execution_authorized": false,
+  "model_measurements_performed": false,
+  "scope": "Prospective, predeclared development on one adaptively selected head; fresh targets, no unique mechanism identification or untouched-head claim.",
+  "model": {
+    "model": "a9g0io1r",
+    "layer_one_based": 2,
+    "head_one_based": 1,
+    "model_heads": 4,
+    "hidden_width": 64,
+    "head_width": 16,
+    "checkpoint": "data/model_weights/run_a9g0io1r/run_a9g0io1r_checkpoint_5.pt",
+    "sha256": "abec37ff9899e0349de9e19558b61dddadcdf7e15628aaa0fa55e70b435b9f4e",
+    "upstream_revision": "dedb269eca6a9cf0bc409792003e6f815f2dce34"
+  },
+  "sampling": {
+    "phase": "confirmation",
+    "phase_meaning": "Existing input hash partition only; this round remains prospective mechanism development. No earlier sealed outcome files are opened.",
+    "recipient_seed": 26100341,
+    "donor_seed": 26100342,
+    "native_candidates": 2048,
+    "families": 256,
+    "sampling": "With replacement across families, with distinct donor prefixes within each role/cell and disjoint calibration/target prefix roles.",
+    "length": 32,
+    "opens": 16,
+    "closes": 16,
+    "recipient_requires_negative_prefix": true,
+    "historical_exclusions": "All prior prepared full strings, including unmeasured screen_transfer_003 inputs, and both20/28 prefixes across roles.",
+    "historical_full_strings": 18475,
+    "historical_prefix20": 16753,
+    "historical_prefix28": 18447,
+    "role_rule": "int(SHA256(UTF8(\"averaged-anchor-004-role:\"+first20)),16)%2;0=calibration,1=target",
+    "role_assignment_uses_measurements": false,
+    "no_global_deduplication": true
+  },
+  "screen": {
+    "margin": "logit(False)-logit(True)",
+    "false_token": 0,
+    "true_token": 1,
+    "strict_cutoff_nat": 8.0,
+    "rule": "m<8 in both fp32 and fp64",
+    "selection": "First256 accepted in fixed candidate order; finish all2048 before selecting.",
+    "shortfall": "insufficient_screening_yield; no calibration, replenishment, cutoff change or replacement"
+  },
+  "intervention": {
+    "operator": "h+a_recipient[j]*(v_donor[k]-v_recipient[j])",
+    "recipient_site": "highest native fp64 EOS attention on a closing bracket; first tie",
+    "balances": [
+      -2,
+      2
+    ],
+    "positions": [
+      20,
+      28
+    ],
+    "minimum_prefix_balance": -4,
+    "target_symbol": ")",
+    "calibration_prefixes_per_cell": 2,
+    "target_prefixes_per_cell": 2,
+    "calibration_transfers_per_family": 8,
+    "target_transfers_per_family": 8,
+    "dtypes": [
+      "float32",
+      "float64"
+    ],
+    "backend": "CPU, one thread, deterministic PyTorch",
+    "scientific_tolerance_nat": 0.1,
+    "numerical_allowance_nat": 0.001,
+    "definite_hit_limit_nat": 0.099,
+    "possible_hit_limit_nat": 0.101,
+    "separation_gap_nat": 0.202,
+    "same_cell_witness_gap_nat": 0.202
+  },
+  "predictions": {
+    "cell_mean": "A[d,p]=(cal[d,p,0]+cal[d,p,1])/2",
+    "balance_average": "(A[d,20]+A[d,28])/2",
+    "position_average": "(A[-2,p]+A[+2,p])/2",
+    "balance_single4": "(cal[d,20,0]+cal[d,28,0])/2",
+    "legacy_diagonal_descriptive": "cal[-2,20,0] for d=-2;cal[+2,28,0] for d=+2",
+    "target_scoring": "Maximum absolute prediction error over all8 fresh targets per family",
+    "receipt": "All candidate forecasts in both dtypes saved and hashed before any target transfer"
+  },
+  "target_start": {
+    "minimum_separating_families": 128,
+    "total_families": 256,
+    "separation": "max_target(abs(balance_average-position_average))>.202; dtype label agreement and gap discrepancy<=.001",
+    "scope": "After all8calibration transfers per family, before anytarget. Ifpassed measure all256 families, not just separating subset.",
+    "failure": "insufficient_design_yield; retain all calibration records and do not measure targets or add families"
+  },
+  "inference": {
+    "independent_unit": "recipient-donor family draw",
+    "adequacy_population": "Families satisfying the frozen averaged-forecast separation criterion",
+    "adequacy_target": 0.9,
+    "candidate_bounds": "Clopper-Pearson lower from definite hits; upper from possible hits; each tail alpha=.01 for each of2 averaged candidates",
+    "candidate_tail_alpha": 0.01,
+    "candidate_tail_count": 4,
+    "paired_test": "one-sided exact paired McNemar/binomial discordant test on ALL256families",
+    "paired_alpha": 0.01,
+    "paired_comparison": "balance_average definitehit vs balance_single4 possiblehit",
+    "paired_null": "P(gain)<=P(loss)",
+    "paired_gain": "averaged definitehit and single4 not possiblehit",
+    "paired_loss": "averaged not definitehit and single4 possiblehit",
+    "planning_smallest_interesting_improvement": 0.1,
+    "planning_effect_note": "+10pp is a planning alternative, not the null or a threshold silently tested by a significance result.",
+    "familywise_alpha_upper_bound": 0.05,
+    "same_cell_witness": "Per-cell >.202 in both dtypes gives definite witness; either dtype gives possible witness; threshold disagreement is descriptive numerical uncertainty, not a main-test stop. Report counts/cases without an additional population test.",
+    "legacy_comparator": "Descriptive only; not the averaging test"
+  },
+  "future_confirmation_start": {
+    "automatic_execution": false,
+    "requires_technical_pass": true,
+    "minimum_separating_families": 128,
+    "candidate_definite_hit_fraction_at_least": 0.9,
+    "other_candidate_possible_hit_upper_bound_below": 0.9,
+    "meaning": "Feasibility only. Passing does not establish population90%adequacy or identify a mechanism; report the separate CP decision."
+  },
+  "cost": {
+    "baseline_sequence_forwards_per_candidate": 2,
+    "sequence_forwards_per_transfer_both_dtypes": 8,
+    "maximum_baseline_forwards": 4096,
+    "maximum_calibration_forwards": 16384,
+    "maximum_target_forwards": 16384,
+    "maximum_total_sequence_forwards": 36864,
+    "calibration_stop_sequence_forwards": 20480,
+    "neural_retries_authorized": false
+  },
+  "provenance": {
+    "base_commit": "236a8a27dab6357ec8a22f830aa173116de41b46",
+    "calibration_specification": "../screen_transfer_003/MECHANISTIC_NEXT.md",
+    "prior_results_reinterpreted": false,
+    "prepared_inputs": "inputs/preparation.json",
+    "final_review": "REVIEW.md",
+    "execution_release": "EXECUTION_RELEASE.json",
+    "source_lock": "SOURCE_LOCK.json",
+    "prepared_inputs_sha256": "f506473113149306775eefd5b7e7deedf8aad8dca5ee05ac3a8f1e3c8d3a0dbf"
+  }
+}

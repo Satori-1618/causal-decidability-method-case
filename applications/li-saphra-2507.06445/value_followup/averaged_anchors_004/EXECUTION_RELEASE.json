@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "status": "pending",
+  "execution_authorized": false,
+  "final_review": {
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_commit": null
+  },
+  "user_execution_authorization": null
+}

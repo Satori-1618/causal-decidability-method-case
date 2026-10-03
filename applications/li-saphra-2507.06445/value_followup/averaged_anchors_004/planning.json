@@ -1,0 +1,262 @@
+{
+  "adequacy": [
+    {
+      "families": 128,
+      "maximum_possible_hits_for_upper_below_90pct": 106,
+      "minimum_definite_hits_for_lower_above_90pct": 123,
+      "scenarios": [
+        {
+          "adequacy_probability": 1.4865283086988811e-21,
+          "assumed_hit_rate": 0.6,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.9999999930740281
+        },
+        {
+          "adequacy_probability": 1.2565292108856416e-10,
+          "assumed_hit_rate": 0.75,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.986739023874685
+        },
+        {
+          "adequacy_probability": 5.338054138957513e-05,
+          "assumed_hit_rate": 0.85,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.27803410304460424
+        },
+        {
+          "adequacy_probability": 0.009300047184645381,
+          "assumed_hit_rate": 0.9,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.008287318376470142
+        },
+        {
+          "adequacy_probability": 0.37838834731533894,
+          "assumed_hit_rate": 0.95,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 4.0801905718130967e-07
+        },
+        {
+          "adequacy_probability": 0.8122829685428741,
+          "assumed_hit_rate": 0.97,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 4.3328040193083445e-11
+        },
+        {
+          "adequacy_probability": 0.9555916262405206,
+          "assumed_hit_rate": 0.98,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 1.627016075929888e-14
+        }
+      ]
+    },
+    {
+      "families": 192,
+      "maximum_possible_hits_for_upper_below_90pct": 162,
+      "minimum_definite_hits_for_lower_above_90pct": 183,
+      "scenarios": [
+        {
+          "adequacy_probability": 5.758268187463087e-30,
+          "assumed_hit_rate": 0.6,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.9999999999998938
+        },
+        {
+          "adequacy_probability": 4.9255934026779376e-14,
+          "assumed_hit_rate": 0.75,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.9993880455484585
+        },
+        {
+          "adequacy_probability": 5.130522576334928e-06,
+          "assumed_hit_rate": 0.85,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.43464508755783143
+        },
+        {
+          "adequacy_probability": 0.005779232569546094,
+          "assumed_hit_rate": 0.9,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.009497773443058903
+        },
+        {
+          "adequacy_probability": 0.5068753909497694,
+          "assumed_hit_rate": 0.95,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 3.42440485401029e-08
+        },
+        {
+          "adequacy_probability": 0.9345902843195647,
+          "assumed_hit_rate": 0.97,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 1.9204459983144465e-13
+        },
+        {
+          "adequacy_probability": 0.9943278543254042,
+          "assumed_hit_rate": 0.98,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 4.954988925704052e-18
+        }
+      ]
+    },
+    {
+      "families": 256,
+      "maximum_possible_hits_for_upper_below_90pct": 218,
+      "minimum_definite_hits_for_lower_above_90pct": 242,
+      "scenarios": [
+        {
+          "adequacy_probability": 2.501460862907868e-37,
+          "assumed_hit_rate": 0.6,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.9999999999999409
+        },
+        {
+          "adequacy_probability": 1.0834532737624736e-16,
+          "assumed_hit_rate": 0.75,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.9999728863466977
+        },
+        {
+          "adequacy_probability": 1.4695626962283043e-06,
+          "assumed_hit_rate": 0.85,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.5546547683927832
+        },
+        {
+          "adequacy_probability": 0.006810986291103981,
+          "assumed_hit_rate": 0.9,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 0.009100572834993248
+        },
+        {
+          "adequacy_probability": 0.6985308250304456,
+          "assumed_hit_rate": 0.95,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 2.471075374837515e-09
+        },
+        {
+          "adequacy_probability": 0.9887711650192219,
+          "assumed_hit_rate": 0.97,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 7.375692152894658e-16
+        },
+        {
+          "adequacy_probability": 0.9997594658065753,
+          "assumed_hit_rate": 0.98,
+          "assumption": "IID separated-family hits; definite=possible in this idealized power calculation.",
+          "exclusion_probability": 1.3118698292069778e-21
+        }
+      ]
+    }
+  ],
+  "constants": {
+    "accepted_families": 256,
+    "adequacy_target": 0.9,
+    "each_candidate_tail_alpha": 0.01,
+    "global_error_budget": 0.05,
+    "minimum_new_forecast_separating_families": 128,
+    "native_candidate_budget": 2048,
+    "paired_test_alpha": 0.01
+  },
+  "cost": {
+    "calibration": 16384,
+    "if_calibration_start_fails": 20480,
+    "maximum": 36864,
+    "per_transfer_per_dtype": "recipient native, donor native, self-control, patched = 4",
+    "screening": 4096,
+    "targets_if_start_passes": 16384,
+    "unit": "sequence forwards, both dtypes; no wall-time or cache-saving claim"
+  },
+  "design_rationale": "256 target families give about 89% idealized power for a +10-point robust averaging gain (.15 gains/.05 losses). This is a planning alternative, not a tested +10-point threshold.",
+  "limits": [
+    "Hypothetical rates are design assumptions, not forecasts from earlier results.",
+    "New averaged-forecast separation is different from the earlier diagonal-anchor screen endpoint.",
+    "Under an ideal balance-only table, new forecast distance is half the balance gap; old screen yield cannot simply be reused.",
+    "Binomial adequacy power conditions on a given number of separated families and assumes independent family sampling.",
+    "With only 128 separated families, true 95% accuracy has low power to establish population adequacy above 90%.",
+    "Paired power is for a full hypothetical set of 256 outcomes; it does not condition on passing a calibration gate correlated with those outcomes.",
+    "Do not multiply start, quota and test powers without a joint data-generating model. No joint-power guarantee is made.",
+    "Uncertain numerical-band cases can reduce robust comparison power.",
+    "The future-confirmation planning gate uses 90% observed definite accuracy, not a population-adequacy conclusion."
+  ],
+  "native_quota_probability": [
+    {
+      "assumed_acceptance_rate": 0.1,
+      "probability_at_least_256_of_2048": 0.0001474472017823453
+    },
+    {
+      "assumed_acceptance_rate": 0.125,
+      "probability_at_least_256_of_2048": 0.5099952702523292
+    },
+    {
+      "assumed_acceptance_rate": 0.15,
+      "probability_at_least_256_of_2048": 0.9994659714021098
+    },
+    {
+      "assumed_acceptance_rate": 0.2,
+      "probability_at_least_256_of_2048": 0.9999999999999577
+    }
+  ],
+  "new_forecast_start_probability": [
+    {
+      "assumed_new_forecast_separation_rate": 0.35,
+      "probability_at_least_128_of_256": 6.005137299888064e-07
+    },
+    {
+      "assumed_new_forecast_separation_rate": 0.4,
+      "probability_at_least_128_of_256": 0.0007538806486943716
+    },
+    {
+      "assumed_new_forecast_separation_rate": 0.5,
+      "probability_at_least_128_of_256": 0.5249095549680419
+    },
+    {
+      "assumed_new_forecast_separation_rate": 0.6,
+      "probability_at_least_128_of_256": 0.9995141063921411
+    },
+    {
+      "assumed_new_forecast_separation_rate": 0.7,
+      "probability_at_least_128_of_256": 0.9999999999925987
+    },
+    {
+      "assumed_new_forecast_separation_rate": 0.8,
+      "probability_at_least_128_of_256": 0.9999999999999618
+    },
+    {
+      "assumed_new_forecast_separation_rate": 0.9,
+      "probability_at_least_128_of_256": 0.999999999999965
+    }
+  ],
+  "paired_averaging": [
+    {
+      "assumed_robust_gain_probability": 0.15,
+      "assumed_robust_improvement": 0.09999999999999999,
+      "assumed_robust_loss_probability": 0.05,
+      "assumption": "IID robust discordant outcomes for all planned target families. No start/technical failures included.",
+      "families": 256,
+      "one_sided_exact_paired_test_power": 0.892916148320018
+    },
+    {
+      "assumed_robust_gain_probability": 0.2,
+      "assumed_robust_improvement": 0.15000000000000002,
+      "assumed_robust_loss_probability": 0.05,
+      "assumption": "IID robust discordant outcomes for all planned target families. No start/technical failures included.",
+      "families": 256,
+      "one_sided_exact_paired_test_power": 0.9958570970309784
+    },
+    {
+      "assumed_robust_gain_probability": 0.3,
+      "assumed_robust_improvement": 0.25,
+      "assumed_robust_loss_probability": 0.05,
+      "assumption": "IID robust discordant outcomes for all planned target families. No start/technical failures included.",
+      "families": 256,
+      "one_sided_exact_paired_test_power": 0.9999997874949175
+    }
+  ],
+  "smaller_design_comparison": {
+    "families": 128,
+    "gain": 0.15,
+    "loss": 0.05,
+    "power": 0.5297329127557616
+  },
+  "status": "hypothetical_planning_only_no_measured_outcomes"
+}
