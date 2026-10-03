@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "round": "screen_transfer_003",
+  "status": "awaiting_independent_review",
+  "execution_authorized": false,
+  "model_measurements_performed": false,
+  "scope": "Plan and hypothetical calculations only; implementation/input freeze required after independent review and before any new native scores.",
+  "cohort": [
+    {
+      "model": "50h5xlod",
+      "layer_one_based": 2,
+      "head_one_based": 1,
+      "model_heads": 2,
+      "initialization_seed": 495,
+      "shuffle_seed": 161,
+      "recipient_seed": 26100301,
+      "donor_seed": 26100302,
+      "checkpoint": "data/model_weights/run_50h5xlod/run_50h5xlod_checkpoint_5.pt",
+      "sha256": "7ad8b29f42625ffea352d17b8091d567019828e6ee420980b26dd1f39476195e"
+    },
+    {
+      "model": "8a65u5l6",
+      "layer_one_based": 2,
+      "head_one_based": 1,
+      "model_heads": 2,
+      "initialization_seed": 495,
+      "shuffle_seed": 231,
+      "recipient_seed": 26100303,
+      "donor_seed": 26100304,
+      "checkpoint": "data/model_weights/run_8a65u5l6/run_8a65u5l6_checkpoint_5.pt",
+      "sha256": "353ea1ba96e7447593b67d6976a908904c0f5ff5ba0abe95d718195ddf1b852b"
+    },
+    {
+      "model": "dsibxabs",
+      "layer_one_based": 2,
+      "head_one_based": 4,
+      "model_heads": 4,
+      "initialization_seed": 92,
+      "shuffle_seed": 161,
+      "recipient_seed": 26100305,
+      "donor_seed": 26100306,
+      "checkpoint": "data/model_weights/run_dsibxabs/run_dsibxabs_checkpoint_5.pt",
+      "sha256": "fbcaa891ec25f7a1241a5c1bac66a499d56862ebf8824b801e4d093fa04a5010"
+    },
+    {
+      "model": "qtda56zd",
+      "layer_one_based": 2,
+      "head_one_based": 2,
+      "model_heads": 2,
+      "initialization_seed": 92,
+      "shuffle_seed": 161,
+      "recipient_seed": 26100307,
+      "donor_seed": 26100308,
+      "checkpoint": "data/model_weights/run_qtda56zd/run_qtda56zd_checkpoint_5.pt",
+      "sha256": "ebedf6d22baca78b49caf2453742449fcefb725aa1e58bffc5c1f109f9e6dc9a"
+    },
+    {
+      "model": "we9o801g",
+      "layer_one_based": 2,
+      "head_one_based": 2,
+      "model_heads": 2,
+      "initialization_seed": 105,
+      "shuffle_seed": 231,
+      "recipient_seed": 26100309,
+      "donor_seed": 26100310,
+      "checkpoint": "data/model_weights/run_we9o801g/run_we9o801g_checkpoint_5.pt",
+      "sha256": "143aa34793fbf0b57496248a463629efc7da74afa61517eff0c75b60949b72e9"
+    },
+    {
+      "model": "wfwpq5xc",
+      "layer_one_based": 2,
+      "head_one_based": 1,
+      "model_heads": 2,
+      "initialization_seed": 495,
+      "shuffle_seed": 220,
+      "recipient_seed": 26100311,
+      "donor_seed": 26100312,
+      "checkpoint": "data/model_weights/run_wfwpq5xc/run_wfwpq5xc_checkpoint_5.pt",
+      "sha256": "425488a01b21542f8380f935e65ac9d40acb6c417b4e96ba0942aa5820e4d9a3"
+    }
+  ],
+  "reference": {
+    "model": "a9g0io1r",
+    "excluded_from_cohort": true,
+    "checkpoint_sha256": "abec37ff9899e0349de9e19558b61dddadcdf7e15628aaa0fa55e70b435b9f4e",
+    "calculation": "Static stored-checkpoint algebra in float64, without a forward.",
+    "old_signed_margin_cutoff": 8.0,
+    "center": 0.05487594590959401,
+    "radius": 9.554101917837064,
+    "normalized_cutoff": 0.8315929767566357
+  },
+  "screen": {
+    "margin": "logit(False)-logit(True)",
+    "false_token": 0,
+    "true_token": 1,
+    "comparison": "(margin-center)/radius < normalized_cutoff",
+    "normalization": "final_LayerNorm_model_range",
+    "hidden_width": 64,
+    "readout_has_bias": false,
+    "native_candidates_per_head": 1024,
+    "sampling": "with replacement from fixed development population",
+    "complete_pool_even_after_quotas": true,
+    "phase": "development",
+    "length": 32,
+    "opens": 16,
+    "closes": 16,
+    "requires_negative_prefix": true,
+    "families_per_stratum": 32,
+    "shortfall": "insufficient_yield; no transfers, extensions or replacement head",
+    "pool_refresh_allowed": false
+  },
+  "intervention": {
+    "anchors": [
+      "neg_20_0",
+      "pos_28_0"
+    ],
+    "balances": [
+      -2,
+      2
+    ],
+    "positions": [
+      20,
+      28
+    ],
+    "minimum_prefix_balance": -4,
+    "target_symbol": ")",
+    "recipient_site": "highest native fp64 EOS attention on a closing bracket; first tie",
+    "formula": "h + a_recipient[j]*(v_donor[k]-v_recipient[j])",
+    "separation": "abs(anchor_D-anchor_A)>0.202",
+    "strict_gap_nat": 0.202,
+    "numerical_allowance_nat": 0.001,
+    "dtypes": [
+      "float32",
+      "float64"
+    ],
+    "secondary_target_transfers": false,
+    "maximum_anchor_cells": 768
+  },
+  "inference": {
+    "heads": 6,
+    "families_per_stratum": 32,
+    "one_sided_cp_bounds": 24,
+    "tail_alpha": 0.0020833333333333333,
+    "minimum_uplift": 0.25,
+    "required_substantial_heads": 4,
+    "primary": "At least four fixed heads have simultaneous lower Delta bound strictly above 0.25",
+    "unavailable_heads": "Retained among six; not counted as zero effect or success",
+    "pooled_head_test": false
+  },
+  "cost": {
+    "unit": "sequence-forward equivalents including both dtypes",
+    "baseline_sequence_forwards": 2,
+    "two_anchor_family_sequence_forwards": 16,
+    "reuse_credit": false,
+    "maximum_scheduled_sequence_forwards_per_head": 3072,
+    "maximum_scheduled_sequence_forwards_cohort": 18432,
+    "random_comparator": "descriptive stratified plug-in estimate, not measured random arm",
+    "random_yield": "q*p_A+(1-q)*p_R",
+    "fixed_policy": "(1024*b+32*f)/(32*p_A)",
+    "random_policy": "(b+f)/p_random",
+    "ideal_stream_not_scheduled": "(b/q+f)/p_A",
+    "validation_total": "1024*b+64*f"
+  },
+  "mechanistic_next": {
+    "separate_round": true,
+    "execution_authorized": false,
+    "anchor_means_per_balance": 2,
+    "distinct_prefixes_per_anchor_mean": 2,
+    "anchor_positions": [
+      20,
+      28
+    ],
+    "calibration_transfers_per_family": 8,
+    "heldout_target_transfers_per_family": 8,
+    "scientific_tolerance_nat": 0.1,
+    "specification": "MECHANISTIC_NEXT.md"
+  },
+  "provenance": {
+    "base_commit": "c7a7316",
+    "upstream_revision": "dedb269eca6a9cf0bc409792003e6f815f2dce34",
+    "public_plan_freeze_required": true,
+    "source_lock": "SOURCE_LOCK.json",
+    "new_input_pools_prepared": false,
+    "review": "REVIEW.md"
+  }
+}

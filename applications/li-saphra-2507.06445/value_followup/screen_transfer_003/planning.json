@@ -1,0 +1,209 @@
+{
+  "status": "hypothetical_planning_only_no_measured_outcomes",
+  "constants": {
+    "screen_budget_per_head": 1024,
+    "families_per_stratum": 32,
+    "heads": 6,
+    "required_substantial_heads": 4,
+    "tail_alpha": 0.0020833333333333333,
+    "minimum_uplift": 0.25,
+    "baseline_sequence_forwards": 2,
+    "two_anchor_family_sequence_forwards": 16
+  },
+  "primary": "At least four of six simultaneous lower Delta bounds strictly exceed 0.25; direction reported separately.",
+  "scenarios": [
+    {
+      "assumed_accepted_rate": 0.9,
+      "assumed_rejected_rate": 0.05,
+      "per_head_power": 0.9553035834196215,
+      "at_least_four_if_equal_and_independent": 0.998387393662827,
+      "at_least_four_without_independence_bounds": [
+        0.910607166839243,
+        1.0
+      ],
+      "assumptions": "Filled strata and valid gates; equal per-head rates. Binomial six-head power additionally assumes independent decisions."
+    },
+    {
+      "assumed_accepted_rate": 0.8,
+      "assumed_rejected_rate": 0.1,
+      "per_head_power": 0.3802144426636463,
+      "at_least_four_if_equal_and_independent": 0.15298688822418563,
+      "at_least_four_without_independence_bounds": [
+        0.0,
+        0.5703216639954695
+      ],
+      "assumptions": "Filled strata and valid gates; equal per-head rates. Binomial six-head power additionally assumes independent decisions."
+    },
+    {
+      "assumed_accepted_rate": 0.75,
+      "assumed_rejected_rate": 0.1,
+      "per_head_power": 0.2084302081632366,
+      "at_least_four_if_equal_and_independent": 0.019688592120762394,
+      "at_least_four_without_independence_bounds": [
+        0.0,
+        0.3126453122448549
+      ],
+      "assumptions": "Filled strata and valid gates; equal per-head rates. Binomial six-head power additionally assumes independent decisions."
+    },
+    {
+      "assumed_accepted_rate": 0.5,
+      "assumed_rejected_rate": 0.1,
+      "per_head_power": 0.0008431831198496465,
+      "at_least_four_if_equal_and_independent": 7.571689223737837e-12,
+      "at_least_four_without_independence_bounds": [
+        0.0,
+        0.0012647746797744698
+      ],
+      "assumptions": "Filled strata and valid gates; equal per-head rates. Binomial six-head power additionally assumes independent decisions."
+    }
+  ],
+  "minimum_accepted_hits_by_rejected_hits": [
+    {
+      "rejected_hits": 0,
+      "minimum_accepted_hits": 23
+    },
+    {
+      "rejected_hits": 1,
+      "minimum_accepted_hits": 24
+    },
+    {
+      "rejected_hits": 2,
+      "minimum_accepted_hits": 26
+    },
+    {
+      "rejected_hits": 3,
+      "minimum_accepted_hits": 27
+    },
+    {
+      "rejected_hits": 4,
+      "minimum_accepted_hits": 28
+    },
+    {
+      "rejected_hits": 5,
+      "minimum_accepted_hits": 29
+    },
+    {
+      "rejected_hits": 6,
+      "minimum_accepted_hits": 30
+    },
+    {
+      "rejected_hits": 7,
+      "minimum_accepted_hits": 31
+    },
+    {
+      "rejected_hits": 8,
+      "minimum_accepted_hits": 31
+    },
+    {
+      "rejected_hits": 9,
+      "minimum_accepted_hits": 32
+    },
+    {
+      "rejected_hits": 10,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 11,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 12,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 13,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 14,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 15,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 16,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 17,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 18,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 19,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 20,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 21,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 22,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 23,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 24,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 25,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 26,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 27,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 28,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 29,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 30,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 31,
+      "minimum_accepted_hits": null
+    },
+    {
+      "rejected_hits": 32,
+      "minimum_accepted_hits": null
+    }
+  ],
+  "cost_formulas": {
+    "random_yield": "q*p_A + (1-q)*p_R",
+    "fixed_screened_policy": "(1024*b + 32*f)/(32*p_A)",
+    "random_selection_policy": "(b+f)/p_random",
+    "ideal_stream_NOT_SCHEDULED": "(b/q+f)/p_A",
+    "validation_total": "1024*b + 64*f"
+  },
+  "shortfall": "Fewer than 32 accepted OR 32 rejected means insufficient yield; no imputation or additional screening.",
+  "limitations": [
+    "Hypothetical rates are assumptions, not predictions from measured results.",
+    "Power is conditional on quotas and technical gates passing.",
+    "Shared inputs may invalidate independent six-head power; dependence-free bounds are also reported.",
+    "The fixed six-head cohort does not identify a population success rate.",
+    "Cost estimates are descriptive and use no measured outcomes."
+  ]
+}

@@ -12,6 +12,11 @@ families**. Its balance-class fit was **19/30**, so the mechanism-development
 gate still failed. This validates the screen locally and leaves the earlier
 development result below unchanged.
 
+**Next plan, not run:** [transfer the screen to six fixed heads](screen_transfer_003/README.md),
+with a fixed screening budget, a random-yield/cost comparison and a separate
+averaged-anchor specification. The public plan awaits independent review;
+no execution is authorized.
+
 ![Complete development result](figures/value_development.png)
 
 ## Why this is the next method iteration
