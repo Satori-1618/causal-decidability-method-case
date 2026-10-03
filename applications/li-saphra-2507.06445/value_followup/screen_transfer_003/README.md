@@ -1,7 +1,7 @@
 # Does the screen transfer to six other heads?
 
-**Status: reviewed design amended to 64 per stratum; awaiting final pre-run review.
-No screening or intervention run.**
+**Status: final pre-run review PASS; user authorized one six-head execution.
+Release will be pushed before any measurement.**
 
 **Goal:** test whether one fixed rule, using only a recipient's native output,
 enriches for cases where the planned interventions can separate two explanations.
@@ -40,7 +40,7 @@ measured in fp32 and fp64. No target-cell mechanism test is part of this run.
 - [Later mechanistic round](MECHANISTIC_NEXT.md): two prefix-averaged anchors per
   balance level, with calibration and target prefixes kept separate.
 - [Review record and final checklist](REVIEW.md): design review accepted with the
-  [sample-size amendment](AMENDMENT_001.md); final execution review remains pending.
+  [sample-size amendment](AMENDMENT_001.md); final pre-run review is PASS.
 - [Source lock](SOURCE_LOCK.json): binds this plan, calculators and inherited sources.
 - [Prepared inputs](inputs/preparation.json): all six unscored recipient pools
   and donor grids, with historical exclusions and deterministic regeneration.
@@ -52,24 +52,27 @@ From this directory, these commands use only files and hypothetical numbers:
 
 ```bash
 python3 verify_plan.py
-python3 -m unittest discover -s . -p 'test_*.py'
 python3 plan_analysis.py --check
 python3 prepare_transfer.py --validate-only
 python3 run_transfer.py --validate-only
 ```
 
-The runner defaults to validation. **`--execute` is blocked** by the pending
-[execution release](EXECUTION_RELEASE.json), before importing a model runtime.
-No new model was constructed or run to test this wrapper: tests use arithmetic,
-prepared strings and synthetic/fake execution. The operator itself was exercised
-in the earlier rounds. Integration on these six heads is not yet empirically
-verified; final review must not mistake passing unit tests for a model result.
+The runner defaults to validation. Execution requires the committed, public
+[execution release](EXECUTION_RELEASE.json), which records the final PASS for
+`23f7f7f` and the user's authorization. See [the review record](REVIEW.md) for
+the disclosed shorter-prefix exception and its exact counts.
 
-The record audit reconstructs the saved target-node arithmetic. Whole-layer
-off-target invariance is checked by the producer at execution; its full tensors
-are not archived, so those checks cannot be independently recomputed from the
-compact snapshots. No six-head result or cost saving is claimed.
+All 74 tests passed at the reviewed, still-pending freeze. Three freeze tests
+assert that historical pending state; at the released checkout, validate with:
 
-After final review, a separate versioned execution release must record the
-reviewed commit and explicit authorization. Any scientific design change requires
-an amendment. This handoff stops before that release and all model measurements.
+```bash
+python3 verify_plan.py
+python3 prepare_transfer.py --validate-only
+python3 run_transfer.py --validate-only
+python3 -m unittest test_plan_analysis test_prepare_transfer test_run_transfer test_analysis_transfer
+```
+
+The record audit reconstructs saved target-node arithmetic. Whole-layer
+off-target invariance is checked by the producer; its full tensors are not
+archived, so those checks cannot be independently recomputed from compact
+snapshots. This run tests screening, not mechanism adequacy or measured savings.

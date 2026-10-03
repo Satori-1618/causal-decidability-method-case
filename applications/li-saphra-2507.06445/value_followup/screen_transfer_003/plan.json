@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "round": "screen_transfer_003",
-  "status": "awaiting_final_pre_run_review",
-  "execution_authorized": false,
+  "status": "released_for_execution",
+  "execution_authorized": true,
   "model_measurements_performed": false,
-  "scope": "Design amendment and runner/input freeze; final pre-run review and explicit execution release required before any new native score.",
+  "scope": "Public final review and user release for one execution of the frozen six-head screen-transfer round; no subsequent mechanistic round.",
   "cohort": [
     {
       "model": "50h5xlod",
@@ -193,6 +193,6 @@
     "status": "PASS_WITH_AMENDMENT",
     "source": "User-supplied independent review text; reviewer identity not supplied.",
     "accepted_amendment": "64 families per stratum; preserve all other scientific thresholds and fixed native budget.",
-    "final_pre_run_review": "pending"
+    "final_pre_run_review": "PASS at 23f7f7f6c6e4da8de391b131d7cb7c770ca3a5af"
   }
 }

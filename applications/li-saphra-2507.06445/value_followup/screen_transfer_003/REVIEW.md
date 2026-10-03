@@ -55,3 +55,51 @@ Final review should inspect the current published commit, run the model-free
 commands in the README, and check source/input bindings and failure paths.
 Any eventual release must name that reviewed commit and record explicit execution
 authorization. Scientific code or inputs changed after it require renewed review.
+
+## Final pre-run review and execution release — 3 October 2026
+
+**PASS for `23f7f7f6c6e4da8de391b131d7cb7c770ca3a5af`.** The user supplied
+an independent final review and explicitly authorized the agent to publish the
+release and execute all six heads exactly once. Reviewer identity is not supplied;
+this is not represented as named external human peer review. The previous pending
+sections above preserve the handoff history. The current release is recorded in
+`EXECUTION_RELEASE.json`; the run must record its public commit.
+
+The reviewer verified the amendment, cutoffs, unscored inputs, freshness,
+fail-closed runner, 74 tests and 60 source hashes. The full 74-test suite was
+rerun successfully on the still-pending reviewed state before this release.
+Three `test_freeze.py` tests specifically assert that old pending state; they
+remain unmodified as part of the reviewed code. Reproduce all 74 tests at the
+reviewed commit. At a released checkout use the plan verifier, input validator,
+runner validator and the other four test modules; do not treat intentionally
+released authorization as a failure of the frozen pending-state test fixtures.
+
+### Disclosed literal-protocol exception: shorter prefixes
+
+§3 literally excludes both historical prefix lengths. The prepared generator
+checks a donor at its measured position: all length-20 donors have fresh
+20-symbol prefixes and all length-28 donors have fresh 28-symbol prefixes.
+Some position-28 donors nevertheless share a historical 20-symbol beginning.
+The final review disclosed and accepted this exception before execution. No
+inputs are replaced and no exclusion rule is relaxed after observing outcomes.
+
+The reviewer quoted 2–7 donors/head. A read-only check against the committed
+historical union instead gives the following exact counts:
+
+| Head | All prepared position-28 donor entries with old 20-prefix | Scheduled `pos_28_0` entries with old 20-prefix |
+|---|---:|---:|
+| 50h5xlod/H1 | 4 | 2 |
+| 8a65u5l6/H1 | 5 | 1 |
+| dsibxabs/H4 | 4 | 0 |
+| qtda56zd/H2 | 3 | 1 |
+| we9o801g/H2 | 11 | 1 |
+| wfwpq5xc/H1 | 5 | 4 |
+
+The scheduled column totals nine if all quotas fill. No complete new candidate
+or donor string, and no donor prefix at its measurement position, overlaps the
+historical exclusions. Causal attention at position 28 depends on the complete
+prefix through that position, so a shared shorter beginning is not a repeated
+measured activation. This does not establish training-data independence.
+
+This release changes authorization metadata and documentation only. Scientific
+code, prepared inputs, thresholds and the six-head cohort are unchanged.

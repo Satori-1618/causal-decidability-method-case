@@ -1,11 +1,15 @@
 {
   "schema_version": 1,
-  "status": "pending",
-  "execution_authorized": false,
+  "status": "approved",
+  "execution_authorized": true,
   "final_review": {
-    "status": "pending",
-    "reviewer": null,
-    "reviewed_commit": null
+    "status": "PASS",
+    "reviewer": "User-supplied independent final pre-run review; reviewer identity not supplied",
+    "reviewed_commit": "23f7f7f6c6e4da8de391b131d7cb7c770ca3a5af",
+    "received_and_recorded_at": "2026-10-03T10:06:25.738956+00:00"
   },
-  "user_execution_authorization": null
+  "user_execution_authorization": "Felix supplied the final PASS and instructed: set the execution release with my authorization, push it, then run all six heads exactly once and report every outcome, including failures and insufficient yield.",
+  "released_at": "2026-10-03T10:06:25.738956+00:00",
+  "scope": "One execution of the six frozen heads; no scientific retries, replacements, extensions or subsequent mechanistic round.",
+  "prefix_overlap_note": "Disclosed before execution: some position-28 donors have historical 20-symbol beginnings; their measured 28-symbol prefixes are fresh. Literal \u00a73 exclusion exception accepted with final review. No input change."
 }
