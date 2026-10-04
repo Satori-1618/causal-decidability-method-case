@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "scope": "Post-run audit and reporting bindings; original producer source lock remains unchanged.",
+  "reviewed_commit": "80085bbd156fd2a3cfe56662b748a7d10ccf7227",
+  "release_commit": "5cb6f770494a2e42bfdfeaaa3206bc9beab3f75a",
+  "model_runs": 1,
+  "files": {
+    "RESULT.md": "4281739d4f2346eaab1ab615f7bf869c4706f8a5a4a49c6a40bbc8a30f5a3f56",
+    "VERIFICATION.md": "c629fb0c8290cebf1e297f19ada0d9e30b793372cdafe0d36fd0a53ec50c372f",
+    "reporting/verify_statistics.py": "24c960b3e31cfac149bf7c8669878b47be0bbeb61e268fea4df75a7f3637b382",
+    "reporting/verify_provenance.py": "395385d9603f552a7c2dbcd41d8f4e81224375091ee35b8463ec3c5e397e40c6",
+    "results/analysis_summary.json": "1da462ad041d1812ed612676f32393d9ac0e710b4332f32b77f329c35f101022",
+    "results/descriptive_summary.json": "b9b1c8dc83adc84fdd53f54ba29838e56a78e6eb9c2806e52f72d619813b0506",
+    "results/manifest.json": "23b5d3e9d5842ef1e96359ae3bd606f7e1f32565b557b62d0225e0bd6bb49306",
+    "results/independent_statistics.json": "aa7f89fd228d6d1c32d562283ef18e9e32e556627c8bc3fc07495ddb8177307f",
+    "results/independent_provenance.json": "19dfe8284da8ff6d217cbedb81e1c133d19181346b840ab4a689f0584ab0971f",
+    "results/raw_index.json": "e4e040d4d747a3d701d0b259e6dfbc3d7faeb0ccff8b34b2361483c09e8d18b0",
+    "results/run_001.tar.gz": "296cc5224094ca75b44e446cc61b01dfe73a32a6853c36fadcc95a6f20440176"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "start": {
+    "families": 256,
+    "separating": 151,
+    "minimum_separating": 128,
+    "start_targets": true,
+    "status": "start_targets"
+  },
+  "candidates_on_separating_families": {
+    "B_avg": {
+      "families": 151,
+      "definite_hits": 123,
+      "possible_hits": 125,
+      "definite_rate": 0.8145695364238411,
+      "possible_rate": 0.8278145695364238,
+      "adequacy_threshold": 0.9,
+      "interval": [
+        0.729700782860081,
+        0.8930948345578176
+      ],
+      "status": "excluded"
+    },
+    "P_avg": {
+      "families": 151,
+      "definite_hits": 0,
+      "possible_hits": 0,
+      "definite_rate": 0.0,
+      "possible_rate": 0.0,
+      "adequacy_threshold": 0.9,
+      "interval": [
+        0.0,
+        0.030037449344108264
+      ],
+      "status": "excluded"
+    }
+  },
+  "paired_averaging_on_all_families": {
+    "families": 256,
+    "robust_gains": 8,
+    "robust_losses": 7,
+    "robust_point_difference": 0.00390625,
+    "one_sided_exact_mcnemar_p": 0.4999999999999998,
+    "alpha": 0.01,
+    "improvement_supported": false,
+    "interpretation": "Average definite-hit probability exceeds four-cell single-prefix possible-hit probability.",
+    "non_rejection": "Unresolved improvement; not equivalence or proof that averaging is useless."
+  },
+  "within_cell_witness_families_descriptive": 0,
+  "within_cell_possible_witness_families_descriptive": 0,
+  "within_cell_numerically_unresolved_families_descriptive": 0,
+  "future_confirmation_planning_candidates": [],
+  "future_confirmation_permission": false,
+  "gate_scope": "A development feasibility condition only. Point accuracy >=90% is not a population adequacy finding.",
+  "familywise_error_budget": {
+    "candidate_bounds": 0.04,
+    "paired_test": 0.01,
+    "total": 0.05
+  }
+}

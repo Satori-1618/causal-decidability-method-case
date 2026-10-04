@@ -1,7 +1,15 @@
 # Averaged anchors: balance, position, or additional prefix dependence?
 
-**Released for one execution following final review of `80085bb`.**
-See [release record](EXECUTION_RELEASE.json); this header records the pre-run state.
+**Completed once under public release `5cb6f77`; no further run authorized.**
+Read the [full result](RESULT.md) and [verification instructions](VERIFICATION.md).
+Of 256 families, 151 separated: B_avg had 123 definite hits and P_avg zero;
+both were excluded at the 90% adequacy target. Averaging improvement was
+unresolved (8 robust gains / 7 losses, p=0.50). Descriptive prefix variation
+was much larger at -2 than at +2. This does not identify a history mechanism.
+
+The [release record](EXECUTION_RELEASE.json) preserves the historical authorization;
+it must not be reused to start another execution. The design below is retained
+as the pre-run specification.
 Head `a9g0io1r`, layer 2 / head 1 (one-based); four-head model, head width 16.
 
 **Review update:** the supplied review passed the original freeze's integrity

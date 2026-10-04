@@ -16,9 +16,11 @@ development result below unchanged.
 (four required), with 59–64/64 separating accepted families versus 1–14/64
 rejected families per head. This supports prospective case selection within the
 selected cohort; it does not identify the mechanism or demonstrate cost savings.
-The [averaged-anchor mechanism round](averaged_anchors_004/README.md) is now
-prepared for independent review: 256 families on `a9g0io1r`, with fixed inputs,
-power and start rules. It has not run and execution remains blocked.
+The [averaged-anchor mechanism round](averaged_anchors_004/RESULT.md) also
+completed once: 151/256 families separated, but both calibrated rules were
+excluded at the 90% adequacy target (balance 123 definite hits, position zero).
+Averaging benefit remained unresolved. Descriptive prefix variation was much
+larger at -2 than at +2; no specific history mechanism or confirmation follows.
 
 ![Complete development result](figures/value_development.png)
 

@@ -1,0 +1,29 @@
+{
+  "accepted_candidates": 886,
+  "calibration_families": 256,
+  "calibration_only_original_and_C_forecasts_reproduced": true,
+  "forecast_receipt_precedes_target": true,
+  "forward_batches_attempted": 576,
+  "forward_batches_completed": 576,
+  "input_files_unchanged_from_review": 4,
+  "ledger_has_unfinished_forward": false,
+  "limitations": [
+    "Raw snapshots independently support local node construction/delivery and fixed native inputs. Full attention/value/off-target preservation and native-node identity are producer controls; complete tensors for those checks are not serialized.",
+    "This audit is arithmetic/provenance review by another agent, not an independently executed model replication or independently timestamped data collection."
+  ],
+  "numeric_transfer_records_with_exact_reconstructed_delivered_nodes": 8192,
+  "output_hashes_verified": 16,
+  "release_scientific_changes": 0,
+  "released_run_commit": "5cb6f770494a2e42bfdfeaaa3206bc9beab3f75a",
+  "reported_identity_error": 0.0,
+  "reviewed_commit": "80085bbd156fd2a3cfe56662b748a7d10ccf7227",
+  "screened_candidates": 2048,
+  "screening_receipt_precedes_calibration": true,
+  "selected_first_accepted_families": 256,
+  "separating_families": 151,
+  "sequence_forwards_attempted": 36864,
+  "sequence_forwards_completed": 36864,
+  "source_hashes_verified": 88,
+  "status": "PASS",
+  "target_families": 256
+}
