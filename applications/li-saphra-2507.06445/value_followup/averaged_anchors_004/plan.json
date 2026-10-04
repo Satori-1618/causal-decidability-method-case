@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "round": "averaged_anchors_004",
-  "status": "awaiting_final_pre_run_review",
-  "execution_authorized": false,
+  "status": "released_for_execution",
+  "execution_authorized": true,
   "model_measurements_performed": false,
   "scope": "Prospective, predeclared development on one adaptively selected head; fresh targets, no unique mechanism identification or untouched-head claim.",
   "model": {
@@ -135,7 +135,9 @@
     "final_review": "REVIEW.md",
     "execution_release": "EXECUTION_RELEASE.json",
     "source_lock": "SOURCE_LOCK.json",
-    "prepared_inputs_sha256": "f506473113149306775eefd5b7e7deedf8aad8dca5ee05ac3a8f1e3c8d3a0dbf"
+    "prepared_inputs_sha256": "f506473113149306775eefd5b7e7deedf8aad8dca5ee05ac3a8f1e3c8d3a0dbf",
+    "released_reviewed_commit": "80085bbd156fd2a3cfe56662b748a7d10ccf7227",
+    "released_at": "2026-10-04T13:31:40.473698+00:00"
   },
   "descriptive_amendment_002": {
     "date": "2026-10-04",

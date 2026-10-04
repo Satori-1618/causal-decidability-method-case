@@ -1,4 +1,27 @@
-# Independent pre-run review — pending
+# Independent pre-run review — PASS
+
+## Final review and explicit release — 2026-10-04
+
+The user supplied **final independent review PASS for `80085bb`** and explicitly
+authorized publishing the release and executing the round exactly once. The
+reviewer's identity is not supplied; this records the received review rather
+than asserting independent human authorship. `EXECUTION_RELEASE.json` binds the
+full reviewed commit and authorization. Earlier pending-review entries below
+are retained as preparation history.
+
+The review accepts the existing fail-closed behavior: the descriptive add-on
+runs inside the main try-block, so an exception there marks the whole run as a
+technical failure; a pre-target exception prevents targets. No code changes,
+retries or threshold changes are authorized. All outcomes, including stops and
+per-cell prefix variation, must be reported.
+
+The reviewer clarifies that the earlier approximately 80% forecast came from a
+simulation of fresh targets with two-prefix calibration, assuming a shared
+within-cell spread. The simulation code was not supplied here. Our historical
+recount is a comparison of observable estimators, not a reconstruction of that
+simulation. Neither its in-sample 32/32 nor the simulation establishes the new
+round's outcome. The unequal observed spread at -2 and +2 motivates the already
+frozen descriptive tables; small spread is not exact prefix independence.
 
 ## Review received and Amendment 002
 

@@ -1,11 +1,15 @@
 {
   "schema_version": 1,
-  "status": "pending",
-  "execution_authorized": false,
+  "status": "approved",
+  "execution_authorized": true,
   "final_review": {
-    "status": "pending",
-    "reviewer": null,
-    "reviewed_commit": null
+    "status": "PASS",
+    "reviewer": "User-supplied independent final pre-run review; reviewer identity not supplied",
+    "reviewed_commit": "80085bbd156fd2a3cfe56662b748a7d10ccf7227",
+    "received_and_recorded_at": "2026-10-04T13:31:40.473698+00:00"
   },
-  "user_execution_authorization": null
+  "user_execution_authorization": "Felix supplied the final PASS and instructed: set the execution release with my authorization, push it, then run the round exactly once and report every outcome, including the per-cell prefix SDs for balance -2 vs +2.",
+  "released_at": "2026-10-04T13:31:40.473698+00:00",
+  "scope": "One execution of averaged_anchors_004 on a9g0io1r layer2/head1. No retries, replacements, threshold changes or subsequent confirmation.",
+  "accepted_fail_closed_note": "Descriptive calculations run inside the main try-block. A descriptive-code exception marks the entire round technical_failure; a pre-target exception prevents target measurement. Accepted by the supplied final review; no source change."
 }

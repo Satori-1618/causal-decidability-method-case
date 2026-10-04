@@ -1,11 +1,12 @@
 # Averaged anchors: balance, position, or additional prefix dependence?
 
-**Prepared for independent review. No model measurements; execution blocked.**
+**Released for one execution following final review of `80085bb`.**
+See [release record](EXECUTION_RELEASE.json); this header records the pre-run state.
 Head `a9g0io1r`, layer 2 / head 1 (one-based); four-head model, head width 16.
 
 **Review update:** the supplied review passed the original freeze's integrity
 checks. [Amendment 002](AMENDMENT_002.md) adds a calibration-only cell predictor
-and descriptive prefix variation; its final review is still pending. No primary
+and descriptive prefix variation; final review passed before this release. No primary
 rule, input, sample size or tolerance changes.
 
 The earlier single-anchor balance account matched 19/30 separating families.

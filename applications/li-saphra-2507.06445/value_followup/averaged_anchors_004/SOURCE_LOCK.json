@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "awaiting_independent_pre_run_review",
+  "status": "released_for_single_execution",
   "base_commit": "236a8a27dab6357ec8a22f830aa173116de41b46",
   "scope": "New averaged-anchor protocol, unscored inputs, pure analysis/power, blocked runner and all inherited runtime/input sources. No new model measurements. Navigation README files excluded; this lock is anchored by its public commit and cannot hash itself.",
   "files": {
@@ -14,16 +14,16 @@
     "applications/li-saphra-2507.06445/native_followup/token_split.py": "d329cfe15384cf8b76b279a749ebdeb76504503e9d0558a9aedcc1f5071fe1a1",
     "applications/li-saphra-2507.06445/upstream/utils/minGPT/model.py": "518a09d8f280ead364f16a8f65429b71220559b4fec959a1c9f1bb97a1e701dd",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/AMENDMENT_002.md": "cd94b11f3d6819235524263911426430746f636ee335b980f68103425a3f1bd7",
-    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/EXECUTION_RELEASE.json": "276a38239b8d4b37199350231cf18f2be4cfa3f578366157624927ee10d9254b",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/EXECUTION_RELEASE.json": "c12639c2676ac7b378106a98c7e49a1a55e75df79ea82092aa4e636934a1be84",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/PROTOCOL.md": "84af2dd59ebfd2d5a0622e249cfdc7c8df7b3c2bd73b65faec9c9feffb4d62f5",
-    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/REVIEW.md": "b6629469fbdbe4304eac67e0e5f69b119665cb0f6979da039b125c73acad7073",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/REVIEW.md": "eb5a0d4d82698c542cf5dd40773acf4c290fa12e274cdb5cd0cdbaeb8cf181f5",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/analysis.py": "727c9bb20c1d6db50a61ce992e825c923e887c019f4c572c3d6e18e3c77180cf",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/descriptives.py": "fbad067257ff5ea1daf3623883acc30978c21378198b6b14837e586a8618b379",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/inputs/candidates.jsonl": "1356356c1800fd6052e18686be4e5468dc537965d46ece9db2accd9b2abf9373",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/inputs/donor_families.jsonl": "3ff49f00e02c935ce5d7ba75928c25571f286460465e9b27e2b241770880a1c1",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/inputs/exclusions.json": "b9bd18afbafcfd92071685d8abb37a6efbe322a2e24bbc49e9cf8866e0beea6d",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/inputs/preparation.json": "f506473113149306775eefd5b7e7deedf8aad8dca5ee05ac3a8f1e3c8d3a0dbf",
-    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/plan.json": "38577076696fdf19fb720843985a4d478b9c3ea519886ad9908a50d13803a1a2",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/plan.json": "f427cd434ddb4a13d5efa9565018ccbbeac85ac7478001fa25480730f7679379",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/planning.json": "6ea0e8a005c784a3ba9a4e4f88d8624a8ff4a83f0d9513e23dfffb029683609f",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/planning.py": "0850f5017bdc674c95cae604c844982ab615e3bd82952e47eed1b6292d060f36",
     "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/prepare.py": "ab47c523f32e88d9037c53ae55317ec137100e4ebed30bf9e617b57598adc23d",
@@ -96,5 +96,6 @@
     "prior_public_freeze": "b7b577c5a9dbca8674626217efc39bc6462d03e6",
     "date": "2026-10-04",
     "scope": "Descriptive cell predictions and variance decomposition only; unchanged primary analysis, prepared inputs and existing tests; execution pending."
-  }
+  },
+  "release_reviewed_commit": "80085bbd156fd2a3cfe56662b748a7d10ccf7227"
 }
