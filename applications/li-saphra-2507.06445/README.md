@@ -11,6 +11,10 @@ A subsequent [prospective native-margin screen](value_followup/screen_002/README
 found anchor-separable outcomes in **30/32 accepted versus 0/32 rejected fresh
 families**, while balance-class fit remained insufficient (**19/30**). The screen
 is locally validated; the semantic mechanism is not confirmed.
+The [latest completed mechanism round](value_followup/averaged_anchors_004/RESULT.md)
+excluded its frozen balance-only and position-only predictors at 90% adequacy.
+A [new matched-history round](value_followup/history_005/README.md) is prepared
+for independent review, with no model measurements or execution release.
 The retrospective audit below is preserved as the earlier, narrower stage.
 
 **The published improvement is robust. Its decomposition is not identified.**

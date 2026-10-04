@@ -1,0 +1,139 @@
+{
+  "constants": {
+    "directional_alpha": 0.008333333333333333,
+    "families": 256,
+    "familywise_alpha_upper_bound": 0.05,
+    "minimum_potentially_separating": 64,
+    "native_budget": 2048,
+    "pair_alpha": 0.016666666666666666,
+    "pairs": 3,
+    "robust_advantage_nat": 0.022
+  },
+  "cost": {
+    "calibration": 16384,
+    "calibration_stop": 20480,
+    "maximum": 36864,
+    "native": 4096,
+    "targets_if_start_passes": 16384,
+    "transfer_forward_recipe": "4 per dtype: recipient-native, donor-native, identity, patch",
+    "unit": "sequence-forwards across both dtypes, not wall time"
+  },
+  "design_rationale": "N256 gives about88% favorable-direction power for robust wins/losses .15/.05; N128 gives about49.5%. This is a hypothetical planning alternative, not a forecast or a +10-point tested threshold.",
+  "deterministic_resolution_fact": "For the same target vector, |E_i-E_j| <= ||forecast_i-forecast_j||_infinity. A forecast gap<=.022 therefore cannot yield a guarded max-error advantage>.022, irrespective of the target values.",
+  "limits": [
+    "The new centered-contrast question does not rescue or reinterpret round004's failed absolute-adequacy accounts.",
+    "The .020 meaningful advantage and .002 numerical guard are distinct choices; .022 is not an absolute prediction-tolerance claim.",
+    "The exact tests compare meaningful-win versus meaningful-loss probabilities, not mean loss or absolute adequacy.",
+    "Neutral families remain in the reported denominator; only non-neutral families are binomial trials.",
+    "Power concerns one hypothetical pair and all256 complete outcomes; it is not a probability of identifying a unique winner among all3 candidates.",
+    "No independence among pairwise tests is assumed for the Bonferroni error bound.",
+    "Start depends on the same calibration used to predict outcomes. Do not multiply stage probabilities or interpret the displayed test power as conditional on a passed start gate.",
+    "The64-family coverage rule may be distributed over different pairs and does not establish their predictive accuracy.",
+    "Pure interaction can make all three main forecasts coincide; the descriptive full-cell predictor cannot override a failed start.",
+    "Centering removes shared-stem offsets by definition and cannot establish what explains that discarded variation.",
+    "Recency changes here are specific matched token-edit bundles, not isolated manipulation of an abstract scalar recency variable."
+  ],
+  "native_quota_probability": [
+    {
+      "assumed_native_acceptance_rate": 0.1,
+      "probability_at_least_256_of_2048": 0.0001474472017823453
+    },
+    {
+      "assumed_native_acceptance_rate": 0.125,
+      "probability_at_least_256_of_2048": 0.5099952702523292
+    },
+    {
+      "assumed_native_acceptance_rate": 0.15,
+      "probability_at_least_256_of_2048": 0.9994659714021098
+    },
+    {
+      "assumed_native_acceptance_rate": 0.2,
+      "probability_at_least_256_of_2048": 0.9999999999999577
+    }
+  ],
+  "new_start_probability": [
+    {
+      "assumed_any_pair_potential_coverage": 0.1,
+      "probability_at_least_64_of_256": 4.624516566797353e-12
+    },
+    {
+      "assumed_any_pair_potential_coverage": 0.2,
+      "probability_at_least_64_of_256": 0.029734855188107152
+    },
+    {
+      "assumed_any_pair_potential_coverage": 0.25,
+      "probability_at_least_64_of_256": 0.5239782090340185
+    },
+    {
+      "assumed_any_pair_potential_coverage": 0.3,
+      "probability_at_least_64_of_256": 0.966926754167491
+    },
+    {
+      "assumed_any_pair_potential_coverage": 0.4,
+      "probability_at_least_64_of_256": 0.9999998430328553
+    },
+    {
+      "assumed_any_pair_potential_coverage": 0.5,
+      "probability_at_least_64_of_256": 0.999999999999939
+    }
+  ],
+  "paired_scenarios": [
+    {
+      "assumed_neutral_probability": 0.85,
+      "assumed_robust_loss_probability": 0.05,
+      "assumed_robust_win_probability": 0.1,
+      "assumed_win_minus_loss_probability": 0.05,
+      "assumptions": "IID complete family outcomes at the guarded .022-nat threshold; no screening/start/technical failure included.",
+      "either_direction_probability": 0.3194984036010427,
+      "families": 256,
+      "favorable_direction_power": 0.319496457759757,
+      "opposite_direction_probability": 1.945841285723394e-06
+    },
+    {
+      "assumed_neutral_probability": 0.8,
+      "assumed_robust_loss_probability": 0.05,
+      "assumed_robust_win_probability": 0.15,
+      "assumed_win_minus_loss_probability": 0.09999999999999999,
+      "assumptions": "IID complete family outcomes at the guarded .022-nat threshold; no screening/start/technical failure included.",
+      "either_direction_probability": 0.8798106692553692,
+      "families": 256,
+      "favorable_direction_power": 0.8798106689754834,
+      "opposite_direction_probability": 2.798857359297409e-10
+    },
+    {
+      "assumed_neutral_probability": 0.75,
+      "assumed_robust_loss_probability": 0.05,
+      "assumed_robust_win_probability": 0.2,
+      "assumed_win_minus_loss_probability": 0.15000000000000002,
+      "assumptions": "IID complete family outcomes at the guarded .022-nat threshold; no screening/start/technical failure included.",
+      "either_direction_probability": 0.9949187011877444,
+      "families": 256,
+      "favorable_direction_power": 0.9949187011877269,
+      "opposite_direction_probability": 1.7548389411052337e-14
+    },
+    {
+      "assumed_neutral_probability": 0.65,
+      "assumed_robust_loss_probability": 0.05,
+      "assumed_robust_win_probability": 0.3,
+      "assumed_win_minus_loss_probability": 0.25,
+      "assumptions": "IID complete family outcomes at the guarded .022-nat threshold; no screening/start/technical failure included.",
+      "either_direction_probability": 0.999999687909642,
+      "families": 256,
+      "favorable_direction_power": 0.999999687909642,
+      "opposite_direction_probability": 8.773074477314717e-24
+    }
+  ],
+  "smaller_sample_reference": {
+    "assumed_neutral_probability": 0.8,
+    "assumed_robust_loss_probability": 0.05,
+    "assumed_robust_win_probability": 0.15,
+    "assumed_win_minus_loss_probability": 0.09999999999999999,
+    "assumptions": "IID complete family outcomes at the guarded .022-nat threshold; no screening/start/technical failure included.",
+    "either_direction_probability": 0.49484200556968505,
+    "families": 128,
+    "favorable_direction_power": 0.4948418982341111,
+    "opposite_direction_probability": 1.0733557393483959e-07
+  },
+  "start_rationale": "64/256 is an operational25% minimum potential coverage. It is not a power threshold and does not ensure any particular pair has64 separated families.",
+  "status": "hypothetical_planning_only_no_measured_outcomes"
+}

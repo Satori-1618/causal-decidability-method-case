@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "round": "history_005",
+  "status": "pending",
+  "execution_authorized": false,
+  "final_review": {
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_commit": null
+  },
+  "user_execution_authorization": null,
+  "scope": "No model measurements permitted. Independent review and explicit release of this new round are required; authorization from004 does not carry over."
+}

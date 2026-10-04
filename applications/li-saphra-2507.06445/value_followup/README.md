@@ -22,6 +22,12 @@ excluded at the 90% adequacy target (balance 123 definite hits, position zero).
 Averaging benefit remained unresolved. Descriptive prefix variation was much
 larger at -2 than at +2; no specific history mechanism or confirmation follows.
 
+**Next round prepared, not run:** [matched history edits](history_005/README.md)
+hold balance, minimum and read position fixed while crossing two precise
+bracket swaps. Fresh centered effects will compare recency, final-pattern and
+constant predictions on 256 families. The public freeze requires independent
+review and a separate execution release; the earlier results remain unchanged.
+
 ![Complete development result](figures/value_development.png)
 
 ## Why this is the next method iteration
