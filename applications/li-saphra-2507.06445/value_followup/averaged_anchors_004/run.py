@@ -218,6 +218,14 @@ def freeze_forecasts(context, analysis):
     gate = analysis.start_rule(results)
     write_rows(directory / 'forecasts.jsonl', forecasts)
     write_rows(directory / 'calibration_cases.jsonl', context['records'])
+    # Amendment 002: a separate calibration-only diagnostic, never an extra
+    # candidate in the frozen start rule or inferential error family.
+    descriptive = load_module('averaged_004_descriptives', HERE / 'descriptives.py')
+    context['descriptive_forecasts'] = [
+        {'family_id': row['family_id'],
+         'forecasts': descriptive.forecasts(role_margins(row, 'calibration'))}
+        for row in context['records']]
+    write_rows(directory / 'descriptive_forecasts.jsonl', context['descriptive_forecasts'])
     context['controls']['forecast_precision'] = {
         'maximum_signed_contrast_dtype_difference': max(r['forecast_contrast_dtype_error'] for r in results),
         'separation_boundary_straddles': 0}
@@ -226,6 +234,7 @@ def freeze_forecasts(context, analysis):
     context['manifest']['target_start_passed'] = gate['start_targets']
     write_json(directory / 'forecast_receipt.json', {'written_before_targets_at': now(),
         'forecasts_sha256': sha(directory / 'forecasts.jsonl'),
+        'descriptive_forecasts_sha256': sha(directory / 'descriptive_forecasts.jsonl'),
         'calibration_cases_sha256': sha(directory / 'calibration_cases.jsonl'),
         'screening_receipt_sha256': sha(directory / 'screening_receipt.json'),
         'source_hashes': context['sources'], 'start_rule': gate})
@@ -249,6 +258,19 @@ def target_precision(context, analysis):
         'same_cell_boundary_straddle_families': sum(bool(r['within_cell_numerically_unresolved']) for r in results)}
     write_rows(context['directory'] / 'cases.jsonl', context['records'])
     write_json(context['directory'] / 'controls.json', context['controls'])
+
+
+def descriptive_outputs(context):
+    """Add-on arithmetic only; cannot revise the primary decisions or gates."""
+    descriptive = load_module('averaged_004_descriptives', HERE / 'descriptives.py')
+    rows = []
+    for row, frozen in zip(context['records'], context['descriptive_forecasts']):
+        result = descriptive.family_result(role_margins(row, 'calibration'), role_margins(row, 'target'))
+        if frozen['family_id'] != row['family_id'] or result['forecasts'] != frozen['forecasts']:
+            raise AssertionError('A descriptive pre-target forecast changed')
+        rows.append(dict(result, family_id=row['family_id'], separating=row['separating']))
+    write_rows(context['directory'] / 'descriptive_cases.jsonl', rows)
+    write_json(context['directory'] / 'descriptive_summary.json', descriptive.cohort_result(rows))
 
 
 def execution_dependencies():
@@ -302,6 +324,7 @@ def execute(output, plan, release, sources, cohort, preparation, candidates, tem
         transfer_stage(context, 'target', transfer)
         target_precision(context, analysis)
         write_json(output / 'analysis_summary.json', analysis.cohort_result([row['analysis'] for row in context['records']]))
+        descriptive_outputs(context)
         manifest['status'] = 'completed'
     except BaseException as error:
         manifest.update(status='technical_failure', error_type=type(error).__name__, error=str(error))

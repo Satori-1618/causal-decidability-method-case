@@ -3,6 +3,11 @@
 **Prepared for independent review. No model measurements; execution blocked.**
 Head `a9g0io1r`, layer 2 / head 1 (one-based); four-head model, head width 16.
 
+**Review update:** the supplied review passed the original freeze's integrity
+checks. [Amendment 002](AMENDMENT_002.md) adds a calibration-only cell predictor
+and descriptive prefix variation; its final review is still pending. No primary
+rule, input, sample size or tolerance changes.
+
 The earlier single-anchor balance account matched 19/30 separating families.
 This new round asks whether better calibration improves prediction of fresh
 prefixes, and whether differences remain that **no common balance-and-position
@@ -39,6 +44,12 @@ Averaging can help **and** residual prefix dependence can remain. Neither
 outcome establishes a unique natural mechanism, exact balance rather than its
 sign, or applicability to other heads. The old two-diagonal-anchor rule is
 reported descriptively; it is not the averaging comparator.
+
+The amendment also asks **how large the remaining variation is**. `C_cell` uses
+the two calibration prefixes at the target's balance and position; it is tested
+on separate targets. A four-prefix descriptive breakdown shows cell means,
+balance, position, interaction and within-cell spread against the 0.10-nat scale.
+Both predictors missing does not by itself identify a history mechanism.
 
 ## Read or check the freeze
 

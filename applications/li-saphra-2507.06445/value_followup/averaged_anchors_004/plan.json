@@ -136,5 +136,21 @@
     "execution_release": "EXECUTION_RELEASE.json",
     "source_lock": "SOURCE_LOCK.json",
     "prepared_inputs_sha256": "f506473113149306775eefd5b7e7deedf8aad8dca5ee05ac3a8f1e3c8d3a0dbf"
+  },
+  "descriptive_amendment_002": {
+    "date": "2026-10-04",
+    "amends_public_commit": "b7b577c5a9dbca8674626217efc39bc6462d03e6",
+    "specification": "AMENDMENT_002.md",
+    "status": "awaiting_final_independent_review",
+    "cell_forecast": "C_cell[d,p]=(cal[d,p,0]+cal[d,p,1])/2; only calibration prefixes",
+    "receipt": "descriptive_forecasts.jsonl hashed in forecast_receipt.json before any target",
+    "outputs": [
+      "descriptive_cases.jsonl",
+      "descriptive_summary.json"
+    ],
+    "decomposition": "Within each family: balance, position, interaction and within-cell sums of squares on all16calibration+target margins; preserve role means, cell SDs/ranges and simple contrasts.",
+    "inference": "Descriptive only; no added hypothesis test, adequacy claim, error allocation, selection, start rule or future confirmation permission.",
+    "precision": "Both dtypes reported; C_cell signed-error discrepancy >.001 is unresolved supplemental classification, not a new primary stop.",
+    "old_data_review": "review/recount.json; old-data sensitivity only, not a validated forecast of the new two-calibration/two-target design."
   }
 }

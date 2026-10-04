@@ -1,5 +1,9 @@
 # Averaged-anchor mechanism round 004 — pre-run freeze
 
+**Analysis-only addendum, 2026-10-04:** [Amendment 002](AMENDMENT_002.md)
+adds a calibration-only cell predictor and descriptive four-prefix variation.
+The original rules below remain unchanged; final review and release are pending.
+
 **Prospective development, one fixed head, no execution authorization.** This
 fills in the sampling, precision and start rules left open in
 [MECHANISTIC_NEXT.md](../screen_transfer_003/MECHANISTIC_NEXT.md). Its calibration

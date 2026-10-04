@@ -1,5 +1,39 @@
 # Independent pre-run review — pending
 
+## Review received and Amendment 002
+
+On 2026-10-04 the user supplied a review of public commit `b7b577c`:
+**integrity PASS; release withheld pending Amendment 002**. The supplied text
+does not independently identify its reviewer; attribution is to that user-
+provided review, not to a newly commissioned human or external audit here.
+
+The [amendment](AMENDMENT_002.md) adds descriptive `C_cell` forecasts, fitted
+only on calibration prefixes, and a complete four-prefix variation breakdown.
+It corrects the overinterpretation of predictor failures and records why the
+historical 80%/81% estimates are not direct forecasts of this design.
+No original inputs, rules, inferential tests or original software tests change.
+
+**Final review of the amended public commit is pending.** In addition to the
+original checklist, check:
+
+- [ ] C_cell forecasts use no target margins and their hash is recorded before targets.
+- [ ] Four-prefix means are descriptive only and include interaction and role means.
+- [ ] Supplemental precision uncertainty cannot change the primary start or outcome.
+- [ ] Input bytes, original analysis, planning and original tests match `b7b577c`.
+- [ ] Execution authorization remains false; no round-004 outcomes exist.
+
+### Amendment preparation checks (not final independent approval)
+
+The 53 original tests and 14 new descriptive/integration tests pass (67 total).
+The source verifier binds 88 files including its own lock; the original planning
+table and regenerated input checks pass. Byte comparison to `b7b577c` confirms
+unchanged inputs, primary analysis/planning, original tests and pending release.
+A separate preparation agent reviewed forecast ordering, target leakage,
+interpretations and the interaction arithmetic without finding a blocker.
+These are internal implementation checks, not authorization to execute.
+
+## Original freeze checklist (retained)
+
 **Status: no execution release; no new model measurements.** Review the public
 commit containing this entire directory, including inputs and executable code.
 The requested action ends at this freeze. A successful preparation check is not
