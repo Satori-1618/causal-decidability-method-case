@@ -26,7 +26,7 @@ than treated as a maintained package.
 Pinned revision, checked 2026-09-29:
 `9ce2b8c82b6ba10e62e86cf6f390e7536d4fd2cd`.
 
-The existing [Makelov application](CONFIRMED_CASE.md) already transfers the method to a
+The existing [Makelov application](../../docs/CONFIRMED_CASE.md) already transfers the method to a
 pretrained-model repository. Replaying it is useful evidence preservation, but is not a
 new independent validation and does not supply its missing absolute adequacy test.
 

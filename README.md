@@ -86,7 +86,7 @@ fresh pairs**. It checks stored evidence; it does not rerun GPT-2.
 |---|---|---|
 | [Tracr: known reversal circuit](applications/tracr/RESULTS.md) | Fresh token families reproduce a two-candidate tie, a separating intervention, and a new prediction. | The site was chosen from known compiler structure. This validates a controlled application, not discovery of an unknown mechanism. |
 | [Makelov: GPT-2 patch](applications/makelov-2311.17030/OVERVIEW.md) | Null-read B predicts better than visible-read A on 64 fresh pairs. Later rounds exclude simple route and name/position profiles; a role-task check stops before patching. | B's absolute adequacy and the native model's mechanism are not established. |
-| [Mixing Mechanisms](applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md) | On 300 qualifying fresh families, the declared cell-average concentration profile is excluded; the agreement-like profile is undecided. | Concentration does not identify a mechanism. The paper's aggregate mixture account is not refuted. |
+| [Mixing Mechanisms](applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md) | On 300 qualifying fresh families, the declared cell-average concentration profile is excluded; the agreement-like profile is undecided. | Concentration does not identify a mechanism. The paper's aggregate mixture account is not refuted. The excluded profile is, by a pre-declared caveat, biased toward exclusion. |
 | [Goodfire CausaLab: MCQA](applications/goodfire-mcqa-preflight/README.md) | Published input tables expose tied predictions and suggest an extra condition for one fixed patch. | A design audit only: no new model run or measurement-resolution result. |
 
 These are different kinds of evidence, not interchangeable successes. The
