@@ -4,7 +4,10 @@
 The claim concerns one known compiled reversal circuit and the two declared
 interpretations of its address-subspace patch. The operator chose the site using
 compiler structure, so the outcome was structurally expected. This is external
-implementation/method validation, not discovery of an unknown LLM mechanism.
+implementation/method validation, not discovery of an unknown LLM mechanism. The
+alignment is fixed and known from the compiled program, and only two narrow rivals are
+declared. The test checks the instrumentation and the procedure. It is not an empirical
+validation of causal abstraction as a framework.
 
 ![Measured narrowing](figures/tracr_narrowing.png)
 

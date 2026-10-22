@@ -50,7 +50,11 @@ task asks which option gives more points.
   Include this baseline: the same answer does not imply an internally inactive patch.
 
 These are proposed rules, not descriptions of an already discovered circuit.
-Keep the patch operator/site and answer scoring fixed while changing these cases:
+Keep the patch operator/site and answer scoring fixed while changing these cases. The
+procedure takes that operator as given. It does not search for an alignment, as
+distributed alignment search does. When an alignment is learned separately for each
+hypothesis, the rivals no longer share one intervention, and their predictions must be
+checked per alignment:
 
 | Case: Object / Alternative points | Value transfer | Choice transfer | Forced Object | Recipient answer preserved |
 |---|---|---|---|---|

@@ -1,0 +1,107 @@
+{
+  "case": "tracr",
+  "schema_version": 1,
+  "scope": "Numbers and conclusions in the RESULTS opening, the root README row and the website validation card.",
+  "claims": [
+    {
+      "id": "tracr.confirmation",
+      "text": "128/128 fresh token-assignment families reproduced the qualified 2 -> 1 -> 1 trajectory; one-sided 95% finite-population lower bound 0.97686761 against the frozen threshold 0.95; decision adequate.",
+      "appears_in": [
+        "applications/tracr/RESULTS.md",
+        "README.md (Tracr row)",
+        "website: mechanistic-interpretability/index.html (Tracr validation)"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "128 fresh families of one compiled reversal program",
+      "sources": [
+        "applications/tracr/CONFIRMATION_FREEZE.json",
+        "applications/tracr/results/confirmation_001/"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "tracr-confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/verification/status",
+            "equals": "PASS"
+          },
+          {
+            "pointer": "/families",
+            "equals": 128
+          },
+          {
+            "pointer": "/successes",
+            "equals": 128
+          },
+          {
+            "pointer": "/lower_rate",
+            "approx": 0.97686761,
+            "abs_tol": 1e-08
+          },
+          {
+            "pointer": "/minimum_success_rate",
+            "equals": 0.95
+          },
+          {
+            "pointer": "/status",
+            "equals": "adequate"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tracr.records",
+      "text": "768 dtype-specific intervention records passed all technical checks; maximum paired fp32/fp64 deviation 2.24e-08.",
+      "appears_in": [
+        "applications/tracr/RESULTS.md"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "768 records (not independent samples)",
+      "sources": [
+        "applications/tracr/results/confirmation_001/"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "tracr-confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/record_count",
+            "equals": 768
+          },
+          {
+            "pointer": "/paired_precision_max_error",
+            "approx": 2.244e-08,
+            "abs_tol": 1e-11
+          }
+        ]
+      }
+    },
+    {
+      "id": "tracr.site_choice",
+      "text": "The intervention site was chosen from known compiler structure; the alignment is fixed and two narrow rivals are declared. This is an instrumentation check, not discovery or a validation of causal abstraction.",
+      "appears_in": [
+        "applications/tracr/RESULTS.md",
+        "README.md (Tracr row)",
+        "README.md (Connection to causal abstraction)"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "scope",
+      "sources": [
+        "applications/tracr/RESULTS.md"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "design of the Tracr application (compiler-chosen address site)"
+      }
+    }
+  ]
+}

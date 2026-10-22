@@ -138,7 +138,7 @@ application to published cases.
 | separating case | an intervention (base/source pair) on which two candidates' labels differ |
 | design-equivalent rivals | candidates with identical labels on the whole planned intervention set |
 | donor / recipient | source / base input of an interchange intervention |
-| "recipient answer preserved" | a no-op rule; it shows where agreement cannot distinguish a hypothesis from doing nothing |
+| "recipient answer preserved" | a no-op rule; it shows where agreement cannot distinguish a hypothesis from doing nothing (see the [CausaLab design analysis](applications/goodfire-mcqa-preflight/README.md)) |
 
 **Limits relative to that framework:**
 - The procedure assumes a fixed intervention operator and site; it does not search for

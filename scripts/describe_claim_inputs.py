@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Small, read-only derivations from stored records that public claims cite.
 
-Standard library only. Loads no model, writes nothing, and prints JSON. Each subcommand
+Loads no model and prints JSON. Nothing is written to the checkout; the Tracr subcommand
+writes only into a temporary copy. Each subcommand
 recomputes values from per-example or per-family records that the frozen pipelines
 stored; it reaches no new decision.
 
@@ -15,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAKELOV = ROOT / 'applications/makelov-2311.17030'
 MIXING = ROOT / 'applications/gur-arieh-2510.06182'
+TRACR = ROOT / 'applications/tracr'
 
 
 def _jsonl(path):
@@ -88,7 +90,32 @@ def mixing_concentration():
     }
 
 
-COMMANDS = {'makelov-table1': makelov_table1, 'mixing-concentration': mixing_concentration}
+def tracr_confirmation():
+    """Run the portable Tracr verifier on a temporary copy, then report the verified summary.
+
+    The frozen verifier writes verification.json into the run directory it checks, so it
+    only ever sees a copy in a temporary directory; the checkout is not written to.
+    """
+    import shutil
+    import tempfile
+    run = TRACR / 'results/confirmation_001'
+    portable = _load_module('tracr_portable', ROOT / 'scripts/check_tracr_records_portable.py')
+    with tempfile.TemporaryDirectory(prefix='claims-tracr-') as temp:
+        copy = Path(temp) / run.name
+        shutil.copytree(run, copy)
+        verification = portable.verify(copy, TRACR / 'CONFIRMATION_FREEZE.json')
+    summary = json.loads((run / 'summary.json').read_text())
+    decision = summary['population_decision']
+    return {'verification': verification,
+            'families': summary['family_count'], 'successes': decision['successes'],
+            'lower_rate': decision['bounds']['lower_rate'],
+            'minimum_success_rate': decision['minimum_success_rate'],
+            'status': decision['status'], 'record_count': summary['record_count'],
+            'paired_precision_max_error': summary['paired_precision_max_error']}
+
+
+COMMANDS = {'makelov-table1': makelov_table1, 'mixing-concentration': mixing_concentration,
+            'tracr-confirmation': tracr_confirmation}
 
 
 def main():
