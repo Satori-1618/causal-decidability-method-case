@@ -1,6 +1,6 @@
 {
   "case": "li-saphra-2507.06445",
-  "schema_version": 1,
+  "schema_version": 2,
   "scope": "Every number and conclusion in the README section for readers of the paper, the root README row and the website page.",
   "claims": [
     {
@@ -10,7 +10,8 @@
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "README.md (Li/Saphra row)"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive (released tables)",
       "level": "N",
       "population": "42 sign-matching heads in 41 released models; 1,000 OOD strings",
       "sources": [
@@ -52,7 +53,8 @@
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive (released tables)",
       "level": "N",
       "population": "64 violation-detecting heads in 31 models",
       "sources": [
@@ -97,7 +99,8 @@
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive (released tables)",
       "level": "N",
       "population": "1,244 other heads in 180 models",
       "sources": [
@@ -134,7 +137,8 @@
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#reproduce-locally"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "reproduced",
       "level": "N",
       "population": "released result tables",
       "sources": [
@@ -159,7 +163,8 @@
         "applications/li-saphra-2507.06445/native_followup/README.md",
         "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "stage 1 H_R adequate, H_G excluded; stage 2 H_W adequate, H_T excluded",
       "level": "N",
       "population": "fresh separating families of one transfer task",
       "sources": [
@@ -225,7 +230,8 @@
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive; head selected after the run",
       "level": "N",
       "population": "36 tasks (1 development + 35 transfer)",
       "sources": [
@@ -253,14 +259,15 @@
     },
     {
       "id": "saphra.native.transfer",
-      "text": "Transfer cohort: 35 tasks in 34 models; stage 2 adequate 7, excluded 21, unresolved 5; symbol masses alone excluded in 33; stage 1 routing alone adequate 1, excluded 33.",
+      "text": "Transfer cohort, 35 tasks in 34 models: stage 2 H_W 7 adequate, 21 excluded, 5 undecided, 1 too few separating families, 1 technically invalid; H_T excluded in 33; stage 1 H_R 1 adequate, 33 excluded, 1 technically invalid; H_G excluded in 34.",
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "applications/li-saphra-2507.06445/native_followup/README.md",
         "README.md (Li/Saphra row)",
         "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "stage 2 H_W: 7 adequate, 21 excluded, 5 undecided, 1 too few families, 1 invalid",
       "level": "N",
       "population": "35 transfer tasks",
       "sources": [
@@ -304,6 +311,135 @@
           {
             "pointer": "/summary/transfer_cohort/stage1/H_R/excluded",
             "equals": 33
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage2/H_W/insufficient_eligible_families",
+            "equals": 1
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage2/H_W/technical_invalidity",
+            "equals": 1
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage1/H_R/technical_invalidity",
+            "equals": 1
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage1/H_G/excluded",
+            "equals": 34
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.native.development_checkpoint",
+      "text": "Development checkpoint 1aez5d6p head 2 on fresh inputs: stage 2 H_W adequate on 183/183 (bound 95.38-100%), H_T 0/183; stage 1 H_R undecided (172/192), H_G excluded.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "phase": "prespecified_test",
+      "outcome": "stage 2 H_W adequate; stage 1 H_R undecided",
+      "level": "N",
+      "population": "fresh separating families of the development checkpoint",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/artifacts/confirmation_001.tar.gz"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-native"
+        ],
+        "expect": [
+          {
+            "pointer": "/development_task/0/model_id",
+            "equals": "1aez5d6p"
+          },
+          {
+            "pointer": "/development_task/0/head",
+            "equals": 2
+          },
+          {
+            "pointer": "/development_task/0/stages/stage2/candidates/H_W/status",
+            "equals": "adequate"
+          },
+          {
+            "pointer": "/development_task/0/stages/stage2/candidates/H_W/definite_hits",
+            "equals": 183
+          },
+          {
+            "pointer": "/development_task/0/stages/stage2/candidates/H_W/n",
+            "equals": 183
+          },
+          {
+            "pointer": "/development_task/0/stages/stage2/candidates/H_W/lower",
+            "approx": 0.9538,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/development_task/0/stages/stage2/candidates/H_T/definite_hits",
+            "equals": 0
+          },
+          {
+            "pointer": "/development_task/0/stages/stage1/candidates/H_R/status",
+            "equals": "unresolved"
+          },
+          {
+            "pointer": "/development_task/0/stages/stage1/candidates/H_R/definite_hits",
+            "equals": 172
+          },
+          {
+            "pointer": "/development_task/0/stages/stage1/candidates/H_R/n",
+            "equals": 192
+          },
+          {
+            "pointer": "/development_task/0/stages/stage1/candidates/H_G/status",
+            "equals": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.native.separation_scope",
+      "text": "For a9g0io1r head 1 only invalid strings crossed the separation threshold (invalid_open 119 / invalid_close 68 at stage 1; 97 / 57 at stage 2; member counts); in 20 transfer tasks at stage 1 and 15 at stage 2 valid strings also crossed it.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "phase": "descriptive",
+      "outcome": "descriptive counts",
+      "level": "N",
+      "population": "separating members (not families) per task and stage",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/results/confirmation_report.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-native"
+        ],
+        "expect": [
+          {
+            "pointer": "/eligible_members_by_condition_for_two_stage_tasks/a9g0io1r~11/stage1",
+            "equals": {
+              "invalid_open": 119,
+              "invalid_close": 68
+            }
+          },
+          {
+            "pointer": "/eligible_members_by_condition_for_two_stage_tasks/a9g0io1r~11/stage2",
+            "equals": {
+              "invalid_open": 97,
+              "invalid_close": 57
+            }
+          },
+          {
+            "pointer": "/tasks_with_a_valid_separating_member/stage1",
+            "equals": 20
+          },
+          {
+            "pointer": "/tasks_with_a_valid_separating_member/stage2",
+            "equals": 15
           }
         ]
       }
@@ -315,16 +451,18 @@
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "applications/li-saphra-2507.06445/native_followup/README.md"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "cohort description",
+      "level": "S",
       "population": "transfer cohort",
       "sources": [
         "applications/li-saphra-2507.06445/native_followup/README.md",
         "applications/li-saphra-2507.06445/native_followup/CONFIRMATION.md"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "cohort description in native_followup/README.md and the frozen manifest"
+        "kind": "source",
+        "evidence": "cohort description in native_followup/README.md and the frozen manifest",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     },
     {
@@ -334,7 +472,8 @@
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "both predictors excluded; averaging benefit not shown",
       "level": "N",
       "population": "151 separating of 256 fresh families, one head",
       "sources": [
@@ -403,51 +542,57 @@
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
       ],
-      "status": "future",
-      "level": "logged",
+      "phase": "not_run",
+      "outcome": "not run",
+      "level": "S",
       "population": "status",
       "sources": [
         "applications/li-saphra-2507.06445/value_followup/history_005/EXECUTION_RELEASE.json"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "EXECUTION_RELEASE.json status pending; no results directory"
+        "kind": "source",
+        "evidence": "EXECUTION_RELEASE.json status pending; no results directory",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     },
     {
       "id": "saphra.zero_output_not_run",
-      "text": "No zero-output condition has been run.",
+      "text": "No zero-output condition has been run; it is a further question, not a missing control.",
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
       ],
-      "status": "future",
-      "level": "logged",
+      "phase": "not_run",
+      "outcome": "not run",
+      "level": "S",
       "population": "status",
       "sources": [
         "applications/li-saphra-2507.06445/IDENTIFICATION.md"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "IDENTIFICATION.md proposes it; no run exists"
+        "kind": "source",
+        "evidence": "IDENTIFICATION.md proposes it; no run exists",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     },
     {
       "id": "saphra.provenance",
-      "text": "The native freeze was committed locally 7.7 s before execution without external timestamp; a documented amendment completed the cohort after an outcome-triggered stop.",
+      "text": "The native follow-up's freeze was committed locally 7.7 s before its execution, without external timestamp; this applies to the native round only. A documented amendment completed the fixed cohort after an outcome-triggered stop.",
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "local chronology; documented amendment",
+      "level": "S",
       "population": "provenance",
       "sources": [
         "applications/li-saphra-2507.06445/native_followup/CONTINUATION.md",
         "applications/li-saphra-2507.06445/native_followup/VERIFICATION.md"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "local commit and manifest times; CONTINUATION.md"
+        "kind": "source",
+        "evidence": "local commit and manifest times; CONTINUATION.md",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     },
     {
@@ -456,15 +601,17 @@
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "archive scope",
+      "level": "S",
       "population": "archive scope",
       "sources": [
         "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/VERIFICATION.md"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "archive scope statements in the VERIFICATION files"
+        "kind": "source",
+        "evidence": "archive scope statements in the VERIFICATION files",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     }
   ]

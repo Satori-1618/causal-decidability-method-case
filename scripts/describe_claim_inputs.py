@@ -143,7 +143,24 @@ def saphra_native():
                    if t.get('stages') and all(
                        any(c['status'] == 'adequate' for c in s['candidates'].values())
                        for s in t['stages'].values())}
+    # The audit above compared the stored report with its own recomputation, so the
+    # report's per-stage eligibility fields can be read from here.
+    report = json.loads((native / 'results/confirmation_report.json').read_text())
+    eligibility = {}
+    with_valid = {}
+    for record in report['tasks']:
+        if not record['stages']:
+            continue
+        key = f"{record['task']['model_id']}/{record['task']['head']}"
+        for stage, result in record['stages'].items():
+            members = result.get('eligible_members_by_condition') or {}
+            if key in both_stages:
+                eligibility.setdefault(key, {})[stage] = members
+            if any(name.startswith('valid') and count > 0 for name, count in members.items()):
+                with_valid[stage] = with_valid.get(stage, 0) + 1
     return {'archive': restore_log.getvalue().strip(),
+            'eligible_members_by_condition_for_two_stage_tasks': eligibility,
+            'tasks_with_a_valid_separating_member': with_valid,
             'verified': audit['verified'], 'report_compared': audit['report_compared'],
             'tasks': audit['tasks'], 'completed': audit['completed'],
             'technical_invalidity': audit['technical_invalidity'], 'summary': audit['summary'],

@@ -3,9 +3,10 @@
 **Status: completed development; confirmation not started.** The new intervention
 works, and the data favor a balance-class pattern over the declared position
 pattern on the eight separating families. The predefined confirmation gate was
-not met. This does not change the earlier intervention-decomposition results, which were
-confirmed on fresh inputs for the development checkpoint and one transfer head, with
-substantial failures across the transfer cohort.
+not met. This does not change the earlier, separately frozen intervention-decomposition
+results. Those met their adequacy criteria for the development checkpoint at stage 2, and
+across the 35-task transfer cohort in 7 tasks at stage 2 and 1 task at stage 1; the other
+tasks were excluded, undecided or invalid.
 
 **Next iteration:** a separately frozen [prospective margin-screen test](screen_002/README.md)
 found separating outcomes in **30/32 accepted versus 0/32 rejected fresh

@@ -34,9 +34,9 @@ check 6 referred to the Mixing Mechanisms case.
 
 - `python -m pytest` over the whole repository: some tests construct small tensor models
   or need optional libraries. It is not run as part of this revision.
-- `applications/goodfire-mcqa-preflight/run.py --write`: overwrites the versioned files in
-  `results/` and caches downloads. Its default mode (no flag; compares and writes nothing) is on the positive list
-  below.
+- `applications/goodfire-mcqa-preflight/run.py --write DIR`: writes a new derivation into DIR
+  (never into `results/` itself; refuses to replace differing files) and caches downloads.
+  Its default mode (no flag; compares and writes nothing) is on the positive list below.
 - Any `run_*.py` script under `applications/`: these drive model runs.
 
 ## Added in this revision (audited the same way)

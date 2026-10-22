@@ -8,8 +8,14 @@ Each claim names the check that supports it:
 * ``stored``: the value is read from a stored summary file. It is reported separately
   because reading a summary is not a recomputation. With ``verified_by``, an allow-listed
   checker that recomputes that summary from raw records must pass first;
-* ``logged``: the claim rests on a protocol or log entry that cannot be recomputed here,
-  for example a model forward or a timestamp. It is listed, not checked.
+* ``source``: the claim rests on reading a source, a protocol or a log entry (attribution,
+  provenance, scope), not on a computation. The entry names the evidence and the manual
+  check; the runner lists it and never marks it as checked.
+
+Each claim also records its research ``phase`` (for example a prespecified test or an
+exploratory description) and the test's actual ``outcome``, kept apart so that a frozen
+test that excluded or left a candidate undecided is not read as a confirmation. The levels
+N, D and S name kinds of check, not degrees of certainty.
 
 Nothing is written. No script on the allow-list loads a model, tokenizer or weights; see
 docs/sendbar/MODEL_FREE_COMMANDS.md. The run fails if any claim fails, if a command is not
@@ -44,10 +50,10 @@ ALLOWED = {
 }
 # Scripts on the list above that download pinned public inputs; run only with --network.
 NEEDS_NETWORK = {'applications/goodfire-mcqa-preflight/run.py'}
-LEVELS = {'N', 'D', 'logged'}
-STATUSES = {'confirmation', 'exploration', 'design_analysis', 'descriptive', 'development',
-            'qualification_stop', 'future'}
-KINDS = {'recompute', 'stored', 'logged'}
+LEVELS = {'N', 'D', 'S'}
+PHASES = {'prespecified_test', 'exploratory', 'design_analysis', 'descriptive', 'development',
+          'not_run'}
+KINDS = {'recompute', 'stored', 'source'}
 
 
 def pointer(document, path):
@@ -88,7 +94,7 @@ def compare(actual, expectation):
 def check_claim(claim, cache, network):
     check = claim['check']
     kind = check['kind']
-    if kind == 'logged':
+    if kind == 'source':
         return True, 'listed; rests on: ' + check['evidence']
     argv = check.get('argv') or check.get('verified_by')
     if argv and argv[0] in NEEDS_NETWORK and not network:
@@ -118,19 +124,21 @@ def validate(claims_file, data):
             raise ValueError(f'{claims_file}: missing {field}')
     seen = set()
     for claim in data['claims']:
-        for field in ('id', 'text', 'appears_in', 'status', 'level', 'population', 'sources',
-                      'check'):
+        for field in ('id', 'text', 'appears_in', 'phase', 'outcome', 'level', 'population',
+                      'sources', 'check'):
             if field not in claim:
                 raise ValueError(f"{claims_file}: claim {claim.get('id')} lacks {field}")
         if claim['id'] in seen:
             raise ValueError(f"{claims_file}: duplicate id {claim['id']}")
         seen.add(claim['id'])
-        if claim['status'] not in STATUSES or claim['level'] not in LEVELS:
-            raise ValueError(f"{claims_file}: {claim['id']} has an unknown status or level")
+        if claim['phase'] not in PHASES or claim['level'] not in LEVELS or not claim['outcome']:
+            raise ValueError(f"{claims_file}: {claim['id']} has an unknown phase or level, or no outcome")
         if claim['check']['kind'] not in KINDS:
             raise ValueError(f"{claims_file}: {claim['id']} has an unknown check kind")
-        if (claim['level'] == 'logged') != (claim['check']['kind'] == 'logged'):
-            raise ValueError(f"{claims_file}: {claim['id']} mixes logged and checked")
+        if (claim['level'] == 'S') != (claim['check']['kind'] == 'source'):
+            raise ValueError(f"{claims_file}: {claim['id']} mixes a source entry with a computed check")
+        if claim['check']['kind'] == 'source' and not claim['check'].get('manual_check'):
+            raise ValueError(f"{claims_file}: {claim['id']} names no manual check")
         for source in claim['sources']:
             if not (ROOT / source.split('#')[0]).exists():
                 raise ValueError(f"{claims_file}: {claim['id']} cites missing {source}")
@@ -160,14 +168,14 @@ def main():
             if kind == 'stored' and 'verified_by' in claim['check']:
                 kind = 'stored+verified'
             report.append({'case': data['case'], 'id': claim['id'], 'level': claim['level'],
-                           'kind': kind, 'status': claim['status'],
+                           'kind': kind, 'phase': claim['phase'], 'outcome': claim['outcome'],
                            'passed': ok, 'detail': detail})
     if args.json:
         print(json.dumps(report, indent=2))
     else:
         for row in report:
             mark = {True: 'PASS', False: 'FAIL', None: 'SKIP'}[row['passed']]
-            if row['kind'] == 'logged':
+            if row['kind'] == 'source':
                 mark = 'LIST'
             print(f"{mark} [{row['level']}/{row['kind']}] {row['case']}: {row['id']}"
                   + ('' if row['passed'] else f" -- {row['detail']}"))
@@ -181,7 +189,7 @@ def main():
               + (' (network checks; rerun with --network)' if skipped else '') + '.')
         print('recompute = recalculated from stored records or design inputs; stored = read '
               'from a stored summary (+verified: a checker first recomputed that summary from '
-              'raw records); logged = listed only, not recomputable here.')
+              'raw records); source = manual source reading, listed but not marked checked.')
     raise SystemExit(1 if failed else 0)
 
 

@@ -3,12 +3,14 @@
 Standard library only. Downloads hash-checked source files if absent; never
 imports upstream code, loads a model, fits a subspace, or generates completions.
 
-    python3 applications/goodfire-mcqa-preflight/run.py           # check, write nothing
-    python3 applications/goodfire-mcqa-preflight/run.py --write   # regenerate results/
+    python3 applications/goodfire-mcqa-preflight/run.py              # check, write nothing
+    python3 applications/goodfire-mcqa-preflight/run.py --write DIR  # write a new derivation
 
-The default ``--check`` keeps downloads in memory and compares everything it derives
-with the committed files in results/. ``--write`` caches the downloads under
-artifacts/upstream/raw/ (git-ignored) and overwrites the files in results/.
+The default mode keeps downloads in memory and writes nothing. It checks that the three
+historical prediction exports in results/ are reproduced byte for byte, that the
+historical summary.json differs at most in its recorded code hashes, and that every file
+of the dated re-derivation in REDERIVATION matches. ``--write DIR`` writes all outputs into
+DIR and refuses to replace a differing file; historical results are never rewritten.
 """
 import argparse
 from collections import Counter
@@ -23,6 +25,8 @@ APP = Path(__file__).resolve().parent
 ROOT = APP.parents[1]
 CACHE = APP / 'artifacts' / 'upstream'
 RESULTS = APP / 'results'
+REDERIVATION = RESULTS / 'rederivation_20261022'
+HISTORICAL = ('pointer_predictions.json', 'symbol_predictions.json', 'combined_predictions.json')
 RIVALS = ('position_transfer', 'symbol_transfer', 'preserve_task_answer')
 # A fourth, proposed rule: transfer the donor's correct colour and look up its letter in
 # the recipient's options. It is kept out of the three-rule exports above.
@@ -225,53 +229,70 @@ def build(files, manifest, check):
     return {name: json.dumps(value, indent=2) + '\n' for name, value in outputs.items()}
 
 
+def check_references(write_cache):
+    """Hash-check the documentation the README cites; it feeds no prediction."""
+    manifest = json.loads((APP / 'reference_manifest.json').read_text())
+    for name, entry in manifest['files'].items():
+        path = CACHE / 'raw' / entry['path']
+        if path.exists():
+            raw = path.read_bytes()
+        else:
+            with urllib.request.urlopen(entry['url'], timeout=30) as response:
+                raw = response.read()
+            if write_cache:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(raw)
+        if hashlib.sha256(raw).hexdigest() != entry['sha256']:
+            raise ValueError(f'cited reference hash mismatch: {name}')
+    return sorted(manifest['files'])
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--write', action='store_true',
-                        help='cache downloads and overwrite the committed files in results/')
+    parser.add_argument('--write', type=Path, metavar='DIR',
+                        help='write a new derivation into DIR (never into results/ itself)')
     args = parser.parse_args()
-    manifest, files = load_inputs(write_cache=args.write)
+    manifest, files = load_inputs(write_cache=bool(args.write))
+    references = check_references(write_cache=bool(args.write))
     spec = importlib.util.spec_from_file_location('causal_preflight', ROOT / 'examples/causal_preflight.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     outputs = build(files, manifest, module.check)
     if args.write:
-        RESULTS.mkdir(exist_ok=True)
+        target = args.write.resolve()
+        if target == RESULTS.resolve():
+            raise SystemExit('Refusing to write into results/: historical files stay unchanged')
+        target.mkdir(parents=True, exist_ok=True)
         for name, text in outputs.items():
-            (RESULTS / name).write_text(text)
-    else:
-        report = {'mode': 'check; nothing written', 'files': {}}
-        for name, text in outputs.items():
-            path = RESULTS / name
-            committed = path.read_text() if path.exists() else None
-            if name == 'summary.json' and committed is not None:
-                fresh, stored = json.loads(text), json.loads(committed)
-                stale = sorted(k for k, v in fresh['analysis_sources_sha256'].items()
-                               if stored['analysis_sources_sha256'].get(k) != v)
-                fresh.pop('analysis_sources_sha256'), stored.pop('analysis_sources_sha256')
-                report['files'][name] = {'matches_except_analysis_hashes': fresh == stored,
-                                         'stale_analysis_hashes': stale}
-            else:
-                report['files'][name] = {'byte_identical': committed == text}
-        report['four_rule_design_analysis'] = json.loads(outputs['four_rule_extension.json'])[
-            'four_rule_design_analysis']
-        report['published_full_patch_iia'] = json.loads(outputs['four_rule_extension.json'])[
-            'published_full_patch_iia']
-        report['summary'] = json.loads(outputs['summary.json'])
-        print(json.dumps(report, indent=2))
-        ok = all(v.get('byte_identical', v.get('matches_except_analysis_hashes'))
-                 for v in report['files'].values())
-        raise SystemExit(0 if ok else 1)
-    summary = json.loads(outputs['summary.json'])
-    print('CausaLab MCQA: pinned source tables -> existing category preflight (no model run)')
-    for name, result in list(summary['designs'].items()) + [('combined input menu', summary['combined_input_menu_only'])]:
-        print(f'\n{name}: {result["rows"]} rows; {len(result["identical_prediction_groups"])} prediction groups')
-        for group in result['identical_prediction_groups']:
-            print('  ' + ' = '.join(group))
-    print('\nMeasurement resolution: UNKNOWN; no numeric gap/power forecast.')
-    print('No-effect interpretation: requires measured neural baselines, not task labels.')
-    print('Saved reproducible results to', RESULTS)
+            path = target / name
+            if path.exists() and path.read_text() != text:
+                raise SystemExit(f'Refusing to replace differing file: {path}')
+            path.write_text(text)
+        print(f'Wrote {len(outputs)} files to {target}')
+        return
+    report = {'mode': 'check; nothing written', 'cited_references_hash_checked': references,
+              'historical': {}, 'rederivation': {}}
+    for name in HISTORICAL:
+        report['historical'][name] = {'byte_identical': (RESULTS / name).read_text() == outputs[name]}
+    fresh, stored = json.loads(outputs['summary.json']), json.loads((RESULTS / 'summary.json').read_text())
+    stale = sorted(k for k, v in fresh['analysis_sources_sha256'].items()
+                   if stored['analysis_sources_sha256'].get(k) != v)
+    fresh.pop('analysis_sources_sha256'), stored.pop('analysis_sources_sha256')
+    report['historical']['summary.json'] = {'matches_except_recorded_code_hashes': fresh == stored,
+                                            'recorded_code_hashes_differing_from_current_code': stale}
+    for name, text in outputs.items():
+        path = REDERIVATION / name
+        report['rederivation'][name] = {'byte_identical': path.exists() and path.read_text() == text}
+    extension = json.loads(outputs['four_rule_extension.json'])
+    report['four_rule_design_analysis'] = extension['four_rule_design_analysis']
+    report['published_full_patch_iia'] = extension['published_full_patch_iia']
+    report['summary'] = json.loads(outputs['summary.json'])
+    print(json.dumps(report, indent=2))
+    ok = (all(v['byte_identical'] for v in report['historical'].values() if 'byte_identical' in v)
+          and report['historical']['summary.json']['matches_except_recorded_code_hashes']
+          and all(v['byte_identical'] for v in report['rederivation'].values()))
+    raise SystemExit(0 if ok else 1)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,20 @@
+{
+  "repository": "https://github.com/goodfire-ai/causalab",
+  "revision": "8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e",
+  "retrieved_on": "2026-10-22",
+  "scope": "Documentation cited by the README; not used to derive any prediction.",
+  "files": {
+    "library_readme": {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/README.md",
+      "sha256": "87338ff0ef2a079e65b9c0dbd54b240291d9cd3294c41becf183f323f3b41cd7",
+      "bytes": 6380
+    },
+    "hypothesis_guide": {
+      "path": "docs/hypothesis_analysis.md",
+      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/docs/hypothesis_analysis.md",
+      "sha256": "07720f4bd2315d5be27578d848796d2978cfc2e66505af06ff9b937ca1e59e39",
+      "bytes": 4535
+    }
+  }
+}

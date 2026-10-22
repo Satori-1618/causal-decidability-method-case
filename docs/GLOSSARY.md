@@ -9,7 +9,17 @@ threshold, rule or record. Each frozen protocol still governs its own case.
 |---|---|
 | **N: recompute stored evidence** | Recompute a table or decision from published records, with no model run. |
 | **D: design check** | Check prediction tables and ties from public inputs, with no model at all. |
-| **R: model reproduction** | Rerun the model experiment itself. No case here currently offers a complete R route. |
+| **R: model reproduction** | Rerun the model experiment itself. Some cases document how to do this; Tracr, for example, gives setup and replay instructions in its README. No model was rerun to check the claims listed here, so no R route has been re-confirmed by this revision. |
+| **S: source reading** | A documented manual check of a paper, protocol, log or provenance record. A passing script never marks such an entry as checked. |
+
+These labels name kinds of check, not degrees of certainty. Each claim list
+(`applications/*/CLAIMS.json`) also keeps two things apart:
+- the research **phase**, for example a prespecified test, an exploratory description or a
+  design analysis;
+- the test's actual **outcome**, for example excluded, undecided, adequate, a
+  qualification stop or rules identical on this design.
+
+A frozen test that excluded a candidate or left it undecided is not a confirmation.
 
 Upstream steps that are only logged, such as model forwards, geometry fits or intervention
 mechanics, are named as such in each case. They are not presented as recomputable.
@@ -57,11 +67,14 @@ test. It contains no adequacy decision.
 
 ## "Independent" in review and audit records
 
-Historical records describe separate review passes as "independent". Unless a record names
-an external person, such a pass was one of two things:
+"Independent" is used in three senses in these records:
 
-- an AI-agent audit separate from the executing agent, or
-- a review text supplied by the author without a named reviewer.
+- **Statistical:** independent units, or a tolerance with an independent justification.
+  These keep their meaning.
+- **Computational:** a separately implemented recount that does not import the producer's
+  analysis. Such a check is algorithmically independent; it is still not an outside review.
+- **Review:** a separate review pass. Read the record for what was done. Some records name
+  a separate AI agent; others record a review text supplied without a named reviewer.
 
-These are **not external human peer review**. Records that are already archived or
-hash-bound keep their original wording; this entry explains it.
+A record is evidence of external human peer review only if it names the reviewer. Records
+that are archived or hash-bound keep their original wording.

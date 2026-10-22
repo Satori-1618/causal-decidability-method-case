@@ -1,20 +1,22 @@
 {
   "case": "goodfire-mcqa-preflight",
-  "schema_version": 1,
+  "schema_version": 2,
   "scope": "Every number and conclusion in the README summary, the root README row and the website card.",
   "claims": [
     {
       "id": "causalab.derivation",
-      "text": "All three-rule exports and the four-rule extension are re-derived from the pinned, hash-checked upstream input tables and match the committed files.",
+      "text": "The three historical prediction exports are reproduced byte for byte from the pinned, hash-checked upstream inputs; the historical summary differs only in its recorded code hashes; the dated re-derivation, including the four-rule extension, matches.",
       "appears_in": [
         "applications/goodfire-mcqa-preflight/README.md"
       ],
-      "status": "design_analysis",
+      "phase": "design_analysis",
+      "outcome": "reproduced",
       "level": "D",
       "population": "192 + 192 published design rows",
       "sources": [
         "applications/goodfire-mcqa-preflight/artifacts/upstream/source_manifest.json",
-        "applications/goodfire-mcqa-preflight/run.py"
+        "applications/goodfire-mcqa-preflight/run.py",
+        "applications/goodfire-mcqa-preflight/results/rederivation_20261022/summary.json"
       ],
       "check": {
         "kind": "recompute",
@@ -23,28 +25,28 @@
         ],
         "expect": [
           {
-            "pointer": "/files/pointer_predictions.json/byte_identical",
+            "pointer": "/historical/pointer_predictions.json/byte_identical",
             "equals": true
           },
           {
-            "pointer": "/files/symbol_predictions.json/byte_identical",
+            "pointer": "/historical/symbol_predictions.json/byte_identical",
             "equals": true
           },
           {
-            "pointer": "/files/combined_predictions.json/byte_identical",
+            "pointer": "/historical/combined_predictions.json/byte_identical",
             "equals": true
           },
           {
-            "pointer": "/files/four_rule_extension.json/byte_identical",
+            "pointer": "/historical/summary.json/matches_except_recorded_code_hashes",
             "equals": true
           },
           {
-            "pointer": "/files/summary.json/matches_except_analysis_hashes",
+            "pointer": "/rederivation/summary.json/byte_identical",
             "equals": true
           },
           {
-            "pointer": "/files/summary.json/stale_analysis_hashes",
-            "equals": []
+            "pointer": "/rederivation/four_rule_extension.json/byte_identical",
+            "equals": true
           }
         ]
       }
@@ -57,7 +59,8 @@
         "README.md (CausaLab row)",
         "website: mechanistic-interpretability/index.html (CausaLab card)"
       ],
-      "status": "design_analysis",
+      "phase": "design_analysis",
+      "outcome": "rules identical on this design",
       "level": "D",
       "population": "192 published position-design rows",
       "sources": [
@@ -96,7 +99,8 @@
         "README.md (CausaLab row)",
         "website: mechanistic-interpretability/index.html (CausaLab card)"
       ],
-      "status": "design_analysis",
+      "phase": "design_analysis",
+      "outcome": "rules identical on this design",
       "level": "D",
       "population": "192 published letter-design rows",
       "sources": [
@@ -133,7 +137,8 @@
       "appears_in": [
         "applications/goodfire-mcqa-preflight/README.md"
       ],
-      "status": "design_analysis",
+      "phase": "design_analysis",
+      "outcome": "three rules separated",
       "level": "D",
       "population": "384 rows as one input menu",
       "sources": [
@@ -173,15 +178,16 @@
         "applications/goodfire-mcqa-preflight/README.md",
         "README.md (CausaLab row)"
       ],
-      "status": "design_analysis",
+      "phase": "design_analysis",
+      "outcome": "four rules separated only with the proposed design",
       "level": "D",
       "population": "published rows plus a proposed design",
       "sources": [
-        "applications/goodfire-mcqa-preflight/results/four_rule_extension.json"
+        "applications/goodfire-mcqa-preflight/results/rederivation_20261022/four_rule_extension.json"
       ],
       "check": {
         "kind": "stored",
-        "file": "applications/goodfire-mcqa-preflight/results/four_rule_extension.json",
+        "file": "applications/goodfire-mcqa-preflight/results/rederivation_20261022/four_rule_extension.json",
         "verified_by": [
           "applications/goodfire-mcqa-preflight/run.py"
         ],
@@ -231,15 +237,16 @@
       "appears_in": [
         "applications/goodfire-mcqa-preflight/README.md"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "authors' measurement, copied",
       "level": "D",
       "population": "authors' published IIA, 64 held-out pairs per design",
       "sources": [
-        "applications/goodfire-mcqa-preflight/results/four_rule_extension.json"
+        "applications/goodfire-mcqa-preflight/results/rederivation_20261022/four_rule_extension.json"
       ],
       "check": {
         "kind": "stored",
-        "file": "applications/goodfire-mcqa-preflight/results/four_rule_extension.json",
+        "file": "applications/goodfire-mcqa-preflight/results/rederivation_20261022/four_rule_extension.json",
         "verified_by": [
           "applications/goodfire-mcqa-preflight/run.py"
         ],
@@ -271,15 +278,17 @@
         "README.md (CausaLab row)",
         "website: mechanistic-interpretability/index.html (CausaLab card)"
       ],
-      "status": "design_analysis",
-      "level": "logged",
+      "phase": "design_analysis",
+      "outcome": "scope statement",
+      "level": "S",
       "population": "scope",
       "sources": [
         "applications/goodfire-mcqa-preflight/run.py"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "run.py is standard library only and executes no upstream code"
+        "kind": "source",
+        "evidence": "run.py is standard library only and executes no upstream code",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     }
   ]

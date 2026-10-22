@@ -10,8 +10,10 @@ use distributed alignment search (DAS), following Geiger et al.
 
 CausaLab already supports comparing causal hypotheses on the same base/counterfactual
 pairs. Its [hypothesis analysis guide](https://github.com/goodfire-ai/causalab/blob/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/docs/hypothesis_analysis.md)
-compares a target with alternatives and filters `distinguishing` pairs. Each published
-design already separates its target variable from the other one by construction. The
+compares a target with alternatives and filters `distinguishing` pairs. Its published
+results already report base accuracy, counterfactual accuracy and the rate at which the
+unpatched model gives the target label (0.0 in both designs). Each published design
+already separates its target variable from the other one by construction. The
 position guide itself notes that the counterfactual prompt's own answer is the base
 prompt's letter, not the label.
 
@@ -85,7 +87,7 @@ options: for the recipient above, a donor stating “The shoe is orange” predi
 Y under color transfer and P under task-answer preservation. This is a proposed
 additional condition, not a published model result or sufficient evidence by itself.
 
-With all four rules, `run.py` writes [four_rule_extension.json](results/four_rule_extension.json):
+With all four rules, `run.py` writes [four_rule_extension.json](results/rederivation_20261022/four_rule_extension.json):
 
 | Input menu | Rows | Rules still tied |
 |---|---:|---|
@@ -111,7 +113,7 @@ at each layer (`full_patch` in each design's `iia_plotted.json`). At layer 21 it
 the position target in 0.547 of held-out pairs and the letter target in 0.0625. At
 layer 26 the values are 0.016 and 0.922. These are the authors' numbers, scored only
 against each design's own label; they are copied unchanged into
-[four_rule_extension.json](results/four_rule_extension.json).
+[four_rule_extension.json](results/rederivation_20261022/four_rule_extension.json).
 
 The third column is deliberately **not called “patch has no effect.”** That rival
 must predict the measured unpatched answer. The published base accuracies on the 64
@@ -133,21 +135,28 @@ difference into a numerical effect size or sample-size recommendation.
 From the method repository root, with Python 3.9+ and no extra packages:
 
 ```bash
-python3 applications/goodfire-mcqa-preflight/run.py           # derive and compare; writes nothing
-python3 applications/goodfire-mcqa-preflight/run.py --write   # regenerate results/
+python3 applications/goodfire-mcqa-preflight/run.py                  # derive and compare; writes nothing
+python3 applications/goodfire-mcqa-preflight/run.py --write NEW_DIR  # write a new derivation
 ```
 
-The default run downloads under 0.5 MB of pinned source files into memory, checks
-their hashes, derives every export and compares it with the committed files. It exits
-non-zero on any difference. No upstream code is executed.
+The default run downloads under 0.5 MB of pinned source files into memory and checks
+their hashes, including the two documentation files cited above
+([reference manifest](reference_manifest.json)). It derives every export and compares it
+with the committed files, and exits non-zero on any difference. `--write` never writes
+into `results/` itself and refuses to replace a differing file. No upstream code is
+executed.
 See [summary.json](results/summary.json), the exported [position-test predictions](results/pointer_predictions.json),
 [letter-test predictions](results/symbol_predictions.json) and the
-[four-rule extension](results/four_rule_extension.json). Either three-rule export also
+[four-rule extension](results/rederivation_20261022/four_rule_extension.json). Either three-rule export also
 runs directly through `examples/causal_preflight.py --config PATH --structure-only`.
 
-*Correction (22 October 2026):* the committed `summary.json` had recorded an outdated
-hash for `examples/causal_preflight.py`. Regenerating it changed only the code hashes; the
-three prediction exports stayed byte-identical.
+*Note (22 October 2026):* the historical `results/summary.json` records a hash for
+`examples/causal_preflight.py` that does not match that file at the pinned commit. The
+historical file is kept unchanged. A re-derivation with the current code is in
+[`results/rederivation_20261022/`](results/rederivation_20261022/). It records the actual
+code hashes, reproduces the three historical prediction exports byte for byte, and adds the
+four-rule extension. Apart from the recorded code hashes, its summary matches the
+historical one.
 
 Sources: [position experiment](https://github.com/goodfire-ai/causalab/blob/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/mcqa_pointer.md),
 [letter experiment](https://github.com/goodfire-ai/causalab/blob/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/mcqa_symbol.md),

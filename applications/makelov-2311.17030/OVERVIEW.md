@@ -42,11 +42,17 @@ original one. In round 1 its effect was a median 84% of the original patch's eff
 explanation; the complete route to the output; whether the unpatched model uses this
 signal; and any role representation.
 
-**Provenance.** Round 1's decision rule was frozen in a local commit. We found no public
-record that it was pushed before the run; the archived app README says "committed and
-pushed". For rounds 2, 3A and 3B, public GitHub push events precede the locally recorded
-run starts by 12–22 s ([archived copy](provenance/public_push_events.json)). A push time and
-a local clock are different kinds of evidence.
+**Provenance.**
+- Round 1: the archived app README states that the preregistration was committed and
+  pushed before the run. No public timestamp for that push is available today, because the
+  public event log does not reach back that far. The order therefore rests on the project's
+  own records. This is a gap in today's public evidence, not a finding that the statement
+  is wrong.
+- Rounds 2, 3A and 3B: public GitHub records show each freeze reaching GitHub 12–22 s
+  before the locally recorded run start. Each push appears as an events entry, which links
+  via `payload.push_id` to an activity entry for the same push
+  ([archived copy](provenance/public_push_events.json)).
+- A push time and a local clock are different kinds of evidence.
 
 **Check it without a model:**
 `python3 scripts/check_claims.py --case makelov-2311.17030` recomputes every number above

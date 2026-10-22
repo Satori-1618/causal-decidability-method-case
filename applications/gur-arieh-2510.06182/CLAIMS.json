@@ -1,6 +1,6 @@
 {
   "case": "gur-arieh-2510.06182",
-  "schema_version": 1,
+  "schema_version": 2,
   "scope": "Every number and conclusion in the CONFIRMATION_RESULT setup and result, the case README status, the root README row and the website card.",
   "claims": [
     {
@@ -12,7 +12,8 @@
         "README.md (Mixing Mechanisms row)",
         "website: mechanistic-interpretability/index.html (Mixing Mechanisms card)"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "W_T excluded; A_T undecided; between-case not earned",
       "level": "N",
       "population": "300 qualifying fresh cases",
       "sources": [
@@ -61,7 +62,8 @@
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
         "applications/gur-arieh-2510.06182/README.md"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "quota met",
       "level": "N",
       "population": "generated confirmation cases",
       "sources": [
@@ -97,7 +99,8 @@
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "W_T excluded; A_T undecided",
       "level": "N",
       "population": "300 qualifying cases; band 0.115673 around each anchor; 80% coverage",
       "sources": [
@@ -153,7 +156,8 @@
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
         "applications/gur-arieh-2510.06182/README.md"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "mean-consistency gate passed",
       "level": "N",
       "population": "resolved confirmation cases vs frozen split-B mean",
       "sources": [
@@ -192,7 +196,8 @@
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
         "applications/gur-arieh-2510.06182/README.md"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive counts",
       "level": "N",
       "population": "290 resolved cases",
       "sources": [
@@ -235,7 +240,8 @@
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive counts; between-case not earned",
       "level": "N",
       "population": "290 resolved cases",
       "sources": [
@@ -269,7 +275,8 @@
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "frozen configuration",
       "level": "N",
       "population": "frozen manifest",
       "sources": [
@@ -321,22 +328,24 @@
     },
     {
       "id": "mixing.caveat",
-      "text": "A caveat fixed before the run states that W_T is biased toward exclusion when case-level argmaxes vary, largest in the selected cell; its size is not quantified.",
+      "text": "A caveat written before the run warned that W_T may be favoured for exclusion when case-level argmaxes vary, most in the selected cell; this is a pre-run concern, never quantified. Jensen gives T_W <= mean case concentration, which does not fix the coverage-rule failure rate; selecting the largest d also widens the band.",
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
         "applications/gur-arieh-2510.06182/README.md",
         "README.md (Mixing Mechanisms row)",
         "website: mechanistic-interpretability/index.html (Mixing Mechanisms card)"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "pre-run concern; not demonstrated, not quantified",
+      "level": "S",
       "population": "analysis contract",
       "sources": [
         "applications/gur-arieh-2510.06182/src/mixing_round1_analysis.py"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "W_T_CAVEAT constant in the frozen analyzer (hash-bound in FREEZE.json); size never computed"
+        "kind": "source",
+        "evidence": "W_T_CAVEAT in src/mixing_round1_analysis.py:81-82 (hash-bound in FREEZE.json); select_cell in the same file; SPLIT_A_B_PROTOCOL.md selection row",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     },
     {
@@ -345,15 +354,17 @@
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "local chronology only",
+      "level": "S",
       "population": "provenance",
       "sources": [
         "applications/gur-arieh-2510.06182/results/confirmation/RUN_STARTED.json"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "local freeze commit e96b357 and RUN_STARTED.json; no external timestamp"
+        "kind": "source",
+        "evidence": "local freeze commit e96b357 and RUN_STARTED.json; no external timestamp",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     },
     {
@@ -365,15 +376,17 @@
         "README.md (Mixing Mechanisms row)",
         "website: mechanistic-interpretability/index.html (Mixing Mechanisms card)"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "scope statement",
+      "level": "S",
       "population": "scope statement",
       "sources": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "scope of the declared profiles W_T and A_T"
+        "kind": "source",
+        "evidence": "scope of the declared profiles W_T and A_T",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     }
   ]

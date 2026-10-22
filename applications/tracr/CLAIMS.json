@@ -1,6 +1,6 @@
 {
   "case": "tracr",
-  "schema_version": 1,
+  "schema_version": 2,
   "scope": "Numbers and conclusions in the RESULTS opening, the root README row and the website validation card.",
   "claims": [
     {
@@ -11,7 +11,8 @@
         "README.md (Tracr row)",
         "website: mechanistic-interpretability/index.html (Tracr validation)"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "adequate (lower bound above 0.95)",
       "level": "N",
       "population": "128 fresh families of one compiled reversal program",
       "sources": [
@@ -59,7 +60,8 @@
       "appears_in": [
         "applications/tracr/RESULTS.md"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "technical checks passed",
       "level": "N",
       "population": "768 records (not independent samples)",
       "sources": [
@@ -92,15 +94,17 @@
         "README.md (Tracr row)",
         "README.md (Connection to causal abstraction)"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "scope statement",
+      "level": "S",
       "population": "scope",
       "sources": [
         "applications/tracr/RESULTS.md"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "design of the Tracr application (compiler-chosen address site)"
+        "kind": "source",
+        "evidence": "design of the Tracr application (compiler-chosen address site)",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     }
   ]

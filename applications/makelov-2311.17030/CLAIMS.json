@@ -1,6 +1,6 @@
 {
   "case": "makelov-2311.17030",
-  "schema_version": 1,
+  "schema_version": 2,
   "scope": "Every number and conclusion in the OVERVIEW summary, the root README row and the website card.",
   "claims": [
     {
@@ -9,7 +9,8 @@
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "measured effect (replication)",
       "level": "N",
       "population": "2,000 base/source pairs of the Table 1 replication; logit(base IO) - logit(base subject)",
       "sources": [
@@ -45,7 +46,8 @@
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "measured rate (replication)",
       "level": "N",
       "population": "same 2,000 pairs; interchange accuracy",
       "sources": [
@@ -72,7 +74,8 @@
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "match within tolerance",
       "level": "N",
       "population": "four Table 1 rows",
       "sources": [
@@ -102,7 +105,8 @@
         "README.md (Makelov row)",
         "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "B predicts better (64/64; sign test)",
       "level": "N",
       "population": "64 fresh base pairs (128 directed cases); per-pair loss",
       "sources": [
@@ -137,7 +141,8 @@
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive count",
       "level": "N",
       "population": "128 directed cases (not independent)",
       "sources": [
@@ -162,7 +167,8 @@
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "exploration",
+      "phase": "exploratory",
+      "outcome": "post-hoc comparison; not a test",
       "level": "N",
       "population": "64 base pairs; mean absolute loss per pair",
       "sources": [
@@ -198,7 +204,8 @@
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive ratio",
       "level": "N",
       "population": "128 directed cases; ratio of measured effects",
       "sources": [
@@ -229,7 +236,8 @@
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "descriptive",
+      "phase": "descriptive",
+      "outcome": "descriptive means",
       "level": "N",
       "population": "192 base pairs, both directions, float64",
       "sources": [
@@ -269,7 +277,8 @@
         "README.md (Makelov row)",
         "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "all three profiles excluded",
       "level": "N",
       "population": "192 fresh base pairs; tolerance 25% of local |T|",
       "sources": [
@@ -311,7 +320,8 @@
         "README.md (Makelov row)",
         "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
       ],
-      "status": "confirmation",
+      "phase": "prespecified_test",
+      "outcome": "both profiles excluded",
       "level": "N",
       "population": "512 fresh families; both recipient orders and precisions",
       "sources": [
@@ -363,7 +373,8 @@
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023",
         "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
       ],
-      "status": "exploration",
+      "phase": "exploratory",
+      "outcome": "post-hoc description; no decision",
       "level": "N",
       "population": "same 512 families; non-frozen tolerances, no decisions",
       "sources": [
@@ -398,7 +409,8 @@
         "README.md (Makelov row)",
         "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
       ],
-      "status": "qualification_stop",
+      "phase": "prespecified_test",
+      "outcome": "qualification stop (competence)",
       "level": "N",
       "population": "32 frozen families, unpatched runs",
       "sources": [
@@ -430,51 +442,57 @@
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "protocol fact",
+      "level": "S",
       "population": "protocol definition",
       "sources": [
         "applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md",
         "applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "QUERY_ROUTE_PROTOCOL.md (Target and scope) and DONOR_FACTOR_PROTOCOL.md (Instrument and population) define the operator"
+        "kind": "source",
+        "evidence": "QUERY_ROUTE_PROTOCOL.md (Target and scope) and DONOR_FACTOR_PROTOCOL.md (Instrument and population) define the operator",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     },
     {
       "id": "makelov.provenance.round1",
-      "text": "Round 1's decision rule was frozen in a local commit; no public push record before the run was found.",
+      "text": "The archived README states that round 1's preregistration was committed and pushed before the run; no public timestamp for that push is available today.",
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "historical statement without public timestamp",
+      "level": "S",
       "population": "provenance",
       "sources": [
         "applications/makelov-2311.17030/PROVENANCE.md"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "local commit chronology in PROVENANCE.md; public events API retains no record that early"
+        "kind": "source",
+        "evidence": "archived app README (hash-frozen) and PROVENANCE.md; the public events API reaches back only to 2026-09-24",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     },
     {
       "id": "makelov.provenance.rounds2_3b",
-      "text": "For rounds 2, 3A and 3B, public push events precede the locally recorded run starts by 12-22 s.",
+      "text": "For rounds 2, 3A and 3B, public GitHub push records (events linked to activity via payload.push_id) precede the locally recorded run starts by 12-22 s.",
       "appears_in": [
         "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023",
         "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
       ],
-      "status": "descriptive",
-      "level": "logged",
+      "phase": "descriptive",
+      "outcome": "public push precedes local start",
+      "level": "S",
       "population": "provenance",
       "sources": [
         "applications/makelov-2311.17030/provenance/public_push_events.json"
       ],
       "check": {
-        "kind": "logged",
-        "evidence": "GitHub public push events (archived copy) compared with RUN_STARTED.json local clocks"
+        "kind": "source",
+        "evidence": "GitHub events and activity records (archived copy in provenance/public_push_events.json) compared with RUN_STARTED.json local clocks",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     }
   ]

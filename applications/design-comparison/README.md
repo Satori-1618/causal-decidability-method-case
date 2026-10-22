@@ -5,8 +5,8 @@ causal explanation classes more often at the same measurement budget. Start with
 [research goal](../../docs/MECHANISM_DISCRIMINATION_GOAL.md) (German) and [contract](PROTOCOL.md).
 
 The first run is complete: [scoped results and next hypothesis](RESULTS.md),
-[separate raw-data recomputation](DEVELOPMENT_001_AUDIT.md) (not external peer review; see
-[glossary](../../docs/GLOSSARY.md#independent-in-review-and-audit-records)), and
+[separate raw-data recomputation](DEVELOPMENT_001_AUDIT.md) (its record names no external reviewer;
+see the [glossary](../../docs/GLOSSARY.md#independent-in-review-and-audit-records)), and
 [test audit](TEST_AUDIT.md). The intended superiority target is not yet established.
 
 The shared full patch gives the same output for six different computations. Individual

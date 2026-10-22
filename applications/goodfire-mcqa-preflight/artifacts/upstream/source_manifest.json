@@ -81,20 +81,6 @@
       "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/protocols/mcqa_symbol_das_apply.json",
       "sha256": "2070713d046cc92dc8d94d6069e8e85a496875e32228970a3c70c6258eb7ca1b",
       "bytes": 1857
-    },
-    "library_readme": {
-      "path": "README.md",
-      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/README.md",
-      "sha256": "87338ff0ef2a079e65b9c0dbd54b240291d9cd3294c41becf183f323f3b41cd7",
-      "bytes": 6380,
-      "added_on": "2026-10-22"
-    },
-    "hypothesis_guide": {
-      "path": "docs/hypothesis_analysis.md",
-      "url": "https://raw.githubusercontent.com/goodfire-ai/causalab/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/docs/hypothesis_analysis.md",
-      "sha256": "07720f4bd2315d5be27578d848796d2978cfc2e66505af06ff9b937ca1e59e39",
-      "bytes": 4535,
-      "added_on": "2026-10-22"
     }
   }
 }

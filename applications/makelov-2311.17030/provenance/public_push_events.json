@@ -1,7 +1,7 @@
 {
-  "source": "GET https://api.github.com/repos/Satori-1618/causal-decidability-method-case/events (anonymous, public)",
+  "source": "GET https://api.github.com/repos/Satori-1618/causal-decidability-method-case/events and .../activity?ref=<branch> (anonymous, public)",
   "retrieved_utc": "2026-10-22",
-  "note": "Copy of public GitHub push events. GitHub serves repository events only for about 90 days; this copy is kept in the same repository and is therefore not independent evidence. It shows when each freeze commit reached GitHub, not when a local run started. Local start times come from the run manifests (local clock), a different kind of record.",
+  "note": "Copy of public GitHub records. Each events entry carries payload.push_id, which is the id of the matching activity entry for the same push; the two timestamps are different fields of that push (activity is one second earlier here). GitHub serves repository events only for about 90 days, and this copy is kept in the same repository, so it is not independent evidence. It shows when each freeze commit reached GitHub, not when a local run started. Local start times come from the run manifests (local clock), a different kind of record.",
   "events": [
     {
       "round": "round 2 freeze",
@@ -14,7 +14,15 @@
       "repo": "Satori-1618/causal-decidability-method-case",
       "local_run_started_utc": "2026-09-24T12:08:13.257047+00:00",
       "local_run_started_source": "applications/makelov-2311.17030/results/query_route_confirmation/RUN_STARTED.json",
-      "push_before_local_start_seconds": 22.257
+      "push_before_local_start_seconds": 22.257,
+      "payload_push_id": 44459552199,
+      "activity": {
+        "id": 44459552199,
+        "timestamp": "2026-09-24T12:07:50Z",
+        "ref": "refs/heads/codex/round2-critical-plan",
+        "after": "e07084a322e877dd5e5639fd7b89bd83f53fb751",
+        "activity_type": "push"
+      }
     },
     {
       "round": "round 3A freeze",
@@ -27,7 +35,15 @@
       "repo": "Satori-1618/causal-decidability-method-case",
       "local_run_started_utc": "2026-09-24T14:06:36.206752+00:00",
       "local_run_started_source": "applications/makelov-2311.17030/results/donor_factor_confirmation_512/RUN_STARTED.json",
-      "push_before_local_start_seconds": 20.207
+      "push_before_local_start_seconds": 20.207,
+      "payload_push_id": 44470017984,
+      "activity": {
+        "id": 44470017984,
+        "timestamp": "2026-09-24T14:06:15Z",
+        "ref": "refs/heads/codex/plan3-person-position-role",
+        "after": "50b7a8d2f9e61040190ee5247fbaef644ef6fd69",
+        "activity_type": "push"
+      }
     },
     {
       "round": "round 3B freeze",
@@ -40,7 +56,15 @@
       "repo": "Satori-1618/causal-decidability-method-case",
       "local_run_started_utc": "2026-09-24T15:20:43.670456+00:00",
       "local_run_started_source": "applications/makelov-2311.17030/results/role_baseline_development/RUN_STARTED.json",
-      "push_before_local_start_seconds": 12.67
+      "push_before_local_start_seconds": 12.67,
+      "payload_push_id": 44476922026,
+      "activity": {
+        "id": 44476922026,
+        "timestamp": "2026-09-24T15:20:31Z",
+        "ref": "refs/heads/codex/plan3-person-position-role",
+        "after": "24cc60eaa7615dc06184fcc18993069e1f20b94e",
+        "activity_type": "push"
+      }
     }
   ]
 }

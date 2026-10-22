@@ -17,22 +17,37 @@ ran, on fresh inputs: 512 new length-32 cyclic families per task, each family on
 and two invalid strings.
 
 1. **Which part of the uniform replacement does the work** ([native follow-up](native_followup/README.md)).
-   - In one head, `a9g0io1r` layer 2/head 1, the effect decomposes in two steps.
-     - Stage 1: redistributing attention between bracket positions alone reproduced the
-       full uniform effect, and changing only the group masses reproduced native
-       behaviour. Both held on 165/165 separating families (simultaneous bound
-       94.89–100%). The reverse account, group masses doing the work, matched 0/165.
-     - Stage 2: redistributing between occurrences of the *same* bracket reproduced the
-       routing effect, and changing only symbol masses reproduced native behaviour. Both
-       held on 136/136 families (93.83–100%). The reverse account matched 0/136.
-   - This head was picked for illustration **after** the cohort run. It was the only
-     one of 36 tasks that passed both stages.
-2. **How far that transfers.** The transfer cohort is 35 tasks in 34 two-layer models.
-   - Stage 2 (within-symbol redistribution) was adequate in 7 tasks, excluded in 21 and
-     unresolved in 5; symbol masses alone were excluded in 33.
-   - Stage 1 (routing alone as the full account) was adequate in 1 task and excluded in 33.
-   - This is a local positive result with substantial transfer failures, not a property
-     of sign-matching heads in general.
+   Two stages were fixed before measurement:
+   - Stage 1 tests whether redistributing attention between bracket positions alone
+     reproduces the full uniform effect, while changing only group masses leaves native
+     behaviour (H_R). The reverse assignment is the rival (H_G).
+   - Stage 2 tests whether redistributing between occurrences of the *same* bracket
+     reproduces the routing effect, while changing only symbol masses leaves native
+     behaviour (H_W). The reverse assignment is the rival (H_T).
+
+   Results:
+   - **Development checkpoint** (`1aez5d6p` layer 2/head 2, fresh inputs):
+     - stage 2: H_W adequate on 183/183 separating families (bound 95.38–100%); H_T 0/183;
+     - stage 1: H_R undecided (172/192); H_G excluded.
+   - **Illustrated transfer head** (`a9g0io1r` layer 2/head 1):
+     - stage 1: H_R adequate on 165/165 separating families (94.89–100%); H_G 0/165;
+     - stage 2: H_W adequate on 136/136 (93.83–100%); H_T 0/136.
+     - It was the only task of 36 that was adequate at both stages, and it was picked for
+       illustration **after** the run.
+     - For this head only invalid strings crossed the separation threshold. The member
+       counts are `invalid_open` 119 and `invalid_close` 68 at stage 1, and 97 and 57 at
+       stage 2; a family can contribute several members. A family still counted as a
+       match only if all three members, including the valid string, were predicted. In 20
+       transfer tasks at stage 1 and 15 at stage 2, valid strings also crossed the threshold.
+2. **Across the transfer cohort** (35 tasks in 34 two-layer models):
+   - Stage 2, H_W: 7 adequate, 21 excluded, 5 undecided, 1 with too few separating
+     families, 1 technically invalid. H_T was excluded in 33.
+   - Stage 1, H_R: 1 adequate, 33 excluded, 1 technically invalid. H_G was excluded in 34.
+   - "7 of 35" is the stage-2 H_W status across the cohort; the other 28 are not all
+     exclusions.
+   - The stages use different conditional populations, so their composition is not a
+     tested account of the full uniform effect.
+   - The decomposition holds locally and does not describe sign-matching heads in general.
 3. **What the relevant states carry** ([value rounds](value_followup/README.md)).
    - Rounds 001, 002 and 004 use the same head `a9g0io1r`/1; screen 003 tests six other
      heads.
@@ -45,19 +60,21 @@ and two invalid strings.
 **What is not claimed:** which semantic feature the states carry, a unique native
 algorithm, necessity, or complete mediation. No claim is made against the paper's result.
 
-**Open question for the authors.** The published uniform and mean replacements cannot tell
-whether the native head output helps or hurts relative to a zero-output reference.
-The retrospective stage below shows this with two constructed countermodels. We have
-**not** run a zero-output condition, and zero is not a neutral reference. Whether that
-reference is informative for your claim is a question for you.
+**A further question, not a missing control.** The uniform and mean replacements answer
+whether replacing the head's attention helps. A different question is whether the native
+head output helps or hurts relative to a zero-output reference. The retrospective stage
+below shows, with two constructed countermodels, that the replacement results do not
+decide that question. We have **not** run a zero-output condition, and zero is not a
+neutral reference. Whether that question matters for the authors' aims is for them to say.
 
 **Provenance.**
 - The native follow-up's freeze was committed locally 7.7 s before execution, with no
   external timestamp.
 - After an outcome-triggered stop, a documented amendment completed the fixed cohort
   without changing predictions, cases or thresholds ([continuation](native_followup/CONTINUATION.md)).
-- Pre-run reviews of the value rounds were AI-agent reviews or review texts without a
-  named reviewer, not external peer review; see the
+- Pre-run reviews of the value rounds were either separate AI-agent reviews or review
+  texts supplied without a named reviewer; none is documented as external peer review. See
+  the
   [glossary](../../docs/GLOSSARY.md#independent-in-review-and-audit-records).
 - Full attention and off-target tensors are not archived, so they cannot be recomputed.
 

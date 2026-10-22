@@ -42,12 +42,22 @@ Two profiles were fixed on development split B:
 
 `W_T` is our narrow, operational concentration rival. It is not a general mechanism
 claim made by the paper, so excluding it does not refute the paper's mixture model.
-The frozen analysis code states a caveat fixed before confirmation (`W_T_CAVEAT` in
-[`src/mixing_round1_analysis.py`](src/mixing_round1_analysis.py), repeated in
-[`summary.json`](results/confirmation/summary.json)): `W_T` is biased toward exclusion
-when case-level argmaxes vary, and the bias is largest in the selected cell. The caveat
-states only the direction of the bias; its size was not quantified before or after the
-run. Read the exclusion below with this bias in mind.
+Three things should be kept apart here.
+
+1. **A caveat written before confirmation.** The frozen analysis code records it as
+   `W_T_CAVEAT` in [`src/mixing_round1_analysis.py`](src/mixing_round1_analysis.py), and it
+   is repeated in [`summary.json`](results/confirmation/summary.json). It reads: "W_T is
+   biased toward exclusion when case argmaxes vary; the bias is largest in the selected
+   cell." This was a concern stated in advance, not a demonstrated property.
+2. **What follows mathematically.** Concentration is the largest of the three shares. The
+   cell average's concentration `T_W` is therefore at most the average of the cases'
+   concentrations (Jensen's inequality). That is a statement about averages. It does not
+   fix how likely the 80% coverage rule is to fail. The cell was selected for the largest
+   separation `d = T_A − T_W`, which also widens the matching band `κ·d`. So the selection
+   does not by itself make the bias largest in this cell, and the bias was never
+   quantified.
+3. **The measured result.** It is reported below: 274 of 290 resolved cases lie more than
+   the band above `T_W`.
 
 The frozen readout scores single-token, capitalised answer forms **without a leading
 space**. This differs from the upstream in-context entity-token readout, which includes
