@@ -1,0 +1,126 @@
+{
+  "files": {
+    "candidates.jsonl": "95a332105f7316ca888dff271c4d7edf281fc169d42d6d54dd616d6db6efcf26",
+    "donor_families.jsonl": "33d488be9a85381bcebaf6ebd76ab0ed8134a8fbfbc0b7e7abb6f7f58883ad8e",
+    "eligible_stems.json": "433857057058920659726657dcba3e33cfb0e226d66b9fba9bd8d03d5c65046d",
+    "exclusions.json": "d0cdb6382ff02dcb38b20d7188a715e1d62dd01ce4e9abe19a6c93aa3ae74daa"
+  },
+  "recipe": {
+    "assignment": "Template index i goes to the i-th accepted recipient; no outcome-based donor selection",
+    "balance": -2,
+    "candidate_attempt_limit_per_draw": 100000,
+    "cores": {
+      "10": "(()()(",
+      "6": "(())(("
+    },
+    "donor_seed": 26100452,
+    "endings": {
+      "alt": "()()",
+      "close": "(())"
+    },
+    "family_count": 256,
+    "head_one_based": 1,
+    "historical_donor_ban": "Both first20 and first28 of every donor, across all historical roles",
+    "input_hash_partition": "confirmation",
+    "last_two": {
+      "alt": "()",
+      "close": "))"
+    },
+    "layer_one_based": 2,
+    "length": 32,
+    "minimum": -4,
+    "model": "a9g0io1r",
+    "native_candidate_count": 2048,
+    "open_count": 16,
+    "phase_rule": "int(sha256('value-prefix-v1:' + text),16)%5 != 0",
+    "position": 28,
+    "quartet_matching": "Common first21 and common future suffix; recency swaps positions22/23; ending swaps26/27",
+    "read_symbol": ")",
+    "recencies": [
+      6,
+      10
+    ],
+    "recipient_seed": 26100451,
+    "replicas_per_role": 2,
+    "role_rule": "int(SHA256(UTF8(\"matched-history-005-role:\"+first20)),16)%2;0=calibration,1=target",
+    "roles": [
+      "calibration",
+      "target"
+    ],
+    "round": "history_005",
+    "sampling": "With replacement between families and recipient draws; four distinct stems within a family",
+    "scientific_stage": "prospective_development",
+    "stem_balance": -4,
+    "stem_length": 18,
+    "stem_sampler": "random.Random(donor_seed).sample(sorted_eligible_role_pool, 2) for each role in each family",
+    "suffix_sampler": "rng.choice(sorted_suffixes) once per role/replica quartet, in calibration then target order",
+    "suffixes": [
+      "((()",
+      "(()(",
+      "()((",
+      ")((("
+    ]
+  },
+  "recipient_generation_attempts": 2700,
+  "schema_version": 1,
+  "source_hashes": {
+    "applications/li-saphra-2507.06445/value_followup/design.py": "8851798c3397db9113fd0fc4b6c78866beb98d32525bef49ac0faf914362fa94",
+    "applications/li-saphra-2507.06445/value_followup/history_005/prepare.py": "005cb8bc8c3346e0967fb1e7c59734023601634015911769608a839562f403e6"
+  },
+  "statistics": {
+    "candidate_draws": 2048,
+    "donor_draws": 4096,
+    "eligible_role_stems": {
+      "calibration": 2538,
+      "target": 2620
+    },
+    "factorial_cell_draws": {
+      "calibration_t10_alt_0": 256,
+      "calibration_t10_alt_1": 256,
+      "calibration_t10_close_0": 256,
+      "calibration_t10_close_1": 256,
+      "calibration_t6_alt_0": 256,
+      "calibration_t6_alt_1": 256,
+      "calibration_t6_close_0": 256,
+      "calibration_t6_close_1": 256,
+      "target_t10_alt_0": 256,
+      "target_t10_alt_1": 256,
+      "target_t10_close_0": 256,
+      "target_t10_close_1": 256,
+      "target_t6_alt_0": 256,
+      "target_t6_alt_1": 256,
+      "target_t6_close_0": 256,
+      "target_t6_close_1": 256
+    },
+    "family_templates": 256,
+    "finite_stem_support": {
+      "all_four_confirmation": 5158,
+      "all_four_fresh_first28": 12568,
+      "fresh_first20": 12568,
+      "raw_stems": 13260
+    },
+    "global_cross_role_prefix_overlap": {
+      "20": 0,
+      "28": 0
+    },
+    "historical_full_strings": 24617,
+    "historical_prefixes": {
+      "20": 22548,
+      "28": 24587
+    },
+    "matched_quartets": 1024,
+    "maximum_candidate_reuse": 1,
+    "maximum_measured_prefix_reuse": 3,
+    "maximum_stem_quartet_reuse": 3,
+    "new_recipient_donor_full_string_overlap": 0,
+    "new_recipient_donor_prefix_overlap": {
+      "20": 1,
+      "28": 0
+    },
+    "unique_candidates": 2048,
+    "unique_donor_strings": 4016,
+    "unique_matched_stems": 937,
+    "unique_measured_prefixes": 3748
+  },
+  "status": "inputs_only_no_measurements"
+}

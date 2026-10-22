@@ -1,0 +1,28 @@
+{
+  "prediction_file_sha256": "458e62137f573a18f78bbed98b47e80b318bd195bb8f608392aac46b5c4beefd",
+  "written_before_target_arms_at": "2026-10-01T19:00:33.806255+00:00",
+  "preflight_code_sha256": "1d882ae61931e56564ed512e19eee517300488755b5964ef067334066bd60ff4",
+  "preflight": {
+    "scope": "Structural check of supplied fixed numeric mean predictions only.",
+    "mode": "structure_only",
+    "identical_mean_groups": [
+      [
+        "gating"
+      ],
+      [
+        "routing"
+      ]
+    ],
+    "pairs": [
+      {
+        "rivals": [
+          "gating",
+          "routing"
+        ],
+        "cells": [],
+        "status": "different_declared_means"
+      }
+    ],
+    "calibration": "Measurement resolution not assessed; no sample-size conclusion."
+  }
+}

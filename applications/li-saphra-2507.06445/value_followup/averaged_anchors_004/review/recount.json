@@ -1,0 +1,60 @@
+{
+  "families": 32,
+  "limitations": [
+    "Only two old prefixes per cell; cannot instantiate two calibration PLUS two independent targets.",
+    "Reuse scores are in-sample; replica splits use one calibration prefix per cell and only four targets.",
+    "Separating subset is computed from these same old observations, not independent calibration.",
+    "Old sampling partition differs; no estimate is adopted as the new round accuracy or yield."
+  ],
+  "maximum_within_cell_pair_gap_nat": 0.1455194771292474,
+  "new_formula_reused_separating": 20,
+  "same_cell_witness_families_gt_0_202": 0,
+  "source": "screen_002/results/run_001/cases.jsonl",
+  "source_sha256": "5d159bbb560728406812284d173c1d5323bb32a4c0bc2e613c872ab9a2c180a6",
+  "status": "old_data_sensitivity_not_a_new_run_forecast",
+  "two_prefix_sample_sd_nat": {
+    "neg_20": {
+      "maximum": 0.10289780907281154,
+      "mean": 0.035288774923194766
+    },
+    "neg_28": {
+      "maximum": 0.09395190532265926,
+      "mean": 0.029561241160065668
+    },
+    "pos_20": {
+      "maximum": 0.0005398052563584517,
+      "mean": 0.00015512203170273226
+    },
+    "pos_28": {
+      "maximum": 0.0005007378328439986,
+      "mean": 0.00010509703012679615
+    }
+  },
+  "variants": {
+    "B_replica0_to_1": {
+      "all_definite_hits_le_0_099": 28,
+      "maximum_absolute_error_nat": 0.15341659341690184,
+      "separating_definite_hits_le_0_099": 16
+    },
+    "B_replica1_to_0": {
+      "all_definite_hits_le_0_099": 30,
+      "maximum_absolute_error_nat": 0.14895033336294228,
+      "separating_definite_hits_le_0_099": 18
+    },
+    "B_reuse": {
+      "all_definite_hits_le_0_099": 30,
+      "maximum_absolute_error_nat": 0.11650990093154068,
+      "separating_definite_hits_le_0_099": 18
+    },
+    "C_reuse": {
+      "all_definite_hits_le_0_099": 32,
+      "maximum_absolute_error_nat": 0.07275973856462414,
+      "separating_definite_hits_le_0_099": 20
+    },
+    "C_single_prefix_to_other": {
+      "all_definite_hits_le_0_099": 26,
+      "maximum_absolute_error_nat": 0.1455194771292474,
+      "separating_definite_hits_le_0_099": 14
+    }
+  }
+}

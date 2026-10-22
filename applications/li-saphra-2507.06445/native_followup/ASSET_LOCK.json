@@ -1,0 +1,25 @@
+{
+  "revision": "dedb269eca6a9cf0bc409792003e6f815f2dce34",
+  "files": {
+    "utils/minGPT/utils.py": {
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/utils/minGPT/utils.py",
+      "bytes": 3599,
+      "sha256": "744c994f5850b58d09c847a478023516b1bf1dcdda596adce0b1e4fb51dccd97"
+    },
+    "data/model_weights/run_1aez5d6p/run_1aez5d6p_checkpoint_5.pt": {
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/data/model_weights/run_1aez5d6p/run_1aez5d6p_checkpoint_5.pt",
+      "bytes": 439983,
+      "sha256": "dee4b462e782b9f0d7758127a365ff820ede802d9f25d6dd4dfbceca1724c28f"
+    },
+    "data/model_preds/indist_data_preds.csv": {
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/data/model_preds/indist_data_preds.csv",
+      "bytes": 9499315,
+      "sha256": "a0231407864adc5439c146021ed6c21673d403526580181a1a8e9d8b8712b18b"
+    },
+    "data/model_preds/ood_data_preds.csv": {
+      "url": "https://raw.githubusercontent.com/vli31/id-predict-ood/dedb269eca6a9cf0bc409792003e6f815f2dce34/data/model_preds/ood_data_preds.csv",
+      "bytes": 9389951,
+      "sha256": "9a1dc9af212d0bc0af74a942987b7fbafcfafb48d779472258d863b331496452"
+    }
+  }
+}

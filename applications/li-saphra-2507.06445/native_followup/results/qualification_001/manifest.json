@@ -1,0 +1,13 @@
+{
+  "status": "qualification_only",
+  "sources": {
+    "runtime.py": "6fc064758359dcc1808e58bbfc660029deb8ec4efdfe13c72eb5f9850e9b0aa7",
+    "qualify.py": "fa4db58ff9363074a5562df0b20c47e8bc536293abf7e96572f1e2217685a431",
+    "ASSET_LOCK.json": "086eba060bdef85ed9970bebc7b9273ee7ab6b82e0efce7f62ab638551732f88",
+    "DEVELOPMENT.md": "c2280957034a341c4022f31213ab7b62cc158d8c7fc40102d61ba831d602fc44"
+  },
+  "outputs": {
+    "summary.json": "d252c57b64bfadef5e28b091a8ac528a9ce7ce8718d917756199481aec6c774c",
+    "cases.jsonl": "d8b1938de7198178ecd159f213e4545cee7a2384ed3011330e418dd59f19e982"
+  }
+}

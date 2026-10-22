@@ -1,0 +1,168 @@
+{
+  "ood": {
+    "n": 1000,
+    "valid": 0,
+    "correct": {
+      "native": 779,
+      "routing_only": 819,
+      "gate_only": 781,
+      "both": 823
+    },
+    "margin_effect_mean": {
+      "full": 0.5768796027195817,
+      "routing": 0.49822660903473176,
+      "gate": 0.08566748315613634
+    },
+    "margin_effect_mean_absolute": {
+      "full": 0.6057564272443036,
+      "routing": 0.5231549664646719,
+      "gate": 0.08963473693644286
+    },
+    "pure_routing_error_mean": 0.10075388749480589,
+    "pure_gating_error_mean": 0.5342782000656887,
+    "pure_routing_error_quantiles": [
+      1.3838597112680873e-07,
+      0.0007739281862000347,
+      0.004986188797444946,
+      0.13106563076544098,
+      0.35666080152412283,
+      1.3182380545018546
+    ],
+    "pure_gating_error_quantiles": [
+      4.2879273820517483e-07,
+      0.008602314038483883,
+      0.061013364026475614,
+      0.6036154697829295,
+      2.029667129189995,
+      5.584848524752657
+    ],
+    "sign_pattern_preservation_mismatches_gate": 0,
+    "fp32_fp64_max_margin_difference": 1.2388366395388317e-05,
+    "constant_shift_best_fit_residual_mae": 0.7542104865433108
+  },
+  "indist": {
+    "n": 1000,
+    "valid": 505,
+    "correct": {
+      "native": 998,
+      "routing_only": 978,
+      "gate_only": 997,
+      "both": 974
+    },
+    "margin_effect_mean": {
+      "full": -0.39733134404155346,
+      "routing": -0.374234719436168,
+      "gate": 0.003187938491485161
+    },
+    "margin_effect_mean_absolute": {
+      "full": 0.5314840069688944,
+      "routing": 0.4312901078146135,
+      "gate": 0.07696058937817872
+    },
+    "pure_routing_error_mean": 0.10451373635551482,
+    "pure_gating_error_mean": 0.4588560984730052,
+    "pure_routing_error_quantiles": [
+      0.00027547709352582217,
+      0.01450633446673777,
+      0.04725932605397043,
+      0.08309242447787724,
+      0.1394864426727315,
+      4.587515578479116
+    ],
+    "pure_gating_error_quantiles": [
+      7.195834211337626e-05,
+      0.016289997188789762,
+      0.04331360906010273,
+      0.12052376343982951,
+      0.9482890935663951,
+      7.505766871917974
+    ],
+    "sign_pattern_preservation_mismatches_gate": 0,
+    "fp32_fp64_max_margin_difference": 4.573023566933898e-06,
+    "constant_shift_best_fit_residual_mae": 0.7716489539650038
+  },
+  "indist_valid": {
+    "n": 505,
+    "valid": 505,
+    "correct": {
+      "native": 504,
+      "routing_only": 504,
+      "gate_only": 504,
+      "both": 504
+    },
+    "margin_effect_mean": {
+      "full": 0.06840754174660123,
+      "routing": 0.025680970572752513,
+      "gate": 0.041426302372432555
+    },
+    "margin_effect_mean_absolute": {
+      "full": 0.09323151171538428,
+      "routing": 0.02779021214225225,
+      "gate": 0.06407401333725399
+    },
+    "pure_routing_error_mean": 0.06546778212754034,
+    "pure_gating_error_mean": 0.029183980932538597,
+    "pure_routing_error_quantiles": [
+      0.0003802266923909059,
+      0.025717317375876902,
+      0.05127411899172074,
+      0.07775764101935057,
+      0.10567734174049441,
+      4.587515578479116
+    ],
+    "pure_gating_error_quantiles": [
+      7.195834211337626e-05,
+      0.007973974581874543,
+      0.019855985101280282,
+      0.041451988435658116,
+      0.06619194501520376,
+      0.17679583776350327
+    ],
+    "sign_pattern_preservation_mismatches_gate": 0,
+    "fp32_fp64_max_margin_difference": 3.918996570817512e-06,
+    "constant_shift_best_fit_residual_mae": 0.06384289546552542
+  },
+  "indist_invalid": {
+    "n": 495,
+    "valid": 0,
+    "correct": {
+      "native": 494,
+      "routing_only": 474,
+      "gate_only": 493,
+      "both": 470
+    },
+    "margin_effect_mean": {
+      "full": -0.8724790962092669,
+      "routing": -0.7822295142937535,
+      "gate": -0.03582291758907734
+    },
+    "margin_effect_mean_absolute": {
+      "full": 0.9785900879851018,
+      "routing": 0.8429415165308609,
+      "gate": 0.09010750028861708
+    },
+    "pure_routing_error_mean": 0.14434849773961,
+    "pure_gating_error_mean": 0.8972084608122692,
+    "pure_routing_error_quantiles": [
+      0.00027547709352582217,
+      0.00991133320218296,
+      0.035424783131304594,
+      0.09648840855360685,
+      0.4516728348419512,
+      1.8819725711815303
+    ],
+    "pure_gating_error_quantiles": [
+      0.003167657518588385,
+      0.049689794341207794,
+      0.11790809317219164,
+      0.5099272660767928,
+      3.8071423052666806,
+      7.505766871917974
+    ],
+    "sign_pattern_preservation_mismatches_gate": 0,
+    "fp32_fp64_max_margin_difference": 4.573023566933898e-06,
+    "constant_shift_best_fit_residual_mae": 1.319351996646339
+  },
+  "status": "exploratory_on_published_inputs_not_confirmation",
+  "elapsed_seconds": 7.511075709015131
+}

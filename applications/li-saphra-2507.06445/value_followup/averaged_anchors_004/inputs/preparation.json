@@ -1,0 +1,114 @@
+{
+  "files": {
+    "candidates.jsonl": "1356356c1800fd6052e18686be4e5468dc537965d46ece9db2accd9b2abf9373",
+    "donor_families.jsonl": "3ff49f00e02c935ce5d7ba75928c25571f286460465e9b27e2b241770880a1c1",
+    "exclusions.json": "b9bd18afbafcfd92071685d8abb37a6efbe322a2e24bbc49e9cf8866e0beea6d"
+  },
+  "generation_attempts": {
+    "donors_by_role_cell": {
+      "calibration_-2_20": 1331,
+      "calibration_-2_28": 1402,
+      "calibration_2_20": 1419,
+      "calibration_2_28": 1375,
+      "target_-2_20": 1387,
+      "target_-2_28": 1337,
+      "target_2_20": 1374,
+      "target_2_28": 1442
+    },
+    "recipients": 2704
+  },
+  "recipe": {
+    "assignment": "template index i is assigned to the i-th accepted recipient; do not replace templates",
+    "attempt_limit_per_draw": 100000,
+    "balances": [
+      -2,
+      2
+    ],
+    "donor_seed": 26100342,
+    "family_count": 256,
+    "head_one_based": 1,
+    "historical_donor_ban": "both first20 and first28 of every full donor, regardless of read position",
+    "input_hash_partition": "confirmation",
+    "layer_one_based": 2,
+    "length": 32,
+    "minimum": -4,
+    "model": "a9g0io1r",
+    "native_candidate_count": 2048,
+    "open_count": 16,
+    "phase_hash": "int(sha256('value-prefix-v1:' + measured_prefix).hexdigest(), 16) % 5 != 0",
+    "positions": [
+      20,
+      28
+    ],
+    "read_symbol": ")",
+    "recipient_seed": 26100341,
+    "replicas_per_role_cell": 2,
+    "role_hash": "int(sha256('averaged-anchor-004-role:' + first20).hexdigest(), 16) % 2",
+    "role_parity": {
+      "0": "calibration",
+      "1": "target"
+    },
+    "roles": [
+      "calibration",
+      "target"
+    ],
+    "round": "averaged_anchors_004",
+    "sampling": "with replacement between families and between recipient draws",
+    "scientific_stage": "prospective_development",
+    "within_cell_rule": "four distinct measured prefixes across the two roles"
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/prepare.py": "ab47c523f32e88d9037c53ae55317ec137100e4ebed30bf9e617b57598adc23d",
+    "applications/li-saphra-2507.06445/value_followup/design.py": "8851798c3397db9113fd0fc4b6c78866beb98d32525bef49ac0faf914362fa94"
+  },
+  "statistics": {
+    "candidate_draws": 2048,
+    "donor_draws": 4096,
+    "exact_fresh_p20_support_before_suffix_check": {
+      "-2": {
+        "confirmation_calibration": 5983,
+        "confirmation_target": 5998,
+        "development_calibration": 785,
+        "development_target": 798
+      },
+      "2": {
+        "confirmation_calibration": 1045,
+        "confirmation_target": 1099,
+        "development_calibration": 3,
+        "development_target": 6
+      }
+    },
+    "family_templates": 256,
+    "global_cross_role_prefix_overlap": {
+      "20": 0,
+      "28": 0
+    },
+    "historical_full_strings": 18475,
+    "historical_prefixes": {
+      "20": 16753,
+      "28": 18447
+    },
+    "maximum_candidate_reuse": 1,
+    "maximum_measured_prefix_reuse": 4,
+    "new_recipient_donor_full_string_overlap": 0,
+    "new_recipient_donor_prefix_overlap": {
+      "20": 11,
+      "28": 0
+    },
+    "role_cell_measured_prefixes": {
+      "calibration_-2_20": 492,
+      "calibration_-2_28": 512,
+      "calibration_2_20": 417,
+      "calibration_2_28": 512,
+      "target_-2_20": 489,
+      "target_-2_28": 512,
+      "target_2_20": 414,
+      "target_2_28": 511
+    },
+    "unique_candidates": 2048,
+    "unique_donor_strings": 4094,
+    "unique_measured_prefixes": 3859
+  },
+  "status": "inputs_only_no_measurements"
+}

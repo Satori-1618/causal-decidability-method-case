@@ -1,0 +1,87 @@
+{
+  "native_screen": {
+    "max_dtype_margin_difference": 9.21717401958233e-06,
+    "dtype_classification_mismatches": 0,
+    "forward_batches": {
+      "float32": 16,
+      "float64": 16
+    },
+    "cases_per_dtype": 1024,
+    "selected_counts": {
+      "accepted": 32,
+      "rejected": 32
+    },
+    "pool_counts": {
+      "accepted": 440,
+      "rejected": 584
+    }
+  },
+  "anchors": {
+    "float32": {
+      "identity_max_margin_error": 0.0,
+      "identity_max_node_error": 0.0,
+      "identity_tolerance": 1e-05,
+      "self_same_position_cases": 0,
+      "self_same_position_max_margin_error": 0.0,
+      "inserted_node_exactly_intended_after_dtype": true,
+      "all_target_layer_attention_weights_unchanged": true,
+      "all_target_layer_value_projections_unchanged": true,
+      "nontarget_head_and_query_preprojection_exactly_unchanged": true,
+      "recipient_and_donor_native_forward_batches": 4,
+      "identity_forward_batches": 2,
+      "transfer_forward_batches": 2
+    },
+    "float64": {
+      "identity_max_margin_error": 0.0,
+      "identity_max_node_error": 0.0,
+      "identity_tolerance": 1e-10,
+      "self_same_position_cases": 0,
+      "self_same_position_max_margin_error": 0.0,
+      "inserted_node_exactly_intended_after_dtype": true,
+      "all_target_layer_attention_weights_unchanged": true,
+      "all_target_layer_value_projections_unchanged": true,
+      "nontarget_head_and_query_preprojection_exactly_unchanged": true,
+      "recipient_and_donor_native_forward_batches": 4,
+      "identity_forward_batches": 2,
+      "transfer_forward_batches": 2
+    }
+  },
+  "anchor_precision": {
+    "maximum_signed_contrast_dtype_difference": 3.123223626388949e-06,
+    "separation_boundary_straddles": 0
+  },
+  "accepted_targets": {
+    "float32": {
+      "identity_max_margin_error": 0.0,
+      "identity_max_node_error": 0.0,
+      "identity_tolerance": 1e-05,
+      "self_same_position_cases": 0,
+      "self_same_position_max_margin_error": 0.0,
+      "inserted_node_exactly_intended_after_dtype": true,
+      "all_target_layer_attention_weights_unchanged": true,
+      "all_target_layer_value_projections_unchanged": true,
+      "nontarget_head_and_query_preprojection_exactly_unchanged": true,
+      "recipient_and_donor_native_forward_batches": 6,
+      "identity_forward_batches": 3,
+      "transfer_forward_batches": 3
+    },
+    "float64": {
+      "identity_max_margin_error": 0.0,
+      "identity_max_node_error": 0.0,
+      "identity_tolerance": 1e-10,
+      "self_same_position_cases": 0,
+      "self_same_position_max_margin_error": 0.0,
+      "inserted_node_exactly_intended_after_dtype": true,
+      "all_target_layer_attention_weights_unchanged": true,
+      "all_target_layer_value_projections_unchanged": true,
+      "nontarget_head_and_query_preprojection_exactly_unchanged": true,
+      "recipient_and_donor_native_forward_batches": 6,
+      "identity_forward_batches": 3,
+      "transfer_forward_batches": 3
+    }
+  },
+  "target_precision": {
+    "maximum_prediction_error_dtype_difference": 4.914926649474127e-06,
+    "gate_passed": true
+  }
+}

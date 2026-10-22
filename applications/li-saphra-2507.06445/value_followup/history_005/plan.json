@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "round": "history_005",
+  "status": "awaiting_final_pre_run_review",
+  "execution_authorized": false,
+  "model_measurements_performed": false,
+  "scope": "Prospective development of matched history contrasts on an adaptively selected head. Comparative prediction only: no absolute adequacy, unique mechanism, native-use, or untouched-head claim.",
+  "model": {
+    "model": "a9g0io1r",
+    "layer_one_based": 2,
+    "head_one_based": 1,
+    "model_heads": 4,
+    "hidden_width": 64,
+    "head_width": 16,
+    "checkpoint": "data/model_weights/run_a9g0io1r/run_a9g0io1r_checkpoint_5.pt",
+    "sha256": "abec37ff9899e0349de9e19558b61dddadcdf7e15628aaa0fa55e70b435b9f4e",
+    "upstream_revision": "dedb269eca6a9cf0bc409792003e6f815f2dce34"
+  },
+  "sampling": {
+    "phase": "confirmation",
+    "phase_meaning": "Existing input hash partition, not the epistemic status of this development round.",
+    "recipient_seed": 26100451,
+    "donor_seed": 26100452,
+    "native_candidates": 2048,
+    "families": 256,
+    "sampling": "Independent draws with replacement across families; four distinct matched stems within each family; two calibration and two target stems.",
+    "length": 32,
+    "opens": 16,
+    "closes": 16,
+    "recipient_requires_negative_prefix": true,
+    "historical_exclusions": "All prior prepared strings, including all unmeasured averaged_anchors_004 inputs; exclude their full strings and first20/28 prefixes.",
+    "historical_full_strings": 24617,
+    "historical_prefix20": 22548,
+    "historical_prefix28": 24587,
+    "role_rule": "int(SHA256(UTF8(\"matched-history-005-role:\"+first20)),16)%2;0=calibration,1=target",
+    "role_assignment_uses_measurements": false,
+    "no_global_deduplication": true
+  },
+  "screen": {
+    "margin": "logit(False)-logit(True)",
+    "false_token": 0,
+    "true_token": 1,
+    "strict_cutoff_nat": 8.0,
+    "rule": "m<8 in both fp32 and fp64",
+    "selection": "First256 accepted in fixed candidate order; finish all2048 before selecting.",
+    "shortfall": "insufficient_screening_yield; no calibration, replenishment, cutoff change or replacement"
+  },
+  "intervention": {
+    "operator": "h+a_recipient[j]*(v_donor[k]-v_recipient[j])",
+    "recipient_site": "highest native fp64 EOS attention on a closing bracket; first tie",
+    "balances": [
+      -2
+    ],
+    "positions": [
+      28
+    ],
+    "minimum_prefix_balance": -4,
+    "target_symbol": ")",
+    "recencies": [
+      6,
+      10
+    ],
+    "suffix_patterns": {
+      "alt": "()()",
+      "close": "(())"
+    },
+    "recency_cores": {
+      "t6": "(())((",
+      "t10": "(()()("
+    },
+    "shared_stem_length": 18,
+    "shared_first_tokens_within_quartet": 21,
+    "recency_edit_positions_one_based": [
+      22,
+      23
+    ],
+    "suffix_edit_positions_one_based": [
+      26,
+      27
+    ],
+    "shared_future_suffix": "Four symbols containing three opens and one close, identical within each quartet.",
+    "calibration_stems_per_family": 2,
+    "target_stems_per_family": 2,
+    "calibration_transfers_per_family": 8,
+    "target_transfers_per_family": 8,
+    "dtypes": [
+      "float32",
+      "float64"
+    ],
+    "backend": "CPU, one thread, deterministic PyTorch",
+    "numerical_allowance_nat": 0.001,
+    "comparison_numerical_guard_nat": 0.002,
+    "meaningful_error_advantage_nat": 0.02,
+    "robust_error_advantage_nat": 0.022
+  },
+  "predictions": {
+    "centering": "For each matched four-cell stem quartet, subtract its four-cell mean separately. This fixed contrast removes additive shared offsets; it does not fit a target parameter.",
+    "calibration": "Average the two centered calibration quartets cellwise.",
+    "H_recency": "Predict centered cell from its recency-row mean in the calibrated grid.",
+    "H_suffix": "Predict centered cell from its suffix-column mean in the calibrated grid.",
+    "H_constant": "Predict zero for all centered cells.",
+    "target_scoring": "Maximum absolute error across all eight centered fresh target cells per family, never an error of an averaged target.",
+    "receipt": "All256 candidate forecast grids in both dtypes saved and hashed before any target transfer.",
+    "descriptive": "Raw margins, centered grids, row/column/interaction contrasts and full-cell calibration forecasts are reported without additional inferential claims."
+  },
+  "target_start": {
+    "minimum_separating_families": 64,
+    "total_families": 256,
+    "separation": "At least one of the three primary forecast pairs has sup-norm distance strictly above .022 nat in BOTH dtypes; precision gates apply. Boundary-straddling pairs are reported as ambiguous and do not supply definite separation.",
+    "justification": "Operational minimum potential coverage of25%; not inherited from004, not an estimated success rate, and not a guarantee of power. By the triangle inequality a forecast distance <=.022 cannot produce a robust error advantage >.022.",
+    "scope": "After all calibration forecasts; if passed, measure and score all256 families, including nonseparating ones.",
+    "failure": "insufficient_design_yield; preserve calibration records, measure no targets, add no families."
+  },
+  "inference": {
+    "independent_unit": "Recipient-donor family draw, not any cell, stem, dtype or forward.",
+    "population": "All256 screened family draws under this fixed generator, conditional on the specified native eligibility population; no post-target subset.",
+    "pairs": [
+      [
+        "H_recency",
+        "H_suffix"
+      ],
+      [
+        "H_recency",
+        "H_constant"
+      ],
+      [
+        "H_suffix",
+        "H_constant"
+      ]
+    ],
+    "test": "Three two-sided exact sign/binomial tests on robust family wins and losses; neutral cases remain in denominators and are not binomial trials.",
+    "pair_alpha": 0.016666666666666666,
+    "directional_tail_alpha": 0.008333333333333333,
+    "familywise_alpha_upper_bound": 0.05,
+    "null": "For a pair, robust wins and losses have equal population probability. A significant direction supports a higher probability of a meaningful prediction advantage, not mean-loss superiority.",
+    "robust_win": "In fp64, E_other-E_candidate>.022 nat; loss if below-.022; otherwise neutral. Every signed prediction error must agree across fp32/fp64 within.001, bounding the error-difference discrepancy by.002 and guaranteeing a robust win exceeds.020 in the other dtype. No extra agreement at the .022 guard boundary is required.",
+    "meaningful_advantage_nat": 0.02,
+    "comparison_guard_nat": 0.002,
+    "decision": "Report each pair independently with direction or unresolved; allow cycles, ties and multiple unresolved pairs. Do not force a unique mechanism or compatible explanation set.",
+    "planning_alternative": {
+      "win": 0.15,
+      "loss": 0.05,
+      "neutral": 0.8
+    },
+    "planning_note": "Hypothetical robust-outcome probabilities for planning only; not forecasts from previous outcomes. Error control is for the predeclared procedure, not conditional on a passed data-dependent start gate.",
+    "absolute_adequacy_test": false,
+    "equivalence_test": false
+  },
+  "future_confirmation_start": {
+    "automatic_execution": false,
+    "meaning": "No automatic continuation, new head, revision or confirmation. Report all pair results and seek a separately frozen review."
+  },
+  "cost": {
+    "baseline_sequence_forwards_per_candidate": 2,
+    "sequence_forwards_per_transfer_both_dtypes": 8,
+    "maximum_baseline_forwards": 4096,
+    "maximum_calibration_forwards": 16384,
+    "maximum_target_forwards": 16384,
+    "maximum_total_sequence_forwards": 36864,
+    "calibration_stop_sequence_forwards": 20480,
+    "neural_retries_authorized": false
+  },
+  "provenance": {
+    "base_commit": "5d54328255f6136c71d3907a6b4788ae08f76ae4",
+    "prior_result": "../averaged_anchors_004/RESULT.md",
+    "prior_results_reinterpreted": false,
+    "design_development": "Two history edits proposed after004. Only input algebra, old prepared strings and synthetic outcomes are used to prepare005; no new model outcomes.",
+    "prepared_inputs": "inputs/preparation.json",
+    "prepared_inputs_sha256": "ee829a658e9cb7a5d99b85483816e8501803f32cbec35c0b69fa8cc6d377e463",
+    "final_review": "REVIEW.md",
+    "execution_release": "EXECUTION_RELEASE.json",
+    "source_lock": "SOURCE_LOCK.json"
+  }
+}

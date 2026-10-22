@@ -1,0 +1,69 @@
+{
+  "float32_ood": {
+    "correct": {
+      "native": 779,
+      "uniform": 823,
+      "mean": 827
+    },
+    "native_public_prediction_mismatches": 0,
+    "identity_max_margin_error": 0.0,
+    "identity_max_node_error": 0.0,
+    "uniform_scope_max_margin_error": 0.0,
+    "minimum_bracket_mass": 0.795590341091156,
+    "forward_batches_per_arm": 16
+  },
+  "float32_indist": {
+    "correct": {
+      "native": 998,
+      "uniform": 974
+    },
+    "native_public_prediction_mismatches": 0,
+    "identity_max_margin_error": 0.0,
+    "identity_max_node_error": 0.0,
+    "uniform_scope_max_margin_error": 0.0,
+    "minimum_bracket_mass": 0.32261425256729126,
+    "forward_batches_per_arm": 16
+  },
+  "float64_ood": {
+    "correct": {
+      "native": 779,
+      "uniform": 823,
+      "mean": 827
+    },
+    "native_public_prediction_mismatches": 0,
+    "identity_max_margin_error": 0.0,
+    "identity_max_node_error": 0.0,
+    "uniform_scope_max_margin_error": 0.0,
+    "minimum_bracket_mass": 0.7955902896169863,
+    "forward_batches_per_arm": 16
+  },
+  "float64_indist": {
+    "correct": {
+      "native": 998,
+      "uniform": 974
+    },
+    "native_public_prediction_mismatches": 0,
+    "identity_max_margin_error": 0.0,
+    "identity_max_node_error": 0.0,
+    "uniform_scope_max_margin_error": 0.0,
+    "minimum_bracket_mass": 0.322614165419562,
+    "forward_batches_per_arm": 16
+  },
+  "ood_precision": {
+    "native": 1.2388366395388317e-05,
+    "uniform": 1.002062754906774e-05,
+    "mean": 1.0474250843661714e-05
+  },
+  "indist_precision": {
+    "native": 4.351559795168214e-06,
+    "uniform": 4.5240237440680175e-06
+  },
+  "elapsed_seconds": 7.666184542002156,
+  "environment": {
+    "python": "3.10.10",
+    "torch": "2.9.0",
+    "platform": "macOS-15.7.3-arm64-arm-64bit",
+    "device": "cpu",
+    "threads": 1
+  }
+}

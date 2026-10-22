@@ -1,0 +1,273 @@
+{
+  "round": "averaged_anchors_004",
+  "status": "completed",
+  "started_at": "2026-10-04T13:32:53.263387+00:00",
+  "git_head": "5cb6f770494a2e42bfdfeaaa3206bc9beab3f75a",
+  "reviewed_commit": "80085bbd156fd2a3cfe56662b748a7d10ccf7227",
+  "source_hashes": {
+    "applications/li-saphra-2507.06445/SOURCE_LOCK.json": "12a8899278552c796d79b0cf39e8adb920f09a92a8cf6bc816b52b24bead605f",
+    "applications/li-saphra-2507.06445/native_followup/ASSET_LOCK.json": "086eba060bdef85ed9970bebc7b9273ee7ab6b82e0efce7f62ab638551732f88",
+    "applications/li-saphra-2507.06445/native_followup/confirm.py": "f6041b4e9406c96a988cf36024112bbab0c4f23984292fd497e4318907489407",
+    "applications/li-saphra-2507.06445/native_followup/frozen/confirmation_001/COHORT_ASSET_LOCK.json": "867427909b582ec0c83893a38aa473b4d6cd86086af5407292a79ef7930ed0d3",
+    "applications/li-saphra-2507.06445/native_followup/frozen/confirmation_001/cases.jsonl": "a77ef66c44496945cd79e692b3e30df01070b08ae26bbbf01faeda410e83e460",
+    "applications/li-saphra-2507.06445/native_followup/qualify.py": "fa4db58ff9363074a5562df0b20c47e8bc536293abf7e96572f1e2217685a431",
+    "applications/li-saphra-2507.06445/native_followup/runtime.py": "6fc064758359dcc1808e58bbfc660029deb8ec4efdfe13c72eb5f9850e9b0aa7",
+    "applications/li-saphra-2507.06445/native_followup/token_split.py": "d329cfe15384cf8b76b279a749ebdeb76504503e9d0558a9aedcc1f5071fe1a1",
+    "applications/li-saphra-2507.06445/upstream/utils/minGPT/model.py": "518a09d8f280ead364f16a8f65429b71220559b4fec959a1c9f1bb97a1e701dd",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/AMENDMENT_002.md": "cd94b11f3d6819235524263911426430746f636ee335b980f68103425a3f1bd7",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/EXECUTION_RELEASE.json": "c12639c2676ac7b378106a98c7e49a1a55e75df79ea82092aa4e636934a1be84",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/PROTOCOL.md": "84af2dd59ebfd2d5a0622e249cfdc7c8df7b3c2bd73b65faec9c9feffb4d62f5",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/REVIEW.md": "eb5a0d4d82698c542cf5dd40773acf4c290fa12e274cdb5cd0cdbaeb8cf181f5",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/analysis.py": "727c9bb20c1d6db50a61ce992e825c923e887c019f4c572c3d6e18e3c77180cf",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/descriptives.py": "fbad067257ff5ea1daf3623883acc30978c21378198b6b14837e586a8618b379",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/inputs/candidates.jsonl": "1356356c1800fd6052e18686be4e5468dc537965d46ece9db2accd9b2abf9373",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/inputs/donor_families.jsonl": "3ff49f00e02c935ce5d7ba75928c25571f286460465e9b27e2b241770880a1c1",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/inputs/exclusions.json": "b9bd18afbafcfd92071685d8abb37a6efbe322a2e24bbc49e9cf8866e0beea6d",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/inputs/preparation.json": "f506473113149306775eefd5b7e7deedf8aad8dca5ee05ac3a8f1e3c8d3a0dbf",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/plan.json": "f427cd434ddb4a13d5efa9565018ccbbeac85ac7478001fa25480730f7679379",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/planning.json": "6ea0e8a005c784a3ba9a4e4f88d8624a8ff4a83f0d9513e23dfffb029683609f",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/planning.py": "0850f5017bdc674c95cae604c844982ab615e3bd82952e47eed1b6292d060f36",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/prepare.py": "ab47c523f32e88d9037c53ae55317ec137100e4ebed30bf9e617b57598adc23d",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/review/recount.json": "1f43060e77a6ff52158e5c198c2bffabf5dda57fb3d432b7419a3daf9174d771",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/review/recount.py": "df904f2840f11e673b196de3b9e21c21b0d4c9724928630acb5d4696e37a0d64",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/run.py": "4262f8a055cb03449e53ebd5969dccfae3940f4539043930be7af77fa382ac6d",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/test_amendment.py": "eadb87571a1dcc4afad96138ca73606812bc4b104b6b13a42058846a6139cc80",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/test_analysis.py": "6bcae4c1e055a808a79df3117451e03ce83ab12a537057243e51f36a9822e7ff",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/test_descriptives.py": "d4dee2301db9c3a0446ae723a8dedcb7f1b17fef1238d0b187427decbc0888e9",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/test_freeze.py": "38d7b21b1aff9793c32a16f4453a12ca9146681dee080aee64c88f6a3d9f0e01",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/test_planning.py": "840fa8cc85498528a61da03f7267d6c6367e52bc48492ce58103462ce4bc844b",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/test_prepare.py": "dad76990164bab28b25b733e565d5fe3f4ee8036c8a19519373d633d851f94ba",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/test_run.py": "31b5cd487bbb77fb5917da2190c8109611c132024a0116ac89f2360e58486cd9",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/verify_freeze.py": "79fad08e333b72aa2f6e6d985f50bc264040c20f84e99fb2771cb4c76012e637",
+    "applications/li-saphra-2507.06445/value_followup/design.py": "8851798c3397db9113fd0fc4b6c78866beb98d32525bef49ac0faf914362fa94",
+    "applications/li-saphra-2507.06445/value_followup/inputs/development_001/cases.jsonl": "c903abae2cf1b4af46fafb0de6287de073e23ee8c8fed02ede6407c34770caa0",
+    "applications/li-saphra-2507.06445/value_followup/inputs/development_001/exclusions.json": "4ec0282b210904582bf1e3719421ad2ec79c2405c54df70fb42a83d6b07badc5",
+    "applications/li-saphra-2507.06445/value_followup/run.py": "02f8522855556b0966962fcfe47f478f35687900ad52d6452dd20d8ec2ab2d4a",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/PROTOCOL.md": "cfe0b2a797246d19b2a96ceea33deeb79f2df267a1a66b6af0318ff2948908ac",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/analyze_screen.py": "fe3a3fa8728738e3ae07755e99715d5f185b6197e1b65a0e4502a2cccd04aee4",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/inputs/candidates.jsonl": "23059b25b40f4c51bbeea3d689d234185e21f2ef604851281933351ae825d175",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/inputs/donor_families.jsonl": "e17f7ed49159f29fbf1c4ce86a31fea5980c81a81b5250ffb87893a4dcdd9b93",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/inputs/exclusions.json": "79bb719906627786cf34a1a1166be972b294cd5fe1c0447a1b0bd817c061d1c8",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/inputs/preparation.json": "20b0a64b94bf8e5f96e3294cb5087bb05d9059449280b0323e7c45a61c026e85",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/prepare_screen.py": "2f78e57bb8b94b55e90b58d9f27e573a27378d75114717529a9ba24cfb3fc7da",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/results/run_001/cases.jsonl": "5d159bbb560728406812284d173c1d5323bb32a4c0bc2e613c872ab9a2c180a6",
+    "applications/li-saphra-2507.06445/value_followup/screen_002/run_screen.py": "26579a977e649945dcbf69a4dbc3be35f581a172490cd5405d13761a69499379",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/AMENDMENT_001.md": "199c7fcf0211f3b921cdbe66aeb055594b1f9851808f8362bdd23ef2a3089aa8",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/EXECUTION_RELEASE.json": "f5108f3221c7d76590a750d30906a052ed1519d820162c9ca241416af7d35c3b",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/MECHANISTIC_NEXT.md": "4c10601864f539d9da696005038c543fa240e7af6461d76a2df1cba67b0512f1",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/PROTOCOL.md": "450077339212743ef6617907e21425617c19e63597ffd49d075c56a635f13518",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/REVIEW.md": "4eb1878f338d42f5ffd0fff750285ae1e85c1d038af3badea66788339603e6d7",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/SOURCE_LOCK.json": "e6b9e2cb48ac4c3318e61eb3b279168e0c952b6ef3e4d8f91da53918da9b2e68",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/analyze_transfer.py": "20475a4de85f4863cdf0047962f2d7dd8c86655c1af9c9664f385a900c58c2a9",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/50h5xlod_head1/candidates.jsonl": "76a83cd88afbb3cd7f1c7c3be3e52b7ec749b7e196cc1d1c48d20cd5f84d3653",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/50h5xlod_head1/donor_families.jsonl": "85f845085e09c3f5c6b7bdf8e994e3f3279f3ebfbbf2a1c516dd747838033bd1",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/50h5xlod_head1/preparation.json": "51d6c0f01293befd1804ddf66bbf51053c26d06b27065634ee4ec788b0000970",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/8a65u5l6_head1/candidates.jsonl": "2d529f66e7e6b9b67547f026c62870fb92849a48f3e85c9e528a54cb178af282",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/8a65u5l6_head1/donor_families.jsonl": "762a1e4abdd915d9e6384f3c128ef498200a6f2bd3034940e76f7eee8e485fdd",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/8a65u5l6_head1/preparation.json": "21f3b1dcf7b3a45d3fd4df49d948c3ae79a9e307d57566b16b3bb51c8b9c12a2",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/dsibxabs_head4/candidates.jsonl": "b447e85bf238cd58041f5e624cf204af923508aec8513bc563230f2717cceaa5",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/dsibxabs_head4/donor_families.jsonl": "a620a52e1a8defffb45212caf2e8404fd41beab15e5763819eebeadd9644908a",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/dsibxabs_head4/preparation.json": "f817806e6b02cbedbd794322582d7b7cd4f08e0eb469b7f1ddfd075baf52d3d9",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/exclusions.json": "7c14de97c6563c42d77a7715b82ac8a663c61378d73f9254a7be9e270dec6776",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/preparation.json": "76ce0d277f33ed69e27ebdc4d9f878814df08dc5bc8d2643bf46a5811b2011c2",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/qtda56zd_head2/candidates.jsonl": "f32b773b8e885293cdac7b423869bb5aabe03c53bd8b0ace5a931727db3568bf",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/qtda56zd_head2/donor_families.jsonl": "c3c58366951c52aeb719869d29ac8b6d0e6953909d193a20575776f85a5b010f",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/qtda56zd_head2/preparation.json": "4edc4d012ac5d9a7d1980d71d506b7d2ef7cb6a9bb7ade2a554eccb8b28bdff6",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/we9o801g_head2/candidates.jsonl": "a8694d39d11e21647b398fc805f034e91bcfe13eaec14daea7559e633b6ead38",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/we9o801g_head2/donor_families.jsonl": "9d0114b6cfc7968af914b56f88b8edf9c03b7c52764a3e8a3b462f5fd994b22e",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/we9o801g_head2/preparation.json": "c11d92155bf25f730c5830b41c8dfef097f6c2392e290e6e2e3d9de723f69933",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/wfwpq5xc_head1/candidates.jsonl": "9c31ac95e1b204c35e6be59d1d6432408f7b85e72bc8ee26d4cb962137cca2b1",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/wfwpq5xc_head1/donor_families.jsonl": "d7bf6e787d3c29417e16398cfd9cd0df54d8852d7fda4fbf442ea9748c4b95d3",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/inputs/wfwpq5xc_head1/preparation.json": "011b2db235aef98e8036160d19f00520d0c22a4cb8e2de185f023224426ba27b",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/plan.json": "64ac567c684ec1a8da449003cec186d7a3c243ddae758516342e97c0d157c884",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/plan_analysis.py": "5511b0d7888d26b78dde80bb8c398bf52021ffde537733438ca50f4c87bf0920",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/planning.json": "91cba71bff530dd535bd8be5e003147d238891c6762ffe81ac0b9e214b8e1263",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/prepare_transfer.py": "030fc7834c4ebf7f2a3797ffed88d22a6a1d7e2a4af6374fd510d194eb92ac61",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/run_transfer.py": "ab4328b1acdb21e8d99ca4d50ece77fac4f0c5bd649c9eeedc56a0ce77206115",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/test_analysis_transfer.py": "6398312c8ec9bc55d9feb79d584265a405f030e5cffa414d8d68b42765494cc7",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/test_freeze.py": "09838d0528324a7836e8903e33f6a811bb72f340e80018a936f27d6a1823667e",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/test_plan_analysis.py": "82e5b8bcf93e3c1a2554c2152fd55fe55c1f52d3a1e40fd9ffc1c8d683685db0",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/test_prepare_transfer.py": "cdaf74d77f954d25fb7c09c9c43d83b7421dc7b8473b334dab9162bcdb7ee072",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/test_run_transfer.py": "22eefac4404c415f01c6b55c1b75e805f468ca294b1c8df854ec5553fcd9a2c6",
+    "applications/li-saphra-2507.06445/value_followup/screen_transfer_003/verify_plan.py": "93eb0bd0cf4c12c19d504fc48c74aca7ba1a8e97e1a5e8f3938af61d74280fca",
+    "applications/li-saphra-2507.06445/value_followup/value_runtime.py": "a48cdcaeea3cdf416a4bb43f9e2d1818ae5c61171f74d92d2cd95a70fbc8486d",
+    "applications/li-saphra-2507.06445/value_followup/verify.py": "60b9896492a3c1ba656cd2751d7a90faf29a90bd9692d45b01285e8161d5270e",
+    "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/SOURCE_LOCK.json": "844427552ed9f02b83ee11a3fa773425508539fa8ec38c9fd6625667399fe387"
+  },
+  "plan_sha256": "f427cd434ddb4a13d5efa9565018ccbbeac85ac7478001fa25480730f7679379",
+  "execution_release_sha256": "c12639c2676ac7b378106a98c7e49a1a55e75df79ea82092aa4e636934a1be84",
+  "preparation": {
+    "files": {
+      "candidates.jsonl": "1356356c1800fd6052e18686be4e5468dc537965d46ece9db2accd9b2abf9373",
+      "donor_families.jsonl": "3ff49f00e02c935ce5d7ba75928c25571f286460465e9b27e2b241770880a1c1",
+      "exclusions.json": "b9bd18afbafcfd92071685d8abb37a6efbe322a2e24bbc49e9cf8866e0beea6d"
+    },
+    "generation_attempts": {
+      "donors_by_role_cell": {
+        "calibration_-2_20": 1331,
+        "calibration_-2_28": 1402,
+        "calibration_2_20": 1419,
+        "calibration_2_28": 1375,
+        "target_-2_20": 1387,
+        "target_-2_28": 1337,
+        "target_2_20": 1374,
+        "target_2_28": 1442
+      },
+      "recipients": 2704
+    },
+    "recipe": {
+      "assignment": "template index i is assigned to the i-th accepted recipient; do not replace templates",
+      "attempt_limit_per_draw": 100000,
+      "balances": [
+        -2,
+        2
+      ],
+      "donor_seed": 26100342,
+      "family_count": 256,
+      "head_one_based": 1,
+      "historical_donor_ban": "both first20 and first28 of every full donor, regardless of read position",
+      "input_hash_partition": "confirmation",
+      "layer_one_based": 2,
+      "length": 32,
+      "minimum": -4,
+      "model": "a9g0io1r",
+      "native_candidate_count": 2048,
+      "open_count": 16,
+      "phase_hash": "int(sha256('value-prefix-v1:' + measured_prefix).hexdigest(), 16) % 5 != 0",
+      "positions": [
+        20,
+        28
+      ],
+      "read_symbol": ")",
+      "recipient_seed": 26100341,
+      "replicas_per_role_cell": 2,
+      "role_hash": "int(sha256('averaged-anchor-004-role:' + first20).hexdigest(), 16) % 2",
+      "role_parity": {
+        "0": "calibration",
+        "1": "target"
+      },
+      "roles": [
+        "calibration",
+        "target"
+      ],
+      "round": "averaged_anchors_004",
+      "sampling": "with replacement between families and between recipient draws",
+      "scientific_stage": "prospective_development",
+      "within_cell_rule": "four distinct measured prefixes across the two roles"
+    },
+    "schema_version": 1,
+    "source_hashes": {
+      "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/prepare.py": "ab47c523f32e88d9037c53ae55317ec137100e4ebed30bf9e617b57598adc23d",
+      "applications/li-saphra-2507.06445/value_followup/design.py": "8851798c3397db9113fd0fc4b6c78866beb98d32525bef49ac0faf914362fa94"
+    },
+    "statistics": {
+      "candidate_draws": 2048,
+      "donor_draws": 4096,
+      "exact_fresh_p20_support_before_suffix_check": {
+        "-2": {
+          "confirmation_calibration": 5983,
+          "confirmation_target": 5998,
+          "development_calibration": 785,
+          "development_target": 798
+        },
+        "2": {
+          "confirmation_calibration": 1045,
+          "confirmation_target": 1099,
+          "development_calibration": 3,
+          "development_target": 6
+        }
+      },
+      "family_templates": 256,
+      "global_cross_role_prefix_overlap": {
+        "20": 0,
+        "28": 0
+      },
+      "historical_full_strings": 18475,
+      "historical_prefixes": {
+        "20": 16753,
+        "28": 18447
+      },
+      "maximum_candidate_reuse": 1,
+      "maximum_measured_prefix_reuse": 4,
+      "new_recipient_donor_full_string_overlap": 0,
+      "new_recipient_donor_prefix_overlap": {
+        "20": 11,
+        "28": 0
+      },
+      "role_cell_measured_prefixes": {
+        "calibration_-2_20": 492,
+        "calibration_-2_28": 512,
+        "calibration_2_20": 417,
+        "calibration_2_28": 512,
+        "target_-2_20": 489,
+        "target_-2_28": 512,
+        "target_2_20": 414,
+        "target_2_28": 511
+      },
+      "unique_candidates": 2048,
+      "unique_donor_strings": 4094,
+      "unique_measured_prefixes": 3859
+    },
+    "status": "inputs_only_no_measurements"
+  },
+  "model": {
+    "model": "a9g0io1r",
+    "layer_one_based": 2,
+    "head_one_based": 1,
+    "model_heads": 4,
+    "hidden_width": 64,
+    "head_width": 16,
+    "checkpoint": "data/model_weights/run_a9g0io1r/run_a9g0io1r_checkpoint_5.pt",
+    "sha256": "abec37ff9899e0349de9e19558b61dddadcdf7e15628aaa0fa55e70b435b9f4e",
+    "upstream_revision": "dedb269eca6a9cf0bc409792003e6f815f2dce34"
+  },
+  "environment": {
+    "python": "3.10.10",
+    "torch": "2.9.0",
+    "device": "cpu",
+    "threads": 1
+  },
+  "calibration_measurement_started_at": "2026-10-04T13:32:55.714861+00:00",
+  "separating_families": 151,
+  "target_start_passed": true,
+  "target_measurement_started_at": "2026-10-04T13:33:05.865359+00:00",
+  "finished_at": "2026-10-04T13:33:17.416116+00:00",
+  "elapsed_seconds": 24.114695541968103,
+  "cost": {
+    "sequence_forwards_attempted": 36864,
+    "sequence_forwards_completed": 36864,
+    "forward_batches_attempted": 576,
+    "forward_batches_completed": 576,
+    "baseline_candidates_completed_by_dtype": {
+      "float32": 2048,
+      "float64": 2048
+    },
+    "failed_forward_internal_progress_unknown": false,
+    "calibration_jobs_completed_by_dtype": {
+      "float32": 2048,
+      "float64": 2048
+    },
+    "target_jobs_completed_by_dtype": {
+      "float32": 2048,
+      "float64": 2048
+    }
+  },
+  "output_hashes": {
+    "analysis_summary.json": "1da462ad041d1812ed612676f32393d9ac0e710b4332f32b77f329c35f101022",
+    "calibration_cases.jsonl": "0c86583da32cbc74b6e05a3219ed00ec1b2fbf905d74425180ebcced780ebbe8",
+    "cases.jsonl": "546d65f48f01642185529147bf8c47469b0c1eb831c11ad9a215f52a226b54d5",
+    "controls.json": "a39be84b675e42fd575de040904b4c0a7b7f7e1fecc84e0ced90de8d5fe892a7",
+    "descriptive_cases.jsonl": "a2395238bdd8973159a6dc41053c3ccb064740dff38911ec0ac9ec18f12b2196",
+    "descriptive_forecasts.jsonl": "26fa659d41328540ac696356ecea76cbbb12ef4cc4cd83c7cc2f71a22fc82a5b",
+    "descriptive_summary.json": "b9b1c8dc83adc84fdd53f54ba29838e56a78e6eb9c2806e52f72d619813b0506",
+    "forecast_receipt.json": "2456958ea81ea3955066680b32aca532317971c5410590caeec89ee241c1381c",
+    "forecasts.jsonl": "cb0404860490297c22d756da14fda12d50f5b68aa139398c8b6c15d1cf0351b4",
+    "forward_events.jsonl": "5a3fb7143b8777c3fe8576bc460b1f3df907a4896c0bce301eff0512203d1e7f",
+    "native_float32.jsonl": "1068da3ac532fa1a99dcfde679bd0a6a250f8658a3ac60481a8048b68fdfdcbf",
+    "native_float64.jsonl": "2ce1d57fc67747248f25ea4aefb71947eb41a99ec3931d9cef029d979a43a706",
+    "recipient_selection.json": "7addd86da711cc24be559f7dd5219646425171d89063b91b2e11a7f952adbdbf",
+    "screening.jsonl": "ffcc77dffa2757f9fae641205873dbbfd6077855b9b9a6ab7a0adbb591fbc396",
+    "screening_receipt.json": "b05c62c80f4e3c4303a51469e01100bfa5533c21fec57dc722973e093f1d102e",
+    "selected_families.jsonl": "d867e77f841c94038c5364e4c19aad3731d8279c2608c048cefa81884484d502"
+  }
+}

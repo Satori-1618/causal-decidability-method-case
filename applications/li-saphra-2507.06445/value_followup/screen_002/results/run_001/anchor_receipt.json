@@ -1,0 +1,51 @@
+{
+  "written_before_target_execution_at": "2026-10-02T14:41:48.376881+00:00",
+  "anchor_forecasts_sha256": "781057430be66a6d463138051b5d623fd35f6f134c411ab1824075314be34b79",
+  "anchor_cases_sha256": "443bc774f43df909bb753912c513dde20d7a6eed25e11e5a5aa4d897eccf3f57",
+  "structural_check": {
+    "anchors_only": {
+      "scope": "Structural check of supplied fixed numeric mean predictions only.",
+      "mode": "structure_only",
+      "identical_mean_groups": [
+        [
+          "H_position",
+          "H_state"
+        ]
+      ],
+      "pairs": [
+        {
+          "rivals": [
+            "H_position",
+            "H_state"
+          ],
+          "cells": [],
+          "status": "identical_declared_means"
+        }
+      ],
+      "calibration": "Measurement resolution not assessed; no sample-size conclusion."
+    },
+    "with_declared_target_cells": {
+      "scope": "Structural check of supplied fixed numeric mean predictions only.",
+      "mode": "structure_only",
+      "identical_mean_groups": [
+        [
+          "H_position"
+        ],
+        [
+          "H_state"
+        ]
+      ],
+      "pairs": [
+        {
+          "rivals": [
+            "H_position",
+            "H_state"
+          ],
+          "cells": [],
+          "status": "different_declared_means"
+        }
+      ],
+      "calibration": "Measurement resolution not assessed; no sample-size conclusion."
+    }
+  }
+}

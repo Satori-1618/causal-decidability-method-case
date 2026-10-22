@@ -1,0 +1,53 @@
+{
+  "status": "completed",
+  "phase": "development",
+  "task": {
+    "model_id": "a9g0io1r",
+    "n_layer": 2,
+    "n_head": 4,
+    "head": 1
+  },
+  "started_at": "2026-10-02T09:04:53.648010+00:00",
+  "git_head": "66110d8b1694e475aaec0ffea637c2884919c801",
+  "input_cases_sha256": "c903abae2cf1b4af46fafb0de6287de073e23ee8c8fed02ede6407c34770caa0",
+  "source_hashes": {
+    "applications/li-saphra-2507.06445/value_followup/DEVELOPMENT.md": "493b9f7a49fa1f70efeb51c8d9e329022b78269d79227d224a4c1a47f839750c",
+    "applications/li-saphra-2507.06445/value_followup/design.py": "8851798c3397db9113fd0fc4b6c78866beb98d32525bef49ac0faf914362fa94",
+    "applications/li-saphra-2507.06445/value_followup/prepare.py": "06abd67d5c8bf2d6a95c4b3f9fad90926ec24800e8d9664fb9e5919f296d9f47",
+    "applications/li-saphra-2507.06445/value_followup/analyze.py": "35d1b2026fe03f4e54d8492eeab8f075f0a64e24ba406a5d99c1fbc34c818dda",
+    "applications/li-saphra-2507.06445/value_followup/value_runtime.py": "a48cdcaeea3cdf416a4bb43f9e2d1818ae5c61171f74d92d2cd95a70fbc8486d",
+    "applications/li-saphra-2507.06445/value_followup/run.py": "02f8522855556b0966962fcfe47f478f35687900ad52d6452dd20d8ec2ab2d4a",
+    "applications/li-saphra-2507.06445/native_followup/runtime.py": "6fc064758359dcc1808e58bbfc660029deb8ec4efdfe13c72eb5f9850e9b0aa7",
+    "applications/li-saphra-2507.06445/native_followup/confirm.py": "f6041b4e9406c96a988cf36024112bbab0c4f23984292fd497e4318907489407",
+    "applications/li-saphra-2507.06445/native_followup/qualify.py": "fa4db58ff9363074a5562df0b20c47e8bc536293abf7e96572f1e2217685a431",
+    "applications/li-saphra-2507.06445/native_followup/frozen/confirmation_001/COHORT_ASSET_LOCK.json": "867427909b582ec0c83893a38aa473b4d6cd86086af5407292a79ef7930ed0d3",
+    "applications/li-saphra-2507.06445/native_followup/ASSET_LOCK.json": "086eba060bdef85ed9970bebc7b9273ee7ab6b82e0efce7f62ab638551732f88",
+    "applications/li-saphra-2507.06445/SOURCE_LOCK.json": "12a8899278552c796d79b0cf39e8adb920f09a92a8cf6bc816b52b24bead605f",
+    "examples/causal_preflight.py": "1d882ae61931e56564ed512e19eee517300488755b5964ef067334066bd60ff4",
+    "src/causal_decidability/design.py": "3d55a1885e1457cad8251d8e9d69b5ff8967eb25319bb377cfe42ca1122c3e0a",
+    "applications/li-saphra-2507.06445/value_followup/inputs/development_001/cases.jsonl": "c903abae2cf1b4af46fafb0de6287de073e23ee8c8fed02ede6407c34770caa0",
+    "applications/li-saphra-2507.06445/value_followup/inputs/development_001/preparation.json": "50b25466b42110eb8af463e68faa3dea9321761b0ed2662c4ca39fc5fe72a586",
+    "applications/li-saphra-2507.06445/value_followup/inputs/development_001/exclusions.json": "4ec0282b210904582bf1e3719421ad2ec79c2405c54df70fb42a83d6b07badc5"
+  },
+  "checkpoint_sha256": "abec37ff9899e0349de9e19558b61dddadcdf7e15628aaa0fa55e70b435b9f4e",
+  "numerical_allowance_on_prediction_error": 0.001,
+  "environment": {
+    "python": "3.10.10",
+    "torch": "2.9.0",
+    "device": "cpu",
+    "threads": 1
+  },
+  "selection_forward_batches": 1,
+  "anchor_forecasts_sha256": "b4641a350c2a3eed33f522ca1ad64f9fd40129b492234300a04458b23485c0de",
+  "phase_completed": "anchors_and_forecasts_before_targets",
+  "target_measurement_started_at": "2026-10-02T09:04:54.099990+00:00",
+  "elapsed_seconds": 1.4044853750383481,
+  "finished_at": "2026-10-02T09:04:55.052491+00:00",
+  "output_hashes": {
+    "anchor_forecasts.jsonl": "b4641a350c2a3eed33f522ca1ad64f9fd40129b492234300a04458b23485c0de",
+    "anchor_receipt.json": "159c69363e7b1396ab933631085881a3f96939622b67562758439e35e94f7f74",
+    "cases.jsonl": "87f05cd7ba285b8800036139f6a8fc4a976c7ebd59008b6ade50b06eb2f23fc6",
+    "controls.json": "b7ff6c2683c5c2e3ce7dfafdee269dbc2c1296a9a0f7b8e107cb81e81557c196",
+    "recipient_selection.json": "e620cc7f42391a3cbbc231330caf103a6f1257bd05426a42c36ccfcdcde1128e"
+  }
+}

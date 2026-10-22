@@ -1,0 +1,166 @@
+{
+  "dataset_mean_pattern": [
+    "7/20",
+    "3/10",
+    "7/20"
+  ],
+  "design_with_zero_reference": {
+    "all_pairs_clear_planning_screen": null,
+    "calibration": "Measurement resolution not assessed; no sample-size conclusion.",
+    "identical_mean_groups": [
+      [
+        "removal_helps"
+      ],
+      [
+        "replacement_rescues"
+      ]
+    ],
+    "intervention_fidelity": "Not checked by this calculator; verify separately.",
+    "mode": "structure_only",
+    "pairs": [
+      {
+        "cells": [],
+        "rivals": [
+          "removal_helps",
+          "replacement_rescues"
+        ],
+        "status": "different_declared_means"
+      }
+    ],
+    "pairs_separated_by_all_optional_cells": [],
+    "prediction_kind": "mean",
+    "scope": "Structural check of supplied fixed numeric mean predictions only.",
+    "selected_cells": [
+      "native",
+      "uniform",
+      "mean",
+      "zero"
+    ]
+  },
+  "existing_design": {
+    "all_pairs_clear_planning_screen": null,
+    "calibration": "Measurement resolution not assessed; no sample-size conclusion.",
+    "identical_mean_groups": [
+      [
+        "removal_helps",
+        "replacement_rescues"
+      ]
+    ],
+    "intervention_fidelity": "Not checked by this calculator; verify separately.",
+    "mode": "structure_only",
+    "pairs": [
+      {
+        "cells": [],
+        "rivals": [
+          "removal_helps",
+          "replacement_rescues"
+        ],
+        "status": "identical_declared_means"
+      }
+    ],
+    "pairs_separated_by_all_optional_cells": [
+      [
+        "removal_helps",
+        "replacement_rescues"
+      ]
+    ],
+    "prediction_kind": "mean",
+    "scope": "Structural check of supplied fixed numeric mean predictions only.",
+    "selected_cells": [
+      "native",
+      "uniform",
+      "mean"
+    ]
+  },
+  "identical_per_case_predictions_in_all_three_existing_conditions": true,
+  "limit": "Zero is a specified reference, not a unique semantic absence; no real-model prediction is certified.",
+  "n_synthetic_cases": 1000,
+  "native_patterns": [
+    [
+      "3/5",
+      "3/10",
+      "1/10"
+    ],
+    [
+      "1/10",
+      "3/10",
+      "3/5"
+    ]
+  ],
+  "preflight_input": {
+    "cells": [
+      {
+        "id": "native"
+      },
+      {
+        "id": "uniform"
+      },
+      {
+        "id": "mean"
+      },
+      {
+        "id": "zero"
+      }
+    ],
+    "prediction_source": "Constructed exact attention witnesses; NOT empirical forecasts for the neural model.",
+    "predictions": {
+      "removal_helps": [
+        0.779,
+        0.823,
+        0.827,
+        0.879
+      ],
+      "replacement_rescues": [
+        0.779,
+        0.823,
+        0.827,
+        0.679
+      ]
+    }
+  },
+  "status": "constructive_nonidentification_witness_not_neural_validation",
+  "witnesses": {
+    "removal_helps": {
+      "correct_counts": {
+        "mean": 827,
+        "native": 779,
+        "uniform": 823,
+        "zero": 879
+      },
+      "rest": "879/1000",
+      "value_vectors": [
+        [
+          "-14/125",
+          "-17/125",
+          "2/25"
+        ],
+        [
+          "2/25",
+          "-17/125",
+          "-14/125"
+        ]
+      ]
+    },
+    "replacement_rescues": {
+      "correct_counts": {
+        "mean": 827,
+        "native": 779,
+        "uniform": 823,
+        "zero": 679
+      },
+      "rest": "679/1000",
+      "value_vectors": [
+        [
+          "11/125",
+          "8/125",
+          "7/25"
+        ],
+        [
+          "7/25",
+          "8/125",
+          "11/125"
+        ]
+      ]
+    }
+  }
+}

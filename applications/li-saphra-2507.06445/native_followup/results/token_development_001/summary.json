@@ -1,0 +1,68 @@
+{
+  "ood": {
+    "correct": {
+      "native": 779,
+      "within_token": 819,
+      "token_mass": 780,
+      "both": 819
+    },
+    "mean_margin_effect": {
+      "native": 0.0,
+      "within_token": 0.49243552806599805,
+      "token_mass": 0.007360562933862817,
+      "both": 0.49822660903473176
+    },
+    "context_forecast_maxerror_quantiles": [
+      1.9482370650081293e-07,
+      0.0014202625891215348,
+      0.0038585463915392637,
+      0.009345249549729928,
+      0.024622347388256045,
+      0.17831057708474618
+    ],
+    "lexical_forecast_maxerror_quantiles": [
+      5.14481293123481e-08,
+      0.004969813774238663,
+      0.05808492200571713,
+      0.5559963119483806,
+      1.9179184312156008,
+      5.584871862705315
+    ],
+    "context_forecast_mae": 0.010118842943728019,
+    "lexical_forecast_mae": 0.5154436783763918
+  },
+  "indist": {
+    "correct": {
+      "native": 998,
+      "within_token": 982,
+      "token_mass": 998,
+      "both": 978
+    },
+    "mean_margin_effect": {
+      "native": 0.0,
+      "within_token": -0.2923275448001028,
+      "token_mass": -0.07475520491810007,
+      "both": -0.374234719436168
+    },
+    "context_forecast_maxerror_quantiles": [
+      3.697864733087641e-05,
+      0.00657132202409505,
+      0.01769887642386081,
+      0.06273830882364684,
+      0.37905054036582336,
+      1.488998037278412
+    ],
+    "lexical_forecast_maxerror_quantiles": [
+      0.0,
+      0.004904530011638375,
+      0.015199226783458197,
+      0.0729264094097184,
+      0.5786166562452817,
+      6.70811745833105
+    ],
+    "context_forecast_mae": 0.11668574865217653,
+    "lexical_forecast_mae": 0.3474243091011715
+  },
+  "elapsed_seconds": 7.439245041983668,
+  "status": "development_not_confirmation"
+}

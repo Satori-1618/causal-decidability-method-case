@@ -1,0 +1,23 @@
+{
+  "round": "screen_002",
+  "screen_seed": 25100202,
+  "donor_seed": 25100203,
+  "candidate_pool_size": 1024,
+  "per_stratum": 32,
+  "phase": "development",
+  "sampling": "Recipient and donor pools drawn independently with replacement; within-cell donor prefixes distinct",
+  "files": {
+    "candidates.jsonl": "23059b25b40f4c51bbeea3d689d234185e21f2ef604851281933351ae825d175",
+    "donor_families.jsonl": "e17f7ed49159f29fbf1c4ce86a31fea5980c81a81b5250ffb87893a4dcdd9b93",
+    "exclusions.json": "79bb719906627786cf34a1a1166be972b294cd5fe1c0447a1b0bd817c061d1c8"
+  },
+  "sources": {
+    "prepare_screen.py": "2f78e57bb8b94b55e90b58d9f27e573a27378d75114717529a9ba24cfb3fc7da",
+    "design.py": "8851798c3397db9113fd0fc4b6c78866beb98d32525bef49ac0faf914362fa94"
+  },
+  "unique_candidate_strings": 1024,
+  "max_candidate_reuse": 1,
+  "unique_donor_prefixes": 495,
+  "donor_prefix_draws": 512,
+  "maximum_donor_prefix_reuse": 2
+}
