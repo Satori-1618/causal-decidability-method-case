@@ -1,0 +1,46 @@
+{
+  "source": "GET https://api.github.com/repos/Satori-1618/causal-decidability-method-case/events (anonymous, public)",
+  "retrieved_utc": "2026-10-22",
+  "note": "Copy of public GitHub push events. GitHub serves repository events only for about 90 days; this copy is kept in the same repository and is therefore not independent evidence. It shows when each freeze commit reached GitHub, not when a local run started. Local start times come from the run manifests (local clock), a different kind of record.",
+  "events": [
+    {
+      "round": "round 2 freeze",
+      "event_id": "22064580550",
+      "created_at": "2026-09-24T12:07:51Z",
+      "ref": "refs/heads/codex/round2-critical-plan",
+      "before": "2d377cfaa742d83edfe9c18973c7fff682dcbf3e",
+      "head": "e07084a322e877dd5e5639fd7b89bd83f53fb751",
+      "actor": "Satori-1618",
+      "repo": "Satori-1618/causal-decidability-method-case",
+      "local_run_started_utc": "2026-09-24T12:08:13.257047+00:00",
+      "local_run_started_source": "applications/makelov-2311.17030/results/query_route_confirmation/RUN_STARTED.json",
+      "push_before_local_start_seconds": 22.257
+    },
+    {
+      "round": "round 3A freeze",
+      "event_id": "22061498450",
+      "created_at": "2026-09-24T14:06:16Z",
+      "ref": "refs/heads/codex/plan3-person-position-role",
+      "before": "e37201ff16b6679bbf580577c1ccb37b4e63acff",
+      "head": "50b7a8d2f9e61040190ee5247fbaef644ef6fd69",
+      "actor": "Satori-1618",
+      "repo": "Satori-1618/causal-decidability-method-case",
+      "local_run_started_utc": "2026-09-24T14:06:36.206752+00:00",
+      "local_run_started_source": "applications/makelov-2311.17030/results/donor_factor_confirmation_512/RUN_STARTED.json",
+      "push_before_local_start_seconds": 20.207
+    },
+    {
+      "round": "round 3B freeze",
+      "event_id": "22069492207",
+      "created_at": "2026-09-24T15:20:31Z",
+      "ref": "refs/heads/codex/plan3-person-position-role",
+      "before": "6fc7211940c1ce84370060510708292993c78cab",
+      "head": "24cc60eaa7615dc06184fcc18993069e1f20b94e",
+      "actor": "Satori-1618",
+      "repo": "Satori-1618/causal-decidability-method-case",
+      "local_run_started_utc": "2026-09-24T15:20:43.670456+00:00",
+      "local_run_started_source": "applications/makelov-2311.17030/results/role_baseline_development/RUN_STARTED.json",
+      "push_before_local_start_seconds": 12.67
+    }
+  ]
+}

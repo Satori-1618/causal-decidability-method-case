@@ -126,6 +126,6 @@ recommendations have since changed (see the release notes). That failure is not 
 missing input.
 
 Original preregistrations, scorers, raw results and the application's historical README
-remain unchanged. The root README on `main` is unchanged; this branch's README was
-updated on 27 September 2026 to report the current execution status, including 3B's
+remain unchanged. At the time of these branch checks the root README on `main` was
+unchanged (it has changed since); this branch's README was updated on 27 September 2026 to report the current execution status, including 3B's
 stop. Use this guide and the case study for the branch-wide execution status.

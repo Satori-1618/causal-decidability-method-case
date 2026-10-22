@@ -80,6 +80,53 @@ def read_source_q1(records):
     }
 
 
+def proportional_read_q1(records, score):
+    """Post hoc rival C: each read effect is the full effect scaled by its read coefficient.
+
+    A and B are scored exactly as in the frozen Q1 analysis (per directed case, then averaged
+    per base pair); the function refuses to report if they do not reproduce the frozen means.
+    C was not declared before the run. Its comparison is exploratory, not a test.
+    """
+    by_pair = {}
+    for record in records:
+        m, fidelity = record['margins'], record['fidelity']
+        y0, full, row, null = (m[k] for k in ('baseline', 'full', 'read_row', 'read_null'))
+        coefficient = {k: fidelity[k]['actual_delta_l2_per_item']
+                       for k in ('full', 'read_row', 'read_null')}
+        if coefficient['full'] == 0:
+            raise ValueError(f"{record['case_id']}: zero full-patch insertion")
+        effect = full - y0
+        losses = {
+            'A_visible_read': (abs(row - full) + abs(null - y0)) / 2,
+            'B_null_read': (abs(row - y0) + abs(null - full)) / 2,
+            'C_proportional_read': (
+                abs(row - (y0 + effect * coefficient['read_row'] / coefficient['full']))
+                + abs(null - (y0 + effect * coefficient['read_null'] / coefficient['full']))) / 2,
+        }
+        for name, loss in losses.items():
+            by_pair.setdefault(record['case_id'], {}).setdefault(name, []).append(loss)
+    pair_loss = {pair: {name: statistics.fmean(v) for name, v in losses.items()}
+                 for pair, losses in by_pair.items()}
+    mean_loss = {name: statistics.fmean(p[name] for p in pair_loss.values())
+                 for name in ('A_visible_read', 'B_null_read', 'C_proportional_read')}
+    frozen = score['reported_not_judged']['mean_loss']
+    for name in ('A_visible_read', 'B_null_read'):
+        if abs(mean_loss[name] - frozen[name]) > 1e-12:
+            raise ValueError(f'{name} does not reproduce the frozen Q1 mean loss')
+    return {
+        'status': 'post hoc, exploratory; C was not declared before the run',
+        'n_base_pairs': len(pair_loss),
+        'mean_absolute_loss_nat': mean_loss,
+        'base_pairs_where_C_beats_B': sum(p['C_proportional_read'] < p['B_null_read']
+                                          for p in pair_loss.values()),
+        'rule_C': 'read effect = full effect x (read insertion L2 norm / full insertion L2 norm); '
+                  'all read conditions write along the same direction',
+        'reading': 'A linear account in the read coefficient describes the measured read effects '
+                   'more closely than B. This is a description of 64 stored pairs, not an '
+                   'identified mechanism or a frozen test.',
+    }
+
+
 def round2_profile_counts(records, kappa, numerical_fraction=ROUND2_NUMERICAL_FRACTION):
     """Case-wise round-2 profile successes under the frozen rule with another kappa."""
     if not 0 <= kappa < .5:
@@ -209,6 +256,8 @@ def describe(q1=Q1, round2=ROUND2, round3a=ROUND3A):
     return {
         'status': 'post hoc descriptive; every frozen decision is unchanged',
         'read_source_q1': read_source_q1(q1_records),
+        'read_source_q1_proportional_rival': proportional_read_q1(
+            q1_records, json.loads((q1 / 'score.json').read_text())),
         'round2_tolerance_sensitivity': {
             'n_base_pairs': len(r2_records), 'frozen_kappa': ROUND2_FROZEN_KAPPA,
             'rule': 'both predicted contrasts within kappa*|T|, both directions, both precisions; '

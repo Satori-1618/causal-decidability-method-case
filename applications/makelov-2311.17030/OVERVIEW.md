@@ -1,10 +1,63 @@
 # Narrowing down what a working patch explains
 
-A patch can have exactly the expected effect and still fit several explanations. The goal
-here is therefore not to identify the mechanism in one step. The goal is to narrow down,
-round by round, the set of explanations that fit the data, and to record at each step what
-has been decided and what remains open. Only explicitly written-down candidates are
-compared; an explanation nobody formulated is neither tested nor excluded.
+## For readers of Makelov, Lange & Nanda (2023)
+
+**Their patch, as replicated here.** On 2,000 IOI pairs in GPT-2 Small, the published MLP8
+subspace patch lowers the mean logit difference between the two names from 3.36 to 1.82.
+It changes the top answer in 4.3% of pairs. The replication matches the Table 1 values
+taken from the authors' released analysis notebook, with logit differences within
+5×10⁻⁴; the clean-accuracy entry is a placeholder there and is not compared
+([details](src/makelov_table1.py)). Part of the patched direction lies in the null space
+of the MLP output weights.
+The paper argues that the patch reads a signal there and writes it into a visible direction.
+
+**What these rounds add, and how firmly:**
+
+1. **Read source (round 1).** We read only from the null-space component (B) or only from
+   the row-space component (A), and write along the full direction. B predicts these two
+   read interventions better in 64/64 fresh pairs.
+   - This follows largely from geometry. All read conditions write along the same
+     direction, scaled by the read coefficient. The null component's coefficient is larger
+     in 128/128 directed cases.
+   - A proportional rule fits better still: each read effect is the full effect scaled by
+     its read coefficient. Mean absolute error is 0.019 nat, against 0.238 for B, and the
+     rule is better in 64/64 pairs.
+   - This rule was **not declared before the run**. It is an exploratory description,
+     not a mechanism.
+2. **Query route (round 2).** Resetting the queries of heads 9.6, 9.9 and 10.0 leaves on
+   average 73% of the effect (mean −0.96 of −1.32 nat). The changed queries alone give
+   28% (−0.37 nat). All three declared profiles fail the 80% coverage requirement: they fit
+   0, 0 and 8 of 192 pairs.
+3. **Name or position (round 3A).** "Position only" fits 301/512 families (simultaneous
+   interval 53.2–64.2%) and "name only" 0/512. Both are excluded at the frozen ±0.25 nat.
+   The exclusion depends on that tolerance: post hoc, "position only" would fit 352, 431
+   and 473 of 512 families at ±0.30, ±0.40 and ±0.50 nat.
+4. **Role task (round 3B).** The task failed its competence check before any patch was
+   run, so it cannot test role transfer in this model.
+
+**Which patch.** Rounds 2 and 3A use round 1's null-read, full-write patch, not the
+original one. In round 1 its effect was a median 84% of the original patch's effect.
+
+**What is not claimed.** Whether B, or the proportional rule, is accurate enough as an
+explanation; the complete route to the output; whether the unpatched model uses this
+signal; and any role representation.
+
+**Provenance.** Round 1's decision rule was frozen in a local commit. We found no public
+record that it was pushed before the run; the archived app README says "committed and
+pushed". For rounds 2, 3A and 3B, public GitHub push events precede the locally recorded
+run starts by 12–22 s ([archived copy](provenance/public_push_events.json)). A push time and
+a local clock are different kinds of evidence.
+
+**Check it without a model:**
+`python3 scripts/check_claims.py --case makelov-2311.17030` recomputes every number above
+from the stored records.
+
+## How each round proceeds
+
+The goal is not to identify the mechanism in one step. The goal is to narrow down, round
+by round, the set of written-down explanations that fit the data, and to record at each
+step what has been decided and what remains open. An explanation nobody formulated is
+neither tested nor excluded.
 
 Every round follows the same steps:
 
@@ -14,12 +67,6 @@ Every round follows the same steps:
 4. Decide on fresh cases.
 
 Whatever remains open becomes the question of the next round.
-
-**Starting point.** Makelov, Lange and Nanda (2023) show that a patch along a learned
-direction in layer MLP8 of GPT-2 Small shifts which name the model prefers as its answer.
-Part of the direction lies in the null space of the MLP output; the artificial patch can
-read information there and write it into a visible direction. Open question: from which
-component does the patch read its signal?
 
 ## Round 1: read source
 
@@ -44,7 +91,7 @@ Evidence: [preregistration](PREREG_READ_SOURCE_Q1.md), [result](../../docs/CONFI
 | Step | What happened |
 |---|---|
 | **Open** | Three profiles for the queries of heads 9.6, 9.9 and 10.0: (a) resetting them removes the effect and the changed queries alone reproduce it; (b) resetting them removes the effect but the changed queries alone do little; (c) the effect survives the reset and the changed queries alone do little. |
-| **Added test** | Reset the queries while the patch is active. Conversely, insert the changed queries alone, without the patch; only this reversal separates (a) from (b). |
+| **Added test** | Reset the queries while the null-read, full-write patch is active. Conversely, insert the changed queries alone, without the patch; only this reversal separates (a) from (b). |
 | **Result** | (a) fits 0, (b) 0 and (c) 8 of 192 pairs; 80% was required at a tolerance of ±25% of the local effect. On average, about 73% of the effect remains after the reset; the queries alone produce about 28%. |
 | **Narrowed** | All three simple profiles are excluded. The response lies between them. The reversal measures what the queries do alone, but in these data it does not change the exclusion already implied by the reset alone (0 and 17 of 192 pairs fit the two reset-only profiles). |
 | **Still open** | A partial, roughly additive route; other heads and paths. Neither involvement nor non-involvement of the queries follows from these exclusions. |
@@ -99,8 +146,9 @@ Evidence: [protocol](ROLE_BASELINE_PROTOCOL.md), [result](../../docs/ROUND3B_STA
 - Whether the unmodified model uses this information in the same way, and whether it represents roles.
 
 **Checkable.** Every decision can be recomputed from the included raw records without a
-model; see [verification](VERIFICATION.md). Rounds 2 to 3B were fixed publicly before their
-results were published. The statements hold only for this model, this site, this direction
+model; see [verification](VERIFICATION.md). The freezes of rounds 2 to 3B were pushed publicly
+before their runs started ([push events](provenance/public_push_events.json)); round 1's was
+local only. The statements hold only for this model, this site, this direction
 and this sentence pattern. The [case study](CASE_STUDY.md) gives the details, and the
 [method guide](../../docs/USING_THE_METHOD.md#case-wise-profiles-with-a-population-coverage-requirement)
 explains how to apply the same decision rules to other data.

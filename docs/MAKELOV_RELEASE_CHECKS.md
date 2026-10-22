@@ -85,10 +85,11 @@ report and was not observed when this report was written.
 Start with the [four-round case study](../applications/makelov-2311.17030/CASE_STUDY.md),
 then run the records-only commands. Install analysis or tensor extras only for their
 respective checks. The original application README remains a hash-frozen historical
-document; the root README is deliberately unchanged.
+document; the root README was deliberately left unchanged at the time of these checks
+(it has changed in later releases).
 
 All 124 tracked paths covering result directories, historical application source and
 scripts, and the root README were checked against their pre-change hashes and were
-unchanged. The `main` ref remains `fbd0b9683487aa756791eaac6f9f9761542057d4`; its README
-blob remains `d038255339ca1d7654588cdd2d856729d358c827`. No model result, decision threshold,
+unchanged. At that time the `main` ref was `fbd0b9683487aa756791eaac6f9f9761542057d4`, with
+README blob `d038255339ca1d7654588cdd2d856729d358c827`. No model result, decision threshold,
 preregistration or research claim was refitted to make these release checks pass.

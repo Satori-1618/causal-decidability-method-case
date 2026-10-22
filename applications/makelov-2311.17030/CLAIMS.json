@@ -1,0 +1,481 @@
+{
+  "case": "makelov-2311.17030",
+  "schema_version": 1,
+  "scope": "Every number and conclusion in the OVERVIEW summary, the root README row and the website card.",
+  "claims": [
+    {
+      "id": "makelov.table1.logit_diff",
+      "text": "The published MLP8 patch lowers the mean logit difference from 3.36 to 1.82 on 2,000 IOI pairs.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "2,000 base/source pairs of the Table 1 replication; logit(base IO) - logit(base subject)",
+      "sources": [
+        "applications/makelov-2311.17030/results/makelov_replication_001/per_example.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "makelov-table1"
+        ],
+        "expect": [
+          {
+            "pointer": "/conditions/full/n_pairs",
+            "equals": 2000
+          },
+          {
+            "pointer": "/conditions/clean/mean_logit_diff_base_ordering",
+            "approx": 3.3636,
+            "abs_tol": 0.0005
+          },
+          {
+            "pointer": "/conditions/full/mean_logit_diff_base_ordering",
+            "approx": 1.8206,
+            "abs_tol": 0.0005
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.table1.top_answer",
+      "text": "The full patch changes the top answer in 4.3% of pairs.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "same 2,000 pairs; interchange accuracy",
+      "sources": [
+        "applications/makelov-2311.17030/results/makelov_replication_001/per_example.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "makelov-table1"
+        ],
+        "expect": [
+          {
+            "pointer": "/conditions/full/interchange_accuracy",
+            "approx": 0.043,
+            "abs_tol": 1e-12
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.table1.notebook_match",
+      "text": "The replication matches the Table 1 values from the authors' released notebook (logit differences within 5e-4; clean accuracy is a placeholder and excluded).",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "four Table 1 rows",
+      "sources": [
+        "applications/makelov-2311.17030/results/makelov_replication_001/aggregate.json",
+        "applications/makelov-2311.17030/src/makelov_table1.py"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/makelov-2311.17030/results/makelov_replication_001/aggregate.json",
+        "expect": [
+          {
+            "pointer": "/gate/passed",
+            "equals": true
+          },
+          {
+            "pointer": "/gate/tolerance",
+            "equals": 0.0005
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.q1.b_better",
+      "text": "Null-read B predicts the two read interventions better than visible-read A in 64/64 fresh pairs (exact sign test).",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023",
+        "README.md (Makelov row)",
+        "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "64 fresh base pairs (128 directed cases); per-pair loss",
+      "sources": [
+        "applications/makelov-2311.17030/PREREG_READ_SOURCE_Q1.md",
+        "applications/makelov-2311.17030/results/makelov_read_source_q1/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "examples/confirmed_read_source.py",
+          "--json"
+        ],
+        "expect": [
+          {
+            "pointer": "/archived_evidence/primary/wins/B_null_read",
+            "equals": 64
+          },
+          {
+            "pointer": "/archived_evidence/primary/wins/A_visible_read",
+            "equals": 0
+          },
+          {
+            "pointer": "/archived_evidence/primary/ties",
+            "equals": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.q1.geometry",
+      "text": "The null component has the larger read coefficient in 128/128 directed cases, matching which of B and A wins.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "128 directed cases (not independent)",
+      "sources": [
+        "applications/makelov-2311.17030/results/makelov_read_source_q1/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/makelov-2311.17030/scripts/describe_post_hoc.py"
+        ],
+        "expect": [
+          {
+            "pointer": "/read_source_q1/directed_cases_where_coefficient_magnitude_order_matches_B_versus_A",
+            "equals": 128
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.q1.proportional_rule",
+      "text": "Post hoc, a rule scaling the full effect by the read coefficient has mean absolute error 0.019 nat against 0.238 for B and is better in 64/64 pairs.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "exploration",
+      "level": "N",
+      "population": "64 base pairs; mean absolute loss per pair",
+      "sources": [
+        "applications/makelov-2311.17030/scripts/describe_post_hoc.py",
+        "applications/makelov-2311.17030/results/makelov_read_source_q1/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/makelov-2311.17030/scripts/describe_post_hoc.py"
+        ],
+        "expect": [
+          {
+            "pointer": "/read_source_q1_proportional_rival/mean_absolute_loss_nat/C_proportional_read",
+            "approx": 0.01935,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/read_source_q1_proportional_rival/mean_absolute_loss_nat/B_null_read",
+            "approx": 0.23834,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/read_source_q1_proportional_rival/base_pairs_where_C_beats_B",
+            "equals": 64
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.q1.effect_ratio",
+      "text": "The null-read patch's effect is a median 84% of the full patch's effect (visible read: 16%).",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "128 directed cases; ratio of measured effects",
+      "sources": [
+        "applications/makelov-2311.17030/results/makelov_read_source_q1/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/makelov-2311.17030/scripts/describe_post_hoc.py"
+        ],
+        "expect": [
+          {
+            "pointer": "/read_source_q1/null_read_effect_over_full_effect/median",
+            "approx": 0.844,
+            "abs_tol": 0.0005
+          },
+          {
+            "pointer": "/read_source_q1/visible_read_effect_over_full_effect/median",
+            "approx": 0.165,
+            "abs_tol": 0.0005
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.r2.means",
+      "text": "After resetting the queries of heads 9.6, 9.9 and 10.0, on average 73% of the effect remains (-0.96 of -1.32 nat); changed queries alone give -0.37 nat (28%).",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "192 base pairs, both directions, float64",
+      "sources": [
+        "applications/makelov-2311.17030/results/query_route_confirmation/summary.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/makelov-2311.17030/scripts/summarize_query_route.py",
+          "--results",
+          "applications/makelov-2311.17030/results/query_route_confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/metrics_float64/T/mean",
+            "approx": -1.322,
+            "abs_tol": 0.0005
+          },
+          {
+            "pointer": "/metrics_float64/R/mean",
+            "approx": -0.962,
+            "abs_tol": 0.0005
+          },
+          {
+            "pointer": "/metrics_float64/S/mean",
+            "approx": -0.366,
+            "abs_tol": 0.0005
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.r2.profiles",
+      "text": "All three declared query-route profiles fail 80% coverage: 0, 0 and 8 of 192 pairs fit.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023",
+        "README.md (Makelov row)",
+        "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "192 fresh base pairs; tolerance 25% of local |T|",
+      "sources": [
+        "applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md",
+        "applications/makelov-2311.17030/results/query_route_confirmation/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/makelov-2311.17030/scripts/check_query_route_records.py",
+          "--results",
+          "applications/makelov-2311.17030/results/query_route_confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/profiles/transfer/successes",
+            "equals": 0
+          },
+          {
+            "pointer": "/profiles/joint_dependence/successes",
+            "equals": 0
+          },
+          {
+            "pointer": "/profiles/preservation/successes",
+            "equals": 8
+          },
+          {
+            "pointer": "/outcome",
+            "equals": "none_meets_coverage"
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.r3a.profiles",
+      "text": "\"Position only\" fits 301/512 families (simultaneous interval 53.2-64.2%) and \"name only\" 0/512; both excluded at +/-0.25 nat.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023",
+        "README.md (Makelov row)",
+        "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "512 fresh families; both recipient orders and precisions",
+      "sources": [
+        "applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md",
+        "applications/makelov-2311.17030/DONOR_FACTOR_512_AMENDMENT.md",
+        "applications/makelov-2311.17030/results/donor_factor_confirmation_512/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/makelov-2311.17030/scripts/check_donor_factor_512_records.py",
+          "--results",
+          "applications/makelov-2311.17030/results/donor_factor_confirmation_512"
+        ],
+        "expect": [
+          {
+            "pointer": "/profiles/position_only/successes",
+            "equals": 301
+          },
+          {
+            "pointer": "/profiles/position_only/interval/0",
+            "approx": 0.532,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/profiles/position_only/interval/1",
+            "approx": 0.6422,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/profiles/position_only/status",
+            "equals": "excluded"
+          },
+          {
+            "pointer": "/profiles/identity_only/successes",
+            "equals": 0
+          },
+          {
+            "pointer": "/profiles/identity_only/status",
+            "equals": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.r3a.tolerance",
+      "text": "Post hoc, \"position only\" would fit 352, 431 and 473 of 512 families at +/-0.30, 0.40 and 0.50 nat.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023",
+        "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
+      ],
+      "status": "exploration",
+      "level": "N",
+      "population": "same 512 families; non-frozen tolerances, no decisions",
+      "sources": [
+        "applications/makelov-2311.17030/scripts/describe_post_hoc.py"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/makelov-2311.17030/scripts/describe_post_hoc.py"
+        ],
+        "expect": [
+          {
+            "pointer": "/round3a_tolerance_sensitivity/successes_by_epsilon_nat/0.30/position_only",
+            "equals": 352
+          },
+          {
+            "pointer": "/round3a_tolerance_sensitivity/successes_by_epsilon_nat/0.40/position_only",
+            "equals": 431
+          },
+          {
+            "pointer": "/round3a_tolerance_sensitivity/successes_by_epsilon_nat/0.50/position_only",
+            "equals": 473
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.r3b.stop",
+      "text": "The role task failed its competence check before any patch was run.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023",
+        "README.md (Makelov row)",
+        "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
+      ],
+      "status": "qualification_stop",
+      "level": "N",
+      "population": "32 frozen families, unpatched runs",
+      "sources": [
+        "applications/makelov-2311.17030/ROLE_BASELINE_PROTOCOL.md",
+        "applications/makelov-2311.17030/results/role_baseline_development/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/makelov-2311.17030/scripts/check_role_baseline_records.py",
+          "applications/makelov-2311.17030/results/role_baseline_development",
+          "--check-only"
+        ],
+        "expect": [
+          {
+            "pointer": "/verified",
+            "equals": true
+          },
+          {
+            "pointer": "/status",
+            "equals": "STOP_COMPETENCE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "makelov.operator",
+      "text": "Rounds 2 and 3A use round 1's null-read, full-write patch, not the original patch.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "protocol definition",
+      "sources": [
+        "applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md",
+        "applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "QUERY_ROUTE_PROTOCOL.md (Target and scope) and DONOR_FACTOR_PROTOCOL.md (Instrument and population) define the operator"
+      }
+    },
+    {
+      "id": "makelov.provenance.round1",
+      "text": "Round 1's decision rule was frozen in a local commit; no public push record before the run was found.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "provenance",
+      "sources": [
+        "applications/makelov-2311.17030/PROVENANCE.md"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "local commit chronology in PROVENANCE.md; public events API retains no record that early"
+      }
+    },
+    {
+      "id": "makelov.provenance.rounds2_3b",
+      "text": "For rounds 2, 3A and 3B, public push events precede the locally recorded run starts by 12-22 s.",
+      "appears_in": [
+        "applications/makelov-2311.17030/OVERVIEW.md#for-readers-of-makelov-lange--nanda-2023",
+        "website: mechanistic-interpretability/index.html (Makelov card and measured-result hero)"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "provenance",
+      "sources": [
+        "applications/makelov-2311.17030/provenance/public_push_events.json"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "GitHub public push events (archived copy) compared with RUN_STARTED.json local clocks"
+      }
+    }
+  ]
+}

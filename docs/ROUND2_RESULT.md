@@ -17,7 +17,7 @@ queries contribute to its output effect.
 
 Simply resetting the queries is not enough: a change might carry the effect itself,
 or merely enable another change to act. We therefore added a **reverse transfer**:
-insert the patched queries while leaving the original MLP patch switched off.
+insert the patched queries while leaving the fixed `read_null` MLP patch switched off.
 
 The targets were fixed in advance: heads 9.6, 9.9 and 10.0, at the last prompt position.
 Other queries, keys, values and later computation remained free. Five scientific
@@ -25,7 +25,7 @@ conditions and two technical identities were run in both float32 and float64.
 
 ## Three predictions, one unchanged rule
 
-Let **T** be the original patch effect, **R** the effect remaining after query reset,
+Let **T** be the effect of the fixed `read_null` patch, **R** the effect remaining after query reset,
 and **S** the effect of transferring the changed queries alone.
 
 | Predefined response profile | Prediction | Successful base pairs | Simultaneous interval for success rate |
@@ -53,11 +53,11 @@ For the first direction, the measured preference for Keith over Jason was:
 | Condition | Answer-logit margin | Change from baseline |
 |---|---:|---:|
 | Baseline | 2.882 | — |
-| Original MLP patch | 1.731 | **−1.150** |
-| Original patch, queries reset | 1.953 | **−0.929** |
+| Null-read, full-write MLP8 patch | 1.731 | **−1.150** |
+| Same patch, queries reset | 1.953 | **−0.929** |
 | Changed queries alone | 2.586 | **−0.295** |
 
-Resetting the queries leaves much of the original shift. Transferring them alone causes
+Resetting the queries leaves much of the patch's shift. Transferring them alone causes
 a smaller shift. Thus neither “the selected queries reproduce everything” nor “they do
 nothing” describes this example. All four margins remain positive: the measurement is
 a change in preference, **not a demonstrated switch of the selected answer**.

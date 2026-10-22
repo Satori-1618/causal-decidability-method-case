@@ -45,6 +45,15 @@ class PostHocDescription(unittest.TestCase):
         self.assertEqual(
             q1['directed_cases_where_larger_coefficient_magnitude_gives_larger_absolute_effect'], 128)
 
+    def test_proportional_rival_reproduces_frozen_scores_and_is_labelled_post_hoc(self):
+        c = self.report['read_source_q1_proportional_rival']
+        self.assertTrue(c['status'].startswith('post hoc'))
+        self.assertEqual(c['n_base_pairs'], 64)
+        self.assertAlmostEqual(c['mean_absolute_loss_nat']['B_null_read'], 0.23834387958049774, 12)
+        self.assertAlmostEqual(c['mean_absolute_loss_nat']['C_proportional_read'], 0.0193482127452823,
+                               12)
+        self.assertEqual(c['base_pairs_where_C_beats_B'], 64)
+
     def test_scalar_name_contrast_is_shared_by_both_recipient_orders(self):
         diagnostics = self.report['round3a_mean_contrast_diagnostics']
         self.assertLess(diagnostics['maximum_scalar_level_name_contrast_gap_between_recipient_orders'],
