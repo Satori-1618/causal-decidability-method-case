@@ -1,9 +1,35 @@
-# A simple external application: Goodfire's multiple-choice experiments
+# A design analysis of CausaLab's multiple-choice experiments
 
-**Question:** does an activation patch transfer the position of an answer, or its
-letter? We applied the existing preflight to real input tables from
-[Goodfire's CausaLab](https://github.com/goodfire-ai/causalab/tree/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e).
-This is a retrospective design audit: no model was run and no mechanism was identified.
+**What this is.** [CausaLab](https://github.com/goodfire-ai/causalab/tree/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e)
+is Goodfire's open-source library for causal analysis of networks. Its two MCQA
+demonstrations ask which layers of Qwen2.5-1.5B-Instruct carry the correct option's
+**position** (`answer_position`) or its **letter** (`answer`) at the answer slot. They
+use distributed alignment search (DAS), following Geiger et al.
+([arXiv 2303.02536](https://arxiv.org/abs/2303.02536)) and Wiegreffe et al.
+([arXiv 2407.15018](https://arxiv.org/abs/2407.15018)).
+
+CausaLab already supports comparing causal hypotheses on the same base/counterfactual
+pairs. Its [hypothesis analysis guide](https://github.com/goodfire-ai/causalab/blob/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/docs/hypothesis_analysis.md)
+compares a target with alternatives and filters `distinguishing` pairs. Each published
+design already separates its target variable from the other one by construction. The
+position guide itself notes that the counterfactual prompt's own answer is the base
+prompt's letter, not the label.
+
+**What this audit adds** is a narrow design analysis of the published input tables, with
+no model run:
+- In each design, the rule that is *not* the target ties with "the base answer is
+  preserved" in every row.
+- A color-transfer rule ties with "preserved" in all published rows.
+- Only a proposed third design separates all four rules.
+- It is not a new neural test and makes no claim about Qwen's internals.
+
+**Low-cost next step in CausaLab's own terms:**
+1. Apply one fixed fitted rotation, for example the pointer fit at its chosen layer, to
+   *both* designs' test pairs.
+2. Save `top_k` (k = 1) as the guide recommends.
+3. Call `compare_saved_outputs` with the target and the two other rules as alternatives.
+
+That shows which rule the fixed patch follows on pairs where the rules disagree.
 
 ## The example, using actual published inputs
 
@@ -16,8 +42,8 @@ Y. orange
 Answer:
 ```
 
-Goodfire provides two kinds of donor. One moves the options, including their letters;
-the other replaces the letters while keeping the options in place:
+The two published designs use two kinds of counterfactual (donor). One moves the options,
+including their letters; the other replaces the letters while keeping the options in place:
 
 | Donor options (same question) | Transfer answer **position** | Transfer answer **letter** | Preserve recipient's **task answer** |
 |---|---|---|---|
@@ -30,10 +56,10 @@ They are hypothetical task-level rules, not measured neural outputs.
 **What the preflight adds:** if the first type produces P, letter transfer and
 preserving the task answer remain tied. More cases of that same type cannot break
 this tie. The second type supplies a separating prediction: O versus P. Each
-Goodfire design already separates its intended rule from the other two by
-construction. The added use here is to expose ambiguity among the non-target
-rules and plan a joint test of **one fixed patch**, not to discover a flaw in
-Goodfire's design.
+published design already separates its intended rule from the other two by
+construction. The added use here is to make the remaining ties among the non-target
+rules explicit and to plan a joint test of **one fixed patch**, not to find a flaw in
+either design.
 
 ## Result on the complete published input tables
 
@@ -59,18 +85,37 @@ options: for the recipient above, a donor stating “The shoe is orange” predi
 Y under color transfer and P under task-answer preservation. This is a proposed
 additional condition, not a published model result or sufficient evidence by itself.
 
+With all four rules, `run.py` writes [four_rule_extension.json](results/four_rule_extension.json):
+
+| Input menu | Rows | Rules still tied |
+|---|---:|---|
+| position design only | 192 | letter = color = preserved |
+| letter design only | 192 | position = color = preserved |
+| proposed color design only | 192 | position = letter = color |
+| both published designs | 384 | color = preserved |
+| all three designs | 576 | none |
+
+The proposed color design keeps the recipient's options and makes the other color
+correct. It is a design proposal, not published data.
+
 ## What a researcher should do next
 
 Evaluate **one fixed learned patch** across both input families and any added
 color-changing condition. Keep the model, layer, token position, subspace and
 scoring rule fixed. Record the actual unpatched and
 patched answers for every case, not only whether the intended target was matched.
-Goodfire fits separate patches for the two target variables, so its two existing
-scores cannot simply be pooled into this common-intervention comparison.
+The demonstrations fit separate DAS rotations for the two target variables, so those
+two scores cannot simply be pooled into a common-intervention comparison. One published
+measurement already applies a fixed intervention to both designs: the full-vector patch
+at each layer (`full_patch` in each design's `iia_plotted.json`). At layer 21 it matches
+the position target in 0.547 of held-out pairs and the letter target in 0.0625. At
+layer 26 the values are 0.016 and 0.922. These are the authors' numbers, scored only
+against each design's own label; they are copied unchanged into
+[four_rule_extension.json](results/four_rule_extension.json).
 
 The third column is deliberately **not called “patch has no effect.”** That rival
-must predict the measured unpatched answer. The published base accuracies are
-87.5% and 92.1875%, so correct task answers cannot silently substitute for those
+must predict the measured unpatched answer. The published base accuracies on the 64
+held-out pairs are 87.5% and 92.1875%, so correct task answers cannot silently substitute for those
 baselines. Before an empirical null comparison, obtain the actual answers per case.
 
 Likewise, `symbol_transfer` predicts the donor's **correct task letter**, not its
@@ -88,20 +133,27 @@ difference into a numerical effect size or sample-size recommendation.
 From the method repository root, with Python 3.9+ and no extra packages:
 
 ```bash
-python3 applications/goodfire-mcqa-preflight/run.py
+python3 applications/goodfire-mcqa-preflight/run.py           # derive and compare; writes nothing
+python3 applications/goodfire-mcqa-preflight/run.py --write   # regenerate results/
 ```
 
-The first run fetches under 0.5 MB of source files from the pinned commit and checks
-their hashes. Later runs use the verified cache. No upstream code is executed.
+The default run downloads under 0.5 MB of pinned source files into memory, checks
+their hashes, derives every export and compares it with the committed files. It exits
+non-zero on any difference. No upstream code is executed.
 See [summary.json](results/summary.json), the exported [position-test predictions](results/pointer_predictions.json),
-and [letter-test predictions](results/symbol_predictions.json). Either export also
+[letter-test predictions](results/symbol_predictions.json) and the
+[four-rule extension](results/four_rule_extension.json). Either three-rule export also
 runs directly through `examples/causal_preflight.py --config PATH --structure-only`.
+
+*Correction (22 October 2026):* the committed `summary.json` had recorded an outdated
+hash for `examples/causal_preflight.py`. Regenerating it changed only the code hashes; the
+three prediction exports stayed byte-identical.
 
 Sources: [position experiment](https://github.com/goodfire-ai/causalab/blob/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/mcqa_pointer.md),
 [letter experiment](https://github.com/goodfire-ai/causalab/blob/8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e/demos/papers/mcqa_symbol.md),
 [file hashes and URLs](artifacts/upstream/source_manifest.json).
 
-Goodfire already provides both designs and discusses their target variables. This
-application makes the remaining ties explicit; it does not claim that Goodfire
-missed the distinction. The demonstrated capability is a reproducible design
+CausaLab already provides both designs, discusses their target variables and supports
+hypothesis comparison. This application makes the remaining ties explicit; it does not
+claim that the authors missed the distinction. The demonstrated capability is a reproducible design
 diagnosis on an external repo. Forecasting success on a fresh run remains untested.

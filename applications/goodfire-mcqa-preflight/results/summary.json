@@ -1,10 +1,10 @@
 {
   "source_revision": "8e8d5d1f8f9ca8f42bfce7c6b5eef194f012660e",
   "analysis_sources_sha256": {
-    "run.py": "dd6af7fa57eafae6e8d1d7e9454b7959bd18df7c76eafc64044ba4f8f133b6ed",
-    "examples/causal_preflight.py": "5ffa95f9357794e0d7da83cd59721dc517473dd728f73c1bd26fde308ad8bc60",
+    "run.py": "59d7f16665ed18fb0f9ee0499d9a12802118879ae8ab658791d838bd18fb8339",
+    "examples/causal_preflight.py": "1d882ae61931e56564ed512e19eee517300488755b5964ef067334066bd60ff4",
     "src/causal_decidability/design.py": "3d55a1885e1457cad8251d8e9d69b5ff8967eb25319bb377cfe42ca1122c3e0a",
-    "source_manifest.json": "981d1fbf818cd04a208d9602a346269a54b324dea732955befdbf4c42743f5ce"
+    "source_manifest.json": "dcfd2c89bede49751fc60e37d774ec907a44110b0deab64eb46b1bdb57265d2e"
   },
   "analysis": "Retrospective design audit of public inputs; zero model forwards.",
   "scope": "Finite categorical prediction patterns of declared task-level rules only.",

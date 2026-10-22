@@ -1,0 +1,286 @@
+{
+  "case": "goodfire-mcqa-preflight",
+  "schema_version": 1,
+  "scope": "Every number and conclusion in the README summary, the root README row and the website card.",
+  "claims": [
+    {
+      "id": "causalab.derivation",
+      "text": "All three-rule exports and the four-rule extension are re-derived from the pinned, hash-checked upstream input tables and match the committed files.",
+      "appears_in": [
+        "applications/goodfire-mcqa-preflight/README.md"
+      ],
+      "status": "design_analysis",
+      "level": "D",
+      "population": "192 + 192 published design rows",
+      "sources": [
+        "applications/goodfire-mcqa-preflight/artifacts/upstream/source_manifest.json",
+        "applications/goodfire-mcqa-preflight/run.py"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/goodfire-mcqa-preflight/run.py"
+        ],
+        "expect": [
+          {
+            "pointer": "/files/pointer_predictions.json/byte_identical",
+            "equals": true
+          },
+          {
+            "pointer": "/files/symbol_predictions.json/byte_identical",
+            "equals": true
+          },
+          {
+            "pointer": "/files/combined_predictions.json/byte_identical",
+            "equals": true
+          },
+          {
+            "pointer": "/files/four_rule_extension.json/byte_identical",
+            "equals": true
+          },
+          {
+            "pointer": "/files/summary.json/matches_except_analysis_hashes",
+            "equals": true
+          },
+          {
+            "pointer": "/files/summary.json/stale_analysis_hashes",
+            "equals": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "causalab.pointer.tie",
+      "text": "In the position design (192 rows), letter transfer ties with preserving the base answer.",
+      "appears_in": [
+        "applications/goodfire-mcqa-preflight/README.md",
+        "README.md (CausaLab row)",
+        "website: mechanistic-interpretability/index.html (CausaLab card)"
+      ],
+      "status": "design_analysis",
+      "level": "D",
+      "population": "192 published position-design rows",
+      "sources": [
+        "applications/goodfire-mcqa-preflight/results/pointer_predictions.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "examples/causal_preflight.py",
+          "--config",
+          "applications/goodfire-mcqa-preflight/results/pointer_predictions.json",
+          "--structure-only",
+          "--json"
+        ],
+        "expect": [
+          {
+            "pointer": "/identical_category_groups",
+            "equals": [
+              [
+                "position_transfer"
+              ],
+              [
+                "preserve_task_answer",
+                "symbol_transfer"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "causalab.symbol.tie",
+      "text": "In the letter design (192 rows), position transfer ties with preserving the base answer.",
+      "appears_in": [
+        "applications/goodfire-mcqa-preflight/README.md",
+        "README.md (CausaLab row)",
+        "website: mechanistic-interpretability/index.html (CausaLab card)"
+      ],
+      "status": "design_analysis",
+      "level": "D",
+      "population": "192 published letter-design rows",
+      "sources": [
+        "applications/goodfire-mcqa-preflight/results/symbol_predictions.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "examples/causal_preflight.py",
+          "--config",
+          "applications/goodfire-mcqa-preflight/results/symbol_predictions.json",
+          "--structure-only",
+          "--json"
+        ],
+        "expect": [
+          {
+            "pointer": "/identical_category_groups",
+            "equals": [
+              [
+                "position_transfer",
+                "preserve_task_answer"
+              ],
+              [
+                "symbol_transfer"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "causalab.combined.separates_three",
+      "text": "Both designs together separate the three declared rules (384 rows).",
+      "appears_in": [
+        "applications/goodfire-mcqa-preflight/README.md"
+      ],
+      "status": "design_analysis",
+      "level": "D",
+      "population": "384 rows as one input menu",
+      "sources": [
+        "applications/goodfire-mcqa-preflight/results/combined_predictions.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "examples/causal_preflight.py",
+          "--config",
+          "applications/goodfire-mcqa-preflight/results/combined_predictions.json",
+          "--structure-only",
+          "--json"
+        ],
+        "expect": [
+          {
+            "pointer": "/identical_category_groups",
+            "equals": [
+              [
+                "position_transfer"
+              ],
+              [
+                "preserve_task_answer"
+              ],
+              [
+                "symbol_transfer"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "causalab.four_rules",
+      "text": "With a color-transfer rule, both published designs leave color = preserved tied; adding the proposed color design separates all four rules (576 rows).",
+      "appears_in": [
+        "applications/goodfire-mcqa-preflight/README.md",
+        "README.md (CausaLab row)"
+      ],
+      "status": "design_analysis",
+      "level": "D",
+      "population": "published rows plus a proposed design",
+      "sources": [
+        "applications/goodfire-mcqa-preflight/results/four_rule_extension.json"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/goodfire-mcqa-preflight/results/four_rule_extension.json",
+        "verified_by": [
+          "applications/goodfire-mcqa-preflight/run.py"
+        ],
+        "expect": [
+          {
+            "pointer": "/four_rule_design_analysis/menus/both published designs/identical_prediction_groups",
+            "equals": [
+              [
+                "color_transfer",
+                "preserve_task_answer"
+              ],
+              [
+                "position_transfer"
+              ],
+              [
+                "symbol_transfer"
+              ]
+            ]
+          },
+          {
+            "pointer": "/four_rule_design_analysis/menus/all three designs/rows",
+            "equals": 576
+          },
+          {
+            "pointer": "/four_rule_design_analysis/menus/all three designs/identical_prediction_groups",
+            "equals": [
+              [
+                "color_transfer"
+              ],
+              [
+                "position_transfer"
+              ],
+              [
+                "preserve_task_answer"
+              ],
+              [
+                "symbol_transfer"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "causalab.full_patch",
+      "text": "The authors' fixed full-vector patch matches the position target in 0.547 vs the letter target in 0.0625 of held-out pairs at layer 21, and 0.016 vs 0.922 at layer 26.",
+      "appears_in": [
+        "applications/goodfire-mcqa-preflight/README.md"
+      ],
+      "status": "descriptive",
+      "level": "D",
+      "population": "authors' published IIA, 64 held-out pairs per design",
+      "sources": [
+        "applications/goodfire-mcqa-preflight/results/four_rule_extension.json"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/goodfire-mcqa-preflight/results/four_rule_extension.json",
+        "verified_by": [
+          "applications/goodfire-mcqa-preflight/run.py"
+        ],
+        "expect": [
+          {
+            "pointer": "/published_full_patch_iia/position_design/21",
+            "equals": 0.546875
+          },
+          {
+            "pointer": "/published_full_patch_iia/letter_design/21",
+            "equals": 0.0625
+          },
+          {
+            "pointer": "/published_full_patch_iia/position_design/26",
+            "equals": 0.015625
+          },
+          {
+            "pointer": "/published_full_patch_iia/letter_design/26",
+            "equals": 0.921875
+          }
+        ]
+      }
+    },
+    {
+      "id": "causalab.no_model",
+      "text": "No model was run; this is a design analysis, not a neural test.",
+      "appears_in": [
+        "applications/goodfire-mcqa-preflight/README.md",
+        "README.md (CausaLab row)",
+        "website: mechanistic-interpretability/index.html (CausaLab card)"
+      ],
+      "status": "design_analysis",
+      "level": "logged",
+      "population": "scope",
+      "sources": [
+        "applications/goodfire-mcqa-preflight/run.py"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "run.py is standard library only and executes no upstream code"
+      }
+    }
+  ]
+}

@@ -11,7 +11,7 @@ general reliability or identifies every mechanism compatible with a model.
 | **Makelov, Lange & Nanda — GPT-2** | [Four-round overview](makelov-2311.17030/OVERVIEW.md) | Fresh comparison, later profile exclusions, then a qualification stop. Explains aspects of a fixed patch; native mechanism and Q1 adequacy remain open. |
 | **DeepMind Tracr — compiled reversal** | [Result and worked example](tracr/RESULTS.md) | Known computation, two declared rivals, fresh token families. The operator chose the address site from compiler structure; this is controlled validation. |
 | **Gur-Arieh, Geva & Geiger — Mixing Mechanisms** | [Confirmation result](gur-arieh-2510.06182/CONFIRMATION_RESULT.md) | One concentration profile excluded; the stronger profile undecided. No per-case mechanism identification or refutation of the aggregate model. |
-| **Goodfire CausaLab — multiple choice** | [Design audit](goodfire-mcqa-preflight/README.md) | Reuses published input tables to expose ties. No new neural intervention or resolution calibration. |
+| **Goodfire CausaLab — multiple choice** | [Design audit](goodfire-mcqa-preflight/README.md) | Reuses published input tables to make remaining rule ties explicit. No new neural intervention or resolution calibration. |
 | **Li, Saphra et al. — Dyck-1 attention ablation** | [Prospective causal narrowing](li-saphra-2507.06445/native_followup/README.md) · [earlier audit](li-saphra-2507.06445/README.md) | Two nested intervention tests on fresh cyclic families and a preselected transfer cohort; local adequacy, rival exclusions and substantial transfer failures all reported. |
 
 For claim-to-artifact links and provenance, use the

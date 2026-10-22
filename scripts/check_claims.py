@@ -38,7 +38,10 @@ ALLOWED = {
     f'{MAKELOV}/scripts/summarize_query_route.py',
     f'{MIXING}/scripts/check_mixing_round1_records.py',
     'scripts/describe_claim_inputs.py',
+    'applications/goodfire-mcqa-preflight/run.py',
 }
+# Scripts on the list above that download pinned public inputs; run only with --network.
+NEEDS_NETWORK = {'applications/goodfire-mcqa-preflight/run.py'}
 LEVELS = {'N', 'D', 'logged'}
 STATUSES = {'confirmation', 'exploration', 'design_analysis', 'descriptive', 'development',
             'qualification_stop', 'future'}
@@ -78,11 +81,14 @@ def compare(actual, expectation):
     raise ValueError(f'unknown expectation: {expectation}')
 
 
-def check_claim(claim, cache):
+def check_claim(claim, cache, network):
     check = claim['check']
     kind = check['kind']
     if kind == 'logged':
         return True, 'listed; rests on: ' + check['evidence']
+    argv = check.get('argv') or check.get('verified_by')
+    if argv and argv[0] in NEEDS_NETWORK and not network:
+        return None, 'skipped: downloads pinned public inputs; rerun with --network'
     if kind == 'recompute':
         output = run_command(check['argv'], cache)
         if check.get('stdout') == 'text':
@@ -131,6 +137,8 @@ def main():
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--case', help='only check this case (folder name under applications/)')
     parser.add_argument('--json', action='store_true', help='print the full report as JSON')
+    parser.add_argument('--network', action='store_true',
+                        help='also run checks that download pinned, hash-checked public inputs')
     args = parser.parse_args()
     files = sorted(ROOT.glob('applications/*/CLAIMS.json'))
     if args.case:
@@ -142,8 +150,8 @@ def main():
         data = json.loads(claims_file.read_text())
         validate(claims_file.relative_to(ROOT), data)
         for claim in data['claims']:
-            ok, detail = check_claim(claim, cache)
-            failed += not ok
+            ok, detail = check_claim(claim, cache, args.network)
+            failed += ok is False
             kind = claim['check']['kind']
             if kind == 'stored' and 'verified_by' in claim['check']:
                 kind = 'stored+verified'
@@ -154,17 +162,19 @@ def main():
         print(json.dumps(report, indent=2))
     else:
         for row in report:
-            mark = 'PASS' if row['passed'] else 'FAIL'
+            mark = {True: 'PASS', False: 'FAIL', None: 'SKIP'}[row['passed']]
             if row['kind'] == 'logged':
                 mark = 'LIST'
             print(f"{mark} [{row['level']}/{row['kind']}] {row['case']}: {row['id']}"
                   + ('' if row['passed'] else f" -- {row['detail']}"))
+        skipped = sum(row['passed'] is None for row in report)
         totals = {}
         for row in report:
             totals[row['kind']] = totals.get(row['kind'], 0) + 1
         print(f"{len(report)} claims in {len(files)} files: "
               + ', '.join(f'{k} {v}' for k, v in sorted(totals.items()))
-              + f'; failed {failed}.')
+              + f'; failed {failed}; skipped {skipped}'
+              + (' (network checks; rerun with --network)' if skipped else '') + '.')
         print('recompute = recalculated from stored records or design inputs; stored = read '
               'from a stored summary (+verified: a checker first recomputed that summary from '
               'raw records); logged = listed only, not recomputable here.')

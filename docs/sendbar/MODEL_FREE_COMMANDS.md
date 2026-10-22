@@ -34,9 +34,18 @@ check 6 referred to the Mixing Mechanisms case.
 
 - `python -m pytest` over the whole repository: some tests construct small tensor models
   or need optional libraries. It is not run as part of this revision.
-- `applications/goodfire-mcqa-preflight/run.py`: it **overwrites** versioned files in
-  `results/`. Run it only on a copy, with outputs compared afterwards.
+- `applications/goodfire-mcqa-preflight/run.py --write`: overwrites the versioned files in
+  `results/` and caches downloads. Its default mode (`--check`) is on the positive list
+  below.
 - Any `run_*.py` script under `applications/`: these drive model runs.
 
-New checkers added in this revision are listed in `verify_release.py` and below, once
-they have been audited in the same way.
+## Added in this revision (audited the same way)
+
+| Command | Writes? | Network? | Audit note |
+|---|---|---|---|
+| `scripts/check_claims.py [--case NAME] [--network]` | no | only with `--network` | runs only the allow-listed scripts in this table and above |
+| `scripts/describe_claim_inputs.py makelov-table1` | no | no | standard library; reads `per_example.jsonl` |
+| `scripts/describe_claim_inputs.py mixing-concentration` | no | no | imports the frozen Mixing checker's `measure()` and `distribution()` (standard library) |
+| `applications/makelov-2311.17030/scripts/describe_post_hoc.py` | no | no | standard library; adds the proportional-rule comparison |
+| `applications/makelov-2311.17030/scripts/summarize_query_route.py --results …/query_route_confirmation` | no | no | standard library |
+| `applications/goodfire-mcqa-preflight/run.py` (default check mode) | no | yes: pinned GitHub raw files, hash-checked, held in memory | standard library; executes no upstream code |
