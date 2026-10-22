@@ -73,6 +73,7 @@ def mixing_concentration():
     resolved = [c for c in cases if c['resolved']]
     t_w, band = anchors['T_W'], rule['kappa'] * anchors['d']
     values = [c['T'] for c in resolved]
+    mean_q = [statistics.fmean(c['q'][i] for c in resolved) for i in range(3)]
     return {
         'source': 'applications/gur-arieh-2510.06182/results/confirmation/records.jsonl',
         'setup': {'model': manifest['model']['id'], 'revision': manifest['model']['revision'],
@@ -83,14 +84,22 @@ def mixing_concentration():
                   'generated': len(records)},
         'T_W': t_w, 'T_A': anchors['T_A'], 'band_half_width': band,
         'resolved': len(resolved), 'unresolved': len(cases) - len(resolved),
+        'answer_mass_below_floor': sum(r['answer_mass_full_vocab'] < rule['answer_mass_floor']
+                                       for r in qualifying),
+        'mean_q_resolved': mean_q, 'q_bar_B': anchors['q_bar_B'],
+        'mean_max_abs_difference': max(abs(a - b) for a, b in zip(anchors['q_bar_B'], mean_q)),
+        'mean_gate_delta': manifest['mean_gate']['delta'],
         'above_T_W': sum(t > t_w for t in values), 'below_T_W': sum(t < t_w for t in values),
         'deviating_above_band': sum(t - t_w > band for t in values),
         'deviating_below_band': sum(t_w - t > band for t in values),
         'median_T_resolved': statistics.median(values),
         'argmax_label_counts_resolved': {
             label: sum(label in c['labels'] for c in resolved) for label in checker.LABELS},
+        'argmax_ties_resolved': sum(len(c['labels']) > 1 for c in resolved),
         'reading': 'Descriptive counts over resolved cases. The frozen decisions are those of '
-                   'check_mixing_round1_records.py; these counts add no test.',
+                   'check_mixing_round1_records.py; these counts add no test. A case is resolved '
+                   'when it passes both the support rule and the answer-mass rule, so with no '
+                   'case below the mass floor every unresolved case failed the support rule.',
     }
 
 
@@ -98,19 +107,42 @@ def tracr_confirmation():
     """Run the portable Tracr verifier on a temporary copy, then report the verified summary.
 
     The frozen verifier writes verification.json into the run directory it checks, so it
-    only ever sees a copy in a temporary directory; the checkout is not written to.
+    only ever sees a copy in a temporary directory; the checkout is not written to. The
+    development run whose summary hash the freeze records is verified the same way.
     """
+    import hashlib
     import shutil
     import tempfile
     run = TRACR / 'results/confirmation_001'
+    freeze_path = TRACR / 'CONFIRMATION_FREEZE.json'
+    freeze = json.loads(freeze_path.read_text())
+    bound = [d for d in sorted((TRACR / 'results').glob('development_*'))
+             if (d / 'summary.json').exists() and hashlib.sha256(
+                 (d / 'summary.json').read_bytes()).hexdigest() == freeze['development_summary_sha256']]
+    if len(bound) != 1:
+        raise ValueError('expected exactly one development run bound by the freeze')
     portable = _load_module('tracr_portable', ROOT / 'scripts/check_tracr_records_portable.py')
+    frozen_verifier = _load_module('tracr_frozen_verify', TRACR / 'scripts/verify.py')
     with tempfile.TemporaryDirectory(prefix='claims-tracr-') as temp:
         copy = Path(temp) / run.name
         shutil.copytree(run, copy)
-        verification = portable.verify(copy, TRACR / 'CONFIRMATION_FREEZE.json')
+        verification = portable.verify(copy, freeze_path)
+        development_copy = Path(temp) / bound[0].name
+        shutil.copytree(bound[0], development_copy)
+        development_verification = frozen_verifier.verify(development_copy, None)
+    development = json.loads((bound[0] / 'summary.json').read_text())
     summary = json.loads((run / 'summary.json').read_text())
     decision = summary['population_decision']
     return {'verification': verification,
+            'required_successes': freeze['precision_plan']['required_successes'],
+            'sample_size': freeze['sample_size'],
+            'numeric_allowance': freeze['numeric_allowance'],
+            'scientific_tolerance': freeze['scientific_tolerance'],
+            'total_radius': freeze['scientific_tolerance'] + freeze['numeric_allowance'],
+            'development_run_bound_by_freeze': bound[0].name,
+            'development_verification_status': development_verification['status'],
+            'development_families': development['family_count'],
+            'development_copy_controls_selected': development['site_B_positive_controls'],
             'families': summary['family_count'], 'successes': decision['successes'],
             'lower_rate': decision['bounds']['lower_rate'],
             'minimum_success_rate': decision['minimum_success_rate'],

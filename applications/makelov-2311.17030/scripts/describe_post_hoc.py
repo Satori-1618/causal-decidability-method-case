@@ -48,6 +48,7 @@ def _spread(values):
 def read_source_q1(records):
     """Measured read effects as fractions of the same directed case's full effect."""
     null_fraction, row_fraction, inside, order_agrees, magnitude_agrees = [], [], 0, 0, 0
+    null_larger = 0
     for record in records:
         m, fidelity = record['margins'], record['fidelity']
         y0, full, row, null = (m[k] for k in ('baseline', 'full', 'read_row', 'read_null'))
@@ -63,6 +64,7 @@ def read_source_q1(records):
         # the read-coefficient magnitudes; effects are compared as magnitudes too.
         coefficient_row = fidelity['read_row']['actual_delta_l2_per_item']
         coefficient_null = fidelity['read_null']['actual_delta_l2_per_item']
+        null_larger += coefficient_null > coefficient_row
         order_agrees += (loss_b < loss_a) == (coefficient_null > coefficient_row)
         magnitude_agrees += ((coefficient_null > coefficient_row)
                              == (abs(null - y0) > abs(row - y0)))
@@ -71,6 +73,7 @@ def read_source_q1(records):
         'null_read_effect_over_full_effect': _spread(null_fraction),
         'visible_read_effect_over_full_effect': _spread(row_fraction),
         'directed_cases_with_both_fractions_in_0_1': inside,
+        'directed_cases_with_larger_null_coefficient': null_larger,
         'directed_cases_where_coefficient_magnitude_order_matches_B_versus_A': order_agrees,
         'directed_cases_where_larger_coefficient_magnitude_gives_larger_absolute_effect':
             magnitude_agrees,

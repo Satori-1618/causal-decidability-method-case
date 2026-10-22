@@ -87,6 +87,122 @@
       }
     },
     {
+      "id": "tracr.required_count",
+      "text": "The frozen plan required 126 of 128 successes; one final population test, no extension or replacement families.",
+      "appears_in": [
+        "applications/tracr/RESULTS.md"
+      ],
+      "phase": "prespecified_test",
+      "outcome": "requirement met (128/128)",
+      "level": "N",
+      "population": "128 fresh families",
+      "sources": [
+        "applications/tracr/CONFIRMATION_FREEZE.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "tracr-confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/required_successes",
+            "equals": 126
+          },
+          {
+            "pointer": "/sample_size",
+            "equals": 128
+          },
+          {
+            "pointer": "/families",
+            "equals": 128
+          },
+          {
+            "pointer": "/verification/status",
+            "equals": "PASS"
+          }
+        ],
+        "note": "The required count is read from the freeze after the frozen verifier has checked that the run matches it. \"No extension or replacement\" rests on the verifier's family and forward-count checks."
+      }
+    },
+    {
+      "id": "tracr.tolerances",
+      "text": "Frozen numerical allowance 7.629394531e-06, separate from scientific tolerance 0.01; total radius 0.01000762939.",
+      "appears_in": [
+        "applications/tracr/RESULTS.md"
+      ],
+      "phase": "prespecified_test",
+      "outcome": "frozen contract",
+      "level": "N",
+      "population": "readout coordinate bounds",
+      "sources": [
+        "applications/tracr/CONFIRMATION_FREEZE.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "tracr-confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/numeric_allowance",
+            "approx": 7.629394531e-06,
+            "abs_tol": 5e-16
+          },
+          {
+            "pointer": "/scientific_tolerance",
+            "equals": 0.01
+          },
+          {
+            "pointer": "/total_radius",
+            "approx": 0.01000762939,
+            "abs_tol": 5e-12
+          }
+        ]
+      }
+    },
+    {
+      "id": "tracr.development_copy_control",
+      "text": "Development's deliberate final-output-copy control selected donor-answer copying in 8/8 families; a technical positive control, not a fresh population claim.",
+      "appears_in": [
+        "applications/tracr/RESULTS.md"
+      ],
+      "phase": "development",
+      "outcome": "positive control passed",
+      "level": "N",
+      "population": "8 development families (the run bound by the freeze)",
+      "sources": [
+        "applications/tracr/results/development_004/"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "tracr-confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/development_run_bound_by_freeze",
+            "equals": "development_004"
+          },
+          {
+            "pointer": "/development_verification_status",
+            "equals": "PASS"
+          },
+          {
+            "pointer": "/development_families",
+            "equals": 8
+          },
+          {
+            "pointer": "/development_copy_controls_selected",
+            "equals": 8
+          }
+        ]
+      }
+    },
+    {
       "id": "tracr.site_choice",
       "text": "The intervention site was chosen from known compiler structure; the alignment is fixed and two narrow rivals are declared. This is an instrumentation check, not discovery or a validation of causal abstraction.",
       "appears_in": [

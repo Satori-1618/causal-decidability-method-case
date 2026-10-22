@@ -55,9 +55,14 @@ def run(label, *args):
 def main():
     if any(importlib.util.find_spec(name) is None for name in ("numpy", "scipy")):
         raise SystemExit("NumPy and SciPy are needed. Install with: python -m pip install -e '.[verify]'")
-    if subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], cwd=ROOT,
-                      capture_output=True).returncode:
-        raise SystemExit("Use a Git clone with full history, not a source ZIP.")
+    try:
+        shallow = subprocess.run(["git", "rev-parse", "--is-shallow-repository"], cwd=ROOT,
+                                 capture_output=True, text=True)
+    except OSError:
+        shallow = None
+    if shallow is None or shallow.returncode or shallow.stdout.strip() != "false":
+        raise SystemExit("Use a full Git clone, not a source ZIP or a --depth clone: "
+                         "git clone https://github.com/Satori-1618/causal-decidability-method-case")
     run("archived Makelov files unchanged", "scripts/check_frozen_files.py")
     run("Makelov Q1: 64-pair relative comparison", "examples/confirmed_read_source.py")
     run("Makelov round 2", f"{MAKELOV}/scripts/check_query_route_records.py",

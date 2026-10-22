@@ -40,6 +40,7 @@ class PostHocDescription(unittest.TestCase):
         q1 = self.report['read_source_q1']
         self.assertEqual(q1['n_directed_cases_not_independent'], 128)
         self.assertEqual(q1['directed_cases_with_both_fractions_in_0_1'], 128)
+        self.assertEqual(q1['directed_cases_with_larger_null_coefficient'], 128)
         self.assertEqual(q1['directed_cases_where_coefficient_magnitude_order_matches_B_versus_A'],
                          128)
         self.assertEqual(

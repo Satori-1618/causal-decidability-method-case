@@ -91,8 +91,8 @@ their aims.
 - Full attention and off-target tensors are not archived, so they cannot be recomputed.
 
 **Check it without a model:**
-`python3 scripts/check_claims.py --case li-saphra-2507.06445`, run from the repository
-root, recomputes the numbers above from the stored records and archives. Provenance,
+`python3 scripts/check_claims.py --case li-saphra-2507.06445`, run from the root of a full
+Git clone (not a ZIP download or a `--depth` clone), recomputes the numbers above from the stored records and archives. Provenance,
 scope and status statements are listed as source entries with their evidence.
 
 ## Earlier retrospective stage: what the published observations leave open

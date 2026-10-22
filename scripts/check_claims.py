@@ -50,6 +50,10 @@ ALLOWED = {
 }
 # Scripts on the list above that download pinned public inputs; run only with --network.
 NEEDS_NETWORK = {'applications/goodfire-mcqa-preflight/run.py'}
+# Scripts that read committed files from Git history; they need a full clone.
+NEEDS_GIT_HISTORY = {f'{MIXING}/scripts/check_mixing_round1_records.py'}
+FULL_CLONE_HINT = ('needs a full Git clone, not a source ZIP or a --depth clone: '
+                   'git clone https://github.com/Satori-1618/causal-decidability-method-case')
 LEVELS = {'N', 'D', 'S'}
 PHASES = {'prespecified_test', 'exploratory', 'design_analysis', 'descriptive', 'development',
           'not_run'}
@@ -66,11 +70,23 @@ def pointer(document, path):
     return document
 
 
+def require_full_clone(script):
+    try:
+        result = subprocess.run(['git', 'rev-parse', '--is-shallow-repository'], cwd=ROOT,
+                                capture_output=True, text=True)
+    except OSError:
+        result = None
+    if result is None or result.returncode or result.stdout.strip() != 'false':
+        raise SystemExit(f'{script} {FULL_CLONE_HINT}')
+
+
 def run_command(argv, cache):
     key = tuple(argv)
     if key not in cache:
         if argv[0] not in ALLOWED:
             raise ValueError(f'command not on the model-free allow-list: {argv[0]}')
+        if argv[0] in NEEDS_GIT_HISTORY:
+            require_full_clone(argv[0])
         env = dict(os.environ, HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1',
                    PYTHONDONTWRITEBYTECODE='1', CUDA_VISIBLE_DEVICES='')
         # -E -s -B: ignore environment and user site, write no bytecode; unlike -I, keep the

@@ -77,8 +77,9 @@ the test cannot localize the dependence to one of them or to a particular intern
 ## What this adds, and what comes next
 
 Round 1 excluded a particular average-like concentration profile. A caveat written before
-that run had warned that the measure may favour excluding it; that concern was never
-quantified. Round 2 implements
+that run had warned that this profile is biased toward exclusion when case argmaxes vary.
+The direction follows from Jensen's inequality; its effect on the coverage decision was
+never quantified. Round 2 implements
 the next iteration: an input transformation under which two explanations make different
 paired predictions, with unchanged native answers and explicit no-patch controls.
 

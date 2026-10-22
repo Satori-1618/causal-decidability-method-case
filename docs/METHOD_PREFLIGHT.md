@@ -50,11 +50,7 @@ task asks which option gives more points.
   Include this baseline: the same answer does not imply an internally inactive patch.
 
 These are proposed rules, not descriptions of an already discovered circuit.
-Keep the patch operator/site and answer scoring fixed while changing these cases. The
-procedure takes that operator as given. It does not search for an alignment, as
-distributed alignment search does. When an alignment is learned separately for each
-hypothesis, the rivals no longer share one intervention, and their predictions must be
-checked per alignment:
+Keep the patch operator/site and answer scoring fixed while changing these cases:
 
 | Case: Object / Alternative points | Value transfer | Choice transfer | Forced Object | Recipient answer preserved |
 |---|---|---|---|---|
@@ -68,6 +64,11 @@ leaves choice transfer tied with it. **Together, rows 2 and 3 separate all four
 rules.** Without the baseline column, these ties stay invisible.
 No hidden-activation values or guessed logit margins were needed to derive this.
 The table specifies **choices**, not their confidence or probability.
+
+The procedure takes the patch operator as given. It does not search for an alignment, as
+distributed alignment search does. When an alignment is learned separately for each
+hypothesis, the rivals no longer share one intervention, and their predictions must be
+checked per alignment.
 
 The toy table stipulates unpatched donor choices Object (60/10) and Alternative
 (60/90), and recipient choices Alternative (20/40 and 20/80). In a real study,

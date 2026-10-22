@@ -19,7 +19,8 @@ These labels name kinds of check, not degrees of certainty. Each claim list
 - the test's actual **outcome**, for example excluded, undecided, adequate, a
   qualification stop or rules identical on this design.
 
-A frozen test that excluded a candidate or left it undecided is not a confirmation.
+A frozen test that excluded a candidate or left it undecided did not confirm that candidate,
+even when the run itself is called a confirmation run (see below).
 
 Upstream steps that are only logged, such as model forwards, geometry fits or intervention
 mechanics, are named as such in each case. They are not presented as recomputable.
@@ -50,7 +51,7 @@ The applications use the coverage rule with these frozen parameters:
 | Makelov round 2 | 192 fresh pairs | both predictions within 25% of the local absolute effect T, in both reciprocal directions and both precisions | 80% | simultaneous Clopper–Pearson, joint coverage ≥ 95% | [result](ROUND2_RESULT.md), [protocol](../applications/makelov-2311.17030/QUERY_ROUTE_PROTOCOL.md) |
 | Makelov round 3A | 512 fresh families | within ±0.25 nat in both recipient orders and both precisions | 80% | simultaneous Clopper–Pearson, joint coverage ≥ 97.5% | [result](ROUND3A_CONFIRMATION.md), [protocol](../applications/makelov-2311.17030/DONOR_FACTOR_PROTOCOL.md) |
 | Tracr confirmation | 128 fresh token-assignment families | the qualified 2 → 1 → 1 trajectory; scientific tolerance 0.01 (projection-score units) plus a numerical allowance | 95% | one-sided 95% finite-population lower bound | [result](../applications/tracr/RESULTS.md), [freeze](../applications/tracr/CONFIRMATION_FREEZE.json) |
-| Mixing Mechanisms confirmation | 300 qualifying fresh cases | concentration within κ·(T_A − T_W) = 0.115673 of the profile's anchor | 80% | simultaneous intervals; unresolved cases count against adequacy and for exclusion | [result](../applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md), [freeze](../applications/gur-arieh-2510.06182/FREEZE.json) |
+| Mixing Mechanisms confirmation | 300 qualifying fresh cases | concentration within κ·(T_A − T_W) = 0.115673 of the profile's anchor | 80% | simultaneous intervals; unresolved cases count as non-matches for adequacy and as matches for exclusion | [result](../applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md), [freeze](../applications/gur-arieh-2510.06182/FREEZE.json) |
 | Li/Saphra native follow-up, stages 1 and 2 | sufficiently separated fresh families per stage and task | both new margins on all three family members within 0.25 nat, plus a numerical allowance | lower bound above 80% | simultaneous bounds over the frozen 288-bound family | [result](../applications/li-saphra-2507.06445/native_followup/README.md), [protocol](../applications/li-saphra-2507.06445/native_followup/CONFIRMATION.md) |
 | Li/Saphra averaged anchors 004 | 151 separating families | all eight targets within 0.099 nat (definite) / 0.101 nat (possible) | 90% | four one-sided Clopper–Pearson tails at α = .01; familywise ≤ .05 | [result](../applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/RESULT.md) |
 
@@ -59,9 +60,15 @@ test. It contains no adequacy decision.
 
 ## "Confirmed" and "confirmation"
 
-- "Confirmed" refers to a test whose question, data split, tolerance and decision rule were
-  frozen before its outcomes, within the scope that test states.
-- It does not mean the mechanism is identified, that the result transfers to other units,
+- "Confirmation" names a phase: a run on fresh data after its question, data split,
+  tolerance and decision rule were frozen. The name holds whatever the outcome; a
+  confirmation run can exclude a candidate, leave it undecided or find it adequate.
+- "Confirmed" qualifies the decision such a run reached, not a candidate. A "confirmed
+  exclusion" (Makelov rounds 2 and 3A) is an exclusion decided by a confirmation run;
+  Makelov Q1's "confirmed result" is its relative comparison, decided the same way. A
+  candidate is called adequate only where the text says "adequate", within the scope that
+  run states.
+- Neither term means that the mechanism is identified, that the result transfers to other units,
   or that the freeze was externally timestamped.
 - Where a freeze is only recorded in local commits and run manifests, the case says so.
 

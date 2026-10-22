@@ -50,8 +50,11 @@ individual cases were substantially more concentrated than that mean (282 of 290
 resolved cases lie above it; median concentration 0.99). This does not identify which
 mechanism operates in a case, and the stronger between-case statement was not earned.
 `W_T` is this application's own profile, not a claim of the paper. A caveat written before
-the run warned that the measure may favour excluding it. That concern was never quantified,
-and the setup does not by itself establish it (see the result page). The readout is adapted (answer form without a leading space).
+the run reads: "W_T is biased toward exclusion when case argmaxes vary; the bias is largest in the selected cell." The direction follows from Jensen's
+inequality: when argmaxes vary, cases are on average more concentrated than `T_W`. How
+much this shifts the coverage decision, and whether the effect is largest in this cell,
+was never quantified (see the result page). The readout is adapted (answer form without a
+leading space).
 See [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md), which starts with the full setup.
 
 **Round 2 development is also implemented and executed.** A paired word exchange tests

@@ -22,7 +22,7 @@ no model run:
 - In each design, the rule that is *not* the target ties with "the base answer is
   preserved" in every row.
 - A color-transfer rule ties with "preserved" in all published rows.
-- Only a proposed third design separates all four rules.
+- Adding a proposed third design to both published ones separates all four rules.
 - It is not a new neural test and makes no claim about Qwen's internals.
 
 **Low-cost next step in CausaLab's own terms:**
@@ -139,7 +139,7 @@ python3 applications/goodfire-mcqa-preflight/run.py                  # derive an
 python3 applications/goodfire-mcqa-preflight/run.py --write NEW_DIR  # write a new derivation
 ```
 
-The default run downloads under 0.5 MB of pinned source files into memory and checks
+The default run downloads about 0.5 MB (503,367 bytes) of pinned source files into memory and checks
 their hashes, including the two documentation files cited above
 ([reference manifest](reference_manifest.json)). It derives every export and compares it
 with the committed files, and exits non-zero on any difference. `--write` never writes

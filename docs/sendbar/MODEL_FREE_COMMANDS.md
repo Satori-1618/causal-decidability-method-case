@@ -13,8 +13,12 @@ also evidence that no code path imported them.
 
 ## Release verifier: eight existing checks
 
-`python scripts/verify_release.py` runs each check with `-I -B`, `HF_HUB_OFFLINE=1` and
-`TRANSFORMERS_OFFLINE=1`.
+`python scripts/verify_release.py` runs each check with `-E -s -B` (ignore environment
+variables and the user site, write no bytecode), `HF_HUB_OFFLINE=1` and
+`TRANSFORMERS_OFFLINE=1`. Unlike `-I`, these flags keep a script's own directory
+importable, which several application scripts need. It refuses to run outside a full Git
+clone (a source ZIP or a `--depth` clone), because the Mixing checker reads the freeze
+commit from Git history. It now runs 13 checks; the five added ones are listed below.
 
 | # | Check | Command | Writes? | Audit note |
 |---|---|---|---|---|
@@ -43,9 +47,15 @@ check 6 referred to the Mixing Mechanisms case.
 
 | Command | Writes? | Network? | Audit note |
 |---|---|---|---|
-| `scripts/check_claims.py [--case NAME] [--network]` | no | only with `--network` | runs only the allow-listed scripts in this table and above |
+| `scripts/check_claims.py [--case NAME] [--network]` | no | only with `--network` | runs only the allow-listed scripts in this table and above; stops with a clear message before a check that needs Git history when the checkout is a ZIP or a `--depth` clone |
 | `scripts/describe_claim_inputs.py makelov-table1` | no | no | standard library; reads `per_example.jsonl` |
 | `scripts/describe_claim_inputs.py mixing-concentration` | no | no | imports the frozen Mixing checker's `measure()` and `distribution()` (standard library) |
+| `scripts/describe_claim_inputs.py tracr-confirmation` | only into temporary copies | no | runs the portable verifier on a copy of `confirmation_001` and the frozen `scripts/verify.py` on a copy of the development run whose summary hash the freeze records; neither builds a Tracr model |
+| `scripts/describe_claim_inputs.py saphra-native` | only into a temporary directory | no | unpacks the hash-indexed archive and runs `verify_confirmation.audit` there |
+| `scripts/describe_claim_inputs.py saphra-averaged004` | only into a temporary directory | no | checks every archived file against `raw_index.json`, then runs the SciPy recount `verify_statistics.py` |
+| `scripts/describe_claim_inputs.py saphra-retro` | no | no | calls the retrospective analyzer's `encoded_results()` on the vendored upstream tables |
+| `applications/li-saphra-2507.06445/analyze.py --check` | no | no | rebuilds the stored retrospective outputs and compares them |
+| `applications/li-saphra-2507.06445/verify_independently.py` | no | no | separate recount from the released tables |
 | `applications/makelov-2311.17030/scripts/describe_post_hoc.py` | no | no | standard library; adds the proportional-rule comparison |
 | `applications/makelov-2311.17030/scripts/summarize_query_route.py --results …/query_route_confirmation` | no | no | standard library |
 | `applications/goodfire-mcqa-preflight/run.py` (default check mode) | no | yes: pinned GitHub raw files, hash-checked, held in memory | standard library; executes no upstream code |

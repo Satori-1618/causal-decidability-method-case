@@ -94,8 +94,39 @@
       }
     },
     {
+      "id": "mixing.run.unresolved_reason",
+      "text": "Ten qualifying cases were unresolved by the support rule; none failed the answer-mass rule.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
+      ],
+      "phase": "prespecified_test",
+      "outcome": "resolution rule applied",
+      "level": "N",
+      "population": "300 qualifying confirmation cases",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "mixing-concentration"
+        ],
+        "expect": [
+          {
+            "pointer": "/unresolved",
+            "equals": 10
+          },
+          {
+            "pointer": "/answer_mass_below_floor",
+            "equals": 0
+          }
+        ]
+      }
+    },
+    {
       "id": "mixing.profiles.counts",
-      "text": "W_T matches 16/300 (26 counting unresolved; exclusion upper bound 0.130); A_T matches 224/300 (234; bounds 0.686 and 0.831).",
+      "text": "W_T matches 16/300 (26 counting unresolved; adequacy lower bound 0.028, exclusion upper bound 0.130); A_T matches 224/300 (234; adequacy lower bound 0.686, exclusion upper bound 0.831).",
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
       ],
@@ -124,7 +155,12 @@
             "equals": 26
           },
           {
-            "pointer": "/profiles/W_T/upper_bound_for_exclusion",
+            "pointer": "/profiles/W_T/adequacy_interval/0",
+            "approx": 0.028,
+            "abs_tol": 0.0005
+          },
+          {
+            "pointer": "/profiles/W_T/exclusion_interval/1",
             "approx": 0.13,
             "abs_tol": 0.0005
           },
@@ -137,21 +173,22 @@
             "equals": 234
           },
           {
-            "pointer": "/profiles/A_T/lower_bound_for_adequacy",
+            "pointer": "/profiles/A_T/adequacy_interval/0",
             "approx": 0.686,
             "abs_tol": 0.0005
           },
           {
-            "pointer": "/profiles/A_T/upper_bound_for_exclusion",
+            "pointer": "/profiles/A_T/exclusion_interval/1",
             "approx": 0.831,
             "abs_tol": 0.0005
           }
-        ]
+        ],
+        "note": "The checker compares the stored interval arrays with its recomputation; the scalar *_bound_* fields of summary.json are not compared, so they are not read here."
       }
     },
     {
       "id": "mixing.mean.replicates",
-      "text": "The aggregate mean replicated: maximum difference 0.00594 from split B, below the frozen limit 0.08425.",
+      "text": "The aggregate mean replicated: (0.5323, 0.4257, 0.0420) over resolved cases against split B's frozen (0.5338, 0.4198, 0.0465); maximum difference 0.00594, below the frozen limit 0.08425.",
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
         "applications/gur-arieh-2510.06182/README.md"
@@ -161,28 +198,53 @@
       "level": "N",
       "population": "resolved confirmation cases vs frozen split-B mean",
       "sources": [
-        "applications/gur-arieh-2510.06182/results/confirmation/summary.json"
+        "applications/gur-arieh-2510.06182/results/confirmation/records.jsonl",
+        "applications/gur-arieh-2510.06182/results/confirmation/manifest.json"
       ],
       "check": {
-        "kind": "stored",
-        "file": "applications/gur-arieh-2510.06182/results/confirmation/summary.json",
-        "verified_by": [
-          "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py",
-          "--results",
-          "applications/gur-arieh-2510.06182/results/confirmation"
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "mixing-concentration"
         ],
         "expect": [
           {
-            "pointer": "/mean_gate/passed",
-            "equals": true
+            "pointer": "/mean_q_resolved/0",
+            "approx": 0.5323,
+            "abs_tol": 5e-05
           },
           {
-            "pointer": "/mean_gate/statistic",
+            "pointer": "/mean_q_resolved/1",
+            "approx": 0.4257,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/mean_q_resolved/2",
+            "approx": 0.042,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/q_bar_B/0",
+            "approx": 0.5338,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/q_bar_B/1",
+            "approx": 0.4198,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/q_bar_B/2",
+            "approx": 0.0465,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/mean_max_abs_difference",
             "approx": 0.00594,
             "abs_tol": 5e-06
           },
           {
-            "pointer": "/mean_gate/delta",
+            "pointer": "/mean_gate_delta",
             "approx": 0.08425,
             "abs_tol": 5e-06
           }
@@ -236,7 +298,7 @@
     },
     {
       "id": "mixing.cases.labels",
-      "text": "Argmax labels of resolved cases: positional 157, lexical 125, reflexive 8; the between-case statement was not earned.",
+      "text": "Under the frozen labelling rule the highest-scoring candidate was positional in 157 resolved cases, lexical in 125 and reflexive in 8, with no ties; the between-case statement was not earned.",
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
       ],
@@ -245,7 +307,8 @@
       "level": "N",
       "population": "290 resolved cases",
       "sources": [
-        "applications/gur-arieh-2510.06182/results/confirmation/records.jsonl"
+        "applications/gur-arieh-2510.06182/results/confirmation/records.jsonl",
+        "applications/gur-arieh-2510.06182/results/confirmation/manifest.json"
       ],
       "check": {
         "kind": "recompute",
@@ -265,8 +328,56 @@
           {
             "pointer": "/argmax_label_counts_resolved/reflexive",
             "equals": 8
+          },
+          {
+            "pointer": "/resolved",
+            "equals": 290
+          },
+          {
+            "pointer": "/argmax_ties_resolved",
+            "equals": 0
           }
         ]
+      }
+    },
+    {
+      "id": "mixing.between_case.not_earned",
+      "text": "The between-case statement was not earned: it required A_T to be adequate, which it was not; no label reached 80% coverage (largest upper bound 0.62).",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
+        "applications/gur-arieh-2510.06182/README.md"
+      ],
+      "phase": "prespecified_test",
+      "outcome": "not earned",
+      "level": "N",
+      "population": "290 resolved cases",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/summary.json"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/gur-arieh-2510.06182/results/confirmation/summary.json",
+        "verified_by": [
+          "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py",
+          "--results",
+          "applications/gur-arieh-2510.06182/results/confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/between_case/earned",
+            "equals": false
+          },
+          {
+            "pointer": "/statuses/A_T",
+            "equals": "undecided"
+          },
+          {
+            "pointer": "/between_case/U/positional",
+            "approx": 0.62,
+            "abs_tol": 0.005
+          }
+        ],
+        "note": "The checker recomputes the earned decision, the profile statuses and the U bounds and compares them with summary.json."
       }
     },
     {
@@ -328,15 +439,17 @@
     },
     {
       "id": "mixing.caveat",
-      "text": "A caveat written before the run warned that W_T may be favoured for exclusion when case-level argmaxes vary, most in the selected cell; this is a pre-run concern, never quantified. Jensen gives T_W <= mean case concentration, which does not fix the coverage-rule failure rate; selecting the largest d also widens the band.",
+      "text": "A caveat written before the run reads: \"W_T is biased toward exclusion when case argmaxes vary; the bias is largest in the selected cell.\" Its direction follows from Jensen's inequality (T_W is at most the mean case concentration, with equality only when all cases share one argmax). Its effect on the 80% coverage decision, and whether it is largest in the selected cell, was never quantified.",
       "appears_in": [
         "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
         "applications/gur-arieh-2510.06182/README.md",
         "README.md (Mixing Mechanisms row)",
-        "website: mechanistic-interpretability/index.html (Mixing Mechanisms card)"
+        "website: mechanistic-interpretability/index.html (Mixing Mechanisms card)",
+        "docs/EVIDENCE_MAP.md",
+        "applications/gur-arieh-2510.06182/ROUND2_DEVELOPMENT_RESULT.md"
       ],
       "phase": "descriptive",
-      "outcome": "pre-run concern; not demonstrated, not quantified",
+      "outcome": "pre-run concern; direction follows from Jensen, size not quantified",
       "level": "S",
       "population": "analysis contract",
       "sources": [

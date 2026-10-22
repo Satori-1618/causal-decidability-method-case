@@ -16,14 +16,20 @@ not by an externally timestamped preregistration; see Verification below.
 | Task | `music_performance` (upstream task spec at commit `c53372c`), upstream parameter `t_entity = 2` |
 | Groups per prompt | n = 7. The paper's Sec. 4 analysis uses n = 20 ([source lock](SOURCE_LOCK.json)) |
 | Cell | `c4`: positional index 3, lexical index 5, reflexive index 1 (0-based) |
-| Layer and position | residual stream at layer 18, last token only (`[-1]`); the upstream experiment loop also patches `[-1]` ([sources](SOURCES.md#upstream-facts-from-the-brief)) |
+| Layer and position | residual stream at layer 18, last token only (`[-1]`), as in the paper text and the upstream experiment loop. The pinned upstream commit `c53372c` ("Fix binding info leakage by patching last token positions") makes `[-1, -4, -6, -8]` the default of the patching helper and the notebook. This run does not use that setting, so leakage through the other positions is untested here ([sources](SOURCES.md#upstream-facts-from-the-brief)) |
 | Readout | capitalised answer form without a leading space, one token. Upstream reads the in-context entity token with a leading space, so this is an **adapted** readout |
 | Cases | 305 generated to reach 300 qualifying (native answer correct); 290 resolved |
 | Profiles | `W_T` and `A_T` are this application's concentration profiles, not claims of the paper |
 
-Every value in this table is read from the frozen
-[`manifest.json`](results/confirmation/manifest.json) by
+Model, revision, task, `t_entity`, n, cell, layer, positions, readout and case counts are
+read from the frozen [`manifest.json`](results/confirmation/manifest.json) and the records by
 `python3 scripts/describe_claim_inputs.py mixing-concentration`, run from the repository root.
+`python3 scripts/check_claims.py --case gur-arieh-2510.06182` checks every number on this
+page; it needs a full Git clone (not a ZIP download or a `--depth` clone), because the
+records checker reads the freeze commit from Git history.
+The statements about the paper and the upstream code (n = 20, the experiment loop, the
+helper default, the upstream readout) come from [`SOURCE_LOCK.json`](SOURCE_LOCK.json) and
+[`SOURCES.md`](SOURCES.md); they are source readings, not recomputed.
 
 ## Question
 
@@ -48,11 +54,13 @@ Three things should be kept apart here.
    `W_T_CAVEAT` in [`src/mixing_round1_analysis.py`](src/mixing_round1_analysis.py), and it
    is repeated in [`summary.json`](results/confirmation/summary.json). It reads: "W_T is
    biased toward exclusion when case argmaxes vary; the bias is largest in the selected
-   cell." This was a concern stated in advance, not a demonstrated property.
+   cell." It was stated in advance as a concern; point 2 says which part of it holds.
 2. **What follows mathematically.** Concentration is the largest of the three shares. The
    cell average's concentration `T_W` is therefore at most the average of the cases'
-   concentrations (Jensen's inequality). That is a statement about averages. It does not
-   fix how likely the 80% coverage rule is to fail. The cell was selected for the largest
+   concentrations (Jensen's inequality), with equality only when all cases share one
+   argmax. So the direction of the caveat holds: when argmaxes vary, cases lie
+   above `T_W` on average. That is a statement about averages. It does not fix how likely
+   the 80% coverage rule is to fail. The cell was selected for the largest
    separation `d = T_A − T_W`, which also widens the matching band `κ·d`. So the selection
    does not by itself make the bias largest in this cell, and the bias was never
    quantified.
@@ -90,6 +98,13 @@ The case-level pattern was different from that mean. Of 290 resolved cases, 282 
 more concentrated than `T_W`, and 274 exceeded it by more than the frozen profile band;
 none deviated below it by that amount. Thus the average remains reproducible while its
 concentration is not representative of most individual cases.
+
+Under the frozen labelling rule, the highest-scoring candidate was positional in 157
+resolved cases, lexical in 125 and reflexive in 8, with no ties. No label's upper bound
+reached the 80% coverage (largest 0.62). The frozen between-case statement ("Cases differ
+in which candidate position they favour") also required `A_T` to be adequate. `A_T`
+stayed undecided, so the statement was not earned. These labels describe outputs, not
+mechanisms.
 
 ## Interpretation
 

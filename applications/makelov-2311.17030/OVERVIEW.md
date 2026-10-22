@@ -4,7 +4,8 @@
 
 **Their patch, as replicated here.** On 2,000 IOI pairs in GPT-2 Small, the published MLP8
 subspace patch lowers the mean logit difference between the two names from 3.36 to 1.82.
-It changes the top answer in 4.3% of pairs. The replication matches the Table 1 values
+It makes the source prompt's answer the top prediction in 4.3% of pairs (interchange
+accuracy; 0.3% without a patch). The replication matches the Table 1 values
 taken from the authors' released analysis notebook, with logit differences within
 5×10⁻⁴; the clean-accuracy entry is a placeholder there and is not compared
 ([details](src/makelov_table1.py)). Part of the patched direction lies in the null space
@@ -13,15 +14,16 @@ The paper argues that the patch reads a signal there and writes it into a visibl
 
 **What these rounds add, and how firmly:**
 
-1. **Read source (round 1).** We read only from the null-space component (B) or only from
-   the row-space component (A), and write along the full direction. B predicts these two
-   read interventions better in 64/64 fresh pairs.
+1. **Read source (round 1).** We read only from the null-space component or only from the
+   row-space component, and write along the full direction. Hypothesis B (the null
+   component supplies the signal) predicts these two read interventions better than
+   hypothesis A (the row-space component supplies it) in 64/64 fresh pairs.
    - This follows largely from geometry. All read conditions write along the same
-     direction, scaled by the read coefficient. The null component's coefficient is larger
-     in 128/128 directed cases.
+     direction; only the size of the inserted change differs. The null-component read
+     inserts the larger change (L2 norm) in 128/128 directed cases.
    - A proportional rule fits better still: each read effect is the full effect scaled by
-     its read coefficient. Mean absolute error is 0.019 nat, against 0.238 for B, and the
-     rule is better in 64/64 pairs.
+     the ratio of that read's insertion norm to the full patch's. Mean absolute error is
+     0.019 nat, against 0.238 for B, and the rule is better in 64/64 pairs.
    - This rule was **not declared before the run**. It is an exploratory description,
      not a mechanism.
 2. **Query route (round 2).** Resetting the queries of heads 9.6, 9.9 and 10.0 leaves on
@@ -43,11 +45,13 @@ explanation; the complete route to the output; whether the unpatched model uses 
 signal; and any role representation.
 
 **Provenance.**
-- Round 1: the archived app README states that the preregistration was committed and
-  pushed before the run. No public timestamp for that push is available today, because the
-  public event log does not reach back that far. The order therefore rests on the project's
-  own records. This is a gap in today's public evidence, not a finding that the statement
-  is wrong.
+- Round 1: the project's records state that the preregistration was frozen in `829228c`
+  and pushed to the then-private development repository before the run
+  ([PROVENANCE.md](PROVENANCE.md)). This public repository was created on 24 Sep 2026,
+  after that run, so no public timestamp for the push exists. What can be checked here:
+  the run's manifest records `829228c` as its `git_head`, and the scorer pins the
+  preregistration's hash. The order before the run rests on the project's own records.
+  This is a gap in public evidence, not a finding that the statement is wrong.
 - Rounds 2, 3A and 3B: public GitHub records show each freeze reaching GitHub 12–22 s
   before the locally recorded run start. Each push appears as an events entry, which links
   via `payload.push_id` to an activity entry for the same push
@@ -55,8 +59,9 @@ signal; and any role representation.
 - A push time and a local clock are different kinds of evidence.
 
 **Check it without a model:**
-`python3 scripts/check_claims.py --case makelov-2311.17030` recomputes the numbers above
-from the stored records. Provenance and scope statements are listed as source entries with
+`python3 scripts/check_claims.py --case makelov-2311.17030`, run from the root of a full Git
+clone (not a ZIP download or a `--depth` clone), recomputes the numbers above from the
+stored records. Provenance and scope statements are listed as source entries with
 their evidence.
 
 ## How each round proceeds
