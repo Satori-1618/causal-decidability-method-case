@@ -1,5 +1,8 @@
 # Round 1 preflight and development plan
 
+*Later note:* this plan is kept as it stood before the freeze. The final, frozen values
+are in [FREEZE.json](FREEZE.json); the result is in [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md).
+
 **Status: protocol v2 approved (28 September 2026); the table is approved for pilot 2
 only; final approval pending.** After pilot 1 the user approved protocol v2 (below) and a
 second pilot. There is no go for split A or split B. Nothing in this plan is frozen.

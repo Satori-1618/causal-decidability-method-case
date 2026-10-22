@@ -1,0 +1,380 @@
+{
+  "case": "gur-arieh-2510.06182",
+  "schema_version": 1,
+  "scope": "Every number and conclusion in the CONFIRMATION_RESULT setup and result, the case README status, the root README row and the website card.",
+  "claims": [
+    {
+      "id": "mixing.run.valid",
+      "text": "The confirmation run is VALID at level S3: W_T excluded, A_T undecided.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
+        "applications/gur-arieh-2510.06182/README.md",
+        "README.md (Mixing Mechanisms row)",
+        "website: mechanistic-interpretability/index.html (Mixing Mechanisms card)"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "300 qualifying fresh cases",
+      "sources": [
+        "applications/gur-arieh-2510.06182/FREEZE.json",
+        "applications/gur-arieh-2510.06182/results/confirmation/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py",
+          "--results",
+          "applications/gur-arieh-2510.06182/results/confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/verified",
+            "equals": true
+          },
+          {
+            "pointer": "/run_status",
+            "equals": "VALID"
+          },
+          {
+            "pointer": "/level",
+            "equals": "S3 (W_T excluded only)"
+          },
+          {
+            "pointer": "/statuses/W_T",
+            "equals": "excluded"
+          },
+          {
+            "pointer": "/statuses/A_T",
+            "equals": "undecided"
+          },
+          {
+            "pointer": "/between_case_earned",
+            "equals": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixing.run.yield",
+      "text": "305 cases were generated to reach the frozen quota of 300 qualifying cases; 10 were unresolved.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
+        "applications/gur-arieh-2510.06182/README.md"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "generated confirmation cases",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py",
+          "--results",
+          "applications/gur-arieh-2510.06182/results/confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/N",
+            "equals": 300
+          },
+          {
+            "pointer": "/u",
+            "equals": 10
+          },
+          {
+            "pointer": "/yield",
+            "approx": 0.9836065573770492,
+            "abs_tol": 1e-12
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixing.profiles.counts",
+      "text": "W_T matches 16/300 (26 counting unresolved; exclusion upper bound 0.130); A_T matches 224/300 (234; bounds 0.686 and 0.831).",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "300 qualifying cases; band 0.115673 around each anchor; 80% coverage",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/summary.json"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/gur-arieh-2510.06182/results/confirmation/summary.json",
+        "verified_by": [
+          "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py",
+          "--results",
+          "applications/gur-arieh-2510.06182/results/confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/profiles/W_T/k_match",
+            "equals": 16
+          },
+          {
+            "pointer": "/profiles/W_T/k_match_plus_unresolved",
+            "equals": 26
+          },
+          {
+            "pointer": "/profiles/W_T/upper_bound_for_exclusion",
+            "approx": 0.13,
+            "abs_tol": 0.0005
+          },
+          {
+            "pointer": "/profiles/A_T/k_match",
+            "equals": 224
+          },
+          {
+            "pointer": "/profiles/A_T/k_match_plus_unresolved",
+            "equals": 234
+          },
+          {
+            "pointer": "/profiles/A_T/lower_bound_for_adequacy",
+            "approx": 0.686,
+            "abs_tol": 0.0005
+          },
+          {
+            "pointer": "/profiles/A_T/upper_bound_for_exclusion",
+            "approx": 0.831,
+            "abs_tol": 0.0005
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixing.mean.replicates",
+      "text": "The aggregate mean replicated: maximum difference 0.00594 from split B, below the frozen limit 0.08425.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
+        "applications/gur-arieh-2510.06182/README.md"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "resolved confirmation cases vs frozen split-B mean",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/summary.json"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/gur-arieh-2510.06182/results/confirmation/summary.json",
+        "verified_by": [
+          "applications/gur-arieh-2510.06182/scripts/check_mixing_round1_records.py",
+          "--results",
+          "applications/gur-arieh-2510.06182/results/confirmation"
+        ],
+        "expect": [
+          {
+            "pointer": "/mean_gate/passed",
+            "equals": true
+          },
+          {
+            "pointer": "/mean_gate/statistic",
+            "approx": 0.00594,
+            "abs_tol": 5e-06
+          },
+          {
+            "pointer": "/mean_gate/delta",
+            "approx": 0.08425,
+            "abs_tol": 5e-06
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixing.cases.concentrated",
+      "text": "282 of 290 resolved cases are more concentrated than the cell-average anchor T_W; 274 exceed it by more than the profile band; median concentration 0.99.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
+        "applications/gur-arieh-2510.06182/README.md"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "290 resolved cases",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "mixing-concentration"
+        ],
+        "expect": [
+          {
+            "pointer": "/resolved",
+            "equals": 290
+          },
+          {
+            "pointer": "/above_T_W",
+            "equals": 282
+          },
+          {
+            "pointer": "/deviating_above_band",
+            "equals": 274
+          },
+          {
+            "pointer": "/deviating_below_band",
+            "equals": 0
+          },
+          {
+            "pointer": "/median_T_resolved",
+            "approx": 0.99,
+            "abs_tol": 0.005
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixing.cases.labels",
+      "text": "Argmax labels of resolved cases: positional 157, lexical 125, reflexive 8; the between-case statement was not earned.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "290 resolved cases",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/records.jsonl"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "mixing-concentration"
+        ],
+        "expect": [
+          {
+            "pointer": "/argmax_label_counts_resolved/positional",
+            "equals": 157
+          },
+          {
+            "pointer": "/argmax_label_counts_resolved/lexical",
+            "equals": 125
+          },
+          {
+            "pointer": "/argmax_label_counts_resolved/reflexive",
+            "equals": 8
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixing.setup",
+      "text": "Model gemma-2-2b-it at a pinned revision; task music_performance; n = 7; cell c4; layer 18; last-token patch; adapted answer-form readout.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "frozen manifest",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/manifest.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "mixing-concentration"
+        ],
+        "expect": [
+          {
+            "pointer": "/setup/model",
+            "equals": "google/gemma-2-2b-it"
+          },
+          {
+            "pointer": "/setup/revision",
+            "equals": "299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8"
+          },
+          {
+            "pointer": "/setup/task",
+            "equals": "music_performance"
+          },
+          {
+            "pointer": "/setup/n_groups",
+            "equals": 7
+          },
+          {
+            "pointer": "/setup/cell_key",
+            "equals": "c4"
+          },
+          {
+            "pointer": "/setup/layer",
+            "equals": 18
+          },
+          {
+            "pointer": "/setup/patch_positions",
+            "equals": [
+              -1
+            ]
+          },
+          {
+            "pointer": "/setup/readout",
+            "equals": "answer form: capitalised, no leading space, exactly one token"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixing.caveat",
+      "text": "A caveat fixed before the run states that W_T is biased toward exclusion when case-level argmaxes vary, largest in the selected cell; its size is not quantified.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
+        "applications/gur-arieh-2510.06182/README.md",
+        "README.md (Mixing Mechanisms row)",
+        "website: mechanistic-interpretability/index.html (Mixing Mechanisms card)"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "analysis contract",
+      "sources": [
+        "applications/gur-arieh-2510.06182/src/mixing_round1_analysis.py"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "W_T_CAVEAT constant in the frozen analyzer (hash-bound in FREEZE.json); size never computed"
+      }
+    },
+    {
+      "id": "mixing.provenance",
+      "text": "The freeze is supported by local commit and run records only; it was not pushed before the run.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "provenance",
+      "sources": [
+        "applications/gur-arieh-2510.06182/results/confirmation/RUN_STARTED.json"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "local freeze commit e96b357 and RUN_STARTED.json; no external timestamp"
+      }
+    },
+    {
+      "id": "mixing.not_refuted",
+      "text": "The result concerns this application's concentration profiles; it does not refute the paper's aggregate mixture model or identify a mechanism.",
+      "appears_in": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md",
+        "applications/gur-arieh-2510.06182/README.md",
+        "README.md (Mixing Mechanisms row)",
+        "website: mechanistic-interpretability/index.html (Mixing Mechanisms card)"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "scope statement",
+      "sources": [
+        "applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "scope of the declared profiles W_T and A_T"
+      }
+    }
+  ]
+}

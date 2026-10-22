@@ -8,8 +8,9 @@ Code: [yoavgur/mixing-mechs](https://github.com/yoavgur/mixing-mechs) at commit
 ## What this application does
 
 The paper shows that a language model retrieves an entity from a list of bound entities
-by mixing three signals: the entity's position (positional), the words used in the
-question (lexical), and a direct pointer to the entity itself (reflexive). The authors
+by mixing three signals. In the paper's terms (§§3.1–3.4), positional retrieval carries
+the group index, lexical retrieval the query entity, and reflexive retrieval the answer
+entity as a pointer. The authors
 patch activations from one prompt into another, collect many such patches per
 combination of target positions, average the resulting distributions, and fit a model
 that mixes the three signals.
@@ -45,9 +46,13 @@ development splits A and B, and a separate final freeze, the confirmation ran on
 fresh 4,000,000-series seeds. It obtained 300 qualifying families from 305 generated
 families. The cell-average concentration profile `W_T` was excluded; the strict
 agreement-like profile `A_T` remained undecided. The aggregate mean replicated, but most
-individual cases were substantially more concentrated than that mean. This does not
-identify which mechanism operates in a case, and the stronger between-case statement
-was not earned. See [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md).
+individual cases were substantially more concentrated than that mean (282 of 290
+resolved cases lie above it; median concentration 0.99). This does not identify which
+mechanism operates in a case, and the stronger between-case statement was not earned.
+`W_T` is this application's own profile, not a claim of the paper. A caveat fixed before
+the run says the concentration measure is biased toward excluding it; the size of that
+bias was not quantified. The readout is adapted (answer form without a leading space).
+See [CONFIRMATION_RESULT.md](CONFIRMATION_RESULT.md), which starts with the full setup.
 
 **Round 2 development is also implemented and executed.** A paired word exchange tests
 whether the patch-induced preference follows a word or its target site while both
@@ -71,7 +76,7 @@ a dominant invariant has been confirmed. See
 | [src/mixing_round1_analysis.py](src/mixing_round1_analysis.py) | Round 1 analyzer: q-map, the declared unresolved rule, mean-consistency gate, between-case check, development gates; reuses the existing `clopper_pearson` helper |
 | [scripts/check_mixing_round1_records.py](scripts/check_mixing_round1_records.py) | records-only checker: recomputes every status, gate, the level and the between-case decision from the frozen manifest and raw records; imports no runner |
 | [src/mixing_synthetic_worlds.py](src/mixing_synthetic_worlds.py), [results/synthetic_worlds/worlds.json](results/synthetic_worlds/worlds.json) | the six synthetic worlds (analyzer verification only, not evidence; `scripts/run_synthetic_worlds.py --check`) |
-| [PREFLIGHT_PLAN.md](PREFLIGHT_PLAN.md), [PROPOSED_VALUES.json](PROPOSED_VALUES.json) | Round 1 preflight and development plan with the one table of values (**approved for the pilot only; final approval pending**), the corrections of 28 September 2026, the N rule, gates, power and the authorizations still needed |
+| [PREFLIGHT_PLAN.md](PREFLIGHT_PLAN.md), [PROPOSED_VALUES.json](PROPOSED_VALUES.json) | Round 1 preflight and development plan with the one table of values (approved for the pilot only at the time; the final values are in [FREEZE.json](FREEZE.json)), the corrections of 28 September 2026, the N rule, gates, power and the authorizations still needed |
 | [src/mixing_round1_design.py](src/mixing_round1_design.py) | design-index checker, the conflict case of a fixed cell, the three-way agreement control, exact power and the N rule; no model |
 | [src/mixing_prompts.py](src/mixing_prompts.py) | prompt construction exactly as upstream (row definition, `raw_input`, chat template with the first five characters dropped), from the task spec the adapter reads from the clone (`scripts/lock_sources.py`, `schema_spec`) |
 | [src/mixing_runner.py](src/mixing_runner.py) | model runner (torch, protocol v2): offline snapshot and file hashes, the v2 pool rule, token alignment, last-token forward-pre hook at block ℓ with call and write counts, the primary answer-form readout (logits, answer-token mass, logsumexp over the vocabulary and its complement) and the descriptive paper readout, greedy generation, identity self-patch, and one record per family in the checker's schema |

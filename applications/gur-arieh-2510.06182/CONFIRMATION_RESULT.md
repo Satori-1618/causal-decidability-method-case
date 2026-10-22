@@ -7,6 +7,24 @@ records-only checker independently reproduces the gates and decisions from the f
 manifest and raw records. This timing is supported by local commit and run records,
 not by an externally timestamped preregistration; see Verification below.
 
+## Setup at a glance
+
+| Item | Value |
+|---|---|
+| Paper | Gur-Arieh, Geva & Geiger, *Mixing Mechanisms*, [arXiv 2510.06182](https://arxiv.org/abs/2510.06182) v2 |
+| Model | `google/gemma-2-2b-it`, revision `299a8560bedf22ed1c72a8a11e7dce4a7f9f51f8` |
+| Task | `music_performance` (upstream task spec at commit `c53372c`), upstream parameter `t_entity = 2` |
+| Groups per prompt | n = 7. The paper's Sec. 4 analysis uses n = 20 ([source lock](SOURCE_LOCK.json)) |
+| Cell | `c4`: positional index 3, lexical index 5, reflexive index 1 (0-based) |
+| Layer and position | residual stream at layer 18, last token only (`[-1]`); the upstream experiment loop also patches `[-1]` ([sources](SOURCES.md#upstream-facts-from-the-brief)) |
+| Readout | capitalised answer form without a leading space, one token. Upstream reads the in-context entity token with a leading space, so this is an **adapted** readout |
+| Cases | 305 generated to reach 300 qualifying (native answer correct); 290 resolved |
+| Profiles | `W_T` and `A_T` are this application's concentration profiles, not claims of the paper |
+
+Every value in this table is read from the frozen
+[`manifest.json`](results/confirmation/manifest.json) by
+`python3 scripts/describe_claim_inputs.py mixing-concentration`, run from the repository root.
+
 ## Question
 
 The paper fits a mixture model to distributions averaged over many patched prompts. The
@@ -27,8 +45,9 @@ claim made by the paper, so excluding it does not refute the paper's mixture mod
 The frozen analysis code states a caveat fixed before confirmation (`W_T_CAVEAT` in
 [`src/mixing_round1_analysis.py`](src/mixing_round1_analysis.py), repeated in
 [`summary.json`](results/confirmation/summary.json)): `W_T` is biased toward exclusion
-when case-level argmaxes vary, and the bias is largest in the selected cell. Read the
-exclusion below with this bias in mind.
+when case-level argmaxes vary, and the bias is largest in the selected cell. The caveat
+states only the direction of the bias; its size was not quantified before or after the
+run. Read the exclusion below with this bias in mind.
 
 The frozen readout scores single-token, capitalised answer forms **without a leading
 space**. This differs from the upstream in-context entity-token readout, which includes
@@ -70,9 +89,11 @@ empirical cell average. It does **not** establish the strict `A_T` profile, iden
 of the paper's mechanisms in any case, or prove that different cases use different
 mechanisms. The predeclared between-case statement was therefore not earned.
 
-For the paper, the result leaves the aggregate mixture fit intact but narrows its
-interpretation. A mixed average need not mean that a typical individual patched output
-is mixed to the same degree; here the typical output is substantially more concentrated.
+For the paper, the result leaves the aggregate mixture fit intact. It adds one
+observation for this cell: a mixed average need not mean that a typical individual
+patched output is mixed to the same degree. Here the typical output is substantially more
+concentrated (median concentration 0.99 over resolved cases). Whether the paper's text
+implies a case-level mixture is for its authors to say; this result does not test that.
 Further interventions are needed to distinguish case-varying mechanisms from token
 preferences or other explanations for that concentration.
 

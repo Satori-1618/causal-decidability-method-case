@@ -6,7 +6,8 @@ Each claim names the check that supports it:
 * ``recompute``: an allow-listed, model-free script recomputes the value from stored
   records (level N) or from design inputs (level D);
 * ``stored``: the value is read from a stored summary file. It is reported separately
-  because reading a summary is not a recomputation;
+  because reading a summary is not a recomputation. With ``verified_by``, an allow-listed
+  checker that recomputes that summary from raw records must pass first;
 * ``logged``: the claim rests on a protocol or log entry that cannot be recomputed here,
   for example a model forward or a timestamp. It is listed, not checked.
 
@@ -87,8 +88,11 @@ def check_claim(claim, cache):
         if check.get('stdout') == 'text':
             missing = [s for s in check['contains'] if s not in output]
             return not missing, 'missing text: ' + '; '.join(missing) if missing else 'ok'
-        document = json.loads(output)
+        # Some checkers print a JSON report followed by a PASS line; read the first document.
+        document, _ = json.JSONDecoder().raw_decode(output.lstrip())
     else:
+        if 'verified_by' in check:
+            run_command(check['verified_by'], cache)
         document = json.loads((ROOT / check['file']).read_text())
     failures = []
     for expectation in check['expect']:
@@ -140,8 +144,11 @@ def main():
         for claim in data['claims']:
             ok, detail = check_claim(claim, cache)
             failed += not ok
+            kind = claim['check']['kind']
+            if kind == 'stored' and 'verified_by' in claim['check']:
+                kind = 'stored+verified'
             report.append({'case': data['case'], 'id': claim['id'], 'level': claim['level'],
-                           'kind': claim['check']['kind'], 'status': claim['status'],
+                           'kind': kind, 'status': claim['status'],
                            'passed': ok, 'detail': detail})
     if args.json:
         print(json.dumps(report, indent=2))
@@ -159,7 +166,8 @@ def main():
               + ', '.join(f'{k} {v}' for k, v in sorted(totals.items()))
               + f'; failed {failed}.')
         print('recompute = recalculated from stored records or design inputs; stored = read '
-              'from a stored summary; logged = listed only, not recomputable here.')
+              'from a stored summary (+verified: a checker first recomputed that summary from '
+              'raw records); logged = listed only, not recomputable here.')
     raise SystemExit(1 if failed else 0)
 
 

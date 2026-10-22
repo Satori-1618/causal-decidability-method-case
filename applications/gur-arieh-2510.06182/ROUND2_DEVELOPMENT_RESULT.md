@@ -76,7 +76,8 @@ the test cannot localize the dependence to one of them or to a particular intern
 
 ## What this adds, and what comes next
 
-Round 1 excluded a particular average-like concentration profile. Round 2 implements
+Round 1 excluded a particular average-like concentration profile (a profile that a caveat
+fixed before that run marks as biased toward exclusion). Round 2 implements
 the next iteration: an input transformation under which two explanations make different
 paired predictions, with unchanged native answers and explicit no-patch controls.
 
