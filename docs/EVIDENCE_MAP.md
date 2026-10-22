@@ -4,7 +4,8 @@
 experiment, guide a separating condition, and keep empirical conclusions within the
 comparisons actually tested. The planning screen, rival generation and empirical
 mechanism identification are separate claims. The cases below do not jointly prove
-that the whole procedure is generally reliable.
+that the whole procedure is generally reliable. The [glossary](GLOSSARY.md) lists the
+frozen decision rule behind each "adequate", "excluded" and "confirmed" below.
 
 ## Included evidence
 
@@ -17,6 +18,10 @@ that the whole procedure is generally reliable.
 | **Tracr: known reversal program** | 128/128 fresh token-assignment families reproduce the declared two-candidate tie, separation, and new prediction under the frozen test. | [Result](../applications/tracr/RESULTS.md), [freeze](../applications/tracr/CONFIRMATION_FREEZE.json), [raw records and summary](../applications/tracr/results/confirmation_001/). | Blind discovery: the address site was selected from compiler structure. No generalization to other algorithms, pretrained models, or an advantage over a strong fixed design is shown. |
 | **Mixing Mechanisms: concentration** | On 300 qualifying fresh families, the cell-average concentration profile W_T is excluded; the agreement-like profile A_T remains undecided. | [Result and scope](../applications/gur-arieh-2510.06182/CONFIRMATION_RESULT.md), [freeze](../applications/gur-arieh-2510.06182/FREEZE.json), [raw records](../applications/gur-arieh-2510.06182/results/confirmation/). | A per-case causal mechanism, exclusive lexical/positional switching, or a refutation of the paper's aggregate mixture account. W_T is this application’s restricted profile; its pre-declared caveat says it is biased toward exclusion when case-level argmaxes vary. |
 | **Goodfire CausaLab: MCQA input designs** | Each published input family leaves two of three declared rules tied; their combined input menu separates those three. Correct-color transfer remains tied with task-answer preservation. | [Audit](../applications/goodfire-mcqa-preflight/README.md), [source hashes](../applications/goodfire-mcqa-preflight/artifacts/upstream/source_manifest.json), [predictions](../applications/goodfire-mcqa-preflight/results/). | A measured neural mechanism or resolved measurement plan. Testing the combined menu requires one fixed patch; the upstream designs fit separate patches. |
+
+*Naming:* [`docs/GOODFIRE_CROSSWALK.md`](GOODFIRE_CROSSWALK.md) concerns Mixing Mechanisms
+(Gur-Arieh, Geva & Geiger), not the CausaLab audit. Its file name is kept because the
+round-3B manifest binds its hash; earlier internal labels called that case "Goodfire".
 
 These counts have different units. A family can contain several conditions, tokens,
 or precision runs; they do not become additional independent cases.

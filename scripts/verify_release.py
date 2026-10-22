@@ -14,7 +14,7 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 MAKELOV = "applications/makelov-2311.17030"
-GOODFIRE = "applications/gur-arieh-2510.06182"
+MIXING = "applications/gur-arieh-2510.06182"
 TRACR = "applications/tracr"
 
 
@@ -43,9 +43,9 @@ def main():
         "--results", f"{MAKELOV}/results/donor_factor_confirmation_512")
     run("Makelov round 3B: qualification stop", f"{MAKELOV}/scripts/check_role_baseline_records.py",
         f"{MAKELOV}/results/role_baseline_development", "--check-only")
-    run("Goodfire: concentration-profile confirmation", f"{GOODFIRE}/scripts/check_mixing_round1_records.py",
-        "--results", f"{GOODFIRE}/results/confirmation")
-    run("Goodfire MCQA: declared prediction groups", "examples/causal_preflight.py",
+    run("Mixing Mechanisms: concentration-profile confirmation", f"{MIXING}/scripts/check_mixing_round1_records.py",
+        "--results", f"{MIXING}/results/confirmation")
+    run("CausaLab MCQA: declared prediction groups", "examples/causal_preflight.py",
         "--config", "applications/goodfire-mcqa-preflight/results/combined_predictions.json",
         "--structure-only")
     with tempfile.TemporaryDirectory(prefix="causal-release-check-") as temp:

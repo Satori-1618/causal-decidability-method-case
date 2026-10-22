@@ -218,4 +218,4 @@ The structural check is scoped to a finite, declared candidate set. The numerica
 screen here is a transparent example, not a newly validated predictor; the older
 calculator's missed forecasting target remains documented in [validation](validation.md).
 Use the [technical guide](USING_THE_METHOD.md) for subsequent empirical evaluation
-and the [research goal](../applications/tracr/METHOD_VALUE_GOAL.md) for the value claim.
+and the [research goal](../applications/tracr/METHOD_VALUE_GOAL.md) (German) for the value claim.

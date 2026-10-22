@@ -1,5 +1,8 @@
 # Research priority: causal decidability
 
+*Internal planning note, kept for provenance. It records the author's working priorities
+and is not part of the scientific evidence.*
+
 Recorded from Felix's instruction on 21 September 2026.
 
 **Primary goal:** explain and demonstrate a usable method for checking which causal

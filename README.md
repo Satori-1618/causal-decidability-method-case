@@ -117,10 +117,38 @@ records-only checks from experiments that require model dependencies.
 
 [Geiger et al. (2025)](https://www.jmlr.org/papers/v26/23-0058.html) define when an
 aligned high-level causal model reproduces low-level outcomes under corresponding
-interventions, exactly or approximately. This procedure asks a complementary design
-question: **can these interventions distinguish that explanation from its rivals?**
-Agreement with one explanation need not exclude another. The toolkit applies
-experimental model-comparison principles; it does not replace causal abstraction.
+interventions, exactly or approximately. Interchange intervention accuracy measures
+that output agreement. This procedure adds an experimental-design layer around such a
+test: **could these interventions tell the explanation apart from its rivals?** If two
+candidates predict the same outputs throughout the tested conditions, a high agreement
+score does not select between them. It does not replace causal abstraction.
+
+Comparing explicit rival hypotheses on interventions where they disagree is
+established practice. It is used in causal-abstraction work and in classical
+experimental design for model discrimination
+([Box & Hill, 1967](https://doi.org/10.1080/00401706.1967.10490441);
+[Atkinson & Fedorov, 1975](https://doi.org/10.1093/biomet/62.1.57)). This repository does
+not claim that logic as new. It contributes a checked, reusable procedure and its
+application to published cases.
+
+| Term used here | Closest causal-abstraction counterpart |
+|---|---|
+| rival, explanation | a candidate high-level model together with its alignment, or a behavioural null rule |
+| prediction signature | the counterfactual labels a candidate assigns to the planned interventions |
+| separating case | an intervention (base/source pair) on which two candidates' labels differ |
+| design-equivalent rivals | candidates with identical labels on the whole planned intervention set |
+| donor / recipient | source / base input of an interchange intervention |
+| "recipient answer preserved" | a no-op rule; it shows where agreement cannot distinguish a hypothesis from doing nothing |
+
+**Limits relative to that framework:**
+- The procedure assumes a fixed intervention operator and site; it does not search for
+  alignments, as distributed alignment search does.
+- Some rivals here are behavioural null rules, not aligned causal models.
+- The Tracr case checks instrumentation against a known, fixed alignment and two
+  declared rivals; it is not an empirical validation of causal abstraction.
+
+The [glossary](docs/GLOSSARY.md) lists the decision rule behind every "adequate",
+"excluded" and "confirmed" in these records.
 
 ## Where to go next
 

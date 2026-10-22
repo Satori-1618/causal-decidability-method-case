@@ -1,4 +1,4 @@
-"""Tightly scoped portability allowances for archived Goodfire development replay.
+"""Tightly scoped portability allowances for archived Mixing Mechanisms development replay.
 
 These are test-comparison tolerances, not revised scientific decision rules.
 Python 3.10/3.11 planning-power differences were at most 2.3e-13; NumPy

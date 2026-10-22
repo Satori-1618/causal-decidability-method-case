@@ -1,9 +1,15 @@
 # Research release 0.3.0 — 1 October 2026
 
 This release brings the method, the small preflight tool and the existing Makelov,
-Goodfire and Tracr applications into one checkout. It adds no pretrained-model
+Mixing Mechanisms and Tracr applications into one checkout, together with the
+CausaLab MCQA design audit. It adds no pretrained-model
 experiment and changes no frozen scientific rule, source binding or raw measurement.
 Earlier release notes remain available in Git history.
+
+*Naming note (added later):* earlier internal labels called the Mixing Mechanisms
+application (Gur-Arieh, Geva & Geiger, arXiv 2510.06182) "Goodfire". It is unrelated
+to the separate CausaLab MCQA design audit. The labels below have been corrected;
+no result, rule or record changed.
 
 ## Start here
 
@@ -15,7 +21,7 @@ Earlier release notes remain available in Git history.
 
 ## What changed
 
-- Integrated the previously separate Makelov, Goodfire and Tracr branches, retaining
+- Integrated the previously separate Makelov, Mixing Mechanisms and Tracr branches, retaining
   their recorded histories, protocols, development outcomes and confirmation records.
 - Made the root entry points shorter and distinguished structural audits, controlled
   validation, comparative confirmation and qualification stops.
@@ -23,9 +29,9 @@ Earlier release notes remain available in Git history.
   accidentally becomes one prediction per character.
 - Replaced the teaching example's internal "no effect" interpretation with preservation
   of the recipient's observed answer. Donor and recipient baselines must both be checked.
-- Documented Goodfire's adapted answer-token readout, the narrow scope of our `W_T`
+- Documented the Mixing Mechanisms case's adapted answer-token readout, the narrow scope of our `W_T`
   rival, and its locally recorded freeze rather than an external preregistration.
-- Made Goodfire development-reproduction tests portable across the checked runtimes.
+- Made the Mixing Mechanisms development-reproduction tests portable across the checked runtimes.
   Two named float64 audit diagnostics allow absolute drift up to `1e-14`; named
   planning-power fields allow `1e-12` after measured Python-version differences
   below `2.3e-13`. Decisions, counts, thresholds, hashes and all other fields remain
@@ -76,7 +82,7 @@ See [release checks](docs/RELEASE_CHECKS.md) for the environments actually exerc
   AI-rival pilot is presented as evidence for this release.
 - Local commit order and run hashes bind recorded protocols to runs; they do not by
   themselves establish independent timestamps or rule out unrecorded earlier work.
-  Goodfire's final freeze has no separate human-review record in this repository.
+  The Mixing Mechanisms final freeze has no separate human-review record in this repository.
 - Beckmann is a separate project and is not a bundled or reproducible case here.
   No claim of measured cost savings depends on that unpublished application.
 

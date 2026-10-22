@@ -37,7 +37,9 @@ stored mantissa bits for bfloat16 instead of 7, which halved the bfloat16 numeri
 With the constant corrected, 840 pre-run verdicts per seed set flip from decidable to not.
 In 675 of those 840 worlds the method in fact resolved the case completely and correctly.
 The rounding model behind the numerical floor over-predicts the measured error there by a
-median factor of about 27, and the halved constant had been masking that. The formula has
+median factor of about 27, and the halved constant had been masking that. (The per-world
+rows behind this factor are not published here; `docs/data/validation_points.json` holds
+only binned aggregates, so the factor cannot be recomputed from this repository.) The formula has
 not been refitted: tuning it after seeing the score is what the procedure exists to
 prevent. A recalibrated numerical floor is a new hypothesis that needs its own frozen test.
 

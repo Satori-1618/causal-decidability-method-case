@@ -27,12 +27,12 @@ suite is also separate; its compiled model is not rerun by the release verifier.
 ## Cross-version checks
 
 - Python 3.11.15, NumPy 1.26.4, PyTorch 2.5.1, Transformers 4.57.3:
-  the final preflight and three Goodfire development-replay test modules pass
+  the final preflight and three Mixing Mechanisms development-replay test modules pass
   (**29 tests, 66 subtests**). The optional design-comparison module also passes
   (**17 tests**); it uses constructed tensor models, not pretrained weights.
-- NumPy 2.4.6: the final Goodfire split-reproduction tests pass
+- NumPy 2.4.6: the final Mixing Mechanisms split-reproduction tests pass
   (**6 tests, 18 subtests**).
-- Python 3.10.10, NumPy 2.2.6: the final three Goodfire development-replay modules
+- Python 3.10.10, NumPy 2.2.6: the final three Mixing Mechanisms development-replay modules
   pass (**14 tests, 18 subtests**), as does the full clean-clone suite above.
 
 The clean installation exposed an unguarded optional PyTorch import and exact-float
@@ -60,9 +60,9 @@ Two regression tests reject changed decisions, bounds and material tail errors.
 ## What the combined verifier checks
 
 It invokes the existing verifiers for Makelov Q1, rounds 2 and 3A, the round-3B
-qualification stop, Goodfire's concentration confirmation, and Tracr's saved tensors
+qualification stop, the Mixing Mechanisms concentration confirmation, and Tracr's saved tensors
 and family decisions. It also checks the original frozen-file inventory and recomputes
-category groups from the stored Goodfire MCQA prediction table. That last step does not
+category groups from the stored CausaLab MCQA prediction table. That last step does not
 re-download or independently re-derive the upstream table; the MCQA adapter's separate
 command performs that source-hash-checked reconstruction.
 

@@ -2,10 +2,11 @@
 
 **Development only.** This application tests whether targeted selection recovers known
 causal explanation classes more often at the same measurement budget. Start with the
-[research goal](../../docs/MECHANISM_DISCRIMINATION_GOAL.md) and [contract](PROTOCOL.md).
+[research goal](../../docs/MECHANISM_DISCRIMINATION_GOAL.md) (German) and [contract](PROTOCOL.md).
 
 The first run is complete: [scoped results and next hypothesis](RESULTS.md),
-[independent raw-data audit](DEVELOPMENT_001_AUDIT.md), and
+[separate raw-data recomputation](DEVELOPMENT_001_AUDIT.md) (not external peer review; see
+[glossary](../../docs/GLOSSARY.md#independent-in-review-and-audit-records)), and
 [test audit](TEST_AUDIT.md). The intended superiority target is not yet established.
 
 The shared full patch gives the same output for six different computations. Individual

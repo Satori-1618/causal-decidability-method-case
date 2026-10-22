@@ -6,7 +6,7 @@ Both prespecified feasibility gates failed; the numerical checks passed. **No 3B
 patch was run.** This is a development result about this task formulation, not a
 negative result about role representations or a completed mechanism comparison.
 
-The [Goodfire crosswalk](GOODFIRE_CROSSWALK.md), native protocol, cases and code were
+The [Mixing Mechanisms crosswalk](GOODFIRE_CROSSWALK.md), native protocol, cases and code were
 committed and pushed as [`24cc60e`](https://github.com/Satori-1618/causal-decidability-method-case/commit/24cc60e)
 **before measurement**. The run used 32 fixed families, without replacing failures.
 

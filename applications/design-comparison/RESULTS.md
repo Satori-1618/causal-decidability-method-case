@@ -2,7 +2,7 @@
 
 **Status: development.** [Raw run and sealed report](results/development_001/REPORT.md).
 The source/artifact verifier passes. Reserved downstream graph compositions have not
-been executed. The [research goal](../../docs/MECHANISM_DISCRIMINATION_GOAL.md) is still open.
+been executed. The [research goal](../../docs/MECHANISM_DISCRIMINATION_GOAL.md) (German) is still open.
 
 512 independently generated instances were evaluated: 436 from six declared explanation
 classes and 76 from an outside-candidate graph. Policies shared the prediction matrix,

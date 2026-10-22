@@ -37,6 +37,11 @@ values and empty candidate sets are refused as errors, never classified.
 
 ## The planning calculator (step 3)
 
+*Status:* this is the earlier ratio calculator that the historical synthetic benchmark
+evaluated. It missed its 90% forecasting target ([validation](validation.md)). For new
+studies, start with the two-check [preflight](METHOD_PREFLIGHT.md); its numerical screen
+is a transparent conditional screen, not a validated replacement.
+
 **In**, before the run:
 
 - the rivals' predictions for the estimand under the executed intervention, and the
@@ -64,7 +69,9 @@ Two rules are kept apart:
 
 The floors are combined by taking the larger. That is a planning convention, not an error
 bound. The numerical floor comes from a rounding model, and it over-predicts measured
-bfloat16 error by a median factor of about 27. Keep a measured precision check on the
+bfloat16 error by a median factor of about 27 in the historical synthetic benchmark. That
+figure comes from per-world benchmark rows that are not published in this repository, so it
+cannot be recomputed here. Keep a measured precision check on the
 final estimand.
 
 The recommendation checks both floors. If both exceed the separation, adding units
@@ -122,7 +129,8 @@ adequacy analysis without them. A comparison alone needs no tolerance (see below
 | scope | per condition, or pooled over the tested conditions | where the loss is taken |
 | tolerance | an absolute value with an independent justification, or a fraction of a reference gap | when a loss is small enough. A fractional tolerance is estimated from the same units, so it is resampled together with the loss |
 
-The output keeps three statuses apart:
+The output keeps three statuses apart (the [glossary](GLOSSARY.md) lists the rule and
+parameters each application used):
 
 - **excluded:** the loss exceeds the tolerance, interval entirely above it;
 - **adequate:** the loss is within the tolerance, interval entirely below it;
