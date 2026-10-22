@@ -2,25 +2,30 @@
 
 ## For readers of Li, Saphra et al. (2025)
 
-**The replacement effect, as reproduced from the released data.** In the released
+**The replacement effect, recomputed from the released data.** In 180 released multilayer
 Dyck-1 models, replacing one sign-matching head's attention with uniform or dataset-mean
 weights improves out-of-distribution accuracy for 40 of 42 heads by more than 1 pp under
 both replacements. The mean change is +7.97 pp (uniform) and +8.00 pp (mean). The same
 single-head replacements lower accuracy for the 64 violation-detecting heads, by −7.32
 and −6.85 pp; 47 and 48 of them lose more than 1 pp. For the remaining 1,244 heads the
-changes are −0.23 and −0.17 pp. All of these are head-weighted means recomputed from the
+changes are −0.23 and −0.17 pp. All means are head-weighted and recomputed from the
 released result tables ([§4.3 and Appendix J](https://arxiv.org/html/2507.06445v4#S4.SS3);
 [summary](results/summary.json)).
 
 **What the prospective follow-up adds.** Each test was fixed in local commits before it
-ran, on fresh inputs: 512 new length-32 cyclic families per task, each family one valid
-and two invalid strings.
+ran, on fresh inputs. The native follow-up used the same 512 new length-32 cyclic families
+for all 36 tasks; each family has one valid and two invalid strings. The value rounds used
+their own recipient–donor families (round 004: 256).
 
 1. **Which part of the uniform replacement does the work** ([native follow-up](native_followup/README.md)).
-   Two stages were fixed before measurement:
+   Two stages were fixed before measurement. A family counts as a match when both new
+   output margins of all three members lie within 0.25 nat of the prediction. Each stage
+   uses only the families that separate its predictions, so the stages have different
+   populations and their composition is not itself tested.
    - Stage 1 tests whether redistributing attention between bracket positions alone
-     reproduces the full uniform effect, while changing only group masses leaves native
-     behaviour (H_R). The reverse assignment is the rival (H_G).
+     reproduces the full uniform effect, while changing only group masses (BOS/EOS and
+     bracket-group masses) leaves native behaviour (H_R). The reverse assignment is the
+     rival (H_G).
    - Stage 2 tests whether redistributing between occurrences of the *same* bracket
      reproduces the routing effect, while changing only symbol masses leaves native
      behaviour (H_W). The reverse assignment is the rival (H_T).
@@ -34,6 +39,8 @@ and two invalid strings.
      - stage 2: H_W adequate on 136/136 (93.83–100%); H_T 0/136.
      - It was the only task of 36 that was adequate at both stages, and it was picked for
        illustration **after** the run.
+     - Its published single-head effect is small: 83.0% native, 85.1% uniform and 84.7%
+       mean accuracy on the 1,000 OOD strings.
      - For this head only invalid strings crossed the separation threshold. The member
        counts are `invalid_open` 119 and `invalid_close` 68 at stage 1, and 97 and 57 at
        stage 2; a family can contribute several members. A family still counted as a
@@ -51,10 +58,12 @@ and two invalid strings.
 3. **What the relevant states carry** ([value rounds](value_followup/README.md)).
    - Rounds 001, 002 and 004 use the same head `a9g0io1r`/1; screen 003 tests six other
      heads.
-   - In the latest frozen round, 004, an averaged balance-only predictor matched 123 of
+   - In the latest completed round, 004 (prospective development on one head), an
+     averaged balance-only predictor matched 123 of
      151 separating families (simultaneous bounds 72.97–89.31%). A position-only
      predictor matched 0. Both are excluded at the 90% target.
-   - Averaging was not shown to help: 8 gains against 7 losses, p = 0.50.
+   - Averaging was not shown to help: against the four-cell single-prefix comparator there
+     were 8 robust gains and 7 robust losses, p = 0.50.
    - A further matched-history round, 005, is prepared but **not run**.
 
 **What is not claimed:** which semantic feature the states carry, a unique native
@@ -65,22 +74,26 @@ whether replacing the head's attention helps. A different question is whether th
 head output helps or hurts relative to a zero-output reference. The retrospective stage
 below shows, with two constructed countermodels, that the replacement results do not
 decide that question. We have **not** run a zero-output condition, and zero is not a
-neutral reference. Whether that question matters for the authors' aims is for them to say.
+neutral reference. We would welcome the authors' view on whether a zero-output reference is informative for
+their aims.
 
 **Provenance.**
 - The native follow-up's freeze was committed locally 7.7 s before execution, with no
   external timestamp.
-- After an outcome-triggered stop, a documented amendment completed the fixed cohort
-  without changing predictions, cases or thresholds ([continuation](native_followup/CONTINUATION.md)).
-- Pre-run reviews of the value rounds were either separate AI-agent reviews or review
-  texts supplied without a named reviewer; none is documented as external peer review. See
-  the
+- The first execution stopped on a failed technical control. A documented amendment,
+  committed after one completed task and that failure, then completed the fixed cohort
+  without changing predictions, cases or thresholds. It is not pre-outcome preregistration
+  ([continuation](native_followup/CONTINUATION.md)).
+- Pre-run reviews of the native follow-up and the value rounds were either separate
+  AI-agent reviews or review texts supplied without a named reviewer; none is documented as
+  external peer review. See the
   [glossary](../../docs/GLOSSARY.md#independent-in-review-and-audit-records).
 - Full attention and off-target tensors are not archived, so they cannot be recomputed.
 
 **Check it without a model:**
 `python3 scripts/check_claims.py --case li-saphra-2507.06445`, run from the repository
-root, recomputes every number above from the stored records and archives.
+root, recomputes the numbers above from the stored records and archives. Provenance,
+scope and status statements are listed as source entries with their evidence.
 
 ## Earlier retrospective stage: what the published observations leave open
 

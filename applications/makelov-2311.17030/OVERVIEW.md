@@ -55,8 +55,9 @@ signal; and any role representation.
 - A push time and a local clock are different kinds of evidence.
 
 **Check it without a model:**
-`python3 scripts/check_claims.py --case makelov-2311.17030` recomputes every number above
-from the stored records.
+`python3 scripts/check_claims.py --case makelov-2311.17030` recomputes the numbers above
+from the stored records. Provenance and scope statements are listed as source entries with
+their evidence.
 
 ## How each round proceeds
 

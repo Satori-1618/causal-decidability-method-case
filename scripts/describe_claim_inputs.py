@@ -11,7 +11,10 @@ stored; it reaches no new decision.
 import argparse
 import json
 import statistics
+import sys
 from pathlib import Path
+
+sys.dont_write_bytecode = True  # keep imported application modules from writing caches
 
 ROOT = Path(__file__).resolve().parents[1]
 MAKELOV = ROOT / 'applications/makelov-2311.17030'
@@ -140,9 +143,9 @@ def saphra_native():
     development = [t for t in audit['task_audits']
                    if t['role'] == 'development_checkpoint_fresh_inputs']
     both_stages = {f"{t['model_id']}/{t['head']}": t['stages'] for t in audit['task_audits']
-                   if t.get('stages') and all(
-                       any(c['status'] == 'adequate' for c in s['candidates'].values())
-                       for s in t['stages'].values())}
+                   if t.get('stages')
+                   and t['stages']['stage1']['candidates']['H_R']['status'] == 'adequate'
+                   and t['stages']['stage2']['candidates']['H_W']['status'] == 'adequate'}
     # The audit above compared the stored report with its own recomputation, so the
     # report's per-stage eligibility fields can be read from here.
     report = json.loads((native / 'results/confirmation_report.json').read_text())
@@ -158,7 +161,11 @@ def saphra_native():
                 eligibility.setdefault(key, {})[stage] = members
             if any(name.startswith('valid') and count > 0 for name, count in members.items()):
                 with_valid[stage] = with_valid.get(stage, 0) + 1
+    freeze = json.loads((native / 'frozen/confirmation_001/freeze.json').read_text())
+    transfer_layers = sorted({task['n_layer'] for task in freeze['tasks']
+                              if task['role'] == 'transfer_cohort'})
     return {'archive': restore_log.getvalue().strip(),
+            'transfer_task_n_layer_values': transfer_layers,
             'eligible_members_by_condition_for_two_stage_tasks': eligibility,
             'tasks_with_a_valid_separating_member': with_valid,
             'verified': audit['verified'], 'report_compared': audit['report_compared'],
@@ -212,9 +219,31 @@ def saphra_averaged004():
     return report
 
 
+def saphra_retro():
+    """Recompute the retrospective outputs from the vendored upstream tables, then read rows.
+
+    Calls the retrospective analyzer's own encoded_results(), which rebuilds every stored
+    output from the released CSVs; nothing is read from results/.
+    """
+    import csv
+    import io
+    sys.path.insert(0, str(SAPHRA))
+    analyze = _load_module('saphra_analyze', SAPHRA / 'analyze.py')
+    outputs = analyze.encoded_results()
+    heads = list(csv.DictReader(io.StringIO(outputs['heads.csv'])))
+    def head(model, layer, number):
+        row = next(r for r in heads if r['model_id'] == model and r['layer'] == str(layer)
+                   and r['head'] == str(number))
+        return {k: row[k] for k in ('head_type', 'native_correct', 'uniform_correct', 'mean_correct')}
+    countermodels = json.loads(outputs['countermodels.json'])
+    return {'illustrated_head_a9g0io1r_L2H1': head('a9g0io1r', 2, 1),
+            'countermodel_correct_counts': {name: w['correct_counts']
+                                            for name, w in countermodels['witnesses'].items()}}
+
+
 COMMANDS = {'makelov-table1': makelov_table1, 'mixing-concentration': mixing_concentration,
             'tracr-confirmation': tracr_confirmation, 'saphra-native': saphra_native,
-            'saphra-averaged004': saphra_averaged004}
+            'saphra-averaged004': saphra_averaged004, 'saphra-retro': saphra_retro}
 
 
 def main():

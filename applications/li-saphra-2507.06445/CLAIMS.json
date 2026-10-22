@@ -156,6 +156,79 @@
       }
     },
     {
+      "id": "saphra.retro.illustrated_head_effect",
+      "text": "The illustrated head a9g0io1r layer 2/head 1 has a small published single-head effect: 830 native, 851 uniform and 847 mean correct of 1,000 OOD strings.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "phase": "descriptive",
+      "outcome": "descriptive (released tables)",
+      "level": "N",
+      "population": "one head; 1,000 OOD strings",
+      "sources": [
+        "applications/li-saphra-2507.06445/upstream/"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-retro"
+        ],
+        "expect": [
+          {
+            "pointer": "/illustrated_head_a9g0io1r_L2H1",
+            "equals": {
+              "head_type": "sign-matching",
+              "native_correct": "830",
+              "uniform_correct": "851",
+              "mean_correct": "847"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.retro.countermodels",
+      "text": "Two constructed countermodels match the example head's native, uniform and mean accuracies (779, 823, 827 of 1,000) yet give 879 versus 679 under zero output.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "phase": "descriptive",
+      "outcome": "constructed witnesses; not forecasts",
+      "level": "N",
+      "population": "constructed models, 1,000 cases",
+      "sources": [
+        "applications/li-saphra-2507.06445/countermodels.py"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-retro"
+        ],
+        "expect": [
+          {
+            "pointer": "/countermodel_correct_counts/removal_helps",
+            "equals": {
+              "mean": 827,
+              "native": 779,
+              "uniform": 823,
+              "zero": 879
+            }
+          },
+          {
+            "pointer": "/countermodel_correct_counts/replacement_rescues",
+            "equals": {
+              "mean": 827,
+              "native": 779,
+              "uniform": 823,
+              "zero": 679
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "saphra.native.example_head",
       "text": "In a9g0io1r layer 2/head 1, stage 1 held on 165/165 separating families (bound 94.89-100%) and stage 2 on 136/136 (93.83-100%); the competitors matched 0.",
       "appears_in": [
@@ -446,23 +519,32 @@
     },
     {
       "id": "saphra.native.two_layer",
-      "text": "The 34 transfer models are two-layer models.",
+      "text": "All transfer tasks are in two-layer models (n_layer = 2 in the frozen task list).",
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "applications/li-saphra-2507.06445/native_followup/README.md"
       ],
       "phase": "descriptive",
       "outcome": "cohort description",
-      "level": "S",
+      "level": "N",
       "population": "transfer cohort",
       "sources": [
-        "applications/li-saphra-2507.06445/native_followup/README.md",
-        "applications/li-saphra-2507.06445/native_followup/CONFIRMATION.md"
+        "applications/li-saphra-2507.06445/native_followup/frozen/confirmation_001/freeze.json"
       ],
       "check": {
-        "kind": "source",
-        "evidence": "cohort description in native_followup/README.md and the frozen manifest",
-        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-native"
+        ],
+        "expect": [
+          {
+            "pointer": "/transfer_task_n_layer_values",
+            "equals": [
+              2
+            ]
+          }
+        ]
       }
     },
     {
@@ -472,8 +554,8 @@
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
       ],
-      "phase": "prespecified_test",
-      "outcome": "both predictors excluded; averaging benefit not shown",
+      "phase": "development",
+      "outcome": "both predictors excluded at 90%; averaging benefit not shown (prospective development, one head)",
       "level": "N",
       "population": "151 separating of 256 fresh families, one head",
       "sources": [
@@ -576,7 +658,7 @@
     },
     {
       "id": "saphra.provenance",
-      "text": "The native follow-up's freeze was committed locally 7.7 s before its execution, without external timestamp; this applies to the native round only. A documented amendment completed the fixed cohort after an outcome-triggered stop.",
+      "text": "The native follow-up's freeze was committed locally 7.7 s before its execution, without external timestamp (native round only). The first execution stopped on a failed technical control; an amendment committed after one completed task and that failure completed the fixed cohort; it is not pre-outcome preregistration.",
       "appears_in": [
         "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
         "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
@@ -611,6 +693,63 @@
       "check": {
         "kind": "source",
         "evidence": "archive scope statements in the VERIFICATION files",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
+      }
+    },
+    {
+      "id": "saphra.native.family_design",
+      "text": "The native follow-up used the same 512 new length-32 cyclic families for all 36 tasks; each family has one valid and two invalid strings.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "phase": "descriptive",
+      "outcome": "design description",
+      "level": "S",
+      "population": "scope",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/CONFIRMATION.md"
+      ],
+      "check": {
+        "kind": "source",
+        "evidence": "native_followup/CONFIRMATION.md and native_followup/README.md (family construction); frozen cases file hash in freeze.json",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
+      }
+    },
+    {
+      "id": "saphra.value.head_assignment",
+      "text": "Value rounds 001, 002 and 004 use head a9g0io1r/1; screen 003 tests six other heads.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "phase": "descriptive",
+      "outcome": "design description",
+      "level": "S",
+      "population": "scope",
+      "sources": [
+        "applications/li-saphra-2507.06445/value_followup/README.md"
+      ],
+      "check": {
+        "kind": "source",
+        "evidence": "value_followup/README.md, averaged_anchors_004/RESULT.md (head line), screen_transfer_003/inputs (six head folders)",
+        "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
+      }
+    },
+    {
+      "id": "saphra.reviews",
+      "text": "Pre-run reviews of the native follow-up and the value rounds were separate AI-agent reviews or review texts without a named reviewer; none is documented as external peer review.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "phase": "descriptive",
+      "outcome": "provenance",
+      "level": "S",
+      "population": "scope",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/REVIEW_PRE_RUN.md"
+      ],
+      "check": {
+        "kind": "source",
+        "evidence": "native_followup/REVIEW_PRE_RUN.md (Codex agent), value_followup/REVIEW_PRE_RUN.md, screen_002/REVIEW_PRE_RUN.md, averaged_anchors_004/REVIEW.md, screen_transfer_003/plan.json review source",
         "manual_check": "read on 2026-10-22 during the sendability revision; a passing runner does not mark this entry as checked"
       }
     }
