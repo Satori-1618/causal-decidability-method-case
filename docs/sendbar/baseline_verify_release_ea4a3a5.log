@@ -1,0 +1,9 @@
+PASS: archived Makelov files unchanged
+PASS: Makelov Q1: 64-pair relative comparison
+PASS: Makelov round 2
+PASS: Makelov round 3A
+PASS: Makelov round 3B: qualification stop
+PASS: Goodfire: concentration-profile confirmation
+PASS: Goodfire MCQA: declared prediction groups
+PASS: Tracr: recorded tensors and exact population boundary
+Verified stored evidence only; no new model runs or general reliability claim.
