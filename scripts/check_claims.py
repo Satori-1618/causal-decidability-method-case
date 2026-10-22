@@ -51,7 +51,8 @@ ALLOWED = {
 # Scripts on the list above that download pinned public inputs; run only with --network.
 NEEDS_NETWORK = {'applications/goodfire-mcqa-preflight/run.py'}
 # Scripts that read committed files from Git history; they need a full clone.
-NEEDS_GIT_HISTORY = {f'{MIXING}/scripts/check_mixing_round1_records.py'}
+NEEDS_GIT_HISTORY = {f'{MIXING}/scripts/check_mixing_round1_records.py',
+                     f'{MAKELOV}/scripts/check_role_baseline_records.py'}
 FULL_CLONE_HINT = ('needs a full Git clone, not a source ZIP or a --depth clone: '
                    'git clone https://github.com/Satori-1618/causal-decidability-method-case')
 LEVELS = {'N', 'D', 'S'}

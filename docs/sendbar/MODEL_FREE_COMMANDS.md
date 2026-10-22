@@ -17,8 +17,8 @@ also evidence that no code path imported them.
 variables and the user site, write no bytecode), `HF_HUB_OFFLINE=1` and
 `TRANSFORMERS_OFFLINE=1`. Unlike `-I`, these flags keep a script's own directory
 importable, which several application scripts need. It refuses to run outside a full Git
-clone (a source ZIP or a `--depth` clone), because the Mixing checker reads the freeze
-commit from Git history. It now runs 13 checks; the five added ones are listed below.
+clone (a source ZIP or a `--depth` clone), because the Mixing and Makelov round-3B
+checkers read committed files from Git history. It now runs 13 checks; the five added ones are listed below.
 
 | # | Check | Command | Writes? | Audit note |
 |---|---|---|---|---|
