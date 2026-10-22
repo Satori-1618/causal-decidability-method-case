@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Small, read-only derivations from stored records that public claims cite.
 
-Loads no model and prints JSON. Nothing is written to the checkout; the Tracr subcommand
-writes only into a temporary copy. Each subcommand
+Loads no model and prints JSON. Nothing is written to the checkout; the Tracr and Li/Saphra
+subcommands write only into temporary copies. Each subcommand
 recomputes values from per-example or per-family records that the frozen pipelines
 stored; it reaches no new decision.
 
@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MAKELOV = ROOT / 'applications/makelov-2311.17030'
 MIXING = ROOT / 'applications/gur-arieh-2510.06182'
 TRACR = ROOT / 'applications/tracr'
+SAPHRA = ROOT / 'applications/li-saphra-2507.06445'
 
 
 def _jsonl(path):
@@ -114,8 +115,89 @@ def tracr_confirmation():
             'paired_precision_max_error': summary['paired_precision_max_error']}
 
 
+def saphra_native():
+    """Unpack the archived native follow-up into a temporary copy and run its verifier there.
+
+    The continued run is stored as a hash-indexed archive; the verifier also needs the
+    original failed run beside it. Both go into a temporary directory only.
+    """
+    import shutil
+    import tempfile
+    native = SAPHRA / 'native_followup'
+    bundle = _load_module('saphra_bundle', native / 'result_bundle.py')
+    verifier = _load_module('saphra_verify', native / 'verify_confirmation.py')
+    with tempfile.TemporaryDirectory(prefix='claims-saphra-') as temp:
+        results = Path(temp) / 'results'
+        shutil.copytree(native / 'results/confirmation_001', results / 'confirmation_001')
+        import contextlib
+        import io
+        with contextlib.redirect_stdout(io.StringIO()) as restore_log:
+            bundle.unpack(native / 'artifacts/confirmation_001.tar.gz',
+                          native / 'artifacts/confirmation_001.index.json', results)
+        audit = verifier.audit((native / 'frozen/confirmation_001/freeze.json').resolve(),
+                               results / 'confirmation_001_continued',
+                               native / 'results/confirmation_report.json')
+    development = [t for t in audit['task_audits']
+                   if t['role'] == 'development_checkpoint_fresh_inputs']
+    both_stages = {f"{t['model_id']}/{t['head']}": t['stages'] for t in audit['task_audits']
+                   if t.get('stages') and all(
+                       any(c['status'] == 'adequate' for c in s['candidates'].values())
+                       for s in t['stages'].values())}
+    return {'archive': restore_log.getvalue().strip(),
+            'verified': audit['verified'], 'report_compared': audit['report_compared'],
+            'tasks': audit['tasks'], 'completed': audit['completed'],
+            'technical_invalidity': audit['technical_invalidity'], 'summary': audit['summary'],
+            'development_task': development,
+            'tasks_adequate_in_both_stages': both_stages,
+            'tasks_adequate_in_both_stages_ids': sorted(both_stages),
+            'limitations': audit['limitations']}
+
+
+def saphra_averaged004():
+    """Extract the averaged-anchor run into a temporary directory and recount it there.
+
+    Checks every archived file against raw_index.json, then runs the independent SciPy
+    recount (verify_statistics.py), which imports none of the producer's analysis.
+    """
+    import contextlib
+    import hashlib
+    import io
+    import sys
+    import tarfile
+    import tempfile
+    round004 = SAPHRA / 'value_followup/averaged_anchors_004'
+    index = json.loads((round004 / 'results/raw_index.json').read_text())
+    archive = round004 / 'results' / index['archive']
+    if hashlib.sha256(archive.read_bytes()).hexdigest() != index['archive_sha256']:
+        raise ValueError('archive hash differs from raw_index.json')
+    recount = _load_module('saphra_avg004_stats', round004 / 'reporting/verify_statistics.py')
+    with tempfile.TemporaryDirectory(prefix='claims-avg004-') as temp:
+        with tarfile.open(archive) as tar:
+            for member in tar.getmembers():
+                if not member.isfile() or member.name.startswith('/') or '..' in member.name:
+                    raise ValueError(f'unexpected archive member: {member.name}')
+                (Path(temp) / member.name).parent.mkdir(parents=True, exist_ok=True)
+                (Path(temp) / member.name).write_bytes(tar.extractfile(member).read())
+        run = Path(temp) / 'run_001'
+        for name, entry in index['files'].items():
+            data = (run / name).read_bytes()
+            if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256']:
+                raise ValueError(f'archived file differs from raw_index.json: {name}')
+        argv, sys.argv = sys.argv, ['verify_statistics.py', str(run)]
+        try:
+            with contextlib.redirect_stdout(io.StringIO()) as out:
+                recount.main()
+        finally:
+            sys.argv = argv
+    report = json.loads(out.getvalue())
+    report.pop('families_recomputed')
+    report['archive_files_verified'] = len(index['files'])
+    return report
+
+
 COMMANDS = {'makelov-table1': makelov_table1, 'mixing-concentration': mixing_concentration,
-            'tracr-confirmation': tracr_confirmation}
+            'tracr-confirmation': tracr_confirmation, 'saphra-native': saphra_native,
+            'saphra-averaged004': saphra_averaged004}
 
 
 def main():

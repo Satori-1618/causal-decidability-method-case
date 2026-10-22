@@ -1,0 +1,471 @@
+{
+  "case": "li-saphra-2507.06445",
+  "schema_version": 1,
+  "scope": "Every number and conclusion in the README section for readers of the paper, the root README row and the website page.",
+  "claims": [
+    {
+      "id": "saphra.retro.sign_matching",
+      "text": "Replacing one sign-matching head improves OOD accuracy by more than 1 pp for 40 of 42 heads under both replacements; head-weighted mean +7.97 (uniform) / +8.00 pp (mean).",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
+        "README.md (Li/Saphra row)"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "42 sign-matching heads in 41 released models; 1,000 OOD strings",
+      "sources": [
+        "applications/li-saphra-2507.06445/results/heads.csv",
+        "applications/li-saphra-2507.06445/upstream/"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/li-saphra-2507.06445/results/summary.json",
+        "verified_by": [
+          "applications/li-saphra-2507.06445/analyze.py",
+          "--check"
+        ],
+        "expect": [
+          {
+            "pointer": "/single_head_by_type/sign-matching/heads_or_allhead_records",
+            "equals": 42
+          },
+          {
+            "pointer": "/single_head_by_type/sign-matching/both_improved_over_1pp",
+            "equals": 40
+          },
+          {
+            "pointer": "/single_head_by_type/sign-matching/uniform/head_weighted_mean_pp",
+            "approx": 7.97,
+            "abs_tol": 0.005
+          },
+          {
+            "pointer": "/single_head_by_type/sign-matching/mean/head_weighted_mean_pp",
+            "approx": 8.0,
+            "abs_tol": 0.005
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.retro.violation_detecting",
+      "text": "For the 64 violation-detecting heads the same replacements lower accuracy: -7.32 (uniform) / -6.85 pp (mean), head-weighted; 47 and 48 lose more than 1 pp.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "64 violation-detecting heads in 31 models",
+      "sources": [
+        "applications/li-saphra-2507.06445/results/heads.csv"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/li-saphra-2507.06445/results/summary.json",
+        "verified_by": [
+          "applications/li-saphra-2507.06445/analyze.py",
+          "--check"
+        ],
+        "expect": [
+          {
+            "pointer": "/single_head_by_type/violation-detecting/heads_or_allhead_records",
+            "equals": 64
+          },
+          {
+            "pointer": "/single_head_by_type/violation-detecting/uniform/head_weighted_mean_pp",
+            "approx": -7.32,
+            "abs_tol": 0.005
+          },
+          {
+            "pointer": "/single_head_by_type/violation-detecting/mean/head_weighted_mean_pp",
+            "approx": -6.85,
+            "abs_tol": 0.005
+          },
+          {
+            "pointer": "/single_head_by_type/violation-detecting/uniform/damaged_over_1pp",
+            "equals": 47
+          },
+          {
+            "pointer": "/single_head_by_type/violation-detecting/mean/damaged_over_1pp",
+            "equals": 48
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.retro.other_heads",
+      "text": "For the remaining 1,244 heads the changes are -0.23 (uniform) and -0.17 pp (mean), head-weighted.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "1,244 other heads in 180 models",
+      "sources": [
+        "applications/li-saphra-2507.06445/results/heads.csv"
+      ],
+      "check": {
+        "kind": "stored",
+        "file": "applications/li-saphra-2507.06445/results/summary.json",
+        "verified_by": [
+          "applications/li-saphra-2507.06445/analyze.py",
+          "--check"
+        ],
+        "expect": [
+          {
+            "pointer": "/single_head_by_type/neither/heads_or_allhead_records",
+            "equals": 1244
+          },
+          {
+            "pointer": "/single_head_by_type/neither/uniform/head_weighted_mean_pp",
+            "approx": -0.226,
+            "abs_tol": 0.005
+          },
+          {
+            "pointer": "/single_head_by_type/neither/mean/head_weighted_mean_pp",
+            "approx": -0.174,
+            "abs_tol": 0.005
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.retro.independent_recount",
+      "text": "A separate raw-data calculation reproduces the central numbers and the constructed countermodels.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#reproduce-locally"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "released result tables",
+      "sources": [
+        "applications/li-saphra-2507.06445/verify_independently.py"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "applications/li-saphra-2507.06445/verify_independently.py"
+        ],
+        "stdout": "text",
+        "contains": [
+          "PASS: separate raw-data calculation"
+        ]
+      }
+    },
+    {
+      "id": "saphra.native.example_head",
+      "text": "In a9g0io1r layer 2/head 1, stage 1 held on 165/165 separating families (bound 94.89-100%) and stage 2 on 136/136 (93.83-100%); the competitors matched 0.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
+        "applications/li-saphra-2507.06445/native_followup/README.md",
+        "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "fresh separating families of one transfer task",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/artifacts/confirmation_001.tar.gz",
+        "applications/li-saphra-2507.06445/native_followup/frozen/confirmation_001/freeze.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-native"
+        ],
+        "expect": [
+          {
+            "pointer": "/verified",
+            "equals": true
+          },
+          {
+            "pointer": "/report_compared",
+            "equals": true
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages/a9g0io1r~11/stage1/candidates/H_R/definite_hits",
+            "equals": 165
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages/a9g0io1r~11/stage1/candidates/H_R/n",
+            "equals": 165
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages/a9g0io1r~11/stage1/candidates/H_R/lower",
+            "approx": 0.9489,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages/a9g0io1r~11/stage1/candidates/H_G/definite_hits",
+            "equals": 0
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages/a9g0io1r~11/stage2/candidates/H_W/definite_hits",
+            "equals": 136
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages/a9g0io1r~11/stage2/candidates/H_W/n",
+            "equals": 136
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages/a9g0io1r~11/stage2/candidates/H_W/lower",
+            "approx": 0.9383,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages/a9g0io1r~11/stage2/candidates/H_T/definite_hits",
+            "equals": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.native.only_two_stage_success",
+      "text": "This head was the only one of 36 tasks that passed both stages; it was selected for illustration after the run.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
+        "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
+      ],
+      "status": "descriptive",
+      "level": "N",
+      "population": "36 tasks (1 development + 35 transfer)",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/results/confirmation_report.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-native"
+        ],
+        "expect": [
+          {
+            "pointer": "/tasks",
+            "equals": 36
+          },
+          {
+            "pointer": "/tasks_adequate_in_both_stages_ids",
+            "equals": [
+              "a9g0io1r/1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.native.transfer",
+      "text": "Transfer cohort: 35 tasks in 34 models; stage 2 adequate 7, excluded 21, unresolved 5; symbol masses alone excluded in 33; stage 1 routing alone adequate 1, excluded 33.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
+        "applications/li-saphra-2507.06445/native_followup/README.md",
+        "README.md (Li/Saphra row)",
+        "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "35 transfer tasks",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/results/confirmation_report.json"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-native"
+        ],
+        "expect": [
+          {
+            "pointer": "/summary/transfer_cohort/tasks",
+            "equals": 35
+          },
+          {
+            "pointer": "/summary/transfer_cohort/unique_models",
+            "equals": 34
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage2/H_W/adequate",
+            "equals": 7
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage2/H_W/excluded",
+            "equals": 21
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage2/H_W/unresolved",
+            "equals": 5
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage2/H_T/excluded",
+            "equals": 33
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage1/H_R/adequate",
+            "equals": 1
+          },
+          {
+            "pointer": "/summary/transfer_cohort/stage1/H_R/excluded",
+            "equals": 33
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.native.two_layer",
+      "text": "The 34 transfer models are two-layer models.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
+        "applications/li-saphra-2507.06445/native_followup/README.md"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "transfer cohort",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/README.md",
+        "applications/li-saphra-2507.06445/native_followup/CONFIRMATION.md"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "cohort description in native_followup/README.md and the frozen manifest"
+      }
+    },
+    {
+      "id": "saphra.value004",
+      "text": "Round 004: averaged balance-only matched 123/151 separating families (bounds 72.97-89.31%), position-only 0/151; both excluded at 90%; averaging gains 8 vs losses 7, p = 0.50.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
+        "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
+      ],
+      "status": "confirmation",
+      "level": "N",
+      "population": "151 separating of 256 fresh families, one head",
+      "sources": [
+        "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/results/run_001.tar.gz"
+      ],
+      "check": {
+        "kind": "recompute",
+        "argv": [
+          "scripts/describe_claim_inputs.py",
+          "saphra-averaged004"
+        ],
+        "expect": [
+          {
+            "pointer": "/status",
+            "equals": "PASS_independent_raw_recount_no_repo_analysis_import"
+          },
+          {
+            "pointer": "/separating",
+            "equals": 151
+          },
+          {
+            "pointer": "/candidate_results/B_avg/definite_hits",
+            "equals": 123
+          },
+          {
+            "pointer": "/candidate_results/B_avg/interval/0",
+            "approx": 0.7297,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/candidate_results/B_avg/interval/1",
+            "approx": 0.8931,
+            "abs_tol": 5e-05
+          },
+          {
+            "pointer": "/candidate_results/B_avg/status",
+            "equals": "excluded"
+          },
+          {
+            "pointer": "/candidate_results/P_avg/definite_hits",
+            "equals": 0
+          },
+          {
+            "pointer": "/candidate_results/P_avg/status",
+            "equals": "excluded"
+          },
+          {
+            "pointer": "/paired/gains",
+            "equals": 8
+          },
+          {
+            "pointer": "/paired/losses",
+            "equals": 7
+          },
+          {
+            "pointer": "/paired/one_sided_exact_p",
+            "approx": 0.5,
+            "abs_tol": 1e-09
+          }
+        ]
+      }
+    },
+    {
+      "id": "saphra.history005_not_run",
+      "text": "Round 005 is prepared but not run.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "status": "future",
+      "level": "logged",
+      "population": "status",
+      "sources": [
+        "applications/li-saphra-2507.06445/value_followup/history_005/EXECUTION_RELEASE.json"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "EXECUTION_RELEASE.json status pending; no results directory"
+      }
+    },
+    {
+      "id": "saphra.zero_output_not_run",
+      "text": "No zero-output condition has been run.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "status": "future",
+      "level": "logged",
+      "population": "status",
+      "sources": [
+        "applications/li-saphra-2507.06445/IDENTIFICATION.md"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "IDENTIFICATION.md proposes it; no run exists"
+      }
+    },
+    {
+      "id": "saphra.provenance",
+      "text": "The native freeze was committed locally 7.7 s before execution without external timestamp; a documented amendment completed the cohort after an outcome-triggered stop.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025",
+        "website: mechanistic-interpretability/li-saphra/ (page and TECHNICAL_NOTE)"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "provenance",
+      "sources": [
+        "applications/li-saphra-2507.06445/native_followup/CONTINUATION.md",
+        "applications/li-saphra-2507.06445/native_followup/VERIFICATION.md"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "local commit and manifest times; CONTINUATION.md"
+      }
+    },
+    {
+      "id": "saphra.no_offtarget_tensors",
+      "text": "Full attention and off-target tensors are not archived.",
+      "appears_in": [
+        "applications/li-saphra-2507.06445/README.md#for-readers-of-li-saphra-et-al-2025"
+      ],
+      "status": "descriptive",
+      "level": "logged",
+      "population": "archive scope",
+      "sources": [
+        "applications/li-saphra-2507.06445/value_followup/averaged_anchors_004/VERIFICATION.md"
+      ],
+      "check": {
+        "kind": "logged",
+        "evidence": "archive scope statements in the VERIFICATION files"
+      }
+    }
+  ]
+}

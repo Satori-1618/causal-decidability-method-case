@@ -1,21 +1,71 @@
 # Better after ablation — better because of what?
 
-**[Prospective real-model followup](native_followup/README.md).** Two successive
-factorial tests now separate components of the replacement on fresh inputs,
-with a complete 35-task transfer cohort and explicit failures.
-[Concrete example](native_followup/EXAMPLE.md) · [one-page figure](native_followup/figures/two_steps.pdf).
-The next [value-transfer round](value_followup/README.md) tests prefix balance
-against position. Its 32-family development is complete; the predeclared gate
-did not authorize confirmation. It is separate from the confirmed result above.
-A subsequent [prospective native-margin screen](value_followup/screen_002/README.md)
-found anchor-separable outcomes in **30/32 accepted versus 0/32 rejected fresh
-families**, while balance-class fit remained insufficient (**19/30**). The screen
-is locally validated; the semantic mechanism is not confirmed.
-The [latest completed mechanism round](value_followup/averaged_anchors_004/RESULT.md)
-excluded its frozen balance-only and position-only predictors at 90% adequacy.
-A [new matched-history round](value_followup/history_005/README.md) is prepared
-for independent review, with no model measurements or execution release.
-The retrospective audit below is preserved as the earlier, narrower stage.
+## For readers of Li, Saphra et al. (2025)
+
+**The replacement effect, as reproduced from the released data.** In the released
+Dyck-1 models, replacing one sign-matching head's attention with uniform or dataset-mean
+weights improves out-of-distribution accuracy for 40 of 42 heads by more than 1 pp under
+both replacements. The mean change is +7.97 pp (uniform) and +8.00 pp (mean). The same
+single-head replacements lower accuracy for the 64 violation-detecting heads, by −7.32
+and −6.85 pp; 47 and 48 of them lose more than 1 pp. For the remaining 1,244 heads the
+changes are −0.23 and −0.17 pp. All of these are head-weighted means recomputed from the
+released result tables ([§4.3 and Appendix J](https://arxiv.org/html/2507.06445v4#S4.SS3);
+[summary](results/summary.json)).
+
+**What the prospective follow-up adds.** Each test was fixed in local commits before it
+ran, on fresh inputs: 512 new length-32 cyclic families per task, each family one valid
+and two invalid strings.
+
+1. **Which part of the uniform replacement does the work** ([native follow-up](native_followup/README.md)).
+   - In one head, `a9g0io1r` layer 2/head 1, the effect decomposes in two steps.
+     - Stage 1: redistributing attention between bracket positions alone reproduced the
+       full uniform effect, and changing only the group masses reproduced native
+       behaviour. Both held on 165/165 separating families (simultaneous bound
+       94.89–100%). The reverse account, group masses doing the work, matched 0/165.
+     - Stage 2: redistributing between occurrences of the *same* bracket reproduced the
+       routing effect, and changing only symbol masses reproduced native behaviour. Both
+       held on 136/136 families (93.83–100%). The reverse account matched 0/136.
+   - This head was picked for illustration **after** the cohort run. It was the only
+     one of 36 tasks that passed both stages.
+2. **How far that transfers.** The transfer cohort is 35 tasks in 34 two-layer models.
+   - Stage 2 (within-symbol redistribution) was adequate in 7 tasks, excluded in 21 and
+     unresolved in 5; symbol masses alone were excluded in 33.
+   - Stage 1 (routing alone as the full account) was adequate in 1 task and excluded in 33.
+   - This is a local positive result with substantial transfer failures, not a property
+     of sign-matching heads in general.
+3. **What the relevant states carry** ([value rounds](value_followup/README.md)).
+   - Rounds 001, 002 and 004 use the same head `a9g0io1r`/1; screen 003 tests six other
+     heads.
+   - In the latest frozen round, 004, an averaged balance-only predictor matched 123 of
+     151 separating families (simultaneous bounds 72.97–89.31%). A position-only
+     predictor matched 0. Both are excluded at the 90% target.
+   - Averaging was not shown to help: 8 gains against 7 losses, p = 0.50.
+   - A further matched-history round, 005, is prepared but **not run**.
+
+**What is not claimed:** which semantic feature the states carry, a unique native
+algorithm, necessity, or complete mediation. No claim is made against the paper's result.
+
+**Open question for the authors.** The published uniform and mean replacements cannot tell
+whether the native head output helps or hurts relative to a zero-output reference.
+The retrospective stage below shows this with two constructed countermodels. We have
+**not** run a zero-output condition, and zero is not a neutral reference. Whether that
+reference is informative for your claim is a question for you.
+
+**Provenance.**
+- The native follow-up's freeze was committed locally 7.7 s before execution, with no
+  external timestamp.
+- After an outcome-triggered stop, a documented amendment completed the fixed cohort
+  without changing predictions, cases or thresholds ([continuation](native_followup/CONTINUATION.md)).
+- Pre-run reviews of the value rounds were AI-agent reviews or review texts without a
+  named reviewer, not external peer review; see the
+  [glossary](../../docs/GLOSSARY.md#independent-in-review-and-audit-records).
+- Full attention and off-target tensors are not archived, so they cannot be recomputed.
+
+**Check it without a model:**
+`python3 scripts/check_claims.py --case li-saphra-2507.06445`, run from the repository
+root, recomputes every number above from the stored records and archives.
+
+## Earlier retrospective stage: what the published observations leave open
 
 **The published improvement is robust. Its decomposition is not identified.**
 In Li, Saphra and colleagues' Dyck-1 models, replacing a sign-matching head's
@@ -133,10 +183,9 @@ refuses to overwrite different existing results. To redraw the figure, use
   The 1-pp band comes from upstream's descriptive convention, not a significance
   or numerical threshold; the count grid is 0.1 pp, not a numerical error bound.
 - The actual primary pair is **structurally unresolved** in the outcome tables,
-  even before statistical resolution. Its unspecified zero accuracy permits
-  removal effects from −77.9 to +22.1 pp in the example. Synthetic point forecasts
-  demonstrate ambiguity; they do not supply missing forecasts or measurement
-  calibration for the neural checkpoint.
+  even before statistical resolution. Synthetic point forecasts demonstrate
+  ambiguity; they do not supply missing forecasts or measurement calibration for
+  the neural checkpoint.
 - Zeroing is a conventional reference, not a uniquely neutral absence. Changing
   value offsets and compensating elsewhere can preserve behavior under every
   normalized attention replacement but change a zero-output result. Even the
@@ -148,6 +197,6 @@ refuses to overwrite different existing results. To redraw the figure, use
   reduces ID accuracy by 1.00 pp on average; both distributions should be retained
   in a follow-up.
 
-**Status: retrospective reconstruction complete; two operational causal
+**Status of this retrospective stage: reconstruction complete; two operational causal
 explanations remain compatible; the separating zero-output measurement has not
 been run.**

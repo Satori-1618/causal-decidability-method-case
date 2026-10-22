@@ -39,6 +39,8 @@ ALLOWED = {
     f'{MIXING}/scripts/check_mixing_round1_records.py',
     'scripts/describe_claim_inputs.py',
     'applications/goodfire-mcqa-preflight/run.py',
+    f'{SAPHRA}/analyze.py',
+    f'{SAPHRA}/verify_independently.py',
 }
 # Scripts on the list above that download pinned public inputs; run only with --network.
 NEEDS_NETWORK = {'applications/goodfire-mcqa-preflight/run.py'}
@@ -65,7 +67,9 @@ def run_command(argv, cache):
             raise ValueError(f'command not on the model-free allow-list: {argv[0]}')
         env = dict(os.environ, HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1',
                    PYTHONDONTWRITEBYTECODE='1', CUDA_VISIBLE_DEVICES='')
-        result = subprocess.run([sys.executable, '-I', '-B', *argv], cwd=ROOT, env=env,
+        # -E -s -B: ignore environment and user site, write no bytecode; unlike -I, keep the
+        # script's own directory importable, which several application scripts rely on.
+        result = subprocess.run([sys.executable, '-E', '-s', '-B', *argv], cwd=ROOT, env=env,
                                 capture_output=True, text=True)
         if result.returncode:
             raise RuntimeError(f'{" ".join(argv)} failed:\n{result.stdout}{result.stderr}')
